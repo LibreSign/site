@@ -23,8 +23,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install node dependencies
-        run: npm install -g gulp
       - name: Set up php 8.3
         uses: shivammathur/setup-php@v2
         with:
