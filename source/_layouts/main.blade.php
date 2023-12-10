@@ -43,4 +43,7 @@
     <!-- Primary Meta Tags -->
     <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
   </head>
+  <body>
+      @yield('body')
+  </body>
 </html>
