@@ -8,7 +8,8 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="LibreSign - Electronic signature of digital documents">
-    <meta name="description" content="LibreSign - Electronic signature of digital documents">
+    <link rel="canonical" href="{{ $page->getUrl() }}">
+    <meta name="description" content="{{ $page->description }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
