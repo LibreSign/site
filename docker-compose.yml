@@ -1,7 +1,10 @@
 services:
 
   backend:
-    build: .docker
+    build:
+      context: .docker
+      args:
+        - NODE_MAJOR=${NODE_MAJOR:-20}
     ports:
       - "127.0.0.1:${HTTP_PORT:-80}:8000"
     volumes:

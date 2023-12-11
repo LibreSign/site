@@ -1,6 +1,6 @@
 {
     "name": "libresign/libresign-www",
-    "description": "Site do LibreSign",
+    "description": "LibreSign Website",
     "license": "AGPL-3.0-or-later",
     "require": {
         "tightenco/jigsaw": "^1.7"
