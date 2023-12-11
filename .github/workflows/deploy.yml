@@ -1,51 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
 name: Deploy
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push events but only for the main branch
   push:
     branches: [ main ]
+  workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
-
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Clona o repositório.
-    - uses: actions/checkout@v4
-
-    # Instala PHP e Composer.
-    - name: Configura PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: 8.x
-        tools: composer:v2
-
-    # Valida o arquivo composer.json.
-    - name: Valida o arquivo composer.json e o arquivo composer.lock
-      run: composer validate --strict
-
-    # Armazena as dependências em cache para que não seja necessário
-    # fazer o download a cada nova execução.
-    - name: Armazena pacotes Composer
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    # Instala as dependências.
-    - name: Instala as dependências
-      run: composer install --prefer-dist --no-progress
-
-    # Faz o build do site na pasta temporária.
-    - name: Gerar os arquivos estáticos
-      run: vendor/bin/jigsaw build production
-
-    # Commita os arquivos gerados no passo anterior na branch gh-pages.
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build_production
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Set up php 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+      - name: Set up PHP dependencie
+        run: composer i
+      - name: Run composer command
+        run: composer prod
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # Build directory to deploy
+          build_dir: build_production
+          # Write the given domain name to the CNAME file
+          fqdn: libresign.coop
+          # Allow Jekyll to build your site
+          jekyll: false
