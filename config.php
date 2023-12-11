@@ -3,7 +3,7 @@
 return [
     'production' => false,
     'baseUrl' => '',
-    'title' => 'PHP Rio',
-    'description' => 'Site do grupo de usuário de PHP do Rio de Janeiro.',
+    'title' => 'LibreSign - Electronic signature of digital documents',
+    'description' => 'Electronic signature of digital documents',
     'collections' => [],
 ];
