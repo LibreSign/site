@@ -70,7 +70,7 @@
               </ul>
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="assets/images/hero/print_librecode.png" alt="hero-image" />
+              <img src="assets/images/hero/print_main_screen.png" alt="print_main_screen" />
               <img
                 src="assets/images/hero/dotted-shape.svg"
                 alt="shape"
