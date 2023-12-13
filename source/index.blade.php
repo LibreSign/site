@@ -559,10 +559,14 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-      // ==== back to top
-      backToTop() {
-        window.scrollTo(0, 0);
-      }
+        document.getElementById('back-to-top').onclick = function() {
+            e.preventDefault()
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        };
 
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
