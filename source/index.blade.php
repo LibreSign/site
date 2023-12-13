@@ -559,7 +559,7 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        document.getElementById('back-to-top').onclick = function() {
+        document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()
             window.scrollTo({
                 top: 0,
