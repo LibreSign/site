@@ -33,7 +33,7 @@
                     <a class="ud-menu-scroll" href="#contact">Contact</a>
                   </li>
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="blog.html">Blog</a>
+                    <a class="ud-menu-scroll" href="./html_pages/blog.html">Blog</a>
                   </li>
                 </ul>
               </div>
@@ -70,7 +70,7 @@
               </ul>
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="assets/images/hero/hero-image.svg" alt="hero-image" />
+              <img src="assets/images/hero/print_main_screen.png" alt="print_main_screen" />
               <img
                 src="assets/images/hero/dotted-shape.svg"
                 alt="shape"
@@ -113,7 +113,8 @@
               <div class="ud-feature-content">
                 <h3 class="ud-feature-title">Free and Open-Source</h3>
                 <p class="ud-feature-desc">
-                  Lorem Ipsum is simply dummy text of the printing and industry.
+                  The source code is free, which allows it to be audited from 
+                  end to end and customized for different needs.
                 </p>
                 <a href="javascript:void(0)" class="ud-feature-link">
                   Learn More
@@ -129,7 +130,7 @@
               <div class="ud-feature-content">
                 <h3 class="ud-feature-title">Multiple signers</h3>
                 <p class="ud-feature-desc">
-                  Lorem Ipsum is simply dummy text of the printing and industry.
+                  Sign documents using your e-Sign or Digital Certificate.
                 </p>
                 <a href="javascript:void(0)" class="ud-feature-link">
                   Learn More
@@ -318,8 +319,7 @@
               <span>FAQ</span>
               <h2>Any Questions? Answered</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                LibreSign frequently asked questions
               </p>
             </div>
           </div>
@@ -337,15 +337,17 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>How to use UIdeck?</span>
+                  <span>Why LibreSign?</span>
                 </button>
                 <div id="collapseOne" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    LibreSign allows documents to be signed securely and with 
+                    legal validity, since the system generates hashing - an 
+                    algorithm that ensures that the file has not been altered 
+                    after being signed - as well as numbers and records the 
+                    times of each signature carried out in the document. In 
+                    this way, the system meets all the requirements of the 
+                    LGPD - General Data Protection Law.
                   </div>
                 </div>
               </div>
@@ -360,15 +362,15 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>How to download icons from Lineicons?</span>
+                  <span>What is electronic signature capture?</span>
                 </button>
                 <div id="collapseTwo" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    Electronic signature capture is a technology for signing 
+                    electronic document files with a handwritten signature. The 
+                    use of this technology allows for the elimination of the 
+                    mailing, storage, filing, copying, and retrieval of paper 
+                    documents. This will save your business time and money.
                   </div>
                 </div>
               </div>
@@ -383,15 +385,14 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>Is GrayGrids part of UIdeck?</span>
+                  <span>What are the key features of LibreCode signature 
+                        pads?
+                  </span>
                 </button>
                 <div id="collapseThree" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    File Creation, Signature with Digital Certificate, 
+                    Signature Management, Document Management, Validation, API
                   </div>
                 </div>
               </div>
@@ -408,15 +409,19 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>Can I use this template for commercial project?</span>
+                  <span>Is a digital signature the same as a digitized 
+                    signature?
+                  </span>
                 </button>
                 <div id="collapseFour" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    No. The digitized signature is the reproduction of the 
+                    handwritten signature as an image using scanner-type 
+                    equipment. It does not guarantee the authorship and 
+                    integrity of the electronic document, as there is no 
+                    unequivocal association between the signer and the 
+                    digitized text, as it can be easily copied and inserted 
+                    into another document.
                   </div>
                 </div>
               </div>
@@ -431,15 +436,14 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>Do you have plan releasing Play Pro?</span>
+                  <span>What is the name of the company that LibreSign 
+                    was developed by?
+                  </span>
                 </button>
                 <div id="collapseFive" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    LibreCode, a Brazilian cooperative of free software 
+                    developers.
                   </div>
                 </div>
               </div>
@@ -545,7 +549,7 @@
     <!-- ====== Footer End ====== -->
 
     <!-- ====== Back To Top Start ====== -->
-    <a href="javascript:void(0)" class="back-to-top">
+    <a id="back-to-top" class="back-to-top">
       <i class="lni lni-chevron-up"> </i>
     </a>
     <!-- ====== Back To Top End ====== -->
@@ -555,6 +559,15 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
+        document.getElementById('back-to-top').onclick = function(e) {
+            e.preventDefault()
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        };
+
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
 
