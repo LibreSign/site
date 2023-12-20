@@ -13,6 +13,8 @@ mix.jigsaw()
     .options({
         processCssUrls: false,
     })
-    .version();
-
-mix.browserSync();
+    .version()
+    .browserSync({
+        server: 'build_local',
+        files: ['build_*/**'],
+    });
