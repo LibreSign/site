@@ -9,4 +9,4 @@ npm-debug.log
 # Optional ignores
 # /build_staging/
 # /build_production/
-# /source/assets/build/
+/source/assets/build/

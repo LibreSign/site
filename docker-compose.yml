@@ -6,7 +6,8 @@ services:
       args:
         - NODE_MAJOR=${NODE_MAJOR:-20}
     ports:
-      - "127.0.0.1:${HTTP_PORT:-80}:8000"
+      - "127.0.0.1:${HTTP_PORT:-80}:3000"
+      - "127.0.0.1:${HTTP_PORT:-8080}:3001"
     volumes:
       - .:/var/www/html
     environment:

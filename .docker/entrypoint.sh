@@ -8,4 +8,9 @@ if [ ! -d "vendor" ]; then
     composer i
 fi
 
-php /var/www/html/vendor/bin/jigsaw serve --host=0.0.0.0
+#NPM
+if [ ! -d "node_modules" ]; then
+    npm ci
+fi
+
+npm run watch
