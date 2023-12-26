@@ -15,4 +15,4 @@ services:
       - HOST_GID=${HOST_GID:-1000}
       - TZ=${TZ:-America/Sao_Paulo}
       - XDEBUG_CONFIG=${XDEBUG_CONFIG:-"client_host=172.17.0.1 client_port=9003 start_with_request=yes"}
-      - APP_ENV=${APP_ENV:-production}
+      - APP_ENV=${APP_ENV:-develop}
