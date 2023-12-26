@@ -45,5 +45,32 @@
   </head>
   <body>
       @yield('body')
+      @if($page->production)
+        <script>
+          var _mtm = window._mtm = window._mtm || [];
+          _mtm.push({'mtm.startTime': (new Date().getTime()), 
+          'event': 'mtm.Start'});
+          (function() {
+            var d=document, g=d.createElement('script'), 
+            s=d.getElementsByTagName('script')[0];
+            g.async=true; 
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js'; 
+            s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+      @else
+        <script>
+          var _mtm = window._mtm = window._mtm || [];
+          _mtm.push({'mtm.startTime': (new Date().getTime()), 
+          'event': 'mtm.Start'});
+          (function() {
+            var d=document, g=d.createElement('script'), 
+            s=d.getElementsByTagName('script')[0];
+            g.async=true; 
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C_dev_dc9cf71ee2745d3690156798.js'; 
+            s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+      @endif
   </body>
 </html>
