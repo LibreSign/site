@@ -29,6 +29,8 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
     @composer \
     && rm /usr/local/bin/install-php-extensions
 
+COPY xdebug.ini /usr/local/etc/php/conf.d/
+
 RUN echo "alias jigsaw=./vendor/bin/jigsaw" >> /etc/bash.bashrc && \
     echo "alias compile='./vendor/bin/jigsaw build'" >> /etc/bash.bashrc && \
     /bin/bash -c "source /etc/bash.bashrc"
