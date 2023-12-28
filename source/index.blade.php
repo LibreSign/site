@@ -9,7 +9,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo/logo.png" alt="Logo" />
+                <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="Logo" />
               </a>
               <button class="navbar-toggler">
                 <span class="toggler-icon"> </span>
@@ -70,14 +70,14 @@
               </ul>
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="assets/images/hero/print_main_screen.png" alt="print_main_screen" />
+              <img src="{{ $page->baseUrl }}assets/images/hero/print_main_screen.png" alt="print_main_screen" />
               <img
-                src="assets/images/hero/dotted-shape.svg"
+                src="{{ $page->baseUrl }}assets/images/hero/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-1"
               />
               <img
-                src="assets/images/hero/dotted-shape.svg"
+                src="{{ $page->baseUrl }}assets/images/hero/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-2"
               />
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="ud-about-image">
-            <img src="assets/images/about/about-image.svg" alt="about-image" />
+            <img src="{{ $page->baseUrl }}assets/images/about/about-image.svg" alt="about-image" />
           </div>
         </div>
       </div>
@@ -310,7 +310,7 @@
     <!-- ====== FAQ Start ====== -->
     <section id="faq" class="ud-faq">
       <div class="shape">
-        <img src="assets/images/faq/shape.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="shape" />
       </div>
       <div class="container">
         <div class="row">
@@ -555,9 +555,9 @@
     <!-- ====== Back To Top End ====== -->
 
     <!-- ====== All Javascript Files ====== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ $page->baseUrl }}assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ $page->baseUrl }}assets/js/wow.min.js"></script>
+    <script src="{{ $page->baseUrl }}assets/js/main.js"></script>
     <script>
         document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()
