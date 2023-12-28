@@ -1,5 +1,5 @@
 <html>
     <head>
-        <meta http-equiv="refresh" content="0; url={{ $page->to }}" />
+        <meta http-equiv="refresh" content="1; url={{ $page->to }}" />
     </head>
 </html>

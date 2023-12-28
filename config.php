@@ -13,14 +13,66 @@ return [
             },
             'items' => [
                 [
-                    'from' => '/teste',
+                    'from' => '/account',
                     'to' => '/',
                 ],
                 [
-                    'from' => '/teste2',
+                    'from' => '/atendimento-lgpd',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/cadastre-se',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/categoria-produto/cloud',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/doe',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/envolva-se',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/loja',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/password-reset',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/politica-de-privacidade',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/produto/libresign-cloud',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/recursos',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/register',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/sobre',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/suporte',
+                    'to' => '/',
+                ],
+                [
+                    'from' => '/termos-e-condicoes',
                     'to' => '/',
                 ],
             ],
-        ]
+        ],
     ],
 ];
