@@ -30,18 +30,18 @@
     <!--====== Favicon Icon ======-->
     <link
       rel="shortcut icon"
-      href="assets/images/favicon.svg"
+      href="{{ $page->baseUrl }}assets/images/favicon.svg"
       type="image/svg"
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/ud-styles.css" />
-    <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/animate.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/lineicons.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/ud-styles.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}{{ mix('css/main.css', 'assets/build') }}">
     <!-- Primary Meta Tags -->
-    <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
+    <script defer src="{{ $page->baseUrl }}{{ mix('js/main.js', 'assets/build') }}"></script>
   </head>
   <body>
       @yield('body')

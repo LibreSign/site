@@ -1,14 +1,14 @@
 <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
     <div class="shape shape-1">
-        <img src="assets/images/footer/shape-1.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-1.svg" alt="shape" />
     </div>
 
     <div class="shape shape-2">
-        <img src="assets/images/footer/shape-2.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-2.svg" alt="shape" />
     </div>
 
     <div class="shape shape-3">
-        <img src="assets/images/footer/shape-3.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-3.svg" alt="shape" />
     </div>
 
     <div class="ud-footer-widgets">
@@ -17,7 +17,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
                         <a href="index.html" class="ud-footer-logo">
-                            <img src="assets/images/logo/logo.png" alt="logo" />
+                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
                             We create digital experiences for brands and companies by
