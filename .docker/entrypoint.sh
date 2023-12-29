@@ -8,9 +8,4 @@ if [ ! -d "vendor" ]; then
     composer i
 fi
 
-#NPM
-if [ ! -d "node_modules" ]; then
-    npm ci
-fi
-
 npm run watch
