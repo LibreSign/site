@@ -27,14 +27,14 @@
               </ul> --}}
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/hero/print_main_screen.png" alt="print_main_screen" />
+              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen" />
               <img
-                src="{{ $page->baseUrl }}assets/images/hero/dotted-shape.svg"
+                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-1"
               />
               <img
-                src="{{ $page->baseUrl }}assets/images/hero/dotted-shape.svg"
+                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-2"
               />
