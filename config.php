@@ -1,7 +1,12 @@
 <?php
 
+$production = getenv('APP_ENV') === 'production';
+
 return [
-    'production' => getenv('APP_ENV') === 'production',
+    'production' => $production,
+    'matomo_container' => $production
+        ? '8jNjdh8C'
+        : '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
