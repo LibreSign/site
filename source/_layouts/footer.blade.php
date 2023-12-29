@@ -43,13 +43,13 @@
                         <h5 class="ud-widget-title">About Us</h5>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="javascript:void(0)">Home</a>
+                                <a href="{{ $page->baseUrl }}">Home</a>
                             </li>
                             <li>
-                                <a href="#features">Features</a>
+                                <a href="{{ $page->baseUrl }}#features">Features</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">About</a>
+                                <a href="{{ $page->baseUrl }}#about">About</a>
                             </li>
                         </ul>
                     </div>
@@ -153,11 +153,16 @@
 
         pageLink.forEach((elem) => {
             elem.addEventListener("click", (e) => {
-            e.preventDefault();
-            document.querySelector(elem.getAttribute("href")).scrollIntoView({
-                behavior: "smooth",
-                offsetTop: 1 - 60,
-            });
+                if (window.location.pathname !== '/') {
+                    return
+                }
+                e.preventDefault();
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)[1]
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
             });
         });
 
@@ -171,8 +176,9 @@
 
             for (let i = 0; i < sections.length; i++) {
                 const currLink = sections[i];
-                const val = currLink.getAttribute("href");
-                const refElement = document.querySelector(val);
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)[1]
+                const refElement = document.querySelector(anchor);
                 const scrollTopMinus = scrollPos + 73;
                 if (
                     refElement.offsetTop <= scrollTopMinus &&
