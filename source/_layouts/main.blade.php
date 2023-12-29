@@ -42,6 +42,8 @@
     <link rel="stylesheet" href="{{ $page->baseUrl }}{{ mix('css/main.css', 'assets/build') }}">
     <!-- Primary Meta Tags -->
     <script defer src="{{ $page->baseUrl }}{{ mix('js/main.js', 'assets/build') }}"></script>
+  </head>
+  <body>
     <!-- ====== Header Start ====== -->
     <header class="ud-header">
       <div class="container">
@@ -83,8 +85,6 @@
       </div>
     </header>
     <!-- ====== Header End ====== -->
-  </head>
-  <body>
       @yield('body')
       @if($page->production)
         <script>
@@ -114,7 +114,7 @@
         </script>
       @endif
       <!-- ====== Footer Start ====== -->
-    @extends('_layouts.footer')
+    @include('_layouts.footer')
     <!-- ====== Footer End ====== -->
 
     <!-- ====== Back To Top Start ====== -->
