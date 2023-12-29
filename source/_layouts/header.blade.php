@@ -15,17 +15,17 @@
             <div class="navbar-collapse">
               <ul id="nav" class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}">Home</a>
+                  <a class="ud-menu-scroll" href="#home">Home</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#about">About</a>
+                  <a class="ud-menu-scroll" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#pricing">Pricing</a>
+                  <a class="ud-menu-scroll" href="#pricing">Pricing</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">Contact</a>
+                  <a class="ud-menu-scroll" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="./html_pages/blog.html">Blog</a>
