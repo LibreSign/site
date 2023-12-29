@@ -30,8 +30,8 @@
     <!--====== Favicon Icon ======-->
     <link
       rel="shortcut icon"
-      href="{{ $page->baseUrl }}assets/images/favicon.svg"
-      type="image/svg"
+      href="{{ $page->baseUrl }}assets/images/favicon.png"
+      type="image/png"
     />
 
     <!-- ===== All CSS files ===== -->
