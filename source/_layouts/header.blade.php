@@ -27,6 +27,9 @@
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="#contact">Contact</a>
                 </li>
+                {{-- <li class="nav-item">
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#pricing">Pricing</a>
+                </li> --}}
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="./html_pages/blog.html">Blog</a>
                 </li>

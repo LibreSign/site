@@ -163,7 +163,7 @@
     </section>
     <!-- ====== About End ====== -->
 
-    <!-- ====== Pricing Start ====== -->
+    {{-- <!-- ====== Pricing Start ====== -->
     <section id="pricing" class="ud-pricing">
       <div class="container">
         <div class="row">
@@ -262,7 +262,7 @@
         </div>
       </div>
     </section>
-    <!-- ====== Pricing End ====== -->
+    <!-- ====== Pricing End ====== --> --}}
 
     <!-- ====== FAQ Start ====== -->
     <section id="faq" class="ud-faq">
@@ -405,7 +405,7 @@
                 </div>
               </div>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
+            {{-- <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -427,7 +427,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
