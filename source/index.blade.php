@@ -13,7 +13,7 @@
               <p class="ud-hero-desc">
                 Sign and monitor your documents with practicality, security and legal validity.
               </p>
-              <ul class="ud-hero-buttons">
+              {{-- <ul class="ud-hero-buttons">
                 <li>
                   <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
                     Prices
@@ -24,7 +24,7 @@
                     Learn More <i class="lni lni-arrow-right"></i>
                   </a>
                 </li>
-              </ul>
+              </ul> --}}
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
               <img src="{{ $page->baseUrl }}assets/images/hero/print_main_screen.png" alt="print_main_screen" />
