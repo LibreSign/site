@@ -44,84 +44,37 @@
     <script defer src="{{ $page->baseUrl }}{{ mix('js/main.js', 'assets/build') }}"></script>
   </head>
   <body>
-    <!-- ====== Header Start ====== -->
-    <header class="ud-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="{{ $page->baseUrl }}">
-                <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="Logo" />
-              </a>
-              <button class="navbar-toggler">
-                <span class="toggler-icon"> </span>
-                <span class="toggler-icon"> </span>
-                <span class="toggler-icon"> </span>
-              </button>
-
-              <div class="navbar-collapse">
-                <ul id="nav" class="navbar-nav mx-auto">
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="{{ $page->baseUrl }}">Home</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#about">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#pricing">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="./html_pages/blog.html">Blog</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- ====== Header End ====== -->
-      @yield('body')
-      @if($page->production)
-        <script>
-          var _mtm = window._mtm = window._mtm || [];
-          _mtm.push({'mtm.startTime': (new Date().getTime()), 
-          'event': 'mtm.Start'});
-          (function() {
-            var d=document, g=d.createElement('script'), 
-            s=d.getElementsByTagName('script')[0];
-            g.async=true; 
-            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js'; 
-            s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-      @else
-        <script>
-          var _mtm = window._mtm = window._mtm || [];
-          _mtm.push({'mtm.startTime': (new Date().getTime()), 
-          'event': 'mtm.Start'});
-          (function() {
-            var d=document, g=d.createElement('script'), 
-            s=d.getElementsByTagName('script')[0];
-            g.async=true; 
-            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C_dev_dc9cf71ee2745d3690156798.js'; 
-            s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-      @endif
-      <!-- ====== Footer Start ====== -->
+    @include('_layouts.header')
+    @yield('body')
+    @if($page->production)
+      <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 
+        'event': 'mtm.Start'});
+        (function() {
+          var d=document, g=d.createElement('script'), 
+          s=d.getElementsByTagName('script')[0];
+          g.async=true; 
+          g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js'; 
+          s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+    @else
+      <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 
+        'event': 'mtm.Start'});
+        (function() {
+          var d=document, g=d.createElement('script'), 
+          s=d.getElementsByTagName('script')[0];
+          g.async=true; 
+          g.src='https://matomo.librecode.coop/js/container_8jNjdh8C_dev_dc9cf71ee2745d3690156798.js'; 
+          s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+    @endif
+    
     @include('_layouts.footer')
-    <!-- ====== Footer End ====== -->
-
-    <!-- ====== Back To Top Start ====== -->
-    <a id="back-to-top" class="back-to-top">
-      <i class="lni lni-chevron-up"> </i>
-    </a>
-    <!-- ====== Back To Top End ====== -->
 
     <!-- ====== All Javascript Files ====== -->
     <script src="{{ $page->baseUrl }}assets/js/bootstrap.bundle.min.js"></script>

@@ -100,4 +100,9 @@
             </div>
         </div>
     </div>
+    <!-- ====== Back To Top Start ====== -->
+    <a id="back-to-top" class="back-to-top">
+        <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
 </footer>
