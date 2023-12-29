@@ -105,34 +105,18 @@
         <i class="lni lni-chevron-up"> </i>
     </a>
     <!-- ====== Back To Top End ====== -->
-
-    @if($page->production)
-      <script>
+    <script>
         var _mtm = window._mtm = window._mtm || [];
-        _mtm.push({'mtm.startTime': (new Date().getTime()), 
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
         'event': 'mtm.Start'});
         (function() {
-          var d=document, g=d.createElement('script'), 
-          s=d.getElementsByTagName('script')[0];
-          g.async=true; 
-          g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js'; 
-          s.parentNode.insertBefore(g,s);
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_{{ $page->matomo_container }}.js';
+            s.parentNode.insertBefore(g,s);
         })();
-      </script>
-    @else
-      <script>
-        var _mtm = window._mtm = window._mtm || [];
-        _mtm.push({'mtm.startTime': (new Date().getTime()), 
-        'event': 'mtm.Start'});
-        (function() {
-          var d=document, g=d.createElement('script'), 
-          s=d.getElementsByTagName('script')[0];
-          g.async=true; 
-          g.src='https://matomo.librecode.coop/js/container_8jNjdh8C_dev_dc9cf71ee2745d3690156798.js'; 
-          s.parentNode.insertBefore(g,s);
-        })();
-      </script>
-    @endif
+    </script>
 
     <!-- ====== All Javascript Files ====== -->
     <script src="{{ $page->baseUrl }}assets/js/bootstrap.bundle.min.js"></script>
