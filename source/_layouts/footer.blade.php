@@ -153,12 +153,13 @@
 
         pageLink.forEach((elem) => {
             elem.addEventListener("click", (e) => {
-                if (window.location.pathname !== '/') {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
                     return
                 }
+                anchor = anchor[1]
                 e.preventDefault();
-                var url = elem.getAttribute("href")
-                var anchor = url.match(/(#.*)$/)[1]
                 document.querySelector(anchor).scrollIntoView({
                     behavior: "smooth",
                     offsetTop: 1 - 60,
@@ -177,7 +178,11 @@
             for (let i = 0; i < sections.length; i++) {
                 const currLink = sections[i];
                 const url = currLink.getAttribute("href");
-                var anchor = url.match(/(#.*)$/)[1]
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
                 const refElement = document.querySelector(anchor);
                 const scrollTopMinus = scrollPos + 73;
                 if (
