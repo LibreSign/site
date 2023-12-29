@@ -139,20 +139,25 @@
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
               <span class="tag">About Us</span>
-              <h2>The perfect tool to manage the signature flow of your documents.</h2>
+              <h2>The perfect tool to manage the signature flow of your documents</h2>
               <p>
-                The main ‘thrust’ is to focus on educating attendees on how to
-                best protect highly vulnerable business applications with
-                interactive panel discussions and roundtables led by subject
-                matter experts.
+                LibreSign is a web application for electronic signatures (e-Sign)
+                developed by the LibreCode cooperative (Brazilian cooperative
+                specialized in free software development). Its development began
+                at the beginning of 2020, in the midst of the pandemic, when
+                people and companies were migrating their physical documentation
+                to digital, and then there was a need to develop a web solution
+                that could offer the possibility of signing documents, contracts
+                and proposals online with security and agility.
               </p>
 
               <p>
-                The main ‘thrust’ is to focus on educating attendees on how to
-                best protect highly vulnerable business applications with
-                interactive panel.
+                We use PKI technology to generate digital certificate keys.
+                LibreSign is open source (and always will be), which allows it
+                to be audited and customized for various needs and integrated
+                with any system and, of course, maintained by the community.
               </p>
-              <a href="javascript:void(0)" class="ud-main-btn">Learn More</a>
+              {{-- <a href="javascript:void(0)" class="ud-main-btn">Learn More</a> --}}
             </div>
           </div>
           <div class="ud-about-image">
