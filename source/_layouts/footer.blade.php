@@ -84,12 +84,6 @@
                         <li>
                             <a href="javascript:void(0)">Privacy policy</a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">Support policy</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">Terms of service</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
