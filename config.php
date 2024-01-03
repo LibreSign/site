@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C',
@@ -72,6 +74,21 @@ return [
                 [
                     'from' => '/termos-e-condicoes',
                     'to' => '/',
+                ],
+            ],
+        ],
+        'posts' => [
+            'path' => 'posts/{date|Y-m-d}/{filename}',
+            'author' => 'LibreCode'
+        ],
+        'team' => [
+            'path' => function($page){
+                return 'team/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.team-member',
+            'items' => [
+                [
+                    'name' => 'Crisciany Silva',
                 ],
             ],
         ],
