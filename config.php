@@ -89,8 +89,22 @@ return [
             'items' => [
                 [
                     'name' => 'Crisciany Silva',
+                    'github' => 'https://github.com/Any97Cris',
+                ],
+                [
+                    'name' => 'Vitor Mattos',
+                    'github' => 'https://github.com/vitormattos',
+                ],
+                [
+                    'name' => 'Giovanni Martins',
+                    'github' => 'https://github.com/giovannism20',
                 ],
             ],
+        ],
+        'tags' => [
+            'path' => function(){
+                return 'tag/{filename}';
+            },
         ],
     ],
 ];
