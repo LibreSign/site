@@ -54,7 +54,7 @@
               @yield('content')
 
               <div class="ud-blog-details-action mt-5">
-                <ul class="ud-blog-tags">
+                {{-- <ul class="ud-blog-tags">
                   <li>
                     <a href="javascript:void(0)">Design</a>
                   </li>
@@ -64,7 +64,7 @@
                   <li>
                     <a href="javascript:void(0)">Info</a>
                   </li>
-                </ul>
+                </ul> --}}
                 <div class="ud-blog-share">
                   <h6>Share This Post</h6>
                   <ul class="ud-blog-share-links">
@@ -91,16 +91,16 @@
           <div class="col-lg-4">
             <div class="ud-blog-sidebar">
               <div class="ud-newsletter-box">
-                <img
-                  src="assets/images/blog/dotted-shape.svg"
+                {{-- <img
+                  src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                   alt="shape"
                   class="shape shape-1"
                 />
                 <img
-                  src="assets/images/blog/dotted-shape.svg"
+                  src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                   alt="shape"
                   class="shape shape-2"
-                />
+                /> --}}
                 <h3 class="ud-newsletter-title">Join our newsletter!</h3>
                 <p>Enter your email to receive our latest newsletter.</p>
                 <form class="ud-newsletter-form">
@@ -117,80 +117,25 @@
               <div class="ud-articles-box">
                 <h3 class="ud-articles-box-title">Popular Articles</h3>
                 <ul class="ud-articles-list">
+                  @foreach($posts as $article)
                   <li>
                     <div class="ud-article-image">
                       <img
-                        src="assets/images/blog/article-author-01.png"
-                        alt="author"
+                        src="{{ $page->baseUrl }}assets/images/team/{{ \Illuminate\Support\Str::slug($article->author) }}.jpg"
+                        alt="{{ $article->author }}"
                       />
                     </div>
                     <div class="ud-article-content">
                       <h5 class="ud-article-title">
                         <a href="javascript:void(0)">
-                          The 8 best landing page builders, reviewed
+                          {{ $article->title }}
                         </a>
                       </h5>
-                      <p class="ud-article-author">Martin Fedous</p>
+                      <p class="ud-article-author">{{ $article->author }}</p>
                     </div>
                   </li>
-                  <li>
-                    <div class="ud-article-image">
-                      <img
-                        src="assets/images/blog/article-author-02.png"
-                        alt="author"
-                      />
-                    </div>
-                    <div class="ud-article-content">
-                      <h5 class="ud-article-title">
-                        <a href="javascript:void(0)">
-                          Create engaging online courses your student…
-                        </a>
-                      </h5>
-                      <p class="ud-article-author">Glomiya Lucy</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ud-article-image">
-                      <img
-                        src="assets/images/blog/article-author-03.png"
-                        alt="author"
-                      />
-                    </div>
-                    <div class="ud-article-content">
-                      <h5 class="ud-article-title">
-                        <a href="javascript:void(0)">
-                          The ultimate formula for launching online course
-                        </a>
-                      </h5>
-                      <p class="ud-article-author">Andrio jeson</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ud-article-image">
-                      <img
-                        src="assets/images/blog/article-author-04.png"
-                        alt="author"
-                      />
-                    </div>
-                    <div class="ud-article-content">
-                      <h5 class="ud-article-title">
-                        <a href="javascript:void(0)">
-                          50 Best web design tips & tricks that will help you
-                        </a>
-                      </h5>
-                      <p class="ud-article-author">Samoyel Dayno</p>
-                    </div>
-                  </li>
+                  @endforeach
                 </ul>
-              </div>
-
-              <div class="ud-banner-ad">
-                <a href="javascript:void(0)">
-                  <img
-                    src="assets/images/blog/bannder-ad.png"
-                    alt="ad banner"
-                  />
-                </a>
               </div>
             </div>
           </div>
@@ -208,69 +153,28 @@
           </div>
         </div>
         <div class="row">
+          @foreach($posts as $post)
           <div class="col-lg-4 col-md-6">
             <div class="ud-single-blog">
               <div class="ud-blog-image">
-                <a href="blog-details.html">
-                  <img src="assets/images/blog/blog-01.jpg" alt="blog" />
+                <a href="{{ $post->getUrl() }}">
+                  <img src="{{ $post->cover_image }}" alt="{{ $post->title }}" />
                 </a>
               </div>
               <div class="ud-blog-content">
-                <span class="ud-blog-date">Dec 22, 2023</span>
+                <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
                 <h3 class="ud-blog-title">
                   <a href="blog-details.html">
-                    Meet AutoManage, the best AI management tools
+                    {{ $post->title }}
                   </a>
                 </h3>
                 <p class="ud-blog-desc">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  {{ $post->description }}
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <a href="blog-details.html">
-                  <img src="assets/images/blog/blog-02.jpg" alt="blog" />
-                </a>
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Dec 22, 2023</span>
-                <h3 class="ud-blog-title">
-                  <a href="blog-details.html">
-                    How to earn more money as a wellness coach
-                  </a>
-                </h3>
-                <p class="ud-blog-desc">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <a href="blog-details.html">
-                  <img src="assets/images/blog/blog-03.jpg" alt="blog" />
-                </a>
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">Dec 22, 2023</span>
-                <h3 class="ud-blog-title">
-                  <a href="blog-details.html">
-                    The no-fuss guide to upselling and cross selling
-                  </a>
-                </h3>
-                <p class="ud-blog-desc">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>
