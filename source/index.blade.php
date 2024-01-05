@@ -510,7 +510,7 @@
                 <input name="campaign_id" id="campaign_id" type="hidden" 
                        value="91c4e277-95b8-ce28-91fd-658d9aa871ac" />
                 <input name="redirect_url" id="redirect_url" type="hidden" 
-                       value="http://localhost/thank-you-contact" />
+                       value="{{ $page->baseUrl }}thank-you-contact" />
                 <input name="assigned_user_id" id="assigned_user_id" type="hidden" 
                        value="89cce704-603d-79d7-b069-65660c3a0b7d" />
                 <input name="moduleDir" id="moduleDir" type="hidden" value="Contacts" />
