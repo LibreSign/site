@@ -1,0 +1,4 @@
+---
+from: /password-reset
+to: /
+---

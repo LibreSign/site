@@ -1,0 +1,4 @@
+---
+from: /atendimento-lgpd
+to: /
+---

@@ -1,0 +1,4 @@
+---
+from: /cadastre-se
+to: /
+---

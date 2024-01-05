@@ -30,9 +30,6 @@
               <div class="ud-blog-content">
                 <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
                 <h3 class="ud-blog-title">
-                  {{-- @php
-                   xdebug_break();   
-                  @endphp --}}
                   <a href="{{ $post->getUrl() }}">
                     {{ $post->title }}
                   </a>
