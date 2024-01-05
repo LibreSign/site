@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-lg-12">
             <div class="ud-banner-content">
-                <h1>Author Page</h1>
+              <h1>{{ $page->name }}</h1>
+              <h3>{{ $page->role }}</h3>
             </div>
             </div>
         </div>
@@ -20,17 +21,9 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <div class="ud-section-title mx-auto text-center">
-                <h2>Teste</h2>
+              <div class="ud-section-title mx-auto text-center">                
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Praesent faucibus, elit in suscipit dictum, dui est egestas 
-                    odio, a viverra nulla dui non urna. Fusce sed quam rhoncus, 
-                    maximus nunc quis, convallis urna. Maecenas ut varius dolor. 
-                    Sed placerat ex at quam bibendum, tempus luctus sem malesuada. 
-                    In vestibulum semper risus, sed faucibus ex pretium vitae. 
-                    Etiam sollicitudin ex nec aliquam pulvinar. Integer 
-                    ullamcorper vel dolor id fringilla.
+                  {{ $page->bio }} 
                 </p>
               </div>
             </div>
@@ -39,29 +32,24 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
-                <div class="ud-team-image-wrapper mb-5">  
+                <div class="ud-team-image-wrapper">  
                   <img
-                    src="#"
-                    alt="autor_img"
+                    src="{{ $page->baseUrl }}assets/images/team/{{ \Illuminate\Support\Str::slug($page->name) }}.jpg"
+                    alt="{{ $page->name }}"
                     class="shape shape-1 mb-5"
                   />
                 </div>
-                <div class="ud-team-info">
-                  <h5>Adveen Desuza</h5>
-                  <h6>UI Designer</h6>
-                </div>
+                @if($page->social)
                 <ul class="ud-team-socials">
+                  @foreach($page->social as $name => $url)
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
-                      <i class="lni lni-github-original"></i>
+                    <a href="{{ $url }}">
+                      <i class="lni lni-{{ $name }}-original"></i>
                     </a>
                   </li>
-                  <li>
-                    <a href="https://twitter.com/MusharofChy">
-                      <i class="lni lni-linkedin-original"></i>
-                    </a>
-                  </li>
+                  @endforeach
                 </ul>
+                @endif
               </div>
             </div>
           </div>
