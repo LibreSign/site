@@ -8,4 +8,8 @@ if [ ! -d "vendor" ]; then
     composer i
 fi
 
-npm run watch
+if [[ "$SERVER_MODE" == 'watch' ]]; then
+    npm run watch
+else
+    php ./vendor/bin/jigsaw serve --host 0.0.0.0 --port 3000
+fi
