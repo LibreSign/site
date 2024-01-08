@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C',
@@ -74,6 +76,73 @@ return [
                     'to' => '/',
                 ],
             ],
+        ],
+        'posts' => [
+            'path' => 'posts/{-title}',
+            // 'author' => 'LibreCode',
+            'sort' => '-date',
+            'map' => function ($post) {
+                // $dt = new DateTime("@$post->date");
+                $path = 'assets/images/posts/'.$post->getFilename();
+                
+                if(empty($post->cover_image)){
+                    if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
+                        $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
+                    }else{
+                        $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.png');
+                    }
+                }
+
+                if(empty($post->banner)){
+                    if(file_exists(__DIR__.'/source/'.$path.'/banner.jpg')){
+                        $post->set('banner',$post->baseUrl.$path.'/banner.jpg');
+                    }else{
+                        $post->set('banner',$post->baseUrl.'assets/images/logo/logo.png');
+                    }
+                }  
+                
+                return $post;
+            }
+        ],
+        'team' => [
+            'path' => function($page){
+                return 'team/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.team-member',
+            'items' => [
+                [
+                    'name' => 'Crisciany Silva',
+                    'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
+                    'role' => 'Software Engineer',
+                    'social' => [
+                        'github' => 'https://github.com/Any97Cris',
+                        'linkedin' => 'https://www.linkedin.com/in/criscianysilva/'
+                    ],
+                ],
+                [
+                    'name' => 'Daiane Alves',
+                    'bio' => '',
+                    'role' => '',
+                    'social' => [
+                        'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
+                    ]
+                ],
+            ],
+        ],
+        'post_dates' => [
+            'extends' => '_layouts.posts',
+            'items' => function($config){
+                collect($config->get('collections'))->each(function ($collection, $collectionName){
+                    if($collectionName != 'posts'){
+                        return ;
+                    }
+                    $a = 1;
+                });
+                //   foreach($config->collections->posts as $post){
+                //     print_r($post);
+                // }
+                // return $post;
+            }
         ],
     ],
 ];

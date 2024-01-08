@@ -29,6 +29,9 @@
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}posts">Posts</a>
+                </li>
               </ul>
             </div>
           </nav>
