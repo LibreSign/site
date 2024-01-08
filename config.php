@@ -78,12 +78,13 @@ return [
             ],
         ],
         'posts' => [
-            'path' => 'posts/{date|Y-m-d}/{-title}',
-            'author' => 'LibreCode',
+            'path' => 'posts/{-title}',
+            // 'author' => 'LibreCode',
             'sort' => '-date',
             'map' => function ($post) {
-                $dt = new DateTime("@$post->date");
-                $path = 'assets/images/posts/'.$dt->format('Y-m-d').'/'.$post->getFilename();
+                // $dt = new DateTime("@$post->date");
+                $path = 'assets/images/posts/'.$post->getFilename();
+                
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
@@ -98,7 +99,8 @@ return [
                     }else{
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.png');
                     }
-                }
+                }  
+                
                 return $post;
             }
         ],
