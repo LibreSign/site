@@ -1,4 +1,0 @@
----
-from: /recursos
-to: /
----
