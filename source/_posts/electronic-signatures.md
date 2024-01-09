@@ -4,6 +4,7 @@ title: Free and open source software for electronic signatures
 author: Daiane Alves
 date: 2024-01-04
 description: Teste post blog
+categories: [features]
 ---
 
 Agility and security in business transactions are essential for the success of any company. It is in this scenario that LibreSign stands out as the smart choice for businesses across various sectors, offering not only efficiency but also a commitment to security and privacy.

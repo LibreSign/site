@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Str;
+use Mni\FrontYAML\Parser;
+use TightenCo\Jigsaw\Parsers\FrontMatterParser;
+use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
 return [
     'production' => false,
@@ -8,6 +11,22 @@ return [
     'baseUrl' => '/',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
+    'getFromCategory' => function($page, $category) {
+        $files = glob('source/_posts/*');
+        $parser = new Parser(
+            markdownParser: new MarkdownParser()
+        );
+        $frontMatterParser = new FrontMatterParser($parser);
+        $posts = [];
+        foreach ($files as $file) {
+            $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
+            if (is_array($post['categories']) && in_array($category, $post['categories'])) {
+                $post['url'] = $page->baseUrl . 'posts/' . Str::slug($post['title']);
+                $posts[] = $post;
+            }
+        }
+        return $posts;
+    },
     'collections' => [
         'redirect' => [
             'extends' => '_layouts.redirect301',
