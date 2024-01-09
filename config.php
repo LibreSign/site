@@ -137,20 +137,5 @@ return [
                 ],
             ],
         ],
-        'post_dates' => [
-            'extends' => '_layouts.posts',
-            'items' => function($config){
-                collect($config->get('collections'))->each(function ($collection, $collectionName){
-                    if($collectionName != 'posts'){
-                        return ;
-                    }
-                    $a = 1;
-                });
-                //   foreach($config->collections->posts as $post){
-                //     print_r($post);
-                // }
-                // return $post;
-            }
-        ],
     ],
 ];
