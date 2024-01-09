@@ -79,12 +79,18 @@ return [
         ],
         'posts' => [
             'path' => 'posts/{-title}',
-            // 'author' => 'LibreCode',
+            'author' => 'LibreCode',
             'sort' => '-date',
             'map' => function ($post) {
-                // $dt = new DateTime("@$post->date");
                 $path = 'assets/images/posts/'.$post->getFilename();
-                
+                $items = $post->get('collections')->get('team')->get('items');
+                $author = array_filter($items->all(), function($author) use ($post){
+                    return $author->name === $post->author;
+                });
+                if(!empty($author)){
+                    $author = current($author);
+                    $post->set('gravatar', $author->gravatar);
+                }
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
@@ -112,6 +118,7 @@ return [
             'items' => [
                 [
                     'name' => 'Crisciany Silva',
+                    'gravatar' => 'f2f64ea713b5c39cb64268a0eda7e022',
                     'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
                     'role' => 'Software Engineer',
                     'social' => [
@@ -121,6 +128,7 @@ return [
                 ],
                 [
                     'name' => 'Daiane Alves',
+                    'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee' ,
                     'bio' => '',
                     'role' => '',
                     'social' => [

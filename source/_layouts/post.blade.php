@@ -1,7 +1,6 @@
 @extends('_layouts.main')
 
-@section('body') 
-
+@section('body')
     <!-- ====== Banner Start ====== -->
     <section class="ud-page-banner">
       <div class="container">
@@ -29,7 +28,8 @@
               <div class="ud-blog-overlay">
                 <div class="ud-blog-overlay-content">
                   <div class="ud-blog-author">
-                    <img src="{{ $page->baseUrl }}assets/images/team/{{ \Illuminate\Support\Str::slug($page->author) }}.jpg" alt="author" />
+                    <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
+                    alt="{{ $page->author }}" />
                     <span>
                       By <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
                     </span>
@@ -65,7 +65,7 @@
                     <li>
                       <div class="ud-article-image">
                         <img
-                          src="{{ $page->baseUrl }}assets/images/team/{{ \Illuminate\Support\Str::slug($article->author) }}.jpg"
+                          src="https://www.gravatar.com/avatar/{{ $article->gravatar }}"
                           alt="{{ $article->author }}"
                         />
                       </div>

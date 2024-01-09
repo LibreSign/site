@@ -34,7 +34,7 @@
               <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
                 <div class="ud-team-image-wrapper">  
                   <img
-                    src="{{ $page->baseUrl }}assets/images/team/{{ \Illuminate\Support\Str::slug($page->name) }}.jpg"
+                    src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=170"
                     alt="{{ $page->name }}"
                     class="shape shape-1 mb-5"
                   />
