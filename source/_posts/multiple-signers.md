@@ -3,7 +3,7 @@ extends: _layouts.post
 title: Multiple signers
 author: Daiane Alves
 date: 2024-01-04
-description: Getting started with the Jigsaw blog starter template
+description: Streamline the signing of digital documents for multiple individuals, ensuring legal validity, security, and collaboration. Expedite contract processes between departments, eliminating the need for in-person meetings. Embrace efficiency and collaboration with LibreSign, guiding your organization towards seamless digital transformation
 categories: [features]
 ---
 
