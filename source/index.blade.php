@@ -67,12 +67,12 @@
               <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
                 <a href="{{ $item['url'] }}">
                   <div class="ud-feature-icon">
-                    <i class="lni lni-more"></i>
+                    <i class="lni lni-gift"></i>
                   </div>
                   <div class="ud-feature-content">
                     <h3 class="ud-feature-title">{{ $item['title'] }}</h3></a>
                     <p class="ud-feature-desc">{{ $item['description'] }}</p>
-                    <a class="ud-feature-link" href="{{ $item['url'] }}">Learn More</a>
+                    <a class="ud-feature-link" href="{{ $item['url'] }}">Learn more</a>
                   </div>
                 </a>
               </div>
