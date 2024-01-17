@@ -1,9 +1,9 @@
 ---
 extends: _layouts.post
-title: Hybrid Signatures
+title: Hybrid signatures
 author: Daiane Alves
 date: 2024-01-12
-description: Hybrid signatures
+description: Hybrid signatures streamline negotiation processes, offering flexibility in choosing between personal or system-generated digital certificates for signing documents digitally with LibreSign
 categories: [features]
 ---
 In the face of common challenges in digital signature processes, hybrid signatures present an effective solution. As a pioneer in this innovation, LibreSign provides its users with the flexibility to choose between using their personal digital certificate (e-CPF or e-CNPJ) or the system-generated certificate to sign documents from anywhere in the world.
