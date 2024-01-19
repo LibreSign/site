@@ -58,10 +58,14 @@
               <div class="ud-articles-box">
                 <h3 class="ud-articles-box-title">Last Articles</h3>
                 <ul class="ud-articles-list">
-                  @foreach($posts as $positionItem => $article)
-                    @if($positionItem >= 4) 
+                  @php $count = 0; @endphp
+                  @foreach($posts as $article)
+                    @php $count++; @endphp
+                  
+                    @if($count >= 4) 
                       @break 
                     @endif
+                    
                     <li>
                       <div class="ud-article-image">
                         <img
