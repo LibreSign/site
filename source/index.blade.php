@@ -71,7 +71,7 @@
                   </div>
                   <div class="ud-feature-content">
                     <h3 class="ud-feature-title">{{ $item['title'] }}</h3></a>
-                    <p class="ud-feature-desc">{{ $item['description'] }}</p>        
+                    <p class="ud-feature-desc">{{ $item['description'] }}</p>
                     <a class="ud-feature-link" href="{{ $item['url'] }}">Learn more</a>
                   </div>
                 </a>
