@@ -50,7 +50,18 @@
               <div style="text-align:justify;">
                 @yield('content')
               </div>
-
+              <div class="ud-blog-details-action mt-5 mb-5">
+                <ul class="ud-blog-tags">
+                  @if($page->categories)
+                    @foreach($page->categories as $category)
+                      <li>
+                        <a href="{{ $page->baseUrl }}category"
+                        >{{ $category }}</a>
+                      </li>
+                    @endforeach
+                  @endif
+                </ul>
+              </div>
             </div>
           </div>
           <div class="col-lg-4">
