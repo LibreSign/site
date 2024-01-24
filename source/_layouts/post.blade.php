@@ -55,7 +55,7 @@
                   @if($page->categories)
                     @foreach($page->categories as $category)
                       <li>
-                        <a href="{{ $page->baseUrl }}category"
+                        <a href="{{ $page->baseUrl }}category/{{$category}}"
                         >{{ $category }}</a>
                       </li>
                     @endforeach

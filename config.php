@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -156,13 +157,37 @@ return [
                 ],
             ],
         ],
-        'categories' => [
-            'path' => '/categories',
-            'posts' => function ($page, $allPosts) {
-                return $allPosts->filter(function ($post) use ($page) {
-                    return $post->categories ? in_array($page->getFilename(), $post->categories, true) : false;
+        'categories2' => [
+            'path' => '/categories/{teste}',
+            'extends' => '_layouts.category',
+            'items' => function ($config) {
+                $files = glob('source/_posts/*');
+                $parser = new Parser(
+                    markdownParser: new MarkdownParser()
+                );
+                $frontMatterParser = new FrontMatterParser($parser);
+                $posts = [];
+                foreach ($files as $file) {
+                    $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
+                    foreach($post['categories'] as $name){
+                        $posts[$name]['name'] = $name; 
+                        $posts[$name]['teste'] = 'texto qualquer'; 
+                        $posts[$name]['posts'][] = [
+                            'tilte' => $post['title'],
+                            'url' => $config->get('baseUrl') . 'posts/' . Str::slug($post['title']),
+                        ];
+                    }
+                }
+                $posts = array_values($posts);
+
+                return collect($posts)->map(function ($post) {
+                    return [
+                        'name' => $post['name'],
+                        'posts' => $post['posts'],
+                    ];
                 });
             },
-        ],
+        ],        
     ],
+    'teste' => $_SERVER['REDIRECT_URL'],
 ];
