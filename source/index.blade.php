@@ -121,19 +121,19 @@
 
     <!-- ====== Target Audience Start ====== -->
     <section id="about" class="ud-about">
-      <div class="container bg-white p-5">
+      <div class="container bg-white p-5 cards-one-below-the-other">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <span>Target Audience</span>
+              <h3 class="card-title">Target Audience</h3>
             </div>
           </div>
         </div>
         <div class="row text-center">
-          <div class="col-4">
-            <div>
-              <h5 class="mb-3">Public Sector</h5>
-              <p>
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white">Public Sector</h5>
+              <p class="text-white">
                 Optimize document management in the public sector with LibreSign. 
                 Our solution provides effective administration to handle specific 
                 government documentation, ensuring security, speed, and strict 
@@ -143,10 +143,10 @@
               </p>
             </div>
           </div>
-          <div class="col-4">
-            <div>
-              <h5 class="mb-3">Education</h5>
-              <p>
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white">Education</h5>
+              <p class="text-white">
                 LibreSign is the ideal choice for educational institutions 
                 looking to enhance their document processes with legal validity. 
                 Simplify the signing of contracts, authorizations, and other 
@@ -157,10 +157,10 @@
               </p>
             </div>
           </div>
-          <div class="col-4">
-            <div>
-              <h5 class="mb-3">Private Companies</h5>
-              <p>
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white">Private Companies</h5>
+              <p class="text-white">
                 Our electronic signature and document management solution 
                 streamline workflows, reducing time spent on manual processes. 
                 Achieve greater productivity, promote document security, and 
