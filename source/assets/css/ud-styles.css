@@ -2650,7 +2650,7 @@ p {
     margin-bottom: 15px;
     padding:30px;
     border-radius:50px;
-    height: 250px;
+    height: auto;
   }
 }
 
