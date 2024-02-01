@@ -120,7 +120,7 @@
     <!-- ====== About End ====== -->
 
     <!-- ====== Target Audience Start ====== -->
-    <section id="about" class="ud-about">
+    <section id="target_audience" class="ud-about">
       <div class="container bg-white p-5 cards-one-below-the-other">
         <div class="row">
           <div class="col-lg-12">
