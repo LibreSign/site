@@ -2611,3 +2611,47 @@ p {
   }
 }
 /*# sourceMappingURL=ud-styles.css.map */
+
+/*cards target audience*/
+
+.card-title {
+  color: var(--primary-color);
+}
+
+.cards-target-audience {
+  background-color: #184c4e;
+  padding:25px;
+  border-radius:50px;
+  height: 350px;
+}
+
+/*end cards target audience*/
+
+
+/*configure screen size*/
+
+@media screen and (min-width: 1024px) and (max-width: 1800px) {
+  .cards-target-audience {
+    background-color: #184c4e;
+    padding:30px;
+    border-radius:50px;
+    height: 410px;
+  } 
+}
+
+@media screen and (max-width: 768px) {
+
+  .text-card {
+    display:contents;
+  }
+
+  .cards-target-audience {
+    background-color: #184c4e;
+    margin-bottom: 15px;
+    padding:30px;
+    border-radius:50px;
+    height: auto;
+  }
+}
+
+/*end configure screen size*/
