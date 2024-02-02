@@ -27,9 +27,6 @@
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#pricing">Pricing</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#target_audience">Target Audience</a>
-                </li>
-                <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">Contact</a>
                 </li>
                 <li class="nav-item">
