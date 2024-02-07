@@ -465,62 +465,10 @@
               class="ud-contact-form-wrapper wow fadeInUp"
               data-wow-delay=".2s"
             >
-              <h3 class="ud-contact-form-title">Send us a Message</h3>
-              <form class="ud-contact-form" id="WebToLeadForm" 
-              action="https://crm.librecode.coop/index.php?entryPoint=WebToPersonCapture" 
-              method="POST" name="WebToLeadForm">
-                <div class="ud-form-group">
-                  <label for="fullName">Full Name*</label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    id="last_name"
-                    placeholder="Type your name"
-                    required=""
-                  />
-                </div>
-                <div class="ud-form-group">
-                  <label for="email">Email*</label>
-                  <input
-                    type="email1"
-                    name="email1"
-                    id="email"
-                    placeholder="example@yourmail.com"
-                    required=""
-                  />
-                </div>
-                <div class="ud-form-group">
-                  <label for="phone">Phone</label>
-                  <input
-                    type="text"
-                    name="phone_mobile"
-                    id="phone_mobile"
-                    placeholder="+885 1254 5211 552"
-                  />
-                </div>
-                <div class="ud-form-group">
-                  <label for="message">Message*</label>
-                  <textarea
-                    name="description"
-                    id="description"
-                    rows="1"
-                    placeholder="type your message here"
-                    required=""
-                  ></textarea>
-                </div>
-                <div class="ud-form-group mb-0">
-                  <button type="submit" class="ud-main-btn">
-                    Send Message
-                  </button>
-                </div>
-                <input name="campaign_id" id="campaign_id" type="hidden" 
-                       value="91c4e277-95b8-ce28-91fd-658d9aa871ac" />
-                <input name="redirect_url" id="redirect_url" type="hidden" 
-                       value="{{ $page->baseUrl }}thank-you-contact" />
-                <input name="assigned_user_id" id="assigned_user_id" type="hidden" 
-                       value="89cce704-603d-79d7-b069-65660c3a0b7d" />
-                <input name="moduleDir" id="moduleDir" type="hidden" value="Contacts" />
-              </form>
+              <iframe src="{{ $page->form_url }}" 
+                frameborder="0" style="width: 100%;height:650px;border: 0;overflow:hidden;"
+                scrolling="no"
+                ></iframe>
             </div>
           </div>
         </div>
