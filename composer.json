@@ -3,7 +3,8 @@
     "description": "LibreSign Website",
     "license": "AGPL-3.0-or-later",
     "require": {
-        "tightenco/jigsaw": "^1.7"
+        "tightenco/jigsaw": "^1.7",
+        "gregwar/captcha": "^1.2"
     },
     "scripts": {
         "post-install-cmd": [

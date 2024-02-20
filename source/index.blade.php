@@ -461,14 +461,99 @@
             </div>
           </div>
           <div class="col-xl-4 col-lg-5">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;" id="message"></div>
             <div
               class="ud-contact-form-wrapper wow fadeInUp"
               data-wow-delay=".2s"
             >
-              <iframe src="{{ $page->form_url }}" 
-                frameborder="0" style="width: 100%;height:650px;border: 0;overflow:hidden;"
-                scrolling="no"
-                ></iframe>
+              <form class="ud-contact-form" id="WebToLeadForm" 
+                name="WebToLeadForm">
+                <div class="ud-form-group">
+                  <label for="fullName">Full Name*</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Type your name"
+                    required=""
+                  />
+                </div>
+                <div class="ud-form-group">
+                  <label for="email">Email*</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="example@yourmail.com"
+                    required=""
+                  />
+                </div>
+                <div class="ud-form-group">
+                  <label for="phone_mobile">Phone</label>
+                  <input
+                    type="text"
+                    name="phone_mobile"
+                    id="phone_mobile"
+                    placeholder="+885 1254 5211 552"
+                  />
+                </div>
+                <div class="ud-form-group">
+                  <label for="description">Message*</label>
+                  <textarea
+                    name="description"
+                    id="description"
+                    rows="1"
+                    placeholder="type your message here"
+                    required=""
+                  ></textarea>
+                </div>
+                <div class="ud-form-group">
+                  <label for="message">Type the code below*</label>
+                  <input type="text" name="codeImg" id="codeImg"
+                  placeholder="Type the code below" required/>
+                </div>
+                <div class="ud-form-group">
+                    <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
+                    <i id="btnReload" class="lni lni-reload"></i>
+                    <script>
+                      let reloadButton = document.getElementById("btnReload");
+                      let captcha = document.getElementById("captcha");
+                      let formCaptpcha = document.forms["WebToLeadForm"];
+
+                      reloadButton.onclick = function () {
+                          captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                      };
+
+                      formCaptpcha.addEventListener("submit", (e) =>  {
+                        e.preventDefault();
+                       
+                        const http = new XMLHttpRequest()
+                        http.open('POST', '{{ $page->form_url }}')
+                        var form_data = new URLSearchParams(new FormData(formCaptpcha));
+
+                        http.onreadystatechange = function receiveResponse() {
+
+                          if (this.readyState == 4) {
+                            if (this.status == 200) {
+                              window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
+                            } else {
+                              let message = document.getElementById('message')
+                              message.textContent = 'Invalid Captcha'
+                              message.style.display = 'block'
+                            }
+                          }
+                        };
+
+                        http.send(form_data);
+                      });
+                    </script>
+                </div>
+                <div class="ud-form-group mb-0">
+                  <button type="submit" class="ud-main-btn">
+                    Send Message
+                  </button>
+                </div>                
+              </form>
             </div>
           </div>
         </div>
