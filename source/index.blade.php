@@ -513,40 +513,54 @@
                   placeholder="Type the code below" required/>
                 </div>
                 <div class="ud-form-group">
-                    <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
-                    <i id="btnReload" class="lni lni-reload"></i>
-                    <script>
-                      let reloadButton = document.getElementById("btnReload");
-                      let captcha = document.getElementById("captcha");
-                      let formCaptpcha = document.forms["WebToLeadForm"];
+                  <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
+                  <i id="btnReload" class="lni lni-reload"></i>
+                  <script>
+                    let reloadButton = document.getElementById("btnReload");
+                    let captcha = document.getElementById("captcha");
+                    let formCaptpcha = document.forms["WebToLeadForm"];
 
-                      reloadButton.onclick = function () {
-                          captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                    reloadButton.onclick = function () {
+                        captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                    };
+
+                    formCaptpcha.addEventListener("submit", (e) =>  {
+                      e.preventDefault();
+                      
+                      const http = new XMLHttpRequest()
+                      http.open('POST', '{{ $page->form_url }}')
+                      var form_data = new URLSearchParams(new FormData(formCaptpcha));
+
+                      http.onreadystatechange = function receiveResponse() {
+
+                        if (this.readyState == 4) {
+                          if (this.status == 200) {
+                            window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
+                          } else {
+                            let message = document.getElementById('message')
+                            message.textContent = 'Invalid Captcha'
+                            message.style.display = 'block'
+                          }
+                        }
                       };
 
-                      formCaptpcha.addEventListener("submit", (e) =>  {
-                        e.preventDefault();
-                       
-                        const http = new XMLHttpRequest()
-                        http.open('POST', '{{ $page->form_url }}')
-                        var form_data = new URLSearchParams(new FormData(formCaptpcha));
+                      http.send(form_data);
+                    });
+                  </script>
+                  <span id="audioIcon" title="button to play characters">
+                    <i class="lni lni-volume-high"></i>
+                  </span>
+                  
+                  <script>
+                    let audio_icon = document.getElementById('audioIcon')
 
-                        http.onreadystatechange = function receiveResponse() {
+                    function sound(){
+                      let url = new Audio('{{ $page->url_captcha_audio }}')
+                      url.play();
+                    }
 
-                          if (this.readyState == 4) {
-                            if (this.status == 200) {
-                              window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
-                            } else {
-                              let message = document.getElementById('message')
-                              message.textContent = 'Invalid Captcha'
-                              message.style.display = 'block'
-                            }
-                          }
-                        };
-
-                        http.send(form_data);
-                      });
-                    </script>
+                    audio_icon.addEventListener("click", sound)
+                  </script>
                 </div>
                 <div class="ud-form-group mb-0">
                   <button type="submit" class="ud-main-btn">
