@@ -513,8 +513,17 @@
                   placeholder="Type the code below" required/>
                 </div>
                 <div class="ud-form-group">
-                  <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
-                  <i id="btnReload" class="lni lni-reload"></i>
+                  <img src="{{ $page->url_captcha }}" 
+                    alt="captcha" 
+                    class="me-3 mb-3" 
+                    id="captcha"
+                  />
+                  <button id="btnReload" type="button">
+                    <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" 
+                      alt="Button to reload characters captcha"
+                      width="30px"
+                    />
+                  </button>
                   <script>
                     let reloadButton = document.getElementById("btnReload");
                     let captcha = document.getElementById("captcha");
@@ -547,9 +556,13 @@
                       http.send(form_data);
                     });
                   </script>
-                  <span id="audioIcon" title="button to play characters">
-                    <i class="lni lni-volume-high"></i>
-                  </span>
+
+                  <button id="audioIcon" type="button">
+                    <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" 
+                      alt="Button to play characters captcha"
+                      width="30px"
+                    />
+                  </button>
                   
                   <script>
                     let audio_icon = document.getElementById('audioIcon')
