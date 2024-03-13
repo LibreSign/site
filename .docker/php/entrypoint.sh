@@ -7,7 +7,7 @@ groupmod --non-unique --gid "${HOST_GID}" www-data
 if [ ! -d "vendor" ]; then
     composer i
 fi
-
+php-fpm &
 if [[ "$SERVER_MODE" == 'watch' ]]; then
     npm run watch
 else

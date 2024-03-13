@@ -461,20 +461,19 @@
             </div>
           </div>
           <div class="col-xl-4 col-lg-5">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;" id="message"></div>
             <div
               class="ud-contact-form-wrapper wow fadeInUp"
               data-wow-delay=".2s"
             >
-              <h3 class="ud-contact-form-title">Send us a Message</h3>
               <form class="ud-contact-form" id="WebToLeadForm" 
-              action="https://crm.librecode.coop/index.php?entryPoint=WebToPersonCapture" 
-              method="POST" name="WebToLeadForm">
+                name="WebToLeadForm">
                 <div class="ud-form-group">
                   <label for="fullName">Full Name*</label>
                   <input
                     type="text"
-                    name="last_name"
-                    id="last_name"
+                    name="name"
+                    id="name"
                     placeholder="Type your name"
                     required=""
                   />
@@ -482,15 +481,15 @@
                 <div class="ud-form-group">
                   <label for="email">Email*</label>
                   <input
-                    type="email1"
-                    name="email1"
+                    type="email"
+                    name="email"
                     id="email"
                     placeholder="example@yourmail.com"
                     required=""
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="phone">Phone</label>
+                  <label for="phone_mobile">Phone</label>
                   <input
                     type="text"
                     name="phone_mobile"
@@ -499,7 +498,7 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="message">Message*</label>
+                  <label for="description">Message*</label>
                   <textarea
                     name="description"
                     id="description"
@@ -508,18 +507,52 @@
                     required=""
                   ></textarea>
                 </div>
+                <div class="ud-form-group">
+                  <label for="message">Type the code below*</label>
+                  <input type="text" name="codeImg" id="codeImg"
+                  placeholder="Type the code below" required/>
+                </div>
+                <div class="ud-form-group">
+                    <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
+                    <i id="btnReload" class="lni lni-reload"></i>
+                    <script>
+                      let reloadButton = document.getElementById("btnReload");
+                      let captcha = document.getElementById("captcha");
+                      let formCaptpcha = document.forms["WebToLeadForm"];
+
+                      reloadButton.onclick = function () {
+                          captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                      };
+
+                      formCaptpcha.addEventListener("submit", (e) =>  {
+                        e.preventDefault();
+                       
+                        const http = new XMLHttpRequest()
+                        http.open('POST', '{{ $page->form_url }}')
+                        var form_data = new URLSearchParams(new FormData(formCaptpcha));
+
+                        http.onreadystatechange = function receiveResponse() {
+
+                          if (this.readyState == 4) {
+                            if (this.status == 200) {
+                              window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
+                            } else {
+                              let message = document.getElementById('message')
+                              message.textContent = 'Invalid Captcha'
+                              message.style.display = 'block'
+                            }
+                          }
+                        };
+
+                        http.send(form_data);
+                      });
+                    </script>
+                </div>
                 <div class="ud-form-group mb-0">
                   <button type="submit" class="ud-main-btn">
                     Send Message
                   </button>
-                </div>
-                <input name="campaign_id" id="campaign_id" type="hidden" 
-                       value="91c4e277-95b8-ce28-91fd-658d9aa871ac" />
-                <input name="redirect_url" id="redirect_url" type="hidden" 
-                       value="{{ $page->baseUrl }}thank-you-contact" />
-                <input name="assigned_user_id" id="assigned_user_id" type="hidden" 
-                       value="89cce704-603d-79d7-b069-65660c3a0b7d" />
-                <input name="moduleDir" id="moduleDir" type="hidden" value="Contacts" />
+                </div>                
               </form>
             </div>
           </div>

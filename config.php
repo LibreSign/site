@@ -9,6 +9,8 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
+    'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
     'getFromCategory' => function($page, $category) {

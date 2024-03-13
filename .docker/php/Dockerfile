@@ -1,4 +1,4 @@
-FROM php:8.3
+FROM php:8.3-fpm
 
 ARG NODE_MAJOR=20
 
@@ -24,6 +24,7 @@ RUN apt-get update \
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
     && install-php-extensions \
+    gd \
     xdebug \
     zip \
     @composer \
