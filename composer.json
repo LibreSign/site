@@ -4,8 +4,15 @@
     "license": "AGPL-3.0-or-later",
     "require": {
         "tightenco/jigsaw": "^1.7",
-        "gregwar/captcha": "^1.2"
+        "gregwar/captcha": "^1.2",
+        "libresign/espeak": "dev-main"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "espeak"
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "npm ci"

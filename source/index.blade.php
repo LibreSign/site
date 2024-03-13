@@ -513,40 +513,67 @@
                   placeholder="Type the code below" required/>
                 </div>
                 <div class="ud-form-group">
-                    <img src="{{ $page->url_captcha }}" alt="captcha" class="me-3" id="captcha">
-                    <i id="btnReload" class="lni lni-reload"></i>
-                    <script>
-                      let reloadButton = document.getElementById("btnReload");
-                      let captcha = document.getElementById("captcha");
-                      let formCaptpcha = document.forms["WebToLeadForm"];
+                  <img src="{{ $page->url_captcha }}" 
+                    alt="captcha" 
+                    class="me-3 mb-3" 
+                    id="captcha"
+                  />
+                  <button id="btnReload" type="button">
+                    <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" 
+                      alt="Button to reload characters captcha"
+                      width="30px"
+                    />
+                  </button>
+                  <script>
+                    let reloadButton = document.getElementById("btnReload");
+                    let captcha = document.getElementById("captcha");
+                    let formCaptpcha = document.forms["WebToLeadForm"];
 
-                      reloadButton.onclick = function () {
-                          captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                    reloadButton.onclick = function () {
+                        captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                    };
+
+                    formCaptpcha.addEventListener("submit", (e) =>  {
+                      e.preventDefault();
+                      
+                      const http = new XMLHttpRequest()
+                      http.open('POST', '{{ $page->form_url }}')
+                      var form_data = new URLSearchParams(new FormData(formCaptpcha));
+
+                      http.onreadystatechange = function receiveResponse() {
+
+                        if (this.readyState == 4) {
+                          if (this.status == 200) {
+                            window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
+                          } else {
+                            let message = document.getElementById('message')
+                            message.textContent = 'Invalid Captcha'
+                            message.style.display = 'block'
+                          }
+                        }
                       };
 
-                      formCaptpcha.addEventListener("submit", (e) =>  {
-                        e.preventDefault();
-                       
-                        const http = new XMLHttpRequest()
-                        http.open('POST', '{{ $page->form_url }}')
-                        var form_data = new URLSearchParams(new FormData(formCaptpcha));
+                      http.send(form_data);
+                    });
+                  </script>
 
-                        http.onreadystatechange = function receiveResponse() {
+                  <button id="audioIcon" type="button">
+                    <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" 
+                      alt="Button to play characters captcha"
+                      width="30px"
+                    />
+                  </button>
+                  
+                  <script>
+                    let audio_icon = document.getElementById('audioIcon')
 
-                          if (this.readyState == 4) {
-                            if (this.status == 200) {
-                              window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
-                            } else {
-                              let message = document.getElementById('message')
-                              message.textContent = 'Invalid Captcha'
-                              message.style.display = 'block'
-                            }
-                          }
-                        };
+                    function sound(){
+                      let url = new Audio('{{ $page->url_captcha_audio }}')
+                      url.play();
+                    }
 
-                        http.send(form_data);
-                      });
-                    </script>
+                    audio_icon.addEventListener("click", sound)
+                  </script>
                 </div>
                 <div class="ud-form-group mb-0">
                   <button type="submit" class="ud-main-btn">

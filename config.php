@@ -11,6 +11,7 @@ return [
     'baseUrl' => '/',
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
+    'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
     'getFromCategory' => function($page, $category) {

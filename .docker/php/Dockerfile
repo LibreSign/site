@@ -5,6 +5,7 @@ ARG NODE_MAJOR=20
 RUN apt-get update \
     && apt-get install -y \
         git \
+        espeak-ng \
     # Install node
         ca-certificates \
         curl \
