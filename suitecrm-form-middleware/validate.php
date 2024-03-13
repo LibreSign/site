@@ -4,6 +4,8 @@ include "../vendor/autoload.php";
 use Gregwar\Captcha\CaptchaBuilder;
 session_start();
 
+header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+
 $builder = new CaptchaBuilder($_SESSION['code']);
 $codeImg = filter_input(INPUT_POST, 'codeImg');
 
