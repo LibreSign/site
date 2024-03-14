@@ -526,7 +526,7 @@
                   <script>
                     function contentLoad(url) {
                       return new Promise(function (resolve, reject) {
-                        var http = new XMLHttphttp();
+                        var http = new XMLHttpRequest();
                         http.withCredentials = true
                         http.open('GET', url);
                         http.responseType = 'blob';
