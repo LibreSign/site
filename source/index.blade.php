@@ -526,20 +526,21 @@
                   <script>
                     function contentLoad(url) {
                       return new Promise(function (resolve, reject) {
-                        var request = new XMLHttpRequest();
-                        request.open('GET', url);
-                        request.responseType = 'blob';
-                        request.onload = function () {
-                          if (request.status === 200) {
-                            resolve(request.response);
+                        var http = new XMLHttphttp();
+                        http.withCredentials = true
+                        http.open('GET', url);
+                        http.responseType = 'blob';
+                        http.onload = function () {
+                          if (http.status === 200) {
+                            resolve(http.response);
                           } else {
-                            reject(new Error('Response didn\'t load successfully; error code:' + request.statusText));
+                            reject(new Error('Response didn\'t load successfully; error code:' + http.statusText));
                           }
                         };
-                        request.onerror = function () {
+                        http.onerror = function () {
                           reject(new Error('There was a network error.'));
                         };
-                        request.send();
+                        http.send();
                       });
                     }
 
@@ -568,6 +569,7 @@
                       e.preventDefault();
                       
                       const http = new XMLHttpRequest()
+                      http.withCredentials = true
                       http.open('POST', '{{ $page->form_url }}')
                       var form_data = new URLSearchParams(new FormData(formCaptpcha));
 

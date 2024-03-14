@@ -8,6 +8,7 @@ use Libresign\Espeak\Espeak;
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
+header("Access-Control-Allow-Credentials: true");
 
 if(empty($_SESSION['code'])){
     $builder = new CaptchaBuilder();

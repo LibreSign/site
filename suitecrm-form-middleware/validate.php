@@ -5,6 +5,7 @@ use Gregwar\Captcha\CaptchaBuilder;
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
+header("Access-Control-Allow-Credentials: true");
 
 $builder = new CaptchaBuilder($_SESSION['code']);
 $codeImg = filter_input(INPUT_POST, 'codeImg');
