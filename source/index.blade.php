@@ -524,7 +524,6 @@
                     />
                   </button>
                   <script>
-
                     function contentLoad(url) {
                       return new Promise(function (resolve, reject) {
                         var request = new XMLHttpRequest();
@@ -544,8 +543,8 @@
                       });
                     }
 
-                    function loadImage() {
-                      contentLoad('{{ $page->url_captcha }}?'+ new Date().getTime()).then(function (response) {
+                    function loadImage(token) {
+                      contentLoad('{{ $page->url_captcha }}?'+ token).then(function (response) {
                         var myImage = document.getElementById('captcha');
                         myImage.crossOrigin = "";
                         myImage.src = window.URL.createObjectURL(response);
@@ -553,14 +552,16 @@
                         console.log(Error);
                       });
                     }
-                    loadImage()
+                    let token = new Date().getTime()
+                    loadImage(token)
 
                     let reloadButton = document.getElementById("btnReload");
                     let captcha = document.getElementById("captcha");
                     let formCaptpcha = document.forms["WebToLeadForm"];
 
                     reloadButton.onclick = function () {
-                        loadImage()
+                        token = new Date().getTime()
+                        loadImage(token)
                     };
 
                     formCaptpcha.addEventListener("submit", (e) =>  {
@@ -598,7 +599,7 @@
                     let audio_icon = document.getElementById('audioIcon')
 
                     function sound(){
-                      contentLoad('{{ $page->url_captcha_audio }}?'+ new Date().getTime()).then(function (response) {
+                      contentLoad('{{ $page->url_captcha_audio }}?'+ token).then(function (response) {
                           let audio = new Audio()
                           audio.src = window.URL.createObjectURL(response);
                           audio.play();

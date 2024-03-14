@@ -8,6 +8,9 @@ $builder = new CaptchaBuilder();
 $builder->build();
 
 session_start();
+
+header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
+
 $_SESSION['code'] = $builder->getPhrase(); 
 
 header('Content-Type: image/jpeg');
