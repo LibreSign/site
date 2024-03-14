@@ -513,8 +513,7 @@
                   placeholder="Type the code below" required/>
                 </div>
                 <div class="ud-form-group">
-                  <img src="{{ $page->url_captcha }}" 
-                    alt="captcha" 
+                  <img alt="Image with captcha text"
                     class="me-3 mb-3" 
                     id="captcha"
                   />
@@ -525,12 +524,43 @@
                     />
                   </button>
                   <script>
+
+                    function contentLoad(url) {
+                      return new Promise(function (resolve, reject) {
+                        var request = new XMLHttpRequest();
+                        request.open('GET', url);
+                        request.responseType = 'blob';
+                        request.onload = function () {
+                          if (request.status === 200) {
+                            resolve(request.response);
+                          } else {
+                            reject(new Error('Response didn\'t load successfully; error code:' + request.statusText));
+                          }
+                        };
+                        request.onerror = function () {
+                          reject(new Error('There was a network error.'));
+                        };
+                        request.send();
+                      });
+                    }
+
+                    function loadImage() {
+                      contentLoad('{{ $page->url_captcha }}?'+ new Date().getTime()).then(function (response) {
+                        var myImage = document.getElementById('captcha');
+                        myImage.crossOrigin = "";
+                        myImage.src = window.URL.createObjectURL(response);
+                      }, function (Error) {
+                        console.log(Error);
+                      });
+                    }
+                    loadImage()
+
                     let reloadButton = document.getElementById("btnReload");
                     let captcha = document.getElementById("captcha");
                     let formCaptpcha = document.forms["WebToLeadForm"];
 
                     reloadButton.onclick = function () {
-                        captcha.src = '{{ $page->url_captcha }}?'+ new Date().getTime();
+                        loadImage()
                     };
 
                     formCaptpcha.addEventListener("submit", (e) =>  {
@@ -568,8 +598,13 @@
                     let audio_icon = document.getElementById('audioIcon')
 
                     function sound(){
-                      let url = new Audio('{{ $page->url_captcha_audio }}?'+ new Date().getTime())
-                      url.play();
+                      contentLoad('{{ $page->url_captcha_audio }}?'+ new Date().getTime()).then(function (response) {
+                          let audio = new Audio()
+                          audio.src = window.URL.createObjectURL(response);
+                          audio.play();
+                      }, function (Error) {
+                          console.log(Error);
+                      });
                     }
 
                     audio_icon.addEventListener("click", sound)
