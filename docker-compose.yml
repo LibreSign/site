@@ -29,3 +29,4 @@ services:
       - ASSIGNED_USER_ID=${ASSIGNED_USER_ID:-123}
       - CAMPAIGN_ID=${CAMPAIGN_ID:-123}
       - URL_SUITECRM=${URL_SUITECRM:-123}
+      - URL_SITE=${URL_SITE:-http://localhost}
