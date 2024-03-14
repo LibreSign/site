@@ -7,12 +7,6 @@
         "gregwar/captcha": "^1.2",
         "libresign/espeak": "dev-main"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "espeak"
-        }
-    ],
     "scripts": {
         "post-install-cmd": [
             "npm ci"
