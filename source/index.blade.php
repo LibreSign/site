@@ -568,7 +568,7 @@
                     let audio_icon = document.getElementById('audioIcon')
 
                     function sound(){
-                      let url = new Audio('{{ $page->url_captcha_audio }}')
+                      let url = new Audio('{{ $page->url_captcha_audio }}?'+ new Date().getTime())
                       url.play();
                     }
 
