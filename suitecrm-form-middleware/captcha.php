@@ -10,6 +10,7 @@ $builder->build();
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
+header("Access-Control-Allow-Credentials: true");
 
 $_SESSION['code'] = $builder->getPhrase(); 
 
