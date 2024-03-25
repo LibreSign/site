@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9b7d8a0a065439891ef03b14e1f856a",
+    "content-hash": "7109d68ab71a5e67bddf32aaabd9fc77",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -240,6 +240,117 @@
                 }
             ],
             "time": "2024-02-18T20:23:39+00:00"
+        },
+        {
+            "name": "elaborate-code/jigsaw-localization",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elaborate-code/jigsaw-localization.git",
+                "reference": "cfdbefd64416bd943613a79eaf6ef5220ad2cf71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elaborate-code/jigsaw-localization/zipball/cfdbefd64416bd943613a79eaf6ef5220ad2cf71",
+                "reference": "cfdbefd64416bd943613a79eaf6ef5220ad2cf71",
+                "shasum": ""
+            },
+            "require": {
+                "elaborate-code/php-json-tongue": "^1.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.2",
+                "pestphp/pest": "^1.22",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "tightenco/jigsaw": "^1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "ElaborateCode\\JigsawLocalization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Ilies BOUDOUMA",
+                    "email": "medilies.contact@gmail.com"
+                }
+            ],
+            "description": "Brings localization feature to \"tightenco/jigsaw\" using JSON files",
+            "support": {
+                "issues": "https://github.com/elaborate-code/jigsaw-localization/issues",
+                "source": "https://github.com/elaborate-code/jigsaw-localization/tree/v1.1.0"
+            },
+            "time": "2022-10-02T20:57:09+00:00"
+        },
+        {
+            "name": "elaborate-code/php-json-tongue",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elaborate-code/php-json-tongue.git",
+                "reference": "9adcf445e8f94d5e7eb68e419efca050e4e79539"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elaborate-code/php-json-tongue/zipball/9adcf445e8f94d5e7eb68e419efca050e4e79539",
+                "reference": "9adcf445e8f94d5e7eb68e419efca050e4e79539",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.2",
+                "pestphp/pest": "^1.22",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "ElaborateCode\\JsonTongue\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Ilies BOUDOUMA",
+                    "email": "medilies.contact@gmail.com"
+                }
+            ],
+            "description": "A Facade for loading localization data from JSONs within a lang folder",
+            "homepage": "https://github.com/elaborate-code/php-json-tongue",
+            "keywords": [
+                "internationalization",
+                "json",
+                "languages",
+                "locale",
+                "localization",
+                "translation"
+            ],
+            "support": {
+                "issues": "https://github.com/elaborate-code/php-json-tongue/issues",
+                "source": "https://github.com/elaborate-code/php-json-tongue/tree/v1.2.1"
+            },
+            "time": "2022-10-08T10:57:24+00:00"
         },
         {
             "name": "erusev/parsedown",

@@ -35,6 +35,11 @@
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}posts">Posts</a>
                 </li>
+                <li>
+                  @foreach(['en','pt-br'] as $locale)
+                    <a href="{{ translate_url($page, $locale) }}"> {{ $locale }} </a>
+                  @endforeach
+                </li>
               </ul>
             </div>
           </nav>

@@ -6,6 +6,7 @@ use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
 return [
+    'defaultLocale' => 'en',
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',

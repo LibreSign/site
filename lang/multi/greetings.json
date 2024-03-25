@@ -1,0 +1,11 @@
+{
+    "en": {
+        "Hello": "Hola",
+        "Good morning": "Buenos dias"
+    },
+    "pt-br": {
+        "Home": "Home",
+        "Features": "Recursos",
+        "About": "Sobre",
+    }
+}
