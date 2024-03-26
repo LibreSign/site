@@ -15,29 +15,29 @@
             <div class="navbar-collapse">
               <ul id="nav" class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#home">Home</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#home">{{__($page,"Home",current_path_locale($page))}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#features">Features</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#features">{{__($page,"Features",current_path_locale($page))}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#about">About</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#about">{{ __($page,"About",current_path_locale($page)) }}</a>
                 </li>
                 {{-- <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#pricing">Pricing</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#target_audience">Target Audience</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#target_audience">{{ __($page,"Target Audience",current_path_locale($page)) }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">Contact</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}#contact">{{ __($page,"Contact",current_path_locale($page)) }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}posts">Posts</a>
+                  <a class="ud-menu-scroll" href="{{ $page->baseUrl }}posts">{{ __($page,"Posts",current_path_locale($page)) }}</a>
                 </li>
-                <li>
-                  @foreach(['en','pt-br'] as $locale)
-                    <a href="{{ translate_url($page, $locale) }}"> {{ $locale }} </a>
+                <li class="nav-item">
+                  @foreach(['en','pt-BR'] as $locale)
+                    <a href="{{ translate_path($page, $locale) }}">{{ $locale }}</a>
                   @endforeach
                 </li>
               </ul>

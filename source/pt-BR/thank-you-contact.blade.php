@@ -1,0 +1,1 @@
+@include('_pages.thank-you-contact');

@@ -7,12 +7,11 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
-              <h2> {{ __($page, "Good morning", current_path_locale($page)) }} </h2>
               <h1 class="ud-hero-title">
-                The first free and open source web document signer
+                {{ __($page, "The first free and open source web document signer", current_path_locale($page)) }}
               </h1>
               <p class="ud-hero-desc">
-                Sign and monitor your documents with practicality, security and legal validity.
+                {{ __($page,"Sign and monitor your documents with practicality, security and legal validity.",current_path_locale($page)) }}
               </p>
               {{-- <ul class="ud-hero-buttons">
                 <li>
@@ -55,9 +54,7 @@
               <span>Features</span>
               <h2>Main Features</h2>
               <p>
-
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                {{ __($page,"There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.",current_path_locale($page)) }}
               </p>
             </div>
           </div>
@@ -71,9 +68,9 @@
                     <i class="lni lni-gift"></i>
                   </div>
                   <div class="ud-feature-content">
-                    <h3 class="ud-feature-title">{{ $item['title'] }}</h3></a>
-                    <p class="ud-feature-desc">{{ $item['description'] }}</p>
-                    <a class="ud-feature-link" href="{{ $item['url'] }}">Learn more</a>
+                    <h3 class="ud-feature-title">{{ __($page,$item['title'],current_path_locale($page)) }}</h3></a>
+                    <p class="ud-feature-desc">{{ __($page, $item['description'],current_path_locale($page)) }}</p>
+                    <a class="ud-feature-link" href="{{ $item['url'] }}">{{ __($page,"Learn more",current_path_locale($page))}}</a>
                   </div>
                 </a>
               </div>
@@ -90,24 +87,15 @@
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
-              <span class="tag">About Us</span>
-              <h2>The perfect tool to manage the signature flow of your documents</h2>
+              <span class="tag">{{ __($page,"About Us",current_path_locale($page))}}</span>
+              <h2>{{ __($page,"The perfect tool to manage the signature flow of your documents",current_path_locale($page))}}</h2>
               <p>
-                LibreSign is a web application for electronic signatures (e-Sign)
-                developed by the LibreCode cooperative (Brazilian cooperative
-                specialized in free software development). Its development began
-                at the beginning of 2020, in the midst of the pandemic, when
-                people and companies were migrating their physical documentation
-                to digital, and then there was a need to develop a web solution
-                that could offer the possibility of signing documents, contracts
-                and proposals online with security and agility.
+                {{ __($page,"LibreSign is a web application for electronic signatures (e-Sign) developed by the LibreCode cooperative (Brazilian cooperative specialized in free software development). Its development began at the beginning of 2020, in the midst of the pandemic, when people and companies were migrating their physical documentation to digital, and then there was a need to develop a web solution that could offer the possibility of signing documents, contracts and proposals online with security and agility.",current_path_locale($page))}}
               </p>
 
               <p>
-                We use PKI technology to generate digital certificate keys.
-                LibreSign is open source (and always will be), which allows it
-                to be audited and customized for various needs and integrated
-                with any system and, of course, maintained by the community.
+                {{ __($page,"We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.",
+                "Target Audience": "Target Audience",current_path_locale($page)) }}
               </p>
               {{-- <a href="javascript:void(0)" class="ud-main-btn">Learn More</a> --}}
             </div>
