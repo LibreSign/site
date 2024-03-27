@@ -1,6 +1,9 @@
 <?php
 
 use TightenCo\Jigsaw\Jigsaw;
+use ElaborateCode\JigsawLocalization\LoadLocalization;
+
+$events->beforeBuild([LoadLocalization::class]);
 
 /** @var \Illuminate\Container\Container $container */
 /** @var \TightenCo\Jigsaw\Events\EventBus $events */

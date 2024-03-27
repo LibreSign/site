@@ -5,7 +5,8 @@
     "require": {
         "tightenco/jigsaw": "^1.7",
         "gregwar/captcha": "^1.2",
-        "libresign/espeak": "dev-main"
+        "libresign/espeak": "dev-main",
+        "elaborate-code/jigsaw-localization": "^1.1"
     },
     "scripts": {
         "post-install-cmd": [
