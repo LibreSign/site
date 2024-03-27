@@ -51,8 +51,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title">
-              <span>Features</span>
-              <h2>Main Features</h2>
+              <span>{{ __($page,"Features",current_path_locale($page))}}</span>
+              <h2>{{ __($page,"Main Features",current_path_locale($page))}}</h2>
               <p>
                 {{ __($page,"There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.",current_path_locale($page)) }}
               </p>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="ud-feature-content">
                     <h3 class="ud-feature-title">{{ __($page,$item['title'],current_path_locale($page)) }}</h3></a>
-                    <p class="ud-feature-desc">{{ __($page, $item['description'],current_path_locale($page)) }}</p>
+                    <p class="ud-feature-desc">{{ __($page,$item['description'],current_path_locale($page)) }}</p>
                     <a class="ud-feature-link" href="{{ $item['url'] }}">{{ __($page,"Learn more",current_path_locale($page))}}</a>
                   </div>
                 </a>
@@ -94,8 +94,7 @@
               </p>
 
               <p>
-                {{ __($page,"We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.",
-                "Target Audience": "Target Audience",current_path_locale($page)) }}
+                {{ __($page,"We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.",current_path_locale($page)) }}
               </p>
               {{-- <a href="javascript:void(0)" class="ud-main-btn">Learn More</a> --}}
             </div>
@@ -114,47 +113,32 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title">Target Audience</h3>
+              <h3 class="card-title">{{ __($page,"Target Audience",current_path_locale($page))}}</h3>
             </div>
           </div>
         </div>
         <div class="row text-center">
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">Public Sector</h5>
+              <h5 class="mb-3 text-white">{{ __($page,"Public Sector",current_path_locale($page))}}</h5>
               <p class="text-white">
-                Optimize document management in the public sector with LibreSign. 
-                Our solution provides effective administration to handle specific 
-                government documentation, ensuring security, speed, and strict 
-                compliance with the General Data Protection Law (LGPD). Simplify 
-                bureaucratic processes, expedite document signing, and promote 
-                more efficient management with LibreSign for the public sector.
+                {{ __($page,"Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.",current_path_locale($page)) }}
               </p>
             </div>
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">Education</h5>
+              <h5 class="mb-3 text-white">{{ __($page,"Education",current_path_locale($page))}}</h5>
               <p class="text-white">
-                LibreSign is the ideal choice for educational institutions 
-                looking to enhance their document processes with legal validity. 
-                Simplify the signing of contracts, authorizations, and other 
-                essential documents for academic administration. Promote 
-                effective document management, providing a streamlined and 
-                modern experience for students, teachers, and administrative 
-                staff.
+                {{__($page,"LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.",current_path_locale($page))}}
               </p>
             </div>
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">Private Companies</h5>
+              <h5 class="mb-3 text-white">{{ __($page,"Private Companies",current_path_locale($page))}}</h5>
               <p class="text-white">
-                Our electronic signature and document management solution 
-                streamline workflows, reducing time spent on manual processes. 
-                Achieve greater productivity, promote document security, and 
-                ensure compliance with the General Data Protection Law (LGPD), 
-                providing an agile experience for your clients and collaborators.
+                {{ __($page,"Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.",current_path_locale($page)) }}
               </p>
             </div>
           </div>
@@ -274,9 +258,9 @@
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
               <span>FAQ</span>
-              <h2>Any Questions? Answered</h2>
+              <h2>{{ __($page,"Any Questions? Answered",current_path_locale($page))}}</h2>
               <p>
-                LibreSign frequently asked questions
+                {{ __($page,"LibreSign frequently asked questions",current_path_locale($page))}}
               </p>
             </div>
           </div>
@@ -294,17 +278,11 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>Why LibreSign?</span>
+                  <span>{{ __($page,"Why LibreSign?",current_path_locale($page))}}</span>
                 </button>
                 <div id="collapseOne" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    LibreSign allows documents to be signed securely and with 
-                    legal validity, since the system generates hashing - an 
-                    algorithm that ensures that the file has not been altered 
-                    after being signed - as well as numbers and records the 
-                    times of each signature carried out in the document. In 
-                    this way, the system meets all the requirements of the 
-                    LGPD - General Data Protection Law.
+                    {{ __($page,"LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the LGPD - General Data Protection Law.",current_path_locale($page))}}
                   </div>
                 </div>
               </div>
@@ -319,15 +297,11 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>What is electronic signature capture?</span>
+                  <span>{{ __($page,"What is electronic signature capture?",current_path_locale($page))}}</span>
                 </button>
                 <div id="collapseTwo" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    Electronic signature capture is a technology for signing 
-                    electronic document files with a handwritten signature. The 
-                    use of this technology allows for the elimination of the 
-                    mailing, storage, filing, copying, and retrieval of paper 
-                    documents. This will save your business time and money.
+                    {{ __($page,"Electronic signature capture is a technology for signing electronic document files with a handwritten signature. The use of this technology allows for the elimination of the mailing, storage, filing, copying, and retrieval of paper documents. This will save your business time and money.",current_path_locale($page))}}
                   </div>
                 </div>
               </div>
@@ -342,14 +316,13 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>What are the key features of LibreCode signature 
-                        pads?
+                  <span>
+                    {{ __($page,"What are the key features of LibreCode signature pads?",current_path_locale($page))}}
                   </span>
                 </button>
                 <div id="collapseThree" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    File Creation, Signature with Digital Certificate, 
-                    Signature Management, Document Management, Validation, API
+                    {{ __($page,"File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API",current_path_locale($page))}}
                   </div>
                 </div>
               </div>
@@ -366,19 +339,13 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>Is a digital signature the same as a digitized 
-                    signature?
+                  <span>
+                    {{ __($page,"Is a digital signature the same as a digitized signature?",current_path_locale($page))}}
                   </span>
                 </button>
                 <div id="collapseFour" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    No. The digitized signature is the reproduction of the 
-                    handwritten signature as an image using scanner-type 
-                    equipment. It does not guarantee the authorship and 
-                    integrity of the electronic document, as there is no 
-                    unequivocal association between the signer and the 
-                    digitized text, as it can be easily copied and inserted 
-                    into another document.
+                    {{ __($page,"No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.",current_path_locale($page))}}
                   </div>
                 </div>
               </div>
@@ -393,14 +360,13 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>What is the name of the company that LibreSign 
-                    was developed by?
+                  <span>
+                    {{ __($page,"What is the name of the company that LibreSign was developed by?",current_path_locale($page))}}
                   </span>
                 </button>
                 <div id="collapseFive" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    LibreCode, a Brazilian cooperative of free software 
-                    developers.
+                    {{ __($page,"LibreCode, a Brazilian cooperative of free software developers.",current_path_locale($page))}}
                   </div>
                 </div>
               </div>
@@ -441,10 +407,9 @@
           <div class="col-xl-8 col-lg-7">
             <div class="ud-contact-content-wrapper">
               <div class="ud-contact-title">
-                <span>CONTACT US</span>
+                <span>{{ __($page,"CONTACT US",current_path_locale($page))}}</span>
                 <h2>
-                  Let’s talk about digitally<br />
-                  signing your documents!
+                  {{ __($page,"Let’s talk about digitally signing your documents!",current_path_locale($page))}}
                 </h2>
               </div>
             </div>
@@ -458,12 +423,12 @@
               <form class="ud-contact-form" id="WebToLeadForm" 
                 name="WebToLeadForm">
                 <div class="ud-form-group">
-                  <label for="fullName">Full Name*</label>
+                  <label for="fullName">{{ __($page,"Full Name*",current_path_locale($page))}}</label>
                   <input
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="Type your name"
+                    placeholder="{{__($page,'Type your name',current_path_locale($page))}}"
                     required=""
                   />
                 </div>
@@ -478,7 +443,7 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="phone_mobile">Phone</label>
+                  <label for="phone_mobile">{{ __($page,'Phone',current_path_locale($page))}}</label>
                   <input
                     type="text"
                     name="phone_mobile"
@@ -487,19 +452,20 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="description">Message*</label>
+                  <label for="description">{{ __($page,"Message*",current_path_locale($page))}}</label>
                   <textarea
                     name="description"
                     id="description"
                     rows="1"
-                    placeholder="type your message here"
+                    placeholder="{{__($page,'type your message here',current_path_locale($page))}}"
                     required=""
                   ></textarea>
                 </div>
                 <div class="ud-form-group">
-                  <label for="message">Type the code below*</label>
+                  <label for="message">{{ __($page,"Type the code below*",current_path_locale($page))}}</label>
                   <input type="text" name="codeImg" id="codeImg"
-                  placeholder="Type the code below" required/>
+                    placeholder="{{__($page,'Type the code below',current_path_locale($page))}}" 
+                    required/>
                 </div>
                 <div class="ud-form-group">
                   <img alt="Image with captcha text"
@@ -604,7 +570,7 @@
                 </div>
                 <div class="ud-form-group mb-0">
                   <button type="submit" class="ud-main-btn">
-                    Send Message
+                    {{ __($page,"Send Message",current_path_locale($page))}}
                   </button>
                 </div>                
               </form>
