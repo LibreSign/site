@@ -38,9 +38,9 @@
                 <li class="nav-item nav-item-has-children">
                   <a href="javascript:void(0)">Language</a>
                   <ul class="ud-submenu">
-                  @foreach(['en','pt-BR'] as $locale)
+                  @foreach(['' => 'English','pt-BR' => 'Português'] as $localeCode => $localeName)
                     <li class="ud-submenu-item">
-                      <a class="ud-submenu-link" href="{{ translate_path($page, $locale) }}">{{ $locale }}</a>
+                      <a class="ud-submenu-link" href="{{ translate_path($page, $localeCode) }}">{{ $localeName }}</a>
                     </li>
                   @endforeach
                   </ul>
