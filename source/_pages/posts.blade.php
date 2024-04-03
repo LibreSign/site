@@ -20,6 +20,9 @@
       <div class="container">
         <div class="row">
           @foreach ($posts as $post)
+          @if (current_path_locale($post) !== current_path_locale($page))
+            @continue
+          @endif
           <div class="col-lg-4 col-md-6">
             <div class="ud-single-blog">
               <div class="ud-blog-image">
