@@ -35,10 +35,15 @@
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ $page->baseUrl }}posts">{{ __($page,"Posts",current_path_locale($page)) }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item nav-item-has-children">
+                  <a href="javascript:void(0)">Language</a>
+                  <ul class="ud-submenu">
                   @foreach(['en','pt-BR'] as $locale)
-                    <a href="{{ translate_path($page, $locale) }}">{{ $locale }}</a>
+                    <li class="ud-submenu-item">
+                      <a class="ud-submenu-link" href="{{ translate_path($page, $locale) }}">{{ $locale }}</a>
+                    </li>
                   @endforeach
+                  </ul>
                 </li>
               </ul>
             </div>
