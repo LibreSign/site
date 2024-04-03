@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{{-- <html lang="{{ $page->language ?? 'en' }}"> --}}
 <html lang="{{ current_path_locale($page) }}">
   <head>
     <meta charset="UTF-8" />
