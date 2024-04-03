@@ -6,7 +6,7 @@
         "tightenco/jigsaw": "^1.7",
         "gregwar/captcha": "^1.2",
         "libresign/espeak": "dev-main",
-        "elaborate-code/jigsaw-localization": "^1.1"
+        "elaborate-code/jigsaw-localization": "dev-fix/use-package-default-locale"
     },
     "scripts": {
         "post-install-cmd": [
@@ -18,5 +18,11 @@
         "prod": [
             "npm run prod"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/LibreSign/jigsaw-localization"
+        }
+    ]
 }
