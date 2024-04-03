@@ -366,13 +366,13 @@
                     required/>
                 </div>
                 <div class="ud-form-group">
-                  <img alt="Image with captcha text"
+                  <img alt="{{ __($page,'Image with captcha text') }}"
                     class="me-3 mb-3" 
                     id="captcha"
                   />
                   <button id="btnReload" type="button">
                     <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" 
-                      alt="Button to reload characters captcha"
+                      alt="{{ __($page, 'Button to reload characters captcha') }}"
                       width="30px"
                     />
                   </button>
@@ -430,10 +430,10 @@
 
                         if (this.readyState == 4) {
                           if (this.status == 200) {
-                            window.top.location.href = '{{ $page->baseUrl }}thank-you-contact'
+                            window.top.location.href = '{{ __($page, 'thank-you-contact') }}'
                           } else {
                             let message = document.getElementById('message')
-                            message.textContent = 'Invalid Captcha'
+                            message.textContent = {{ __($page, 'Invalid Captcha') }}
                             message.style.display = 'block'
                           }
                         }
@@ -445,7 +445,7 @@
 
                   <button id="audioIcon" type="button">
                     <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" 
-                      alt="Button to play characters captcha"
+                      alt="{{ __($page, 'Button to play characters captcha') }}"
                       width="30px"
                     />
                   </button>
