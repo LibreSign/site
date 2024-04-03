@@ -44,9 +44,25 @@ return [
             markdownParser: new MarkdownParser()
         );
         $frontMatterParser = new FrontMatterParser($parser);
+
+        $defaultLocale = packageDefaultLocale($page);
+        $current_path_locale = current_path_locale($page);
+
         $posts = [];
         foreach ($files as $file) {
             $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
+            if ($current_path_locale !== $defaultLocale) {
+                if (!str_contains($file, $current_path_locale)) {
+                    continue;
+                }
+            } else {
+                $langs = $page->localization->keys()->all();
+                foreach ($langs as $lang) {
+                    if (str_contains($file, $lang)) {
+                        continue 2;
+                    }
+                }
+            }
             if (is_array($post['categories']) && in_array($category, $post['categories'])) {
                 $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
                 $posts[] = $post;
