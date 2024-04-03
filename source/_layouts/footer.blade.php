@@ -20,8 +20,7 @@
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
-                            We create digital experiences for brands and companies by
-                            using technology.
+                            {{ $page->t("We create digital experiences for brands and companies by using technology.",current_path_locale($page))}}
                         </p>
                         <ul class="ud-widget-socials">
                             <li>
@@ -40,35 +39,35 @@
 
                 <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
                     <div class="ud-widget">
-                        <h5 class="ud-widget-title">About Us</h5>
+                        <h5 class="ud-widget-title">{{ $page->t("About Us",current_path_locale($page))}}</h5>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="{{ $page->baseUrl }}">Home</a>
+                                <a href="{{ $page->baseUrl }}">{{ $page->t("Home",current_path_locale($page))}}</a>
                             </li>
                             <li>
-                                <a href="{{ $page->baseUrl }}#features">Features</a>
+                                <a href="{{ $page->baseUrl }}#features">{{ $page->t("Features",current_path_locale($page))}}</a>
                             </li>
                             <li>
-                                <a href="{{ $page->baseUrl }}#about">About</a>
+                                <a href="{{ $page->baseUrl }}#about">{{ $page->t("About",current_path_locale($page))}}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
                     <div class="ud-widget">
-                        <h5 class="ud-widget-title">Features</h5>
+                        <h5 class="ud-widget-title">{{ $page->t("Features",current_path_locale($page))}}</h5>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="javascript:void(0)">Free and Open-Source</a>
+                                <a href="javascript:void(0)">{{ $page->t("Free and Open-Source",current_path_locale($page))}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Multiple signers</a>
+                                <a href="javascript:void(0)">{{ $page->t("Multiple signers",current_path_locale($page))}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Hybrid signatures</a>
+                                <a href="javascript:void(0)">{{ $page->t("Hybrid signatures",current_path_locale($page))}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Qrcode validation</a>
+                                <a href="javascript:void(0)">{{ $page->t("Qrcode validation",current_path_locale($page))}}</a>
                             </li>
                         </ul>
                     </div>
@@ -82,13 +81,13 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="javascript:void(0)">Privacy policy</a>
+                            <a href="javascript:void(0)">{{ $page->t("Privacy policy",current_path_locale($page))}}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <p class="ud-footer-bottom-right">
-                        Developed by <a href="https://librecode.coop" rel="nofollow">LibreCode</a>
+                        {{ $page->t("Developed by",current_path_locale($page))}} <a href="https://librecode.coop" rel="nofollow">LibreCode</a>
                     </p>
                 </div>
             </div>

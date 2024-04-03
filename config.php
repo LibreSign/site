@@ -14,17 +14,57 @@ return [
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
+    't' => function ($page, string $text, ?string $current_locale = null): string {
+        // Save new texts
+        $current_locale = current_path_locale($page);
+        $translationFile = 'lang/' . $current_locale . '/main.json';
+        if (file_exists($translationFile)) {
+            if (empty($page->localization[$current_locale][$text])) {
+                $content = file_get_contents($translationFile);
+                $content = json_decode($content, true);
+                $content[$text] = $text;
+                ksort($content);
+                file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+            }
+        }
+        // Store translated texts to be possible update translation files
+        if (!file_exists('lang/to_translate.json')) {
+            file_put_contents('lang/to_translate.json', '[]');
+        }
+        $toTranslate = file_get_contents('lang/to_translate.json');
+        $toTranslate = json_decode($toTranslate, true);
+        $toTranslate[$text] = $text;
+        ksort($toTranslate);
+        file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+        return __($page, $text, $current_locale);
+    },
     'getFromCategory' => function($page, $category) {
         $files = glob('source/_posts/*');
         $parser = new Parser(
             markdownParser: new MarkdownParser()
         );
         $frontMatterParser = new FrontMatterParser($parser);
+
+        $defaultLocale = packageDefaultLocale($page);
+        $current_path_locale = current_path_locale($page);
+
         $posts = [];
         foreach ($files as $file) {
             $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
+            if ($current_path_locale !== $defaultLocale) {
+                if (!str_contains($file, $current_path_locale)) {
+                    continue;
+                }
+            } else {
+                $langs = $page->localization->keys()->all();
+                foreach ($langs as $lang) {
+                    if (str_contains($file, $lang)) {
+                        continue 2;
+                    }
+                }
+            }
             if (is_array($post['categories']) && in_array($category, $post['categories'])) {
-                $post['url'] = $page->baseUrl . 'posts/' . Str::slug($post['title']);
+                $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
                 $posts[] = $post;
             }
         }
@@ -100,7 +140,20 @@ return [
             ],
         ],
         'posts' => [
-            'path' => 'posts/{-title}',
+            'path' => function($page) {
+                $path = 'posts/' . Str::slug($page->title);
+                $langs = $page->localization->keys()->all();
+                $lang = array_reduce($langs, function($carry, $lang) use ($page) {
+                    if (str_starts_with($page->_meta->filename, $lang)) {
+                        return $lang;
+                    }
+                    return $carry;
+                }, '');
+                if ($lang) {
+                    return $lang . '/' . $path;
+                }
+                return $path;
+            },
             'author' => 'LibreCode',
             'sort' => '-date',
             'map' => function ($post) {
