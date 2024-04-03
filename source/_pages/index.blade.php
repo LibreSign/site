@@ -8,10 +8,10 @@
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
               <h1 class="ud-hero-title">
-                {{ __($page, "The first free and open source web document signer") }}
+                {{ $page->t( "The first free and open source web document signer") }}
               </h1>
               <p class="ud-hero-desc">
-                {{ __($page,"Sign and monitor your documents with practicality, security and legal validity.") }}
+                {{ $page->t("Sign and monitor your documents with practicality, security and legal validity.") }}
               </p>
               {{-- <ul class="ud-hero-buttons">
                 <li>
@@ -51,10 +51,10 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title">
-              <span>{{ __($page,"Features")}}</span>
-              <h2>{{ __($page,"Main Features")}}</h2>
+              <span>{{ $page->t("Features")}}</span>
+              <h2>{{ $page->t("Main Features")}}</h2>
               <p>
-                {{ __($page,"There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.") }}
+                {{ $page->t("There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.") }}
               </p>
             </div>
           </div>
@@ -68,9 +68,9 @@
                     <i class="lni lni-gift"></i>
                   </div>
                   <div class="ud-feature-content">
-                    <h3 class="ud-feature-title">{{ __($page,$item['title']) }}</h3></a>
-                    <p class="ud-feature-desc">{{ __($page,$item['description']) }}</p>
-                    <a class="ud-feature-link" href="{{ $item['url'] }}">{{ __($page,"Learn more")}}</a>
+                    <h3 class="ud-feature-title">{{ $item['title'] }}</h3></a>
+                    <p class="ud-feature-desc">{{ $item['description'] }}</p>
+                    <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
                   </div>
                 </a>
               </div>
@@ -87,14 +87,14 @@
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
-              <span class="tag">{{ __($page,"About Us")}}</span>
-              <h2>{{ __($page,"The perfect tool to manage the signature flow of your documents")}}</h2>
+              <span class="tag">{{ $page->t("About Us")}}</span>
+              <h2>{{ $page->t("The perfect tool to manage the signature flow of your documents")}}</h2>
               <p>
-                {{ __($page,"LibreSign is a web application for electronic signatures (e-Sign) developed by the LibreCode cooperative (Brazilian cooperative specialized in free software development). Its development began at the beginning of 2020, in the midst of the pandemic, when people and companies were migrating their physical documentation to digital, and then there was a need to develop a web solution that could offer the possibility of signing documents, contracts and proposals online with security and agility.")}}
+                {{ $page->t("LibreSign is a web application for electronic signatures (e-Sign) developed by the LibreCode cooperative (Brazilian cooperative specialized in free software development). Its development began at the beginning of 2020, in the midst of the pandemic, when people and companies were migrating their physical documentation to digital, and then there was a need to develop a web solution that could offer the possibility of signing documents, contracts and proposals online with security and agility.")}}
               </p>
 
               <p>
-                {{ __($page,"We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.") }}
+                {{ $page->t("We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.") }}
               </p>
               {{-- <a href="javascript:void(0)" class="ud-main-btn">Learn More</a> --}}
             </div>
@@ -113,32 +113,32 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title">{{ __($page,"Target Audience")}}</h3>
+              <h3 class="card-title">{{ $page->t("Target Audience")}}</h3>
             </div>
           </div>
         </div>
         <div class="row text-center">
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ __($page,"Public Sector")}}</h5>
+              <h5 class="mb-3 text-white">{{ $page->t("Public Sector")}}</h5>
               <p class="text-white">
-                {{ __($page,"Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
+                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
               </p>
             </div>
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ __($page,"Education")}}</h5>
+              <h5 class="mb-3 text-white">{{ $page->t("Education")}}</h5>
               <p class="text-white">
-                {{__($page,"LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
+                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
               </p>
             </div>
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ __($page,"Private Companies")}}</h5>
+              <h5 class="mb-3 text-white">{{ $page->t("Private Companies")}}</h5>
               <p class="text-white">
-                {{ __($page,"Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.") }}
+                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.") }}
               </p>
             </div>
           </div>
@@ -156,9 +156,9 @@
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
               <span>FAQ</span>
-              <h2>{{ __($page,"Any Questions? Answered")}}</h2>
+              <h2>{{ $page->t("Any Questions? Answered")}}</h2>
               <p>
-                {{ __($page,"LibreSign frequently asked questions")}}
+                {{ $page->t("LibreSign frequently asked questions")}}
               </p>
             </div>
           </div>
@@ -176,11 +176,11 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>{{ __($page,"Why LibreSign?")}}</span>
+                  <span>{{ $page->t("Why LibreSign?")}}</span>
                 </button>
                 <div id="collapseOne" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ __($page,"LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the LGPD - General Data Protection Law.")}}
+                    {{ $page->t("LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the LGPD - General Data Protection Law.")}}
                   </div>
                 </div>
               </div>
@@ -195,11 +195,11 @@
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
-                  <span>{{ __($page,"What is electronic signature capture?")}}</span>
+                  <span>{{ $page->t("What is electronic signature capture?")}}</span>
                 </button>
                 <div id="collapseTwo" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ __($page,"Electronic signature capture is a technology for signing electronic document files with a handwritten signature. The use of this technology allows for the elimination of the mailing, storage, filing, copying, and retrieval of paper documents. This will save your business time and money.")}}
+                    {{ $page->t("Electronic signature capture is a technology for signing electronic document files with a handwritten signature. The use of this technology allows for the elimination of the mailing, storage, filing, copying, and retrieval of paper documents. This will save your business time and money.")}}
                   </div>
                 </div>
               </div>
@@ -215,12 +215,12 @@
                     <i class="lni lni-chevron-down"></i>
                   </span>
                   <span>
-                    {{ __($page,"What are the key features of LibreCode signature pads?")}}
+                    {{ $page->t("What are the key features of LibreCode signature pads?")}}
                   </span>
                 </button>
                 <div id="collapseThree" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ __($page,"File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API")}}
+                    {{ $page->t("File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API")}}
                   </div>
                 </div>
               </div>
@@ -238,12 +238,12 @@
                     <i class="lni lni-chevron-down"></i>
                   </span>
                   <span>
-                    {{ __($page,"Is a digital signature the same as a digitized signature?")}}
+                    {{ $page->t("Is a digital signature the same as a digitized signature?")}}
                   </span>
                 </button>
                 <div id="collapseFour" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ __($page,"No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.")}}
+                    {{ $page->t("No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.")}}
                   </div>
                 </div>
               </div>
@@ -259,12 +259,12 @@
                     <i class="lni lni-chevron-down"></i>
                   </span>
                   <span>
-                    {{ __($page,"What is the name of the company that LibreSign was developed by?")}}
+                    {{ $page->t("What is the name of the company that LibreSign was developed by?")}}
                   </span>
                 </button>
                 <div id="collapseFive" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ __($page,"LibreCode, a Brazilian cooperative of free software developers.")}}
+                    {{ $page->t("LibreCode, a Brazilian cooperative of free software developers.")}}
                   </div>
                 </div>
               </div>
@@ -305,9 +305,9 @@
           <div class="col-xl-8 col-lg-7">
             <div class="ud-contact-content-wrapper">
               <div class="ud-contact-title">
-                <span>{{ __($page,"CONTACT US")}}</span>
+                <span>{{ $page->t("CONTACT US")}}</span>
                 <h2>
-                  {{ __($page,"Let’s talk about digitally signing your documents!")}}
+                  {{ $page->t("Let’s talk about digitally signing your documents!")}}
                 </h2>
               </div>
             </div>
@@ -321,12 +321,12 @@
               <form class="ud-contact-form" id="WebToLeadForm" 
                 name="WebToLeadForm">
                 <div class="ud-form-group">
-                  <label for="fullName">{{ __($page,"Full Name*")}}</label>
+                  <label for="fullName">{{ $page->t("Full Name*")}}</label>
                   <input
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="{{__($page,'Type your name')}}"
+                    placeholder="{{$page->t('Type your name')}}"
                     required=""
                   />
                 </div>
@@ -341,7 +341,7 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="phone_mobile">{{ __($page,'Phone')}}</label>
+                  <label for="phone_mobile">{{ $page->t('Phone')}}</label>
                   <input
                     type="text"
                     name="phone_mobile"
@@ -350,29 +350,29 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="description">{{ __($page,"Message*")}}</label>
+                  <label for="description">{{ $page->t("Message*")}}</label>
                   <textarea
                     name="description"
                     id="description"
                     rows="1"
-                    placeholder="{{__($page,'type your message here')}}"
+                    placeholder="{{$page->t('Type your message here')}}"
                     required=""
                   ></textarea>
                 </div>
                 <div class="ud-form-group">
-                  <label for="message">{{ __($page,"Type the code below*")}}</label>
+                  <label for="message">{{ $page->t("Type the code below*")}}</label>
                   <input type="text" name="codeImg" id="codeImg"
-                    placeholder="{{__($page,'Type the code below')}}" 
+                    placeholder="{{$page->t('Type the code below')}}"
                     required/>
                 </div>
                 <div class="ud-form-group">
-                  <img alt="{{ __($page,'Image with captcha text') }}"
+                  <img alt="{{ $page->t('Image with captcha text') }}"
                     class="me-3 mb-3" 
                     id="captcha"
                   />
                   <button id="btnReload" type="button">
                     <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" 
-                      alt="{{ __($page, 'Button to reload characters captcha') }}"
+                      alt="{{ $page->t( 'Button to reload characters captcha') }}"
                       width="30px"
                     />
                   </button>
@@ -430,10 +430,10 @@
 
                         if (this.readyState == 4) {
                           if (this.status == 200) {
-                            window.top.location.href = '{{ __($page, 'thank-you-contact') }}'
+                            window.top.location.href = '{{ $page->t( 'thank-you-contact') }}'
                           } else {
                             let message = document.getElementById('message')
-                            message.textContent = {{ __($page, 'Invalid Captcha') }}
+                            message.textContent = {{ $page->t( 'Invalid Captcha') }}
                             message.style.display = 'block'
                           }
                         }
@@ -445,7 +445,7 @@
 
                   <button id="audioIcon" type="button">
                     <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" 
-                      alt="{{ __($page, 'Button to play characters captcha') }}"
+                      alt="{{ $page->t( 'Button to play characters captcha') }}"
                       width="30px"
                     />
                   </button>
@@ -468,7 +468,7 @@
                 </div>
                 <div class="ud-form-group mb-0">
                   <button type="submit" class="ud-main-btn">
-                    {{ __($page,"Send Message")}}
+                    {{ $page->t("Send Message")}}
                   </button>
                 </div>                
               </form>

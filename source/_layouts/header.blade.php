@@ -15,25 +15,25 @@
             <div class="navbar-collapse">
               <ul id="nav" class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#home">{{__($page,"Home")}}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#home">{{$page->t("Home")}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#features">{{__($page,"Features")}}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#features">{{$page->t("Features")}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#about">{{ __($page,"About") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#about">{{ $page->t("About") }}</a>
                 </li>
                 {{-- <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#pricing">Pricing</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ __($page,"Target Audience") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target Audience") }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#contact">{{ __($page,"Contact") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#contact">{{ $page->t("Contact") }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl . 'posts') }}">{{ __($page,"Posts") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl . 'posts') }}">{{ $page->t("Posts") }}</a>
                 </li>
                 <li class="nav-item nav-item-has-children">
                   <a href="javascript:void(0)">Language</a>

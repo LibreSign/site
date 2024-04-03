@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-banner-content">
-              <h1>{{ __($page, "Blog Page") }}</h1>
+              <h1>{{ $page->t( "Blog Page") }}</h1>
             </div>
           </div>
         </div>
@@ -24,18 +24,18 @@
             <div class="ud-single-blog">
               <div class="ud-blog-image">
                 <a href="{{ $post->getUrl() }}">
-                  <img src="{{ $post->cover_image }}" alt="{{ __($page, $post->title) }}" />
+                  <img src="{{ $post->cover_image }}" alt="{{ $post->title }}" />
                 </a>
               </div>
               <div class="ud-blog-content">
                 <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
                 <h3 class="ud-blog-title">
                   <a href="{{ $post->getUrl() }}">
-                    {{ __($page, $post->title) }}
+                    {{ $post->title }}
                   </a>
                 </h3>
                 <p class="ud-blog-desc">
-                  {{ __($page, $post->description) }}
+                  {{ $post->description }}
                 </p>
               </div>
             </div>

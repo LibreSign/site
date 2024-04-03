@@ -22,13 +22,13 @@
             <div class="col-lg-12">
               <div class="ud-404-wrapper">
                 <div class="ud-404-content">
-                  <h2 class="ud-404-title">{{ __($page, "Thank you!") }}</h2>
+                  <h2 class="ud-404-title">{{ $page->t( "Thank you!") }}</h2>
                   <h5 class="ud-404-subtitle">
-                    {{ __($page, "Maybe you can find what you need here?") }}
+                    {{ $page->t( "Maybe you can find what you need here?") }}
                   </h5>
                   <ul class="ud-404-links">
                     <li>
-                      <a href="{{ $page->baseUrl }}">{{ __($page, "Home") }}</a>
+                      <a href="{{ $page->baseUrl }}">{{ $page->t( "Home") }}</a>
                     </li>
                   </ul>
                 </div>
