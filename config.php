@@ -100,7 +100,20 @@ return [
             ],
         ],
         'posts' => [
-            'path' => 'posts/{-title}',
+            'path' => function($page) {
+                $path = 'posts/' . Str::slug($page->title);
+                $langs = $page->localization->keys()->all();
+                $lang = array_reduce($langs, function($carry, $lang) use ($page) {
+                    if (str_starts_with($page->_meta->filename, $lang)) {
+                        return $lang;
+                    }
+                    return $carry;
+                }, '');
+                if ($lang) {
+                    return $lang . '/' . $path;
+                }
+                return $path;
+            },
             'author' => 'LibreCode',
             'sort' => '-date',
             'map' => function ($post) {
