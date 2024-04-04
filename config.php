@@ -45,7 +45,7 @@ return [
                 }
             }
             if (is_array($post['categories']) && in_array($category, $post['categories'])) {
-                $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug(__($page, $post['title'])));
                 $posts[] = $post;
             }
         }
