@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-banner-content">
-              <h1>{{ $page->title }}</h1>
+              <h1>{{ $page->t($page->title) }}</h1>
             </div>
           </div>
         </div>
