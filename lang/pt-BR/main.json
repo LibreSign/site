@@ -19,6 +19,7 @@
     "Image with captcha text": "Image with captcha text",
     "Invalid Captcha": "Captcha inválido",
     "Is a digital signature the same as a digitized signature?": "Uma assinatura digital é o mesmo que uma assinatura digitalizada?",
+    "Language": "Language",
     "Learn more": "Saiba mais",
     "Let’s talk about digitally signing your documents!": "Vamos falar sobre assinar digitalmente seus documentos!",
     "LibreCode, a Brazilian cooperative of free software developers.": "LibreCode, uma cooperativa brasileira de desenvolvedores de software livre.",
@@ -54,6 +55,5 @@
     "What are the key features of LibreCode signature pads?": "Quais são os principais recursos dos blocos de assinatura LibreCode?",
     "What is electronic signature capture?": "O que é captura de assinatura eletrônica?",
     "What is the name of the company that LibreSign was developed by?": "Qual é o nome da empresa pela qual o LibreSign foi desenvolvido?",
-    "Why LibreSign?": "Por que LibreSign?",
-    "thank-you-contact": "thank-you-contact"
+    "Why LibreSign?": "Por que LibreSign?"
 }

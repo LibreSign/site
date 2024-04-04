@@ -36,7 +36,7 @@
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl . 'posts') }}">{{ $page->t("Posts") }}</a>
                 </li>
                 <li class="nav-item nav-item-has-children">
-                  <a href="javascript:void(0)">Language</a>
+                  <a href="javascript:void(0)">{{ $page->t('Language') }}</a>
                   <ul class="ud-submenu">
                   @foreach(['' => 'English','pt-BR' => 'Português'] as $localeCode => $localeName)
                     <li class="ud-submenu-item">
