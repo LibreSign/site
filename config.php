@@ -15,27 +15,8 @@ return [
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
     't' => function ($page, string $text, ?string $current_locale = null): string {
-        // Save new texts
-        $current_locale = current_path_locale($page);
-        $translationFile = 'lang/' . $current_locale . '/main.json';
-        if (file_exists($translationFile)) {
-            if (empty($page->localization[$current_locale][$text])) {
-                $content = file_get_contents($translationFile);
-                $content = json_decode($content, true);
-                $content[$text] = $text;
-                ksort($content);
-                file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
-            }
-        }
-        // Store translated texts to be possible update translation files
-        if (!file_exists('lang/to_translate.json')) {
-            file_put_contents('lang/to_translate.json', '[]');
-        }
-        $toTranslate = file_get_contents('lang/to_translate.json');
-        $toTranslate = json_decode($toTranslate, true);
-        $toTranslate[$text] = $text;
-        ksort($toTranslate);
-        file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT) . PHP_EOL);
+        $current_locale = $current_locale ?? current_path_locale($page);
+        $page::updateTranslation($current_locale, $text);
         return __($page, $text, $current_locale);
     },
     'getFromCategory' => function($page, $category) {
@@ -141,7 +122,6 @@ return [
         ],
         'posts' => [
             'path' => function($page) {
-                $path = 'posts/' . Str::slug($page->title);
                 $langs = $page->localization->keys()->all();
                 $lang = array_reduce($langs, function($carry, $lang) use ($page) {
                     if (str_starts_with($page->_meta->filename, $lang)) {
@@ -150,9 +130,9 @@ return [
                     return $carry;
                 }, '');
                 if ($lang) {
-                    return $lang . '/' . $path;
+                    return $lang . '/posts/' . Str::slug(__($page, $page->title, $lang));
                 }
-                return $path;
+                return 'posts/' . Str::slug($page->title);
             },
             'author' => 'LibreCode',
             'sort' => '-date',
