@@ -431,7 +431,7 @@
                             window.top.location.href = '{{ $page->t( 'thank-you-contact') }}'
                           } else {
                             let message = document.getElementById('message')
-                            message.textContent = {{ $page->t( 'Invalid Captcha') }}
+                            message.textContent = '{{ $page->t( 'Invalid Captcha') }}'
                             message.style.display = 'block'
                           }
                         }
