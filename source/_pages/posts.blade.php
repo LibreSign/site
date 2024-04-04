@@ -27,18 +27,18 @@
             <div class="ud-single-blog">
               <div class="ud-blog-image">
                 <a href="{{ $post->getUrl() }}">
-                  <img src="{{ $post->cover_image }}" alt="{{ $post->title }}" />
+                  <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
                 </a>
               </div>
               <div class="ud-blog-content">
                 <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
                 <h3 class="ud-blog-title">
                   <a href="{{ $post->getUrl() }}">
-                    {{ $post->title }}
+                    {{ $page->t($post->title) }}
                   </a>
                 </h3>
                 <p class="ud-blog-desc">
-                  {{ $post->description }}
+                  {{ $page->t($post->description) }}
                 </p>
               </div>
             </div>
