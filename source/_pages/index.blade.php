@@ -67,8 +67,8 @@
                   <i class="lni lni-gift"></i>
                 </div>
                 <div class="ud-feature-content">
-                  <h3 class="ud-feature-title">{{ $item['title'] }}</h3>
-                  <p class="ud-feature-desc">{{ $item['description'] }}</p>
+                  <h3 class="ud-feature-title">{{ $page->t($item['title']) }}</h3>
+                  <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
                   <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
                 </div>
               </div>
