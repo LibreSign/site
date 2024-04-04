@@ -1085,11 +1085,13 @@ p {
 
 .ud-single-faq .ud-faq-body {
   padding: 0px 30px 40px 95px;
+  visibility: visible;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px), (max-width: 767px) {
   .ud-single-faq .ud-faq-body {
     padding: 0px 16px 20px 82px;
+    visibility: visible;
   }
 }
 

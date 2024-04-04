@@ -10,6 +10,7 @@ mix.jigsaw()
         require('postcss-import'),
         require('tailwindcss'),
     ])
+    .sass('source/assets/scss/ud-styles.scss', 'css')
     .options({
         processCssUrls: false,
     })
