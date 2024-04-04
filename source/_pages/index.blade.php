@@ -63,16 +63,14 @@
           @foreach ($page->getFromCategory('features') as $item)
             <div class="col-xl-3 col-lg-3 col-sm-6">
               <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
-                <a href="{{ $item['url'] }}">
-                  <div class="ud-feature-icon">
-                    <i class="lni lni-gift"></i>
-                  </div>
-                  <div class="ud-feature-content">
-                    <h3 class="ud-feature-title">{{ $item['title'] }}</h3></a>
-                    <p class="ud-feature-desc">{{ $item['description'] }}</p>
-                    <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
-                  </div>
-                </a>
+                <div class="ud-feature-icon">
+                  <i class="lni lni-gift"></i>
+                </div>
+                <div class="ud-feature-content">
+                  <h3 class="ud-feature-title">{{ $item['title'] }}</h3>
+                  <p class="ud-feature-desc">{{ $item['description'] }}</p>
+                  <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
+                </div>
               </div>
             </div>
           @endforeach
