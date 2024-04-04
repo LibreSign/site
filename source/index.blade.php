@@ -1,1 +1,1 @@
-@include('_pages.index');
+@include('_pages.index')
