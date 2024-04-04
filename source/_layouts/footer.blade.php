@@ -35,6 +35,9 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="ud-widget col-lg-5">
+                        <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
+                    </div>
                 </div>
 
                 <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
