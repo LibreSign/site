@@ -1,6 +1,9 @@
 <?php
 
+use App\Listeners\AddNewTranslations;
+use App\Listeners\PreparePostsCollectionForTranslation;
 use App\Listeners\RemoveDeletedTranslations;
+use App\Listeners\RemovePostsCollectionForTranslation;
 use TightenCo\Jigsaw\Jigsaw;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
@@ -20,5 +23,10 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
+    AddNewTranslations::class,
+    PreparePostsCollectionForTranslation::class,
 ]);
-$events->afterBuild([RemoveDeletedTranslations::class]);
+$events->afterBuild([
+    RemoveDeletedTranslations::class,
+    RemovePostsCollectionForTranslation::class,
+]);
