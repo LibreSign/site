@@ -8,7 +8,7 @@
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
               <h1 class="ud-hero-title">
-                {{ $page->t( "The first free and open source web document signer") }}
+                {{ $page->t( "The first open source web document signing system") }}
               </h1>
               <p class="ud-hero-desc">
                 {{ $page->t("Sign and monitor your documents with practicality, security and legal validity.") }}
