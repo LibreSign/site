@@ -33,6 +33,11 @@
                                     <i class="lni lni-linkedin-original"></i>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://t.me/LibreCodeCoop">
+                                    <i class="lni lni-telegram-original"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="ud-widget col-lg-5">
