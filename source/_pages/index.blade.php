@@ -27,7 +27,7 @@
               </ul> --}}
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen" />
+              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
               <img
                 src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                 alt="shape"
@@ -67,9 +67,9 @@
                   <i class="lni lni-gift"></i>
                 </div>
                 <div class="ud-feature-content">
-                  <h3 class="ud-feature-title">{{ $page->t($item['title']) }}</h3>
+                  <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
                   <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
-                  <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
+                  <a class="ud-feature-link ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
                 </div>
               </div>
             </div>
