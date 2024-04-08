@@ -24,7 +24,7 @@ class AddNewTranslations
             if (empty($localization[$currentLanguage][$text])) {
                 $content = file_get_contents($translationFile);
                 $content = json_decode($content, true);
-                $content[$text] = $text;
+                $content[$text] = '';
                 ksort($content);
                 file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
             }
@@ -35,7 +35,7 @@ class AddNewTranslations
         }
         $toTranslate = file_get_contents('lang/to_translate.json');
         $toTranslate = json_decode($toTranslate, true);
-        $toTranslate[$text] = $text;
+        $toTranslate[$text] = '';
         ksort($toTranslate);
         file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT) . PHP_EOL);
     }
