@@ -41,7 +41,9 @@
                         </ul>
                     </div>
                     <div class="ud-widget col-lg-5">
-                        <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
+                        <a href="https://www.somos.coop.br/">
+                            <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
+                        </a>
                     </div>
                 </div>
 
