@@ -8,10 +8,10 @@
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
               <h1 class="ud-hero-title">
-                {{ $page->t( "The first open source web document signing system") }}
+                {{ $page->t( "LibreSign: Leader in open source digital signing") }}
               </h1>
               <p class="ud-hero-desc">
-                {{ $page->t("Sign and monitor your documents with practicality, security and legal validity.") }}
+                {{ $page->t("Simplify your digital signatures and document management with the flexibility of open source with LibreSign. Start now!") }}
               </p>
               {{-- <ul class="ud-hero-buttons">
                 <li>
@@ -52,9 +52,9 @@
           <div class="col-lg-12">
             <div class="ud-section-title">
               <span>{{ $page->t("Features")}}</span>
-              <h2>{{ $page->t("Main Features")}}</h2>
+              <h2>{{ $page->t("Main features")}}</h2>
               <p>
-                {{ $page->t("There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.") }}
+                {{ $page->t("Beyond offering agility and security in digital signatures and document management, LibreSign features functionalities that adapt to the specific needs of your organization.") }}
               </p>
             </div>
           </div>
