@@ -111,14 +111,14 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target Audience")}}</h3>
+              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
             </div>
           </div>
         </div>
         <div class="row text-center">
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public Sector")}}</h5>
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
               <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
                 {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
@@ -136,7 +136,7 @@
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private Companies")}}</h5>
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
               <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
                 {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.") }}
