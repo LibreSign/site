@@ -91,7 +91,7 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="{{ $page->baseUrl }}privacy-policy">{{ $page->t("Privacy policy",current_path_locale($page))}}</a>
+                            <a href="{{ $page->baseUrl }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
                         </li>
                     </ul>
                 </div>
