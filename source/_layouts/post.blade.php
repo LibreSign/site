@@ -50,9 +50,9 @@
               <div style="text-align:justify;">
                 @yield('content')
               </div>
-
             </div>
           </div>
+
           <div class="col-lg-4">
             <div class="ud-blog-sidebar">
               <div class="ud-articles-box">
