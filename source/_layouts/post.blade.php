@@ -82,7 +82,6 @@
                           </a>
                         </h5>
                         <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
-                        {{-- <p class="ud-article-author">{{ $article->author }}</p> --}}
                       </div>
                     </li>
                   @endforeach
