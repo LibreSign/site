@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-12">
             <div>
-              @include('_posts.privacy-policy-term')
+              @include('_privacy-policy-term.privacy-policy-term')
             </div>
           </div>
         </div>
