@@ -1,1 +1,1 @@
-@include('_pages.posts');
+@include('_pages.posts')

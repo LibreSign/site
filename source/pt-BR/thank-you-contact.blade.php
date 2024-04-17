@@ -1,1 +1,1 @@
-@include('_pages.thank-you-contact');
+@include('_pages.thank-you-contact')
