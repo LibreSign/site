@@ -68,10 +68,12 @@
                     
                     <li>
                       <div class="ud-article-image">
-                        <img
-                          src="https://www.gravatar.com/avatar/{{ $article->gravatar }}"
-                          alt="{{ $article->author }}"
-                        />
+                        <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
+                          <img
+                            src="https://www.gravatar.com/avatar/{{ $article->gravatar }}"
+                            alt="{{ $article->author }}"
+                          />
+                        </a>
                       </div>
                       <div class="ud-article-content">
                         <h5 class="ud-article-title">
@@ -79,7 +81,8 @@
                             {{ $article->title }}
                           </a>
                         </h5>
-                        <p class="ud-article-author">{{ $article->author }}</p>
+                        <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
+                        {{-- <p class="ud-article-author">{{ $article->author }}</p> --}}
                       </div>
                     </li>
                   @endforeach
