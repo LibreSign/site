@@ -27,7 +27,7 @@
               </ul> --}}
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen" />
+              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
               <img
                 src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
                 alt="shape"
@@ -67,9 +67,11 @@
                   <i class="lni lni-gift"></i>
                 </div>
                 <div class="ud-feature-content">
-                  <h3 class="ud-feature-title">{{ $page->t($item['title']) }}</h3>
+                  <h3>
+                    <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
+                  </h3>
                   <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
-                  <a class="ud-feature-link" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
+                  <a class="ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
                 </div>
               </div>
             </div>
@@ -111,14 +113,15 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title">{{ $page->t("Target Audience")}}</h3>
+              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
             </div>
           </div>
         </div>
         <div class="row text-center">
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ $page->t("Public Sector")}}</h5>
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
                 {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
               </p>
@@ -126,7 +129,8 @@
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ $page->t("Education")}}</h5>
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
                 {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
               </p>
@@ -134,7 +138,8 @@
           </div>
           <div class="col-4 text-card">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white">{{ $page->t("Private Companies")}}</h5>
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
                 {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.") }}
               </p>

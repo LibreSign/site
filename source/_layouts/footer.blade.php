@@ -1,4 +1,4 @@
-<footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
+<footer class="ud-footer wow fadeInUp mt-5" data-wow-delay=".15s">
     <div class="shape shape-1">
         <img src="{{ $page->baseUrl }}assets/images/footer/shape-1.svg" alt="shape" />
     </div>
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
-                        <a href="index.html" class="ud-footer-logo">
+                        <a href="{{ locale_path($page, $page->baseUrl) }}#home" class="ud-footer-logo">
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
@@ -33,7 +33,17 @@
                                     <i class="lni lni-linkedin-original"></i>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://t.me/LibreCodeCoop">
+                                    <i class="lni lni-telegram-original"></i>
+                                </a>
+                            </li>
                         </ul>
+                    </div>
+                    <div class="ud-widget col-lg-5">
+                        <a href="https://www.somos.coop.br/">
+                            <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
+                        </a>
                     </div>
                 </div>
 
@@ -81,7 +91,7 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="javascript:void(0)">{{ $page->t("Privacy policy",current_path_locale($page))}}</a>
+                            <a href="{{ $page->baseUrl }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
                         </li>
                     </ul>
                 </div>

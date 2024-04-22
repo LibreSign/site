@@ -20,29 +20,29 @@
       <div class="container">
         <div class="row">
           @foreach ($posts as $post)
-          @if (current_path_locale($post) !== current_path_locale($page))
-            @continue
-          @endif
-          <div class="col-lg-4 col-md-6">
-            <div class="ud-single-blog">
-              <div class="ud-blog-image">
-                <a href="{{ $post->getUrl() }}">
-                  <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
-                </a>
-              </div>
-              <div class="ud-blog-content">
-                <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
-                <h3 class="ud-blog-title">
+            @if (current_path_locale($post) !== current_path_locale($page))
+              @continue
+            @endif
+            <div class="col-lg-4 col-md-6">
+              <div class="ud-single-blog">
+                <div class="ud-blog-image">
                   <a href="{{ $post->getUrl() }}">
-                    {{ $page->t($post->title) }}
+                    <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
                   </a>
-                </h3>
-                <p class="ud-blog-desc">
-                  {{ $page->t($post->description) }}
-                </p>
+                </div>
+                <div class="ud-blog-content">
+                  <span class="ud-blog-date">{{ date('F j, Y', $post->date) }}</span>
+                  <h3 class="ud-blog-title">
+                    <a href="{{ $post->getUrl() }}">
+                      {{ $page->t($post->title) }}
+                    </a>
+                  </h3>
+                  <p class="ud-blog-desc">
+                    {{ $page->t($post->description) }}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           @endforeach
         </div>
       </div>
