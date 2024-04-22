@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
-                        <a href="index.html" class="ud-footer-logo">
+                        <a href="{{ locale_path($page, $page->baseUrl) }}#home" class="ud-footer-logo">
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
