@@ -30,7 +30,7 @@ class AddNewTranslations
             } else {
                 $content = [];
             }
-            $content[$text] = '';
+            $content[$text] = $text;
             ksort($content);
             file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
         }
