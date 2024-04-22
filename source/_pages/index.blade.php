@@ -67,7 +67,9 @@
                   <i class="lni lni-gift"></i>
                 </div>
                 <div class="ud-feature-content">
-                  <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
+                  <h3>
+                    <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
+                  </h3>
                   <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
                   <a class="ud-feature-link ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
                 </div>
