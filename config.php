@@ -17,7 +17,10 @@ return [
     't' => function ($page, string $text, ?string $current_locale = null): string {
         $current_locale = $current_locale ?? current_path_locale($page);
         $page::updateTranslation($current_locale, $text);
-        return __($page, $text, $current_locale);
+        if ($translated = __($page, $text, $current_locale)) {
+            return $translated;
+        }
+        return $text;
     },
     'getFromCategory' => function($page, $category) {
         $files = glob('source/_posts/*');
