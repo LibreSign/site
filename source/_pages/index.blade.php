@@ -123,7 +123,7 @@
               <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
               <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
-                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (LGPD). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
+                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@
               <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
               <hr class="mb-3 border border-2 opacity-50 rounded-pill">
               <p class="text-white">
-                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (LGPD), providing an agile experience for your clients and collaborators.") }}
+                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
               </p>
             </div>
           </div>
@@ -183,7 +183,7 @@
                 </button>
                 <div id="collapseOne" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ $page->t("LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the LGPD - General Data Protection Law.")}}
+                    {{ $page->t("LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the GDPR - General Data Protection Law.")}}
                   </div>
                 </div>
               </div>
