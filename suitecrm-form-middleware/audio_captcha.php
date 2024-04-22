@@ -25,8 +25,9 @@ for($i=0;$i < strlen($_SESSION['code']); $i++){
     $text .= ' '.$_SESSION['code'][$i];
 }
 
+$language = $_GET['lang'] ?? $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 echo (new Espeak())
         ->setOption('stdout')
         ->setOption('s', '110')
-        ->setOption('v', (new Espeak())->getVoiceCode($_SERVER['HTTP_ACCEPT_LANGUAGE']))
+        ->setOption('v', (new Espeak())->getVoiceCode($language))
         ->execute($text);
