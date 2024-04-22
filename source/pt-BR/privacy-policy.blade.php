@@ -1,1 +1,0 @@
-@include('_pages.privacy-policy')

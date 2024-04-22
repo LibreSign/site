@@ -1,9 +1,6 @@
 ---
-title: privacy policy term
-author: Daiane Alves
-date: 2024-01-12
-description: privacy policy term
-categories: 
+extends: _layouts.post
+title: Privacy policy term
 ---
 # LibreSign Privacy Notice
 
