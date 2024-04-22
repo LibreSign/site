@@ -324,7 +324,7 @@
               <form class="ud-contact-form" id="WebToLeadForm" 
                 name="WebToLeadForm">
                 <div class="ud-form-group">
-                  <label for="fullName">{{ $page->t("Full Name*")}}</label>
+                  <label for="fullName">{{ $page->t("Full Name")}} *</label>
                   <input
                     type="text"
                     name="name"
@@ -353,7 +353,7 @@
                   />
                 </div>
                 <div class="ud-form-group">
-                  <label for="description">{{ $page->t("Message*")}}</label>
+                  <label for="description">{{ $page->t("Message")}} *</label>
                   <textarea
                     name="description"
                     id="description"
@@ -363,7 +363,7 @@
                   ></textarea>
                 </div>
                 <div class="ud-form-group">
-                  <label for="message">{{ $page->t("Type the code below*")}}</label>
+                  <label for="message">{{ $page->t("Type the code below")}} *</label>
                   <input type="text" name="codeImg" id="codeImg"
                     placeholder="{{$page->t('Type the code below')}}"
                     required/>
