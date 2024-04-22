@@ -19,15 +19,20 @@ class AddNewTranslations
     public function updateTranslation(string $currentLanguage, string $text) {
         // Save new texts
         $translationFile = 'lang/' . $currentLanguage . '/main.json';
-        if (file_exists($translationFile)) {
-            $localization = $this->jigsaw->getSiteData()->localization;
-            if (empty($localization[$currentLanguage][$text])) {
+        if (!is_dir('lang/' . $currentLanguage)) {
+            mkdir('lang/' . $currentLanguage);
+        }
+        $localization = $this->jigsaw->getSiteData()->localization;
+        if (empty($localization[$currentLanguage][$text])) {
+            if (file_exists($translationFile)) {
                 $content = file_get_contents($translationFile);
                 $content = json_decode($content, true);
-                $content[$text] = '';
-                ksort($content);
-                file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+            } else {
+                $content = [];
             }
+            $content[$text] = '';
+            ksort($content);
+            file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
         }
         // Store translated texts to be possible update translation files
         if (!file_exists('lang/to_translate.json')) {
