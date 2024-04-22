@@ -457,7 +457,7 @@
                     let audio_icon = document.getElementById('audioIcon')
 
                     function sound(){
-                      contentLoad('{{ $page->url_captcha_audio }}?'+ token).then(function (response) {
+                      contentLoad('{{ $page->url_captcha_audio }}?'+ token + '&lang={{ current_path_locale($page) }}').then(function (response) {
                           let audio = new Audio()
                           audio.src = window.URL.createObjectURL(response);
                           audio.play();
