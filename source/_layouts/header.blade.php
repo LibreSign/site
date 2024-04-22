@@ -27,7 +27,7 @@
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#pricing">Pricing</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target Audience") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target audience") }}</a>
                 </li>
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#contact">{{ $page->t("Contact") }}</a>
