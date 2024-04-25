@@ -4,7 +4,7 @@ use App\Listeners\AddNewTranslations;
 use App\Listeners\PreparePostsCollectionForTranslation;
 use App\Listeners\RemoveDeletedTranslations;
 use App\Listeners\RemovePostsCollectionForTranslation;
-use TightenCo\Jigsaw\Jigsaw;
+use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 /** @var \Illuminate\Container\Container $container */
@@ -24,6 +24,7 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 $events->beforeBuild([
     LoadLocalization::class,
     AddNewTranslations::class,
+    TranslateContent::class,
     PreparePostsCollectionForTranslation::class,
 ]);
 $events->afterBuild([

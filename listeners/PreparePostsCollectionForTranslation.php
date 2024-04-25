@@ -59,9 +59,8 @@ class PreparePostsCollectionForTranslation
                             continue;
                         }
                         $translatedName = $path . '/' . $lang . '-' . Str::slug($translatedName) . '.md';
-                        $destination = str_replace('/_posts/', "/_posts/{$lang}-", $translatedName);
                         // Create temporary file to be possible create the path of this file
-                        $destination = str_replace('/_posts/', "/_posts/{$lang}-", $collection->getPathName());
+                        $destination = str_replace('/_posts/', "/_posts/{$lang}_", $collection->getPathName());
                         $this->filesystem->copy(
                             $collection->getPathName(),
                             $destination
