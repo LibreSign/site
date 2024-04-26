@@ -10,7 +10,7 @@ use TightenCo\Jigsaw\Jigsaw;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
-class PreparePostsCollectionForTranslation
+class PrepareTranslationFiles
 {
     private Jigsaw $jigsaw;
     private Filesystem $filesystem;

@@ -1,9 +1,9 @@
 <?php
 
 use App\Listeners\AddNewTranslations;
-use App\Listeners\PreparePostsCollectionForTranslation;
+use App\Listeners\PrepareTranslationFiles;
 use App\Listeners\RemoveDeletedTranslations;
-use App\Listeners\RemovePostsCollectionForTranslation;
+use App\Listeners\RemoveTranslationFiles;
 use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
@@ -25,9 +25,9 @@ $events->beforeBuild([
     LoadLocalization::class,
     AddNewTranslations::class,
     TranslateContent::class,
-    PreparePostsCollectionForTranslation::class,
+    PrepareTranslationFiles::class,
 ]);
 $events->afterBuild([
     RemoveDeletedTranslations::class,
-    RemovePostsCollectionForTranslation::class,
+    RemoveTranslationFiles::class,
 ]);

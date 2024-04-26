@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use TightenCo\Jigsaw\File\Filesystem;
 use TightenCo\Jigsaw\Jigsaw;
 
-class RemovePostsCollectionForTranslation
+class RemoveTranslationFiles
 {
     private Jigsaw $jigsaw;
     private Filesystem $filesystem;
