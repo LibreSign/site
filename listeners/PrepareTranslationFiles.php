@@ -42,7 +42,7 @@ class PrepareTranslationFiles
             $items = collect($this->filesystem->files($path))
                 ->filter(function ($file) {
                     foreach ($this->langs as $lang) {
-                        if (Str::startsWith($file->getFilename(), $lang)) {
+                        if (Str::startsWith($file->getFilename(), $lang . '_')) {
                             return false;
                         }
                     }
@@ -65,7 +65,11 @@ class PrepareTranslationFiles
                         }
                         $translatedName = $path . '/' . $lang . '-' . Str::slug($translatedName) . '.md';
                         // Create temporary file to be possible create the path of this file
-                        $destination = str_replace('/_posts/', "/_posts/{$lang}_", $collection->getPathName());
+                        $destination = str_replace(
+                            $collection->getFilename(),
+                            $lang . '_' . $collection->getFilename(),
+                            $collection->getPathName()
+                        );
                         $this->filesystem->copy(
                             $collection->getPathName(),
                             $destination
