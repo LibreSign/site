@@ -49,15 +49,15 @@ class PrepareTranslationFiles
                     }
                     return true;
                 })
-                ->each(function ($file) use ($path, $self) {
-                    $self->copyOriginalFilesToTranslatePages($file, $path);
+                ->each(function ($file) use ($self) {
+                    $self->copyOriginalFilesToTranslatePages($file);
                 });
             // $items = $items->merge($this->items);
             $this->jigsaw->getCollection('page')->collections->posts = collect($this->items);
         });
     }
 
-    public function copyOriginalFilesToTranslatePages(SplFileInfo $file, string $path) {
+    public function copyOriginalFilesToTranslatePages(SplFileInfo $file) {
         $content = file_get_contents($file->getPathName());
         $post = $this->frontMatterParser->getFrontMatter($content);
         $body = $this->frontMatterParser->getContent($content);
@@ -72,11 +72,11 @@ class PrepareTranslationFiles
             if ($translatedName === $post['title']) {
                 continue;
             }
-            $translatedName = $path . '/' . $lang . '-' . Str::slug($translatedName) . '.md';
+            $translatedName = $lang . '_' . Str::slug($translatedName);
             // Create temporary file to be possible create the path of this file
             $destination = str_replace(
                 $file->getFilename(),
-                $lang . '_' . $file->getFilename(),
+                $this->translateFilename($file, $translatedName),
                 $file->getPathName()
             );
             $this->filesystem->copy(
@@ -85,5 +85,15 @@ class PrepareTranslationFiles
             );
             $this->items[] = new SplFileInfo($destination);
         }
+    }
+
+    private function translateFilename(SplFileInfo $file, $translated): string
+    {
+        if (in_array($file->getExtension(), ['markdown', 'md', 'mdown'])) {
+            return $translated . $file->getExtension();
+        }
+        $exploded = explode('.blade.', $file->getFilename());
+        $exploded[0] = $translated;
+        return implode('.blade.', $exploded);
     }
 }
