@@ -27,6 +27,11 @@ class PrepareTranslationFiles
             markdownParser: new MarkdownParser()
         );
         $this->frontMatterParser = new FrontMatterParser($parser);
+        $this->handleCollections();
+    }
+
+    private function handleCollections(): void
+    {
         $collections = $this->jigsaw->getSiteData()->collections;
         $collections->map(function ($collectionSettings, $collectionName) {
             if ($collectionName !== 'posts') {
