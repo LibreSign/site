@@ -39,6 +39,7 @@ class PrepareTranslationFiles
             }
             $source = $this->jigsaw->getSourcePath();
             $path = "{$source}/_posts";
+            $self = $this;
             $items = collect($this->filesystem->files($path))
                 ->filter(function ($file) {
                     foreach ($this->langs as $lang) {
@@ -48,37 +49,41 @@ class PrepareTranslationFiles
                     }
                     return true;
                 })
-                ->each(function ($collection) use ($path) {
-                    $content = file_get_contents($collection->getPathName());
-                    $post = $this->frontMatterParser->getFrontMatter($content);
-                    $body = $this->frontMatterParser->getContent($content);
-                    $page = $this->jigsaw->getCollection('page');
-                    $this->items[] = $collection;
-                    foreach ($this->langs as $lang) {
-                        $page->updateTranslation($lang, $post['title']);
-                        $page->updateTranslation($lang, $post['description']);
-                        $page->updateTranslation($lang, $body);
-                        $translatedName = __($page, $post['title'], $lang);
-                        // Don't create translated page if haven't translated title
-                        if ($translatedName === $post['title']) {
-                            continue;
-                        }
-                        $translatedName = $path . '/' . $lang . '-' . Str::slug($translatedName) . '.md';
-                        // Create temporary file to be possible create the path of this file
-                        $destination = str_replace(
-                            $collection->getFilename(),
-                            $lang . '_' . $collection->getFilename(),
-                            $collection->getPathName()
-                        );
-                        $this->filesystem->copy(
-                            $collection->getPathName(),
-                            $destination
-                        );
-                        $this->items[] = new SplFileInfo($destination);
-                    }
+                ->each(function ($file) use ($path, $self) {
+                    $self->copyOriginalFilesToTranslatePages($file, $path);
                 });
             // $items = $items->merge($this->items);
             $this->jigsaw->getCollection('page')->collections->posts = collect($this->items);
         });
+    }
+
+    public function copyOriginalFilesToTranslatePages(SplFileInfo $file, string $path) {
+        $content = file_get_contents($file->getPathName());
+        $post = $this->frontMatterParser->getFrontMatter($content);
+        $body = $this->frontMatterParser->getContent($content);
+        $page = $this->jigsaw->getCollection('page');
+        $this->items[] = $file;
+        foreach ($this->langs as $lang) {
+            $page->updateTranslation($lang, $post['title']);
+            $page->updateTranslation($lang, $post['description']);
+            $page->updateTranslation($lang, $body);
+            $translatedName = __($page, $post['title'], $lang);
+            // Don't create translated page if haven't translated title
+            if ($translatedName === $post['title']) {
+                continue;
+            }
+            $translatedName = $path . '/' . $lang . '-' . Str::slug($translatedName) . '.md';
+            // Create temporary file to be possible create the path of this file
+            $destination = str_replace(
+                $file->getFilename(),
+                $lang . '_' . $file->getFilename(),
+                $file->getPathName()
+            );
+            $this->filesystem->copy(
+                $file->getPathName(),
+                $destination
+            );
+            $this->items[] = new SplFileInfo($destination);
+        }
     }
 }
