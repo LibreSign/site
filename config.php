@@ -34,6 +34,9 @@ return [
 
         $posts = [];
         foreach ($files as $file) {
+            if (!is_file($file)) {
+                continue;
+            }
             $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
             if ($current_path_locale !== $defaultLocale) {
                 if (!str_contains($file, $current_path_locale)) {
