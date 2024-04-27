@@ -40,7 +40,7 @@ class PrepareTranslationFiles
             $source = $this->jigsaw->getSourcePath();
             $path = "{$source}/_posts";
             $self = $this;
-            $items = collect($this->filesystem->files($path))
+            collect($this->filesystem->files($path))
                 ->filter(function ($file) {
                     foreach ($this->langs as $lang) {
                         if (Str::startsWith($file->getFilename(), $lang . '_')) {
@@ -52,7 +52,6 @@ class PrepareTranslationFiles
                 ->each(function ($file) use ($self) {
                     $self->copyOriginalFilesToTranslatePages($file);
                 });
-            // $items = $items->merge($this->items);
             $this->jigsaw->getCollection('page')->collections->posts = collect($this->items);
         });
     }
