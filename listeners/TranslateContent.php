@@ -15,6 +15,15 @@ class TranslateContent
         $this->registerTranslateContentHandler();
         $prepareTranslationFiles = new PrepareTranslationFiles();
         $prepareTranslationFiles->handle($jigsaw);
+        $this->addAfterBuild();
+    }
+
+    private function addAfterBuild(): void
+    {
+        $this->jigsaw->app->events->afterBuild([
+            RemoveDeletedTranslations::class,
+            RemoveTranslationFiles::class,
+        ]);
     }
 
     private function getSiteBuilder(): SiteBuilder
