@@ -11,12 +11,12 @@ class AddNewTranslation
     {
         $this->jigsaw = $jigsaw;
         $self = $this;
-        $this->jigsaw->getSiteData()->macro('updateTranslation', function(string $currentLanguage, string $text) use ($self) {
-            $self->updateTranslation($currentLanguage, $text);
+        $this->jigsaw->getSiteData()->macro('addNewTranslation', function(string $currentLanguage, string $text) use ($self) {
+            $self->addNewTranslation($currentLanguage, $text);
         });
     }
 
-    public function updateTranslation(string $currentLanguage, string $text) {
+    public function addNewTranslation(string $currentLanguage, string $text) {
         // Save new texts
         $translationFile = 'lang/' . $currentLanguage . '/main.json';
         if (!is_dir('lang/' . $currentLanguage)) {

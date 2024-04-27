@@ -16,7 +16,7 @@ return [
     'description' => 'Electronic signature of digital documents',
     't' => function ($page, string $text, ?string $current_locale = null): string {
         $current_locale = $current_locale ?? current_path_locale($page);
-        $page::updateTranslation($current_locale, $text);
+        $page::addNewTranslation($current_locale, $text);
         if ($translated = __($page, $text, $current_locale)) {
             return $translated;
         }
