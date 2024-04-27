@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use TightenCo\Jigsaw\File\InputFile;
 use TightenCo\Jigsaw\PageData;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -33,7 +34,8 @@ class TranslateContentHandler
 
     public function shouldTranslate()
     {
-        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown']);
+        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown'])
+            || Str::contains($this->file->getFilename(), '.blade.');
     }
 
     public function handle($file, $pageData)
