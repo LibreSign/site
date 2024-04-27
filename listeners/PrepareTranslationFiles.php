@@ -122,18 +122,22 @@ class PrepareTranslationFiles
                     mkdir($path . $lang);
                 }
             }
-            // Create temporary file to be possible create the path of this file
-            $destination = str_replace(
-                $file->getFilename(),
-                $translatedName,
-                $file->getPathName()
-            );
-            $this->filesystem->copy(
-                $file->getPathName(),
-                $destination
-            );
-            $this->items[] = new SplFileInfo($destination);
+            $this->copyToTemporaryTranslatableFile($file, $translatedName);
         }
+    }
+
+    private function copyToTemporaryTranslatableFile(SplFileInfo $file, string $translatedName): void
+    {
+        $destinationPath = str_replace(
+            $file->getFilename(),
+            $translatedName,
+            $file->getPathName()
+        );
+        $this->filesystem->copy(
+            $file->getPathName(),
+            $destinationPath
+        );
+        $this->items[] = new SplFileInfo($destinationPath);
     }
 
     private function translateFilename(SplFileInfo $file, $translated): string
