@@ -8,6 +8,9 @@ class RemoveDeletedTranslations
 {
     public function handle(Jigsaw $jigsaw)
     {
+        if (!file_exists('lang/to_translate.json')) {
+            return;
+        }
         $toTranslate = file_get_contents('lang/to_translate.json');
         $toTranslate = json_decode($toTranslate, true);
         foreach(glob('lang/*') as $path) {
