@@ -1,7 +1,6 @@
 <?php
 
 use App\Listeners\AddNewTranslation;
-use App\Listeners\PrepareTranslationFiles;
 use App\Listeners\RemoveDeletedTranslations;
 use App\Listeners\RemoveTranslationFiles;
 use App\Listeners\TranslateContent;
@@ -25,7 +24,6 @@ $events->beforeBuild([
     LoadLocalization::class,
     AddNewTranslation::class,
     TranslateContent::class,
-    PrepareTranslationFiles::class,
 ]);
 $events->afterBuild([
     RemoveDeletedTranslations::class,

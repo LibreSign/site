@@ -13,6 +13,8 @@ class TranslateContent
     {
         $this->jigsaw = $jigsaw;
         $this->registerTranslateContentHandler();
+        $prepareTranslationFiles = new PrepareTranslationFiles();
+        $prepareTranslationFiles->handle($jigsaw);
     }
 
     private function getSiteBuilder(): SiteBuilder
