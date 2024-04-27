@@ -33,7 +33,7 @@
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#contact">{{ $page->t("Contact") }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl . 'posts') }}">{{ $page->t("Posts") }}</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}posts">{{ $page->t("Posts") }}</a>
                 </li>
                 <li class="nav-item nav-item-has-children">
                   <a href="javascript:void(0)">{{ $page->t('Language') }}</a>
