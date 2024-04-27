@@ -87,8 +87,8 @@ class TranslateContentHandler
                 continue;
             }
             $this->translated = str_replace(
-                $header[$headerName],
-                $this->pageData->page->t($header[$headerName], $this->languageCode),
+                $header[$headerName] . "\n",
+                $this->pageData->page->t($header[$headerName], $this->languageCode) . "\n",
                 $this->translated
             );
         }
