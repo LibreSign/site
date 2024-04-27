@@ -1,10 +1,10 @@
 <?php
 
-use App\Listeners\AddNewTranslations;
-use App\Listeners\PreparePostsCollectionForTranslation;
+use App\Listeners\AddNewTranslation;
+use App\Listeners\PrepareTranslationFiles;
 use App\Listeners\RemoveDeletedTranslations;
-use App\Listeners\RemovePostsCollectionForTranslation;
-use TightenCo\Jigsaw\Jigsaw;
+use App\Listeners\RemoveTranslationFiles;
+use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 /** @var \Illuminate\Container\Container $container */
@@ -23,10 +23,11 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
-    AddNewTranslations::class,
-    PreparePostsCollectionForTranslation::class,
+    AddNewTranslation::class,
+    TranslateContent::class,
+    PrepareTranslationFiles::class,
 ]);
 $events->afterBuild([
     RemoveDeletedTranslations::class,
-    RemovePostsCollectionForTranslation::class,
+    RemoveTranslationFiles::class,
 ]);

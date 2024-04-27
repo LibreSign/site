@@ -16,7 +16,7 @@ return [
     'description' => 'Electronic signature of digital documents',
     't' => function ($page, string $text, ?string $current_locale = null): string {
         $current_locale = $current_locale ?? current_path_locale($page);
-        $page::updateTranslation($current_locale, $text);
+        $page::addNewTranslation($current_locale, $text);
         if ($translated = __($page, $text, $current_locale)) {
             return $translated;
         }
@@ -34,6 +34,9 @@ return [
 
         $posts = [];
         foreach ($files as $file) {
+            if (!is_file($file)) {
+                continue;
+            }
             $post = $frontMatterParser->getFrontMatter(file_get_contents($file));
             if ($current_path_locale !== $defaultLocale) {
                 if (!str_contains($file, $current_path_locale)) {
@@ -127,7 +130,7 @@ return [
             'path' => function($page) {
                 $langs = $page->localization->keys()->all();
                 $lang = array_reduce($langs, function($carry, $lang) use ($page) {
-                    if (str_starts_with($page->_meta->filename, $lang)) {
+                    if (str_starts_with($page->_meta->filename, $lang . '_')) {
                         return $lang;
                     }
                     return $carry;
@@ -142,7 +145,7 @@ return [
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
-                $alternativePath = 'assets/images/posts/'. str_replace($postLang . '-', '', $post->getFilename());
+                $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
                 $items = $post->get('collections')->get('team')->get('items');
                 $author = array_filter($items->all(), function($author) use ($post){
                     return $author->name === $post->author;
