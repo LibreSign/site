@@ -27,8 +27,8 @@ class RemoveTranslationFiles
                     }
                 }
                 return false;
-            })->each(function ($collection) {
-                $this->filesystem->delete($collection->getPathName());
+            })->each(function ($file) {
+                $this->filesystem->delete($file->getPathName());
             });
     }
 }
