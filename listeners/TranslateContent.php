@@ -12,7 +12,7 @@ class TranslateContent
     public function handle(Jigsaw $jigsaw)
     {
         $this->jigsaw = $jigsaw;
-        $this->registerHandler();
+        $this->registerTranslateContentHandler();
     }
 
     private function getSiteBuilder(): SiteBuilder
@@ -23,7 +23,7 @@ class TranslateContent
         return $reflectionProperty->getValue($this->jigsaw);
     }
 
-    private function registerHandler(): void
+    private function registerTranslateContentHandler(): void
     {
         $siteBuilder = $this->getSiteBuilder();
 
