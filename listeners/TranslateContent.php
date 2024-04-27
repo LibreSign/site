@@ -13,9 +13,22 @@ class TranslateContent
     {
         $this->jigsaw = $jigsaw;
         $this->registerTranslateContentHandler();
+        $this->addTranslateFunction();
         $prepareTranslationFiles = new PrepareTranslationFiles();
         $prepareTranslationFiles->handle($jigsaw);
         $this->addAfterBuild();
+    }
+
+    private function addTranslateFunction(): void
+    {
+        $this->jigsaw->getSiteData()->page->set('t', function ($page, string $text, ?string $current_locale = null): string {
+            $current_locale = $current_locale ?? current_path_locale($page);
+            $page::addNewTranslation($current_locale, $text);
+            if ($translated = __($page, $text, $current_locale)) {
+                return $translated;
+            }
+            return $text;
+        });
     }
 
     private function addAfterBuild(): void
