@@ -22,7 +22,7 @@ class RemoveTranslationFiles
         $items = collect($this->filesystem->files($path))
             ->filter(function ($file) {
                 foreach ($this->langs as $lang) {
-                    if (Str::startsWith($file->getFilename(), $lang)) {
+                    if (Str::startsWith($file->getFilename(), $lang . '_')) {
                         return true;
                     }
                 }
