@@ -37,6 +37,8 @@ class TranslateContent
             $handlers,
         );
 
-        $reflectionProperty->setValue($siteBuilder, [$TranslateContentHandler]);
+        $reflectionProperty->setValue($siteBuilder, [
+            $TranslateContentHandler,
+        ]);
     }
 }
