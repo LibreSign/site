@@ -1,6 +1,6 @@
 <?php
 
-use App\Listeners\AddNewTranslations;
+use App\Listeners\AddNewTranslation;
 use App\Listeners\PrepareTranslationFiles;
 use App\Listeners\RemoveDeletedTranslations;
 use App\Listeners\RemoveTranslationFiles;
@@ -23,7 +23,7 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
-    AddNewTranslations::class,
+    AddNewTranslation::class,
     TranslateContent::class,
     PrepareTranslationFiles::class,
 ]);

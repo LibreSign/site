@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use TightenCo\Jigsaw\Jigsaw;
 
-class AddNewTranslations
+class AddNewTranslation
 {
     private Jigsaw $jigsaw;
     public function handle(Jigsaw $jigsaw)
