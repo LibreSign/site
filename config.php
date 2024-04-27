@@ -130,7 +130,7 @@ return [
             'path' => function($page) {
                 $langs = $page->localization->keys()->all();
                 $lang = array_reduce($langs, function($carry, $lang) use ($page) {
-                    if (str_starts_with($page->_meta->filename, $lang)) {
+                    if (str_starts_with($page->_meta->filename, $lang . '_')) {
                         return $lang;
                     }
                     return $carry;
