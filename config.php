@@ -145,7 +145,7 @@ return [
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
-                $alternativePath = 'assets/images/posts/'. str_replace($postLang . '-', '', $post->getFilename());
+                $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
                 $items = $post->get('collections')->get('team')->get('items');
                 $author = array_filter($items->all(), function($author) use ($post){
                     return $author->name === $post->author;
