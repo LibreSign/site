@@ -1,6 +1,5 @@
 <?php
 
-use App\Listeners\AddNewTranslation;
 use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
@@ -9,6 +8,5 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
-    AddNewTranslation::class,
     TranslateContent::class,
 ]);

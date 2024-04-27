@@ -14,9 +14,21 @@ class TranslateContent
         $this->jigsaw = $jigsaw;
         $this->registerTranslateContentHandler();
         $this->addTranslateFunction();
-        $prepareTranslationFiles = new PrepareTranslationFiles();
-        $prepareTranslationFiles->handle($jigsaw);
+        $this->addPrepareTranslationFilesHandler();
+        $this->addNewTranslationHandler();
         $this->addAfterBuild();
+    }
+
+    private function addPrepareTranslationFilesHandler(): void
+    {
+        $prepareTranslationFiles = new PrepareTranslationFiles();
+        $prepareTranslationFiles->handle($this->jigsaw);
+    }
+
+    private function addNewTranslationHandler(): void
+    {
+        $addNewTranslation = new AddNewTranslation();
+        $addNewTranslation->handle($this->jigsaw);
     }
 
     private function addTranslateFunction(): void
