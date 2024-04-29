@@ -24,6 +24,9 @@ class RemoveTranslationFiles
                     if ($folder->getFilename() === $lang) {
                         return true;
                     }
+                    if ($folder->getFilename() === '_tmp') {
+                        return true;
+                    }
                 }
                 return false;
             })->each(function ($folder) {
