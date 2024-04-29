@@ -113,11 +113,6 @@ class PrepareTranslationFiles
                 $translatedName = '_tmp/'.$lang . '_' . $translatedName;
             } else {
                 $translatedName = $lang . '/' . $translatedName;
-                $path = str_replace(
-                    $file->getFilename(),
-                    '',
-                    $file->getPathName()
-                );
             }
             $this->copyToTemporaryTranslatableFile($file, $translatedName);
         }
