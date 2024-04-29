@@ -110,7 +110,7 @@ class PrepareTranslationFiles
                 }
             }
             if ($isCollection) {
-                $translatedName = $lang . '_' . $translatedName;
+                $translatedName = '_tmp/'.$lang . '_' . $translatedName;
             } else {
                 $translatedName = $lang . '/' . $translatedName;
                 $path = str_replace(
@@ -118,9 +118,6 @@ class PrepareTranslationFiles
                     '',
                     $file->getPathName()
                 );
-                if (!is_dir($path . $lang)) {
-                    mkdir($path . $lang);
-                }
             }
             $this->copyToTemporaryTranslatableFile($file, $translatedName);
         }
@@ -132,6 +129,9 @@ class PrepareTranslationFiles
             $file->getFilename(),
             $translatedName,
             $file->getPathName()
+        );
+        $this->filesystem->ensureDirectoryExists(
+            pathinfo($destinationPath, PATHINFO_DIRNAME)
         );
         $this->filesystem->copy(
             $file->getPathName(),
