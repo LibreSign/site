@@ -14,6 +14,12 @@ return [
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
+    'locales' => [
+        '' => 'English',
+        'fr' => 'Français',
+        'nb-NO' => 'Norsk bokmål',
+        'pt-BR' => 'Português Brasil',
+    ],
     'getFromCategory' => function($page, $category) {
         $files = glob('source/_posts/*');
         $parser = new Parser(
