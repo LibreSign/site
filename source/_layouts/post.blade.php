@@ -65,7 +65,7 @@
             <div class="col-lg-4">
               <div class="ud-blog-sidebar">
                 <div class="ud-articles-box">
-                  <h3 class="ud-articles-box-title">Last Articles</h3>
+                  <h3 class="ud-articles-box-title">{{ $page->t("Last Articles") }}</h3>
                   <ul class="ud-articles-list">
                     @php $count = 0; @endphp
                     @foreach($posts as $article)
@@ -85,7 +85,7 @@
                         <div class="ud-article-content">
                           <h5 class="ud-article-title">
                             <a href="{{ $article->getUrl() }}">
-                              {{ $article->title }}
+                              {{ $page->t($article->title) }}
                             </a>
                           </h5>
                           <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
