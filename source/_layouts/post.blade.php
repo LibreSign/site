@@ -32,7 +32,7 @@
                       <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
                       alt="{{ $page->author }}" />
                       <span>
-                        By <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
+                        {{ $page->t("By") }} <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
                       </span>
                     </div>
 
