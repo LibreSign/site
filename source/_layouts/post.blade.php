@@ -65,7 +65,7 @@
             <div class="col-lg-4">
               <div class="ud-blog-sidebar">
                 <div class="ud-articles-box">
-                  <h3 class="ud-articles-box-title">{{ $page->t("Last Articles") }}</h3>
+                  <h3 class="ud-articles-box-title">{{ $page->t('Last Articles') }}</h3>
                   <ul class="ud-articles-list">
                     @php $count = 0; @endphp
                     @foreach($posts as $article)
