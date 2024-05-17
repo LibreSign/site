@@ -34,7 +34,7 @@
                   @php
                     Carbon\Carbon::setLocale(current_path_locale($page))
                   @endphp
-                  <span class="ud-blog-date">{{ date('F j, Y', Carbon\Carbon::createFromTimestamp($page->date)->isoFormat('ll')) }}</span>
+                  <span class="ud-blog-date">{{ Carbon\Carbon::createFromTimestamp($post->date)->isoFormat('ll') }}</span>
                   <h3 class="ud-blog-title">
                     <a href="{{ $post->getUrl() }}">
                       {{ $page->t($post->title) }}
