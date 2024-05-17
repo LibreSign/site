@@ -38,7 +38,10 @@
 
                     <div class="ud-blog-meta">
                       <p class="date">
-                        <i class="lni lni-calendar"></i> <span>{{ date('F j, Y', $page->date) }}</span>
+                        @php
+                          Carbon\Carbon::setLocale(current_path_locale($page))
+                        @endphp
+                        <i class="lni lni-calendar"></i> <span>{{ Carbon\Carbon::createFromTimestamp($page->date)->isoFormat('ll') }}</span>
                       </p>
                     </div>
                   </div>
