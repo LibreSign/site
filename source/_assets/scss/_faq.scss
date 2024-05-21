@@ -73,9 +73,11 @@
 
   .ud-faq-body {
     padding: 0px 30px 40px 95px;
+    visibility: visible;
 
     @media #{$lg, $xs} {
       padding: 0px 16px 20px 82px;
+      visibility: visible;
     }
   }
 }

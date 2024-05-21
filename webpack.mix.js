@@ -10,12 +10,14 @@ mix.jigsaw()
         require('postcss-import'),
         require('tailwindcss'),
     ])
-    .sass('source/assets/scss/ud-styles.scss', 'css')
+    .sass('source/_assets/scss/ud-styles.scss', 'css')
+    .sass('source/_assets/css/main.scss', 'css')
+    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/build/css/fonts')
     .options({
         processCssUrls: false,
     })
-    .version()
     .browserSync({
         server: 'build_local',
         files: ['build_*/**'],
-    });
+    })
+    .version();

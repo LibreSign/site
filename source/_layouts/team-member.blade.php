@@ -31,7 +31,7 @@
 
           <div class="row">
             <div class="col-lg-12">
-              <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-single-team wow fadeInUp" data-aos-delay=".1s">
                 <div class="ud-team-image-wrapper">  
                   <img
                     src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=170"

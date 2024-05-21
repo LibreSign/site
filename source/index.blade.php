@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
+            <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
               <h1 class="ud-hero-title">
                 {{ $page->t( "LibreSign: Leader in open source digital signing") }}
               </h1>
@@ -26,7 +26,7 @@
                 </li>
               </ul> --}}
             </div>
-            <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
+            <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
               <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
               <img
                 src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
@@ -62,7 +62,7 @@
         <div class="row">
           @foreach ($page->getFromCategory('features') as $item)
             <div class="col-xl-3 col-lg-3 col-sm-6">
-              <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-single-feature wow fadeInUp" data-aos-delay=".1s">
                 <div class="ud-feature-icon">
                   <i class="lni lni-gift"></i>
                 </div>
@@ -84,7 +84,7 @@
     <!-- ====== About Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+        <div class="ud-about-wrapper wow fadeInUp" data-aos-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
               <span class="tag">{{ $page->t("About Us")}}</span>
@@ -169,7 +169,7 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".1s">
+            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".1s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -188,7 +188,7 @@
                 </div>
               </div>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".15s">
+            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -207,7 +207,7 @@
                 </div>
               </div>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
+            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".2s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -230,7 +230,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".1s">
+            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".1s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -251,7 +251,7 @@
                 </div>
               </div>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".15s">
+            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -272,7 +272,7 @@
                 </div>
               </div>
             </div>
-            {{-- <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
+            {{-- <div class="ud-single-faq wow fadeInUp" data-aos-delay=".2s">
               <div class="accordion">
                 <button
                   class="ud-faq-btn collapsed"
@@ -319,7 +319,7 @@
             <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;" id="message"></div>
             <div
               class="ud-contact-form-wrapper wow fadeInUp"
-              data-wow-delay=".2s"
+              data-aos-delay=".2s"
             >
               <form class="ud-contact-form" id="WebToLeadForm"
                 name="WebToLeadForm">

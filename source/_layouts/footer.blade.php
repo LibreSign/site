@@ -1,4 +1,4 @@
-<footer class="ud-footer wow fadeInUp mt-5" data-wow-delay=".15s">
+<footer class="ud-footer wow fadeInUp mt-5" data-aos-delay=".15s">
     <div class="shape shape-1">
         <img src="{{ $page->baseUrl }}assets/images/footer/shape-1.svg" alt="shape" />
     </div>
@@ -122,9 +122,7 @@
     </script>
 
     <!-- ====== All Javascript Files ====== -->
-    <script src="{{ $page->baseUrl }}assets/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ $page->baseUrl }}assets/js/wow.min.js"></script>
-    <script src="{{ $page->baseUrl }}assets/js/main.js"></script>
+    <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
     <script>
         document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()

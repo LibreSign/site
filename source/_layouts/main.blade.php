@@ -35,13 +35,9 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/animate.css" />
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/lineicons.css" />
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/css/ud-styles.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/main.css" />
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/ud-styles.css" />
     <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-    <!-- Primary Meta Tags -->
-    <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
   </head>
   <body>
     @include('_layouts.header')
