@@ -60,7 +60,7 @@
             data-wow-delay=".15s"
           >
             <div class="ud-pricing-header">
-                <h4>{{ $page->t('Business') }}</h4>
+                <h4 class="my-5">{{ $page->t('Business') }}</h4>
               <h3 class="my-5">{{ $page->t("Contact us \r to more informations") }}</h3>
             </div>
             <div class="ud-pricing-body">
