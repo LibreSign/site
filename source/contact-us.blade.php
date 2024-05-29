@@ -1,25 +1,22 @@
 @extends('_layouts.main')
 
 @section('body')
-    <section class="ud-hero" id="home">
-        <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-            <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
-                <h1 class="ud-hero-title">
-                {{ $page->t('Contact') }}
-                </h1>
-                <p class="ud-hero-desc">
-                {{ $page->t('Fill in the fields below with your data') }}
-                </p>
-            </div>
-            </div>
+  <section class="ud-hero" id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
+            <h1 class="ud-hero-title">{{ $page->t('Contact') }}</h1>
+            <p class="ud-hero-desc">
+              {{ $page->t('Fill in the fields below with your data') }}
+            </p>
+          </div>
         </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ====== Contact Start ====== -->
-    <section id="contact" class="ud-contac mt-5">
+  @include('_partials/contact_form')
         <div class="container">
           <div class="row align-items-center">
             <div class="col-xl-8 col-lg-7">
@@ -113,7 +110,7 @@
                           http.send();
                         });
                       }
-  
+
                       function loadImage(token) {
                         contentLoad('{{ $page->url_captcha }}?'+ token).then(function (response) {
                           var myImage = document.getElementById('captcha');
@@ -125,26 +122,26 @@
                       }
                       let token = new Date().getTime()
                       loadImage(token)
-  
+
                       let reloadButton = document.getElementById("btnReload");
                       let captcha = document.getElementById("captcha");
                       let formCaptpcha = document.forms["WebToLeadForm"];
-  
+
                       reloadButton.onclick = function () {
                           token = new Date().getTime()
                           loadImage(token)
                       };
-  
+
                       formCaptpcha.addEventListener("submit", (e) =>  {
                         e.preventDefault();
-  
+
                         const http = new XMLHttpRequest()
                         http.withCredentials = true
                         http.open('POST', '{{ $page->form_url }}')
                         var form_data = new URLSearchParams(new FormData(formCaptpcha));
-  
+
                         http.onreadystatechange = function receiveResponse() {
-  
+
                           if (this.readyState == 4) {
                             if (this.status == 200) {
                               window.top.location.href = 'thank-you-contact'
@@ -155,21 +152,21 @@
                             }
                           }
                         };
-  
+
                         http.send(form_data);
                       });
                     </script>
-  
+
                     <button id="audioIcon" type="button">
                       <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg"
                         alt="{{ $page->t( 'Button to play characters captcha') }}"
                         width="30px"
                       />
                     </button>
-  
+
                     <script>
                       let audio_icon = document.getElementById('audioIcon')
-  
+
                       function sound(){
                         contentLoad('{{ $page->url_captcha_audio }}?'+ token + '&lang={{ current_path_locale($page) }}').then(function (response) {
                             let audio = new Audio()
@@ -179,7 +176,7 @@
                             console.log(Error);
                         });
                       }
-  
+
                       audio_icon.addEventListener("click", sound)
                     </script>
                   </div>
