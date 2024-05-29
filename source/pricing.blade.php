@@ -44,7 +44,7 @@
                 <li class="text-decoration-line-through">{{ $page->t('Online document creation and editing') }}</li>
                 <li class="text-decoration-line-through">{{ $page->t('Access control by user or sector level') }}</li>
                 <li class="text-decoration-line-through">{{ $page->t('Task control and management') }}</li>
-                <li class="text-decoration-line-through">{{ $page->t('Customization of visual identity (colors, logo and domain') }}</li>
+                <li class="text-decoration-line-through">{{ $page->t('Customization of visual identity (colors, logo and domain)') }}</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -61,7 +61,7 @@
           >
             <div class="ud-pricing-header">
                 <h4 class="my-5">{{ $page->t('Business') }}</h4>
-              <h3 class="my-5">{{ $page->t("Contact us \r to more informations") }}</h3>
+              <h3 class="my-5">{{ $page->t("Contact us to more informations") }}</h3>
             </div>
             <div class="ud-pricing-body">
               <ul>
