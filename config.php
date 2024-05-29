@@ -20,6 +20,50 @@ return [
         'nb-NO' => 'Norsk bokmål',
         'pt-BR' => 'Português Brasil',
     ],
+    'markdownListToHtml' => function($page, $list) {
+        $list = $page->t($list);
+        $list = explode("\n", $list);
+        $list = array_map(fn ($r) => ltrim($r, '- '), $list);
+        return '<li>' . implode('</li><li>', $list) . '</li>';
+    },
+    'prices' => [
+        'Basic' => [
+            'price' => '$ 600/mo',
+            'description' => 'STARTING FROM',
+            'isActive' => false,
+            'list' => <<<LIST
+                - until 5 users
+                - unlimited subscriptions
+                - 1 GB
+                - Technical support in configuring up to 2 documents
+                - Unlimited subscription with A1 digital certificate
+                - Cloud storage and electronic document management
+                - Triggering email reminders
+                - Online document creation and editing
+                - Access control by user or sector level
+                - Task control and management
+                - Customization of visual identity (colors, logo and domain)
+                LIST,
+        ],
+        'Business' => [
+            'price' => 'Contact us to more informations',
+            'description' => '',
+            'isActive' => true,
+            'list' => <<<LIST
+                - Unlimited user number
+                - unlimited subscriptions
+                - Starting from 1 GB
+                - Chat and Email
+                - Unlimited subscription with A1 digital certificate
+                - Cloud storage and electronic document management
+                - Triggering email reminders
+                - Online document creation and editing
+                - Access control by user or sector level
+                - Task control and management
+                - Customization of visual identity (colors, logo and domain)
+                LIST,
+        ],
+    ],
     'getFromCategory' => function($page, $category) {
         $files = glob('source/_posts/*');
         $parser = new Parser(
@@ -170,8 +214,8 @@ return [
                     } else {
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.png');
                     }
-                }  
-                
+                }
+
                 return $post;
             }
         ],

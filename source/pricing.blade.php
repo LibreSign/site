@@ -22,72 +22,91 @@
     <div class="container">
 
       <div class="row g-0 align-items-center justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-10">
-          <div
-            class="ud-single-pricing first-item wow fadeInUp"
-            data-wow-delay=".15s"
-          >
-            <div class="ud-pricing-header">
-              <h4>{{$page->t('Basic')}}</h4>
-              <h3>{{$page->t('STARTING FROM')}}</h3>
-              <h4>{{$page->t('$ 600/mo')}}</h4>
-            </div>
-            <div class="ud-pricing-body">
-              <ul>
-                <li>{{ $page->t('until 5 users') }}</li>
-                <li>{{ $page->t('unlimited subscriptions') }}</li>
-                <li>{{ $page->t('1 GB') }}</li>
-                <li>{{ $page->t('Technical support in configuring up to 2 documents') }}</li>
-                <li>{{ $page->t('Unlimited subscription with A1 digital certificate') }}</li>
-                <li>{{ $page->t('Cloud storage and electronic document management') }}</li>
-                <li>{{ $page->t('Triggering email reminders') }}</li>
-                <li class="text-decoration-line-through">{{ $page->t('Online document creation and editing') }}</li>
-                <li class="text-decoration-line-through">{{ $page->t('Access control by user or sector level') }}</li>
-                <li class="text-decoration-line-through">{{ $page->t('Task control and management') }}</li>
-                <li class="text-decoration-line-through">{{ $page->t('Customization of visual identity (colors, logo and domain)') }}</li>
-              </ul>
-            </div>
-            <div class="ud-pricing-footer">
-              <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
-                {{ $page->t('Under Consultation') }}
-              </a>
+        @foreach ($page->prices as $planName => $content)
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div
+              class="ud-single-pricing first-item{{ $content->isActive ? ' active' : ''}} wow fadeInUp"
+              data-wow-delay=".15s"
+            >
+              <div class="ud-pricing-header">
+                <h4 class="{{ $content->isActive ? ' ud-main-tag' : ''}}">{{$page->t($planName)}}</h4>
+                @if ($content->description)
+                  <h3>{{$page->t($content->description)}}</h3>
+                @endif
+                <h4>{{$page->t($content->price)}}</h4>
+              </div>
+              <div class="ud-pricing-body">
+                <ul>
+                  {!! $page->markdownListToHtml($content->list) !!}
+                </ul>
+              </div>
+              <div class="ud-pricing-footer">
+                <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
+                  {{ $page->t('Under Consultation') }}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10">
-          <div
-            class="ud-single-pricing active wow fadeInUp"
-            data-wow-delay=".15s"
-          >
-            <div class="ud-pricing-header">
-                <h4 class="ud-main-tag">{{ $page->t('Business') }}</h4>
-              <h3 class="my-5">{{ $page->t("Contact us to more informations") }}</h3>
-            </div>
-            <div class="ud-pricing-body">
-              <ul>
-                <li>{{ $page->t('Unlimited user number') }}</li>
-                <li>{{ $page->t('unlimited subscriptions') }}</li>
-                <li>{{ $page->t('Starting from 1 GB') }}</li>
-                <li>{{ $page->t('Chat and Email') }}</li>
-                <li>{{ $page->t('Unlimited subscription with A1 digital certificate') }}</li>
-                <li>{{ $page->t('Cloud storage and electronic document management') }}</li>
-                <li>{{ $page->t('Triggering email reminders') }}</li>
-                <li>{{ $page->t('Online document creation and editing') }}</li>
-                <li>{{ $page->t('Access control by user or sector level') }}</li>
-                <li>{{ $page->t('Task control and management') }}</li>
-                <li>{{ $page->t('Customization of visual identity (colors, logo and domain)') }}</li>
-              </ul>
-            </div>
-            <div class="ud-pricing-footer">
-              <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
-                {{ $page->t('Under Consultation') }}
-              </a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
+
+  <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+  <div class="table-responsive">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th style="width: 34%;"></th>
+          <th style="width: 22%;">Free</th>
+          <th style="width: 22%;">Pro</th>
+          <th style="width: 22%;">Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="text-start">Public</th>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Private</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr>
+          <th scope="row" class="text-start">Permissions</th>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Sharing</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Unlimited members</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Extra security</th>
+          <td></td>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <section id="testimonials" class="ud-testimonials">
     <div class="container">
