@@ -60,12 +60,12 @@
     border-radius: 0px 8px 0px 55px;
   }
 
-  .ud-popular-tag {
+  .ud-main-tag {
     display: inline-block;
     padding: 10px 25px;
+    color: var(--primary-color) !important;
     background: var(--white);
     border-radius: 30px;
-    color: var(--primary-color);
     margin-bottom: 20px;
     font-weight: 600;
   }
