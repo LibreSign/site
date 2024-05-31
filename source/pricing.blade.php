@@ -52,62 +52,6 @@
     </div>
   </section>
 
-  <h2 class="display-6 text-center mb-4">Compare plans</h2>
-
-  <div class="table-responsive">
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th style="width: 34%;"></th>
-          <th style="width: 22%;">Free</th>
-          <th style="width: 22%;">Pro</th>
-          <th style="width: 22%;">Enterprise</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row" class="text-start">Public</th>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row" class="text-start">Private</th>
-          <td></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-      </tbody>
-
-      <tbody>
-        <tr>
-          <th scope="row" class="text-start">Permissions</th>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row" class="text-start">Sharing</th>
-          <td></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row" class="text-start">Unlimited members</th>
-          <td></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row" class="text-start">Extra security</th>
-          <td></td>
-          <td></td>
-          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
   <section id="testimonials" class="ud-testimonials">
     <div class="container">
       <div class="row">
@@ -149,4 +93,52 @@
       </div>
     </div>
   </section>
+
+  <section id="pricing" class="ud-pricing">
+    <div class="container">
+
+      <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
+              <th style="width: 22%;">{{ $page->t('Business') }}</th>
+            </tr>
+          </thead>
+          @foreach($page->optionsServicesLibresign as $item => $optionList)
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">{{ $optionList->service }}</th>
+                @if($optionList->isBasic == true && $optionList->isBusiness == true)
+                  <td><i class="lni lni-checkmark"></i></td>
+                  <td><i class="lni lni-checkmark"></i></td>
+                @elseif($optionList->isBasic == true && $optionList->isBusiness == false)
+                  <td><i class="lni lni-checkmark"></i></td>
+                  <td><i class="lni lni-close"></i></td>
+                @elseif($optionList->isBasic == false && $optionList->isBusiness == true)
+                  <td><i class="lni lni-close"></i></td>
+                  <td><i class="lni lni-checkmark"></i></td>
+                @elseif($optionList->isBasic == false && $optionList->isBusiness == false)
+                  <td><i class="lni lni-close"></i></td>
+                  <td><i class="lni lni-close"></i></td>
+                @endif
+            </tr>
+          </tbody>
+          @endforeach
+        </table>
+      </div>
+
+      <div class="ud-pricing-footer text-center mt-5">
+        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
+          {{ $page->t('Under Consultation') }}
+        </a>
+      </div>
+
+    </div>
+  </section>
+
 @endsection

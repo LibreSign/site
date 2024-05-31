@@ -34,7 +34,7 @@ return [
             'list' => <<<LIST
                 - until 5 users
                 - unlimited subscriptions
-                - 1 GB
+                - Starting from 1 GB
                 - Technical support in configuring up to 2 documents
                 - Unlimited subscription with A1 digital certificate
                 - Cloud storage and electronic document management
@@ -62,6 +62,63 @@ return [
                 - Task control and management
                 - Customization of visual identity (colors, logo and domain)
                 LIST,
+        ],
+    ],
+    'optionsServicesLibresign' => [
+        [
+            'service' => 'Number of users',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Number of signatures',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Storage',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Technical support',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Unlimited subscription with A1 digital certificate',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Cloud storage and electronic document management',
+            'isBasic' => true,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Triggering email reminders',
+            'isBasic' => false,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Online document creation and editing',
+            'isBasic' => false,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Access control by user or sector level',
+            'isBasic' => false,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Task control and management',
+            'isBasic' => false,
+            'isBusiness' => true
+        ],
+        [
+            'service' => 'Customization of visual identity (colors, logo and domain',
+            'isBasic' => false,
+            'isBusiness' => true
         ],
     ],
     'getFromCategory' => function($page, $category) {
