@@ -97,7 +97,7 @@ return [
         ],
         [
             'service' => 'Triggering email reminders',
-            'isBasic' => false,
+            'isBasic' => true,
             'isBusiness' => true
         ],
         [

@@ -119,7 +119,7 @@
                 @elseif($optionList->isBasic == true && $optionList->isBusiness == false)
                   <td><i class="lni lni-checkmark"></i></td>
                   <td><i class="lni lni-close"></i></td>
-                @elseif($optionList->isBasic == false && $optionList->isBusiness == true)
+                @elseif($optionList->isBusiness == true)
                   <td><i class="lni lni-close"></i></td>
                   <td><i class="lni lni-checkmark"></i></td>
                 @elseif($optionList->isBasic == false && $optionList->isBusiness == false)
