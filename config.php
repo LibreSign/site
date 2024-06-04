@@ -20,6 +20,79 @@ return [
         'nb-NO' => 'Norsk bokmål',
         'pt-BR' => 'Português Brasil',
     ],
+    'markdownListToHtml' => function($page, $list) {
+        $list = $page->t($list);
+        $list = explode("\n", $list);
+        $list = array_map(fn ($r) => ltrim($r, '- '), $list);
+        return '<li>' . implode('</li><li>', $list) . '</li>';
+    },
+    'prices' => [
+        'Basic' => [
+            'price' => '$ 600/mo',
+            'description' => 'STARTING FROM',
+            'isActive' => false,
+            'list' => <<<LIST
+                - Until 5 accounts
+                - Storage until 1Gb
+                LIST,
+        ],
+        'Business' => [
+            'price' => 'Contact us to more informations',
+            'description' => '',
+            'isActive' => true,
+            'list' => <<<LIST
+                - Unlimited accounts
+                - Storage customized
+                LIST,
+        ],
+    ],
+    'optionsServicesLibresign' => [
+        [
+            'service' => 'Electronic document management',
+            'basic' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Number of signatures',
+            'basic' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Unlimited subscription with A1 digital certificate',
+            'basic' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Triggering email reminders',
+            'basic' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Technical support',
+            'basic' => false,
+            'business' => true,
+        ],
+        [
+            'service' => 'Online document creation and editing',
+            'basic' => false,
+            'business' => true,
+        ],
+        [
+            'service' => 'Access control by user or sector level',
+            'basic' => false,
+            'business' => true,
+        ],
+        [
+            'service' => 'Task control and management',
+            'basic' => false,
+            'business' => true,
+        ],
+        [
+            'service' => 'Customization of visual identity (colors, logo and domain',
+            'basic' => false,
+            'business' => true,
+        ],
+    ],
     'getFromCategory' => function($page, $category) {
         $files = glob('source/_posts/*');
         $parser = new Parser(
@@ -170,8 +243,8 @@ return [
                     } else {
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.png');
                     }
-                }  
-                
+                }
+
                 return $post;
             }
         ],
