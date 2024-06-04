@@ -33,13 +33,16 @@ class TranslateContent
 
     private function addTranslateFunction(): void
     {
-        $this->jigsaw->getSiteData()->page->set('t', function ($page, string $text, ?string $current_locale = null): string {
+        $this->jigsaw->getSiteData()->page->set('t', function ($page, string $text, array $parameters = [], ?string $current_locale = null): string {
             $current_locale = $current_locale ?? current_path_locale($page);
             $page::addNewTranslation($current_locale, $text);
             if ($translated = __($page, $text, $current_locale)) {
-                return $translated;
+                $text = $translated;
             }
-            return $text;
+            if (!\is_array($parameters)) {
+                $parameters = [$parameters];
+            }
+            return vsprintf($text, $parameters);
         });
     }
 

@@ -20,7 +20,7 @@
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
-                            {{ $page->t("We create digital experiences for brands and companies by using technology.",current_path_locale($page))}}
+                            {{ $page->t("We create digital experiences for brands and companies by using technology.")}}
                         </p>
                         <ul class="ud-widget-socials">
                             <li>
@@ -49,35 +49,35 @@
 
                 <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
                     <div class="ud-widget">
-                        <h5 class="ud-widget-title">{{ $page->t("About Us",current_path_locale($page))}}</h5>
+                        <h5 class="ud-widget-title">{{ $page->t("About Us")}}</h5>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="{{ $page->baseUrl }}">{{ $page->t("Home",current_path_locale($page))}}</a>
+                                <a href="{{ $page->baseUrl }}">{{ $page->t("Home")}}</a>
                             </li>
                             <li>
-                                <a href="{{ $page->baseUrl }}#features">{{ $page->t("Features",current_path_locale($page))}}</a>
+                                <a href="{{ $page->baseUrl }}#features">{{ $page->t("Features")}}</a>
                             </li>
                             <li>
-                                <a href="{{ $page->baseUrl }}#about">{{ $page->t("About",current_path_locale($page))}}</a>
+                                <a href="{{ $page->baseUrl }}#about">{{ $page->t("About")}}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
                     <div class="ud-widget">
-                        <h5 class="ud-widget-title">{{ $page->t("Features",current_path_locale($page))}}</h5>
+                        <h5 class="ud-widget-title">{{ $page->t("Features")}}</h5>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="javascript:void(0)">{{ $page->t("Free and Open-Source",current_path_locale($page))}}</a>
+                                <a href="javascript:void(0)">{{ $page->t("Free and Open-Source")}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">{{ $page->t("Multiple signers",current_path_locale($page))}}</a>
+                                <a href="javascript:void(0)">{{ $page->t("Multiple signers")}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">{{ $page->t("Hybrid signatures",current_path_locale($page))}}</a>
+                                <a href="javascript:void(0)">{{ $page->t("Hybrid signatures")}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">{{ $page->t("Qrcode validation",current_path_locale($page))}}</a>
+                                <a href="javascript:void(0)">{{ $page->t("Qrcode validation")}}</a>
                             </li>
                         </ul>
                     </div>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-4">
                     <p class="ud-footer-bottom-right">
-                        {{ $page->t("Developed by",current_path_locale($page))}} <a href="https://librecode.coop" rel="nofollow">LibreCode</a>
+                        {{ $page->t("Developed by")}} <a href="https://librecode.coop" rel="nofollow">LibreCode</a>
                     </p>
                 </div>
             </div>

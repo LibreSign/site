@@ -32,7 +32,10 @@
                       <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
                       alt="{{ $page->author }}" />
                       <span>
-                        By <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
+                        @php
+                            $author = '<a href="' . $page->baseUrl . 'team/' . \Illuminate\Support\Str::slug($page->author) . '"> ' . $page->author . '</a>';
+                        @endphp
+                        {!! $page->t("By %s", [$author]) !!}
                       </span>
                     </div>
 
