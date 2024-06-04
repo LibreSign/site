@@ -35,9 +35,8 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/main.css" />
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/ud-styles.css" />
     <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
+    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/ud-styles.css" />
   </head>
   <body>
     @include('_layouts.header')
