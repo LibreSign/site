@@ -40,7 +40,7 @@
   </head>
   <body>
     @include('_layouts.header')
-    @yield('body')    
-    @include('_layouts.footer')   
+    @yield('body')
+    @include('_layouts.footer')
   </body>
 </html>
