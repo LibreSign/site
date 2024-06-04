@@ -1,5 +1,5 @@
 /*===========================
-  COMMON css 
+  COMMON css
 ===========================*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
@@ -56,6 +56,8 @@ i,
 span,
 a {
   display: inline-block;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 audio,
@@ -74,7 +76,6 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  color: var(--heading-color);
   margin: 0px;
 }
 
@@ -109,7 +110,6 @@ p {
   font-weight: 400;
   line-height: 26px;
   color: var(--body-color);
-  margin: 0px;
 }
 
 .bg_cover {
