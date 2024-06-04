@@ -32,17 +32,8 @@ return [
             'description' => 'STARTING FROM',
             'isActive' => false,
             'list' => <<<LIST
-                - until 5 users
-                - unlimited subscriptions
-                - Starting from 1 GB
-                - Technical support in configuring up to 2 documents
-                - Unlimited subscription with A1 digital certificate
-                - Cloud storage and electronic document management
-                - Triggering email reminders
-                - Online document creation and editing
-                - Access control by user or sector level
-                - Task control and management
-                - Customization of visual identity (colors, logo and domain)
+                - Until 5 accounts
+                - Storage until 1Gb
                 LIST,
         ],
         'Business' => [
@@ -50,75 +41,56 @@ return [
             'description' => '',
             'isActive' => true,
             'list' => <<<LIST
-                - Unlimited user number
-                - unlimited subscriptions
-                - Starting from 1 GB
-                - Chat and Email
-                - Unlimited subscription with A1 digital certificate
-                - Cloud storage and electronic document management
-                - Triggering email reminders
-                - Online document creation and editing
-                - Access control by user or sector level
-                - Task control and management
-                - Customization of visual identity (colors, logo and domain)
+                - Unlimited accounts
+                - Storage customized
                 LIST,
         ],
     ],
     'optionsServicesLibresign' => [
         [
-            'service' => 'Number of users',
-            'isBasic' => true,
-            'isBusiness' => true
+            'service' => 'Electronic document management',
+            'basic' => true,
+            'business' => true,
         ],
         [
             'service' => 'Number of signatures',
-            'isBasic' => true,
-            'isBusiness' => true
-        ],
-        [
-            'service' => 'Storage',
-            'isBasic' => true,
-            'isBusiness' => true
-        ],
-        [
-            'service' => 'Technical support',
-            'isBasic' => true,
-            'isBusiness' => true
+            'basic' => true,
+            'business' => true,
         ],
         [
             'service' => 'Unlimited subscription with A1 digital certificate',
-            'isBasic' => true,
-            'isBusiness' => true
-        ],
-        [
-            'service' => 'Cloud storage and electronic document management',
-            'isBasic' => true,
-            'isBusiness' => true
+            'basic' => true,
+            'business' => true,
         ],
         [
             'service' => 'Triggering email reminders',
-            'isBasic' => true,
-            'isBusiness' => true
+            'basic' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Technical support',
+            'basic' => false,
+            'business' => true,
         ],
         [
             'service' => 'Online document creation and editing',
-            'isBasic' => false,
-            'isBusiness' => true
+            'basic' => false,
+            'business' => true,
         ],
         [
             'service' => 'Access control by user or sector level',
-            'isBasic' => false,
-            'isBusiness' => true
+            'basic' => false,
+            'business' => true,
         ],
         [
             'service' => 'Task control and management',
-            'isBasic' => false,
-            'isBusiness' => true
+            'basic' => false,
+            'business' => true,
         ],
         [
             'service' => 'Customization of visual identity (colors, logo and domain',
-            'isBasic' => false,
-            'isBusiness' => true
+            'basic' => false,
+            'business' => true,
         ],
     ],
     'getFromCategory' => function($page, $category) {

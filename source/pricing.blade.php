@@ -35,11 +35,13 @@
                 @endif
                 <h4>{{$page->t($content->price)}}</h4>
               </div>
-              <div class="ud-pricing-body">
-                <ul>
-                  {!! $page->markdownListToHtml($content->list) !!}
-                </ul>
-              </div>
+              @if ($content->list)
+                <div class="ud-pricing-body">
+                  <ul>
+                    {!! $page->markdownListToHtml($content->list) !!}
+                  </ul>
+                </div>
+              @endif
               <div class="ud-pricing-footer">
                 <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
                   {{ $page->t('Under Consultation') }}
@@ -49,6 +51,49 @@
           </div>
         @endforeach
       </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="ud-pricing">
+    <div class="container">
+
+      <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
+              <th style="width: 22%;">{{ $page->t('Business') }}</th>
+            </tr>
+          </thead>
+          @foreach($page->optionsServicesLibresign as $item => $optionList)
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">{{ $optionList->service }}</th>
+              @foreach (['basic', 'business'] as $item)
+                <td>
+                  @if (is_bool($optionList->$item))
+                    <i class="lni lni-{{ $optionList->$item == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
+                  @else
+                    {{ $optionList->$item }}
+                  @endif
+                </td>
+              @endforeach
+            </tr>
+          </tbody>
+          @endforeach
+        </table>
+      </div>
+
+      <div class="ud-pricing-footer text-center mt-5">
+        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
+          {{ $page->t('Under Consultation') }}
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -93,52 +138,4 @@
       </div>
     </div>
   </section>
-
-  <section id="pricing" class="ud-pricing">
-    <div class="container">
-
-      <h2 class="display-6 text-center mb-4">Compare plans</h2>
-
-      <div class="table-responsive">
-        <table class="table text-center">
-
-          <thead>
-            <tr>
-              <th style="width: 34%;"></th>
-              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
-              <th style="width: 22%;">{{ $page->t('Business') }}</th>
-            </tr>
-          </thead>
-          @foreach($page->optionsServicesLibresign as $item => $optionList)
-          <tbody>
-            <tr>
-              <th scope="row" class="text-start">{{ $optionList->service }}</th>
-                @if($optionList->isBasic == true && $optionList->isBusiness == true)
-                  <td><i class="lni lni-checkmark"></i></td>
-                  <td><i class="lni lni-checkmark"></i></td>
-                @elseif($optionList->isBasic == true && $optionList->isBusiness == false)
-                  <td><i class="lni lni-checkmark"></i></td>
-                  <td><i class="lni lni-close"></i></td>
-                @elseif($optionList->isBusiness == true)
-                  <td><i class="lni lni-close"></i></td>
-                  <td><i class="lni lni-checkmark"></i></td>
-                @elseif($optionList->isBasic == false && $optionList->isBusiness == false)
-                  <td><i class="lni lni-close"></i></td>
-                  <td><i class="lni lni-close"></i></td>
-                @endif
-            </tr>
-          </tbody>
-          @endforeach
-        </table>
-      </div>
-
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
-          {{ $page->t('Under Consultation') }}
-        </a>
-      </div>
-
-    </div>
-  </section>
-
 @endsection
