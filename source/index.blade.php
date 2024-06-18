@@ -127,6 +127,60 @@
       </div>
     </section>
 
+    <!-- ====== Start Importance of digital signature ====== -->
+    <section id="features" class="ud-features">
+      <div class="container">
+        <h3 class="mb-5">{{ $page->t('Did you know that digital signature is the safest and most efficient way to validate electronic documents?') }}</h3>
+
+        <div class="row justify-content-md-center">
+          <div class="col-lg-6">
+              <p>{{ $page->t('It uses digital certificates issued by a Certificate Authority to guarantee the identity of the signer and the integrity of the document.Simple physical or electronic signatures can be forged, putting the validity of your documents at risk. Digital signatures, regulated by Provisional Measure No. 2,200-2/2001, guarantee the necessary security.') }}</p>
+
+              <h4 class="mb-3">{{ $page->t('Transform your processes with more security and efficiency') }}</h4>
+              <div class="row">
+                <div class="col-lg-6 mb-2">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-4">
+            <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- ====== End Importance of digital signature ====== -->
+
     <!-- ====== FAQ Start ====== -->
     <section id="faq" class="ud-faq">
       <div class="shape">
