@@ -1,20 +1,55 @@
 ---
 extends: _layouts.post
-title: Document validation by QR Code
+title: Validity of Legal Signatures in Brazil and Around the World
 author: Daiane Alves
-date: 2024-01-22
-description: LibreSign revolutionizes document authenticity verification with QR Code, ensuring security, efficiency, and practicality. Its instantaneous validation, agility, transparency, and compatibility with various platforms make it perfect for sustainable businesses. Try this solution now!
+date: 2024-06-18
+description: Discover the validity of digital signatures in Brazil and around the world. This article explores the legal basis of electronic signatures, citing specific laws and highlighting the benefits of this technology for businesses and institutions. Understand how digitalization is transforming administrative and legal processes, providing more security, efficiency, and sustainability.
+
+Want to learn more about implementing digital signatures in your company? Read on and transform document management in your organization today!
 categories: [features]
 ---
 
-In the digital era, ensuring security and efficiency in document validation is crucial. LibreSign, a leader in digital signature innovation, redefines the experience by introducing document validation through QR Code. This article will discuss how this functionality not only reinforces security but also provides greater agility in verifying digitally signed documents.
+### Validity of Legal Signatures in Brazil and Around the World
 
-The validation of digital signature authenticity is quick and easy with the scanning of the code on the document. This eliminates time-consuming and complicated processes, providing a straightforward verification experience.
+With the increasing digitalization of administrative and legal processes, the validity of electronic signatures has become a topic of great relevance. Digital signatures offer security, agility, and convenience, but it is essential to understand their legal basis both in Brazil and in other countries. In this article, we explore the legal validity of digital signatures in a global context.
 
-Using QR Code for validation not only adds a layer of security but also promotes transparency by providing instant access to essential details such as date, time, and signer identification. This transparency builds trust among the involved parties and makes the process clearer and more effective.
+#### Legal Signatures in Brazil
 
-Moreover, LibreSign is compatible with various platforms, making document validation even more accessible. With the use of QR Code, it's possible to validate documents anywhere, whether on mobile devices or computers.
+In Brazil, the validity of electronic signatures is provided for by [Provisional Measure No. 2,200-2/2001](https://www.planalto.gov.br/ccivil_03/MPV/Antigas_2001/2200-2.htm), which established the Brazilian Public Key Infrastructure (ICP-Brasil). This measure establishes that digitally signed documents using certificates issued by accredited authorities have the same legal validity as physically signed documents.
 
-Another advantage of QR Code usage in LibreSign is the reduction of paper consumption. Since validation is done digitally, there's no need to print documents to validate signatures, contributing to environmental preservation.
+**Article 10 of MP 2,200-2/2001:**
+"Electronic documents referred to in this Provisional Measure, whose signatures were made using a digital certificate issued by an accredited Certification Authority, are considered public or private documents."
 
-With all these advantages, QR Code validation in LibreSign becomes an efficient solution for companies and individuals seeking a secure and swift way to validate digital documents. Don't waste time on bureaucratic processes; try LibreSign now to explore new paths in document verification.
+Additionally, [Law No. 14,063/2020](https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2020/Lei/L14063.htm) brought important updates on the use of electronic signatures in the public sector, classifying them into three types: simple, advanced, and qualified, with the latter having the highest level of security and legal validity.
+
+#### Legal Signatures Around the World
+
+The regulation of electronic signatures varies from country to country, but there is a global movement towards their acceptance and validation.
+
+##### European Union
+
+In the European Union, the [eIDAS Regulation](https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX%3A32014R0910) (Electronic Identification, Authentication and Trust Services), in effect since 2016, standardizes the use of electronic signatures among Member States. The eIDAS recognizes three types of electronic signatures: simple, advanced, and qualified, with the latter being the only one that has legal equivalence to handwritten signatures.
+
+**Article 25 of the eIDAS Regulation:**
+"A qualified electronic signature shall have the equivalent legal effect of a handwritten signature."
+
+##### United States
+
+In the United States, the Electronic Signatures in Global and National Commerce Act ([E-SIGN Act](https://www.congress.gov/bill/106th-congress/house-bill/1714)) and the Uniform Electronic Transactions Act (UETA) establish that electronic signatures are legally valid and enforceable, provided that all parties involved in the contract opt to use electronic means.
+
+**Section 101(a) of the E-SIGN Act:**
+"A signature, contract, or other record relating to such transaction may not be denied legal effect, validity, or enforceability solely because it is in electronic form."
+
+#### Benefits of Digital Signatures
+
+The adoption of digital signatures offers several benefits for businesses and institutions:
+
+1. **Security:** They use encryption to ensure the authenticity and integrity of documents.
+2. **Efficiency:** They reduce the time required to sign and process documents.
+3. **Sustainability:** They decrease paper usage, contributing to more sustainable practices.
+
+#### Final Considerations
+
+Digital signatures represent a significant advancement in the way documents are managed and authenticated. Their legal validity is supported by specific laws both in Brazil and in other countries, providing security and efficiency for businesses and individuals.
+
+For more information on the validity of digital signatures in Brazil, visit [ICP-Brasil](http://www.iti.gov.br/icp-brasil) and [Law No. 14,063/2020](https://www.in.gov.br/en/web/dou/-/lei-n-14.063-de-23-de-setembro-de-2020-279571035).
