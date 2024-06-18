@@ -1,8 +1,29 @@
 @extends('_layouts.main')
 
 @section('body')
+
+<section class="ud-hero" id="home">
+  <div class="container text-center">
+    <div class="row pb-5">
+      <div class="col-lg-6 mb-3">
+        <h3 class="text-light">
+          {{ $page->t( 'Simplify your digital signatures and document management safely and efficiently') }}
+        </h3>
+
+        <p class="text-light mt-3 pe-5 ps-5">{{ $page->t('Easily create, send, sign and track all your contracts in one place') }}</p>
+
+        <button type="button" class="btn btn-light mt-4 p-3">{{ $page->t('Talk to sales') }}</button>
+
+      </div>
+      <div class="col-lg-4">
+        <img src="{{ $page->baseUrl }}assets/images/plataforms.png" alt="print_main_screen" />
+      </div>
+    </div>
+
+  </div>
+</section>
   <!-- ====== Hero Start ====== -->
-    <section class="ud-hero" id="home">
+    {{-- <section class="ud-hero" id="home">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -12,7 +33,7 @@
               </h1>
               <p class="ud-hero-desc">
                 {{ $page->t("Simplify your digital signatures and document management with the flexibility of open source with LibreSign. Start now!") }}
-              </p>
+              </p> --}}
               {{-- <ul class="ud-hero-buttons">
                 <li>
                   <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
@@ -25,7 +46,7 @@
                   </a>
                 </li>
               </ul> --}}
-            </div>
+            {{-- </div>
             <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
               <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
               <img
@@ -42,7 +63,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- ====== Hero End ====== -->
 
     <!-- ====== Features Start ====== -->
