@@ -1,5 +1,5 @@
 {
-    "$ 600/mo": "R$ 600/mês",
+    "$ 600\/mo": "R$ 600\/mês",
     "- Unlimited accounts\n- Storage customized": "- Contas ilimitadas\n- Armazenamento customizado",
     "- Until 5 accounts\n- Storage until 1Gb": "- Até 5 contas\n- Armazenamento até 1Gb",
     "About": "Sobre",
@@ -75,6 +75,7 @@
     "Type your message here": "Digite sua mensagem aqui",
     "Type your name": "Digite seu nome",
     "Under Consultation": "Sob consulta",
+    "Validity of Legal Signatures in Brazil and Around the World": "Validity of Legal Signatures in Brazil and Around the World",
     "We create digital experiences for brands and companies by using technology.": "Criamos experiências digitais para marcas e empresas usando tecnologia.",
     "We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.": "Oferecemos planos flexíveis para atender às suas necessidades de armazenamento digital seguro. Alugue mais espaço facilmente e garanta que todos os seus documentos importantes estejam sempre acessíveis e protegidos em nossa nuvem de alta segurança.",
     "We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.": "Usamos tecnologia PKI para gerar chaves de certificados digitais. O LibreSign é open source (e sempre será), o que permite que seja auditado e customizado para diversas necessidades e integrado a qualquer sistema e, claro, mantido pela comunidade.",
