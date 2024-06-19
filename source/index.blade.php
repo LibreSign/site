@@ -12,7 +12,7 @@
 
           <p class="text-light mt-3 pe-5 ps-5">{{ $page->t('Easily create, send, sign and track all your contracts in one place') }}</p>
 
-          <button type="button" class="btn btn-light mt-4 p-3">{{ $page->t('Talk to sales') }}</button>
+          <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="btn btn-light mt-4 p-3">{{ $page->t('Talk to sales') }}</a>
 
         </div>
         <div class="col-lg-4">
