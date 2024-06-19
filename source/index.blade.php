@@ -165,7 +165,12 @@
               </div>
           </div>
           <div class="col-lg-4">
-            <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
+            <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt="print_main_screen"/>
+          </div>
+          <div class="col-lg-12 d-flex justify-content-center mt-5">
+            <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
+              {{ $page->t('Talk to sales') }}
+            </a>
           </div>
         </div>
       </div>
