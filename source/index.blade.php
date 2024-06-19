@@ -133,40 +133,32 @@
         <h3 class="mb-5">{{ $page->t('Did you know that digital signature is the safest and most efficient way to validate electronic documents?') }}</h3>
 
         <div class="row justify-content-md-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6 mb-4">
               <p>{{ $page->t('It uses digital certificates issued by a Certificate Authority to guarantee the identity of the signer and the integrity of the document.Simple physical or electronic signatures can be forged, putting the validity of your documents at risk. Digital signatures, regulated by Provisional Measure No. 2,200-2/2001, guarantee the necessary security.') }}</p>
 
-              <h4 class="mb-3">{{ $page->t('Transform your processes with more security and efficiency') }}</h4>
-              <div class="row">
-                <div class="col-lg-6 mb-2">
+              <h4 class="mb-3 mt-4">{{ $page->t('Transform your processes with more security and efficiency') }}</h4>
+              <div class="row justify-content-md-center">
+                <div class="col-lg-6 mb-2 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="me-2 card-title"><i class="lni lni-protection"></i> {{ $page->t('Security') }}</h5>
+                      <p class="card-text">{{ $page->t('Encrypted signatures that guarantee the integrity of your documents.') }}</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-6 mb-2">
+                <div class="col-lg-6 mb-2 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title"><i class="lni lni-dashboard"></i> {{ $page->t('Speed') }}</h5>
+                      <p class="card-text">{{ $page->t('Sign and send documents in seconds, from anywhere in the world.') }}</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-6 mb-2">
+                <div class="col-lg-6 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title"><i class="lni lni-sprout"></i> {{ $page->t('Sustainability') }}</h5>
+                      <p class="card-text">{{ $page->t('Contribute to a greener world by eliminating the use of paper.') }}</p>
                     </div>
                   </div>
                 </div>
