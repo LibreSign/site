@@ -24,7 +24,7 @@
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#about">{{ $page->t("About") }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}pricing">Pricing</a>
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}pricing">{{ $page->t('Pricing')}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target audience") }}</a>

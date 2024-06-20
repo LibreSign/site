@@ -57,7 +57,7 @@
   <section id="pricing" class="ud-pricing">
     <div class="container">
 
-      <h2 class="display-6 text-center mb-4">Compare plans</h2>
+      <h2 class="display-6 text-center mb-4">{{ $page->t('Compare plans')}}</h2>
 
       <div class="table-responsive">
         <table class="table text-center">
