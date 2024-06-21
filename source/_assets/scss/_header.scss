@@ -32,11 +32,11 @@
   padding: 0;
 
   @media #{$md, $xs} {
-    padding: 5px 0px;
+    padding: 0.2rem;
   }
 
   img {
-    max-width: 160px;
+    max-width: 100px;
   }
 }
 
