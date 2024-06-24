@@ -26,7 +26,7 @@ The regulation of electronic signatures varies from country to country, but ther
 
 ##### European Union
 
-In the European Union, the [eIDAS Regulation](https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX%3A32014R0910) (Electronic Identification, Authentication and Trust Services), in effect since 2016, standardizes the use of electronic signatures among Member States. The eIDAS recognizes three types of electronic signatures: simple, advanced, and qualified, with the latter being the only one that has legal equivalence to handwritten signatures.
+In the European Union, the [eIDAS Regulation](https://s.librecode.coop/e-idas-regulation) (Electronic Identification, Authentication and Trust Services), in effect since 2016, standardizes the use of electronic signatures among Member States. The eIDAS recognizes three types of electronic signatures: simple, advanced, and qualified, with the latter being the only one that has legal equivalence to handwritten signatures.
 
 **Article 25 of the eIDAS Regulation:**
 "A qualified electronic signature shall have the equivalent legal effect of a handwritten signature."

@@ -39,10 +39,11 @@ class TranslateContent
             if ($translated = __($page, $text, $current_locale)) {
                 $text = $translated;
             }
-            if (!\is_array($parameters)) {
-                $parameters = [$parameters];
+            try {
+                return vsprintf($text, $parameters);
+            } catch (\Throwable $th) {
+                return $text;
             }
-            return vsprintf($text, $parameters);
         });
     }
 
