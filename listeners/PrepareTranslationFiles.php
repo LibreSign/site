@@ -98,11 +98,6 @@ class PrepareTranslationFiles
             $translatedName = $file->getFilename();
             if ($post) {
                 if (isset($post['title'])) {
-                    $translatedTitle = __($this->jigsaw->getSiteData(), $post['title'], $lang);
-                    // Don't create translated page if haven't translated title
-                    if ($translatedTitle === $post['title']) {
-                        continue;
-                    }
                     if (!$isCollection) {
                         $translatedName = Str::slug($translatedName);
                         $translatedName = $this->translateFilename($file, $translatedName);
