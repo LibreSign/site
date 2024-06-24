@@ -125,7 +125,11 @@ return [
                 }
             }
             if (is_array($post['categories']) && in_array($category, $post['categories'])) {
-                $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug(__($page, $post['title'])));
+                if (!empty($post['original_title'])) {
+                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
+                } else {
+                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                }
                 $posts[] = $post;
             }
         }
@@ -210,7 +214,7 @@ return [
                     return $carry;
                 }, '');
                 if ($lang) {
-                    return $lang . '/posts/' . Str::slug(__($page, $page->title, $lang));
+                    return $lang . '/posts/' . Str::slug($page->title);
                 }
                 return 'posts/' . Str::slug($page->title);
             },

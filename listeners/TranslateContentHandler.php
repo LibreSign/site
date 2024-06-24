@@ -64,6 +64,7 @@ class TranslateContentHandler
             return;
         }
         $this->translated = $this->file->getContents();
+        $this->addOriginalTitle();
         $this->translateHeaders();
         $this->translateContent();
         file_put_contents($this->file->getPathname(), $this->translated);
@@ -86,11 +87,36 @@ class TranslateContentHandler
             if (!isset($header[$headerName])) {
                 continue;
             }
-            $this->translated = str_replace(
-                $header[$headerName] . "\n",
-                $this->pageData->page->t($header[$headerName], [], $this->languageCode) . "\n",
-                $this->translated
-            );
+            $rows = explode("\n", $this->translated);
+            for ($i = 0; $i < count($rows); $i++) {
+                preg_match('/^' . $headerName . ': +(?<' . $headerName . '>.*)/', $rows[$i], $matches);
+                if (empty($matches)) {
+                    continue;
+                }
+                $fileContent = implode("\n", array_slice($rows, 0, $i)) . "\n";
+                $fileContent.= $headerName . ': ' . $this->pageData->page->t($header[$headerName], [], $this->languageCode) . "\n";
+                $fileContent.= implode("\n", array_slice($rows, $i + 1));
+                $this->translated = $fileContent;
+            }
+        }
+    }
+
+    private function addOriginalTitle(): void
+    {
+        if (str_contains($this->translated, 'original_title')) {
+            return;
+        }
+        $rows = explode("\n", $this->translated);
+        for ($i = 0; $i < count($rows); $i++) {
+            preg_match('/^title: +(?<title>.*)/', $rows[$i], $matches);
+            if (empty($matches)) {
+                continue;
+            }
+            $fileContent = implode("\n", array_slice($rows, 0, $i + 1)) . "\n";
+            $fileContent.= "original_title: " . $matches['title'] . "\n";
+            $fileContent.= implode("\n", array_slice($rows, $i + 2));
+            $this->translated = $fileContent;
+            return;
         }
     }
 
