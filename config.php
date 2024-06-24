@@ -94,7 +94,10 @@ return [
         ],
     ],
     'getFromCategory' => function($page, $category) {
-        $files = glob('source/_posts/*');
+        $files = array_merge(
+            glob('source/_posts/*'),
+            glob('source/_posts/_tmp/*'),
+        );
         $parser = new Parser(
             markdownParser: new MarkdownParser()
         );
