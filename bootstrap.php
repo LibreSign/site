@@ -10,3 +10,6 @@ $events->beforeBuild([
     LoadLocalization::class,
     TranslateContent::class,
 ]);
+
+
+$events->afterBuild(App\Listeners\GenerateSitemap::class);

@@ -5,7 +5,7 @@
 /.idea/
 /.vscode/
 npm-debug.log
-
+/source/assets/sitemap.xml
 # Optional ignores
 # /build_staging/
 /build_production/
