@@ -5,6 +5,7 @@ author: Daiane Alves
 date: 2024-01-04
 description: Streamline the signing of digital documents for multiple individuals, ensuring legal validity, security, and collaboration. Expedite contract processes between departments, eliminating the need for in-person meetings. Embrace efficiency and collaboration with LibreSign, guiding your organization towards seamless digital transformation
 categories: [features]
+icon: pencil
 ---
 
 With the evolution of commercial and legal demands, the need to allow a digital document to be signed by multiple individuals stands out. This capability not only speeds up workflow, ensures legal validity, and fosters collaboration among various stakeholders but also enables all involved parties to view and sign as needed, regardless of location or time zone.
