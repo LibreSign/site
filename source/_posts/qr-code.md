@@ -5,6 +5,7 @@ author: Daiane Alves
 date: 2024-01-22
 description: LibreSign revolutionizes document authenticity verification with QR Code, ensuring security, efficiency, and practicality. Its instantaneous validation, agility, transparency, and compatibility with various platforms make it perfect for sustainable businesses. Try this solution now!
 categories: [features]
+icon: full-screen
 ---
 
 In the digital era, ensuring security and efficiency in document validation is crucial. LibreSign, a leader in digital signature innovation, redefines the experience by introducing document validation through QR Code. This article will discuss how this functionality not only reinforces security but also provides greater agility in verifying digitally signed documents.

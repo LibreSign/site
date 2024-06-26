@@ -5,6 +5,7 @@ author: Daiane Alves
 date: 2024-01-04
 description: Agility and security are paramount in business transactions, and LibreSign emerges as the intelligent choice for diverse sectors. Developed by LibreCode, a cooperative of IT professionals, LibreSign embodies the Free and Open-Source Software (FOSS) philosophy. With robust security standards, it ensures the inviolability of electronic signatures, making it ideal for government, education, and corporate enterprises
 categories: [features]
+icon: write
 ---
 
 Agility and security in business transactions are essential for the success of any company. It is in this scenario that LibreSign stands out as the smart choice for businesses across various sectors, offering not only efficiency but also a commitment to security and privacy.

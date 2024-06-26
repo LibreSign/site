@@ -42,7 +42,7 @@
             <div class="col-xl-3 col-lg-3 col-sm-6">
               <div class="ud-single-feature wow fadeInUp" data-aos-delay=".1s">
                 <div class="ud-feature-icon">
-                  <i class="lni lni-gift"></i>
+                  <i class="lni lni-{{ $item['icon'] }}"></i>
                 </div>
                 <div class="ud-feature-content">
                   <h3>
