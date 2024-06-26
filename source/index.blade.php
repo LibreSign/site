@@ -2,26 +2,44 @@
 
 @section('body')
 
-  <section class="ud-hero" id="home">
-    <div class="container text-center">
-      <div class="row pb-5 justify-content-md-center">
-        <div class="col-lg-6 mb-3">
-          <h3 class="text-light">
-            {{ $page->t( 'Simplify your digital signatures and document management safely and efficiently') }}
-          </h3>
-
-          <p class="text-light mt-3 pe-5 ps-5">{{ $page->t('Easily create, send, sign and track all your contracts in one place') }}</p>
-
-          <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="btn btn-light mt-4 p-3">{{ $page->t('Talk to sales') }}</a>
-
-        </div>
-        <div class="col-lg-6">
-          <img class="mt-3" src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen" />
+ <!-- ====== Princiapl Banner Start ====== -->
+    <section class="ud-hero" id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
+              <h1 class="ud-hero-title">
+                {{ $page->t( "Simplify your digital signatures and document management safely and efficiently") }}
+              </h1>
+              <p class="ud-hero-desc">
+                {{ $page->t("Easily create, send, sign and track all your contracts in one place") }}
+              </p>
+              <ul class="ud-hero-buttons">
+                <li>
+                  <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
+                    {{ $page->t('Talk to sales') }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
+              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
+              <img
+                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
+                alt="shape"
+                class="shape shape-1"
+              />
+              <img
+                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
+                alt="shape"
+                class="shape shape-2"
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-    </div>
-  </section>
+    </section>
+    <!-- ====== Princiapl Banner End ====== -->
 
     <!-- ====== Features Start ====== -->
     <section id="features" class="ud-features">
