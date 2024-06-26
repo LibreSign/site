@@ -4,7 +4,7 @@
 
   <section class="ud-hero" id="home">
     <div class="container text-center">
-      <div class="row pb-5">
+      <div class="row pb-5 justify-content-md-center">
         <div class="col-lg-6 mb-3">
           <h3 class="text-light">
             {{ $page->t( 'Simplify your digital signatures and document management safely and efficiently') }}
@@ -15,8 +15,8 @@
           <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="btn btn-light mt-4 p-3">{{ $page->t('Talk to sales') }}</a>
 
         </div>
-        <div class="col-lg-4">
-          <img src="{{ $page->baseUrl }}assets/images/plataforms.png" alt="print_main_screen" />
+        <div class="col-lg-6">
+          <img class="mt-3" src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen" />
         </div>
       </div>
 
