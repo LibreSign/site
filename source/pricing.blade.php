@@ -99,43 +99,37 @@
 
   <section id="testimonials" class="ud-testimonials">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-section-title mx-auto text-center">
-            <h2>{{ $page->t('Need more features?') }}</h2>
+      <div class="row justify-content-md-center">
+        <div class="col-lg-5 mb-3">
+          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
+            <div class="ud-info-icon">
+              <i class="lni lni-cog"></i>
+            </div>
+            <div class="ud-info-meta">
+              <h5>API</h5>
+              <p>{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
+            </div>
           </div>
         </div>
-      <div class="row">
-        <div class="col-xl-6 col-lg-7 mx-auto p-2">
-          <div class="ud-contact-content-wrapper">
-            <div class="ud-contact-info-wrapper">
-              <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
-                <div class="ud-info-icon">
-                  <i class="lni lni-cog"></i>
-                </div>
-                <div class="ud-info-meta">
-                  <h5>API</h5>
-                  <p>{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
-                </div>
-              </div>
-              <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
-                <div class="ud-info-icon">
-                  <i class="lni lni-cloud-upload"></i>
-                </div>
-                <div class="ud-info-meta">
-                  <h5>{{ $page->t('Cloud Storage') }}</h5>
-                  <p>{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
-                </div>
-              </div>
+        <div class="col-lg-5">
+          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
+            <div class="ud-info-icon">
+              <i class="lni lni-cloud-upload"></i>
+            </div>
+            <div class="ud-info-meta pb-5">
+              <h5>{{ $page->t('Cloud Storage') }}</h5>
+              <p>{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
             </div>
           </div>
         </div>
       </div>
       <div class="ud-pricing-footer text-center">
-        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
-          {{ $page->t('Under Consultation') }}
+        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-5">
+        {{ $page->t('Under Consultation') }}
         </a>
       </div>
     </div>
   </section>
+
+
 @endsection
