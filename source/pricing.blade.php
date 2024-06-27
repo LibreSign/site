@@ -99,6 +99,9 @@
 
   <section id="testimonials" class="ud-testimonials">
     <div class="container">
+      <div class="ud-section-title mx-auto text-center">
+        <h2>{{ $page->t('Need more features?') }}</h2>
+      </div>
       <div class="row justify-content-md-center">
         <div class="col-lg-5 mb-3">
           <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
