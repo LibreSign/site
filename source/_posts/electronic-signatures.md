@@ -4,7 +4,6 @@ title: Free and open source software for electronic signatures
 author: Daiane Alves
 date: 2024-01-04
 description: Agility and security are paramount in business transactions, and LibreSign emerges as the intelligent choice for diverse sectors. Developed by LibreCode, a cooperative of IT professionals, LibreSign embodies the Free and Open-Source Software (FOSS) philosophy. With robust security standards, it ensures the inviolability of electronic signatures, making it ideal for government, education, and corporate enterprises
-categories: ''
 icon: write
 ---
 

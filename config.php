@@ -124,7 +124,7 @@ return [
                     }
                 }
             }
-            if (is_array($post['categories']) && in_array($category, $post['categories'])) {
+            if (isset($post['categories'])) {
                 if (!empty($post['original_title'])) {
                     $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
                 } else {
