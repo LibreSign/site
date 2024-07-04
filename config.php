@@ -88,7 +88,7 @@ return [
             'business' => true,
         ],
         [
-            'service' => 'Customization of visual identity (colors, logo and domain',
+            'service' => 'Customization of visual identity (colors, logo and domain)',
             'basic' => false,
             'business' => true,
         ],
