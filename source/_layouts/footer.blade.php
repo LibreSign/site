@@ -24,24 +24,29 @@
                         </p>
                         <ul class="ud-widget-socials">
                             <li>
-                                <a href="https://github.com/LibreSign/libresign">
+                                <a target="_blank" href="https://github.com/LibreSign/libresign">
                                     <i class="lni lni-github-original"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/company/libresign/">
+                                <a target="_blank" href="https://www.linkedin.com/company/libresign/">
                                     <i class="lni lni-linkedin-original"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/LibreCodeCoop">
-                                    <i class="lni lni-telegram-original"></i>
-                                </a>
-                            </li>
+                              <a target="_blank" href="https://t.me/LibreCodeCoop">
+                                  <i class="lni lni-telegram-original"></i>
+                              </a>
+                          </li>
+                          <li>
+                            <a target="_blank" href="https://www.instagram.com/libresign/">
+                                <i class="lni lni-instagram-original"></i>
+                            </a>
+                        </li>
                         </ul>
                     </div>
                     <div class="ud-widget col-lg-5">
-                        <a href="https://www.somos.coop.br/">
+                        <a target="_blank" href="https://www.somos.coop.br/">
                             <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
                         </a>
                     </div>
@@ -67,18 +72,11 @@
                     <div class="ud-widget">
                         <h5 class="ud-widget-title">{{ $page->t("Features")}}</h5>
                         <ul class="ud-widget-links">
-                            <li>
-                                <a href="javascript:void(0)">{{ $page->t("Free and Open-Source")}}</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">{{ $page->t("Multiple signers")}}</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">{{ $page->t("Hybrid signatures")}}</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">{{ $page->t("Qrcode validation")}}</a>
-                            </li>
+                            @foreach ($page->getFromCategory('features') as $item)
+                              <li>
+                                <a href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
+                              </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
