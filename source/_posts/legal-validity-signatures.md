@@ -1,6 +1,6 @@
 ---
 extends: _layouts.post
-title: Validity of Legal Signatures in Brazil and Around the World
+title: Legal validity of electronic signatures in Brazil and around the world
 author: Daiane Alves
 date: 2024-06-18
 description: Discover the validity of digital signatures in Brazil and around the world. This article explores the legal basis of electronic signatures, citing specific laws and highlighting the benefits of this technology for businesses and institutions.
