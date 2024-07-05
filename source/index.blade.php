@@ -63,7 +63,7 @@
                   <i class="lni lni-{{ $item['icon'] }}"></i>
                 </div>
                 <div class="ud-feature-content">
-                  <div style="height:390px;">
+                  <div style="height:300px;">
                     <h3>
                       <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
                     </h3>
