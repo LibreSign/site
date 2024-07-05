@@ -72,13 +72,13 @@
           @foreach($page->optionsServicesLibresign as $item => $optionList)
           <tbody>
             <tr>
-              <th scope="row" class="text-start">{{ $optionList->service }}</th>
+              <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
               @foreach (['basic', 'business'] as $item)
                 <td>
                   @if (is_bool($optionList->$item))
                     <i class="lni lni-{{ $optionList->$item == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
                   @else
-                    {{ $optionList->$item }}
+                    {{ $page->t($optionList->$item) }}
                   @endif
                 </td>
               @endforeach

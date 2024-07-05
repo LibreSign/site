@@ -156,7 +156,7 @@
 
         <div class="row justify-content-md-center">
           <div class="col-lg-6 mb-4">
-              <p>{{ $page->t('It uses digital certificates issued by a Certificate Authority to guarantee the identity of the signer and the integrity of the document.Simple physical or electronic signatures can be forged, putting the validity of your documents at risk. Digital signatures, regulated by Provisional Measure No. 2,200-2/2001, guarantee the necessary security.') }}</p>
+              <p>{{ $page->t("By using digital certificates issued by a Certification Authority, it is possible to ensure the signer's identity and the document's integrity. Physical signatures can be forged, compromising the validity of your documents. However, digital signatures, regulated by Provisional Measure No. 2.200-2/2001, provide the necessary security to protect the authenticity and legal validity of your documents.") }}</p>
 
               <h4 class="mb-3 mt-4">{{ $page->t('Transform your processes with more security and efficiency') }}</h4>
               <div class="row justify-content-md-center">
