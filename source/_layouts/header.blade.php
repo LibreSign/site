@@ -4,7 +4,8 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{ locale_path($page, $page->baseUrl) }}">
-              <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="Logo" />
+              {{-- <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="Logo" /> --}}
+              teste
             </a>
             <button class="navbar-toggler">
               <span class="toggler-icon"> </span>
