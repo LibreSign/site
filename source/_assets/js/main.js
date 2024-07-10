@@ -18,9 +18,9 @@ require('aos/dist/aos.css');
 
     // === logo change
     if (ud_header.classList.contains("sticky")) {
-      logo.src = "/assets/images/logo/logo-2.png";
+      logo.src = "/assets/images/logo/logo-2.svg";
     } else {
-      logo.src = "/assets/images/logo/logo.png";
+      logo.src = "/assets/images/logo/logo.svg";
     }
 
     // show or hide the back-top-top button
