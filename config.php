@@ -78,7 +78,7 @@ return [
             'business' => true,
         ],
         [
-            'service' => 'Access control by user or sector level',
+            'service' => 'Access control by account or group level',
             'basic' => false,
             'business' => true,
         ],
