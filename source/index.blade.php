@@ -107,6 +107,48 @@
     </section>
     <!-- ====== About End ====== -->
 
+     <!-- ====== Testimonials Start ====== -->
+     <section id="testimonials" class="ud-testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span>{{ $page->t('Testimonials') }}</span>
+              <h2>{{ $page->t('What our Customers Says') }}</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="ud-single-testimonial wow fadeInUp"
+              data-wow-delay=".1s"
+            >
+              <div class="ud-testimonial-ratings">
+                <i class="lni lni-star-fill"></i>
+                <i class="lni lni-star-fill"></i>
+                <i class="lni lni-star-fill"></i>
+                <i class="lni lni-star-fill"></i>
+                <i class="lni lni-star-fill"></i>
+              </div>
+              <div class="ud-testimonial-content">
+                <p class="text-justify">
+                  {{ $page->t("Libresign's nextcloud integration has come a long way in the past year. If you tried it before and found it lacking, give it another chance. I can see it being a real option and alternative to other e-signature services.") }}
+                </p>
+              </div>
+              <div class="ud-testimonial-info">
+                <div class="ud-testimonial-meta">
+                  <h4>Matt Nelson</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Testimonials End ====== -->
+
     <!-- ====== Target Audience Start ====== -->
     <section id="target_audience" class="ud-about">
       <div class="container bg-white p-5 cards-one-below-the-other">
