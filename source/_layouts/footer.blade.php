@@ -34,7 +34,7 @@
                                 </a>
                             </li>
                             <li>
-                              <a target="_blank" href="https://t.me/LibreCodeCoop">
+                              <a target="_blank" href="https://t.me/LibreSign">
                                   <i class="lni lni-telegram-original"></i>
                               </a>
                           </li>
