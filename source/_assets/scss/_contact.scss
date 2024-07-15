@@ -130,3 +130,20 @@
     }
   }
 }
+
+
+.size-box-feature {
+  height:315px;
+}
+
+@media (max-width: 1199px) {
+  .size-box-feature {
+    height:350px;
+  }
+}
+
+@media (max-width: 991px) {
+  .size-box-feature {
+    height:260px;
+  }
+}
