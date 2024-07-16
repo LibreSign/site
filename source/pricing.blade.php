@@ -104,23 +104,23 @@
       </div>
       <div class="row justify-content-md-center">
         <div class="col-lg-5 mb-3">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
+          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
             <div class="ud-info-icon mb-2">
               <i class="lni lni-cog fs-1"></i>
             </div>
             <div class="ud-info-meta">
-              <h5 class="fs-4 mb-2">API</h5>
+              <h5 class="fs-4">API</h5>
               <p>{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
             </div>
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3">
-            <div class="ud-info-icon mb-2">
+          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
+            <div class="ud-info-icon">
               <i class="lni lni-cloud-upload fs-1"></i>
             </div>
             <div class="ud-info-meta pb-5">
-              <h5 class="fs-4 mb-2">{{ $page->t('Cloud Storage') }}</h5>
+              <h5 class="fs-4">{{ $page->t('Cloud Storage') }}</h5>
               <p>{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
             </div>
           </div>
