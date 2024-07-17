@@ -93,6 +93,20 @@ return [
             'business' => true,
         ],
     ],
+    'testimonials' => [
+        [
+            'comment' => "Libresign's nextcloud integration has come a long way in the past year. If you tried it before and found it lacking, give it another chance. I can see it being a real option and alternative to other e-signature services.",
+            'author' => 'Matt Nelson'
+        ],
+        [
+            'comment' => "Congratulations to the LibreSign development team for creating such an efficient solution for electronic signatures! LibreSign has an intuitive interface and ease of use, allowing integration with various APIs. I've been following the development and see it improving with each new release. LibreSign makes managing digital signatures a simple and reliable experience. I highly recommend it!",
+            'author' => 'Lua Mello'
+        ],
+        [
+            'comment' => "Finally an excellent app for signing documents. Very good!",
+            'author' => 'Daiane Alves'
+        ]
+    ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
             glob('source/_posts/*'),
