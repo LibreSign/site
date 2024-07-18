@@ -140,7 +140,7 @@
                 </div>
                 <div class="ud-testimonial-info">
                   <div class="ud-testimonial-meta">
-                    <h4>{{ $page->t($topics->author) }}</h4>
+                    <h4>{{ $topics->author }}</h4>
                   </div>
                 </div>
               </div>
