@@ -114,7 +114,7 @@
           <div class="col-lg-12">
             <div class="ud-section-title mx-auto text-center">
               <span>{{ $page->t('Testimonials') }}</span>
-              <h2>{{ $page->t('What our Customers Says') }}</h2>
+              <h2>{{ $page->t('What our customers says') }}</h2>
             </div>
           </div>
         </div>
