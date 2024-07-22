@@ -99,6 +99,10 @@ class PrepareTranslationFiles
             if ($post) {
                 if (isset($post['title'])) {
                     if (!$isCollection) {
+                        if($file->getExtension() === 'md'){
+                            $fileArray = explode('.', $translatedName);
+                            $translatedName = $fileArray[0];
+                        }
                         $translatedName = Str::slug($translatedName);
                         $translatedName = $this->translateFilename($file, $translatedName);
                     }
