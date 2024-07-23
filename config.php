@@ -252,7 +252,7 @@ return [
                     } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.jpg');
                     } else {
-                        $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.png');
+                        $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
 
@@ -262,7 +262,7 @@ return [
                     } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.jpg')){
                         $post->set('banner',$post->baseUrl.$alternativePath.'/banner.jpg');
                     } else {
-                        $post->set('banner',$post->baseUrl.'assets/images/logo/logo.png');
+                        $post->set('banner',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
 
