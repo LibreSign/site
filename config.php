@@ -53,7 +53,7 @@ return [
             'business' => true,
         ],
         [
-            'service' => 'Number of signatures',
+            'service' => 'Simple electronic signature (without digital certificate) unlimited',
             'basic' => true,
             'business' => true,
         ],
@@ -63,7 +63,7 @@ return [
             'business' => true,
         ],
         [
-            'service' => 'Triggering email reminders',
+            'service' => 'Sending reminder by email',
             'basic' => true,
             'business' => true,
         ],
@@ -78,7 +78,7 @@ return [
             'business' => true,
         ],
         [
-            'service' => 'Access control by account or group level',
+            'service' => 'Access management by users or departments',
             'basic' => false,
             'business' => true,
         ],
