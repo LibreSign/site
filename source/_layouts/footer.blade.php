@@ -17,7 +17,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
                         <a href="{{ locale_path($page, $page->baseUrl) }}#home" class="ud-footer-logo">
-                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.png" alt="logo" />
+                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
                             {{ $page->t("We create digital experiences for brands and companies by using technology.")}}
