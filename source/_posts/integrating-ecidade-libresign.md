@@ -6,9 +6,6 @@ date: 2024-07-25
 description:  Discover the main benefits of integrating e-Cidade with LibreSign and see how this partnership is transforming the digitalization of municipalities, promoting agility, security, and sustainability.
 ---
 
-## The digital revolution in public administration: integrating e-Cidade with LibreSign
-<br>
-
 e-Cidade is a system that modernizes and streamlines the administrative processes of Brazilian municipalities, promoting the digitalization of public administration. Used in several municipalities, it encompasses everything from financial and human resources management to school administration.
 
 To expand its functionalities, there was a need to integrate e-Cidade with a legally valid electronic signature system, aiming to expedite online transactions. LibreSign was selected for its reliability, security, and compliance with Brazilian legal requirements. Here are some advantages:
