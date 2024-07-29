@@ -73,11 +73,14 @@ class TranslateContentHandler
     private function translateContent(): void
     {
         $content = $this->parser->getContent($this->translated);
-        $this->translated = str_replace(
-            $content,
-            $this->pageData->page->t($content, [], $this->languageCode),
-            $this->translated
-        );
+        $paragraphs = explode("\n\n", $content);
+        foreach ($paragraphs as $paragraph) {
+            $this->translated = str_replace(
+                $paragraph,
+                $this->pageData->page->t($paragraph, [], $this->languageCode),
+                $this->translated
+            );
+        }
     }
 
     private function translateHeaders(): void
