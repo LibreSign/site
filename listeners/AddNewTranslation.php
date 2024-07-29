@@ -45,7 +45,9 @@ class AddNewTranslation
     {
         // Only change the file if haven't the text
         if ($this->localization[$this->currentLanguage]->has($text)) {
-            return;
+            if ($this->localization[$this->currentLanguage]->get($text) !== $text) {
+                return;
+            }
         }
         // Save new texts
         $translationFile = 'lang/' . $this->currentLanguage . '/main.json';
@@ -55,7 +57,7 @@ class AddNewTranslation
         } else {
             $content = [];
         }
-        $content[$text] = $text;
+        $content[$text] = '';
         ksort($content);
         file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT));
     }
