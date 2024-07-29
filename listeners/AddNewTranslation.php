@@ -57,7 +57,7 @@ class AddNewTranslation
         }
         $content[$text] = $text;
         ksort($content);
-        file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+        file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT));
     }
 
     private function storeAtGlossaryFile(string $text): void
@@ -71,6 +71,6 @@ class AddNewTranslation
         }
         $toTranslate[$text] = '';
         ksort($toTranslate);
-        file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT) . PHP_EOL);
+        file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT) . PHP_EOL);
     }
 }

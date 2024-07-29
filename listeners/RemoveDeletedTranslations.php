@@ -23,7 +23,7 @@ class RemoveDeletedTranslations
                         unset($translated[$text]);
                     }
                 }
-                file_put_contents($langFile, json_encode($translated, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT) . PHP_EOL);
+                file_put_contents($langFile, json_encode($translated, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT) . PHP_EOL);
             }
         }
         unlink('lang/to_translate.json');
