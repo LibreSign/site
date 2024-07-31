@@ -62,8 +62,31 @@
                 </div>
                 
             </div>
-            <div class = "col-6" >
+            <div class = "col-6 p-5" > 
             {{ $page->t('Teste2')}}
+              <div class="row">
+                      <div class="col-12">
+                  <nav>
+                 
+                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{{$page->t('Donate one time')}}</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{{$page->t('Monthly')}}</button>
+                      
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <button>
+                      
+                    </button>
+
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>                    
+                  </div>
+
+                      </div>
+                      <div class="col-6" style="display:none">teste 4</div>
+              </div>
             </div>
          </div>
           </div>
