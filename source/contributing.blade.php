@@ -62,9 +62,9 @@
                 </div>
                 
             </div>
-            <div class = "col-6 p-5" > 
+            <div class = "col-6 p-5 text-center" > 
             {{ $page->t('Teste2')}}
-              <div class="row">
+              <div class="row ">
                       <div class="col-12">
                   <nav>
                  
@@ -74,19 +74,49 @@
                       
                     </div>
                   </nav>
-                  <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-content " id="nav-tabContent" >
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <button>
+                    <div class="row mt-5 justify-content-center">
+                      @foreach($page->donatevalues as $item => $value )
+                      <div class="col-3">
+                      <button type="button" class="btn btn-outline-success">{{$item->value}}</button>
+                        
+                      </div>
+                      @endforeach
                       
-                    </button>
-
                     </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>                    
+                    
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row mt-5 justify-content-center">
+                      @foreach($page->donatevalues as $item -> $value)
+                      <div class="col-3">
+                      <button type="button" class="btn btn-outline-success">{{$item->value}}</button>
+                        
+                      </div>
+                      @endforeach
+                      
+                    </div>
+
+                    </div>                    
                   </div>
 
                       </div>
                       <div class="col-6" style="display:none">teste 4</div>
+                
               </div>
+              <div class="input-group mb-3 mt-5">
+              <input type="text" class="form-control" aria-label="Text input with dropdown button">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                @foreach($page->donatevalues as $iten)
+              <li><a class="dropdown-item" href="#">{{$iten->coin}}</a></li>
+              
+              @endforeach
+              </ul>
+              </div>
+
             </div>
          </div>
           </div>

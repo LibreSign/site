@@ -106,6 +106,18 @@ return [
             'comment' => "Finally an excellent app for signing documents. Very good!",
             'author' => 'Daiane Alves'
         ]
+    ], 
+    'donatevalues'=>[
+        [
+            'coin'=>"BRL - BRAZILIAN REAL",
+            'value'=> <<<LIST 
+                "1200","120","600","350","170","55"
+                LIST
+        ],
+        [
+            'coin'=>"USD - NORTH-AMERICAN DOLAR",
+            'value'=> ["1200","120","600","350","170","55"]
+        ],
     ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
