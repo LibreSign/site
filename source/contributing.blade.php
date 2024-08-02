@@ -76,26 +76,27 @@
                   </nav>
                   <div class="tab-content " id="nav-tabContent" >
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="row mt-5 justify-content-center">
-                      @foreach($page->donatevalues as $item => $value )
-                      <div class="col-3">
-                      <button type="button" class="btn btn-outline-success">{{$item->value}}</button>
-                        
-                      </div>
+                    <div class="row mt-5 "style=" background-color:gray;width:600;height:130"> <!--style="margin-right:140; margin-left:140"-->
+                      @foreach($page->donatevalues as $item )
+                        @foreach($item['value'] as $option)
+                          <div class="col-2 mb-3" style="width:80px;"  >
+                          <a type="button" class="btn btn-outline-success  "style=" padding: 20px 20px 0px 20px ;width:100" >{{$option}}</a>
+                            
+                          </div>
+                        @endforeach
                       @endforeach
-                      
                     </div>
                     
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row mt-5 justify-content-center">
-                      @foreach($page->donatevalues as $item -> $value)
+                      
                       <div class="col-3">
-                      <button type="button" class="btn btn-outline-success">{{$item->value}}</button>
+                      <button type="button" class="btn btn-outline-success"></button>
                         
                       </div>
-                      @endforeach
+                     
                       
                     </div>
 
