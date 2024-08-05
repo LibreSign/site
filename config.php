@@ -107,15 +107,16 @@ return [
             'author' => 'Daiane Alves'
         ]
     ], 
-    'coindonate'=>[
+    'donateCoin'=>[
         [
             'BRL'=>"BRL - BRAZILIAN REAL",
             'USD'=>"USD - NORTH-AMERICAN DOLAR",
         ],      
     ],
-    'donatevalues'=>[   [            
-         'value'=> [1200,120,600,350,170,55]
-    ],
+    'donateValues'=>[   
+        [            
+            'value'=> [1200,120,600,350,170,55]
+        ],
     ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
