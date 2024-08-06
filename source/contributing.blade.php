@@ -67,10 +67,10 @@
                     
                   <div class="row">
                     @foreach($page->donateValues as $option)
-                      @foreach($option['value'] as $item)
+                      @foreach($option['value'] as $item => $value)
                       
                         <div class="col-12 col-sm-6 col-lg-4 mb-2"  >
-                          <a class="ud-main-btn" style=" padding: 20px ;width:100" >{{ $item }}</a>
+                          <a class="ud-main-btn" style=" padding: 20px ;width:100" id="donateValue{{$item}}" onclick="getValue({{ $value }})">{{ $value }}</a>
                         </div>
 
                       @endforeach
@@ -78,13 +78,13 @@
                   </div>
 
                   <div class="input-group mb-5 mt-5">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="showValue">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ current_path_locale($page) }}</button>
                     
                     <ul class="dropdown-menu dropdown-menu-end">
                       @foreach($page->donateCoin as $iten)
                         @foreach($iten as $coin)
-                          <li><a class="dropdown-item" href="#">{{$coin}}</a></li>                  
+                          <li><a class="dropdown-item">{{$coin}}</a></li>                  
                         @endforeach
                       @endforeach
                     </ul>
@@ -143,3 +143,11 @@
     </div>          
   </div>
 </section>
+
+<script>
+
+  function getValue(showValue){
+    document.getElementById("showValue").value = showValue
+  }
+
+</script>
