@@ -6,7 +6,7 @@
             <a class="navbar-brand" href="{{ locale_path($page, $page->baseUrl) }}">
               <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="Logo" />
             </a>
-            <button class="navbar-toggler">
+            <button class="navbar-toggler" title="{{$page->t("Toggle navigation menu")}}">
               <span class="toggler-icon"> </span>
               <span class="toggler-icon"> </span>
               <span class="toggler-icon"> </span>
