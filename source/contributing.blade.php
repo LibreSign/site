@@ -64,18 +64,18 @@
               </nav>
               <div class="tab-content " id="nav-tabContent" >
                 <div class="tab-pane fade show active mt-5" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    
+                  @php 
+                    $countryValues = $page->getCountry(current_path_locale($page));
+                  @endphp
                   <div class="row">
-                    @foreach($page->donateValues as $option)
-                      @foreach($option['value'] as $item => $value)
-                      
+                    @if(!empty($countryValues["value"]))  
+                      @foreach($countryValues["value"] as $value)
                         <div class="col-12 col-sm-6 col-lg-4 mb-2"  >
-                          <a class="ud-main-btn" style=" padding: 20px ;width:100" id="donateValue{{$item}}" onclick="getValue({{ $value }})">{{ $value }}</a>
+                          <a class="ud-main-btn" style=" padding: 20px ;width:100" id="donateValue" onclick="getValue({{ $value }})">{{$countryValues["symbol"]." ".$value }}</a>
                         </div>
-
                       @endforeach
-                    @endforeach
-                  </div>
+                    @endif    
+                  </div>                 
 
                   <div class="input-group mb-5 mt-5">
                     <input type="text" class="form-control" aria-label="Text input with dropdown button" id="showValue">
@@ -99,16 +99,17 @@
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                   <div class="tab-pane fade show active mt-5" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    @php 
+                      $countryValues = $page->getCountry(current_path_locale($page));
+                    @endphp
                     <div class="row">
-                      @foreach($page->donateValues as $option)
-                        @foreach($option['value'] as $item)
-                        
-                          <div class="col-12 col-sm-6 col-lg-4 mb-2"  >
-                            <a class="ud-main-btn" style=" padding: 20px ;width:100" >{{ $item }}</a>
-                          </div>
-  
+                      @if(!empty($countryValues["value"]))  
+                        @foreach($countryValues["value"] as $value)
+                            <div class="col-12 col-sm-6 col-lg-4 mb-2"  >
+                              <a class="ud-main-btn" style=" padding: 20px ;width:100" id="donateValue" onclick="getValue({{ $value }})">{{$countryValues["symbol"]." ".$value }}</a>
+                            </div>
                         @endforeach
-                      @endforeach
+                      @endif
                     </div>
   
                     <div class="input-group mb-5 mt-5">
@@ -150,4 +151,7 @@
     document.getElementById("showValue").value = showValue
   }
 
+  // const price = Dinero({ amount: 5000, currency: 'EUR' })
+  // console.log(price)
+  Dinero();
 </script>

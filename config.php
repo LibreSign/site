@@ -113,11 +113,37 @@ return [
             'USD'=>"USD - NORTH-AMERICAN DOLAR",
         ],      
     ],
-    'donateValues'=>[   
-        [            
-            'value'=> [1200,120,600,350,170,55]
-        ],
-    ],
+    'getCountry' => function($page, $country){
+        $donateOption = [   
+            [            
+                'value'=> [1200,120,600,350,170,55],
+                'symbol' => 'R$',
+                'country' => 'pt-br'
+            ],
+            [            
+                'value'=> [200,100,60,30,20,10],
+                'symbol' => '$',
+                'country' => 'en'
+            ],
+            [            
+                'value'=> [2000,1000,650,350,200,100],
+                'symbol' => 'KR',
+                'country' => 'nb-no'
+            ],
+            [            
+                'value'=> [180,90,55,25,20,9],
+                'symbol' => '€',
+                'country' => 'fr'
+            ],
+        ];
+        
+        foreach($donateOption as $option){
+            if(strtolower($country) == $option['country']){
+                return $option;
+            }
+        }
+    }
+    ,
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
             glob('source/_posts/*'),
