@@ -231,7 +231,6 @@
         return pattern.test(email);
     }
 
-
     function nextPrev(n) {
         var x = document.getElementsByClassName("tab");
         var fieldValueDonate = document.getElementById('showValue')
@@ -239,8 +238,13 @@
         var secondyName = document.getElementById('secondy_name')
         var emailName = document.getElementById('email')
 
-        if (!fieldValueDonate || fieldValueDonate.value < 10) {
+
+        if (!fieldValueDonate || fieldValueDonate.value < 10 ) {
             text = "The minimum donation amount is 10";
+            document.getElementById("msgError").innerHTML = text;
+            return
+        }else if(isNaN(fieldValueDonate.value)){
+            text = "The value is not valid";
             document.getElementById("msgError").innerHTML = text;
             return
         }else{
