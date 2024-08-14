@@ -55,22 +55,27 @@
                                         </div>
                                         @endforeach
                                     @endif    
+                                    <div class="col-12">
+                                        <div class="input-group mt-5">
+                                            <input type="text" class="form-control" aria-label="Text input with dropdown button" id="showValue">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ current_path_locale($page) }}</button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                @foreach($page->donateCoin as $iten)
+                                                @foreach($iten as $coin)
+                                                <li><a class="dropdown-item">{{$coin}}</a></li>                  
+                                                @endforeach
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p id="msgError" style="color: rgb(255, 74, 74);font-size:12px;"></p>
+                                    </div>
+                                    
+                                    <button type="button" class="ud-main-btn mt-5" id="nextBtn" onclick="nextPrev(1)">{{ $page->t('Donate one time') }}</button>
                                 </div>                 
             
-                                <div class="input-group mb-5 mt-5">
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="showValue">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ current_path_locale($page) }}</button>
-                                    <p id="msgError" style="color: rgb(255, 74, 74);font-size:12px;"></p>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        @foreach($page->donateCoin as $iten)
-                                            @foreach($iten as $coin)
-                                                <li><a class="dropdown-item">{{$coin}}</a></li>                  
-                                            @endforeach
-                                        @endforeach
-                                    </ul>
-                                </div>
             
-                                <button type="button" class="ud-main-btn" id="nextBtn" onclick="nextPrev(1)">{{ $page->t('Donate one time') }}</button>
                                 
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
