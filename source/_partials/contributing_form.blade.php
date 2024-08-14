@@ -60,7 +60,7 @@
                                 <div class="input-group mb-5 mt-5">
                                     <input type="text" class="form-control" aria-label="Text input with dropdown button" id="showValue">
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ current_path_locale($page) }}</button>
-                                    
+                                    <p id="msgError" style="color: rgb(255, 74, 74);font-size:12px;"></p>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @foreach($page->donateCoin as $iten)
                                             @foreach($iten as $coin)
@@ -128,6 +128,7 @@
                                 </div>
                                 <div class="mb-5">
                                     <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                    <span id="msgErrorEmail" style="color: rgb(255, 74, 74);font-size:12px;"></span>
                                 </div>
                             </div>
                             <button type="button" class="ud-main-btn" id="nextBtn" onclick="nextPrev(1)">{{ $page->t('Donate one time') }}</button>
@@ -172,7 +173,7 @@
                     <div class="col-12 tab">
                         <div class="row">
                             <div class="col-2">
-                                <button class="ud-main-btn" id="prevBtn" onclick="nextPrev(-1)"><i class="lni lni-arrow-left"></i></button>
+                                <button type="button" class="ud-main-btn" id="prevBtn" onclick="nextPrev(-1)"><i class="lni lni-arrow-left"></i></button>
                             </div>
                             <div class="col-10 pt-3">
                                 <h4 class="me-2 card-title mb-5">{{ $page->t('You donate') }}</h4>
@@ -225,19 +226,39 @@
         // fixStepIndicator(n)
     }
 
+    function validateEmail(email) {
+        const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return pattern.test(email);
+    }
+
 
     function nextPrev(n) {
         var x = document.getElementsByClassName("tab");
+        var fieldValueDonate = document.getElementById('showValue')
+        var firstName = document.getElementById('first_name')
+        var secondyName = document.getElementById('secondy_name')
+        var emailName = document.getElementById('email')
 
-        // if (n == 1 && !validateForm()) return false;
+        if (!fieldValueDonate || fieldValueDonate.value < 10) {
+            text = "The minimum donation amount is 10";
+            document.getElementById("msgError").innerHTML = text;
+            return
+        }else{
+            text = ""
+            document.getElementById("msgError").innerHTML = text;
+        }
+
+        if (validateEmail(email)) {
+            text = "E-mail invalid";
+            document.getElementById("msgErrorEmail").innerHTML = text;
+            return
+        } else {
+            text = ""
+            document.getElementById("msgErrorEmail").innerHTML = text;
+        }
 
         x[currentTab].style.display = "none";
         currentTab = currentTab + n;
-
-        if (currentTab >= x.length) {
-            document.getElementById("regForm").submit();
-            return false;
-        }
 
         showTab(currentTab);
     }
