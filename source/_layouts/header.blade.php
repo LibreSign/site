@@ -23,8 +23,20 @@
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#about">{{ $page->t("About") }}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}pricing">{{ $page->t('Pricing')}}</a>
+                
+                <li class="nav-item nav-item-has-children">
+                    <a href="javascript:void(0)"> Pages </a>
+                    <ul class="ud-submenu">
+                    <li class="ud-submenu-item">
+                        <a class="ud-submenu-link" href="{{ locale_path($page, $page->baseUrl) }}pricing">{{ $page->t('Pricing')}}</a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="{{ locale_path($page, $page->baseUrl) }}contributing" class="ud-submenu-link">
+                        {{ $page->t('Contributing')}}
+                        </a>
+                       </li>
+                      
+                    </ul>
                 </li>
                 <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target audience") }}</a>
