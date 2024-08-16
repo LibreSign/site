@@ -105,6 +105,14 @@ return [
         [
             'comment' => "Finally an excellent app for signing documents. Very good!",
             'author' => 'Daiane Alves'
+        ],
+        [
+            'comment' => "Libresign is becoming a fully-featured alternative to expensive cloud services like DocuSign. The nextcloud integration makes it a real option to use for e-signatures.",
+            'author' => 'Metheos'
+        ],
+        [
+            'comment' => "LibreSign has come a long way and it is great replacement to most commercial e-signature solutions and it is open source.",
+            'author' => '0-bandage-dugouts'
         ]
     ],
     'getFromCategory' => function($page, $category) {
