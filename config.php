@@ -113,6 +113,10 @@ return [
         [
             'comment' => "LibreSign has come a long way and it is great replacement to most commercial e-signature solutions and it is open source.",
             'author' => '0-bandage-dugouts'
+        ],
+        [
+            'comment' => "It works perfectly with the electronic certificate issued by the Spanish Government. Installation has become very simple and affordable for anyone with minimal knowledge of Nextcloud. Developer support is fantastic. It works on all devices, including mobile devices. It has different options for creating, requesting and signing signatures. Version 9 is a great leap in quality and has a lot of future. It's incredible that this application works so well and is free.",
+            'author' => 'Iván Gómez Fernández'
         ]
     ],
     'getFromCategory' => function($page, $category) {
