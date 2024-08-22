@@ -21,3 +21,17 @@ Ensures that all electronic signatures comply with ICP-Brazil standards, guarant
 
 **Sustainability:** 
 Reduces paper usage, contributing to environmental sustainability and minimizing the waste of natural resources.
+
+## Impact on public administration
+
+<br>
+
+The union of LibreSign with e-Cidade transforms public administration, making it more secure and sustainable. Municipalities can offer high-quality services to citizens, minimizing delays and bureaucracy, and contributing to environmental preservation.
+
+Want to learn more about this integration?
+
+Join the e-Cidade community event on 07/31 at 7:00 PM and discover how the integration of LibreSign can revolutionize public administration.
+
+The event is free and will be held in the community's Telegram group: [eCidadeCE](https://t.me/eCidadeCE)
+
+Transform public administration with technology and innovation. Join us on this journey towards digital security and sustainability!
