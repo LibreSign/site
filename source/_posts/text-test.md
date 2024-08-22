@@ -9,9 +9,8 @@ description: text test about co-operative
 ### The beginning of the modern co-operative movement
 
 The earliest record of a co-operative comes from Fenwick, Scotland where, in March 14, 1761, in a barely furnished cottage local weavers manhandled a sack of oatmeal into John Walker's whitewashed front room and began selling the contents at a discount, forming the Fenwick Weavers' Society.
- 
-There are a plethera of records of co-operatives started out as small grassroots organisations in Western Europe, North America and Japan in the middle of the nineteenth century, however, it is the Rochdale Pioneers that are generally regarded as the prototype of the modern co-operative society and the founders of the Co-operative Movement in 1844.
-An independently formulated co-operative model developed in Germany by Friedrich Wilhelm Raiffeisen and Franz Hermann Schultz-Delitsch. Raiffeisen and Schultz-Delitsch originally formed credit unions in 1862. Since then the model has grown into other sectors and inspired the growth of financial co-operatives across the world.
+
+There are a plethera of records of co-operatives started out as small grassroots organisations in Western Europe, North America and Japan in the middle of the nineteenth century, however, it is the Rochdale Pioneers that are generally regarded as the prototype of the modern co-operative society and the founders of the Co-operative Movement in 1844.An independently formulated co-operative model developed in Germany by Friedrich Wilhelm Raiffeisen and Franz Hermann Schultz-Delitsch. Raiffeisen and Schultz-Delitsch originally formed credit unions in 1862. Since then the model has grown into other sectors and inspired the growth of financial co-operatives across the world.
 
 ### The co-operative movement today
 
