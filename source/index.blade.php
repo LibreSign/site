@@ -108,47 +108,7 @@
     <!-- ====== About End ====== -->
 
      <!-- ====== Testimonials Start ====== -->
-     <section id="testimonials" class="ud-testimonials">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
-              <span>{{ $page->t('Testimonials') }}</span>
-              <h2>{{ $page->t('What our customers says') }}</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          @foreach($page->testimonials as $itens => $topics)
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="ud-single-testimonial wow fadeInUp"
-                data-wow-delay=".1s"
-              >
-                <div class="ud-testimonial-ratings">
-                  <i class="lni lni-star-fill"></i>
-                  <i class="lni lni-star-fill"></i>
-                  <i class="lni lni-star-fill"></i>
-                  <i class="lni lni-star-fill"></i>
-                  <i class="lni lni-star-fill"></i>
-                </div>
-                <div class="ud-testimonial-content">
-                  <p class="text-justify">
-                    {{ $page->t($topics->comment) }}
-                  </p>
-                </div>
-                <div class="ud-testimonial-info">
-                  <div class="ud-testimonial-meta">
-                    <h4>{{ $topics->author }}</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </section>
+     @include('_partials/testimonial_card')    
     <!-- ====== Testimonials End ====== -->
 
     <!-- ====== Target Audience Start ====== -->
