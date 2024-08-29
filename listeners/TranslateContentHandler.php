@@ -69,6 +69,9 @@ class TranslateContentHandler
     private function translateContent(): void
     {
         $content = $this->parser->getContent($this->translated);
+        if (empty($content)) {
+            return;
+        }
         $this->translated = str_replace(
             $content,
             $this->pageData->page->t($content, [], $this->languageCode),
