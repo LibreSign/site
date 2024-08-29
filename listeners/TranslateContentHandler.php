@@ -34,8 +34,7 @@ class TranslateContentHandler
 
     public function shouldTranslate()
     {
-        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown'])
-            || Str::contains($this->file->getFilename(), '.blade.');
+        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown']);
     }
 
     public function handle($file, $pageData)
@@ -56,9 +55,6 @@ class TranslateContentHandler
         }
 
         $this->languageCode = $this->getLanguageCode();
-        if (!$this->languageCode) {
-            return;
-        }
         $langs = $this->pageData->page->localization->keys()->all();
         if (!in_array($this->languageCode, $langs)) {
             return;
@@ -73,6 +69,9 @@ class TranslateContentHandler
     private function translateContent(): void
     {
         $content = $this->parser->getContent($this->translated);
+        if (empty($content)) {
+            return;
+        }
         $this->translated = str_replace(
             $content,
             $this->pageData->page->t($content, [], $this->languageCode),
@@ -106,6 +105,9 @@ class TranslateContentHandler
         if (str_contains($this->translated, 'original_title')) {
             return;
         }
+        if ($this->languageCode === packageDefaultLocale()) {
+            return;
+        }
         $rows = explode("\n", $this->translated);
         for ($i = 0; $i < count($rows); $i++) {
             preg_match('/^title: +(?<title>.*)/', $rows[$i], $matches);
@@ -131,6 +133,6 @@ class TranslateContentHandler
          */
         $locale_regex = '/^(?<locale>(?:[a-z]{2,3}-[A-Z]{2})|(?:[a-z]{2,3}))(?:[^a-zA-Z]|$)/';
         preg_match($locale_regex, $filename, $matches);
-        return $matches['locale'] ?? '';
+        return $matches['locale'] ?? packageDefaultLocale();
     }
 }
