@@ -107,9 +107,7 @@
     </section>
     <!-- ====== About End ====== -->
 
-     <!-- ====== Testimonials Start ====== -->
-     @include('_partials/testimonial_card')    
-    <!-- ====== Testimonials End ====== -->
+    @include('_partials/testimonial_card')    
 
     <!-- ====== Target Audience Start ====== -->
     <section id="target_audience" class="ud-about">
