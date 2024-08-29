@@ -55,9 +55,6 @@ class TranslateContentHandler
         }
 
         $this->languageCode = $this->getLanguageCode();
-        if (!$this->languageCode) {
-            return;
-        }
         $langs = $this->pageData->page->localization->keys()->all();
         if (!in_array($this->languageCode, $langs)) {
             return;
@@ -130,6 +127,6 @@ class TranslateContentHandler
          */
         $locale_regex = '/^(?<locale>(?:[a-z]{2,3}-[A-Z]{2})|(?:[a-z]{2,3}))(?:[^a-zA-Z]|$)/';
         preg_match($locale_regex, $filename, $matches);
-        return $matches['locale'] ?? '';
+        return $matches['locale'] ?? packageDefaultLocale();
     }
 }
