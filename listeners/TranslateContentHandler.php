@@ -34,8 +34,7 @@ class TranslateContentHandler
 
     public function shouldTranslate()
     {
-        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown'])
-            || Str::contains($this->file->getFilename(), '.blade.');
+        return in_array($this->file->getExtension(), ['markdown', 'md', 'mdown']);
     }
 
     public function handle($file, $pageData)
