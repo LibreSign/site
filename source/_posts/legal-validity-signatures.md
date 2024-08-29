@@ -46,7 +46,6 @@ The adoption of digital signatures offers several benefits for businesses and in
 2. **Efficiency:** They reduce the time required to sign and process documents.
 3. **Sustainability:** They decrease paper usage, contributing to more sustainable practices.
 
-
 Digital signatures represent a significant advancement in the way documents are managed and authenticated. Their legal validity is supported by specific laws both in Brazil and in other countries, providing security and efficiency for businesses and individuals.
 
 For more information on the validity of digital signatures in Brazil, visit [ICP-Brasil](http://www.iti.gov.br/icp-brasil) and [Law No. 14,063/2020](https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2020/Lei/L14063.htm).
