@@ -105,6 +105,9 @@ class TranslateContentHandler
         if (str_contains($this->translated, 'original_title')) {
             return;
         }
+        if ($this->languageCode === packageDefaultLocale()) {
+            return;
+        }
         $rows = explode("\n", $this->translated);
         for ($i = 0; $i < count($rows); $i++) {
             preg_match('/^title: +(?<title>.*)/', $rows[$i], $matches);
