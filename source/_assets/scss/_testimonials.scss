@@ -111,14 +111,22 @@
   overflow: hidden;
   padding: 20px;
 }
-
+.test{
+  flex: 0 0 auto;
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
 .testimonial-container {
   padding: 0 10vw;
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
-
+.test .testimonial_color_stars{
+  color: #fbb040;
+}
 .testimonial-container .testimonial_color_stars{
   color: #fbb040;
 }
@@ -128,9 +136,17 @@
   font-weight: bold;
   font-size: 18px;
 }
-
+.test::-webkit-scrollbar {
+  display: none;
+}
 .testimonial-container::-webkit-scrollbar {
   display: none;
+}
+.test{
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
 }
 
 .testimonial-card {
@@ -274,3 +290,51 @@
   grid-column: span 2;
   margin-bottom: 10px;
 }
+//Clients Carousels
+._caurosel{
+  margin:auto;
+  white-space: nowrap;
+  
+  padding : 5px ;
+}
+.slide:hover {
+          transform: translateZ(20px);
+      }
+._caurosel::before,
+._caurosel::after{
+  background: linear-gradient(to right, rgb(255,255,255,1)0%,);
+  
+  content:'';
+  height:100%;
+  position:absolute;
+  width:15%;
+  z-index:2;
+
+}
+
+
+.slide{
+  width:500px;
+  height: 300px;
+  display:flex;
+  margin:auto;
+  align-items:center;
+  padding: 40px;
+  perspective: 100px;
+  
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 18); 
+  animation: scroll 20s linear infinite;}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-250px * 12)); 
+  }
+}
+//Carousel 

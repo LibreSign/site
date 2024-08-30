@@ -2,6 +2,7 @@
 
 @section('body')
 
+
  <!-- ====== Princiapl Banner Start ====== -->
     <section class="ud-hero" id="home">
       <div class="container">
@@ -87,7 +88,7 @@
         <div class="ud-about-wrapper wow fadeInUp" data-aos-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
-              <span class="tag">{{ $page->t("About Us")}}</span>
+              <span class="tag">{{ $page->t("About ")}}</span>
               <h2>{{ $page->t("The perfect tool to manage the signature flow of your documents")}}</h2>
               <p>
                 {{ $page->t("LibreSign is a web application for electronic signatures (e-Sign) developed by the LibreCode cooperative (Brazilian cooperative specialized in free software development). Its development began at the beginning of 2020, in the midst of the pandemic, when people and companies were migrating their physical documentation to digital, and then there was a need to develop a web solution that could offer the possibility of signing documents, contracts and proposals online with security and agility.")}}
@@ -106,7 +107,86 @@
       </div>
     </section>
     <!-- ====== About End ====== -->
+    <section>
+    <div class="_carousel">
+      <div class="slide-track">
+        
+            <div class="slide">
+              <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+                  <img src="{{ $page->baseUrl }}assets/images/companies/empresa1.png" alt="" class="Oi">
+              </a>
+            </div>
+            
+            <div class="slide">
+                <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+                  <img src="{{ $page->baseUrl }}assets/images/companies/empresa2.png" alt="">
+                </a>
+                
+            </div>
+            <div class="slide">
+              <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+               <img src="{{ $page->baseUrl }}assets/images/companies/empresa3.png" alt="">
+              </a>
+            </div>
+            <div class="slide">
+            <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+             <img src="{{ $page->baseUrl }}assets/images/companies/empresa4.jpg"alt="">
+            </a>
+            </div>
+              
+            <div class="slide">
+                <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+                  <img src="{{ $page->baseUrl }}assets/images/companies/empresa5.png" alt="">
+                </a>
+            </div>
+            
+            <div class="slide">
+             <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+              <img src="{{ $page->baseUrl }}assets/images/companies/chapeu.png" alt="">
+             </a>
+            </div>
+          <div class="slide">
+            <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+              <img src="{{ $page->baseUrl }}assets/images/companies/empresa1.png" alt="" class="Oi">
+            </a>
+          </div>
+        
+          <div class="slide">
+            <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+              <img src="{{ $page->baseUrl }}assets/images/companies/empresa2.png" alt="">
+            </a>
+            
+          </div>
+          <div class="slide">
+            <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+              <img src="{{ $page->baseUrl }}assets/images/companies/empresa3.png" alt="">
+            </a>
+          </div>
+        <div class="slide">
+          <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+            <img src="{{ $page->baseUrl }}assets/images/companies/empresa4.jpg"alt="">
+          </a>
+        </div>
+          
+      <div class="slide">
+       <a href="https://www.youtube.com/watch?v=3Z780EOzIQs" target="_blank">
+        <img src="{{ $page->baseUrl }}assets/images/companies/empresa5.png" alt="">
+       </a>
+      </div>
+       
+       
+  
+      <div class="slide">
+        <img src="{{ $page->baseUrl }}assets/images/companies/chapeu.png" alt="">
 
+      </div>
+    </div>
+  </div>   
+    
+  </section>
+                
+
+    
      <!-- ====== Testimonials Start ====== -->
      @include('_partials/testimonial_card')    
     <!-- ====== Testimonials End ====== -->
@@ -354,6 +434,25 @@
         </div>
       </div>
     </section>
+    <script>
+      const productContainers = [...document.querySelectorAll('.testimonial-container')];
+      
+      const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+      const preBtn = [...document.querySelectorAll('.pre-btn')];
+  
+      productContainers.forEach((item, i) => {
+          let containerDimensions = item.getBoundingClientRect();
+          let containerWidth = containerDimensions.width;
+  
+          nxtBtn[i].addEventListener('click', () => {
+              item.scrollLeft += containerWidth;
+          })
+  
+          preBtn[i].addEventListener('click', () => {
+              item.scrollLeft -= containerWidth;
+          })
+      })
+    </script>
     <!-- ====== FAQ End ====== -->
     @include('_partials/contact_form')
 @endsection

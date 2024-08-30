@@ -1,4 +1,4 @@
-<section class="section_testimonial">
+<section class="section_testimonial mt-5">
     <p class="title-testimonial text-center mt-3">{{ $page->t('Testimonials') }}</p>
     <h2 class="text-center mb-5">{{ $page->t('What our customers says') }}</h2>
     <button class="pre-btn"><img src="{{ $page->baseUrl }}assets/images/arrow.png" alt="back_comments"></button>
@@ -24,6 +24,7 @@
 
 <script>
     const productContainers = [...document.querySelectorAll('.testimonial-container')];
+    
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
 
