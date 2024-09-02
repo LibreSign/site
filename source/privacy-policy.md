@@ -2,13 +2,14 @@
 extends: _layouts.post
 title: Privacy policy term
 ---
+
 # LibreSign Privacy Notice
 
 ## Introduction
 
 The **LibreSign** is documents signer free developed by **LibreCode**, cooperative of professional of IT. The LibreSign was thinked having to base  the security and the privacy of users.
 
-We establish this Privacy Notice to inform how the personal data collected through of the our contact form on website of LibreSign is treaties, protected and utilized. 
+We establish this Privacy Notice to inform how the personal data collected through of the our contact form on website of LibreSign is treaties, protected and utilized.
 
 This Notice is governed for norms of  General Data Protection Law (GDPL) by Brasil and General Data Protection Law (GDPL) by Europe Union, reflexeting our compromise in protect the privacy and the integration of users personal data.
 
