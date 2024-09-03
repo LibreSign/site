@@ -133,6 +133,9 @@ class TranslateContentHandler
          */
         $locale_regex = '/^(?<locale>(?:[a-z]{2,3}-[A-Z]{2})|(?:[a-z]{2,3}))(?:[^a-zA-Z]|$)/';
         preg_match($locale_regex, $filename, $matches);
+        if (empty($matches)) {
+            return $this->file->topLevelDirectory();
+        }
         return $matches['locale'] ?? packageDefaultLocale();
     }
 }
