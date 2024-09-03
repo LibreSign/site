@@ -1,5 +1,6 @@
 <?php
 
+use App\Listeners\RemoveTranslationFiles;
 use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 
@@ -8,6 +9,7 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
+    RemoveTranslationFiles::class,
     TranslateContent::class,
 ]);
 
