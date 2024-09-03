@@ -116,7 +116,7 @@ class TranslateContentHandler
             }
             $fileContent = implode("\n", array_slice($rows, 0, $i + 1)) . "\n";
             $fileContent.= "original_title: " . $matches['title'] . "\n";
-            $fileContent.= implode("\n", array_slice($rows, $i + 2));
+            $fileContent.= implode("\n", array_slice($rows, $i + 1));
             $this->translated = $fileContent;
             return;
         }
