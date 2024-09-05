@@ -14,7 +14,6 @@ In a digital environment where information security is crucial, especially for p
 
 #### See some advantages:
 
-End-to-end encryption
 End-to-end encryption ensures that only authorized recipients can access and read document content. With LibreSign, each document is encrypted from submission to final signature, ensuring your information remains secure every step of the way.
 
 This encryption protects against interception during the transmission and storage of documents, ensuring that even if the data is accessed by third parties, it will be indecipherable and useless. For public companies that frequently deal with confidential information, this additional security is essential to protect the integrity of their administrative processes.
@@ -26,11 +25,13 @@ LibreSign implements multi-factor authentication (MFA), making unauthorized acce
 For example, in addition to the password, a code sent to the user's cell phone or email may be required. This additional level of verification prevents unauthorized people from forging signatures or accessing important documents. For public organizations, where accuracy and accountability are paramount, MFA provides an indispensable extra layer of security.
 
 ### The importance of digital security in public companies
+
 Public companies deal daily with information that requires the highest level of security. From contracts and agreements to legislative documents and citizen records, protecting this data is crucial. Any security breach can result in serious consequences, including data loss, unauthorized access to sensitive information and damage to the organization's reputation.
 
 LibreSign was developed with a focus on security and efficiency. The platform ensures that each document goes through a secure process, from creation to final signature. This level of detail and care is especially important in a scenario where reliability and security are mandatory.
 
 ### Additional Benefits of LibreSign
+
 In addition to advanced security features, LibreSign offers other advantages that make document management more efficient and secure:
 
 - **Intuitive interface:** The platform is easy to use, allowing employees to focus on their main tasks without wasting time on complicated systems.
