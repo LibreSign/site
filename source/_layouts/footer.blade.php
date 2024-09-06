@@ -74,7 +74,7 @@
                         <ul class="ud-widget-links">
                             @foreach ($page->getFromCategory('features') as $item)
                               <li>
-                                <a href="{{ $item['url'] }}">{{ $item['title'] }}</a>
+                                <a href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
                               </li>
                             @endforeach
                         </ul>
