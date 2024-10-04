@@ -91,7 +91,29 @@
                   </div>
                 </div>
               </div>
+              <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
+                <div class="accordion">
+                <button
+                    class="ud-faq-btn collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                >
+                    <span class="icon flex-shrink-0">
+                    <i class="lni lni-chevron-down"></i>
+                    </span>
+                    <span>
+                    {{ $page->t("what are the payment methods?")}}
+                    </span>
+                </button>
+                <div id="collapseFive" class="accordion-collapse collapse">
+                    <div class="ud-faq-body">
+                    {{ $page->t("Credit card and Pix")}}
+                    </div>
+                </div>
+                </div>
+                </div>
             </div>
+
             <div class="col-lg-6">
               <div class="ud-single-faq wow fadeInUp" data-aos-delay=".1s">
                 <div class="accordion">
@@ -113,7 +135,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>             
               <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
                 <div class="accordion">
                   <button
@@ -135,31 +157,50 @@
                   </div>
                 </div>
               </div>
-              {{-- <div class="ud-single-faq wow fadeInUp" data-aos-delay=".2s">
+              <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
                 <div class="accordion">
                   <button
                     class="ud-faq-btn collapsed"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseSix"
+                    data-bs-target="#collapseFive"
                   >
                     <span class="icon flex-shrink-0">
                       <i class="lni lni-chevron-down"></i>
                     </span>
-                    <span>Where and how to host this template?</span>
+                    <span>
+                      {{ $page->t("Does the plan have any kind of loyalty?")}}
+                    </span>
                   </button>
-                  <div id="collapseSix" class="accordion-collapse collapse">
+                  <div id="collapseFive" class="accordion-collapse collapse">
                     <div class="ud-faq-body">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.
+                      {{ $page->t("You are free to cancel your plan at any time. By canceling, Signater undertakes not to renew the billing for your plan.")}}
                     </div>
                   </div>
                 </div>
-              </div> --}}
+              </div>
+              <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
+                <div class="accordion">
+                <button
+                    class="ud-faq-btn collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                >
+                    <span class="icon flex-shrink-0">
+                    <i class="lni lni-chevron-down"></i>
+                    </span>
+                    <span>
+                    {{ $page->t("What happens if I cancel my plan?")}}
+                    </span>
+                </button>
+                <div id="collapseFive" class="accordion-collapse collapse">
+                    <div class="ud-faq-body">
+                    {{ $page->t("Yes, at any time. After canceling, you will no longer be charged and there will be no automatic renewal.")}}
+                    </div>
+                </div>
+                </div>
             </div>
-          </div>
+            </div>
+        </div> 
         </div>
       </section>
       <!-- ====== FAQ End ====== -->
