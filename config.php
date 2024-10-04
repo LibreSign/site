@@ -27,8 +27,8 @@ return [
         return '<li>' . implode('</li><li>', $list) . '</li>';
     },
     'prices' => [
-        'Basic' => [
-            'price' => '$ 600/mo',
+        'Professional' => [
+            'price' => '$ 150/mo',
             'description' => 'STARTING FROM',
             'isActive' => false,
             'list' => <<<LIST
@@ -36,8 +36,8 @@ return [
                 - Storage until 1Gb
                 LIST,
         ],
-        'Business' => [
-            'price' => 'Contact us to more informations',
+        'Enterprise' => [
+            'price' => '$ 1000/mo',
             'description' => '',
             'isActive' => true,
             'list' => <<<LIST
@@ -49,47 +49,57 @@ return [
     'optionsServicesLibresign' => [
         [
             'service' => 'Electronic document management',
-            'basic' => true,
+            'pro' => true,
             'business' => true,
         ],
         [
             'service' => 'Simple electronic signature (without digital certificate) unlimited',
-            'basic' => true,
+            'pro' => true,
             'business' => true,
         ],
         [
             'service' => 'Unlimited subscription with A1 digital certificate',
-            'basic' => true,
+            'pro' => true,
             'business' => true,
         ],
         [
             'service' => 'Sending reminder by email',
-            'basic' => true,
+            'pro' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Task management',
+            'pro' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Calendar',
+            'pro' => true,
+            'business' => true,
+        ],
+        [
+            'service' => 'Forms',
+            'pro' => true,
             'business' => true,
         ],
         [
             'service' => 'Technical support',
-            'basic' => false,
+            'pro' => false,
             'business' => true,
         ],
         [
             'service' => 'Online document creation and editing',
-            'basic' => false,
-            'business' => true,
-        ],
-        [
-            'service' => 'Access management by users or departments',
-            'basic' => false,
+            'pro' => false,
             'business' => true,
         ],
         [
             'service' => 'Task control and management',
-            'basic' => false,
+            'pro' => false,
             'business' => true,
         ],
         [
             'service' => 'Customization of visual identity (colors, logo and domain)',
-            'basic' => false,
+            'pro' => false,
             'business' => true,
         ],
     ],

@@ -43,8 +43,14 @@
                 </div>
               @endif
               <div class="ud-pricing-footer">
-                <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
-                  {{ $page->t('Under Consultation') }}
+                @if($planName == 'Professional')
+                  <a href="https://account.libresign.coop/product/professional/" class="ud-main-btn ud-border-btn">
+                    {{ $page->t('Contract') }}
+                  </a>
+                @else
+                <a href="https://account.libresign.coop/product/enterprise/" class="ud-main-btn ud-border-btn">
+                  {{ $page->t('Contract') }}
+                @endif
                 </a>
               </div>
             </div>
@@ -65,15 +71,15 @@
           <thead>
             <tr>
               <th style="width: 34%;"></th>
-              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
-              <th style="width: 22%;">{{ $page->t('Business') }}</th>
+              <th style="width: 22%;">{{ $page->t('Professional') }}</th>
+              <th style="width: 22%;">{{ $page->t('Enterprise') }}</th>
             </tr>
           </thead>
-          @foreach($page->optionsServicesLibresign as $item => $optionList)
           <tbody>
+            @foreach($page->optionsServicesLibresign as $item => $optionList)
             <tr>
               <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
-              @foreach (['basic', 'business'] as $item)
+              @foreach (['pro', 'business'] as $item)
                 <td>
                   @if (is_bool($optionList->$item))
                     <i class="lni lni-{{ $optionList->$item == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
@@ -82,18 +88,25 @@
                   @endif
                 </td>
               @endforeach
+              
+            </tr>
+            @endforeach
+            <tr>
+              <th></th>
+              <td>
+                <a href="https://account.libresign.coop/product/professional/" class="ud-main-btn ud-white-btn mt-1">
+                  {{ $page->t('Contract') }}
+                </a>
+              </td>
+              <td>
+                <a href="https://account.libresign.coop/product/enterprise/" class="ud-main-btn ud-white-btn mt-1">
+                  {{ $page->t('Contract') }}
+                </a>
+              </td>
             </tr>
           </tbody>
-          @endforeach
         </table>
       </div>
-
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
-          {{ $page->t('Under Consultation') }}
-        </a>
-      </div>
-
     </div>
   </section>
 
