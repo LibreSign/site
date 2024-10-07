@@ -122,8 +122,48 @@ return [
             'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
             'author' => 'Igor Afonso Oliveira Ruas'
         ],
-        
-        
+    ],
+    'frequentlyQuestions' => [
+        [
+            'question' => 'Why LibreSign?',
+            'answer' => 'LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the GDPR - General Data Protection Law.'
+        ],
+        [
+            'question' => 'What is electronic signature capture?',
+            'answer' => 'Electronic signature capture is a technology for signing electronic document files with a handwritten signature. The use of this technology allows for the elimination of the mailing, storage, filing, copying, and retrieval of paper documents. This will save your business time and money.'
+        ],
+        [
+            'question' => 'What are the key features of LibreCode signature pads?',
+            'answer' => 'File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API'
+        ],
+        [
+            'question' => 'what are the payment methods?',
+            'answer' => 'Credit card and Pix'
+        ],
+        [
+            'question' => 'Is a digital signature the same as a digitized signature?',
+            'answer' => 'No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.'
+        ],
+        [
+            'question' => 'What is the name of the company that LibreSign was developed by?',
+            'answer' => 'LibreCode, a Brazilian cooperative of free software developers.'
+        ],
+        [
+            'question' => 'Does the plan have any kind of loyalty?',
+            'answer' => 'You are free to cancel your plan at any time. By canceling, Signater undertakes not to renew the billing for your plan.'
+        ],
+        [
+            'question' => 'What happens if I cancel my plan?',
+            'answer' => 'Yes, at any time. After canceling, you will no longer be charged and there will be no automatic renewal.'
+        ],
+        [
+            'question' => 'Can I use my personal digital certificate to sign documents?',
+            'answer' => 'Yes. You can store your digital certificate in LibreSign and when you sign a document you will be asked for your password.'
+        ],
+        [
+            'question' => 'Do I need a digital certificate to sign documents?',
+            'answer' => 'No. LibreSign creates a digital certificate for each user who does not have a personal digital certificate.'
+        ],
     ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
