@@ -35,14 +35,14 @@
                 <button
                   class="ud-faq-btn collapsed"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
+                  data-bs-target="#collapseOne{{$item}}"
                 >
                   <span class="icon flex-shrink-0">
                     <i class="lni lni-chevron-down"></i>
                   </span>
                   <span>{{ $page->t($faq->question)}}</span>
                 </button>
-                <div id="collapseOne" class="accordion-collapse collapse">
+                <div id="collapseOne{{$item}}" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
                     {{ $page->t($faq->answer)}}
                   </div>
