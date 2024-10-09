@@ -66,7 +66,7 @@
                                 <a href="{{ $page->baseUrl }}#about">{{ $page->t("About")}}</a>
                             </li>
                             <li>
-                                <a href="{{ $page->baseUrl }}frequently-questions">{{ $page->t("FAQ")}}</a>
+                                <a href="{{ $page->baseUrl }}faq">FAQ</a>
                             </li>
                         </ul>
                     </div>
