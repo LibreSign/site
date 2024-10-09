@@ -181,10 +181,6 @@ return [
             'answer' => 'Absolutely! LibreSign has APIs that allow you to integrate the platform with other systems you already use, helping to automate processes and make everything more agile.'
         ],
         [
-            'question' => 'How does LibreSign guarantee the security of signatures and documents?',
-            'answer' => 'LibreSign uses advanced cryptography to ensure that signatures and documents are always secure. In addition, everything is logged and audited, and access is controlled to avoid any problems.'
-        ],
-        [
             'question' => 'Can LibreSign be used by public bodies?',
             'answer' => 'Yes, LibreSign is perfect for town halls and public bodies that need a secure and legally valid solution for signing documents.'
         ],
