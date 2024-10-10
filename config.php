@@ -122,8 +122,8 @@ return [
             'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
             'author' => 'Igor Afonso Oliveira Ruas'
         ],
-        
-        
+
+
     ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
@@ -310,6 +310,15 @@ return [
                     'role' => '',
                     'social' => [
                         'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
+                    ]
+                ],
+                [
+                    'name' => 'Vitor Mattos',
+                    'gravatar' => '2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49' ,
+                    'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
+                    'role' => 'CTO',
+                    'social' => [
+                        'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
                     ]
                 ],
             ],
