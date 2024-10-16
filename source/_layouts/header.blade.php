@@ -27,9 +27,6 @@
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}pricing">{{ $page->t('Pricing')}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#target_audience">{{ $page->t("Target audience") }}</a>
-                </li>
-                <li class="nav-item">
                   <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}#contact">{{ $page->t("Contact") }}</a>
                 </li>
                 <li class="nav-item">
@@ -38,12 +35,15 @@
                 <li class="nav-item nav-item-has-children">
                   <a href="javascript:void(0)">{{ $page->t('Language') }}</a>
                   <ul class="ud-submenu">
-                  @foreach($page->locales as $localeCode => $localeName)
+                    @foreach($page->locales as $localeCode => $localeName)
                     <li class="ud-submenu-item">
                       <a class="ud-submenu-link" href="{{ translate_url($page, $localeCode) }}">{{ $localeName }}</a>
                     </li>
-                  @endforeach
+                    @endforeach
                   </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="https://account.libresign.coop/">{{$page->t("Account")}}</a>
                 </li>
               </ul>
             </div>
