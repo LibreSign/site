@@ -14,10 +14,6 @@ Document management faces several common issues. Manual document signing can tak
 
 ### Real problem: Floods in Rio Grande do Sul
 
-![Image](../assets/images/floods-in-rio-grande-do-sul.png)
-
-A recent example that highlights the importance of document digitization is the floods in Rio Grande do Sul. Many schools and universities in the region suffered the loss of important physical documents due to the floods. These non-digitized documents resulted in enormous losses and difficulties in recovering essential information, affecting the administration and continuity of educational activities.
-
 A recent example that highlights the importance of document digitization is the floods in Rio Grande do Sul. Many schools and universities lost important physical documents due to the floods, resulting in enormous losses and difficulties in recovering essential information. The lack of digitization severely affected the administration and continuity of educational activities. This tragic event reinforces the urgent need to adopt digital solutions to protect important data and ensure the resilience of institutions against natural disasters.
 
 ## LibreSign: The ideal solution
