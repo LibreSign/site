@@ -29,7 +29,7 @@
                 <div class="ud-blog-overlay">
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
-                      <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
+                      <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                       alt="{{ $page->author }}" />
                       <span>
                         @php
@@ -55,7 +55,7 @@
 
           <div class="col-lg-8">
             <div class="ud-blog-details-content text-justify">
-              <div style="text-align:justify;">
+              <div class="article-table" style="text-align:justify;">
                 @yield('content')
               </div>
             </div>
@@ -77,7 +77,7 @@
                         <div class="ud-article-image">
                           <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
                             <img
-                              src="https://www.gravatar.com/avatar/{{ $article->gravatar }}"
+                              src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                               alt="{{ $article->author }}"
                             />
                           </a>
