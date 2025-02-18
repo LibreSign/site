@@ -255,15 +255,13 @@ return [
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
+                // $path_img = $post->baseUrl.'source/assets/images/logo/Avatar-LibreSign.png';
                 $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
                 $items = $post->get('collections')->get('team')->get('items');
                 $author = array_filter($items->all(), function($author) use ($post){
                     return $author->name === $post->author;
                 });
-                if(!empty($author)){
-                    $author = current($author);
-                    $post->set('gravatar', $author->gravatar);
-                }
+                
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
@@ -319,6 +317,15 @@ return [
                     'role' => 'CTO',
                     'social' => [
                         'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
+                    ]
+                ],
+                [
+                    'name' => 'LibreSign',
+                    'gravatar' => $post->baseUrl.'/source/assets/images/logo/Avatar-LibreSign.png' ,
+                    'bio' => '',
+                    'role' => 'Cooperativa',
+                    'social' => [
+                        'linkedin' => 'https://www.linkedin.com/company/libresign/posts/?feedView=all',
                     ]
                 ],
             ],
