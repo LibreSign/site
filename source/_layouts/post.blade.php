@@ -29,8 +29,13 @@
                 <div class="ud-blog-overlay">
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
-                      <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                      alt="{{ $page->author }}" />
+                      @if($page->author == 'LibreSign')
+                        <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
+                        alt="{{ $page->author }}" />
+                      @else
+                        <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
+                        alt="{{ $page->author }}" />
+                      @endif
                       <span>
                         @php
                             $author = '<a href="' . $page->baseUrl . 'team/' . \Illuminate\Support\Str::slug($page->author) . '"> ' . $page->author . '</a>';
@@ -75,12 +80,21 @@
                       @endif
                       <li>
                         <div class="ud-article-image">
-                          <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
-                            <img
-                              src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                              alt="{{ $article->author }}"
-                            />
-                          </a>
+                          @if($article->author === 'LibreSign')
+                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
+                              <img
+                                src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
+                                alt="{{ $article->author }}"
+                              />
+                            </a>
+                          @else
+                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">  
+                              <img
+                                  src="https://www.gravatar.com/avatar/{{ $article->gravatar }}?size=40"
+                                  alt="{{ $article->author }}"
+                                />
+                            </a>
+                          @endif
                         </div>
                         <div class="ud-article-content">
                           <h5 class="ud-article-title">
