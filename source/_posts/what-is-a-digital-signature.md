@@ -20,11 +20,53 @@ As we’ve seen, a digital signature is a technology to confirm the identity of 
 
 ### Comparison of Handwritten, Electronic, and Digital Signatures
 
-| **Type of Signature** | **Description** | **Characteristics and Security** | **Examples of Use** |
-|-----------------------|------------------|----------------------------------|---------------------|
-| **Handwritten Signature** | The most traditional type of authentication, made manually with a pen on physical documents.| - Requires in-person signing with a physical copy of the document.<br> - Security depends on external factors, such as signature recognition at a notary office.<br> - Requires physical storage of documents. | - Signing company contracts.<br> - Signature recognition at a notary office.<br> - Formal physical documents. |
-| **Electronic Signature** | A digitally performed signature, which can have different security levels according to Law 14.063/20 (Simple, Advanced, and Qualified Signatures). | - **Simple:** Identifies the signer using basic evidence (email, password, phone). Suitable for low-risk situations.<br> - **Advanced:** Uses cryptographic methods and corporate digital certificates (ICP-Brasil or external). Suitable for legal and financial transactions.<br> - **Qualified:** Requires a digital certificate issued by a Certification Authority (CA) accredited by ICP-Brasil. Provides the highest level of security and detects any modifications made after signing. | - **Simple:** Reports, receipts, service bookings.<br> - **Advanced:** Financial transactions, sensitive contracts.<br> - **Qualified:** Electronic invoices, health records, real estate transactions. |
-| **Digital Signature** | A type of qualified electronic signature with a high level of security. | - Requires a digital certificate issued by a CA under the ICP-Brasil standard.<br> - The most secure form of electronic signature.<br> - Ensures document integrity and authenticity, preventing undetected alterations. | - Signing official documents.<br> - Property transfers.<br> - Issuing electronic invoices. |
+#### 1 - Handwritten Signature
+
+##### Description
+The most traditional type of authentication, made manually with a pen on physical documents.
+
+##### Characteristics and Security
+- Requires in-person signing with a physical copy of the document.
+- Security depends on external factors, such as signature recognition at a notary office.
+- Requires physical storage of documents.
+
+##### Examples of Use
+- Signing company contracts.
+- Signature recognition at a notary office.
+- Formal physical documents.
+
+
+#### 2 - Electronic Signature
+
+##### Description
+A digitally performed signature, which can have different security levels according to Law 14.063/20 (Simple, Advanced, and Qualified Signatures).
+
+##### Characteristics and Security
+- **Simple**: Identifies the signer using basic evidence (email, password, phone). Suitable for low-risk situations.
+- **Advanced**: Uses cryptographic methods and corporate digital certificates (ICP-Brasil or external). Suitable for legal and financial transactions.
+- **Qualified**: Requires a digital certificate issued by a Certification Authority (CA) accredited by ICP-Brasil. Provides the highest level of security and detects any modifications made after signing.
+
+##### Examples of Use
+- **Simple**: Reports, receipts, service bookings.
+- **Advanced**: Financial transactions, sensitive contracts.
+- **Qualified**: Electronic invoices, health records, real estate transactions.
+
+
+#### 3 - Digital Signature
+
+##### Description
+A type of qualified electronic signature with a high level of security.
+
+##### Characteristics and Security
+- Requires a digital certificate issued by a CA under the ICP-Brasil standard.
+- The most secure form of electronic signature.
+- Ensures document integrity and authenticity, preventing undetected alterations.
+
+##### Examples of Use
+- Signing official documents.
+- Property transfers.
+- Issuing electronic invoices.
+
 
 ### What are the advantages of digital signatures?
 While physical signatures can be forged, compromising the validity of your documents, digital signatures, regulated by Provisional Measure No. 2.200-2/2001, provide the necessary security to protect the authenticity and legal validity of your documents with speed, authenticity, and integrity. Here are the five main advantages:

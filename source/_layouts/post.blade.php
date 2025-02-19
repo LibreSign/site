@@ -60,7 +60,7 @@
 
           <div class="col-lg-8">
             <div class="ud-blog-details-content text-justify">
-              <div class="article-table" style="text-align:justify;">
+              <div class="article" style="text-align:justify;">
                 @yield('content')
               </div>
             </div>

@@ -502,17 +502,22 @@
 }
 
 /*Table post*/
-.article-table table{
+.article p{
   margin-top: 3%;
+  margin-bottom: 3%;
 }
 
-.article-table table thead tr th {
-  padding: 1%;
-  text-align: center;
+.article h3{
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
-.article-table table tbody tr td{
-  // font-size: 15px;
-  padding: 1%;
-  text-align: justify;
+.article h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.article h5{
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
