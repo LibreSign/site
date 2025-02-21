@@ -150,3 +150,15 @@
     height:260px;
   }
 }
+
+@media (min-width: 250px) and (max-width: 260px) {
+  .size-box-pricing {
+    height:600px;
+  }
+}
+
+@media (min-width: 261px) and (max-width: 400px) {
+  .size-box-pricing {
+    height:550px;
+  }
+}
