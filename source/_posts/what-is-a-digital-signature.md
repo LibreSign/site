@@ -22,15 +22,13 @@ As we’ve seen, a digital signature is a technology to confirm the identity of 
 
 #### 1 - Handwritten Signature
 
-##### Description
 The most traditional type of authentication, made manually with a pen on physical documents.
 
-##### Characteristics and Security
 - Requires in-person signing with a physical copy of the document.
 - Security depends on external factors, such as signature recognition at a notary office.
 - Requires physical storage of documents.
 
-##### Examples of Use
+##### Used in:
 - Signing company contracts.
 - Signature recognition at a notary office.
 - Formal physical documents.
@@ -38,15 +36,13 @@ The most traditional type of authentication, made manually with a pen on physica
 
 #### 2 - Electronic Signature
 
-##### Description
 A digitally performed signature, which can have different security levels according to Law 14.063/20 (Simple, Advanced, and Qualified Signatures).
 
-##### Characteristics and Security
 - **Simple**: Identifies the signer using basic evidence (email, password, phone). Suitable for low-risk situations.
 - **Advanced**: Uses cryptographic methods and corporate digital certificates (ICP-Brasil or external). Suitable for legal and financial transactions.
 - **Qualified**: Requires a digital certificate issued by a Certification Authority (CA) accredited by ICP-Brasil. Provides the highest level of security and detects any modifications made after signing.
 
-##### Examples of Use
+##### Used in:
 - **Simple**: Reports, receipts, service bookings.
 - **Advanced**: Financial transactions, sensitive contracts.
 - **Qualified**: Electronic invoices, health records, real estate transactions.
@@ -54,15 +50,13 @@ A digitally performed signature, which can have different security levels accord
 
 #### 3 - Digital Signature
 
-##### Description
 A type of qualified electronic signature with a high level of security.
 
-##### Characteristics and Security
 - Requires a digital certificate issued by a CA under the ICP-Brasil standard.
 - The most secure form of electronic signature.
 - Ensures document integrity and authenticity, preventing undetected alterations.
 
-##### Examples of Use
+##### Used in:
 - Signing official documents.
 - Property transfers.
 - Issuing electronic invoices.
