@@ -45,6 +45,9 @@
                   @endforeach
                   </ul>
                 </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="{{ locale_path($page, $page->baseUrl) }}docs/instalation">Docs</a>
+                </li>
               </ul>
             </div>
           </nav>
