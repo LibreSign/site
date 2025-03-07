@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74fc40313b12e89f2a98ff912ca4b7b8",
+    "content-hash": "13b0204aa5bbde1b9c0d698037ee13bd",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -243,16 +243,16 @@
         },
         {
             "name": "elaborate-code/jigsaw-localization",
-            "version": "dev-fix/use-package-default-locale",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LibreSign/jigsaw-localization.git",
-                "reference": "047abccb52ea5e7ec3c1fb036390700a1e9af54d"
+                "reference": "36ac8b65bd4a0b4e320b17c5ee92e1fb30a62126"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/047abccb52ea5e7ec3c1fb036390700a1e9af54d",
-                "reference": "047abccb52ea5e7ec3c1fb036390700a1e9af54d",
+                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/36ac8b65bd4a0b4e320b17c5ee92e1fb30a62126",
+                "reference": "36ac8b65bd4a0b4e320b17c5ee92e1fb30a62126",
                 "shasum": ""
             },
             "require": {
@@ -260,14 +260,21 @@
                 "php": "^8.0"
             },
             "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8",
                 "laravel/pint": "^1.2",
-                "pestphp/pest": "^1.22",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "tightenco/jigsaw": "^1.7"
             },
+            "default-branch": true,
             "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true
+                }
+            },
             "autoload": {
                 "files": [
                     "src/helpers.php"
@@ -283,14 +290,14 @@
                 }
             },
             "scripts": {
+                "bin": [
+                    "echo 'bin not installed'"
+                ],
                 "analyse": [
                     "vendor/bin/phpstan analyse"
                 ],
                 "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
+                    "vendor/bin/phpunit  --colors=always"
                 ],
                 "format": [
                     "vendor/bin/pint"
@@ -307,9 +314,9 @@
             ],
             "description": "Brings localization feature to \"tightenco/jigsaw\" using JSON files",
             "support": {
-                "source": "https://github.com/LibreSign/jigsaw-localization/tree/fix/use-package-default-locale"
+                "source": "https://github.com/LibreSign/jigsaw-localization/tree/main"
             },
-            "time": "2024-04-03T16:02:46+00:00"
+            "time": "2025-03-08T21:11:41+00:00"
         },
         {
             "name": "elaborate-code/php-json-tongue",
@@ -4705,12 +4712,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "libresign/espeak": 20,
-        "elaborate-code/jigsaw-localization": 20
+        "elaborate-code/jigsaw-localization": 20,
+        "libresign/espeak": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
