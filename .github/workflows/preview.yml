@@ -21,6 +21,7 @@ jobs:
         run: composer i
       - name: Change config.php
         run: |
+          sed -i "s|libresign.coop|${{ steps.preview-step.outputs.preview-url }}|g" CNAME
           sed -i "s|'baseUrl' => '/'|'baseUrl' => '${{ steps.preview-step.outputs.preview-url }}'|g" config.production.php
           sed -i "/'matomo_container'/d" config.production.php
       - name: Run composer command
