@@ -35,7 +35,7 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
+    <link rel="stylesheet" href="{{ $page->baseUrl . mix('css/main.css', 'assets/build') }}">
     <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/ud-styles.css" />
   </head>
   <body>
