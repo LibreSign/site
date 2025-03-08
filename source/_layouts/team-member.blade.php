@@ -32,12 +32,20 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="ud-single-team wow fadeInUp" data-aos-delay=".1s">
-                <div class="ud-team-image-wrapper">  
-                  <img
-                    src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=170"
-                    alt="{{ $page->name }}"
-                    class="shape shape-1 mb-5"
-                  />
+                <div class="ud-team-image-wrapper">
+                  @if(starts_with($page->gravatar, '/'))
+                    <img
+                      src="{{ $page->baseUrl . $page->gravatar }}"
+                      alt="{{ $page->name }}"
+                      class="shape shape-1 mb-5"
+                    />
+                  @else
+                    <img
+                      src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=170"
+                      alt="{{ $page->name }}"
+                      class="shape shape-1 mb-5"
+                    />
+                  @endif
                 </div>
                 @if($page->social)
                 <ul class="ud-team-socials">
