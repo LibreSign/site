@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
-                        <a href="{{ locale_path($page, $page->baseUrl) }}#home" class="ud-footer-logo">
+                        <a href="{{ $page->baseUrl . locale_path($page, 'contact-us') }}#home" class="ud-footer-logo">
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="logo" />
                         </a>
                         <p class="ud-widget-desc">
@@ -89,7 +89,7 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="{{ locale_path($page, $page->baseUrl) }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
+                            <a href="{{ $page->baseUrl . locale_path($page, 'contact-us') }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +120,10 @@
     </script>
 
     <!-- ====== All Javascript Files ====== -->
-    <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
+    <script>
+      window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
+    </script>
+    <script defer src="{{ $page->baseUrl . mix('js/main.js', 'assets/build') }}"></script>
     <script>
         document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()

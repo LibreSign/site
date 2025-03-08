@@ -16,7 +16,7 @@
               </p>
               <ul class="ud-hero-buttons">
                 <li>
-                  <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-white-btn mt-1">
+                  <a href="{{ $page->baseUrl . locale_path($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
                     {{ $page->t('Talk to sales') }}
                   </a>
                 </li>
@@ -192,7 +192,7 @@
             <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt="print_main_screen"/>
           </div>
           <div class="col-lg-12 d-flex justify-content-center mt-5">
-            <a href="{{ locale_path($page, $page->baseUrl) }}contact-us" class="ud-main-btn ud-border-btn">
+            <a href="{{ $page->baseUrl . locale_path($page, 'contact-us') }}contact-us" class="ud-main-btn ud-border-btn">
               {{ $page->t('Talk to sales') }}
             </a>
           </div>
