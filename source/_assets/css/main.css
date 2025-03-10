@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind 'tailwindcss/base';
+@tailwind 'tailwindcss/components';
+@tailwind 'tailwindcss/utilities';
 
 .ud-main-btn {
     background-color: var(--primary-color);
