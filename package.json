@@ -21,6 +21,6 @@
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
         "bootstrap": "^5.3.3",
-        "lineicons": "^1.3.2"
+        "lineicons": "^1.0.3"
     }
 }

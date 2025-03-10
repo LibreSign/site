@@ -11,7 +11,7 @@ mix.jigsaw()
     ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .sass('source/_assets/css/main.scss', 'css')
-    .copy('node_modules/lineicons/dist', 'source/assets/build/css')
+    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/build/css/fonts')
     .options({
         processCssUrls: false,
     })
