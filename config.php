@@ -326,7 +326,7 @@ return [
                 ],
                 [
                     'name' => 'LibreSign',
-                    'gravatar' => $post->baseUrl.'/source/assets/images/logo/Avatar-LibreSign.png' ,
+                    'gravatar' => '/source/assets/images/logo/Avatar-LibreSign.png' ,
                     'bio' => '',
                     'role' => 'Cooperativa',
                     'social' => [

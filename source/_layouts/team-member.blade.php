@@ -32,9 +32,16 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="ud-single-team wow fadeInUp" data-aos-delay=".1s">
-                <div class="ud-team-image-wrapper">  
+                <div class="ud-team-image-wrapper">
+                  @php
+                    if (str_starts_with($page->gravatar, '/')) {
+                      $gravatar = $page->baseUrl . $page->gravatar;
+                    } else {
+                      $gravatar = 'https://www.gravatar.com/avatar/' . $page->gravatar . '?size=170';
+                    }
+                  @endphp
                   <img
-                    src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=170"
+                    src="{{ $gravatar }}"
                     alt="{{ $page->name }}"
                     class="shape shape-1 mb-5"
                   />
