@@ -20,8 +20,15 @@
         <div class="container">
           
           <div class="row">
-            <div class="col-4 p-5">                
-              <navigation :links='@json($page->navigation)'></navigation>
+            <div class="col-4 p-5"> 
+              @php
+
+              $valor = 'admin';
+              $menuNavegation = $page->navigation->filter(function ($value, $key) use ($valor) {
+                    return $value->type == $valor;
+                  });
+                            @endphp                  
+              <navigation :links='@json($menuNavegation)'></navigation>
             </div>
             <div class="col-8 p-5" style="background: #f3f4fe;">
               @yield('documentation_content')
