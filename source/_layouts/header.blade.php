@@ -40,7 +40,7 @@
                   <ul class="ud-submenu">
                   @foreach($page->locales as $localeCode => $localeName)
                     <li class="ud-submenu-item">
-                      <a class="ud-submenu-link" href="/{{ translate_url($page, $localeCode) }}">{{ $localeName }}</a>
+                      <a class="ud-submenu-link" href="{{ rtrim($page->baseUrl, '/') . translate_url($page, $localeCode) }}">{{ $localeName }}</a>
                     </li>
                   @endforeach
                   </ul>
