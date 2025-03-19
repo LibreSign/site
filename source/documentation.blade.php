@@ -16,9 +16,7 @@
     <!-- ====== Banner End ====== -->
 
     <section class="ud-blog-grids">
-        <navigation></navigation>
         <div class="container">
-          
           <section class="ud-404">
             <div class="container">
               <div class="row">
@@ -28,13 +26,13 @@
                       <h2 class="ud-404-title">{{ $page->t( "This documents the upcoming version of Libresign") }}</h2>
                       <ul class="ud-404-links">
                         <li>
-                          <a href="{{ $page->baseUrl }}docs/user/instalation">{{ $page->t( "User") }}</a>
+                          <a href="{{ $page->baseUrl }}documentation/user/instalation">{{ $page->t( "User") }}</a>
                         </li>
                         <li>
-                          <a href="{{ $page->baseUrl }}docs/admin/instalation">{{ $page->t( "Admin") }}</a>
+                          <a href="{{ $page->baseUrl }}documentation/admin/instalation">{{ $page->t( "Admin") }}</a>
                         </li>
                         <li>
-                          <a href="{{ $page->baseUrl }}docs/developer/instalation">{{ $page->t( "Developer") }}</a>
+                          <a href="{{ $page->baseUrl }}documentation/developer/instalation">{{ $page->t( "Developer") }}</a>
                         </li>
                       </ul>
                     </div>
