@@ -1,6 +1,7 @@
 ---
-extends: _layouts.user-documentation
+extends: _layouts.docs
 section: documentation_content
+type: developer
 ---
 
 ## Teste 2

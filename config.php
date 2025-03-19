@@ -418,5 +418,23 @@ return [
                 ],
             ],
         ],
+        'docsAdmin' => [
+            'path' => function($page){
+                return 'documentation/admin/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
+        ],
+        'docsDeveloper' => [
+            'path' => function($page){
+                return 'documentation/developer/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
+        ],
+        'docsUser' => [
+            'path' => function($page){
+                return 'documentation/user/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
+        ],
     ],
 ];
