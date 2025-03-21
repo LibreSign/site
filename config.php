@@ -9,6 +9,7 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'navigation' => include_once('./navigation.php'),
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
@@ -333,6 +334,24 @@ return [
                     ]
                 ],
             ],
+        ],
+        'docsAdmin' => [
+            'path' => function($page){
+                return 'documentation/admin/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
+        ],
+        'docsDeveloper' => [
+            'path' => function($page){
+                return 'documentation/developer/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
+        ],
+        'docsUser' => [
+            'path' => function($page){
+                return 'documentation/user/' . Str::slug($page->name);
+            },
+            'extends' => '_layouts.docs',
         ],
     ],
 ];
