@@ -22,11 +22,14 @@
             <div class="col-4 p-5"> 
 
               @php
-              $menuNavegation = $page->navigation->filter(function ($value, $key) {
-                    return $value->type == $page->type;
+              $menuNavegation = $page->navigation->filter(function ($value, $key) use ($page) {
+                  return strtolower($key) == $page->type;
               });
-              @endphp                
-              <navigation :links='@json($menuNavegation)'></navigation>
+              @endphp
+              
+              @foreach($menuNavegation as $key => $value)
+                <navigation :links='@json($value)'></navigation>
+              @endforeach
             </div>
             <div class="col-8 p-5" style="background: #f3f4fe;">
               @yield('documentation_content')
