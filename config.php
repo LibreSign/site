@@ -9,6 +9,7 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'accountUrl' => 'http://nginx',
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
@@ -265,7 +266,7 @@ return [
                     $author = current($author);
                     $post->set('gravatar', $author->gravatar);
                 }
-                
+
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
@@ -288,6 +289,53 @@ return [
 
                 return $post;
             }
+        ],
+        'posts_wordpress' => [
+            'extends' => '_layouts.post_wordpress',
+            'path' => function($page) {
+                return 'posts/' . $page->slug;
+            },
+            'items' => function ($post) {
+                $version = file_get_contents($post->get('accountUrl') . '/wp-json/libresign/v1/version');
+                $post->wordPressVersion = json_decode($version)->version;
+                $categories = file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories?slug=article');
+                $categoryId = current(json_decode($categories))->id;
+                $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?categories=' . $categoryId;
+                $headers = get_headers($baseUrl);
+                $page = $totalPages = 1;
+                foreach ($headers as $header) {
+                    if (stripos($header, 'X-WP-TotalPages:') !== false) {
+                        $totalPages = (int) trim(substr($header, strpos($header, ':') + 1));
+                        break;
+                    }
+                }
+                $posts = [];
+                while ($page <= $totalPages) {
+                    $url = $baseUrl . '&page=' . $page;
+                    if (!$response = file_get_contents($url)) {
+                        return [];
+                    }
+                    $posts = array_merge($posts, json_decode($response, true));
+                    $page++;
+                };
+
+                return collect($posts)->map(function ($item) {
+                    $post = [
+                        'title' => $item['title']['rendered'],
+                        'slug' => $item['slug'],
+                        'date' => Carbon\Carbon::parse($item['date'])->format('Y-m-d H:i:s'),
+                        'content' => $item['content']['rendered'],
+                        'gravatar' => $item['author']['gravatar_hash'],
+                        'author' => $item['author']['name'],
+                    ];
+                    $pattern = '/<figure class="wp-block-post-featured-image">.*?<img[^>]+src="(?<image>[^"]+)"[^>]*>.*?<\/figure>/is';
+                    if (preg_match($pattern, $post['content'], $matches)) {
+                        $post['banner'] = $matches['image'];
+                        $post['content'] = preg_replace($pattern, '', $post['content']);
+                    }
+                    return $post;
+                });
+            },
         ],
         'team' => [
             'path' => function($page){

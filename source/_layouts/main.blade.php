@@ -37,6 +37,7 @@
     <!-- ===== All CSS files ===== -->
     <link rel="stylesheet" href="{{ rtrim($page->baseUrl, '/') .  mix('css/main.css', 'assets/build') }}">
     <link rel="stylesheet" href="{{ $page->baseUrl }}assets/build/css/ud-styles.css" />
+    @stack('styles')
   </head>
   <body>
     @include('_layouts.header')
