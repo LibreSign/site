@@ -74,15 +74,14 @@
                   <ul class="ud-articles-list">
                     @php $count = 0; @endphp
                     @foreach($page->mergeCollections($posts, $posts_wordpress) as $article)
+                      @if($count >= 4)
+                        @break
+                      @endif
                       @if (current_path_locale($article) !== current_path_locale($page))
                         @continue
                       @endif
                       @if (str_ends_with($page->getUrl(), $article->getUrl()))
                         @continue
-                      @endif
-                      @php $count++; @endphp
-                      @if($count >= 4)
-                        @break
                       @endif
                       <li>
                         <div class="ud-article-image">
@@ -111,6 +110,7 @@
                           <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}"> {{ $article->author }} </a>
                         </div>
                       </li>
+                      @php $count++; @endphp
                     @endforeach
                   </ul>
                 </div>
