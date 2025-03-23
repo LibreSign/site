@@ -163,9 +163,9 @@ return [
             }
             if (isset($post['categories']) && is_array($post['categories']) && in_array($category, $post['categories'])) {
                 if (!empty($post['original_title'])) {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
+                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
                 } else {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
                 }
                 $posts[] = $post;
             }
@@ -341,30 +341,17 @@ return [
                     };
                 }
 
-                $langs = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
-                return collect($posts)->map(function ($fromApi) use ($langs, $post, $posts) {
-                    $urlTranslations = [];
-                    if (isset($fromApi['translations']) && is_array($fromApi['translations'])) {
-                        foreach ($fromApi['translations'] as $langCode => $translatedPostId) {
-                            $foundPost = array_filter($posts, fn ($p) => $p['id'] === $translatedPostId);
-                            if ($foundPost) {
-                                $foundPost = current($foundPost);
-                                $currentLang = current(array_filter($langs, fn ($l) => $l->slug === $foundPost['lang']));
-                                $urlTranslations[$currentLang->slug] = $currentLang->w3c . '/posts/' . $foundPost['slug'];
-                                $urlTranslations[$currentLang->w3c] = $currentLang->w3c . '/posts/' . $foundPost['slug'];
-                            }
-                        }
-                    }
-                    $currentLang = current(array_filter($langs, fn ($l) => $l->slug === $fromApi['lang']));
+                $wordPressLanguages = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
+                return collect($posts)->map(function ($fromApi) use ($wordPressLanguages, $post) {
+                    $currentLang = current(array_filter($wordPressLanguages, fn ($l) => $l->slug === $fromApi['lang']));
                     $data = [
                         'title' => $fromApi['title']['rendered'],
                         'slug' => $fromApi['slug'],
                         'date' => Carbon\Carbon::parse($fromApi['date'])->timestamp,
                         'content' => $fromApi['content']['rendered'],
-                        'lang' => $currentLang->w3c,
-                        'langSlug' => $currentLang->slug,
+                        'lang' => $currentLang->w3c ?? $fromApi['lang'],
+                        'langSlug' => $currentLang->slug ?? $fromApi['lang'],
                         'description' => $fromApi['acf']['description'],
-                        'translations' => $urlTranslations,
                     ];
                     if (is_array($fromApi['author'])) {
                         $data['gravatar'] = $fromApi['author']['gravatar_hash'];
