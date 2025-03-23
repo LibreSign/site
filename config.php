@@ -365,7 +365,8 @@ return [
                         $data['banner'] = $matches['image'];
                         $data['content'] = preg_replace($pattern, '', $data['content']);
                     } else {
-                        $data['banner'] = $post->baseUrl.'assets/images/logo/logo.svg';
+                        $data['banner'] = $post->get('baseUrl') . 'assets/images/logo/logo.svg';
+                        $data['cover_image'] = $data['banner'];
                     }
                     return $data;
                 });
