@@ -172,6 +172,17 @@ return [
         }
         return $posts;
     },
+    'mergeCollections' => function ($page, ...$collections) {
+        $merged = collect();
+        foreach ($collections as $collection) {
+            foreach ($collection as $post) {
+                $merged->add($post);
+            }
+        }
+        return $merged
+            ->sortByDesc(fn($post) => $post->date)
+            ->values();
+    },
     'collections' => [
         'redirect' => [
             'extends' => '_layouts.redirect301',
@@ -256,7 +267,6 @@ return [
                 return 'posts/' . Str::slug($page->title);
             },
             'author' => 'LibreCode',
-            'sort' => '-date',
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
@@ -306,7 +316,6 @@ return [
                 }
                 return 'posts/' . $page->slug;
             },
-            'sort' => '-date',
             'items' => function ($post) {
                 $categories = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories'));
                 $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
@@ -338,7 +347,7 @@ return [
                     $post = [
                         'title' => $item['title']['rendered'],
                         'slug' => $item['slug'],
-                        'date' => Carbon\Carbon::parse($item['date'])->format('Y-m-d H:i:s'),
+                        'date' => Carbon\Carbon::parse($item['date'])->timestamp,
                         'content' => $item['content']['rendered'],
                         'gravatar' => $item['author']['gravatar_hash'],
                         'author' => $item['author']['name'],

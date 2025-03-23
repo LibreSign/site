@@ -19,7 +19,7 @@
     <section class="ud-blog-grids">
       <div class="container">
         <div class="row">
-          @foreach ($posts as $post)
+          @foreach ($page->mergeCollections($posts, $posts_wordpress) as $post)
             @if (current_path_locale($post) !== current_path_locale($page))
               @continue
             @endif
