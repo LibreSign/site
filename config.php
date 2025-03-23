@@ -266,7 +266,7 @@ return [
                 }
                 return 'posts/' . Str::slug($page->title);
             },
-            'author' => 'LibreCode',
+            'author' => 'LibreSign',
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
