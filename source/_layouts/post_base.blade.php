@@ -81,14 +81,14 @@
                       <li>
                         <div class="ud-article-image">
                           @if($article->author === 'LibreSign')
-                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
+                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($article->author) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="{{ $article->author }}"
                               />
                             </a>
                           @else
-                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}">
+                            <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($article->author) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $article->gravatar }}?size=40"
                                   alt="{{ $article->author }}"
@@ -102,7 +102,7 @@
                               {{ $page->t($article->title) }}
                             </a>
                           </h5>
-                          <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($page->author) }}"> {{ $page->author }} </a>
+                          <a href="{{ $page->baseUrl }}team/{{ \Illuminate\Support\Str::slug($article->author) }}"> {{ $article->author }} </a>
                         </div>
                       </li>
                     @endforeach
