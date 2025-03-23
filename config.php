@@ -342,29 +342,32 @@ return [
                 }
 
                 $langs = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
-                return collect($posts)->map(function ($item) use ($langs) {
-                    $lang = current(array_filter($langs, fn ($l) => $l->slug === $item['lang']));
-                    $post = [
-                        'title' => $item['title']['rendered'],
-                        'slug' => $item['slug'],
-                        'date' => Carbon\Carbon::parse($item['date'])->timestamp,
-                        'content' => $item['content']['rendered'],
+                return collect($posts)->map(function ($fromApi) use ($langs, $post) {
+                    $lang = current(array_filter($langs, fn ($l) => $l->slug === $fromApi['lang']));
+                    $data = [
+                        'title' => $fromApi['title']['rendered'],
+                        'slug' => $fromApi['slug'],
+                        'date' => Carbon\Carbon::parse($fromApi['date'])->timestamp,
+                        'content' => $fromApi['content']['rendered'],
                         'lang' => $lang->w3c,
                         'langSlug' => $lang->slug,
-                        'description' => $item['acf']['description'],
+                        'description' => $fromApi['acf']['description'],
                     ];
-                    if (is_array($item['author'])) {
-                        $post['gravatar'] = $item['author']['gravatar_hash'];
-                        $post['author'] = is_array($item['author']) ? $item['author']['name'] : 'LibreSign';
+                    if (is_array($fromApi['author'])) {
+                        $data['gravatar'] = $fromApi['author']['gravatar_hash'];
+                        $data['author'] = is_array($fromApi['author']) ? $fromApi['author']['name'] : 'LibreSign';
                     } else {
-                        $post['author'] = 'LibreSign';
+                        $data['author'] = 'LibreSign';
                     }
                     $pattern = '/<figure class="wp-block-post-featured-image">.*?<img[^>]+src="(?<image>[^"]+)"[^>]*>.*?<\/figure>/is';
-                    if (preg_match($pattern, $post['content'], $matches)) {
-                        $post['banner'] = $matches['image'];
-                        $post['content'] = preg_replace($pattern, '', $post['content']);
+                    if (preg_match($pattern, $data['content'], $matches)) {
+                        $data['cover_image'] = $matches['image'];
+                        $data['banner'] = $matches['image'];
+                        $data['content'] = preg_replace($pattern, '', $data['content']);
+                    } else {
+                        $data['banner'] = $post->baseUrl.'assets/images/logo/logo.svg';
                     }
-                    return $post;
+                    return $data;
                 });
             },
         ],
