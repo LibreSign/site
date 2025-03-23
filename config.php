@@ -349,12 +349,16 @@ return [
                         'slug' => $item['slug'],
                         'date' => Carbon\Carbon::parse($item['date'])->timestamp,
                         'content' => $item['content']['rendered'],
-                        'gravatar' => $item['author']['gravatar_hash'],
-                        'author' => $item['author']['name'],
                         'lang' => $lang->w3c,
                         'langSlug' => $lang->slug,
                         'description' => $item['acf']['description'],
                     ];
+                    if (is_array($item['author'])) {
+                        $post['gravatar'] = $item['author']['gravatar_hash'];
+                        $post['author'] = is_array($item['author']) ? $item['author']['name'] : 'LibreSign';
+                    } else {
+                        $post['author'] = 'LibreSign';
+                    }
                     $pattern = '/<figure class="wp-block-post-featured-image">.*?<img[^>]+src="(?<image>[^"]+)"[^>]*>.*?<\/figure>/is';
                     if (preg_match($pattern, $post['content'], $matches)) {
                         $post['banner'] = $matches['image'];
