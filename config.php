@@ -321,7 +321,7 @@ return [
                 $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
                 $posts = [];
                 foreach ($categories as $category) {
-                    $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?categories=' . $category->id . '&lang=' . $category->lang;
+                    $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?_embed&categories=' . $category->id . '&lang=' . $category->lang;
                     $headers = get_headers($baseUrl);
                     $totalPages = 1;
                     foreach ($headers as $header) {
@@ -359,15 +359,12 @@ return [
                     } else {
                         $data['author'] = 'LibreSign';
                     }
-                    $pattern = '/<figure class="wp-block-post-featured-image">.*?<img[^>]+src="(?<image>[^"]+)"[^>]*>.*?<\/figure>/is';
-                    if (preg_match($pattern, $data['content'], $matches)) {
-                        $data['cover_image'] = $matches['image'];
-                        $data['banner'] = $matches['image'];
-                        $data['content'] = preg_replace($pattern, '', $data['content']);
+                    if (isset($fromApi['_embedded']['wp:featuredmedia'][0]['source_url'])) {
+                        $data['banner'] = $fromApi['_embedded']['wp:featuredmedia'][0]['source_url'];
                     } else {
                         $data['banner'] = $post->get('baseUrl') . 'assets/images/logo/logo.svg';
-                        $data['cover_image'] = $data['banner'];
                     }
+                    $data['cover_image'] = $data['banner'];
                     return $data;
                 });
             },
