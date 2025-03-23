@@ -353,6 +353,7 @@ return [
                         'author' => $item['author']['name'],
                         'lang' => $lang->w3c,
                         'langSlug' => $lang->slug,
+                        'description' => $item['acf']['description'],
                     ];
                     $pattern = '/<figure class="wp-block-post-featured-image">.*?<img[^>]+src="(?<image>[^"]+)"[^>]*>.*?<\/figure>/is';
                     if (preg_match($pattern, $post['content'], $matches)) {
