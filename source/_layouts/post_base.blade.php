@@ -73,7 +73,13 @@
                   <h3 class="ud-articles-box-title">{{ $page->t('Last articles') }}</h3>
                   <ul class="ud-articles-list">
                     @php $count = 0; @endphp
-                    @foreach($posts as $article)
+                    @foreach($page->mergeCollections($posts, $posts_wordpress) as $article)
+                      @if (current_path_locale($article) !== current_path_locale($page))
+                        @continue
+                      @endif
+                      @if (str_ends_with($page->getUrl(), $article->getUrl()))
+                        @continue
+                      @endif
                       @php $count++; @endphp
                       @if($count >= 4)
                         @break
@@ -98,7 +104,7 @@
                         </div>
                         <div class="ud-article-content">
                           <h5 class="ud-article-title">
-                            <a href="{{ locale_url($page, $article->getUrl())}}">
+                            <a href="{{ $article->getUrl()}}">
                               {{ $page->t($article->title) }}
                             </a>
                           </h5>
