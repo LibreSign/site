@@ -341,7 +341,7 @@ return [
                     };
                 }
 
-                $langs = json_decode(file_get_contents('http://nginx/wp-json/pll/v1/languages'));
+                $langs = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
                 return collect($posts)->map(function ($item) use ($langs) {
                     $lang = current(array_filter($langs, fn ($l) => $l->slug === $item['lang']));
                     $post = [
