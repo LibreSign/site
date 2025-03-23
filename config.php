@@ -342,16 +342,29 @@ return [
                 }
 
                 $langs = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
-                return collect($posts)->map(function ($fromApi) use ($langs, $post) {
-                    $lang = current(array_filter($langs, fn ($l) => $l->slug === $fromApi['lang']));
+                return collect($posts)->map(function ($fromApi) use ($langs, $post, $posts) {
+                    $urlTranslations = [];
+                    if (isset($fromApi['translations']) && is_array($fromApi['translations'])) {
+                        foreach ($fromApi['translations'] as $langCode => $translatedPostId) {
+                            $foundPost = array_filter($posts, fn ($p) => $p['id'] === $translatedPostId);
+                            if ($foundPost) {
+                                $foundPost = current($foundPost);
+                                $currentLang = current(array_filter($langs, fn ($l) => $l->slug === $foundPost['lang']));
+                                $urlTranslations[$currentLang->slug] = $currentLang->w3c . '/posts/' . $foundPost['slug'];
+                                $urlTranslations[$currentLang->w3c] = $currentLang->w3c . '/posts/' . $foundPost['slug'];
+                            }
+                        }
+                    }
+                    $currentLang = current(array_filter($langs, fn ($l) => $l->slug === $fromApi['lang']));
                     $data = [
                         'title' => $fromApi['title']['rendered'],
                         'slug' => $fromApi['slug'],
                         'date' => Carbon\Carbon::parse($fromApi['date'])->timestamp,
                         'content' => $fromApi['content']['rendered'],
-                        'lang' => $lang->w3c,
-                        'langSlug' => $lang->slug,
+                        'lang' => $currentLang->w3c,
+                        'langSlug' => $currentLang->slug,
                         'description' => $fromApi['acf']['description'],
+                        'translations' => $urlTranslations,
                     ];
                     if (is_array($fromApi['author'])) {
                         $data['gravatar'] = $fromApi['author']['gravatar_hash'];
