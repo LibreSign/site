@@ -9,11 +9,16 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'accountUrl' => 'http://nginx',
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
+    'wordPressVersion' => function($page) {
+        $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
+        return json_decode($version)->version;
+    },
     'locales' => [
         '' => 'English',
         'fr' => 'Français',
@@ -158,14 +163,25 @@ return [
             }
             if (isset($post['categories']) && is_array($post['categories']) && in_array($category, $post['categories'])) {
                 if (!empty($post['original_title'])) {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
+                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
                 } else {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
                 }
                 $posts[] = $post;
             }
         }
         return $posts;
+    },
+    'mergeCollections' => function ($page, ...$collections) {
+        $merged = collect();
+        foreach ($collections as $collection) {
+            foreach ($collection as $post) {
+                $merged->add($post);
+            }
+        }
+        return $merged
+            ->sortByDesc(fn($post) => $post->date)
+            ->values();
     },
     'collections' => [
         'redirect' => [
@@ -250,8 +266,7 @@ return [
                 }
                 return 'posts/' . Str::slug($page->title);
             },
-            'author' => 'LibreCode',
-            'sort' => '-date',
+            'author' => 'LibreSign',
             'map' => function ($post) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
@@ -265,7 +280,7 @@ return [
                     $author = current($author);
                     $post->set('gravatar', $author->gravatar);
                 }
-                
+
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
@@ -288,6 +303,71 @@ return [
 
                 return $post;
             }
+        ],
+        'posts_wordpress' => [
+            'extends' => '_layouts.post_wordpress',
+            'path' => function($page) {
+                foreach ($page->locales as $localeCode => $localeName) {
+                    if ($localeCode === $page->lang) {
+                        return $page->lang . '/posts/' . $page->slug;
+                    } elseif ($localeCode === $page->langSlug) {
+                        return $page->langSlug . '/posts/' . $page->slug;
+                    }
+                }
+                return 'posts/' . $page->slug;
+            },
+            'items' => function ($post) {
+                $categories = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories'));
+                $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
+                $posts = [];
+                foreach ($categories as $category) {
+                    $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?_embed&categories=' . $category->id . '&lang=' . $category->lang;
+                    $headers = get_headers($baseUrl);
+                    $totalPages = 1;
+                    foreach ($headers as $header) {
+                        if (stripos($header, 'X-WP-TotalPages:') !== false) {
+                            $totalPages = (int) trim(substr($header, strpos($header, ':') + 1));
+                            break;
+                        }
+                    }
+                    $page = 1;
+                    while ($page <= $totalPages) {
+                        $url = $baseUrl . '&page=' . $page;
+                        if (!$response = file_get_contents($url)) {
+                            break;
+                        }
+                        $posts = array_merge($posts, json_decode($response, true));
+                        $page++;
+                    };
+                }
+
+                $wordPressLanguages = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
+                return collect($posts)->map(function ($fromApi) use ($wordPressLanguages, $post) {
+                    $currentLang = current(array_filter($wordPressLanguages, fn ($l) => $l->slug === $fromApi['lang']));
+                    $data = [
+                        'title' => $fromApi['title']['rendered'],
+                        'slug' => $fromApi['slug'],
+                        'date' => Carbon\Carbon::parse($fromApi['date'])->timestamp,
+                        'content' => $fromApi['content']['rendered'],
+                        'lang' => $currentLang->w3c ?? $fromApi['lang'],
+                        'langSlug' => $currentLang->slug ?? $fromApi['lang'],
+                        'description' => $fromApi['acf']['description'],
+                    ];
+                    if (is_array($fromApi['author'])) {
+                        $data['gravatar'] = $fromApi['author']['gravatar_hash'];
+                        $data['author'] = is_array($fromApi['author']) ? $fromApi['author']['name'] : 'LibreSign';
+                    } else {
+                        $data['author'] = 'LibreSign';
+                    }
+                    if (isset($fromApi['_embedded']['wp:featuredmedia'][0]['source_url'])) {
+                        $data['banner'] = $fromApi['_embedded']['wp:featuredmedia'][0]['source_url'];
+                    } else {
+                        $data['banner'] = $post->get('baseUrl') . 'assets/images/logo/logo.svg';
+                    }
+                    $data['cover_image'] = $data['banner'];
+                    return $data;
+                });
+            },
         ],
         'team' => [
             'path' => function($page){
