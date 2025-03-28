@@ -282,8 +282,8 @@ return [
                 }
 
                 if(empty($post->cover_image)){
-                    if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
-                        $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
+                    if(file_exists(__DIR__.'/source/'.$path.'/cover.svg')){
+                        $post->set('cover_image',$post->baseUrl.$path.'/cover.svg');
                     } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.jpg');
                     } else {
