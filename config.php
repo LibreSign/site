@@ -317,14 +317,14 @@ return [
                 return 'posts/' . $page->slug;
             },
             'items' => function ($post) {
-                if(isset($_ENV['ACCOUNT_URL'])){
+                if(empty($post->get('accountUrl'))){
                     return [];
                 }
-                $categories = json_decode(file_get_contents($_ENV['ACCOUNT_URL'] . '/wp-json/wp/v2/categories'));
+                $categories = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories'));
                 $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
                 $posts = [];
                 foreach ($categories as $category) {
-                    $baseUrl = $_ENV['ACCOUNT_URL'] . '/wp-json/wp/v2/posts?_embed&categories=' . $category->id . '&lang=' . $category->lang;
+                    $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?_embed&categories=' . $category->id . '&lang=' . $category->lang;
                     $headers = get_headers($baseUrl);
                     $totalPages = 1;
                     foreach ($headers as $header) {
@@ -344,7 +344,7 @@ return [
                     };
                 }
 
-                $wordPressLanguages = json_decode(file_get_contents($_ENV['ACCOUNT_URL'] . '/wp-json/pll/v1/languages'));
+                $wordPressLanguages = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
                 return collect($posts)->map(function ($fromApi) use ($wordPressLanguages, $post) {
                     $currentLang = current(array_filter($wordPressLanguages, fn ($l) => $l->slug === $fromApi['lang']));
                     $data = [
