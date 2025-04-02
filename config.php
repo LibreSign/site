@@ -9,7 +9,7 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
-    'accountUrl' => 'http://nginx',
+    'accountUrl' => getenv('ACCOUNT_URL'),
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
@@ -317,6 +317,9 @@ return [
                 return 'posts/' . $page->slug;
             },
             'items' => function ($post) {
+                if(empty($post->get('accountUrl'))){
+                    return [];
+                }
                 $categories = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories'));
                 $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
                 $posts = [];
