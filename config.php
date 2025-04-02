@@ -9,7 +9,7 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
-    'accountUrl' => 'http://nginx',
+    'accountUrl' => getenv('ACCOUNT_URL'),
     'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
     'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
