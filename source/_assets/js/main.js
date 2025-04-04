@@ -2,6 +2,27 @@ require('bootstrap/dist/js/bootstrap.bundle.min.js');
 require('aos/dist/aos.css');
 import Vue from 'vue';
 
+const SwaggerUIBundle = require('swagger-ui-dist/swagger-ui-es-bundle.js');
+require('swagger-ui-dist/swagger-ui-standalone-preset.js');
+require('swagger-ui-dist/swagger-ui.css');
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const swaggerEl = document.getElementById('swagger-ui');
+  if (swaggerEl && !window.swaggerAlreadyInitialized) {
+    window.swaggerAlreadyInitialized = true;
+
+    SwaggerUIBundle({
+      url: 'https://raw.githubusercontent.com/LibreSign/libresign/refs/heads/main/openapi-full.json',
+      dom_id: '#swagger-ui',
+    });
+  }
+});
+
+
+
+
 import NavigationOnPage from './components/navigation-on-page.vue';
 import NavigationToggle from './components/navigation-toggle.vue';
 import Navigation from './components/navigation.vue';
