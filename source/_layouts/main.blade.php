@@ -41,7 +41,9 @@
   </head>
   <body>
     @include('_layouts.header')
-    @yield('body')
+    <main id="vue-app">
+      @yield('body')
+    </main>
     @include('_layouts.footer')
   </body>
 </html>
