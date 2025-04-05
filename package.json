@@ -23,8 +23,11 @@
     "dependencies": {
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
+        "autoprefixer": "^10.4.21",
         "bootstrap": "^5.3.3",
         "lineicons": "^1.0.3",
+        "postcss-loader": "^8.1.1",
+        "postcss-value-parser": "^4.2.0",
         "swagger-ui-dist": "^5.20.6"
     }
 }
