@@ -23,16 +23,19 @@
                 <div class="col-lg-12">
                   <div class="ud-404-wrapper">
                     <div class="ud-404-content">
-                      <h2 class="ud-404-title">{{ $page->t( "This documents the upcoming version of Libresign") }}</h2>
+                      <h2 class="ud-404-title">{{ $page->t( "LibreSign Documentation Overview") }}</h2>
                       <ul class="ud-404-links">
+                        @php
+                          xdebug_break();
+                        @endphp
                         <li>
-                          <a href="{{ $page->baseUrl }}documentation/user/instalation">{{ $page->t( "User") }}</a>
+                          <a href="{{ $page->baseUrl }}docs/user/">{{ $page->t( "User") }}</a>
                         </li>
                         <li>
-                          <a href="{{ $page->baseUrl }}documentation/admin/instalation">{{ $page->t( "Admin") }}</a>
+                          <a href="{{ $page->baseUrl }}docs/admin/">{{ $page->t( "Admin") }}</a>
                         </li>
                         <li>
-                          <a href="{{ $page->baseUrl }}documentation/developer/instalation">{{ $page->t( "Developer") }}</a>
+                          <a href="{{ $page->baseUrl }}docs/developer/">{{ $page->t( "Developer") }}</a>
                         </li>
                       </ul>
                     </div>

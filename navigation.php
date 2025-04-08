@@ -4,25 +4,25 @@ return [
 
     'User' => [
         'Installation' => [
-            'root' => '/documentation/user/instalation',
+            'root' => '/docs/user/instalation',
             'children' => [
-                'Submenu' => ['root' => '/documentation/user/submenu'],
+                'Submenu' => ['root' => '/docs/user/submenu'],
             ],
         ], 
     ],
     'Developer' => [
         'Installation' => [
-            'root' => '/documentation/developer/instalation',
+            'root' => '/docs/developer/instalation',
             'children' => [],
         ],
         'API' => [
-            'root' => '/documentation/developer/api',
+            'root' => '/docs/developer/api',
             'children' => [],
         ], 
     ],
     'Admin' => [
         'Installation' => [
-            'root' => '/documentation/admin/instalation',
+            'root' => '/docs/admin/instalation',
             'children' => [],
         ], 
     ],

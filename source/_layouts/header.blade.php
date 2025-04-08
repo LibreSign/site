@@ -46,7 +46,7 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="{{ rtrim($page->baseUrl, '/') . locale_path($page, '') }}documentation">Docs</a>
+                  <a class="ud-menu-scroll" href="{{ rtrim($page->baseUrl, '/') . locale_path($page, '') }}docs">Docs</a>
                 </li>
               </ul>
             </div>
