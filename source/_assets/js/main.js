@@ -1,5 +1,83 @@
 require('bootstrap/dist/js/bootstrap.bundle.min.js');
 require('aos/dist/aos.css');
+import Vue from 'vue';
+
+const SwaggerUIBundle = require('swagger-ui-dist/swagger-ui-es-bundle.js');
+require('swagger-ui-dist/swagger-ui-standalone-preset.js');
+require('swagger-ui-dist/swagger-ui.css');
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const swaggerEl = document.getElementById('swagger-ui');
+  if (swaggerEl && !window.swaggerAlreadyInitialized) {
+    window.swaggerAlreadyInitialized = true;
+
+    SwaggerUIBundle({
+      url: 'https://raw.githubusercontent.com/LibreSign/libresign/refs/heads/main/openapi-full.json',
+      dom_id: '#swagger-ui',
+    });
+  }
+});
+
+
+
+
+// import NavigationOnPage from './components/navigation-on-page.vue';
+// import NavigationToggle from './components/navigation-toggle.vue';
+// import Navigation from './components/navigation.vue';
+
+// new Vue({
+//     el: '#vue-app',
+
+//     components: {
+//         Navigation,
+//         NavigationOnPage,
+//         NavigationToggle
+//     },
+
+//     data() {
+//         return {
+//             pageHeadings : []
+//         }
+//     },
+
+//     mounted() {
+//         document.querySelectorAll('h3').forEach((heading) => {
+//             heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+//             this.pageHeadings.push(heading);
+//         });
+//     },
+// });
+
+
+import { createApp } from 'vue';
+import NavigationOnPage from './components/navigation-on-page.vue';
+import NavigationToggle from './components/navigation-toggle.vue';
+import Navigation from './components/navigation.vue';
+
+const app = createApp({
+    components: {
+        Navigation,
+        NavigationOnPage,
+        NavigationToggle
+    },
+    data() {
+        return {
+            pageHeadings: []
+        }
+    },
+    mounted() {
+        document.querySelectorAll('h3').forEach((heading) => {
+            heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+            this.pageHeadings.push(heading);
+        });
+    }
+});
+
+app.mount('#vue-app');
+
+
 
 (function () {
   "use strict";

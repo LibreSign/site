@@ -187,4 +187,5 @@
 
         window.document.addEventListener("scroll", onScroll);
     </script>
+    @stack('scripts')
 </footer>
