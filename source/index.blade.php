@@ -192,7 +192,7 @@
             <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt="print_main_screen"/>
           </div>
           <div class="col-lg-12 d-flex justify-content-center mt-5">
-            <a href="{{ locale_url($page, 'contact-us') }}contact-us" class="ud-main-btn ud-border-btn">
+            <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-border-btn">
               {{ $page->t('Talk to sales') }}
             </a>
           </div>

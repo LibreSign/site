@@ -89,7 +89,7 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="{{ locale_url($page, 'contact-us') }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
+                            <a href="{{ locale_url($page, 'privacy-policy') }}">{{ $page->t("Privacy policy")}}</a>
                         </li>
                     </ul>
                 </div>
