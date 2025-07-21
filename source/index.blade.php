@@ -23,15 +23,15 @@
               </ul>
             </div>
             <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt="print_main_screen"/>
+              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt=""/>
               <img
                 src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt="shape"
+                alt=""
                 class="shape shape-1"
               />
               <img
                 src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt="shape"
+                alt=""
                 class="shape shape-2"
               />
             </div>
@@ -100,7 +100,7 @@
             </div>
           </div>
           <div class="ud-about-image">
-            <img src="{{ $page->baseUrl }}assets/images/about/about-image.svg" alt="about-image" />
+            <img src="{{ $page->baseUrl }}assets/images/about/about-image.svg" alt="" />
           </div>
         </div>
       </div>
@@ -189,7 +189,7 @@
               </div>
           </div>
           <div class="col-lg-4">
-            <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt="print_main_screen"/>
+            <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt=""/>
           </div>
           <div class="col-lg-12 d-flex justify-content-center mt-5">
             <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-border-btn">
@@ -205,7 +205,7 @@
     <!-- ====== FAQ Start ====== -->
     <section id="faq" class="ud-faq">
       <div class="shape">
-        <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="" />
       </div>
       <div class="container">
         <div class="row">
