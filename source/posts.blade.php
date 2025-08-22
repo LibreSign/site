@@ -27,7 +27,7 @@
               <div class="ud-single-blog">
                 <div class="ud-blog-image">
                   <a href="{{ $post->getUrl() }}">
-                    <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
+                    <img src="{{ $post->cover_image }}" alt="" />
                   </a>
                 </div>
                 <div class="ud-blog-content">

@@ -4,7 +4,7 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{ locale_url($page, '')  }}">
-              <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="Logo" />
+              <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
             </a>
             <button class="navbar-toggler" title="{{$page->t("Toggle navigation menu")}}">
               <span class="toggler-icon"> </span>

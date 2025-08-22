@@ -16,14 +16,14 @@
     </section>
     <!-- ====== Banner End ====== -->
 
-    
+
     <section id="team" class="ud-team">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <div class="ud-section-title mx-auto text-center">                
+              <div class="ud-section-title mx-auto text-center">
                 <p>
-                  {{ $page->bio }} 
+                  {{ $page->bio }}
                 </p>
               </div>
             </div>
@@ -42,7 +42,7 @@
                   @endphp
                   <img
                     src="{{ $gravatar }}"
-                    alt="{{ $page->name }}"
+                    alt=""
                     class="shape shape-1 mb-5"
                   />
                 </div>
@@ -61,5 +61,5 @@
             </div>
           </div>
         </div>
-      </section>  
+      </section>
 @endsection

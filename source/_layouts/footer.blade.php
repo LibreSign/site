@@ -1,14 +1,14 @@
 <footer class="ud-footer wow fadeInUp mt-5" data-aos-delay=".15s">
     <div class="shape shape-1">
-        <img src="{{ $page->baseUrl }}assets/images/footer/shape-1.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-1.svg" alt="" />
     </div>
 
     <div class="shape shape-2">
-        <img src="{{ $page->baseUrl }}assets/images/footer/shape-2.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-2.svg" alt="" />
     </div>
 
     <div class="shape shape-3">
-        <img src="{{ $page->baseUrl }}assets/images/footer/shape-3.svg" alt="shape" />
+        <img src="{{ $page->baseUrl }}assets/images/footer/shape-3.svg" alt="" />
     </div>
 
     <div class="ud-footer-widgets">
@@ -17,7 +17,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="ud-widget">
                         <a href="{{ locale_url($page, 'contact-us') }}#home" class="ud-footer-logo">
-                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="logo" />
+                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
                         </a>
                         <p class="ud-widget-desc">
                             {{ $page->t("We create digital experiences for brands and companies by using technology.")}}
@@ -47,7 +47,7 @@
                     </div>
                     <div class="ud-widget col-lg-5">
                         <a target="_blank" href="https://www.somos.coop.br/" title="{{ $page->t("Page to national movement that valozie cooperative initiatives.")}}">
-                            <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="icon_somos_coop">
+                            <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="We areCoop">
                         </a>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="col-md-8">
                     <ul class="ud-footer-bottom-left">
                         <li>
-                            <a href="{{ locale_url($page, 'contact-us') }}privacy-policy">{{ $page->t("Privacy policy")}}</a>
+                            <a href="{{ locale_url($page, 'privacy-policy') }}">{{ $page->t("Privacy policy")}}</a>
                         </li>
                     </ul>
                 </div>

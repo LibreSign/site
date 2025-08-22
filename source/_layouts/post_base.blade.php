@@ -24,17 +24,17 @@
               <div class="ud-blog-details-image">
                 <img
                   src="{{ $page->banner }}"
-                  alt="blog details"
+                  alt=""
                 />
                 <div class="ud-blog-overlay">
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
                       @if($page->author == 'LibreSign')
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="{{ $page->author }}" />
+                        alt="" />
                       @else
                         <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
-                        alt="{{ $page->author }}" />
+                        alt="" />
                       @endif
                       <span>
                         @php
@@ -89,14 +89,14 @@
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                                alt="{{ $article->author }}"
+                                alt=""
                               />
                             </a>
                           @else
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $article->gravatar }}?size=40"
-                                  alt="{{ $article->author }}"
+                                  alt=""
                                 />
                             </a>
                           @endif
