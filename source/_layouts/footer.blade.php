@@ -25,22 +25,22 @@
                         <ul class="ud-widget-socials">
                             <li>
                                 <a target="_blank" href="https://github.com/LibreSign/libresign" title="{{ $page->t("LibreSign GitHub repository")}}">
-                                    <i class="lni lni-github"></i>
+                                    <i class="lni lni-github-original"></i>
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" href="https://www.linkedin.com/company/libresign/" title="{{ $page->t("LibreSign LinkedIn page")}}">
-                                    <i class="lni lni-linkedin"></i>
+                                    <i class="lni lni-linkedin-original"></i>
                                 </a>
                             </li>
                             <li>
                               <a target="_blank" href="https://t.me/LibreSign" title="{{ $page->t("LibreSign Telegram group")}}">
-                                  <i class="lni lni-telegram"></i>
+                                  <i class="lni lni-telegram-original"></i>
                               </a>
                           </li>
                           <li>
                             <a target="_blank" href="https://www.instagram.com/libresign/" title="{{ $page->t("LibreSign Instagram profile")}}">
-                                <i class="lni lni-instagram"></i>
+                                <i class="lni lni-instagram-original"></i>
                             </a>
                         </li>
                         </ul>
@@ -123,7 +123,7 @@
     <script>
       window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
     </script>
-        <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/build') }}"></script>
+    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/compiled') }}"></script>
     <script>
         document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()

@@ -35,13 +35,23 @@ mix.jigsaw({
     ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .sass('source/_assets/css/main.scss', 'css')
-    .copy(lineiconsSource, 'source/assets/build/css')
+    .copy(lineiconsSource, 'source/assets/build/css/fonts')
     .options({
         processCssUrls: false,
     })
+    .webpackConfig({
+        watchOptions: {
+            ignored: /(_tmp|node_modules)/
+        }
+    })
     .browserSync({
         server: 'build_local',
-        files: ['build_*/**'],
+        files: ['build_local/**'],
+        ignore: ['**/_tmp/**', '**/node_modules/**'],
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: ['**/_tmp/**', '**/node_modules/**']
+        }
     })
     .version();
 
