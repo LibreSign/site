@@ -2,21 +2,33 @@ const mix = require('laravel-mix');
 require('laravel-mix-jigsaw');
 
 mix.disableSuccessNotifications();
-mix.setPublicPath('source/assets/build');
+mix.setPublicPath('source/assets/compiled');
 
-mix.jigsaw()
+mix.jigsaw({
+    watch: ['source/**/*.md', 'source/**/*.php', 'source/**/*.scss', '!source/**/_tmp/**']
+})
     .js('source/_assets/js/main.js', 'js')
     .css('source/_assets/css/main.css', 'css', [
         require('postcss-import'),
     ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .sass('source/_assets/css/main.scss', 'css')
-    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/build/css/fonts')
+    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/compiled/css/fonts')
     .options({
         processCssUrls: false,
     })
+    .webpackConfig({
+        watchOptions: {
+            ignored: /(_tmp|node_modules)/
+        }
+    })
     .browserSync({
         server: 'build_local',
-        files: ['build_*/**'],
+        files: ['build_local/**'],
+        ignore: ['**/_tmp/**', '**/node_modules/**'],
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: ['**/_tmp/**', '**/node_modules/**']
+        }
     })
     .version();

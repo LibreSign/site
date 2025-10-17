@@ -123,7 +123,7 @@
     <script>
       window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
     </script>
-    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/build') }}"></script>
+    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/compiled') }}"></script>
     <script>
         document.getElementById('back-to-top').onclick = function(e) {
             e.preventDefault()
