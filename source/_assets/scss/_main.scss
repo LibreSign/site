@@ -2,6 +2,10 @@
 @import "../../../node_modules/animate.css/animate.min.css";
 @import "../../../node_modules/lineicons/web-font/lineicons.css";
 
+.ud-main-btn {
+    background-color: var(--primary-color);
+}
+
 /*cards target audience*/
 
 .card-title {
@@ -26,7 +30,7 @@ height: 400px;
     padding:30px;
     border-radius:50px;
     height: 410px;
-} 
+}
 }
 
 @media screen and (max-width: 1280px) {
@@ -45,3 +49,20 @@ height: 400px;
 }
 
 /*end configure screen size*/
+
+/* Blog article content styles */
+.ud-blog-details-content .article ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ud-blog-details-content .article ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ud-blog-details-content .article li {
+    margin-bottom: 0.5rem;
+}

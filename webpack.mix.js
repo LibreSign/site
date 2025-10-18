@@ -8,11 +8,7 @@ mix.jigsaw({
     watch: ['source/**/*.md', 'source/**/*.php', 'source/**/*.scss', '!source/**/_tmp/**']
 })
     .js('source/_assets/js/main.js', 'js')
-    .css('source/_assets/css/main.css', 'css', [
-        require('postcss-import'),
-    ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
-    .sass('source/_assets/css/main.scss', 'css')
     .copy('node_modules/lineicons/web-font/fonts', 'source/assets/compiled/css/fonts')
     .options({
         processCssUrls: false,
