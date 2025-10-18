@@ -35,7 +35,6 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="{{ rtrim($page->baseUrl, '/') .  mix('css/main.css', 'assets/compiled') }}">
     <link rel="stylesheet" href="{{ $page->baseUrl }}assets/compiled/css/ud-styles.css" />
     @stack('styles')
   </head>

@@ -30,11 +30,7 @@ mix.jigsaw({
     },
 })
     .js('source/_assets/js/main.js', 'js')
-    .css('source/_assets/css/main.css', 'css', [
-        require('postcss-import'),
-    ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
-    .sass('source/_assets/css/main.scss', 'css')
     .copy(lineiconsSource, 'source/assets/build/css/fonts')
     .options({
         processCssUrls: false,
