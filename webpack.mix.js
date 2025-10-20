@@ -9,7 +9,6 @@ mix.jigsaw({
 })
     .js('source/_assets/js/main.js', 'js')
     .sass('source/_assets/scss/ud-styles.scss', 'css')
-    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/compiled/css/fonts')
     .options({
         processCssUrls: false,
     })
