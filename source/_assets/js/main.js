@@ -4,7 +4,6 @@ require('aos/dist/aos.css');
 (function () {
   "use strict";
 
-  // ======= Sticky
   window.onscroll = function () {
     // show or hide the back-top-top button
     const backToTop = document.querySelector(".back-to-top");
@@ -37,6 +36,14 @@ require('aos/dist/aos.css');
   const submenuButton = document.querySelectorAll(".nav-item-has-children");
   submenuButton.forEach((elem) => {
     elem.querySelector("a").addEventListener("click", () => {
+      elem.querySelector(".ud-submenu").classList.toggle("show");
+    });
+  });
+
+  // ===== selector
+  const selectorButton = document.querySelectorAll(".selector");
+  selectorButton.forEach((elem) => {
+    elem.querySelector("button").addEventListener("click", () => {
       elem.querySelector(".ud-submenu").classList.toggle("show");
     });
   });
