@@ -168,12 +168,49 @@ p {
   border-radius: 5px;
   position: fixed;
   right: 30px;
-  bottom: 30px;
+  bottom: 160px;
   z-index: 99;
   color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, 
+              visibility 0.3s ease-in-out, 
+              transform 0.3s ease-in-out,
+              background 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
   &:hover {
     color: var(--white);
     background: var(--heading-color);
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  // Responsive design for smaller screens
+  @media (max-width: 576px) {
+    right: 10px;
+    bottom: 100px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
   }
 }

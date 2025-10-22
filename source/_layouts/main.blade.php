@@ -37,6 +37,90 @@
     <!-- ===== All CSS files ===== -->
     <link rel="stylesheet" href="{{ $page->baseUrl }}assets/compiled/css/ud-styles.css" />
     @stack('styles')
+
+    <!-- ====== All Javascript Files ====== -->
+    <script defer>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_{{ $page->matomo_container }}.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <script defer>
+      window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
+    </script>
+
+    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/compiled') }}"></script>
+
+    <script defer>
+        document.getElementById('back-to-top').onclick = function(e) {
+            e.preventDefault()
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        };
+
+        // ==== for menu scroll
+        const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+    </script>
   </head>
   <body>
     @include('_layouts.header')
