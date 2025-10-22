@@ -1,83 +1,205 @@
 /* ===== Footer CSS ===== */
 
 .ud-footer {
-  background: var(--heading-color);
-  padding-top: 100px;
+  background: #263238;
   position: relative;
   z-index: 1;
   overflow: hidden;
 
-  .shape {
+  &>div {
+    margin-bottom: 200px;
+  }
+}
+
+#coop-logo {
+  margin-top: 36px;
+
+  img {
+    max-width: 172px;
+  }
+}
+
+#copyright {
+  color: var(--white);
+  font-size: 14px;
+  margin-top: 32px;
+}
+
+#address {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: end;
+
+  p {
+    color: var(--white);
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+}
+
+.show-on-scroll {
+  display: none;
+}
+
+#footer-contact {
+  height: 80px;
+  width: 476px;
+  border-radius: 16px;
+  background-color: #d97706;
+
+  position: fixed;
+  right: 4px;
+  bottom: -150px;
+  z-index: 98;
+
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out,
+              visibility 0.3s ease-in-out,
+              bottom 0.3s ease-in-out,
+              transform 0.3s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    bottom: -140px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
+  }
+
+  .bubble {
+    height: 72px;
+    width: 356px;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 12px 60px 12px 20px;
+    font-size: 18px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid var(--white);
+    }
+  }
+
+  .image {
+    width: 76px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #ffc107;
     position: absolute;
-    z-index: -1;
+    right: 24px;
+    bottom: 2px;
 
-    &.shape-1 {
-      top: 0;
-      left: 0;
-    }
-
-    &.shape-2 {
-      top: 0;
+    .status {
+      width: 20px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-color: #2ecc71;
+      position: absolute;
       right: 0;
-    }
-
-    &.shape-3 {
       bottom: 0;
-      right: 0;
+    }
+  }
+
+  // Responsive design for smaller screens
+  @media (max-width: 576px) {
+    width: calc(100% - 8px);
+    right: 4px;
+
+    .bubble {
+      width: calc(100% - 100px);
+      font-size: 14px;
+      padding: 8px 40px 8px 12px;
+    }
+
+    .image {
+      right: 12px;
     }
   }
 }
 
-.ud-widget {
-  margin-bottom: 50px;
+.widgets > div {
+  margin-top: 32px;
+}
 
+.ud-widget {
   .ud-footer-logo {
-    max-width: 160px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 44px;
 
     img {
       width: 100%;
+      max-width: 120px;
     }
   }
 
   .ud-widget-desc {
-    font-size: 15px;
-    line-height: 24px;
-    color: #f3f4fe;
-    margin-bottom: 30px;
-    max-width: 260px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 36px;
+    color: var(--white);
   }
 
   .ud-widget-socials {
     display: flex;
     align-items: center;
+    gap: 8px;
 
     a {
-      font-size: 16px;
-      color: #dddddd;
-      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      &:hover {
+      .social-icon {
+        color: var(--white);
+        transition: color 0.3s ease;
+      }
+
+      &:hover .social-icon {
         color: var(--primary-color);
       }
     }
   }
 
-  .ud-widget-title {
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 35px;
-    color: var(--white);
-  }
-
   .ud-widget-links {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
     a {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 15px;
-      line-height: 30px;
-      color: #f3f4fe;
+      font-size: 14px;
+      color: var(--white);
 
       &:hover {
         color: var(--primary-color);
