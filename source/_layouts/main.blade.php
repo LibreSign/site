@@ -124,7 +124,9 @@
   </head>
   <body>
     @include('_layouts.header')
-    @yield('body')
+    <main id="main-content">
+      @yield('body')
+    </main>
     @include('_layouts.footer')
   </body>
 </html>

@@ -56,11 +56,14 @@ require('aos/dist/aos.css');
     e.addEventListener("click", () => {
       navbarToggler.classList.remove("active");
       navbarCollapse.classList.remove("show");
+      navbarToggler.setAttribute("aria-expanded", "false");
     })
   );
+  
   navbarToggler.addEventListener("click", function () {
-    navbarToggler.classList.toggle("active");
+    const isExpanded = navbarToggler.classList.toggle("active");
     navbarCollapse.classList.toggle("show");
+    navbarToggler.setAttribute("aria-expanded", isExpanded ? "true" : "false");
   });
 
   // ===== submenu
@@ -74,8 +77,70 @@ require('aos/dist/aos.css');
   // ===== selector
   const selectorButton = document.querySelectorAll(".selector");
   selectorButton.forEach((elem) => {
-    elem.querySelector("button").addEventListener("click", () => {
-      elem.querySelector(".ud-submenu").classList.toggle("show");
+    const button = elem.querySelector("button");
+    const submenu = elem.querySelector(".ud-submenu");
+    
+    button.addEventListener("click", () => {
+      const isExpanded = submenu.classList.toggle("show");
+      button.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+      
+      // Focus first menu item when opened
+      if (isExpanded) {
+        const firstLink = submenu.querySelector("a");
+        if (firstLink) {
+          setTimeout(() => firstLink.focus(), 50);
+        }
+      }
+    });
+
+    button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        button.click();
+      } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        if (!submenu.classList.contains("show")) {
+          button.click();
+        }
+      } else if (e.key === "Escape") {
+        submenu.classList.remove("show");
+        button.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const menuLinks = submenu.querySelectorAll("a");
+    menuLinks.forEach((link, index) => {
+      link.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          const nextLink = menuLinks[index + 1] || menuLinks[0];
+          nextLink.focus();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          const prevLink = menuLinks[index - 1] || menuLinks[menuLinks.length - 1];
+          prevLink.focus();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          submenu.classList.remove("show");
+          button.setAttribute("aria-expanded", "false");
+          button.focus();
+        } else if (e.key === "Tab" && !e.shiftKey && index === menuLinks.length - 1) {
+          // Close menu when tabbing out of last item
+          submenu.classList.remove("show");
+          button.setAttribute("aria-expanded", "false");
+        } else if (e.key === "Tab" && e.shiftKey && index === 0) {
+          // Close menu when shift-tabbing out of first item
+          submenu.classList.remove("show");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!elem.contains(e.target)) {
+        submenu.classList.remove("show");
+        button.setAttribute("aria-expanded", "false");
+      }
     });
   });
 
