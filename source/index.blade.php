@@ -3,43 +3,103 @@
 @section('body')
 
  <!-- ====== Princiapl Banner Start ====== -->
-    <section class="ud-hero" id="home">
+    <section class="ud-hero">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
               <h1 class="ud-hero-title">
-                {{ $page->t( "Simplify your digital signatures and document management safely and efficiently") }}
+                {{ $page->t("The secure and legally binding digital signature for your world.") }}
               </h1>
               <p class="ud-hero-desc">
-                {{ $page->t("Easily create, send, sign and track all your contracts in one place") }}
+                {{ $page->t("Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.") }}
               </p>
               <ul class="ud-hero-buttons">
                 <li>
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
-                    {{ $page->t('Talk to sales') }}
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn">
+                    {{ $page->t('Try it For Free Now!') }}
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn">
+                    {{ $page->t('Talk to Our Experts') }}
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt=""/>
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-2"
-              />
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- ====== Princiapl Banner End ====== -->
+
+    <section class="clients">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 headline">
+            <p>{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</p>
+          </div>
+        </div>
+        <div class="row logos">
+          <div class="col-4">
+            <img width="264px" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
+          </div>
+          <div class="col-4">
+            <img width="256px" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
+          </div>
+          <div class="col-4">
+            <img width="232px" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
+          </div>
+        <div>
+        <div class="row">
+          <div class="secondary">
+            <p>{{ $page->t("More than X million documents signed securely and with legal validity.") }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Target Audience Start ====== -->
+    <section id="target_audience" class="ud-about">
+      <div class="container bg-white p-5 cards-one-below-the-other">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
+              <p class="text-white">
+                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
+              </p>
+            </div>
+          </div>
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
+              <p class="text-white">
+                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
+              </p>
+            </div>
+          </div>
+          <div class="col-4 text-card">
+            <div class="cards-target-audience">
+              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
+              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
+              <p class="text-white">
+                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ====== Features Start ====== -->
     <section id="features" class="ud-features">
@@ -108,48 +168,6 @@
     <!-- ====== About End ====== -->
 
     @include('_partials/testimonial_card')
-
-    <!-- ====== Target Audience Start ====== -->
-    <section id="target_audience" class="ud-about">
-      <div class="container bg-white p-5 cards-one-below-the-other">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
-              </p>
-            </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
-              </p>
-            </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ====== Start Importance of digital signature ====== -->
     <section id="features" class="ud-features">
