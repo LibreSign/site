@@ -122,7 +122,7 @@
         window.document.addEventListener("scroll", onScroll);
     </script>
   </head>
-  <body>
+  <body id="top">
     @include('_layouts.header')
     <main id="main-content">
       @yield('body')

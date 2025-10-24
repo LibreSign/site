@@ -13,9 +13,26 @@
 
 #coop-logo {
   margin-top: 36px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease;
 
   img {
     max-width: 172px;
+  }
+
+  &:focus {
+    outline: 3px solid #00dbff;
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #00dbff;
+    outline-offset: 4px;
   }
 }
 
@@ -29,14 +46,12 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: end;
-
-  p {
-    color: var(--white);
-    font-size: 12px;
-    line-height: 22px;
-    margin-bottom: 0;
-  }
+  justify-content: flex-end;
+  color: var(--white);
+  font-size: 12px;
+  line-height: 22px;
+  margin-bottom: 0;
+  font-style: normal;
 }
 
 .show-on-scroll {
@@ -44,14 +59,18 @@
 }
 
 #footer-contact {
-  height: 80px;
+  min-height: 80px;
   width: 476px;
   border-radius: 16px;
   background-color: #d97706;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
 
   position: fixed;
   right: 4px;
-  bottom: -150px;
+  bottom: 32px;
   z-index: 98;
 
   cursor: pointer;
@@ -61,12 +80,15 @@
   transition: opacity 0.3s ease-in-out,
               visibility 0.3s ease-in-out,
               bottom 0.3s ease-in-out,
-              transform 0.3s ease-in-out;
+              transform 0.3s ease-in-out,
+              width 0.3s ease-in-out,
+              height 0.3s ease-in-out,
+              border-radius 0.3s ease-in-out;
 
   &.visible {
     opacity: 1;
     visibility: visible;
-    bottom: -140px;
+    bottom: 48px;
   }
 
   &:hover {
@@ -74,7 +96,7 @@
   }
 
   &:focus {
-    outline: 2px solid #d97706;
+    outline: 3px solid #00dbff;
     outline-offset: 2px;
   }
 
@@ -83,7 +105,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #d97706;
+    outline: 3px solid #00dbff;
     outline-offset: 2px;
   }
 
@@ -95,8 +117,17 @@
     padding: 12px 60px 12px 20px;
     font-size: 18px;
     position: relative;
-    top: 4px;
+    top: 0;
     left: 4px;
+    text-align: left;
+    transition: opacity 0.3s ease-in-out,
+                visibility 0.3s ease-in-out,
+                width 0.3s ease-in-out;
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
 
     &::after {
       content: '';
@@ -109,7 +140,17 @@
       border-top: 4px solid transparent;
       border-bottom: 4px solid transparent;
       border-left: 4px solid var(--white);
+      transition: opacity 0.3s ease-in-out;
     }
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding-right: 24px;
   }
 
   .image {
@@ -117,9 +158,18 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #ffc107;
-    position: absolute;
-    right: 24px;
-    bottom: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
 
     .status {
       width: 20px;
@@ -129,28 +179,88 @@
       position: absolute;
       right: 0;
       bottom: 0;
+      transition: opacity 0.3s ease-in-out;
     }
   }
 
-  // Responsive design for smaller screens
-  @media (max-width: 576px) {
-    width: calc(100% - 8px);
-    right: 4px;
+  // Compact mode for tablets and smaller (< 992px)
+  @media (max-width: 992px) {
+    width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    right: 11px;
+
+    &.visible {
+      bottom: 40px;
+    }
 
     .bubble {
-      width: calc(100% - 100px);
-      font-size: 14px;
-      padding: 8px 40px 8px 12px;
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      pointer-events: none;
+      display: none;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .image-wrapper {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .image {
-      right: 12px;
+      position: relative;
+      width: 64px;
+      margin: 0;
+    }
+
+    &:hover {
+      .status {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Extra small screens
+  @media (max-width: 576px) {
+    width: 64px;
+    min-height: 64px;
+    right: 10px;
+
+    &.visible {
+      bottom: 12px;
+    }
+
+    .image {
+      width: 52px;
+    }
+
+    .status {
+      width: 16px;
     }
   }
 }
 
 .widgets > div {
   margin-top: 32px;
+}
+
+.ud-widget-address {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .ud-widget {
@@ -161,6 +271,22 @@
     img {
       width: 100%;
       max-width: 120px;
+    }
+
+    &:focus {
+      outline: 3px solid #00dbff;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid #00dbff;
+      outline-offset: 4px;
+      border-radius: 4px;
     }
   }
 
@@ -180,6 +306,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 4px;
+      transition: all 0.3s ease;
 
       .social-icon {
         color: var(--white);
@@ -188,6 +316,23 @@
 
       &:hover .social-icon {
         color: var(--primary-color);
+      }
+
+      &:focus {
+        outline: 3px solid #00dbff;
+        outline-offset: 2px;
+        background-color: rgba(0, 219, 255, 0.1);
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: none;
+        background-color: transparent;
+      }
+
+      &:focus-visible {
+        outline: 3px solid #00dbff;
+        outline-offset: 2px;
+        background-color: rgba(0, 219, 255, 0.1);
       }
     }
   }
@@ -200,10 +345,33 @@
     a {
       font-size: 14px;
       color: var(--white);
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      padding: 4px 0;
 
       &:hover {
         color: var(--primary-color);
         padding-left: 10px;
+      }
+
+      &:focus {
+        outline: 3px solid #00dbff;
+        outline-offset: 2px;
+        color: var(--primary-color);
+        padding-left: 8px;
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: none;
+        color: var(--white);
+        padding-left: 0;
+      }
+
+      &:focus-visible {
+        outline: 3px solid #00dbff;
+        outline-offset: 2px;
+        color: var(--primary-color);
+        padding-left: 8px;
       }
     }
   }
