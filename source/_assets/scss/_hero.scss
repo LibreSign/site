@@ -2,55 +2,56 @@
 
 .ud-hero {
   background: var(--primary-color);
-  padding-top: 180px;
-
-  @media #{$md} {
-    padding-top: 160px;
-  }
-
-  @media #{$xs} {
-    padding-top: 130px;
-  }
+  padding-top: 192px;
 }
 
 .ud-hero-content {
-  max-width: 780px;
-  margin: auto;
-  margin-bottom: 30px;
+  max-width: 636px;
+  margin-bottom: 192px;
 
   .ud-hero-title {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 60px;
-    text-align: center;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-size: 64px;
     margin-bottom: 30px;
-
-    @media #{$md} {
-      font-size: 38px;
-      line-height: 50px;
-    }
-
-    @media #{$xs} {
-      font-size: 26px;
-      line-height: 38px;
-    }
   }
 
   .ud-hero-desc {
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 35px;
-    text-align: center;
-    color: var(--white);
-    opacity: 0.8;
-    max-width: 600px;
-    margin: auto;
-    margin-bottom: 30px;
+    font-weight: medium;
+    font-size: 22px;
+    color: #f5f5f5;
+    max-width: 636px;
+    margin-bottom: 72px;
+  }
+}
 
-    @media #{$xs} {
-      font-size: 16px;
-      line-height: 30px;
+.clients {
+  margin-top: 84px;
+  margin-bottom: 36px;
+
+  .headline p {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    color: #2d3748;
+    line-height: normal;
+  }
+
+  .secondary p {
+    font-size: 48px;
+    text-align: center;
+    color: #2d3748;
+    line-height: normal;
+    margin-top: 72px;
+  }
+
+  .logos {
+    margin-top: 72px;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -58,29 +59,31 @@
 .ud-hero-buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   .ud-main-btn {
-    margin: 8px;
-
-    @media #{$xs} {
-      margin: 5px;
-    }
-  }
-
-  .ud-main-btn {
-    @media #{$xs} {
-      padding: 12px 16px;
-    }
-  }
-
-  .ud-white-btn {
-    background: var(--white);
-    color: var(--heading-color);
+    background-color: #d97706;
+    padding: 12px 16px;
+    border-radius: 32px;
+    font-size: 18px;
+    font-weight: bold;
 
     &:hover {
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-      background: #fefefe;
+      filter: brightness(1.25);
+    }
+  }
+
+  .ud-secondary-btn {
+    background: transparent;
+    border: 1px solid var(--white);
+    padding: 12px 16px;
+    border-radius: 32px;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: bold;
+
+    &:hover {
+      background: var(--white);
       color: var(--primary-color);
     }
   }
