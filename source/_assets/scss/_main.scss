@@ -13,7 +13,7 @@
 }
 
 .cards-target-audience {
-background-color: #184c4e;
+background-color: var(--primary-color);
 padding:25px;
 border-radius:50px;
 height: 400px;
@@ -26,7 +26,7 @@ height: 400px;
 
 @media screen and (min-width: 1024px) and (max-width: 1800px) {
 .cards-target-audience {
-    background-color: #184c4e;
+    background-color: var(--primary-color);
     padding:30px;
     border-radius:50px;
     height: 410px;
@@ -40,7 +40,7 @@ height: 400px;
 }
 
 .cards-target-audience {
-    background-color: #184c4e;
+    background-color: var(--primary-color);
     margin-bottom: 15px;
     padding:30px;
     border-radius:50px;

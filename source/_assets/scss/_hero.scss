@@ -10,7 +10,7 @@
   margin-bottom: 192px;
 
   .ud-hero-title {
-    color: #f5f5f5;
+    color: var(--text-light);
     font-weight: bold;
     font-size: 64px;
     margin-bottom: 30px;
@@ -19,7 +19,7 @@
   .ud-hero-desc {
     font-weight: medium;
     font-size: 22px;
-    color: #f5f5f5;
+    color: var(--text-light);
     max-width: 636px;
     margin-bottom: 72px;
   }
@@ -33,14 +33,14 @@
     font-weight: bold;
     font-size: 48px;
     text-align: center;
-    color: #2d3748;
+    color: var(--text-gray);
     line-height: normal;
   }
 
   .secondary p {
     font-size: 48px;
     text-align: center;
-    color: #2d3748;
+    color: var(--text-gray);
     line-height: normal;
     margin-top: 72px;
   }
@@ -62,7 +62,7 @@
   justify-content: space-evenly;
 
   .ud-main-btn {
-    background-color: #d97706;
+    background-color: var(--accent-color);
     padding: 12px 16px;
     border-radius: 32px;
     font-size: 18px;

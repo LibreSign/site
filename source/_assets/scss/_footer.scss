@@ -1,7 +1,7 @@
 /* ===== Footer CSS ===== */
 
 .ud-footer {
-  background: #263238;
+  background: var(--color-dark);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -22,7 +22,7 @@
   }
 
   &:focus {
-    outline: 3px solid #00dbff;
+    outline: 3px solid var(--focus-color);
     outline-offset: 4px;
   }
 
@@ -31,7 +31,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid #00dbff;
+    outline: 3px solid var(--focus-color);
     outline-offset: 4px;
   }
 }
@@ -62,7 +62,7 @@
   min-height: 80px;
   width: 476px;
   border-radius: 16px;
-  background-color: #d97706;
+  background-color: var(--accent-color);
   border: none;
   display: flex;
   align-items: center;
@@ -96,7 +96,7 @@
   }
 
   &:focus {
-    outline: 3px solid #00dbff;
+    outline: 3px solid var(--focus-color);
     outline-offset: 2px;
   }
 
@@ -105,7 +105,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid #00dbff;
+    outline: 3px solid var(--focus-color);
     outline-offset: 2px;
   }
 
@@ -157,7 +157,7 @@
     width: 76px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background-color: #ffc107;
+    background-color: var(--warning-color);
     position: relative;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@
       width: 20px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background-color: #2ecc71;
+      background-color: var(--success-color);
       position: absolute;
       right: 0;
       bottom: 0;
@@ -274,7 +274,7 @@
     }
 
     &:focus {
-      outline: 3px solid #00dbff;
+      outline: 3px solid var(--focus-color);
       outline-offset: 4px;
       border-radius: 4px;
     }
@@ -284,7 +284,7 @@
     }
 
     &:focus-visible {
-      outline: 3px solid #00dbff;
+      outline: 3px solid var(--focus-color);
       outline-offset: 4px;
       border-radius: 4px;
     }
@@ -319,9 +319,9 @@
       }
 
       &:focus {
-        outline: 3px solid #00dbff;
+        outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        background-color: rgba(0, 219, 255, 0.1);
+        background-color: var(--bg-hover);
       }
 
       &:focus:not(:focus-visible) {
@@ -330,9 +330,9 @@
       }
 
       &:focus-visible {
-        outline: 3px solid #00dbff;
+        outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        background-color: rgba(0, 219, 255, 0.1);
+        background-color: var(--bg-hover);
       }
     }
   }
@@ -355,7 +355,7 @@
       }
 
       &:focus {
-        outline: 3px solid #00dbff;
+        outline: 3px solid var(--focus-color);
         outline-offset: 2px;
         color: var(--primary-color);
         padding-left: 8px;
@@ -368,7 +368,7 @@
       }
 
       &:focus-visible {
-        outline: 3px solid #00dbff;
+        outline: 3px solid var(--focus-color);
         outline-offset: 2px;
         color: var(--primary-color);
         padding-left: 8px;
@@ -396,7 +396,7 @@
 
 .ud-footer-bottom {
   padding: 35px 0;
-  border-top: 1px solid rgba(136, 144, 164, 0.43);
+  border-top: 1px solid var(--border-footer);
 
   .ud-footer-bottom-left {
     display: flex;
@@ -409,7 +409,7 @@
     a {
       font-weight: normal;
       font-size: 15px;
-      color: #f3f4fe;
+      color: var(--text-footer);
       margin-right: 30px;
       display: inline-block;
 
@@ -427,7 +427,7 @@
     text-align: right;
     font-weight: normal;
     font-size: 15px;
-    color: #f3f4fe;
+    color: var(--text-footer);
 
     a {
       color: var(--primary-color);

@@ -9,7 +9,7 @@
 
 .ud-single-testimonial {
   padding: 30px;
-  box-shadow: 0px 60px 120px -20px #ebeffd;
+  box-shadow: 0px 60px 120px -20px var(--shadow-light);
   background: var(--white);
   margin-bottom: 50px;
 
@@ -17,7 +17,7 @@
     margin-bottom: 10px;
 
     i {
-      color: #fbb040;
+      color: var(--star-color);
     }
   }
 
@@ -27,7 +27,7 @@
     p {
       font-size: 16px;
       line-height: 30px;
-      color: #637381;
+      color: var(--text-muted);
     }
   }
 
@@ -51,7 +51,7 @@
 
       p {
         font-size: 12px;
-        color: #969696;
+        color: var(--text-light-gray);
       }
     }
   }
@@ -73,7 +73,7 @@
         position: absolute;
         width: 30px;
         height: 1px;
-        background: #afb2b5;
+        background: var(--color-gray);
         right: -40px;
         top: 50%;
       }
@@ -120,11 +120,11 @@
 }
 
 .testimonial-container .testimonial_color_stars{
-  color: #fbb040;
+  color: var(--star-color);
 }
 
 .title-testimonial{
-  color:#184c4e;
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 18px;
 }
@@ -142,10 +142,10 @@
 
 .discount-tag {
   position: absolute;
-  background: #fff;
+  background: var(--white);
   padding: 5px;
   border-radius: 5px;
-  color: #ff7d7d;
+  color: var(--error-color);
   right: 10px;
   top: 10px;
   text-transform: capitalize;
@@ -161,7 +161,7 @@
   text-transform: capitalize;
   border: none;
   outline: none;
-  background: #fff;
+  background: var(--white);
   border-radius: 5px;
   transition: 0.5s;
   cursor: pointer;
@@ -173,8 +173,8 @@
 }
 
 .card-btn:hover {
-  background: #ff7d7d;
-  color: #fff;
+  background: var(--error-color);
+  color: var(--white);
 }
 
 .testimonial-info {
@@ -218,7 +218,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--white) 100%);
   cursor: pointer;
   z-index: 8;
 }
@@ -265,7 +265,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
+  color: var(--white);
   font-size: 50px;
   text-transform: capitalize;
 }
