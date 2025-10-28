@@ -63,7 +63,7 @@
     gap: 12px;
   }
 
-  @media #{$md, $xs} {
+  @media #{$md, $sm, $xs} {
     gap: 4px;
     align-items: start;
   }
@@ -130,7 +130,7 @@
       display: flex;
       align-items: center;
 
-      @media #{$lg, $xs} {
+      @media #{$lg, $sm, $xs} {
         padding: 0 16px;
       }
 
@@ -166,7 +166,7 @@
     margin-left: 8px;
   }
 
-  @media #{$md, $xs} {
+  @media #{$md, $sm, $xs} {
     margin-left: auto;
     margin-right: auto;
   }
@@ -197,7 +197,7 @@
 .navbar-collapse {
   flex-grow: 0;
 
-  @media #{$md, $xs} {
+  @media #{$md, $sm, $xs} {
     position: fixed;
     top: 118px;
     left: 0;

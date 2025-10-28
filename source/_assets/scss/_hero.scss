@@ -3,17 +3,33 @@
 .ud-hero {
   background: var(--primary-color);
   padding-top: 192px;
+
+  @media #{$xs} {
+    padding-top: 144px;
+  }
 }
 
 .ud-hero-content {
   max-width: 636px;
   margin-bottom: 192px;
 
+  @media #{$xs, $sm} {
+    margin-bottom: 144px;
+  }
+
   .ud-hero-title {
     color: var(--text-light);
     font-weight: bold;
     font-size: 64px;
     margin-bottom: 30px;
+
+    @media #{$sm} {
+      font-size: 48px;
+    }
+
+    @media #{$xs} {
+      font-size: 36px;
+    }
   }
 
   .ud-hero-desc {
@@ -22,6 +38,10 @@
     color: var(--text-light);
     max-width: 636px;
     margin-bottom: 72px;
+
+    @media #{$xs} {
+      font-size: 18px;
+    }
   }
 }
 
@@ -29,12 +49,20 @@
   margin-top: 84px;
   margin-bottom: 36px;
 
+  @media #{$xs} {
+    margin-top: 60px;
+  }
+
   .headline p {
     font-weight: bold;
     font-size: 48px;
     text-align: center;
     color: var(--text-gray);
     line-height: normal;
+
+    @media #{$xs} {
+      font-size: 36px;
+    }
   }
 
   .secondary p {
@@ -43,10 +71,23 @@
     color: var(--text-gray);
     line-height: normal;
     margin-top: 72px;
+
+    @media #{$xs} {
+      font-size: 36px;
+      margin-top: 32px;
+    }
+
+    @media #{$sm} {
+      margin-top: 36px;
+    }
   }
 
   .logos {
     margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 0;
+    }
 
     div {
       display: flex;
@@ -57,10 +98,6 @@
 }
 
 .ud-hero-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
   .ud-main-btn {
     background-color: var(--accent-color);
     padding: 12px 16px;

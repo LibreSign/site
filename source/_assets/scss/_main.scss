@@ -9,14 +9,91 @@
 /*cards target audience*/
 
 .card-title {
-    color: var(--primary-color);
+    color: var(--text-gray);
 }
 
 .cards-target-audience {
-background-color: var(--primary-color);
-padding:25px;
-border-radius:50px;
-height: 400px;
+    background-color: var(--white);
+    padding: 32px 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    h5 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--text-gray);
+    }
+
+    p {
+        font-size: 1rem;
+        color: var(--text-muted);
+    }
+}
+
+.card-header-section {
+    min-height: 100px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-bottom: 42px;
+
+    @media #{$laptop} {
+        min-height: 136px;
+        margin-bottom: 28px;
+    }
+}
+
+.card-icon-section {
+    height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+
+    @media #{$laptop, $xs} {
+        height: 224px;
+        margin-bottom: 32px;
+
+        img {
+            transform: scale(0.875);
+        }
+    }
+}
+
+.card-description-section {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+
+    @media #{$laptop} {
+       margin-bottom: 0;
+    }
+}
+
+.card-button-section {
+    padding-top: 20px;
+    width: 100%;
+
+    .ud-hero-buttons {
+        li {
+            width: 100%;
+
+            .ud-main-btn {
+                height: 56px;
+                text-wrap-mode: wrap;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 4px 16px;
+            }
+        }
+    }
 }
 
 /*end cards target audience*/
