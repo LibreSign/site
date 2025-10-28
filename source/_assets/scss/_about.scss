@@ -1,12 +1,9 @@
 /* ===== About CSS ===== */
 
 .ud-about {
-  background: #f7fafc;
-  padding: 120px 0;
-
-  @media #{$xs} {
-    padding: 80px 0;
-  }
+  background: var(--bg-light);
+  padding-top: 88px;
+  padding-bottom: 64px;
 }
 
 .ud-about-wrapper {

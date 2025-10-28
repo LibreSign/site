@@ -14,18 +14,18 @@
               <p class="ud-hero-desc">
                 {{ $page->t("Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.") }}
               </p>
-              <ul class="ud-hero-buttons">
-                <li>
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn">
+              <div class="row justify-content-between ud-hero-buttons g-4">
+                <div class="col-sm-6 justify-content-center d-flex">
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn w-100 text-center">
                     {{ $page->t('Try it For Free Now!') }}
                   </a>
-                </li>
-                <li>
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn">
+                </div>
+                <div class="col-sm-6 justify-content-center d-flex">
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn w-100 text-center">
                     {{ $page->t('Talk to Our Experts') }}
                   </a>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -40,15 +40,15 @@
             <p>{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</p>
           </div>
         </div>
-        <div class="row logos">
-          <div class="col-4">
+        <div class="row logos g-5 justify-content-evenly">
+          <div class="col-12 col-md-auto">
             <img width="264px" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
           </div>
-          <div class="col-4">
+          <div class="col-12 col-md-auto">
             <img width="256px" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
           </div>
-          <div class="col-4">
-            <img width="232px" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
+          <div class="col-12 col-md-auto">
+            <img width="80px" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
           </div>
         <div>
         <div class="row">
@@ -61,40 +61,88 @@
 
     <!-- ====== Target Audience Start ====== -->
     <section class="ud-about">
-      <div class="container bg-white p-5 cards-one-below-the-other">
+      <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Eliminate Bureaucracy, Ensure Security: LibreSign Solves Your Biggest Challenges.")}}</h3>
             </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for.") }}</p>
           </div>
         </div>
-        <div class="row text-center">
-          <div class="col-4 text-card">
+        <div class="row text-center justify-content-evenly">
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
-              </p>
+              <div class="card-header-section">
+                <h5>{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/legal-validity.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Minimize risks and ensure the authenticity of each document with electronic signatures that fully comply with the LGPD and current legislation.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn">
+                      {{ $page->t('Learn More for the Public Sector') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-4 text-card">
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
-              </p>
+              <div class="card-header-section">
+                <h5>{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/digital-signature.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Optimize your workflows, strengthen governance, and reduce operational costs without sacrificing security or ease of use.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn">
+                      {{ $page->t('Discover Solutions for Your Company.') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-4 text-card">
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
             <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
-              </p>
+              <div class="card-header-section">
+                <h5>{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/integration-flexibility.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn">
+                      {{ $page->t('Technical Details for IT.') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
