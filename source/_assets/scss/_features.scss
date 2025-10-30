@@ -1,12 +1,14 @@
 /* ===== Features CSS ===== */
 
 .ud-features {
-  padding-top: 120px;
-  padding-bottom: 90px;
+  background: var(--bg-white);
+  padding-top: 88px;
+  padding-bottom: 64px;
 
   @media #{$xs} {
-    padding-top: 80px;
-    padding-bottom: 40px;
+    .ud-main-btn {
+      font-size: 1rem;
+    }
   }
 }
 

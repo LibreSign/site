@@ -53,7 +53,7 @@
         <div>
         <div class="row">
           <div class="secondary">
-            <p>{{ $page->t("More than X million documents signed securely and with legal validity.") }}</p>
+            <p>{{ $page->t("More than 5 million documents signed securely and with legal validity.") }}</p>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="row text-center justify-content-evenly">
           <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
-            <div class="cards-target-audience">
+            <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
               </div>
@@ -98,7 +98,7 @@
             </div>
           </div>
           <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
-            <div class="cards-target-audience">
+            <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
               </div>
@@ -122,7 +122,7 @@
             </div>
           </div>
           <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
-            <div class="cards-target-audience">
+            <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
               </div>
@@ -150,40 +150,115 @@
     </section>
 
     <!-- ====== Features Start ====== -->
-    <section id="features" class="ud-features">
+    <section class="ud-features">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>{{ $page->t("Features")}}</span>
-              <h2>{{ $page->t("Main features")}}</h2>
-              <p>
-                {{ $page->t("Beyond offering agility and security in digital signatures and document management, LibreSign features functionalities that adapt to the specific needs of your organization.") }}
-              </p>
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.")}}</h3>
             </div>
           </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("More than a tool, a strategic partner for digital efficiency and security.") }}</p>
+          </div>
         </div>
-        <div class="row">
-          @foreach ($page->getFromCategory('features') as $item)
-            <div class="col-xl-3 col-lg-3 col-sm-6">
-              <div class="ud-single-feature wow fadeInUp" data-aos-delay=".1s">
-                <div class="ud-feature-icon">
-                  <i class="lni lni-{{ $item['icon'] }}"></i>
-                </div>
-                <div class="ud-feature-content">
-                  <div class="size-box-feature">
-                    <h3>
-                      <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
-                    </h3>
-                    <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
-                  </div>
-                  <div>
-                    <a class="ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
-                  </div>
-                </div>
+        <div class="row text-center gy-5">
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Advanced Security")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/advanced-security.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Keep your documents secure with end-to-end encryption and multi-layer authentication, ensuring protection throughout the entire electronic document signing process.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-          @endforeach
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Hybrid Signatures")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/hybrid-signatures.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Hybrid signatures simplify negotiation processes by offering flexibility in choosing between personal or system-generated digital certificates to digitally sign documents with LibreSign.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Real-Time Monitoring.")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/realtime-monitoring.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders, and optimizing your team's efficiency. Try our solution for transparent and productive administration.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("QR Code validation")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/qrcode-validation.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Perform document authenticity verification using QR codes, ensuring security, efficiency, and convenience. Its instant validation, speed, transparency, and compatibility with various platforms make it perfect for sustainable businesses.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -12,13 +12,16 @@
     color: var(--text-gray);
 }
 
-.cards-target-audience {
+.main-cards {
     background-color: var(--white);
     padding: 32px 40px 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
+    max-width: 496px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
     h5 {
         font-size: 1.75rem;
@@ -72,7 +75,7 @@
     margin-bottom: 24px;
 
     @media #{$laptop} {
-       margin-bottom: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -85,12 +88,12 @@
             width: 100%;
 
             .ud-main-btn {
-                height: 56px;
+                min-height: 56px;
                 text-wrap-mode: wrap;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 4px 16px;
+                padding: 0 16px;
             }
         }
     }
@@ -143,3 +146,4 @@
 .ud-blog-details-content .article li {
     margin-bottom: 0.5rem;
 }
+
