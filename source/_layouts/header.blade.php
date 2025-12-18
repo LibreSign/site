@@ -23,7 +23,7 @@
             <a class="ud-menu-scroll" href="{{ locale_url($page, 'posts') }}" role="menuitem">{{ $page->t("Content") }}</a>
           </li>
           <li class="nav-item nav-item-has-children" role="none">
-            <a class="ud-menu-scroll" href="{{ locale_url($page, 'contact') }}" role="menuitem">{{ $page->t("Contact") }}</a>
+            <a class="ud-menu-scroll" href="{{ locale_url($page, 'contact-us') }}" role="menuitem">{{ $page->t("Contact") }}</a>
           </li>
           <li class="nav-item" id="customer-area-link" role="none">
             <a class="ud-menu-scroll link-button" href="{{ locale_url($page, 'client-area') }}" role="menuitem" aria-label="{{ $page->t("Client Area") }}">
