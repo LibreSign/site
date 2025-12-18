@@ -1,23 +1,6 @@
-<!-- ====== Contact Start ====== -->
-<section id="contact" class="ud-contact">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xl-8 col-lg-7">
-        <div class="ud-contact-content-wrapper">
-          <div class="ud-contact-title">
-            <span>{{ $page->t("CONTACT US")}}</span>
-            <h2>
-              {{ $page->t("Let’s talk about digitally signing your documents!")}}
-            </h2>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-5">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;" id="message"></div>
-        <div
-          class="ud-contact-form-wrapper wow fadeInUp"
-          data-aos-delay=".2s"
-        >
+<!-- ====== Contact Form Start ====== -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;" id="message"></div>
+<div class="ud-contact-form-wrapper wow fadeInUp" data-aos-delay=".2s">
           <form class="ud-contact-form" id="WebToLeadForm"
             name="WebToLeadForm">
             <div class="ud-form-group">
@@ -50,11 +33,29 @@
               />
             </div>
             <div class="ud-form-group">
-              <label for="description">{{ $page->t("Message")}} *</label>
+              <label for="company_name">{{ $page->t('Company Name')}}</label>
+              <input
+                type="text"
+                name="company_name"
+                id="company_name"
+                placeholder="{{$page->t('Type your company name')}}"
+              />
+            </div>
+            <div class="ud-form-group">
+              <label for="position">{{ $page->t('Position/Role')}}</label>
+              <input
+                type="text"
+                name="position"
+                id="position"
+                placeholder="{{$page->t('Type your position')}}"
+              />
+            </div>
+            <div class="ud-form-group">
+              <label for="description">{{ $page->t("What is your main challenge?")}} *</label>
               <textarea
                 name="description"
                 id="description"
-                rows="1"
+                rows="3"
                 placeholder="{{$page->t('Type your message here')}}"
                 required=""
               ></textarea>
@@ -167,14 +168,10 @@
               </script>
             </div>
             <div class="ud-form-group mb-0">
-              <button type="submit" class="ud-main-btn">
-                {{ $page->t("Send Message")}}
+              <button type="submit" class="ud-main-btn w-100">
+                {{ $page->t("Talk to a Specialist")}}
               </button>
             </div>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ====== Contact End ====== -->
+<!-- ====== Contact Form End ====== -->
