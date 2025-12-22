@@ -59,6 +59,11 @@ This means that:
   * Displays the CRL URL
   * Presents validity information for both the signer's certificate and the issuer's certificate
 
+* **Certificate management**, administrators can:
+
+  * Manage the certificate revocation list
+  * Revoke any certificate when necessary
+
 #### Why is this important?
 
 With the implementation of CRL, LibreSign:
