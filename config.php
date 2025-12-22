@@ -284,8 +284,12 @@ return [
                 if(empty($post->cover_image)){
                     if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
+                    } elseif(file_exists(__DIR__.'/source/'.$path.'/cover.png')){
+                        $post->set('cover_image',$post->baseUrl.$path.'/cover.png');
                     } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.jpg')){
                         $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.jpg');
+                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.png')){
+                        $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.png');
                     } else {
                         $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
@@ -294,8 +298,12 @@ return [
                 if(empty($post->banner)){
                     if(file_exists(__DIR__.'/source/'.$path.'/banner.jpg')){
                         $post->set('banner',$post->baseUrl.$path.'/banner.jpg');
+                    } elseif(file_exists(__DIR__.'/source/'.$path.'/banner.png')){
+                        $post->set('banner',$post->baseUrl.$path.'/banner.png');
                     } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.jpg')){
                         $post->set('banner',$post->baseUrl.$alternativePath.'/banner.jpg');
+                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.png')){
+                        $post->set('banner',$post->baseUrl.$alternativePath.'/banner.png');
                     } else {
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
