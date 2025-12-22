@@ -23,14 +23,20 @@ This feature enables LibreSign to better support structured approval processes, 
 
 In the administration settings, administrators can configure the default signing order for the organization:
 
-![Admin settings](/assets/images/posts/signature-order/admin-settings.png)
+<div style="text-align: center;">
+  <img src="{{ $page->baseUrl}}assets/images/posts/signature-order/admin-settings.png" alt="Admin settings">
+</div>
 
 When creating a new signing request, the requester can choose the signing order:
 
-![Configuring signing order](/assets/images/posts/signature-order/configuring.png)
+<div style="text-align: center;">
+  <img src="{{ $page->baseUrl}}assets/images/posts/signature-order/configuring.png" alt="Configuring signing order">
+</div>
 
 The signing order can also be viewed during the signing process:
 
-![Viewing signing order](/assets/images/posts/signature-order/view-signing-order.png)
+<div style="text-align: center;">
+  <img src="{{ $page->baseUrl}}assets/images/posts/signature-order/view-signing-order.png" alt="Viewing signing order">
+</div>
 
 When a signing order is defined, LibreSign enforces the sequence during the signing process, ensuring that each signer only receives the notification and is able to sign the document when it is their turn in the defined order.
