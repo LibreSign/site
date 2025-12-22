@@ -14,8 +14,7 @@ services:
       context: .docker/php
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${HTTP_PORT:-3000}:3000"
-      - "127.0.0.1:${HTTP_PORT_BROWSERSYNC:-3001}:3001"
+      - "127.0.0.1:${HTTP_PORT_BROWSERSYNC:-3000}:3000"
     volumes:
       - .:/var/www/html
     environment:
