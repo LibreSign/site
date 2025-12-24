@@ -4,8 +4,11 @@
 
  <!-- ====== Princiapl Banner Start ====== -->
     <section class="ud-hero">
+      <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
+        <img src="{{ $page->baseUrl }}assets/images/hero/hero-image.png" alt="{{ $page->t('Professional using digital signature') }}" />
+      </div>
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
           <div class="col-lg-6">
             <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
               <h1 class="ud-hero-title">
@@ -26,11 +29,6 @@
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="ud-hero-image text-center wow fadeInUp" data-aos-delay=".3s">
-              <img src="{{ $page->baseUrl }}assets/images/hero/hero-image.png" alt="{{ $page->t('Professional using digital signature') }}" />
             </div>
           </div>
         </div>
