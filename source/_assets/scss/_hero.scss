@@ -2,11 +2,15 @@
 
 .ud-hero {
   background: var(--primary-color);
-  padding-top: 150px;
-  padding-bottom: 150px;
+  margin-top: 120px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
 
   @media #{$xs} {
-    padding-top: 120px;
+    margin-top: 120px;
+    padding-top: 80px;
     padding-bottom: 80px;
   }
 }
@@ -151,20 +155,34 @@
 }
 
 .ud-hero-image {
-  max-width: 845px;
-  margin: auto;
-  text-align: center;
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   img {
-    max-width: 100%;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 10px;
   }
 
   @media #{$xs, $sm} {
-    margin-top: 40px;
+    width: 100%;
+    position: static;
+    height: 400px;
+    margin-bottom: 30px;
+  }
+
+  @media #{$xs} {
+    height: 300px;
   }
 
   .shape {
