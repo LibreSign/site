@@ -3,37 +3,32 @@
 @section('body')
 
  <!-- ====== Princiapl Banner Start ====== -->
-    <section class="ud-hero" id="home">
+    <section class="ud-hero">
+      <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
+        <img src="{{ $page->baseUrl }}assets/images/hero/hero-image.png" alt="{{ $page->t('Professional using digital signature') }}" />
+      </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
               <h1 class="ud-hero-title">
-                {{ $page->t( "Simplify your digital signatures and document management safely and efficiently") }}
+                {{ $page->t("The secure and legally binding digital signature for your world.") }}
               </h1>
               <p class="ud-hero-desc">
-                {{ $page->t("Easily create, send, sign and track all your contracts in one place") }}
+                {{ $page->t("Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.") }}
               </p>
-              <ul class="ud-hero-buttons">
-                <li>
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
-                    {{ $page->t('Talk to sales') }}
+              <div class="row justify-content-between ud-hero-buttons g-4">
+                <div class="col-sm-6 justify-content-center d-flex">
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn w-100 text-center">
+                    {{ $page->t('Try it For Free Now!') }}
                   </a>
-                </li>
-              </ul>
-            </div>
-            <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt=""/>
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-2"
-              />
+                </div>
+                <div class="col-sm-6 justify-content-center d-flex">
+                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn w-100 text-center">
+                    {{ $page->t('Talk to Our Experts') }}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -41,45 +36,315 @@
     </section>
     <!-- ====== Princiapl Banner End ====== -->
 
-    <!-- ====== Features Start ====== -->
-    <section id="features" class="ud-features">
+    <section class="clients">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>{{ $page->t("Features")}}</span>
-              <h2>{{ $page->t("Main features")}}</h2>
-              <p>
-                {{ $page->t("Beyond offering agility and security in digital signatures and document management, LibreSign features functionalities that adapt to the specific needs of your organization.") }}
-              </p>
-            </div>
+          <div class="col-12 headline">
+            <p>{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</p>
+          </div>
+        </div>
+        <div class="row logos g-5 justify-content-evenly">
+          <div class="col-12 col-md-auto">
+            <img width="264px" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
+          </div>
+          <div class="col-12 col-md-auto">
+            <img width="256px" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
+          </div>
+          <div class="col-12 col-md-auto">
+            <img width="80px" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
           </div>
         </div>
         <div class="row">
-          @foreach ($page->getFromCategory('features') as $item)
-            <div class="col-xl-3 col-lg-3 col-sm-6">
-              <div class="ud-single-feature wow fadeInUp" data-aos-delay=".1s">
-                <div class="ud-feature-icon">
-                  <i class="lni lni-{{ $item['icon'] }}"></i>
-                </div>
-                <div class="ud-feature-content">
-                  <div class="size-box-feature">
-                    <h3>
-                      <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
-                    </h3>
-                    <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
-                  </div>
-                  <div>
-                    <a class="ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
-                  </div>
-                </div>
+          <div class="secondary">
+            <p>{{ $page->t("More than X million documents signed securely and with legal validity.") }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Target Audience Start ====== -->
+    <section class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Eliminate Bureaucracy, Ensure Security: LibreSign Solves Your Biggest Challenges.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for.") }}</p>
+          </div>
+        </div>
+        <div class="row text-center justify-content-evenly">
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/legal-validity.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Minimize risks and ensure the authenticity of each document with electronic signatures that fully comply with the LGPD and current legislation.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn">
+                      {{ $page->t('Learn More for the Public Sector') }}
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-          @endforeach
+          </div>
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/digital-signature.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Optimize your workflows, strengthen governance, and reduce operational costs without sacrificing security or ease of use.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn">
+                      {{ $page->t('Discover Solutions for Your Company.') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/integration-flexibility.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn">
+                      {{ $page->t('Technical Details for IT.') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Features Start ====== -->
+    <section class="ud-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("More than a tool, a strategic partner for digital efficiency and security.") }}</p>
+          </div>
+        </div>
+        <div class="row text-center gy-5">
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Advanced Security")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/advanced-security.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Keep your documents secure with end-to-end encryption and multi-layer authentication, ensuring protection throughout the entire electronic document signing process.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Hybrid Signatures")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/hybrid-signatures.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Hybrid signatures simplify negotiation processes by offering flexibility in choosing between personal or system-generated digital certificates to digitally sign documents with LibreSign.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("Real-Time Monitoring.")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/realtime-monitoring.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders, and optimizing your team's efficiency. Try our solution for transparent and productive administration.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+            <div class="main-cards">
+              <div class="card-header-section">
+                <h5>{{ $page->t("QR Code validation")}}</h5>
+              </div>
+              <div class="card-icon-section">
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/qrcode-validation.svg" alt="" />
+              </div>
+              <div class="card-description-section">
+                <p>
+                  {{ $page->t("Perform document authenticity verification using QR codes, ensuring security, efficiency, and convenience. Its instant validation, speed, transparency, and compatibility with various platforms make it perfect for sustainable businesses.") }}
+                </p>
+              </div>
+              <div class="card-button-section">
+                <ul class="ud-hero-buttons">
+                  <li>
+                    <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
+                      {{ $page->t('Explore all the advantages of LibreSign') }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <!-- ====== Features End ====== -->
+
+    <!-- ====== Solutions Section Start ====== -->
+    <section class="ud-solutions">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Tailored Solutions: LibreSign Meets the Unique Demands of Your Business.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("Developed with expertise to optimize processes across various segments.") }}</p>
+          </div>
+        </div>
+        <div class="row text-center justify-content-center gy-5">
+          <div class="col-lg col-md-6 col-sm-12">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Public Management: Transparency, Validity, and Efficiency")}}</h4>
+              <p>{{ $page->t("Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.") }}</p>
+              <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for the Public Sector') }}
+              </a>
+            </div>
+          </div>
+          <div class="col-lg col-md-6 col-sm-12">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Small and Medium Businesses: Grow with Security")}}</h4>
+              <p>{{ $page->t("Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.") }}</p>
+              <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Small and Medium Businesses') }}
+              </a>
+            </div>
+          </div>
+          <div class="col-lg col-md-6 col-sm-12">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Cooperatives: Strengthen Governance and Member Participation")}}</h4>
+              <p>{{ $page->t("Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.") }}</p>
+              <a href="{{ locale_url($page, 'cooperatives') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Cooperatives') }}
+              </a>
+            </div>
+          </div>
+          <div class="col-lg col-md-6 col-sm-12">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Information Technology: Control and Total Flexibility")}}</h4>
+              <p>{{ $page->t("Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.") }}</p>
+              <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for IT Professionals') }}
+              </a>
+            </div>
+          </div>
+          <div class="col-lg col-md-6 col-sm-12">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Legal Sector: Agility and Unquestionable Legal Security")}}</h4>
+              <p>{{ $page->t("Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.") }}</p>
+              <a href="{{ locale_url($page, 'lawyers') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Lawyers') }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Solutions Section End ====== -->
 
     <!-- ====== About Start ====== -->
     <section id="about" class="ud-about">
@@ -107,49 +372,36 @@
     </section>
     <!-- ====== About End ====== -->
 
-    @include('_partials/testimonial_card')
-
-    <!-- ====== Target Audience Start ====== -->
-    <section id="target_audience" class="ud-about">
-      <div class="container bg-white p-5 cards-one-below-the-other">
+    <!-- ====== Video Demo Section Start ====== -->
+    <section class="ud-video-demo">
+      <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
+              <h3 class="card-title fs-1 fw-bold text-white">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h3>
             </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle text-white">{{ $page->t("Our complete video guide shows how to sign, manage, and validate documents step by step, in an easy and secure way.") }}</p>
           </div>
         </div>
-        <div class="row text-center">
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
-              </p>
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-6 text-center">
+            <div class="video-demo-image">
+              <img src="{{ $page->baseUrl }}assets/images/demo/mobile-demo.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
             </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
-              </p>
-            </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
-              </p>
+            <div class="mt-4">
+              <a href="#" class="ud-main-btn ud-demo-btn">
+                {{ $page->t('See How It Works') }}
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- ====== Video Demo Section End ====== -->
+
+    @include('_partials/testimonial_card')
 
     <!-- ====== Start Importance of digital signature ====== -->
     <section id="features" class="ud-features">
@@ -201,6 +453,61 @@
 
     </section>
     <!-- ====== End Importance of digital signature ====== -->
+
+    <!-- ====== Blog/Content Section Start ====== -->
+    <section class="ud-blog-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("LibreSign: Knowledge that Drives Your Digital Transformation.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.") }}</p>
+          </div>
+        </div>
+        <div class="row gy-4 mt-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card">
+              <div class="blog-image">
+                <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-article.jpg" alt="{{ $page->t('Digital signature article') }}" />
+                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+              </div>
+              <div class="blog-content">
+                <h4>{{ $page->t("Digital document signature: see real situations where digital signature transforms contracts")}}</h4>
+                <p>{{ $page->t("Digital signature has become an essential tool in the corporate, legal, and even personal world. More than a trend, it represents a definitive change in the way we deal with documents...") }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card">
+              <div class="blog-image">
+                <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-myths.jpg" alt="{{ $page->t('Digital signature myths') }}" />
+                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+              </div>
+              <div class="blog-content">
+                <h4>{{ $page->t("4 doubts about digital signature: Learn about the common myths created about this term")}}</h4>
+                <p>{{ $page->t("To help you clarify the most frequent doubts about digital signature, our specialists answer some questions raised through social media and public forums. Check it now and learn how digital signature can transform your life...") }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card">
+              <div class="blog-image">
+                <img src="{{ $page->baseUrl }}assets/images/blog/how-to-create-signature.jpg" alt="{{ $page->t('How to create digital signature') }}" />
+                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+              </div>
+              <div class="blog-content">
+                <h4>{{ $page->t("How to create a digital signature: learn the step-by-step process of how to do it")}}</h4>
+                <p>{{ $page->t("How about saying goodbye to paper, unnecessary travel to the notary, and waiting times? Digital transformation made office workflows more streamlined than ever. The digital signature market has become increasingly...") }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Blog/Content Section End ====== -->
 
     <!-- ====== FAQ Start ====== -->
     <section id="faq" class="ud-faq">

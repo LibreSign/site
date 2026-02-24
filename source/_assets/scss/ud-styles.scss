@@ -9,6 +9,7 @@
 ======== */
 
 @import "variables";
+@import "main";
 @import "mixin";
 @import "common";
 @import "header";
@@ -26,4 +27,4 @@
 @import "blog";
 @import "blog-details";
 @import "404";
-// @import "default";
+@import "new-sections";

@@ -15,7 +15,7 @@
     top: 0;
     left: 0;
     height: 50%;
-    background: #f3f4fe;
+    background: var(--bg-light);
 
     @media #{$lg} {
       height: 45%;
@@ -121,7 +121,7 @@
       padding: 15px 0;
       border: none;
       outline: none;
-      border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid var(--border-input);
       resize: none;
 
       &:focus {
