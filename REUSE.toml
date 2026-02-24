@@ -10,7 +10,7 @@ path = [
   ".gitignore",
   "CNAME",
   "*.lock",
-  "robots.txt"
+  "source/robots.txt"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2020-2026 LibreCode coop and contributors"
