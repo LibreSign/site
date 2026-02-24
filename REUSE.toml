@@ -9,7 +9,7 @@ path = [
   ".editorconfig",
   ".gitignore",
   "CNAME",
-  "*.lock"
+  "*.lock",
   "robots.txt"
 ]
 precedence = "aggregate"
