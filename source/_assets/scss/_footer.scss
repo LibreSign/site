@@ -1,87 +1,377 @@
 /* ===== Footer CSS ===== */
 
 .ud-footer {
-  background: var(--heading-color);
-  padding-top: 100px;
+  background: var(--color-dark);
   position: relative;
   z-index: 1;
   overflow: hidden;
 
-  .shape {
-    position: absolute;
-    z-index: -1;
+  &>div {
+    margin-bottom: 200px;
+  }
+}
 
-    &.shape-1 {
-      top: 0;
-      left: 0;
+#coop-logo {
+  margin-top: 36px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease;
+
+  img {
+    max-width: 172px;
+  }
+
+  &:focus {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 4px;
+  }
+}
+
+#copyright {
+  color: var(--white);
+  font-size: 14px;
+  margin-top: 32px;
+}
+
+#address {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--white);
+  font-size: 12px;
+  line-height: 22px;
+  margin-bottom: 0;
+  font-style: normal;
+}
+
+.show-on-scroll {
+  display: none;
+}
+
+#footer-contact {
+  min-height: 80px;
+  width: 476px;
+  border-radius: 16px;
+  background-color: var(--accent-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  position: fixed;
+  right: 4px;
+  bottom: 32px;
+  z-index: 98;
+
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out,
+              visibility 0.3s ease-in-out,
+              bottom 0.3s ease-in-out,
+              transform 0.3s ease-in-out,
+              width 0.3s ease-in-out,
+              height 0.3s ease-in-out,
+              border-radius 0.3s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    bottom: 48px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  .bubble {
+    height: 72px;
+    width: 356px;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 12px 60px 12px 20px;
+    font-size: 18px;
+    position: relative;
+    top: 0;
+    left: 4px;
+    text-align: left;
+    transition: opacity 0.3s ease-in-out,
+                visibility 0.3s ease-in-out,
+                width 0.3s ease-in-out;
+
+    p {
+      margin: 0;
+      text-align: left;
     }
 
-    &.shape-2 {
-      top: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid var(--white);
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding-right: 24px;
+  }
+
+  .image {
+    width: 76px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .status {
+      width: 20px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-color: var(--success-color);
+      position: absolute;
       right: 0;
-    }
-
-    &.shape-3 {
       bottom: 0;
-      right: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  // Compact mode for tablets and smaller (< 992px)
+  @media (max-width: 992px) {
+    width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    right: 11px;
+
+    &.visible {
+      bottom: 40px;
+    }
+
+    .bubble {
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      pointer-events: none;
+      display: none;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .image-wrapper {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image {
+      position: relative;
+      width: 64px;
+      margin: 0;
+    }
+
+    &:hover {
+      .status {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Extra small screens
+  @media (max-width: 576px) {
+    width: 64px;
+    min-height: 64px;
+    right: 10px;
+
+    &.visible {
+      bottom: 12px;
+    }
+
+    .image {
+      width: 52px;
+    }
+
+    .status {
+      width: 16px;
     }
   }
 }
 
-.ud-widget {
-  margin-bottom: 50px;
+.widgets > div {
+  margin-top: 32px;
+}
 
+.ud-widget-address {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ud-widget {
   .ud-footer-logo {
-    max-width: 160px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 44px;
 
     img {
       width: 100%;
+      max-width: 120px;
+    }
+
+    &:focus {
+      outline: 3px solid var(--focus-color);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--focus-color);
+      outline-offset: 4px;
+      border-radius: 4px;
     }
   }
 
   .ud-widget-desc {
-    font-size: 15px;
-    line-height: 24px;
-    color: #f3f4fe;
-    margin-bottom: 30px;
-    max-width: 260px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 36px;
+    color: var(--white);
   }
 
   .ud-widget-socials {
     display: flex;
     align-items: center;
+    gap: 8px;
 
     a {
-      font-size: 16px;
-      color: #dddddd;
-      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: all 0.3s ease;
 
-      &:hover {
+      .social-icon {
+        color: var(--white);
+        transition: color 0.3s ease;
+      }
+
+      &:hover .social-icon {
         color: var(--primary-color);
+      }
+
+      &:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        background-color: var(--bg-hover);
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: none;
+        background-color: transparent;
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        background-color: var(--bg-hover);
       }
     }
   }
 
-  .ud-widget-title {
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 35px;
-    color: var(--white);
-  }
-
   .ud-widget-links {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
     a {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 15px;
-      line-height: 30px;
-      color: #f3f4fe;
+      font-size: 14px;
+      color: var(--white);
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      padding: 4px 0;
 
       &:hover {
         color: var(--primary-color);
         padding-left: 10px;
+      }
+
+      &:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        color: var(--primary-color);
+        padding-left: 8px;
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: none;
+        color: var(--white);
+        padding-left: 0;
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        color: var(--primary-color);
+        padding-left: 8px;
       }
     }
   }
@@ -106,7 +396,7 @@
 
 .ud-footer-bottom {
   padding: 35px 0;
-  border-top: 1px solid rgba(136, 144, 164, 0.43);
+  border-top: 1px solid var(--border-footer);
 
   .ud-footer-bottom-left {
     display: flex;
@@ -119,7 +409,7 @@
     a {
       font-weight: normal;
       font-size: 15px;
-      color: #f3f4fe;
+      color: var(--text-footer);
       margin-right: 30px;
       display: inline-block;
 
@@ -137,7 +427,7 @@
     text-align: right;
     font-weight: normal;
     font-size: 15px;
-    color: #f3f4fe;
+    color: var(--text-footer);
 
     a {
       color: var(--primary-color);

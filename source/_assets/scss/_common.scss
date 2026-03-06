@@ -3,12 +3,41 @@
 ===========================*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+
 :root {
   --font: "Inter", sans-serif;
-  --body-color: #000000;
-  --heading-color: #212b36;
+  
   --primary-color: #184c4e;
+  --primary-dark: #13c296;
+  --secondary-color: #00a3be;
+  --accent-color: #d97706;
+  
+  --color-dark: #263238;
+  --heading-color: #212b36;
+  --body-color: #000000;
   --white: #ffffff;
+  --text-light: #f5f5f5;
+  --text-gray: #2d3748;
+  --text-muted: #4a5568;
+  --text-light-gray: #969696;
+  --text-footer: #f3f4fe;
+  
+  --bg-light: #f7fafc;
+  --bg-hover: rgba(0, 219, 255, 0.1);
+  
+  --border-light: #d4deff;
+  --border-footer: rgba(136, 144, 164, 0.43);
+  --border-input: #f1f1f1;
+  
+  --focus-color: #00dbff;
+  --success-color: #2ecc71;
+  --warning-color: #ffc107;
+  --star-color: #fbb040;
+  --error-color: #ff7d7d;
+  
+  --color-gray: #afb2b5;
+  --color-light-muted: #cdced6;
+  --shadow-light: #ebeffd;
 }
 
 body {
@@ -120,6 +149,24 @@ p {
   height: 100%;
 }
 
+/*===== Accessibility =====*/
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.visually-hidden:not(caption) {
+  clip-path: inset(50%) !important;
+}
+
 /*===== All Button Style =====*/
 
 .ud-main-btn {
@@ -168,12 +215,49 @@ p {
   border-radius: 5px;
   position: fixed;
   right: 30px;
-  bottom: 30px;
+  bottom: 160px;
   z-index: 99;
   color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, 
+              visibility 0.3s ease-in-out, 
+              transform 0.3s ease-in-out,
+              background 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
   &:hover {
     color: var(--white);
     background: var(--heading-color);
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  // Responsive design for smaller screens
+  @media (max-width: 576px) {
+    right: 10px;
+    bottom: 100px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
   }
 }

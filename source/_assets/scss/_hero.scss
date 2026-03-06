@@ -2,85 +2,130 @@
 
 .ud-hero {
   background: var(--primary-color);
-  padding-top: 180px;
-
-  @media #{$md} {
-    padding-top: 160px;
-  }
+  margin-top: 120px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
 
   @media #{$xs} {
-    padding-top: 130px;
+    margin-top: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
 .ud-hero-content {
-  max-width: 780px;
-  margin: auto;
-  margin-bottom: 30px;
+  max-width: 636px;
+
+  @media #{$xs, $sm} {
+    margin-bottom: 40px;
+  }
 
   .ud-hero-title {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 60px;
-    text-align: center;
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 64px;
     margin-bottom: 30px;
 
-    @media #{$md} {
-      font-size: 38px;
-      line-height: 50px;
+    @media #{$sm} {
+      font-size: 48px;
     }
 
     @media #{$xs} {
-      font-size: 26px;
-      line-height: 38px;
+      font-size: 36px;
     }
   }
 
   .ud-hero-desc {
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 35px;
-    text-align: center;
-    color: var(--white);
-    opacity: 0.8;
-    max-width: 600px;
-    margin: auto;
-    margin-bottom: 30px;
+    font-weight: medium;
+    font-size: 22px;
+    color: var(--text-light);
+    max-width: 636px;
+    margin-bottom: 72px;
 
     @media #{$xs} {
-      font-size: 16px;
-      line-height: 30px;
+      font-size: 18px;
+    }
+  }
+}
+
+.clients {
+  margin-top: 84px;
+  margin-bottom: 36px;
+
+  @media #{$xs} {
+    margin-top: 60px;
+  }
+
+  .headline p {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    color: var(--text-gray);
+    line-height: normal;
+
+    @media #{$xs} {
+      font-size: 36px;
+    }
+  }
+
+  .secondary p {
+    font-size: 48px;
+    text-align: center;
+    color: var(--text-gray);
+    line-height: normal;
+    margin-top: 72px;
+
+    @media #{$xs} {
+      font-size: 36px;
+      margin-top: 32px;
+    }
+
+    @media #{$sm} {
+      margin-top: 36px;
+    }
+  }
+
+  .logos {
+    margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 0;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
 
 .ud-hero-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   .ud-main-btn {
-    margin: 8px;
-
-    @media #{$xs} {
-      margin: 5px;
-    }
-  }
-
-  .ud-main-btn {
-    @media #{$xs} {
-      padding: 12px 16px;
-    }
-  }
-
-  .ud-white-btn {
-    background: var(--white);
-    color: var(--heading-color);
+    background-color: var(--accent-color);
+    padding: 12px 16px;
+    border-radius: 32px;
+    font-size: 18px;
+    font-weight: bold;
 
     &:hover {
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-      background: #fefefe;
+      filter: brightness(1.25);
+    }
+  }
+
+  .ud-secondary-btn {
+    background: transparent;
+    border: 1px solid var(--white);
+    padding: 12px 16px;
+    border-radius: 32px;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: bold;
+
+    &:hover {
+      background: var(--white);
       color: var(--primary-color);
     }
   }
@@ -110,15 +155,34 @@
 }
 
 .ud-hero-image {
-  max-width: 845px;
-  margin: auto;
-  text-align: center;
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   img {
-    max-width: 100%;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+  }
+
+  @media #{$xs, $sm} {
+    width: 100%;
+    position: static;
+    height: 400px;
+    margin-bottom: 30px;
+  }
+
+  @media #{$xs} {
+    height: 300px;
   }
 
   .shape {
