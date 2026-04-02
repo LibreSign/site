@@ -32,15 +32,6 @@ return [
         return '<li>' . implode('</li><li>', $list) . '</li>';
     },
     'prices' => [
-        'Basic' => [
-            'price' => '$ 600/mo',
-            'description' => 'STARTING FROM',
-            'isActive' => false,
-            'list' => <<<LIST
-                - Until 5 accounts
-                - Storage until 1Gb
-                LIST,
-        ],
         'Business' => [
             'price' => 'Contact us to more informations',
             'description' => '',
