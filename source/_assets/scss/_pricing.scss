@@ -44,6 +44,7 @@
     width: 55px;
     height: 55px;
     z-index: 1;
+    pointer-events: none;
   }
 
   &.first-item::after {
@@ -51,6 +52,7 @@
     left: -2px;
     bottom: -2px;
     border-radius: 0px 55px 0px 8px;
+    box-shadow: 2px -2px 0 0 #d4deff;
   }
 
   &.last-item::after {

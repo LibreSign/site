@@ -32,13 +32,13 @@ return [
         return '<li>' . implode('</li><li>', $list) . '</li>';
     },
     'prices' => [
-        'Basic' => [
-            'price' => '$ 600/mo',
-            'description' => 'STARTING FROM',
+        'Custom Quote' => [
+            'price' => 'Contact us for pricing',
+            'description' => 'TAILORED PRICING',
             'isActive' => false,
             'list' => <<<LIST
-                - Until 5 accounts
-                - Storage until 1Gb
+                - Pricing tailored to your operation
+                - Deployment and support scope defined together
                 LIST,
         ],
         'Business' => [

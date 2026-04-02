@@ -21,11 +21,11 @@
   <section id="pricing" class="ud-pricing">
     <div class="container">
 
-      <div class="row g-0 align-items-center justify-content-center">
+      <div class="row g-0 align-items-stretch justify-content-center">
         @foreach ($page->prices as $planName => $content)
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div
-              class="ud-single-pricing first-item{{ $content->isActive ? ' active' : ''}} wow fadeInUp"
+              class="ud-single-pricing h-100{{ $loop->first ? ' first-item' : '' }}{{ $loop->last ? ' last-item' : '' }}{{ $content->isActive ? ' active' : ''}} wow fadeInUp"
               data-wow-delay=".15s"
             >
               <div class="ud-pricing-header">
@@ -65,7 +65,7 @@
           <thead>
             <tr>
               <th style="width: 34%;"></th>
-              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
+              <th style="width: 22%;">{{ $page->t('Custom Quote') }}</th>
               <th style="width: 22%;">{{ $page->t('Business') }}</th>
             </tr>
           </thead>
