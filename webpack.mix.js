@@ -32,6 +32,7 @@ mix.jigsaw({
     .js('source/_assets/js/main.js', 'js')
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .copy(lineiconsSource, 'source/assets/build/css/fonts')
+    .copyDirectory('node_modules/@fontsource/montserrat/files', 'source/assets/build/css/files')
     .options({
         processCssUrls: false,
     })

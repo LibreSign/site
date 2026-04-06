@@ -2,10 +2,14 @@
   COMMON css
 ===========================*/
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/800.css";
 
 :root {
-  --font: "Inter", sans-serif;
+  --font: "Montserrat", sans-serif;
   
   --primary-color: #184c4e;
   --primary-dark: #13c296;

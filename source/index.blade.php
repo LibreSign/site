@@ -3,7 +3,7 @@
 @section('body')
 
  <!-- ====== Princiapl Banner Start ====== -->
-    <section class="ud-hero">
+    <section class="ud-hero" style="max-width: 1920px; margin-left: auto; margin-right: auto; width: 100%;">
       <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
         <img src="{{ $page->baseUrl }}assets/images/hero/hero-image.png" alt="{{ $page->t('Professional using digital signature') }}" />
       </div>
