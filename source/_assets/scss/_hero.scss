@@ -1,22 +1,65 @@
 /* ===== Hero CSS ===== */
 
 .ud-hero {
-  background: var(--primary-color);
-  margin-top: 120px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #123c40;
+  background-image: url("/assets/images/hero/hero-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  margin-top: 116px;
+  padding-top: 127px;
+  padding-bottom: 88px;
+  min-height: 1210px;
   position: relative;
   overflow: hidden;
+  display: block;
+  line-height: normal;
+
+  .container {
+    max-width: 100%;
+    padding-left: 72px;
+    padding-right: 72px;
+  }
 
   @media #{$xs} {
-    margin-top: 120px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    .container {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media #{$sm, $md} {
+    .container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  &::before {
+    display: none;
+  }
+
+  @media #{$xs} {
+    margin-top: 0;
+    padding-top: 120px;
+    padding-bottom: 72px;
+    min-height: auto;
+  }
+
+  @media #{$sm, $md, $lg} {
+    min-height: 980px;
+    padding-top: 150px;
   }
 }
 
 .ud-hero-content {
   max-width: 636px;
+  position: relative;
+  z-index: 2;
 
   @media #{$xs, $sm} {
     margin-bottom: 40px;
@@ -26,6 +69,7 @@
     color: var(--text-light);
     font-weight: bold;
     font-size: 64px;
+    line-height: 1.22;
     margin-bottom: 30px;
 
     @media #{$sm} {
@@ -155,26 +199,23 @@
 }
 
 .ud-hero-image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: none;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
+    object-position: center top;
+    border-radius: 0;
+    transform: none;
+  }
+
+  &::after {
+    display: none;
   }
 
   @media #{$xs, $sm} {
+    display: flex;
     width: 100%;
     position: static;
     height: 400px;

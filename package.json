@@ -15,6 +15,7 @@
         "sass-loader": "^12"
     },
     "dependencies": {
+        "@fontsource/montserrat": "^5.2.8",
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
         "bootstrap": "^5.3.3",

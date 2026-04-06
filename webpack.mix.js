@@ -9,6 +9,7 @@ mix.jigsaw({
 })
     .js('source/_assets/js/main.js', 'js')
     .sass('source/_assets/scss/ud-styles.scss', 'css')
+    .copyDirectory('node_modules/@fontsource/montserrat/files', 'source/assets/compiled/css/files')
     .options({
         processCssUrls: false,
     })
