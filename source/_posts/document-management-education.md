@@ -3,7 +3,7 @@ extends: _layouts.post
 title: Document management in education - Challenges and solutions with LibreSign
 author: Daiane Alves
 date: 2024-05-07
-description: Document management in the educational field is complex and inefficient when done manually. Schools and universities deal daily with enrollments, statements, contracts, certificates, and meeting minutes, resulting in slow processes, prone to errors, and high operational costs.Digitizing the signing processes is the solution to these challenges, and LibreSign is the ideal tool for this transformation. With LibreSign, educational institutions can optimize document management, making it faster, more accurate, and efficient.
+description: Document management in the educational field is complex and inefficient when done manually. With LibreSign, educational institutions can optimize document management, making it faster, more accurate, and efficient.
 icon: write
 ---
 
@@ -13,10 +13,6 @@ icon: write
 Document management faces several common issues. Manual document signing can take days or even weeks, especially when multiple signatures are needed, delaying important processes and affecting the institution's operations. Moreover, manual handling of documents increases the chance of errors, leading to legal and administrative problems. The use of paper, printing, storage, and sending physical documents also generates significant costs for institutions. Finally, ensuring data security and compliance with laws, such as the LGPD (General Data Protection Law), is a constant challenge.
 
 ### Real problem: Floods in Rio Grande do Sul
-
-![Image](../assets/images/floods-in-rio-grande-do-sul.png)
-
-A recent example that highlights the importance of document digitization is the floods in Rio Grande do Sul. Many schools and universities in the region suffered the loss of important physical documents due to the floods. These non-digitized documents resulted in enormous losses and difficulties in recovering essential information, affecting the administration and continuity of educational activities.
 
 A recent example that highlights the importance of document digitization is the floods in Rio Grande do Sul. Many schools and universities lost important physical documents due to the floods, resulting in enormous losses and difficulties in recovering essential information. The lack of digitization severely affected the administration and continuity of educational activities. This tragic event reinforces the urgent need to adopt digital solutions to protect important data and ensure the resilience of institutions against natural disasters.
 
