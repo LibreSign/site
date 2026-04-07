@@ -9,7 +9,14 @@
 
 name: REUSE Compliance Check
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'LICENSES/**'
+      - 'REUSE.toml'
+      - '.reuse/**'
+      - '.github/workflows/reuse.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
