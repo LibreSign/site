@@ -27,6 +27,8 @@ jobs:
           sed -i "/'matomo_container'/d" config.production.php
       - name: Run composer command
         run: composer prod
+      - name: Build production site
+        run: ./vendor/bin/jigsaw build production
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
