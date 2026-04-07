@@ -82,11 +82,12 @@
             <tr>
               <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
               @foreach ($comparePlans as $plan)
+                @php($planValue = $optionList->{$plan['key']} ?? null)
                 <td>
-                  @if (is_bool($optionList->{$plan['key']}))
-                    <i class="lni lni-{{ $optionList->{$plan['key']} == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
-                  @else
-                    {{ $page->t($optionList->{$plan['key']}) }}
+                  @if (is_bool($planValue))
+                    <i class="lni lni-{{ $planValue == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
+                  @elseif (is_string($planValue) && $planValue !== '')
+                    {{ $page->t($planValue) }}
                   @endif
                 </td>
               @endforeach
