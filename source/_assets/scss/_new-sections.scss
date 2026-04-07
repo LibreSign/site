@@ -1,0 +1,322 @@
+/* ===== Solutions Section ===== */
+
+.ud-solutions {
+  padding: 80px 0;
+  background: var(--bg-light);
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .card-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .solution-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .solution-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 60px;
+        max-height: 60px;
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: var(--heading-color);
+      min-height: 60px;
+    }
+
+    p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    a {
+      font-size: 16px;
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 30px;
+      text-align: center;
+      display: inline-block;
+      transition: background 0.3s;
+
+      &:hover {
+        background: var(--accent-color);
+      }
+    }
+  }
+}
+
+/* ===== Video Demo Section ===== */
+
+.ud-video-demo {
+  padding: 100px 0;
+  background: var(--primary-color);
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .card-subtitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+
+  .video-demo-image {
+    max-width: 500px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .ud-demo-btn {
+    background: var(--accent-color);
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+/* ===== Blog Section ===== */
+
+.ud-blog-section {
+  padding: 80px 0;
+  background: var(--white);
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .card-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .blog-image {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .blog-tag {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--accent-color);
+        color: var(--white);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .blog-content {
+      padding: 25px;
+
+      h4 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: var(--heading-color);
+        line-height: 1.4;
+      }
+
+      p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+/* ===== Contact/Sales Page ===== */
+
+.ud-contact-sales {
+  padding: 100px 0;
+  background: var(--bg-light);
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .contact-info-wrapper {
+    padding-right: 40px;
+
+    @media #{$md, $sm, $xs} {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+
+    .contact-title {
+      font-size: 42px;
+      font-weight: bold;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+
+      @media #{$sm, $xs} {
+        font-size: 32px;
+      }
+    }
+
+    .contact-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--heading-color);
+    }
+
+    .contact-benefits {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        padding-left: 30px;
+        position: relative;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-gray);
+
+        &:before {
+          content: "●";
+          position: absolute;
+          left: 0;
+          color: var(--accent-color);
+          font-size: 20px;
+        }
+
+        strong {
+          color: var(--heading-color);
+        }
+      }
+    }
+  }
+
+  .contact-form-wrapper {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
+    @media #{$xs} {
+      padding: 30px 20px;
+    }
+
+    .ud-contact-form-wrapper {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .ud-form-group {
+      margin-bottom: 20px;
+
+      label {
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid var(--border-input);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: var(--primary-color);
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .ud-main-btn {
+      background: var(--accent-color);
+      
+      &:hover {
+        background: var(--primary-color);
+      }
+    }
+  }
+}
