@@ -19,7 +19,7 @@
     <section class="ud-blog-grids">
       <div class="container">
         <div class="row">
-          @foreach ($posts as $post)
+          @foreach ($page->mergeCollections($posts, $posts_wordpress) as $post)
             @if (current_path_locale($post) !== current_path_locale($page))
               @continue
             @endif
@@ -27,7 +27,7 @@
               <div class="ud-single-blog">
                 <div class="ud-blog-image">
                   <a href="{{ $post->getUrl() }}">
-                    <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
+                    <img src="{{ $post->cover_image }}" alt="" />
                   </a>
                 </div>
                 <div class="ud-blog-content">
