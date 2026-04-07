@@ -1,0 +1,62 @@
+name: Docker PHP Publish
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: docker-php-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  push_to_registry:
+    name: Build PHP image
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v5
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build container image
+        uses: docker/build-push-action@v6
+        with:
+          context: .docker/php
+          file: .docker/php/Dockerfile
+          push: false
+          platforms: linux/amd64,linux/arm64
+          tags: ghcr.io/libresign/site-php:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Push container image
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v6
+        with:
+          context: .docker/php
+          file: .docker/php/Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/libresign/site-php:${{ github.sha }}
+            ghcr.io/libresign/site-php:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
