@@ -6,6 +6,9 @@
 /.vscode/
 npm-debug.log
 /source/assets/sitemap.xml
+/source/[a-z][a-z]/
+/source/[a-z][a-z]-[A-Z][A-Z]/
+/source/_posts/_tmp/
 # Optional ignores
 # /build_staging/
 /build_production/
