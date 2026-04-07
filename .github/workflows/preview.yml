@@ -39,4 +39,4 @@ jobs:
           pages-base-url: libresign.github.io/site-preview
           deploy-repository: LibreSign/site-preview
           preview-branch: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PREVIEW_TOKEN }}
