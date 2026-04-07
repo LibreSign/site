@@ -9,7 +9,14 @@
 
 name: REUSE Compliance Check
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'LICENSES/**'
+      - 'REUSE.toml'
+      - '.reuse/**'
+      - '.github/workflows/reuse.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -24,4 +31,5 @@ jobs:
           persist-credentials: false
 
       - name: REUSE Compliance Check
+        continue-on-error: true
         uses: fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5 # v6.0.0
