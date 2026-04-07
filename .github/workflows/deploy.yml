@@ -32,6 +32,8 @@ jobs:
         run: composer i
       - name: Run composer command
         run: composer prod
+      - name: Build production site
+        run: ./vendor/bin/jigsaw build production
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v4
