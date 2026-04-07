@@ -57,6 +57,13 @@
   <section id="pricing" class="ud-pricing">
     <div class="container">
 
+      @php
+        $comparePlans = array_map(static fn ($planName) => [
+          'key' => strtolower($planName),
+          'label' => $planName,
+        ], array_keys((array) $page->prices));
+      @endphp
+
       <h2 class="display-6 text-center mb-4">{{ $page->t('Compare plans')}}</h2>
 
       <div class="table-responsive">
@@ -65,20 +72,22 @@
           <thead>
             <tr>
               <th style="width: 34%;"></th>
-              <th style="width: 22%;">{{ $page->t('Basic') }}</th>
-              <th style="width: 22%;">{{ $page->t('Business') }}</th>
+              @foreach ($comparePlans as $plan)
+                <th style="width: 22%;">{{ $page->t($plan['label']) }}</th>
+              @endforeach
             </tr>
           </thead>
           @foreach($page->optionsServicesLibresign as $item => $optionList)
           <tbody>
             <tr>
               <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
-              @foreach (['basic', 'business'] as $item)
+              @foreach ($comparePlans as $plan)
+                @php($planValue = $optionList->{$plan['key']} ?? null)
                 <td>
-                  @if (is_bool($optionList->$item))
-                    <i class="lni lni-{{ $optionList->$item == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
-                  @else
-                    {{ $page->t($optionList->$item) }}
+                  @if (is_bool($planValue))
+                    <i class="lni lni-{{ $planValue == true ? 'checkmark text-success' : 'close text-danger'}}"></i>
+                  @elseif (is_string($planValue) && $planValue !== '')
+                    {{ $page->t($planValue) }}
                   @endif
                 </td>
               @endforeach
