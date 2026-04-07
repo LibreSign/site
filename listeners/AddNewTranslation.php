@@ -22,6 +22,12 @@ class AddNewTranslation
     public function addNewTranslation(string $currentLanguage, string $text) {
         $this->localization = $this->jigsaw->getSiteData()->localization;
         $this->currentLanguage = $currentLanguage;
+        if (!$this->localization->has($this->currentLanguage)) {
+            $this->currentLanguage = packageDefaultLocale($this->jigsaw->getSiteData());
+        }
+        if (!$this->localization->has($this->currentLanguage)) {
+            return;
+        }
         if (!is_dir('lang/' . $this->currentLanguage)) {
             mkdir('lang/' . $this->currentLanguage);
         }
