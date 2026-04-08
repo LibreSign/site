@@ -45,6 +45,9 @@
                   @endforeach
                   </ul>
                 </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="https://account.libresign.coop/">{{ $page->t("Account") }}</a>
+                  </li>
               </ul>
             </div>
           </nav>
