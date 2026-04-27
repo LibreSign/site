@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocMDP (Document Modification Detection and Prevention) in LibreSign</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="LibreSign - Electronic signature of digital documents">
+    <link rel="canonical" href="/fr/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+    <meta name="description" content="Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uideck.com/play/">
+    <meta property="og:title" content="LibreSign - Electronic signature of digital documents">
+    <meta property="og:description" content="LibreSign - Electronic signature of digital documents">
+    <!-- TODO: Think about the image -->
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://uideck.com/play/">
+    <meta property="twitter:title" content="LibreSign - Electronic signature of digital documents">
+    <meta property="twitter:description" content="LibreSign - Electronic signature of digital documents">
+    <!-- TODO: Think about the image -->
+    <meta property="twitter:image" content="">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/png"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="/assets/build/css/main.css?id=03518954cea5516c9c83193abc7ca84e">
+    <link rel="stylesheet" href="/assets/build/css/ud-styles.css" />
+      </head>
+  <body>
+    <header class="ud-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/fr">
+              <img src="/assets/images/logo/logo.svg" alt="LibreSign" />
+            </a>
+            <button class="navbar-toggler" title="Toggle navigation menu">
+              <span class="toggler-icon"> </span>
+              <span class="toggler-icon"> </span>
+              <span class="toggler-icon"> </span>
+            </button>
+
+            <div class="navbar-collapse">
+              <ul id="nav" class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr#home">Accueil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr#features">Fonctionnalités</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr#about">À propos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr/pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr#target_audience">Audience cible</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="ud-menu-scroll" href="/fr/posts">Publications</a>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                  <a href="javascript:void(0)">Langue</a>
+                  <ul class="ud-submenu">
+                                      <li class="ud-submenu-item">
+                      <a class="ud-submenu-link" href="/posts/docmdp-document-modification-detection-and-prevention-in-libresign">English</a>
+                    </li>
+                                      <li class="ud-submenu-item">
+                      <a class="ud-submenu-link" href="/fr/posts/docmdp-document-modification-detection-and-prevention-in-libresign">Français</a>
+                    </li>
+                                      <li class="ud-submenu-item">
+                      <a class="ud-submenu-link" href="/nb-NO/posts/docmdp-document-modification-detection-and-prevention-in-libresign">Norsk bokmål</a>
+                    </li>
+                                      <li class="ud-submenu-item">
+                      <a class="ud-submenu-link" href="/pt-BR/posts/docmdp-document-modification-detection-and-prevention-in-libresign">Português Brasil</a>
+                    </li>
+                                    </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>
+        <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>DocMDP (Document Modification Detection and Prevention) in LibreSign</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== Blog Details Start ====== -->
+    <section class="ud-blog-details">
+      <div class="container">
+        <div class="row">
+                      <div class="col-lg-12">
+              <div class="ud-blog-details-image">
+                <img
+                  src="/assets/images/posts/docmdp/banner.png"
+                  alt=""
+                />
+                <div class="ud-blog-overlay">
+                  <div class="ud-blog-overlay-content">
+                    <div class="ud-blog-author">
+                                              <img src="https://www.gravatar.com/avatar/2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49?size=40"
+                        alt="" />
+                                            <span>
+                                                By <a href="/team/vitor-mattos"> Vitor Mattos</a>
+                      </span>
+                    </div>
+
+                    <div class="ud-blog-meta">
+                      <p class="date">
+                                                <i class="lni lni-calendar"></i> <span>22 déc. 2025</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="col-lg-8">
+            <div class="ud-blog-details-content text-justify">
+              <div class="article" style="text-align:justify;">
+                <h2>DocMDP in LibreSign</h2>
+
+<p>LibreSign now provides <strong>optional support for DocMDP (Document Management Policy)</strong>, allowing administrators to define control policies for digitally signed documents.</p>
+
+<p>DocMDP is a mechanism defined in the PDF format specification, standardized by <strong>ISO 32000 (ISO 32000-1 and ISO 32000-2)</strong>, which makes it possible to establish <strong>restrictions on permitted changes after a document is signed</strong>, ensuring greater <strong>integrity, predictability, and legal reliability</strong> of signed documents.</p>
+
+<h4>What is DocMDP?</h4>
+
+<p>DocMDP allows a PDF document to define <strong>which level of modification is acceptable</strong> after a certifying digital signature is applied. These rules are embedded directly into the document and are interpreted by validators compatible with the PDF standard defined by ISO 32000.</p>
+
+<p>In LibreSign, administrators can choose between different <strong>levels of protection</strong>, according to the needs of the organization’s signing workflow.</p>
+
+<h4>Available protection levels</h4>
+
+<p>LibreSign supports the following DocMDP levels, as defined in the PDF specification standard (ISO 32000):</p>
+
+<ul>
+<li><p><strong>No certification</strong>
+The document is not certified. Edits and additional signatures are allowed; however, any modification will cause previous signatures to be marked as modified.</p></li>
+<li><p><strong>No changes allowed</strong>
+After the first certifying signature, no edits or additional signatures are allowed. Any modification invalidates the document’s certification.</p></li>
+<li><p><strong>Form filling allowed</strong>
+After the first signature, only form filling and the addition of new signatures are allowed. Any other changes invalidate the certification.</p></li>
+<li><p><strong>Form filling and comments allowed</strong>
+After the first signature, form filling, comments, and new signatures are allowed. Any other changes invalidate the certification.</p></li>
+</ul>
+
+<h4>LibreSign behavior according to the selected policy</h4>
+
+<p>When the <strong>“No changes allowed”</strong> level is enabled, LibreSign <strong>does not allow more than one signer</strong> to be added to the document. This happens because, according to the DocMDP rules defined in ISO 32000, any structural modification, including the addition of new signatures, would violate the certification policy applied to the document.</p>
+
+<p>For this reason, it is essential that administrators understand the impact of the selected policy before starting a signing workflow, in order to avoid configurations that are incompatible with the document’s purpose.</p>
+
+<p>For the other certification levels, LibreSign allows multiple signers.</p>
+
+<h4>Validation</h4>
+
+<p>During the validation of signed documents, LibreSign clearly exposes the <strong>DocMDP information</strong>, indicating the level of protection applied to the document according to the defined policy.</p>
+
+<p>This allows PDF validators compatible with ISO 32000 to:</p>
+
+<ul>
+<li>Understand the restrictions applied to the document</li>
+<li>Verify that the content integrity has been preserved</li>
+<li>Confirm that the document follows internationally recognized policies</li>
+</ul>
+
+<p>With this support, LibreSign reinforces its commitment to <strong>international best practices for PDF digital signatures</strong>, offering transparency, interoperability, and a high level of technical compliance.</p>
+              </div>
+            </div>
+          </div>
+
+                      <div class="col-lg-4">
+              <div class="ud-blog-sidebar">
+                <div class="ud-articles-box">
+                  <h3 class="ud-articles-box-title">Last articles</h3>
+                  <ul class="ud-articles-list">
+                                                                                                                                                                                                                                                                        <li>
+                        <div class="ud-article-image">
+                                                      <a href="/fr/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49?size=40"
+                                  alt=""
+                                />
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/fr/posts/envelopes-batch-document-signing-in-libresign">
+                              Envelopes - Batch document signing in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/fr/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <li>
+                        <div class="ud-article-image">
+                                                      <a href="/fr/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49?size=40"
+                                  alt=""
+                                />
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/fr/posts/crl-certificate-revocation-list-implementation-in-libresign">
+                              CRL (Certificate Revocation List) Implementation in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/fr/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                            <li>
+                        <div class="ud-article-image">
+                                                      <a href="/fr/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49?size=40"
+                                  alt=""
+                                />
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/fr/posts/signature-order-sequential-or-parallel-signing-in-libresign">
+                              Signature Order - Sequential or Parallel Signing in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/fr/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li>
+                        <div class="ud-article-image">
+                                                      <a href="/fr/team/libresign">
+                              <img
+                                src="/assets/images/logo/Avatar-LibreSign.png"
+                                alt=""
+                              />
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/fr/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+                              What is a Digital Signature? Types, Advantages, and How to Obtain It?
+                            </a>
+                          </h5>
+                          <a href="/fr/team/libresign"> LibreSign </a>
+                        </div>
+                      </li>
+                                                                                                          </ul>
+                </div>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </section>
+    <!-- ====== Blog Details End ====== -->
+    <footer class="ud-footer wow fadeInUp mt-5" data-aos-delay=".15s">
+    <div class="shape shape-1">
+        <img src="/assets/images/footer/shape-1.svg" alt="" />
+    </div>
+
+    <div class="shape shape-2">
+        <img src="/assets/images/footer/shape-2.svg" alt="" />
+    </div>
+
+    <div class="shape shape-3">
+        <img src="/assets/images/footer/shape-3.svg" alt="" />
+    </div>
+
+    <div class="ud-footer-widgets">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="ud-widget">
+                        <a href="/fr/contact-us#home" class="ud-footer-logo">
+                            <img src="/assets/images/logo/logo.svg" alt="LibreSign" />
+                        </a>
+                        <p class="ud-widget-desc">
+                            We create digital experiences for brands and companies by using technology.
+                        </p>
+                        <ul class="ud-widget-socials">
+                            <li>
+                                <a target="_blank" href="https://github.com/LibreSign/libresign" title="LibreSign GitHub repository">
+                                    <i class="lni lni-github-original"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://www.linkedin.com/company/libresign/" title="LibreSign LinkedIn page">
+                                    <i class="lni lni-linkedin-original"></i>
+                                </a>
+                            </li>
+                            <li>
+                              <a target="_blank" href="https://t.me/LibreSign" title="LibreSign Telegram group">
+                                  <i class="lni lni-telegram-original"></i>
+                              </a>
+                          </li>
+                          <li>
+                            <a target="_blank" href="https://www.instagram.com/libresign/" title="LibreSign Instagram profile">
+                                <i class="lni lni-instagram-original"></i>
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="ud-widget col-lg-5">
+                        <a target="_blank" href="https://www.somos.coop.br/" title="Page to national movement that valozie cooperative initiatives.">
+                            <img src="/assets/images/icon/somoscoop.png" alt="We areCoop">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+                    <div class="ud-widget">
+                        <h5 class="ud-widget-title">À propos de nous</h5>
+                        <ul class="ud-widget-links">
+                            <li>
+                                <a href="/">Accueil</a>
+                            </li>
+                            <li>
+                                <a href="/#features">Fonctionnalités</a>
+                            </li>
+                            <li>
+                                <a href="/#about">À propos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+                    <div class="ud-widget">
+                        <h5 class="ud-widget-title">Fonctionnalités</h5>
+                        <ul class="ud-widget-links">
+                                                          <li>
+                                <a href="/fr/posts/advanced-security">Advanced security</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/libresign-api-guide">LibreSign API Guide</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/crl-certificate-revocation-list-implementation-in-libresign">CRL (Certificate Revocation List) Implementation in LibreSign</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/docmdp-document-modification-detection-and-prevention-in-libresign">DocMDP (Document Modification Detection and Prevention) in LibreSign</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/envelopes-batch-document-signing-in-libresign">Envelopes - Batch document signing in LibreSign</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/hybrid-signatures">Signatures hybrides</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/document-validation-by-qr-code">Validation de documents par code QR</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/real-time-monitoring">Real-time monitoring</a>
+                              </li>
+                                                          <li>
+                                <a href="/fr/posts/signature-order-sequential-or-parallel-signing-in-libresign">Signature Order - Sequential or Parallel Signing in LibreSign</a>
+                              </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ud-footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="ud-footer-bottom-left">
+                        <li>
+                            <a href="/fr/privacy-policy">Politique de confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <p class="ud-footer-bottom-right">
+                        Developpé par <a href="https://librecode.coop" rel="nofollow">LibreCode</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ====== Back To Top Start ====== -->
+    <a id="back-to-top" class="back-to-top">
+        <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <!-- ====== All Javascript Files ====== -->
+    <script>
+      window.baseUrl = "";
+    </script>
+    <script defer src="/assets/build/js/main.js?id=26c1db1ce36154012fae8aa38b962d3a"></script>
+    <script>
+        document.getElementById('back-to-top').onclick = function(e) {
+            e.preventDefault()
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        };
+
+        // ==== for menu scroll
+        const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+    </script>
+</footer>
+  </body>
+</html>
