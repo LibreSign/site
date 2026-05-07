@@ -2,75 +2,77 @@
 
 namespace App\Listeners;
 
-use Illuminate\Support\Collection;
 use TightenCo\Jigsaw\Jigsaw;
 
+/**
+ * Tracks all translatable strings encountered during a Jigsaw build.
+ *
+ * During normal builds this class only collects strings in memory and never
+ * writes to disk, keeping the lang/ directory clean for Weblate to manage.
+ *
+ * When JIGSAW_EXTRACT_STRINGS=1 is set (extraction mode), the afterBuild
+ * listener PersistExtractedStrings calls persistExtractedStrings() to sync
+ * lang/{defaultLocale}/main.json with the current set of source strings.
+ */
 class AddNewTranslation
 {
-    private Jigsaw $jigsaw;
-    private Collection $localization;
-    private string $currentLanguage;
-    public function handle(Jigsaw $jigsaw)
+    private static array $encounteredStrings = [];
+
+    public function handle(Jigsaw $jigsaw): void
     {
-        $this->jigsaw = $jigsaw;
         $self = $this;
-        $this->jigsaw->getSiteData()->macro('addNewTranslation', function(string $currentLanguage, string $text) use ($self) {
-            $self->addNewTranslation($currentLanguage, $text);
+        $jigsaw->getSiteData()->macro('addNewTranslation', function (string $currentLanguage, string $text) use ($self): void {
+            $self->track($text);
         });
     }
 
-    public function addNewTranslation(string $currentLanguage, string $text) {
-        $this->localization = $this->jigsaw->getSiteData()->localization;
-        $this->currentLanguage = $currentLanguage;
-        if (!is_dir('lang/' . $this->currentLanguage)) {
-            mkdir('lang/' . $this->currentLanguage);
-        }
-        // Don't translate tranlated text
-        if ($this->isTranslatedText($text)) {
-            return;
-        }
-        $this->storeAtGlossaryFile($text);
-        $this->storeAtTranslationFile($text);
+    public function track(string $text): void
+    {
+        self::$encounteredStrings[$text] = $text;
     }
 
-    private function isTranslatedText(string $text): bool
+    /**
+     * Persist the collected strings to lang/{defaultLocale}/main.json.
+     *
+     * New strings are added with the source text as the default value.
+     * Strings no longer present in the templates are removed.
+     * Existing translations for the default locale are preserved.
+     *
+     * Only runs when JIGSAW_EXTRACT_STRINGS env var is set to a truthy value.
+     */
+    public function persistExtractedStrings(): void
     {
-        if ($this->localization[$this->currentLanguage]->has($text)) {
-            return false;
-        }
-        return $this->localization[$this->currentLanguage]->contains($text);
-    }
-
-    private function storeAtTranslationFile(string $text): void
-    {
-        // Only change the file if haven't the text
-        if ($this->localization[$this->currentLanguage]->has($text)) {
+        if (!self::isExtractionMode()) {
             return;
         }
-        // Save new texts
-        $translationFile = 'lang/' . $this->currentLanguage . '/main.json';
+
+        $defaultLocale = packageDefaultLocale();
+        $translationFile = 'lang/' . $defaultLocale . '/main.json';
+
+        $existing = [];
         if (file_exists($translationFile)) {
-            $content = file_get_contents($translationFile);
-            $content = json_decode($content, true);
-        } else {
-            $content = [];
+            $existing = json_decode(file_get_contents($translationFile), true) ?? [];
         }
-        $content[$text] = $text;
-        ksort($content);
-        file_put_contents($translationFile, json_encode($content, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT));
+
+        // Rebuild the source file: keep only strings still in use, add new ones.
+        $updated = [];
+        foreach (self::$encounteredStrings as $text => $_) {
+            $updated[$text] = $existing[$text] ?? $text;
+        }
+        ksort($updated);
+
+        if (!is_dir('lang/' . $defaultLocale)) {
+            mkdir('lang/' . $defaultLocale, 0755, true);
+        }
+
+        file_put_contents(
+            $translationFile,
+            json_encode($updated, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+        );
     }
 
-    private function storeAtGlossaryFile(string $text): void
+    public static function isExtractionMode(): bool
     {
-        // Store translated texts to be possible update translation files
-        if (file_exists('lang/to_translate.json')) {
-            $toTranslate = file_get_contents('lang/to_translate.json');
-            $toTranslate = json_decode($toTranslate, true);
-        } else {
-            $toTranslate = [];
-        }
-        $toTranslate[$text] = '';
-        ksort($toTranslate);
-        file_put_contents('lang/to_translate.json', json_encode($toTranslate, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT) . PHP_EOL);
+        return !empty(getenv('JIGSAW_EXTRACT_STRINGS'));
     }
 }
