@@ -10,7 +10,7 @@ services:
       - ./build_local:/var/www/html
 
   php:
-    image: ghcr.io/libresign/site-php:${PHP_IMAGE_TAG:-latest}
+    image: ghcr.io/libresign/jigsaw-dev-php:${PHP_IMAGE_TAG:-latest}
     build:
       context: .docker/php
     restart: unless-stopped
