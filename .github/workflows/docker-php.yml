@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: false
-          context: .docker/
+          context: .docker/php
           platforms: linux/amd64,linux/arm64
           file: ${{ steps.dockerfile.outputs.DOCKERFILE }}
           tags: |
@@ -63,7 +63,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           push: true
-          context: .docker/
+          context: .docker/php
           platforms: linux/amd64,linux/arm64
           file: ${{ steps.dockerfile.outputs.DOCKERFILE }}
           tags: |
