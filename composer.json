@@ -19,6 +19,9 @@
         "post-install-cmd": [
             "npm ci"
         ],
+        "extract-strings": [
+            "JIGSAW_EXTRACT_STRINGS=1 ./vendor/bin/jigsaw build local"
+        ],
         "dev": [
             "npm run watch"
         ],
