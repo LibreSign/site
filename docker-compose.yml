@@ -19,6 +19,7 @@ services:
     volumes:
       - .:/var/www/html
       - ~/.composer:/var/www/.composer/
+      - ~/.npm:/var/www/.npm/
     environment:
       - HOST_UID=${HOST_UID:-1000}
       - HOST_GID=${HOST_GID:-1000}
