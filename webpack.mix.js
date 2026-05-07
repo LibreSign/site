@@ -1,5 +1,12 @@
 const mix = require('laravel-mix');
+const fs = require('fs');
 require('laravel-mix-jigsaw');
+
+const lineiconsLegacyFontsPath = 'node_modules/lineicons/web-font/fonts';
+const lineiconsCurrentFontsGlob = 'node_modules/lineicons/dist/*.{eot,svg,ttf,woff,woff2}';
+const lineiconsSource = fs.existsSync(lineiconsLegacyFontsPath)
+    ? lineiconsLegacyFontsPath
+    : lineiconsCurrentFontsGlob;
 
 mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/build');
@@ -11,7 +18,7 @@ mix.jigsaw()
     ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .sass('source/_assets/css/main.scss', 'css')
-    .copy('node_modules/lineicons/web-font/fonts', 'source/assets/build/css/fonts')
+    .copy(lineiconsSource, 'source/assets/build/css/fonts')
     .options({
         processCssUrls: false,
     })
@@ -20,3 +27,7 @@ mix.jigsaw()
         files: ['build_*/**'],
     })
     .version();
+
+mix.override((webpackConfig) => {
+    webpackConfig.plugins = webpackConfig.plugins.filter((plugin) => plugin.constructor.name !== 'WebpackBarPlugin');
+});
