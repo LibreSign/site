@@ -11,8 +11,8 @@ services:
 
   php:
     image: ghcr.io/libresign/jigsaw-dev-php:${PHP_IMAGE_TAG:-latest}
-    build:
-      context: .docker/php
+    # build:
+    #   context: .docker/php
     restart: unless-stopped
     ports:
       - "127.0.0.1:${HTTP_PORT_BROWSERSYNC:-3000}:3000"
