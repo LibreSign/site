@@ -10,14 +10,15 @@ services:
       - ./build_local:/var/www/html
 
   php:
-    image: ghcr.io/libresign/site-php:${PHP_IMAGE_TAG:-latest}
-    build:
-      context: .docker/php
+    image: ghcr.io/libresign/jigsaw-dev-php:${PHP_IMAGE_TAG:-latest}
+    # build:
+    #   context: .docker/php
     restart: unless-stopped
     ports:
       - "127.0.0.1:${HTTP_PORT_BROWSERSYNC:-3000}:3000"
     volumes:
       - .:/var/www/html
+      - ~/.composer:/var/www/.composer/
     environment:
       - HOST_UID=${HOST_UID:-1000}
       - HOST_GID=${HOST_GID:-1000}
