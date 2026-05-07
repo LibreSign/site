@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use Illuminate\Support\Str;
 use TightenCo\Jigsaw\File\Filesystem;
 use TightenCo\Jigsaw\Jigsaw;
 
@@ -12,36 +11,75 @@ class RemoveTranslationFiles
     private Filesystem $filesystem;
     private array $langs;
 
-    public function handle(Jigsaw $jigsaw)
+    public function handle(Jigsaw $jigsaw): void
     {
         $this->filesystem = $jigsaw->getFilesystem();
         $this->jigsaw = $jigsaw;
         $this->langs = $this->jigsaw->getSiteData()->localization->keys()->all();
         $path = $this->jigsaw->getSourcePath();
-        collect($this->filesystem->directories($path))
-            ->filter(function ($folder) {
-                foreach ($this->langs as $lang) {
-                    if ($folder->getFilename() === $lang) {
-                        return true;
-                    }
-                    if ($folder->getFilename() === '_tmp') {
-                        return true;
-                    }
+
+        $this->removeTranslatedDirectories($path);
+        $this->removeTranslatedFiles($path);
+    }
+
+    private function removeTranslatedDirectories(string $sourcePath): void
+    {
+        $directoriesToRemove = [];
+
+        // Remove only top-level locale folders generated for translated pages.
+        foreach ($this->langs as $lang) {
+            $localeDirectory = rtrim($sourcePath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $lang;
+            if (is_dir($localeDirectory)) {
+                $directoriesToRemove[] = $localeDirectory;
+            }
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        foreach ($iterator as $item) {
+            if (!$item->isDir()) {
+                continue;
+            }
+
+            $directoryName = $item->getFilename();
+            if ($directoryName === '_tmp') {
+                $directoriesToRemove[] = $item->getPathname();
+            }
+        }
+
+        foreach ($directoriesToRemove as $directoryPath) {
+            if (is_dir($directoryPath)) {
+                $this->filesystem->deleteDirectory($directoryPath, false);
+            }
+        }
+    }
+
+    private function removeTranslatedFiles(string $sourcePath): void
+    {
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::LEAVES_ONLY
+        );
+
+        foreach ($iterator as $item) {
+            if (!$item->isFile()) {
+                continue;
+            }
+
+            if (!str_contains($item->getPathname(), DIRECTORY_SEPARATOR . '_tmp' . DIRECTORY_SEPARATOR)) {
+                continue;
+            }
+
+            $filename = $item->getFilename();
+            foreach ($this->langs as $lang) {
+                if (str_starts_with($filename, $lang . '_')) {
+                    $this->filesystem->delete($item->getPathname());
+                    break;
                 }
-                return false;
-            })->each(function ($folder) {
-                $this->filesystem->deleteDirectory($folder->getPathName(), false);
-            });
-        collect($this->filesystem->files($path))
-            ->filter(function ($file) {
-                foreach ($this->langs as $lang) {
-                    if (Str::startsWith($file->getFilename(), $lang . '_')) {
-                        return true;
-                    }
-                }
-                return false;
-            })->each(function ($file) {
-                $this->filesystem->delete($file->getPathName());
-            });
+            }
+        }
     }
 }

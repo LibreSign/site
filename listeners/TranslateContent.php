@@ -9,7 +9,8 @@ use TightenCo\Jigsaw\SiteBuilder;
 class TranslateContent
 {
     private Jigsaw $jigsaw;
-    public function handle(Jigsaw $jigsaw)
+
+    public function handle(Jigsaw $jigsaw): void
     {
         $this->jigsaw = $jigsaw;
         $this->registerTranslateContentHandler();
@@ -17,6 +18,7 @@ class TranslateContent
         $this->addPrepareTranslationFilesHandler();
         $this->addNewTranslationHandler();
         $this->addAfterBuild();
+        $this->addEmergencyCleanupOnShutdown();
     }
 
     private function addPrepareTranslationFilesHandler(): void
@@ -50,9 +52,18 @@ class TranslateContent
     private function addAfterBuild(): void
     {
         $this->jigsaw->app->events->afterBuild([
-            RemoveDeletedTranslations::class,
+            PersistExtractedStrings::class,
             RemoveTranslationFiles::class,
         ]);
+    }
+
+    private function addEmergencyCleanupOnShutdown(): void
+    {
+        $jigsaw = $this->jigsaw;
+
+        register_shutdown_function(static function () use ($jigsaw): void {
+            (new RemoveTranslationFiles())->handle($jigsaw);
+        });
     }
 
     private function getSiteBuilder(): SiteBuilder
@@ -73,7 +84,7 @@ class TranslateContent
         $handlers = $reflectionProperty->getValue($siteBuilder);
 
         $TranslateContentHandler = new TranslateContentHandler(
-            $this->jigsaw->app[FrontMatterParser::class],
+            $this->jigsaw->app->make(FrontMatterParser::class),
             $handlers,
         );
 
