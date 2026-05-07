@@ -1,0 +1,55 @@
+name: Translation Source Sync
+
+on:
+  schedule:
+    - cron: "15 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  extract-and-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install composer dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist --no-scripts
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run dev
+
+      - name: Extract source strings
+        run: composer extract-strings
+
+      - name: Create pull request with source string updates
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(i18n): refresh source strings"
+          title: "chore(i18n): refresh source strings"
+          body: |
+            Automated update of source strings for Weblate synchronization.
+
+            - Ran `composer extract-strings`
+            - Updated source catalog used by Weblate
+          branch: chore/i18n-refresh-source-strings
+          delete-branch: true
+          add-paths: |
+            lang/en/main.json
