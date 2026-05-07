@@ -43,7 +43,7 @@ mix.jigsaw({
     })
     .browserSync({
         server: 'build_local',
-        files: ['build_local/**'],
+        files: ['build_*/**'],
         ignore: ['**/_tmp/**', '**/node_modules/**'],
         watchOptions: {
             ignoreInitial: true,
