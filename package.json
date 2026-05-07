@@ -11,7 +11,7 @@
         "browser-sync-webpack-plugin": "https://github.com/madbucket/browser-sync-webpack-plugin",
         "laravel-mix": "^6.0.49",
         "laravel-mix-jigsaw": "^2.1.1",
-        "postcss": "^8.5.3",
+        "postcss": "^8.5.14",
         "postcss-import": "^16.1.0",
         "sass": "^1.85.1",
         "sass-loader": "^12",
