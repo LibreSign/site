@@ -2,7 +2,7 @@ name: Translation Source Sync
 
 on:
   schedule:
-    - cron: "15 3 * * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 jobs:
