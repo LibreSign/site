@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="row text-center justify-content-evenly">
-          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-md-4 col-sm-12 col-12 text-card mb-4">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
@@ -100,7 +100,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-md-4 col-sm-12 col-12 text-card mb-4">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
@@ -124,7 +124,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-md-4 col-sm-12 col-12 text-card mb-4">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
