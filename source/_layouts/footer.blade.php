@@ -137,8 +137,9 @@
         <i class="lni lni-chevron-up" aria-hidden="true"></i>
     </a>
     <!-- ====== Back To Top End ====== -->
-    <button id="footer-contact" 
+    <button id="footer-contact"
             type="button"
+            data-contact-url="https://wa.me/552120422073?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20do%20LibreSign"
             aria-label="{{ $page->t('Contact sales team for a quote') }}">
         <div class="bubble bubble-text">
             <p>{{ $page->t("How about an exclusive quote to sign up for LibreSign?") }}</p>
@@ -150,4 +151,5 @@
             </div>
         </div>
     </button>
+
 </footer>
