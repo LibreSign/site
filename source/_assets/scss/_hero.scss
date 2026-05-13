@@ -200,7 +200,11 @@
 }
 
 .ud-hero-image {
-  display: none;
+  display: flex;
+  width: 100%;
+  position: static;
+  height: 400px;
+  margin-bottom: 30px;
 
   img {
     width: 100%;
@@ -217,10 +221,6 @@
 
   @media #{$xs, $sm} {
     display: flex;
-    width: 100%;
-    position: static;
-    height: 400px;
-    margin-bottom: 30px;
   }
 
   @media #{$xs} {

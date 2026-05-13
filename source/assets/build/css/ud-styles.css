@@ -547,15 +547,19 @@ p {
 }
 
 .ud-hero-image {
-  max-width: 845px;
-  margin: auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+  display: flex;
+  width: 100%;
+  position: static;
+  height: 400px;
+  margin-bottom: 30px;
 }
 .ud-hero-image img {
-  max-width: 100%;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+  transform: none;
 }
 .ud-hero-image .shape {
   position: absolute;
@@ -568,6 +572,11 @@ p {
 .ud-hero-image .shape.shape-2 {
   top: -20px;
   right: -20px;
+}
+@media (max-width: 575px) {
+  .ud-hero-image {
+    height: 300px;
+  }
 }
 
 /* ===== Features CSS ===== */
