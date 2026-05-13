@@ -388,7 +388,7 @@
         <div class="row justify-content-center mt-5">
           <div class="col-lg-6 text-center">
             <div class="video-demo-image">
-              <img src="{{ $page->baseUrl }}assets/images/demo/mobile-demo.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
             </div>
             <div class="mt-4">
               <a href="#" class="ud-main-btn ud-demo-btn">
@@ -400,6 +400,85 @@
       </div>
     </section>
     <!-- ====== Video Demo Section End ====== -->
+
+    <!-- ====== Solutions Below Video Start ====== -->
+    <section class="ud-solutions ud-solutions-below-video">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold">{{ $page->t("Tailored Solutions: LibreSign Meets the Unique Demands of Your Business.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle">{{ $page->t("Developed with expertise to optimize processes across various segments.") }}</p>
+          </div>
+        </div>
+        <div class="row text-center row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+          <div class="col">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Public Management: Transparency, Validity, and Efficiency")}}</h4>
+              <p>{{ $page->t("Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.") }}</p>
+              <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for the Public Sector') }}
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Small and Medium Businesses: Grow with Security")}}</h4>
+              <p>{{ $page->t("Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.") }}</p>
+              <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Small and Medium Businesses') }}
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Cooperatives: Strengthen Governance and Member Participation")}}</h4>
+              <p>{{ $page->t("Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.") }}</p>
+              <a href="{{ locale_url($page, 'cooperatives') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Cooperatives') }}
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Information Technology: Control and Total Flexibility")}}</h4>
+              <p>{{ $page->t("Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.") }}</p>
+              <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for IT Professionals') }}
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="solution-card">
+              <div class="solution-icon">
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.svg" alt="" />
+              </div>
+              <h4>{{ $page->t("Legal Sector: Agility and Unquestionable Legal Security")}}</h4>
+              <p>{{ $page->t("Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.") }}</p>
+              <a href="{{ locale_url($page, 'lawyers') }}" class="ud-main-btn">
+                {{ $page->t('Discover the Perfect Solution for Lawyers') }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Solutions Below Video End ====== -->
 
     @include('_partials/testimonial_card')
 
