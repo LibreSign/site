@@ -608,6 +608,7 @@ p {
 
 .ud-hero {
   background-image: none;
+  margin-top: 76px;
   position: relative;
   overflow: hidden;
 }
