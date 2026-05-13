@@ -6,7 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   background-color: #123c40;
-  background-image: url("/assets/images/hero/hero-image.png");
+  background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -23,6 +23,8 @@
     max-width: 100%;
     padding-left: 72px;
     padding-right: 72px;
+    position: relative;
+    z-index: 1;
   }
 
   @media #{$xs} {
@@ -202,9 +204,11 @@
 .ud-hero-image {
   display: flex;
   width: 100%;
-  position: static;
-  height: 400px;
-  margin-bottom: 30px;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  margin-bottom: 0;
+  z-index: 0;
 
   img {
     width: 100%;
@@ -221,6 +225,9 @@
 
   @media #{$xs, $sm} {
     display: flex;
+    position: static;
+    height: 400px;
+    margin-bottom: 30px;
   }
 
   @media #{$xs} {

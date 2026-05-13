@@ -546,12 +546,23 @@ p {
   opacity: 1;
 }
 
+.ud-hero {
+  background-image: none;
+  position: relative;
+  overflow: hidden;
+}
+.ud-hero .container {
+  position: relative;
+  z-index: 1;
+}
 .ud-hero-image {
   display: flex;
   width: 100%;
-  position: static;
-  height: 400px;
-  margin-bottom: 30px;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  margin-bottom: 0;
+  z-index: 0;
 }
 .ud-hero-image img {
   width: 100%;
@@ -575,7 +586,16 @@ p {
 }
 @media (max-width: 575px) {
   .ud-hero-image {
+    position: static;
     height: 300px;
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .ud-hero-image {
+    position: static;
+    height: 400px;
+    margin-bottom: 30px;
   }
 }
 
