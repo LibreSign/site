@@ -213,7 +213,7 @@ p {
 }
 
 .navbar {
-  padding: 0px 0;
+  padding: 18px 0;
   border-radius: 5px;
   position: relative;
   transition: all 0.3s ease-out 0s;
@@ -228,7 +228,8 @@ p {
   }
 }
 .navbar-brand img {
-  max-width: 100px;
+  max-height: 40px;
+  width: auto;
 }
 
 .navbar-toggler {
@@ -298,7 +299,7 @@ p {
   font-weight: 400;
   color: var(--white);
   transition: all 0.3s ease-out 0s;
-  padding: 25px 8px;
+  padding: 8px 0;
   position: relative;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -439,6 +440,65 @@ p {
 }
 .sticky .navbar-btn .ud-white-btn:hover {
   background: var(--heading-color);
+}
+
+.navbar-nav {
+  align-items: center;
+  gap: 16px;
+}
+.navbar-nav.container {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-nav .nav-item {
+  padding: 0;
+}
+.navbar-nav .nav-item .link-button {
+  background-color: var(--secondary-color);
+  color: var(--color-dark);
+  height: 38px;
+  border-radius: 32px;
+  font-weight: 600;
+  padding: 0 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#customer-area-link {
+  margin-left: 12px;
+}
+.selector {
+  position: relative;
+  padding: 8px 0;
+}
+.selector button {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  cursor: pointer;
+}
+.selector button img {
+  width: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+  .navbar-collapse {
+    top: 86px;
+  }
+  .navbar-nav {
+    gap: 4px;
+    align-items: flex-start;
+  }
+  #customer-area-link {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ===== Hero CSS ===== */
