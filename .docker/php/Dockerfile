@@ -18,6 +18,7 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
     && rm /usr/local/bin/install-php-extensions
 
 COPY xdebug.ini /usr/local/etc/php/conf.d/
+COPY dev.ini /usr/local/etc/php/conf.d/zz-dev.ini
 
 # Install NVM
 RUN export NVM_DIR="/usr/local/nvm" \
