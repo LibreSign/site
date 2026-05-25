@@ -14,7 +14,12 @@ fi
 
 php-fpm &
 
-if [[ "$SERVER_MODE" == 'watch' ]]; then
+MODE="${SERVER_MODE:-watch}"
+MODE="$(echo "$MODE" | tr '[:upper:]' '[:lower:]' | xargs)"
+
+echo "Starting php container with SERVER_MODE=$MODE"
+
+if [[ "$MODE" == 'watch' ]]; then
     npm run watch
 else
     if [[ ! -f "source/assets/build/mix-manifest.json" ]]; then

@@ -34,20 +34,28 @@ class RemoveTranslationFiles
             }
         }
 
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::CHILD_FIRST
-        );
+        if (!is_dir($sourcePath)) {
+            return;
+        }
 
-        foreach ($iterator as $item) {
-            if (!$item->isDir()) {
-                continue;
-            }
+        try {
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::CHILD_FIRST
+            );
 
-            $directoryName = $item->getFilename();
-            if ($directoryName === '_tmp') {
-                $directoriesToRemove[] = $item->getPathname();
+            foreach ($iterator as $item) {
+                if (!$item->isDir()) {
+                    continue;
+                }
+
+                $directoryName = $item->getFilename();
+                if ($directoryName === '_tmp') {
+                    $directoriesToRemove[] = $item->getPathname();
+                }
             }
+        } catch (\Exception $e) {
+            // Ignore errors during iteration (directory may have been deleted)
         }
 
         foreach ($directoriesToRemove as $directoryPath) {
@@ -59,27 +67,37 @@ class RemoveTranslationFiles
 
     private function removeTranslatedFiles(string $sourcePath): void
     {
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::LEAVES_ONLY
-        );
+        if (!is_dir($sourcePath)) {
+            return;
+        }
 
-        foreach ($iterator as $item) {
-            if (!$item->isFile()) {
-                continue;
-            }
+        try {
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::LEAVES_ONLY
+            );
 
-            if (!str_contains($item->getPathname(), DIRECTORY_SEPARATOR . '_tmp' . DIRECTORY_SEPARATOR)) {
-                continue;
-            }
+            foreach ($iterator as $item) {
+                if (!$item->isFile()) {
+                    continue;
+                }
 
-            $filename = $item->getFilename();
-            foreach ($this->langs as $lang) {
-                if (str_starts_with($filename, $lang . '_')) {
-                    $this->filesystem->delete($item->getPathname());
-                    break;
+                if (!str_contains($item->getPathname(), DIRECTORY_SEPARATOR . '_tmp' . DIRECTORY_SEPARATOR)) {
+                    continue;
+                }
+
+                $filename = $item->getFilename();
+                foreach ($this->langs as $lang) {
+                    if (str_starts_with($filename, $lang . '_')) {
+                        if (file_exists($item->getPathname())) {
+                            $this->filesystem->delete($item->getPathname());
+                        }
+                        break;
+                    }
                 }
             }
+        } catch (\Exception $e) {
+            // Ignore errors during iteration (directory may have been deleted)
         }
     }
 }
