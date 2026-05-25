@@ -124,6 +124,16 @@ class PrepareTranslationFiles
             $translatedName,
             $file->getPathName()
         );
+        $sourceContents = file_get_contents($file->getPathName());
+
+        if ($sourceContents !== false && is_file($destinationPath)) {
+            $destinationContents = file_get_contents($destinationPath);
+            if ($destinationContents !== false && $destinationContents === $sourceContents) {
+                $this->items[] = new SplFileInfo($destinationPath);
+                return;
+            }
+        }
+
         $this->filesystem->ensureDirectoryExists(
             pathinfo($destinationPath, PATHINFO_DIRNAME)
         );
