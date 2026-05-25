@@ -9,12 +9,12 @@ use ElaborateCode\JigsawLocalization\LoadLocalization;
 
 $events->beforeBuild([
     LoadLocalization::class,
-    RemoveTranslationFiles::class,
     TranslateContent::class,
 ]);
 
 
 $events->afterBuild([
+    RemoveTranslationFiles::class,
     App\Listeners\GenerateSitemap::class,
     App\Listeners\CleanupCollectionDirectories::class,
 ]);
