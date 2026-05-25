@@ -14,4 +14,7 @@ $events->beforeBuild([
 ]);
 
 
-$events->afterBuild(App\Listeners\GenerateSitemap::class);
+$events->afterBuild([
+    App\Listeners\GenerateSitemap::class,
+    App\Listeners\CleanupCollectionDirectories::class,
+]);
