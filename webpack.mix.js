@@ -29,5 +29,16 @@ mix.jigsaw()
     .version();
 
 mix.override((webpackConfig) => {
+    // In containerized environments, filesystem events are unreliable.
+    // Polling keeps `mix watch` alive instead of exiting after the first build.
+    if (process.env.HOST_UID || process.env.DOCKER || process.env.CI) {
+        webpackConfig.watchOptions = {
+            ...(webpackConfig.watchOptions || {}),
+            poll: 1000,
+            aggregateTimeout: 300,
+            ignored: /node_modules/,
+        };
+    }
+
     webpackConfig.plugins = webpackConfig.plugins.filter((plugin) => plugin.constructor.name !== 'WebpackBarPlugin');
 });
