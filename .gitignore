@@ -9,6 +9,8 @@ npm-debug.log
 /source/[a-z][a-z]/
 /source/[a-z][a-z]-[A-Z][A-Z]/
 /source/_posts/_tmp/
+/source/_redirect/
+/source/_team/
 # Optional ignores
 # /build_staging/
 /build_production/
