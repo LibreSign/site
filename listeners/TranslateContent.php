@@ -53,7 +53,6 @@ class TranslateContent
     {
         $this->jigsaw->app->events->afterBuild([
             PersistExtractedStrings::class,
-            RemoveTranslationFiles::class,
         ]);
     }
 
