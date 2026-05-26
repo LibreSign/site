@@ -136,11 +136,26 @@ class PrepareTranslationFiles
         $this->filesystem->ensureDirectoryExists(
             pathinfo($destinationPath, PATHINFO_DIRNAME)
         );
-        $this->filesystem->copy(
-            $file->getPathName(),
-            $destinationPath
-        );
+        if ($this->shouldCopyFile($file->getPathName(), $destinationPath)) {
+            $this->filesystem->copy(
+                $file->getPathName(),
+                $destinationPath
+            );
+        }
         $this->items[] = new SplFileInfo($destinationPath);
+    }
+
+    private function shouldCopyFile(string $sourcePath, string $destinationPath): bool
+    {
+        if (!is_file($destinationPath)) {
+            return true;
+        }
+
+        if (filesize($sourcePath) !== filesize($destinationPath)) {
+            return true;
+        }
+
+        return hash_file('sha256', $sourcePath) !== hash_file('sha256', $destinationPath);
     }
 
     private function translateFilename(SplFileInfo $file, $translated): string
