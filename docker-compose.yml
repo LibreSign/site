@@ -23,6 +23,7 @@ services:
       - ${NPM_CACHE_DIR:-${HOME}/.npm}:/var/www/.npm/
     working_dir: /var/www/html
     environment:
+      - HOME=/var/www/html
       - COMPOSER_HOME=/var/www/.composer
       - NPM_CONFIG_CACHE=/var/www/.npm
       - SERVER_MODE=${SERVER_MODE:-watch}
