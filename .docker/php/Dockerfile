@@ -39,6 +39,7 @@ RUN echo "alias jigsaw=./vendor/bin/jigsaw" >> /etc/bash.bashrc && \
     /bin/bash -c "source /etc/bash.bashrc"
 
 WORKDIR /var/www/html
+USER www-data
 
 COPY entrypoint.sh /var/www/scripts/
 ENTRYPOINT [ "bash", "/var/www/scripts/entrypoint.sh" ]
