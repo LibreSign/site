@@ -34,9 +34,13 @@ RUN export NVM_DIR="/usr/local/nvm" \
     && echo 'export NVM_DIR="/usr/local/nvm"' > /etc/profile.d/nvm.sh \
     && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
 
-RUN echo "alias jigsaw=./vendor/bin/jigsaw" >> /etc/bash.bashrc && \
-    echo "alias compile='./vendor/bin/jigsaw build'" >> /etc/bash.bashrc && \
-    /bin/bash -c "source /etc/bash.bashrc"
+RUN cat <<'EOF' >> /etc/bash.bashrc
+alias jigsaw=./vendor/bin/jigsaw
+alias compile='./vendor/bin/jigsaw build'
+if ! getent passwd "$(id -u)" >/dev/null 2>&1; then
+    PS1='container:\w\$ '
+fi
+EOF
 
 WORKDIR /var/www/html
 USER www-data
