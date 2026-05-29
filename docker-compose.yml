@@ -19,7 +19,7 @@ services:
       - "127.0.0.1:${HTTP_PORT_BROWSERSYNC:-3000}:3000"
     volumes:
       - .:/var/www/html
-      - ${COMPOSER_CACHE_DIR:-${HOME}/.composer}:/var/www/.composer/
+      - ${COMPOSER_HOME_DIR:-${HOME}/.composer}:/var/www/.composer/
       - ${NPM_CACHE_DIR:-${HOME}/.npm}:/var/www/.npm/
     working_dir: /var/www/html
     environment:
