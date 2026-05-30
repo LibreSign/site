@@ -12,6 +12,8 @@ use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
 class PrepareTranslationFiles
 {
+    public const TEMP_DIRECTORY_NAME = '_translated_tmp';
+
     private Jigsaw $jigsaw;
     private Filesystem $filesystem;
     private FrontMatterParser $frontMatterParser;
@@ -43,15 +45,16 @@ class PrepareTranslationFiles
                 if (str_starts_with($file->getRelativePathname(), '_')) {
                     return false;
                 }
+                if ($this->isInsideLocaleDirectory($file->getRelativePathname())) {
+                    return false;
+                }
                 if (!in_array($file->getExtension(), ['markdown', 'md', 'mdown'])
                     && !Str::contains($file->getFilename(), '.blade.')
                 ) {
                     return false;
                 }
-                foreach ($this->langs as $lang) {
-                    if (Str::startsWith($file->getFilename(), $lang . '_')) {
-                        return false;
-                    }
+                if ($this->hasLocaleFilenamePrefix($file->getFilename())) {
+                    return false;
                 }
                 return true;
             })
@@ -72,10 +75,8 @@ class PrepareTranslationFiles
             $self = $this;
             collect($this->filesystem->files($path))
                 ->filter(function ($file) {
-                    foreach ($this->langs as $lang) {
-                        if (Str::startsWith($file->getFilename(), $lang . '_')) {
-                            return false;
-                        }
+                    if ($this->hasLocaleFilenamePrefix($file->getFilename())) {
+                        return false;
                     }
                     return true;
                 })
@@ -109,7 +110,7 @@ class PrepareTranslationFiles
                 }
             }
             if ($isCollection) {
-                $translatedName = '_tmp/'.$lang . '_' . $translatedName;
+                $translatedName = self::TEMP_DIRECTORY_NAME . '/' . $lang . '_' . $translatedName;
             } else {
                 $translatedName = $lang . '/' . $translatedName;
             }
@@ -137,11 +138,26 @@ class PrepareTranslationFiles
         $this->filesystem->ensureDirectoryExists(
             pathinfo($destinationPath, PATHINFO_DIRNAME)
         );
-        $this->filesystem->copy(
-            $file->getPathName(),
-            $destinationPath
-        );
+        if ($this->shouldCopyFile($file->getPathName(), $destinationPath)) {
+            $this->filesystem->copy(
+                $file->getPathName(),
+                $destinationPath
+            );
+        }
         $this->items[] = new SplFileInfo($destinationPath);
+    }
+
+    private function shouldCopyFile(string $sourcePath, string $destinationPath): bool
+    {
+        if (!is_file($destinationPath)) {
+            return true;
+        }
+
+        if (filesize($sourcePath) !== filesize($destinationPath)) {
+            return true;
+        }
+
+        return hash_file('sha256', $sourcePath) !== hash_file('sha256', $destinationPath);
     }
 
     private function translateFilename(SplFileInfo $file, $translated): string
@@ -179,5 +195,34 @@ class PrepareTranslationFiles
         );
         $relativePath = explode('/', $relativePath);
         return substr($relativePath[0], 1);
+    }
+
+    private function isInsideLocaleDirectory(string $relativePathname): bool
+    {
+        $normalizedPath = str_replace('\\', '/', ltrim($relativePathname, '/'));
+
+        // Only inspect directory segments (not the filename) and ignore files that
+        // are already inside any locale folder at any depth.
+        $segments = explode('/', $normalizedPath);
+        array_pop($segments);
+
+        foreach ($segments as $segment) {
+            if (in_array($segment, $this->langs, true)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function hasLocaleFilenamePrefix(string $filename): bool
+    {
+        foreach ($this->langs as $lang) {
+            if (Str::startsWith($filename, $lang . '_')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -65,9 +65,15 @@ class AddNewTranslation
             mkdir('lang/' . $defaultLocale, 0755, true);
         }
 
+        $encoded = json_encode($updated, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL;
+
+        if (is_file($translationFile) && file_get_contents($translationFile) === $encoded) {
+            return;
+        }
+
         file_put_contents(
             $translationFile,
-            json_encode($updated, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+            $encoded
         );
     }
 
