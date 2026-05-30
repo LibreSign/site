@@ -8,9 +8,7 @@ npm-debug.log
 /source/assets/sitemap.xml
 /source/[a-z][a-z]/
 /source/[a-z][a-z]-[A-Z][A-Z]/
-/source/_posts/_tmp/
 /source/_posts/_translated_tmp/
-/source/_stale_generated_translations/
 /source/_redirect/
 /source/_team/
 # Optional ignores
