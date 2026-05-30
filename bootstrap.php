@@ -1,5 +1,6 @@
 <?php
 
+use App\Listeners\RemoveTranslationFiles;
 use App\Listeners\TranslateContent;
 use ElaborateCode\JigsawLocalization\LoadLocalization;
 

@@ -12,6 +12,8 @@ use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
 class PrepareTranslationFiles
 {
+    public const TEMP_DIRECTORY_NAME = '_translated_tmp';
+
     private Jigsaw $jigsaw;
     private Filesystem $filesystem;
     private FrontMatterParser $frontMatterParser;
@@ -108,7 +110,7 @@ class PrepareTranslationFiles
                 }
             }
             if ($isCollection) {
-                $translatedName = '_tmp/'.$lang . '_' . $translatedName;
+                $translatedName = self::TEMP_DIRECTORY_NAME . '/' . $lang . '_' . $translatedName;
             } else {
                 $translatedName = $lang . '/' . $translatedName;
             }

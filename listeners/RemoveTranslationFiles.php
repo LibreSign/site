@@ -50,12 +50,12 @@ class RemoveTranslationFiles
                 }
 
                 $directoryName = $item->getFilename();
-                if ($directoryName === '_tmp') {
+                if ($directoryName === PrepareTranslationFiles::TEMP_DIRECTORY_NAME) {
                     $directoriesToRemove[] = $item->getPathname();
                 }
             }
-        } catch (\Exception $e) {
-            // Ignore errors during iteration (directory may have been deleted)
+        } catch (\UnexpectedValueException $e) {
+            // Ignore unreadable directories; best-effort cleanup continues below.
         }
 
         foreach ($directoriesToRemove as $directoryPath) {
@@ -82,7 +82,9 @@ class RemoveTranslationFiles
                     continue;
                 }
 
-                if (!str_contains($item->getPathname(), DIRECTORY_SEPARATOR . '_tmp' . DIRECTORY_SEPARATOR)) {
+                $isCurrentTempFile = str_contains($item->getPathname(), DIRECTORY_SEPARATOR . PrepareTranslationFiles::TEMP_DIRECTORY_NAME . DIRECTORY_SEPARATOR);
+
+                if (!$isCurrentTempFile) {
                     continue;
                 }
 
@@ -96,8 +98,8 @@ class RemoveTranslationFiles
                     }
                 }
             }
-        } catch (\Exception $e) {
-            // Ignore errors during iteration (directory may have been deleted)
+        } catch (\UnexpectedValueException $e) {
+            // Ignore unreadable directories during best-effort cleanup.
         }
     }
 }

@@ -13,6 +13,7 @@ class TranslateContent
     public function handle(Jigsaw $jigsaw): void
     {
         $this->jigsaw = $jigsaw;
+        $this->cleanupGeneratedArtifacts();
         $this->registerTranslateContentHandler();
         $this->addTranslateFunction();
         $this->addPrepareTranslationFilesHandler();
@@ -63,6 +64,11 @@ class TranslateContent
         register_shutdown_function(static function () use ($jigsaw): void {
             (new RemoveTranslationFiles())->handle($jigsaw);
         });
+    }
+
+    private function cleanupGeneratedArtifacts(): void
+    {
+        (new RemoveTranslationFiles())->handle($this->jigsaw);
     }
 
     private function getSiteBuilder(): SiteBuilder
