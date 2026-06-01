@@ -100,7 +100,7 @@
                     <td>
                       @if (is_bool($planValue))
                         <span class="{{ $planValue ? 'text-success' : 'text-danger' }} fw-semibold">
-                          <i class="lni lni-{{ $planValue ? 'checkmark' : 'close' }}"></i>
+                          <i class="lni lni-{{ $planValue ? 'check' : 'xmark' }}"></i>
                           {{ $page->t($planValue ? 'Included' : 'Not included') }}
                         </span>
                       @elseif (is_string($planValue) && $planValue !== '')
@@ -139,7 +139,7 @@
         <div class="col-lg-5 mb-3">
           <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
             <div class="ud-info-icon mb-2">
-              <i class="lni lni-cog fs-1"></i>
+              <i class="lni lni-gear-1 fs-1"></i>
             </div>
             <div class="ud-info-meta">
               <h5 class="fs-4">API</h5>
