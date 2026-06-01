@@ -49,7 +49,7 @@
                         @php
                           Carbon\Carbon::setLocale(current_path_locale($page))
                         @endphp
-                        <i class="lni lni-calendar"></i> <span>{{ Carbon\Carbon::parse($page->date)->isoFormat('ll') }}</span>
+                        <i class="lni lni-calendar-days"></i> <span>{{ Carbon\Carbon::parse($page->date)->isoFormat('ll') }}</span>
                       </p>
                     </div>
                   </div>
