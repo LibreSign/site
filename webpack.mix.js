@@ -11,7 +11,24 @@ const lineiconsSource = fs.existsSync(lineiconsLegacyFontsPath)
 mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/build');
 
-mix.jigsaw()
+mix.jigsaw({
+    watch: {
+        // Watch only stable source files and stable underscore-prefixed directories.
+        // Avoid broad `source/_*/` because Jigsaw/listeners may create/remove transient
+        // underscore directories during build (e.g. _redirect, _team), which can cause
+        // watch → build → write/remove → watch loops.
+        files: [
+            'config.php',
+            'bootstrap.php',
+            'listeners/**/*.php',
+            'source/*.md',
+            'source/*.php',
+            'source/*.html',
+        ],
+        dirs: ['source/_layouts/', 'source/_partials/', 'source/_posts/'],
+        notDirs: ['source/_assets/', 'source/assets/', 'source/_redirect/', 'source/_team/'],
+    },
+})
     .js('source/_assets/js/main.js', 'js')
     .css('source/_assets/css/main.css', 'css', [
         require('postcss-import'),
@@ -29,14 +46,25 @@ mix.jigsaw()
     .version();
 
 mix.override((webpackConfig) => {
-    // In containerized environments, filesystem events are unreliable.
-    // Polling keeps `mix watch` alive instead of exiting after the first build.
+    // Always ignore dependency dirs and Jigsaw-generated transient dirs.
+    // `_translated_tmp` lives under `source/_posts/` and is created/removed during build.
+    // `_redirect` and `_team` may also be generated/removed by listeners.
+    // Use path-segment boundaries so we match directory names (not arbitrary substrings).
+    const alwaysIgnored = /(^|[\\/])(node_modules|_translated_tmp|_redirect|_team)([\\/]|$)/;
+
     if (process.env.HOST_UID || process.env.DOCKER || process.env.CI) {
+        // In containerized environments, filesystem events are unreliable.
+        // Polling keeps `mix watch` alive instead of exiting after the first build.
         webpackConfig.watchOptions = {
             ...(webpackConfig.watchOptions || {}),
             poll: 1000,
             aggregateTimeout: 300,
-            ignored: /node_modules/,
+            ignored: alwaysIgnored,
+        };
+    } else {
+        webpackConfig.watchOptions = {
+            ...(webpackConfig.watchOptions || {}),
+            ignored: alwaysIgnored,
         };
     }
 
