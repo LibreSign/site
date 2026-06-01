@@ -35,7 +35,7 @@ mix.jigsaw({
     ])
     .sass('source/_assets/scss/ud-styles.scss', 'css')
     .sass('source/_assets/css/main.scss', 'css')
-    .copy(lineiconsSource, 'source/assets/build/css/fonts')
+    .copy(lineiconsSource, 'source/assets/build/css')
     .options({
         processCssUrls: false,
     })
