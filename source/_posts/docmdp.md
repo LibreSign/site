@@ -5,7 +5,7 @@ author: Vitor Mattos
 date: 2025-12-22
 description: Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.
 categories: [features, security]
-icon: shield-check
+icon: shield-2-check
 ---
 
 ## DocMDP in LibreSign
