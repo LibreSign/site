@@ -25,22 +25,22 @@
                         <ul class="ud-widget-socials">
                             <li>
                                 <a target="_blank" href="https://github.com/LibreSign/libresign" title="{{ $page->t("LibreSign GitHub repository")}}">
-                                    <i class="lni lni-github-original"></i>
+                                    <i class="lni lni-github"></i>
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" href="https://www.linkedin.com/company/libresign/" title="{{ $page->t("LibreSign LinkedIn page")}}">
-                                    <i class="lni lni-linkedin-original"></i>
+                                    <i class="lni lni-linkedin"></i>
                                 </a>
                             </li>
                             <li>
                               <a target="_blank" href="https://t.me/LibreSign" title="{{ $page->t("LibreSign Telegram group")}}">
-                                  <i class="lni lni-telegram-original"></i>
+                                  <i class="lni lni-telegram"></i>
                               </a>
                           </li>
                           <li>
                             <a target="_blank" href="https://www.instagram.com/libresign/" title="{{ $page->t("LibreSign Instagram profile")}}">
-                                <i class="lni lni-instagram-original"></i>
+                                <i class="lni lni-instagram"></i>
                             </a>
                         </li>
                         </ul>
