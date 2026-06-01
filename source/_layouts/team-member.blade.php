@@ -51,7 +51,7 @@
                   @foreach($page->social as $name => $url)
                   <li>
                     <a href="{{ $url }}">
-                      <i class="lni lni-{{ $name }}-original"></i>
+                      <i class="lni lni-{{ $name }}"></i>
                     </a>
                   </li>
                   @endforeach
