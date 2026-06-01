@@ -5,7 +5,7 @@ author: Vitor Mattos
 date: 2025-12-22
 description: LibreSign now supports signature order control, allowing documents to be signed sequentially or in parallel. Administrators can define the default workflow while maintaining flexibility for approval processes and compliance requirements.
 categories: [features]
-icon: dashboard
+icon: dashboard-square-1
 ---
 
 ### Signature Order: Sequential or Parallel Signing in LibreSign

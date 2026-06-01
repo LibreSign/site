@@ -5,7 +5,7 @@ author: Vitor Mattos
 date: 2025-12-30
 description: LibreSign now supports envelopes, allowing multiple documents to be grouped and signed as a single signing process with shared signers and unified progress tracking.
 categories: [features]
-icon: folder
+icon: folder-1
 ---
 
 ### Envelopes: Batch document signing in LibreSign

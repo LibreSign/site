@@ -5,7 +5,7 @@ author: Vitor Mattos
 date: 2024-10-10
 description: Provides a practical guide on how to use the LibreSign API, including querying endpoints and understanding usage flows by observing requests in the application.
 categories: [features]
-icon: dashboard
+icon: dashboard-square-1
 ---
 
 # LibreSign API: Endpoints and usage flows

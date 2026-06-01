@@ -5,7 +5,7 @@ author: Vitor Mattos
 date: 2025-12-22
 description: Learn how the Certificate Revocation List (CRL) implementation in LibreSign enhances digital signature security and ensures compliance with international best practices.
 categories: [features, security]
-icon: shield-check
+icon: shield-2-check
 ---
 
 ### CRL (Certificate Revocation List) Implementation in LibreSign
