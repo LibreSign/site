@@ -4,7 +4,7 @@ title: Document management in education - Challenges and solutions with LibreSig
 author: Daiane Alves
 date: 2024-05-07
 description: Document management in the educational field is complex and inefficient when done manually. With LibreSign, educational institutions can optimize document management, making it faster, more accurate, and efficient.
-icon: write
+icon: pen-to-square
 ---
 
 
