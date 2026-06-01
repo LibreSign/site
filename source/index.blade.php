@@ -165,7 +165,7 @@
                 <div class="col-lg-6 mb-2 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="me-2 card-title"><i class="lni lni-protection"></i> {{ $page->t('Security') }}</h5>
+                      <h5 class="me-2 card-title"><i class="lni lni-shield-2"></i> {{ $page->t('Security') }}</h5>
                       <p class="card-text">{{ $page->t('Encrypted signatures that guarantee the integrity of your documents.') }}</p>
                     </div>
                   </div>
@@ -173,7 +173,7 @@
                 <div class="col-lg-6 mb-2 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title"><i class="lni lni-dashboard"></i> {{ $page->t('Speed') }}</h5>
+                      <h5 class="card-title"><i class="lni lni-dashboard-square-1"></i> {{ $page->t('Speed') }}</h5>
                       <p class="card-text">{{ $page->t('Sign and send documents in seconds, from anywhere in the world.') }}</p>
                     </div>
                   </div>
@@ -181,7 +181,7 @@
                 <div class="col-lg-6 d-flex justify-content-center">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title"><i class="lni lni-sprout"></i> {{ $page->t('Sustainability') }}</h5>
+                      <h5 class="card-title"><i class="lni lni-leaf-1"></i> {{ $page->t('Sustainability') }}</h5>
                       <p class="card-text">{{ $page->t('Contribute to a greener world by eliminating the use of paper.') }}</p>
                     </div>
                   </div>
