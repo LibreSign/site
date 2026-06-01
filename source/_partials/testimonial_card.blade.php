@@ -7,18 +7,18 @@
         @foreach($page->testimonials as $itens => $topics)
             <div class="testimonial-card">
                 <div class="testimonial_color_stars">
-                    <i class="lni lni-star-fill"></i>
-                    <i class="lni lni-star-fill"></i>
-                    <i class="lni lni-star-fill"></i>
-                    <i class="lni lni-star-fill"></i>
-                    <i class="lni lni-star-fill"></i>
-                </div>           
+                    <i class="lni lni-star-fat"></i>
+                    <i class="lni lni-star-fat"></i>
+                    <i class="lni lni-star-fat"></i>
+                    <i class="lni lni-star-fat"></i>
+                    <i class="lni lni-star-fat"></i>
+                </div>
                 <div class="testimonial-info">
                     <p class="text-justify">{{ $page->t($topics->comment) }}</p>
                     <h6 class="testimonial-brand">{{ $topics->author }}</h6>
                 </div>
             </div>
-        @endforeach       
+        @endforeach
     </div>
 </section>
 
