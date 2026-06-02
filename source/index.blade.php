@@ -278,6 +278,35 @@
     </section>
     <!-- ====== Features End ====== -->
 
+    <!-- ====== Video Demo Section Start ====== -->
+    <section class="ud-video-demo">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <h3 class="card-title fs-1 fw-bold text-white">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="card-subtitle text-white">{{ $page->t("Our complete video guide shows how to sign, manage, and validate documents step by step, in an easy and secure way.") }}</p>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-6 text-center">
+            <div class="video-demo-image">
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
+            </div>
+            <div class="mt-4">
+              <a href="#" class="ud-main-btn ud-demo-btn">
+                {{ $page->t('See How It Works') }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Video Demo Section End ====== -->
+
     <!-- ====== Solutions Section Start ====== -->
     <section class="ud-solutions">
       <div class="container">
@@ -382,35 +411,6 @@
       </div>
     </section>
     <!-- ====== About End ====== -->
-
-    <!-- ====== Video Demo Section Start ====== -->
-    <section class="ud-video-demo">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-1 fw-bold text-white">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h3>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <p class="card-subtitle text-white">{{ $page->t("Our complete video guide shows how to sign, manage, and validate documents step by step, in an easy and secure way.") }}</p>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-          <div class="col-lg-6 text-center">
-            <div class="video-demo-image">
-              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
-            </div>
-            <div class="mt-4">
-              <a href="#" class="ud-main-btn ud-demo-btn">
-                {{ $page->t('See How It Works') }}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Video Demo Section End ====== -->
 
     <!-- ====== Solutions Below Video Start ====== -->
     <section class="ud-solutions ud-solutions-below-video">
