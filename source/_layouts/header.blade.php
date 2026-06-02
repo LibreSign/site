@@ -41,10 +41,10 @@
                   aria-expanded="false"
                   aria-controls="language-menu">
             <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ current_path_locale($page) ?: 'en' }}.svg" alt="" role="presentation" />
-            <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales[current_path_locale($page)] ?? 'English' }}</span>
+            <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales()[current_path_locale($page)] ?? 'English' }}</span>
           </button>
           <ul class="ud-submenu" id="language-menu" role="menu" aria-label="{{ $page->t('Language selection') }}">
-          @foreach($page->locales as $localeCode => $localeName)
+          @foreach($page->locales() as $localeCode => $localeName)
             <li class="ud-submenu-item" role="none">
               <a class="ud-submenu-link" 
                  href="{{ translate_url($page, $localeCode) }}" 

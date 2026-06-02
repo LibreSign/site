@@ -20,12 +20,25 @@ return [
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
         return json_decode($version)->version;
     },
-    'locales' => [
-        '' => 'English',
-        'fr' => 'Français',
+    'localeNames' => [
+        'en'    => 'English',
+        'cs'    => 'Čeština',
+        'fr'    => 'Français',
         'nb-NO' => 'Norsk bokmål',
+        'pt'    => 'Português',
         'pt-BR' => 'Português Brasil',
+        'ta'    => 'தமிழ்',
     ],
+    'locales' => function ($page) {
+        return $page->localization->keys()
+            ->mapWithKeys(function ($locale) use ($page) {
+                // The default locale maps to an empty string key (URL has no prefix)
+                $urlKey = ($locale === packageDefaultLocale($page)) ? '' : $locale;
+                $name = $page->localeNames[$locale] ?? $locale;
+                return [$urlKey => $name];
+            })
+            ->all();
+    },
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
         $list = explode("\n", $list);
@@ -307,7 +320,7 @@ return [
         'posts_wordpress' => [
             'extends' => '_layouts.post_wordpress',
             'path' => function($page) {
-                foreach ($page->locales as $localeCode => $localeName) {
+                foreach ($page->locales() as $localeCode => $localeName) {
                     if ($localeCode === $page->lang) {
                         return $page->lang . '/posts/' . $page->slug;
                     } elseif ($localeCode === $page->langSlug) {
