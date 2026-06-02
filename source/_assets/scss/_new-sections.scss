@@ -114,6 +114,19 @@
       text-align: center;
       display: inline-block;
       transition: background 0.3s;
+      white-space: normal !important;
+      word-break: break-word;
+      line-height: 1.4;
+
+      @media #{$xs, $sm} {
+        font-size: 13px;
+        padding: 10px 14px;
+        min-height: auto;
+      }
+
+      @media #{$laptop} {
+        font-size: 15px;
+      }
 
       &:hover {
         background: var(--accent-color);
