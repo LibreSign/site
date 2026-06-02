@@ -56,11 +56,13 @@
         </div>
         <div class="row">
           <div class="secondary clients-secondary">
-            @php($clientsSignedDocumentsMillions = (string) ($page->signedDocumentsMillions ?? 'X'))
-            @php($clientsSecondaryTemplate = $page->t("More than <strong>:count million</strong> documents signed securely and with legal validity."))
-            @php($clientsSecondaryWithCount = str_replace(':count', $clientsSignedDocumentsMillions, $clientsSecondaryTemplate))
-            @php($clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2))
-            @php($clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [])
+            @php
+              $clientsSignedDocumentsMillions = (string) ($page->signedDocumentsMillions ?? 'X');
+              $clientsSecondaryTemplate = $page->t('More than <strong>:count million</strong> documents signed securely and with legal validity.');
+              $clientsSecondaryWithCount = str_replace(':count', $clientsSignedDocumentsMillions, $clientsSecondaryTemplate);
+              $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
+              $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
+            @endphp
             <p>
               @if (count($clientsSecondaryParts) === 2 && count($clientsSecondaryStrongParts) === 2)
                 {{ $clientsSecondaryParts[0] }}<span class="clients-highlight"><strong>{{ $clientsSecondaryStrongParts[0] }}</strong></span>{{ $clientsSecondaryStrongParts[1] }}
@@ -400,57 +402,58 @@
           </div>
         </div>
         <div class="row g-4 mt-4 justify-content-center">
-          <div class="col-lg-4 col-md-6">
-            <article class="blog-card">
-              <div class="blog-card__media">
-                <div class="blog-card__frame">
-                <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-article.jpg" alt="{{ $page->t('Digital signature article') }}" />
+          @php
+            $homePosts = $page->mergeCollections($posts, $posts_wordpress)
+              ->filter(fn ($post) => current_path_locale($post) === current_path_locale($page))
+              ->take(3);
+
+            $categoryMap = [
+              'features' => 'Features',
+              'security' => 'Security',
+              'article' => 'Article',
+            ];
+          @endphp
+
+          @foreach ($homePosts as $post)
+            @php
+              $categories = $post->categories ?? [];
+              $rawCategory = is_array($categories) && !empty($categories)
+                ? $categories[0]
+                : ($post->category ?? 'article');
+
+              $categoryKey = is_string($rawCategory) ? strtolower($rawCategory) : 'article';
+              $categoryLabel = $categoryMap[$categoryKey] ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $categoryKey));
+
+              if (($post->author ?? null) === 'LibreSign') {
+                $authorAvatar = $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png';
+              } elseif (!empty($post->gravatar ?? null) && str_starts_with($post->gravatar, '/')) {
+                $authorAvatar = $page->baseUrl . ltrim($post->gravatar, '/');
+              } elseif (!empty($post->gravatar ?? null)) {
+                $authorAvatar = 'https://www.gravatar.com/avatar/' . $post->gravatar . '?size=80';
+              } else {
+                $authorAvatar = $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png';
+              }
+            @endphp
+
+            <div class="col-lg-4 col-md-6">
+              <article class="blog-card">
+                <div class="blog-card__media">
+                  <div class="blog-card__frame">
+                    <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
+                  </div>
+                  <span class="blog-card__category">{{ $page->t($categoryLabel) }}</span>
+                  <span class="blog-card__badge" aria-hidden="true">
+                    <img src="{{ $authorAvatar }}" alt="" />
+                  </span>
                 </div>
-                <span class="blog-card__badge" aria-hidden="true">
-                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
-                </span>
-              </div>
-              <div class="blog-card__content">
-                <h4>{{ $page->t("Digital document signature: see real situations where digital signature transforms contracts")}}</h4>
-                <p>{{ $page->t("Digital signature has become an essential tool in the corporate, legal, and even personal world. More than a trend, it represents a definitive change in the way we deal with documents...") }}</p>
-                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
-              </div>
-            </article>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <article class="blog-card">
-              <div class="blog-card__media">
-                <div class="blog-card__frame">
-                <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-myths.jpg" alt="{{ $page->t('Digital signature myths') }}" />
+                <div class="blog-card__content">
+                  <h4>{{ $page->t($post->title) }}</h4>
+                  <p>{{ $page->t($post->description) }}</p>
+                  <a href="{{ $post->getUrl() }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
                 </div>
-                <span class="blog-card__badge" aria-hidden="true">
-                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
-                </span>
-              </div>
-              <div class="blog-card__content">
-                <h4>{{ $page->t("4 doubts about digital signature: Learn about the common myths created about this term")}}</h4>
-                <p>{{ $page->t("To help you clarify the most frequent doubts about digital signature, our specialists answer some questions raised through social media and public forums. Check it now and learn how digital signature can transform your life...") }}</p>
-                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
-              </div>
-            </article>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <article class="blog-card">
-              <div class="blog-card__media">
-                <div class="blog-card__frame">
-                <img src="{{ $page->baseUrl }}assets/images/blog/how-to-create-signature.jpg" alt="{{ $page->t('How to create digital signature') }}" />
-                </div>
-                <span class="blog-card__badge" aria-hidden="true">
-                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
-                </span>
-              </div>
-              <div class="blog-card__content">
-                <h4>{{ $page->t("How to create a digital signature: learn the step-by-step process of how to do it")}}</h4>
-                <p>{{ $page->t("How about saying goodbye to paper, unnecessary travel to the notary, and waiting times? Digital transformation made office workflows more streamlined than ever. The digital signature market has become increasingly...") }}</p>
-                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
-              </div>
-            </article>
-          </div>
+              </article>
+            </div>
+          @endforeach
         </div>
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
