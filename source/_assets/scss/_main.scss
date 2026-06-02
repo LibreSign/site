@@ -19,83 +19,165 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    max-width: 496px;
-
+    max-width: 100%;
+    width: 100%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    @media #{$laptop} {
+        max-width: 496px;
+        padding: 40px 50px 56px;
+    }
+
+    @media #{$xs, $sm} {
+        padding: 24px 20px 32px;
+    }
 
     h5 {
         font-size: 1.75rem;
         font-weight: 600;
         color: var(--text-gray);
+
+        @media #{$xs, $sm} {
+            font-size: 1.3rem;
+        }
     }
 
     p {
         font-size: 1rem;
         color: var(--text-muted);
+
+        @media #{$xs, $sm} {
+            font-size: 0.9rem;
+        }
     }
 }
 
 .card-header-section {
-    min-height: 100px;
+    min-height: 80px;
     display: flex;
     align-items: start;
     justify-content: center;
-    margin-bottom: 42px;
+    margin-bottom: 32px;
 
     @media #{$laptop} {
-        min-height: 136px;
-        margin-bottom: 28px;
+        min-height: 100px;
+        margin-bottom: 42px;
+    }
+
+    @media #{$xs, $sm} {
+        min-height: 60px;
+        margin-bottom: 20px;
     }
 }
 
 .card-icon-section {
-    height: 256px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: var(--accent-color);
 
-    @media #{$laptop, $xs} {
-        height: 224px;
-        margin-bottom: 32px;
+    @media #{$laptop} {
+        height: 256px;
+        margin-bottom: 60px;
+    }
+
+    @media #{$xs, $sm} {
+        height: 150px;
+        margin-bottom: 24px;
 
         img {
-            transform: scale(0.875);
+            transform: scale(0.8);
         }
     }
+}
+
+/* Color variations for each main card */
+.main-cards:nth-child(1) .card-icon-section {
+    background-color: #FFC107;
+}
+
+.main-cards:nth-child(2) .card-icon-section {
+    background-color: #F59E0B;
+}
+
+.main-cards:nth-child(3) .card-icon-section {
+    background-color: #06B6D4;
+}
+
+/* Features section card colors */
+.ud-features .row .col-md-6:nth-child(1) .main-cards .card-icon-section {
+    background-color: #EC4899;
+}
+
+.ud-features .row .col-md-6:nth-child(2) .main-cards .card-icon-section {
+    background-color: #8B5CF6;
+}
+
+.ud-features .row .col-md-6:nth-child(3) .main-cards .card-icon-section {
+    background-color: #06B6D4;
+}
+
+.ud-features .row .col-md-6:nth-child(4) .main-cards .card-icon-section {
+    background-color: #10B981;
 }
 
 .card-description-section {
     flex-grow: 1;
     display: flex;
     align-items: flex-start;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
     @media #{$laptop} {
-        margin-bottom: 0;
+        margin-bottom: 24px;
+    }
+
+    @media #{$xs, $sm} {
+        margin-bottom: 16px;
     }
 }
 
 .card-button-section {
-    padding-top: 20px;
+    padding-top: 16px;
     width: 100%;
 
-    .ud-hero-buttons {
-        li {
-            width: 100%;
+    @media #{$xs, $sm} {
+        padding-top: 12px;
+    }
+}
 
-            .ud-main-btn {
-                min-height: 56px;
-                text-wrap-mode: wrap;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0 16px;
-            }
-        }
+/* Button styles for cards */
+.main-cards .ud-hero-buttons li .ud-main-btn {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px !important;
+    font-size: 0.95rem !important;
+    white-space: normal !important;
+    word-break: break-word;
+    line-height: 1.3 !important;
+
+    @media #{$xs, $sm} {
+        min-height: 48px;
+        font-size: 0.8rem !important;
+        padding: 6px 12px !important;
+    }
+}
+
+/* Responsive spacing for cards */
+.text-card {
+    margin-bottom: 60px !important;
+
+    @media #{$laptop} {
+        margin-bottom: 80px !important;
+    }
+
+    @media #{$xs, $sm} {
+        margin-bottom: 50px !important;
     }
 }
 
@@ -114,11 +196,6 @@
 }
 
 @media screen and (max-width: 1280px) {
-
-.text-card {
-    display:contents;
-}
-
 .cards-target-audience {
     background-color: var(--primary-color);
     margin-bottom: 15px;
