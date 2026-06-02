@@ -35,7 +35,7 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="{{ $page->baseUrl }}assets/compiled/css/ud-styles.css" />
+    <link rel="stylesheet" href="{{ rtrim($page->baseUrl, '/') . mix('css/ud-styles.css', 'assets/build') }}" />
     @stack('styles')
 
     <!-- ====== All Javascript Files ====== -->
@@ -56,7 +56,7 @@
       window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
     </script>
 
-    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/compiled') }}"></script>
+    <script defer src="{{ rtrim($page->baseUrl, '/') . mix('js/main.js', 'assets/build') }}"></script>
 
     <script defer>
         document.getElementById('back-to-top').onclick = function(e) {
