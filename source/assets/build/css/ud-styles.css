@@ -14807,36 +14807,6 @@ textarea.form-control-lg {
   }
 }
 
-/* Color variations for each main card */
-.main-cards:nth-child(1) .card-icon-section {
-  background-color: #FFC107;
-}
-
-.main-cards:nth-child(2) .card-icon-section {
-  background-color: #F59E0B;
-}
-
-.main-cards:nth-child(3) .card-icon-section {
-  background-color: #06B6D4;
-}
-
-/* Features section card colors */
-.ud-features .row .col-md-6:nth-child(1) .main-cards .card-icon-section {
-  background-color: #EC4899;
-}
-
-.ud-features .row .col-md-6:nth-child(2) .main-cards .card-icon-section {
-  background-color: #8B5CF6;
-}
-
-.ud-features .row .col-md-6:nth-child(3) .main-cards .card-icon-section {
-  background-color: #06B6D4;
-}
-
-.ud-features .row .col-md-6:nth-child(4) .main-cards .card-icon-section {
-  background-color: #10B981;
-}
-
 .card-description-section {
   flex-grow: 1;
   display: flex;
@@ -14862,6 +14832,42 @@ textarea.form-control-lg {
   .card-button-section {
     padding-top: 12px;
   }
+}
+
+/* Styles specific to ud-about section - isolated from other sections */
+.ud-about .card-icon-section {
+  background-color: #ffc107 !important;
+}
+.ud-about .ud-hero-buttons li .ud-main-btn {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Styles specific to ud-features section - isolated from other sections */
+.ud-features .card-icon-section {
+  background-color: #f3f4fe !important;
+}
+.ud-features .card-icon-section img {
+  width: 108px;
+  height: 108px;
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media only screen and (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px) {
+  .ud-features .card-icon-section img {
+    width: 84px;
+    height: 84px;
+  }
+}
+.ud-features .card-header-section h5, .ud-features .card-header-section .h5 {
+  color: var(--primary-color) !important;
+}
+.ud-features .ud-hero-buttons li .ud-main-btn {
+  background-color: transparent !important;
+  border: 2px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 /* Button styles for cards */
