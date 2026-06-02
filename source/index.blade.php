@@ -284,7 +284,7 @@
           <div class="col-lg col-md-6 col-sm-12">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.png" alt="" />
               </div>
               <h4>{{ $page->t("Public Management: Transparency, Validity, and Efficiency")}}</h4>
               <p>{{ $page->t("Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.") }}</p>
@@ -296,7 +296,7 @@
           <div class="col-lg col-md-6 col-sm-12">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.png" alt="" />
               </div>
               <h4>{{ $page->t("Small and Medium Businesses: Grow with Security")}}</h4>
               <p>{{ $page->t("Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.") }}</p>
@@ -308,7 +308,7 @@
           <div class="col-lg col-md-6 col-sm-12">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.png" alt="" />
               </div>
               <h4>{{ $page->t("Cooperatives: Strengthen Governance and Member Participation")}}</h4>
               <p>{{ $page->t("Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.") }}</p>
@@ -320,7 +320,7 @@
           <div class="col-lg col-md-6 col-sm-12">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.png" alt="" />
               </div>
               <h4>{{ $page->t("Information Technology: Control and Total Flexibility")}}</h4>
               <p>{{ $page->t("Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.") }}</p>
@@ -332,7 +332,7 @@
           <div class="col-lg col-md-6 col-sm-12">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.png" alt="" />
               </div>
               <h4>{{ $page->t("Legal Sector: Agility and Unquestionable Legal Security")}}</h4>
               <p>{{ $page->t("Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.") }}</p>
@@ -418,7 +418,7 @@
           <div class="col">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.png" alt="" />
               </div>
               <h4>{{ $page->t("Public Management: Transparency, Validity, and Efficiency")}}</h4>
               <p>{{ $page->t("Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.") }}</p>
@@ -430,7 +430,7 @@
           <div class="col">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.png" alt="" />
               </div>
               <h4>{{ $page->t("Small and Medium Businesses: Grow with Security")}}</h4>
               <p>{{ $page->t("Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.") }}</p>
@@ -442,7 +442,7 @@
           <div class="col">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.png" alt="" />
               </div>
               <h4>{{ $page->t("Cooperatives: Strengthen Governance and Member Participation")}}</h4>
               <p>{{ $page->t("Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.") }}</p>
@@ -454,7 +454,7 @@
           <div class="col">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.png" alt="" />
               </div>
               <h4>{{ $page->t("Information Technology: Control and Total Flexibility")}}</h4>
               <p>{{ $page->t("Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.") }}</p>
@@ -466,7 +466,7 @@
           <div class="col">
             <div class="solution-card">
               <div class="solution-icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.svg" alt="" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.png" alt="" />
               </div>
               <h4>{{ $page->t("Legal Sector: Agility and Unquestionable Legal Security")}}</h4>
               <p>{{ $page->t("Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.") }}</p>

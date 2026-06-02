@@ -42,7 +42,7 @@
   }
 }
 
-.ud-solutions {
+.ud-solutions:not(.ud-solutions-below-video) {
   padding: 80px 0;
   background: var(--bg-light);
 
@@ -50,9 +50,13 @@
     padding: 60px 0;
   }
 
+  .card-title {
+    color: var(--primary-color);
+  }
+
   .card-subtitle {
     text-align: center;
-    color: var(--text-muted);
+    color: #3d4a5c;
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -74,19 +78,32 @@
     }
 
     .solution-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 30px;
-      background: var(--accent-color);
-      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 24px;
+      background: transparent;
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
 
+      @media #{$md, $sm, $xs} {
+        width: 150px;
+        height: 150px;
+      }
+
       img {
-        max-width: 60px;
-        max-height: 60px;
-        filter: brightness(0) invert(1);
+        width: 100%;
+        height: 100%;
+        max-width: 180px;
+        max-height: 180px;
+        object-fit: contain;
+        filter: none;
+
+        @media #{$md, $sm, $xs} {
+          max-width: 150px;
+          max-height: 150px;
+        }
       }
     }
 
@@ -94,7 +111,7 @@
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 15px;
-      color: var(--heading-color);
+      color: var(--primary-color);
       min-height: 60px;
     }
 
@@ -106,30 +123,40 @@
     }
 
     a {
-      font-size: 16px;
-      padding: 12px 24px;
-      background: var(--primary-color);
-      color: var(--white);
-      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 12px;
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 18px;
       text-align: center;
-      display: inline-block;
-      transition: background 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 64px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
       white-space: normal !important;
-      word-break: break-word;
-      line-height: 1.4;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      line-height: 1.25;
+      text-wrap: balance;
 
       @media #{$xs, $sm} {
         font-size: 13px;
-        padding: 10px 14px;
-        min-height: auto;
+        padding: 10px 10px;
+        min-height: 56px;
       }
 
       @media #{$laptop} {
-        font-size: 15px;
+        font-size: 13px;
       }
 
       &:hover {
-        background: var(--accent-color);
+        background-color: rgba(24, 76, 78, 0.08);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
       }
     }
   }
