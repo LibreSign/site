@@ -74,7 +74,7 @@
     </section>
 
     <!-- ====== Target Audience Start ====== -->
-    <section class="ud-about">
+    <section class="ud-about ud-about-challenges">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">

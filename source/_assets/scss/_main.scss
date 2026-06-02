@@ -119,15 +119,58 @@
     }
 }
 
-/* Styles specific to ud-about section - isolated from other sections */
-.ud-about {
+/* Styles specific to ud-about challenges section - isolated from other sections */
+.ud-about.ud-about-challenges {
+    background-color: #f9f9f9;
+
+    .card-title,
+    .card-header-section h5 {
+        color: #004d40 !important;
+    }
+
+    .card-subtitle,
+    .card-description-section p {
+        color: #333333 !important;
+    }
+
+    .main-cards {
+        background-color: #ffffff;
+        border: 1px solid #ececec;
+        box-shadow: none;
+    }
+
     .card-icon-section {
+        width: 170px;
+        height: 170px;
+        margin-bottom: 32px;
         background-color: #ffc107 !important;
+
+        img {
+            width: 68%;
+            height: 68%;
+            max-width: 68%;
+            max-height: 68%;
+            object-fit: contain;
+            transform: none !important;
+        }
+
+        @media #{$xs, $sm} {
+            width: 150px;
+            height: 150px;
+
+            img {
+                width: 66%;
+                height: 66%;
+                max-width: 66%;
+                max-height: 66%;
+            }
+        }
     }
 
     .ud-hero-buttons li .ud-main-btn {
-        background-color: var(--primary-color) !important;
-        color: var(--white) !important;
+        background-color: #00796b !important;
+        border-color: #00796b !important;
+        color: #ffffff !important;
     }
 }
 
