@@ -389,52 +389,72 @@
     <!-- ====== Blog/Content Section Start ====== -->
     <section class="ud-blog-section">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-1 fw-bold">{{ $page->t("LibreSign: Knowledge that Drives Your Digital Transformation.")}}</h3>
+            <div class="ud-blog-section__header text-center mx-auto">
+              <h3 class="ud-blog-section__title">{{ $page->t("LibreSign: Knowledge that Drives Your Digital Transformation.")}}</h3>
             </div>
           </div>
           <div class="col-lg-12">
-            <p class="card-subtitle">{{ $page->t("Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.") }}</p>
+            <p class="ud-blog-section__subtitle">{{ $page->t("Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.") }}</p>
           </div>
         </div>
-        <div class="row gy-4 mt-4">
+        <div class="row g-4 mt-4 justify-content-center">
           <div class="col-lg-4 col-md-6">
-            <div class="blog-card">
-              <div class="blog-image">
+            <article class="blog-card">
+              <div class="blog-card__media">
+                <div class="blog-card__frame">
                 <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-article.jpg" alt="{{ $page->t('Digital signature article') }}" />
-                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+                </div>
+                <span class="blog-card__badge" aria-hidden="true">
+                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
+                </span>
               </div>
-              <div class="blog-content">
+              <div class="blog-card__content">
                 <h4>{{ $page->t("Digital document signature: see real situations where digital signature transforms contracts")}}</h4>
                 <p>{{ $page->t("Digital signature has become an essential tool in the corporate, legal, and even personal world. More than a trend, it represents a definitive change in the way we deal with documents...") }}</p>
+                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
               </div>
-            </div>
+            </article>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="blog-card">
-              <div class="blog-image">
+            <article class="blog-card">
+              <div class="blog-card__media">
+                <div class="blog-card__frame">
                 <img src="{{ $page->baseUrl }}assets/images/blog/digital-signature-myths.jpg" alt="{{ $page->t('Digital signature myths') }}" />
-                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+                </div>
+                <span class="blog-card__badge" aria-hidden="true">
+                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
+                </span>
               </div>
-              <div class="blog-content">
+              <div class="blog-card__content">
                 <h4>{{ $page->t("4 doubts about digital signature: Learn about the common myths created about this term")}}</h4>
                 <p>{{ $page->t("To help you clarify the most frequent doubts about digital signature, our specialists answer some questions raised through social media and public forums. Check it now and learn how digital signature can transform your life...") }}</p>
+                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
               </div>
-            </div>
+            </article>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="blog-card">
-              <div class="blog-image">
+            <article class="blog-card">
+              <div class="blog-card__media">
+                <div class="blog-card__frame">
                 <img src="{{ $page->baseUrl }}assets/images/blog/how-to-create-signature.jpg" alt="{{ $page->t('How to create digital signature') }}" />
-                <span class="blog-tag">{{ $page->t('Digital Signature') }}</span>
+                </div>
+                <span class="blog-card__badge" aria-hidden="true">
+                  <img src="{{ $page->baseUrl }}assets/images/favicon.png" alt="" />
+                </span>
               </div>
-              <div class="blog-content">
+              <div class="blog-card__content">
                 <h4>{{ $page->t("How to create a digital signature: learn the step-by-step process of how to do it")}}</h4>
                 <p>{{ $page->t("How about saying goodbye to paper, unnecessary travel to the notary, and waiting times? Digital transformation made office workflows more streamlined than ever. The digital signature market has become increasingly...") }}</p>
+                <a href="{{ locale_url($page, 'posts') }}" class="blog-card__link">{{ $page->t('Read more »') }}</a>
               </div>
-            </div>
+            </article>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <a href="{{ locale_url($page, 'posts') }}" class="blog-cta-btn">{{ $page->t('Access Our Full Blog') }}</a>
           </div>
         </div>
       </div>
