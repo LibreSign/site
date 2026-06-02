@@ -39,11 +39,11 @@
     <section class="clients">
       <div class="container">
         <div class="row">
-          <div class="col-12 headline">
+          <div class="col-12 headline clients-headline">
             <p>{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</p>
           </div>
         </div>
-        <div class="row logos g-5 justify-content-evenly">
+        <div class="row logos clients-logos g-5 justify-content-evenly">
           <div class="col-12 col-md-auto">
             <img width="264px" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
           </div>
@@ -55,8 +55,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="secondary">
-            <p>{{ $page->t("More than X million documents signed securely and with legal validity.") }}</p>
+          <div class="secondary clients-secondary">
+            @php($clientsSignedDocumentsMillions = (string) ($page->signedDocumentsMillions ?? 'X'))
+            @php($clientsSecondaryTemplate = $page->t("More than <strong>:count million</strong> documents signed securely and with legal validity."))
+            @php($clientsSecondaryWithCount = str_replace(':count', $clientsSignedDocumentsMillions, $clientsSecondaryTemplate))
+            @php($clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2))
+            @php($clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [])
+            <p>
+              @if (count($clientsSecondaryParts) === 2 && count($clientsSecondaryStrongParts) === 2)
+                {{ $clientsSecondaryParts[0] }}<span class="clients-highlight"><strong>{{ $clientsSecondaryStrongParts[0] }}</strong></span>{{ $clientsSecondaryStrongParts[1] }}
+              @else
+                {{ $clientsSecondaryWithCount }}
+              @endif
+            </p>
           </div>
         </div>
       </div>

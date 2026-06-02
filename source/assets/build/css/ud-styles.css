@@ -15659,53 +15659,64 @@ p {
 }
 
 .clients {
-  margin-top: 84px;
-  margin-bottom: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 84px;
+  padding-bottom: 36px;
+  background-color: #ffffff;
 }
 @media only screen and (max-width: 575px) {
   .clients {
-    margin-top: 60px;
+    padding-top: 60px;
+    padding-bottom: 28px;
   }
 }
-.clients .headline p {
-  font-weight: bold;
+.clients .clients-headline p {
+  font-weight: 700;
   font-size: 48px;
   text-align: center;
-  color: var(--text-gray);
+  color: #004d40;
   line-height: normal;
 }
 @media only screen and (max-width: 575px) {
-  .clients .headline p {
+  .clients .clients-headline p {
     font-size: 36px;
   }
 }
-.clients .secondary p {
+.clients .clients-secondary {
+  width: 100%;
+}
+.clients .clients-secondary p {
   font-size: 48px;
   text-align: center;
-  color: var(--text-gray);
+  color: #004d40;
   line-height: normal;
   margin-top: 72px;
 }
 @media only screen and (max-width: 575px) {
-  .clients .secondary p {
+  .clients .clients-secondary p {
     font-size: 36px;
     margin-top: 32px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .clients .secondary p {
+  .clients .clients-secondary p {
     margin-top: 36px;
   }
 }
-.clients .logos {
+.clients .clients-secondary p .clients-highlight {
+  color: #004d40;
+  font-weight: 700;
+}
+.clients .clients-logos {
   margin-top: 72px;
 }
 @media only screen and (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px) {
-  .clients .logos {
+  .clients .clients-logos {
     margin-top: 0;
   }
 }
-.clients .logos div {
+.clients .clients-logos div {
   display: flex;
   align-items: center;
   justify-content: center;

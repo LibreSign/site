@@ -15,6 +15,7 @@ return [
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
+    'signedDocumentsMillions' => getenv('SIGNED_DOCUMENTS_MILLIONS') ?: 'X',
     'wordPressVersion' => function($page) {
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
         return json_decode($version)->version;

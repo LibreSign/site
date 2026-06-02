@@ -97,18 +97,22 @@
 }
 
 .clients {
-  margin-top: 84px;
-  margin-bottom: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 84px;
+  padding-bottom: 36px;
+  background-color: #ffffff;
 
   @media #{$xs} {
-    margin-top: 60px;
+    padding-top: 60px;
+    padding-bottom: 28px;
   }
 
-  .headline p {
-    font-weight: bold;
+  .clients-headline p {
+    font-weight: 700;
     font-size: 48px;
     text-align: center;
-    color: var(--text-gray);
+    color: #004d40;
     line-height: normal;
 
     @media #{$xs} {
@@ -116,10 +120,13 @@
     }
   }
 
-  .secondary p {
+  .clients-secondary {
+    width: 100%;
+
+    p {
     font-size: 48px;
     text-align: center;
-    color: var(--text-gray);
+      color: #004d40;
     line-height: normal;
     margin-top: 72px;
 
@@ -131,9 +138,15 @@
     @media #{$sm} {
       margin-top: 36px;
     }
+
+      .clients-highlight {
+        color: #004d40;
+        font-weight: 700;
+      }
+    }
   }
 
-  .logos {
+  .clients-logos {
     margin-top: 72px;
 
     @media #{$xs, $sm} {
