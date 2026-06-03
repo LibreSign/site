@@ -18,10 +18,13 @@ echo "Starting php container with SERVER_MODE=$MODE"
 if [[ "$MODE" == 'watch' ]]; then
     npm run watch
 else
+    rm -f "source/hot"
+
     if [[ ! -f "source/assets/build/manifest.json" ]]; then
         echo "Vite manifest missing. Running one-time asset build (npm run staging)..."
         npm run staging
     fi
 
-    php ./vendor/bin/jigsaw serve --host 0.0.0.0 --port 3000
+    echo "Building local static site for nginx..."
+    php ./vendor/bin/jigsaw build local
 fi
