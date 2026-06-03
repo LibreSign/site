@@ -8,7 +8,17 @@ export default defineConfig({
                 'source/_assets/scss/ud-styles.scss',
                 'source/_assets/js/main.js',
             ],
-            refresh: true,
+            refresh: {
+                ignored: [
+                    '**/build_**/**',
+                    '**/cache/**',
+                    '**/source/**/_tmp/**',
+                    '**/source/**/_translated_tmp/**',
+                    '**/source/**/_stale_generated_translations/**',
+                    '**/source/[a-z][a-z]/**',
+                    '**/source/[a-z][a-z]-[A-Z][A-Z]/**',
+                ],
+            },
         }),
     ],
     css: {

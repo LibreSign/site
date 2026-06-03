@@ -1,10 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite",
-        "watch": "vite build --watch",
-        "staging": "vite build",
-        "prod": "vite build"
+        "dev": "NODE_ENV=development vite",
+        "watch": "NODE_ENV=development vite build --watch",
+        "staging": "NODE_ENV=staging vite build",
+        "prod": "NODE_ENV=production vite build"
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^2.0.0",
