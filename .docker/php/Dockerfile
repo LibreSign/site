@@ -44,6 +44,7 @@ fi
 EOF
 
 WORKDIR /var/www/html
+ENV HISTFILE=/dev/null
 USER www-data
 
 COPY entrypoint.sh /var/www/scripts/
