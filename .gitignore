@@ -12,7 +12,7 @@ npm-debug.log
 /source/_redirect/
 /source/_team/
 # Optional ignores
-# /build_staging/
+/build_staging/
 /build_production/
 /source/assets/compiled/
 /source/assets/build/
