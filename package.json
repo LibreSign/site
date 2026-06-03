@@ -3,6 +3,7 @@
     "scripts": {
         "dev": "NODE_ENV=development vite",
         "watch": "NODE_ENV=development vite build --watch",
+        "build-assets": "NODE_ENV=local vite build",
         "staging": "NODE_ENV=staging vite build",
         "prod": "NODE_ENV=production vite build"
     },

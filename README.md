@@ -22,7 +22,8 @@ The site is then served by nginx at <http://localhost/>.
 |---|---|---|
 | Dev server with hot-reload (HMR) | `npm run dev` | No — stays alive waiting for changes |
 | Watch mode (rebuild on save, no HMR) | `npm run watch` | No — stays alive |
-| Full asset build (for local nginx) | `npm run staging` | Yes |
+| **Build assets + local site** (for local nginx) | `npm run build-assets` | Yes |
+| Staging build | `npm run staging` | Yes |
 | Production build | `npm run prod` | Yes |
 
 > **Note:** `npm run dev` starts the Vite development server on port `3000` (mapped to the host via `HTTP_PORT_BROWSERSYNC`, default `3000`). It runs an initial Jigsaw build, prints "Initial Jigsaw build completed." and then waits for file changes with HMR. It is not supposed to exit — press Ctrl+C to stop it.
@@ -32,7 +33,7 @@ The site is then served by nginx at <http://localhost/>.
 Use this when you want to regenerate `build_local` manually and return to the prompt:
 
 ```bash
-docker compose exec php bash -lc "npm run staging && php vendor/bin/jigsaw build local"
+docker compose exec php bash -lc "npm run build-assets"
 ```
 
 ## Translations
