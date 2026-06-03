@@ -18,8 +18,8 @@ echo "Starting php container with SERVER_MODE=$MODE"
 if [[ "$MODE" == 'watch' ]]; then
     npm run watch
 else
-    if [[ ! -f "source/assets/build/mix-manifest.json" ]]; then
-        echo "Mix manifest missing. Running one-time asset build (npm run dev)..."
+    if [[ ! -f "source/assets/build/.vite/manifest.json" ]]; then
+        echo "Vite manifest missing. Running one-time asset build (npm run dev)..."
         npm run dev
     fi
 

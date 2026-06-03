@@ -305,18 +305,19 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/LibreSign/jigsaw-localization.git",
-                "reference": "c6766c3447a49960defa404f720286244b7f2dbf"
+                "url": "https://github.com/LibreSign/jigsaw-localization",
+                "reference": "9e75df308963bb624d2c7638c6077f7c58053999"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/c6766c3447a49960defa404f720286244b7f2dbf",
-                "reference": "c6766c3447a49960defa404f720286244b7f2dbf",
+                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/9e75df308963bb624d2c7638c6077f7c58053999",
+                "reference": "9e75df308963bb624d2c7638c6077f7c58053999",
                 "shasum": ""
             },
             "require": {
                 "elaborate-code/php-json-tongue": "^1.0",
-                "php": "^8.0"
+                "php": "^8.0",
+                "symfony/intl": "^6.0|^7.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8",
@@ -325,6 +326,9 @@
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "tightenco/jigsaw": "^1.7"
+            },
+            "suggest": {
+                "ext-intl": "For faster locale display name resolution"
             },
             "default-branch": true,
             "type": "library",
@@ -372,10 +376,7 @@
                 }
             ],
             "description": "Brings localization feature to \"tightenco/jigsaw\" using JSON files",
-            "support": {
-                "source": "https://github.com/LibreSign/jigsaw-localization/tree/main"
-            },
-            "time": "2025-03-23T10:36:23+00:00"
+            "time": "2026-06-03T01:54:30+00:00"
         },
         {
             "name": "elaborate-code/php-json-tongue",
@@ -3810,6 +3811,96 @@
                 }
             ],
             "time": "2026-05-24T11:20:33+00:00"
+        },
+        {
+            "name": "symfony/intl",
+            "version": "v7.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "7cfb7792d580dea833647420afd5f2f98df8457b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/7cfb7792d580dea833647420afd5f2f98df8457b",
+                "reference": "7cfb7792d580dea833647420afd5f2f98df8457b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3"
+            },
+            "conflict": {
+                "symfony/string": "<7.1"
+            },
+            "require-dev": {
+                "symfony/filesystem": "^6.4|^7.0|^8.0",
+                "symfony/var-exporter": "^6.4|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Intl\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/",
+                    "/Resources/data/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Eriksen Costa",
+                    "email": "eriksen.costa@infranology.com.br"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides access to the localization data of the ICU library",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "i18n",
+                "icu",
+                "internationalization",
+                "intl",
+                "l10n",
+                "localization"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/intl/tree/v7.4.8"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-03-30T12:55:43+00:00"
         },
         {
             "name": "symfony/mime",
