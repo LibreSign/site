@@ -76,7 +76,7 @@
     </section>
 
     <!-- ====== Target Audience Start ====== -->
-    <section class="ud-about ud-about-challenges">
+    <section class="ud-about ud-about-challenges" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -89,7 +89,7 @@
           </div>
         </div>
         <div class="row text-center justify-content-evenly gy-5">
-          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4" data-aos="fade-up" data-aos-delay="0">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
@@ -113,7 +113,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4" data-aos="fade-up" data-aos-delay="150">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
@@ -137,7 +137,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-card mb-4" data-aos="fade-up" data-aos-delay="300">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
@@ -166,7 +166,7 @@
     </section>
 
     <!-- ====== Features Start ====== -->
-    <section class="ud-features">
+    <section class="ud-features" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -179,7 +179,7 @@
           </div>
         </div>
         <div class="row text-center gy-5">
-          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center" data-aos="fade-up" data-aos-delay="0">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Advanced Security")}}</h5>
@@ -203,7 +203,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Hybrid Signatures")}}</h5>
@@ -227,7 +227,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center">
+          <div class="col-md-6 col-sm-12 col-12 text-card d-flex justify-content-center" data-aos="fade-up" data-aos-delay="300">
             <div class="main-cards">
               <div class="card-header-section">
                 <h5>{{ $page->t("Real-Time Monitoring.")}}</h5>
@@ -281,7 +281,7 @@
     <!-- ====== Features End ====== -->
 
     <!-- ====== Video Demo Section Start ====== -->
-    <section class="ud-video-demo">
+    <section class="ud-video-demo" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -310,7 +310,7 @@
     <!-- ====== Video Demo Section End ====== -->
 
     <!-- ====== Solutions Section Start ====== -->
-    <section class="ud-solutions">
+    <section class="ud-solutions" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -389,7 +389,7 @@
     <!-- ====== Solutions Section End ====== -->
 
     <!-- ====== Blog/Content Section Start ====== -->
-    <section class="ud-blog-section">
+    <section class="ud-blog-section" data-aos="fade-up">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12">
@@ -465,7 +465,7 @@
     <!-- ====== Blog/Content Section End ====== -->
 
     <!-- ====== CTA Start ====== -->
-    <section class="ud-cta-section">
+    <section class="ud-cta-section" data-aos="fade-up">
       <div class="container">
         <div class="ud-cta-section__content wow fadeInUp" data-aos-delay=".2s">
           <h2>{{ $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.') }}</h2>

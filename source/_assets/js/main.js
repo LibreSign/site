@@ -1,6 +1,14 @@
 require('bootstrap/dist/js/bootstrap.bundle.min.js');
 require('animate.css');
 
+const AOS = require('aos');
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out-quart',
+  once: true,
+  disable: 'mobile'
+});
+
 (function () {
   "use strict";
 
