@@ -1,18 +1,15 @@
 {
     "private": true,
     "scripts": {
-        "dev": "mix",
-        "watch": "mix watch",
-        "staging": "NODE_ENV=staging mix",
-        "prod": "mix --production"
+        "dev": "vite",
+        "watch": "vite build --watch",
+        "staging": "vite build",
+        "prod": "vite build"
     },
     "devDependencies": {
-        "browser-sync": "^3.0.3",
-        "browser-sync-webpack-plugin": "https://github.com/madbucket/browser-sync-webpack-plugin",
-        "laravel-mix": "^6.0.49",
-        "laravel-mix-jigsaw": "^2.1.1",
+        "@tighten/jigsaw-vite-plugin": "^2.0.0",
         "sass": "^1.85.1",
-        "sass-loader": "^12"
+        "vite": "^8.0.16"
     },
     "dependencies": {
         "@fontsource/montserrat": "^5.2.8",
@@ -20,8 +17,5 @@
         "aos": "^2.3.4",
         "bootstrap": "^5.3.8",
         "lineicons": "^1.0.3"
-    },
-    "overrides": {
-        "webpack": "5.106.2"
     }
 }

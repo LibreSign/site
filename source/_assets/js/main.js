@@ -1,7 +1,7 @@
-require('bootstrap/dist/js/bootstrap.bundle.min.js');
-require('animate.css');
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'animate.css';
 
-const AOS = require('aos');
+import AOS from 'aos';
 AOS.init({
   duration: 800,
   easing: 'ease-in-out-quart',

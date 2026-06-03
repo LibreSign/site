@@ -15,5 +15,7 @@ npm-debug.log
 # /build_staging/
 /build_production/
 /source/assets/compiled/
+/source/assets/build/
+/source/hot
 
 .env
