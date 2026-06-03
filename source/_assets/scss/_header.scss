@@ -1,3 +1,5 @@
+@use "variables" as *;
+@use "mixin" as *;
 /* ===== Header CSS ===== */
 .skip-to-content {
   position: absolute;
@@ -296,7 +298,7 @@
     display: none;
     flex-direction: column;
     gap: 8px;
-    
+
     &.show {
       display: flex;
     }

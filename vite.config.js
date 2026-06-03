@@ -16,7 +16,6 @@ export default defineConfig({
             scss: {
                 api: 'modern-compiler',
                 loadPaths: ['node_modules'],
-                silenceDeprecations: ['import', 'global-builtin'],
             },
         },
     },

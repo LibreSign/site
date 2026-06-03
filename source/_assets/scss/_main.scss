@@ -1,4 +1,5 @@
-@import "bootstrap/scss/bootstrap.scss";
+@use "variables" as *;
+@import "bootstrap/dist/css/bootstrap.css";
 @import "lineicons/web-font/lineicons.css";
 @import "aos/dist/aos.css";
 
