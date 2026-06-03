@@ -11,7 +11,6 @@ npm-debug.log
 /source/_posts/_translated_tmp/
 /source/_redirect/
 /source/_team/
-# Optional ignores
 /build_staging/
 /build_production/
 /source/assets/compiled/
