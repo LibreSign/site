@@ -63,9 +63,9 @@
               $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
               $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
             @endphp
-            <p>
+            <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
               @if (count($clientsSecondaryParts) === 2 && count($clientsSecondaryStrongParts) === 2)
-                {{ $clientsSecondaryParts[0] }}<span class="clients-highlight"><strong>{{ $clientsSecondaryStrongParts[0] }}</strong></span>{{ $clientsSecondaryStrongParts[1] }}
+                {{ $clientsSecondaryParts[0] }}<span class="clients-highlight animate__animated animate__pulse" style="animation-delay: 0.6s;"><strong>{{ $clientsSecondaryStrongParts[0] }}</strong></span>{{ $clientsSecondaryStrongParts[1] }}
               @else
                 {{ $clientsSecondaryWithCount }}
               @endif
