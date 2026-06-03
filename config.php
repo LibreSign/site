@@ -20,24 +20,8 @@ return [
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
         return json_decode($version)->version;
     },
-    'localeNames' => [
-        'en'    => 'English',
-        'cs'    => 'Čeština',
-        'fr'    => 'Français',
-        'nb-NO' => 'Norsk bokmål',
-        'pt'    => 'Português',
-        'pt-BR' => 'Português Brasil',
-        'ta'    => 'தமிழ்',
-    ],
     'locales' => function ($page) {
-        return $page->localization->keys()
-            ->mapWithKeys(function ($locale) use ($page) {
-                // The default locale maps to an empty string key (URL has no prefix)
-                $urlKey = ($locale === packageDefaultLocale($page)) ? '' : $locale;
-                $name = $page->localeNames[$locale] ?? $locale;
-                return [$urlKey => $name];
-            })
-            ->all();
+        return available_locales($page);
     },
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
@@ -259,17 +243,9 @@ return [
         ],
         'posts' => [
             'path' => function($page) {
-                $langs = $page->localization->keys()->all();
-                $lang = array_reduce($langs, function($carry, $lang) use ($page) {
-                    if (str_starts_with($page->_meta->filename, $lang . '_')) {
-                        return $lang;
-                    }
-                    return $carry;
-                }, '');
-                if ($lang) {
-                    return $lang . '/posts/' . Str::slug($page->title);
-                }
-                return 'posts/' . Str::slug($page->title);
+                $lang = collect($page->localization->keys())
+                    ->first(fn($locale) => str_starts_with($page->_meta->filename, $locale . '_'), '');
+                return ($lang ? $lang . '/' : '') . 'posts/' . Str::slug($page->title);
             },
             'author' => 'LibreSign',
             'map' => function ($post) {
