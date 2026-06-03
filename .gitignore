@@ -19,3 +19,4 @@ npm-debug.log
 /source/hot
 
 .env
+docker-compose.override.yml
