@@ -5,7 +5,7 @@
 ### Starting the stack
 
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 The `php` container builds the static site on startup and keeps `php-fpm` running so you can exec into it at any time:
@@ -14,7 +14,7 @@ The `php` container builds the static site on startup and keeps `php-fpm` runnin
 docker compose exec php bash
 ```
 
-The site is then served by nginx at <http://localhost:8086/>.
+The site is then served by nginx at <http://localhost/>.
 
 ### Asset and build commands
 
@@ -25,7 +25,7 @@ The site is then served by nginx at <http://localhost:8086/>.
 | Full asset build (for local nginx) | `npm run staging` | Yes |
 | Production build | `npm run prod` | Yes |
 
-> **Note:** `npm run dev` starts the Vite development server, runs an initial Jigsaw build, prints "Initial Jigsaw build completed." and then waits for file changes. It is not supposed to exit — press Ctrl+C to stop it.
+> **Note:** `npm run dev` starts the Vite development server on port `3000` (mapped to the host via `HTTP_PORT_BROWSERSYNC`, default `3000`). It runs an initial Jigsaw build, prints "Initial Jigsaw build completed." and then waits for file changes with HMR. It is not supposed to exit — press Ctrl+C to stop it.
 
 ### Force a full local rebuild
 
