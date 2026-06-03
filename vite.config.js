@@ -14,8 +14,9 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
+                api: 'modern-compiler',
                 loadPaths: ['node_modules'],
-                silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
+                silenceDeprecations: ['import', 'global-builtin'],
             },
         },
     },
