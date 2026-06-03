@@ -126,26 +126,6 @@
       }
     }
 
-    &.nav-item-has-children {
-      & > a {
-        position: relative;
-        padding-right: 20px;
-
-        &::after {
-          content: "";
-          position: absolute;
-          width: 0;
-          height: 0;
-          border-left: 7px solid transparent;
-          border-right: 7px solid transparent;
-          border-top: 7px solid white;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-        }
-      }
-    }
-
     .link-button {
       background-color: var(--secondary-color);
       color: var(--color-dark);
@@ -233,12 +213,7 @@
     z-index: 9;
     @include box-shadow(0px 15px 20px 0px rgba(0, 0, 0, 0.1));
     padding: 0 8px 16px;
-    display: none;
     color: var(--color-dark);
-
-    &.show {
-      display: block;
-    }
   }
 }
 
@@ -262,40 +237,13 @@
     position: relative;
     @include transition(0.3s);
   }
-
-  &.active {
-    & .toggler-icon {
-      &:nth-of-type(1) {
-        @include transform(rotate(45deg));
-        top: 7px;
-      }
-
-      &:nth-of-type(2) {
-        opacity: 0;
-      }
-
-      &:nth-of-type(3) {
-        @include transform(rotate(135deg));
-        top: -7px;
-      }
-    }
-  }
 }
 
 .selector {
   position: relative;
   padding: 8px 0;
-  cursor: pointer;
 
-  &:hover {
-    & > .ud-submenu {
-      opacity: 1;
-      visibility: visible;
-      top: 100%;
-    }
-  }
-
-  button {
+  .dropdown-toggle {
     background: none;
     border: none;
     color: white;
@@ -304,6 +252,7 @@
     gap: 8px;
     padding-right: 12px;
     cursor: pointer;
+    position: relative;
 
     &:focus {
       outline: 3px solid var(--focus-color);
@@ -325,23 +274,11 @@
       border-right: 7px solid transparent;
       border-top: 7px solid white;
       margin-top: 2px;
+      border-bottom: 0;
     }
   }
 
   .ud-submenu {
-    &::before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-      border-bottom: 8px solid var(--secondary-color);
-    }
-
     z-index: 100;
 
     position: absolute;
@@ -352,29 +289,16 @@
     padding: 8px 16px;
     box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
     border-radius: 8px;
-    opacity: 0;
-    visibility: hidden;
     left: 50%;
     transform: translateX(-50%);
     @include transition(0.3s);
 
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 8px;
     
-    &::after {
-      content: '';
-      position: absolute;
-      top: -16px;
-      left: 0;
-      right: 0;
-      height: 16px;
-    }
-
     &.show {
-      opacity: 1;
-      visibility: visible;
-      top: 100%;
+      display: flex;
     }
 
     .ud-submenu-link {
