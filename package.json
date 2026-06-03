@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^2.0.0",
-        "sass": "^1.85.1",
+        "sass": "^1.100.0",
         "vite": "^8.0.16"
     },
     "dependencies": {
@@ -17,6 +17,6 @@
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
         "bootstrap": "^5.3.8",
-        "lineicons": "^1.0.3"
+        "lineicons": "^1.3.2"
     }
 }
