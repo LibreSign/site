@@ -45,29 +45,28 @@
     ];
   @endphp
 
-  <section class="ud-ps-hero">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-xl-9 col-lg-10">
-          <span class="ud-ps-hero__eyebrow">{{ $page->t('Setor público') }}</span>
-          <h1 class="ud-ps-hero__title">
-            {{ $page->t('Assinatura digital: eficiência e validade para a gestão pública.') }}
-          </h1>
-          <p class="ud-ps-hero__description">
-            {{ $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.') }}
-          </p>
-          <div class="ud-ps-hero__actions">
-            <a href="{{ locale_url($page, 'contact-us') }}" class="ud-home-cta__btn ud-home-cta__btn--primary">
-              {{ $page->t('Solicite uma demonstração') }}
-            </a>
-            <a href="{{ locale_url($page, 'pricing') }}" class="ud-home-cta__btn ud-home-cta__btn--secondary">
-              {{ $page->t('Ver planos e preços') }}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('_partials.home.hero-section', [
+    'sectionClass' => 'ud-hero ud-hero--public-sector',
+    'imageWrapperClass' => 'ud-hero-image ud-hero-image--public-sector wow fadeInUp',
+    'contentWrapperClass' => 'ud-hero-content ud-hero-content--public-sector wow fadeInUp',
+    'imageSrc' => $page->baseUrl . 'assets/images/solutions/public-sector.png',
+    'imageAlt' => $page->t('Ilustração de gestão pública com assinatura digital'),
+    'eyebrow' => $page->t('Setor público'),
+    'title' => $page->t('Assinatura digital: eficiência e validade para a gestão pública.'),
+    'description' => $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.'),
+    'actions' => [
+      [
+        'href' => locale_url($page, 'contact-us'),
+        'label' => $page->t('Solicite uma demonstração'),
+        'class' => 'ud-main-btn w-100 text-center',
+      ],
+      [
+        'href' => locale_url($page, 'pricing'),
+        'label' => $page->t('Ver planos e preços'),
+        'class' => 'ud-secondary-btn w-100 text-center',
+      ],
+    ],
+  ])
 
   <div class="ud-ps-page">
     @include('_partials.home.card-grid-section', [

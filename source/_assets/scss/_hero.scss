@@ -144,6 +144,16 @@
         font-size: 18px;
       }
     }
+
+    .ud-hero-eyebrow {
+      color: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
   }
 
   // --- CTA buttons (scoped: pill-shape & colours apply only inside the hero) ---
@@ -174,6 +184,64 @@
         background: var(--white);
         color: #195458;
       }
+    }
+  }
+}
+
+.ud-hero--public-sector {
+  background: linear-gradient(135deg, #123c40 0%, #184c4e 45%, #00a3be 100%);
+  min-height: 980px;
+
+  @media #{$sm, $md, $lg} {
+    min-height: 900px;
+  }
+
+  @media #{$xs} {
+    min-height: auto;
+  }
+
+  .ud-hero-image--public-sector {
+    border-radius: 28px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.24);
+    height: auto;
+    inset: 124px 72px 88px auto;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: min(34vw, 560px);
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: 86% top;
+      width: 100%;
+    }
+
+    @media #{$xs, $sm} {
+      border-radius: 20px;
+      height: 360px;
+      inset: auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      img {
+        object-position: center top;
+      }
+    }
+  }
+
+  .ud-hero-content--public-sector {
+    max-width: 720px;
+
+    .ud-hero-title {
+      font-size: clamp(42px, 5vw, 72px);
+      max-width: 680px;
+    }
+
+    .ud-hero-desc {
+      font-size: clamp(18px, 1.8vw, 24px);
+      margin-bottom: 52px;
+      max-width: 620px;
     }
   }
 }

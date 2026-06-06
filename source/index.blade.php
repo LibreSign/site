@@ -3,37 +3,25 @@
 @section('body')
 
  <!-- ====== Principal Banner Start ====== -->
-    <section class="ud-hero">
-      <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
-        <img src="{{ $page->baseUrl }}assets/images/hero/hero-image.png" alt="{{ $page->t('Professional using digital signature') }}" />
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
-              <h1 class="ud-hero-title">
-                {{ $page->t("The secure and legally binding digital signature for your world.") }}
-              </h1>
-              <p class="ud-hero-desc">
-                {{ $page->t("Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.") }}
-              </p>
-              <div class="row justify-content-between ud-hero-buttons g-4">
-                <div class="col-sm-6 justify-content-center d-flex">
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn w-100 text-center">
-                    {{ $page->t('Try it For Free Now!') }}
-                  </a>
-                </div>
-                <div class="col-sm-6 justify-content-center d-flex">
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn w-100 text-center">
-                    {{ $page->t('Talk to Our Experts') }}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.hero-section', [
+      'sectionClass' => 'ud-hero',
+      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
+      'imageAlt' => $page->t('Professional using digital signature'),
+      'title' => $page->t('The secure and legally binding digital signature for your world.'),
+      'description' => $page->t('Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.'),
+      'actions' => [
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Try it For Free Now!'),
+          'class' => 'ud-main-btn w-100 text-center',
+        ],
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Talk to Our Experts'),
+          'class' => 'ud-secondary-btn w-100 text-center',
+        ],
+      ],
+    ])
     <!-- ====== Principal Banner End ====== -->
 
     <section class="ud-home-clients">

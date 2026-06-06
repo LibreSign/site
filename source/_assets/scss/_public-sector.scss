@@ -1,49 +1,5 @@
 @use "variables" as *;
 
-.ud-ps-hero {
-  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  padding-top: 132px;
-  padding-bottom: 88px;
-
-  @media #{$md, $sm, $xs} {
-    padding-top: 112px;
-    padding-bottom: 64px;
-  }
-
-  &__eyebrow {
-    color: rgba(255, 255, 255, 0.8);
-    display: inline-block;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-  }
-
-  &__title {
-    color: var(--white);
-    font-size: clamp(2.6rem, 4.5vw, 4.8rem);
-    font-weight: 800;
-    line-height: 1.08;
-    margin: 0 0 22px;
-  }
-
-  &__description {
-    color: rgba(255, 255, 255, 0.92);
-    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-    line-height: 1.75;
-    margin: 0 auto 36px;
-    max-width: 860px;
-  }
-
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    justify-content: center;
-  }
-}
-
 .ud-ps-page {
   .ud-home-section__subtitle {
     margin-left: auto;
