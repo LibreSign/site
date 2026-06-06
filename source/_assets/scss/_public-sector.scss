@@ -1,0 +1,369 @@
+@use "variables" as *;
+@use "mixin" as *;
+
+/* ===== Public Sector page ===== */
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
+.ud-ps-hero {
+  background-color: var(--primary-color);
+  padding-top: 140px;
+  padding-bottom: 88px;
+
+  @media #{$md, $sm, $xs} {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  &__label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 5px 16px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    color: var(--white);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 540px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+
+    .ud-secondary-btn {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: var(--white);
+      border-radius: 32px;
+      padding: 10px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: border-color 0.3s, background 0.3s;
+
+      &:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+
+  &__illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media #{$md, $sm, $xs} {
+      margin-top: 40px;
+    }
+  }
+
+  &__svg {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+
+    // Colorize SVG to match the site palette.
+    // Uses a CSS filter that converts black paths to the secondary-color (#00a3be).
+    // If the SVG uses currentColor or is inline, remove this filter.
+    filter: brightness(0) saturate(100%) invert(46%) sepia(91%) saturate(512%) hue-rotate(158deg) brightness(103%) contrast(101%);
+  }
+}
+
+// ── Shared section subtitle ────────────────────────────────────────────────────
+.ud-ps-section__subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-top: 16px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ── Challenges ────────────────────────────────────────────────────────────────
+.ud-ps-challenges {
+  background: var(--bg-light);
+  padding-top: 88px;
+  padding-bottom: 88px;
+
+  @media #{$md, $sm, $xs} {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .ud-section-title {
+    max-width: 640px;
+
+    h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--text-gray);
+      line-height: 1.3;
+    }
+  }
+}
+
+.ud-ps-challenge-card {
+  background: var(--white);
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 32px 28px;
+  height: 100%;
+  @include transition(0.3s);
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(24, 76, 78, 0.1);
+    transform: translateY(-3px);
+  }
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(24, 76, 78, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    i {
+      font-size: 24px;
+      color: var(--primary-color);
+    }
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  &__body {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+// ── Solutions ─────────────────────────────────────────────────────────────────
+.ud-ps-solutions {
+  background: var(--white);
+  padding-top: 88px;
+  padding-bottom: 88px;
+
+  @media #{$md, $sm, $xs} {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .ud-section-title {
+    max-width: 640px;
+
+    h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--text-gray);
+      line-height: 1.3;
+    }
+  }
+}
+
+.ud-ps-solution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ud-ps-solution-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(24, 76, 78, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 22px;
+      color: var(--primary-color);
+    }
+  }
+
+  &__content {
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-gray);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+}
+
+.ud-ps-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media #{$sm, $xs} {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ud-ps-stat {
+  background: var(--bg-light);
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #ececec;
+
+  &__number {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+}
+
+// ── Testimonial ───────────────────────────────────────────────────────────────
+.ud-ps-testimonial {
+  background: var(--primary-color);
+  padding-top: 72px;
+  padding-bottom: 72px;
+
+  @media #{$md, $sm, $xs} {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+.ud-ps-quote {
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  &__text {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    strong {
+      font-size: 16px;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+  }
+}
+
+// ── CTA ───────────────────────────────────────────────────────────────────────
+.ud-ps-cta {
+  background: var(--bg-light);
+  padding-top: 88px;
+  padding-bottom: 88px;
+
+  @media #{$md, $sm, $xs} {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__title {
+    font-size: clamp(24px, 3.5vw, 40px);
+    font-weight: 800;
+    color: var(--text-gray);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+
+    .ud-secondary-btn {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: 32px;
+      padding: 10px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.3s, color 0.3s;
+
+      &:hover {
+        background: var(--primary-color);
+        color: var(--white);
+      }
+    }
+  }
+}
