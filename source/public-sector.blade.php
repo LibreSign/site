@@ -46,9 +46,7 @@
   @endphp
 
   @include('_partials.home.hero-section', [
-    'sectionClass' => 'ud-hero ud-hero--public-sector',
     'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/public-sector-background.png')",
-    'contentWrapperClass' => 'ud-hero-content wow fadeInUp',
     'title' => $page->t('Assinatura digital: eficiência e validade para a gestão pública.'),
     'description' => $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.'),
     'actions' => [

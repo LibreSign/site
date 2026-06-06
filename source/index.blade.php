@@ -4,7 +4,6 @@
 
  <!-- ====== Principal Banner Start ====== -->
     @include('_partials.home.hero-section', [
-      'sectionClass' => 'ud-hero',
       'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure and legally binding digital signature for your world.'),
