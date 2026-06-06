@@ -22,16 +22,19 @@
 
     $companyTestimonials = [
       [
+        'photo' => $page->baseUrl . 'assets/images/solutions/testimonial-1.png',
         'name' => $page->t('Leonardo Machado'),
         'role' => $page->t('CEO da Garbo Marketing'),
         'quote' => $page->t('O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.'),
       ],
       [
+        'photo' => $page->baseUrl . 'assets/images/solutions/testimonial-2.png',
         'name' => $page->t('Leonardo Machado'),
         'role' => $page->t('CEO da Garbo Marketing'),
         'quote' => $page->t('O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.'),
       ],
       [
+        'photo' => $page->baseUrl . 'assets/images/solutions/testimonial-3.png',
         'name' => $page->t('Leonardo Machado'),
         'role' => $page->t('CEO da Garbo Marketing'),
         'quote' => $page->t('O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.'),
@@ -106,8 +109,8 @@
           @foreach ($companyTestimonials as $item)
             <div class="col-xl-4 col-md-6 d-flex">
               <article class="ud-cs-testimonial-card">
-                <div class="ud-cs-testimonial-card__avatar" aria-hidden="true">
-                  <i class="lni lni-user"></i>
+                <div class="ud-cs-testimonial-card__avatar">
+                  <img src="{{ $item['photo'] }}" alt="{{ $item['name'] }}" />
                 </div>
                 <h4 class="ud-cs-testimonial-card__name">{{ $item['name'] }}</h4>
                 <p class="ud-cs-testimonial-card__role">{{ $item['role'] }}</p>

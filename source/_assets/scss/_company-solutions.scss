@@ -196,15 +196,19 @@
   width: 100%;
 
   &__avatar {
-    align-items: center;
-    background: rgba(255, 255, 255, 0.18);
     border-radius: 50%;
-    display: flex;
-    font-size: 44px;
-    height: 108px;
-    justify-content: center;
-    margin-bottom: 22px;
-    width: 108px;
+    height: 130px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 130px;
+    flex-shrink: 0;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      width: 100%;
+    }
   }
 
   &__name {
