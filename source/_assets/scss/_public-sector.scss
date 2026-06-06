@@ -93,11 +93,6 @@
     width: 100%;
     max-width: 520px;
     height: auto;
-
-    // Colorize SVG to match the site palette.
-    // Uses a CSS filter that converts black paths to the secondary-color (#00a3be).
-    // If the SVG uses currentColor or is inline, remove this filter.
-    filter: brightness(0) saturate(100%) invert(46%) sepia(91%) saturate(512%) hue-rotate(158deg) brightness(103%) contrast(101%);
   }
 }
 

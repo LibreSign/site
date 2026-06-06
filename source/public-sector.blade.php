@@ -26,7 +26,7 @@
         <div class="col-lg-6">
           <div class="ud-ps-hero__illustration">
             <img
-              src="{{ $page->baseUrl }}assets/images/solutions/public-sector.svg"
+              src="{{ $page->baseUrl }}assets/images/solutions/public-sector.png"
               alt="{{ $page->t('Ilustração do setor público') }}"
               class="ud-ps-hero__svg"
             />
