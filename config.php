@@ -116,23 +116,22 @@ return [
             'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
             'author' => 'Igor Afonso Oliveira Ruas'
         ],
-
-
-    ],
-    'companyTestimonials' => [
         [
+            'section' => 'company',
             'photo' => '/assets/images/solutions/testimonial-1.png',
             'name' => 'Leonardo Machado',
             'role' => 'CEO of Garbo Marketing',
             'quote' => 'LibreSign is a modern, secure, and practical solution that streamlines contract signing and ensures transparency and traceability throughout the process.',
         ],
         [
+            'section' => 'company',
             'photo' => '/assets/images/solutions/testimonial-2.png',
             'name' => 'Leonardo Machado',
             'role' => 'CEO of Garbo Marketing',
             'quote' => 'LibreSign is a modern, secure, and practical solution that streamlines contract signing and ensures transparency and traceability throughout the process.',
         ],
         [
+            'section' => 'company',
             'photo' => '/assets/images/solutions/testimonial-3.png',
             'name' => 'Leonardo Machado',
             'role' => 'CEO of Garbo Marketing',

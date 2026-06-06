@@ -20,7 +20,7 @@
       ],
     ];
 
-    $companyTestimonials = $page->companyTestimonials ?? [];
+    $companyTestimonials = collect($page->testimonials ?? [])->filter(fn ($item) => ($item->section ?? null) === 'company')->values();
   @endphp
 
   @include('_partials.home.hero-section', [

@@ -4,7 +4,7 @@
     <button class="pre-btn"><img src="{{ $page->baseUrl }}assets/images/arrow.png" alt="Go back pagination of testimonials"></button>
     <button class="nxt-btn"><img src="{{ $page->baseUrl }}assets/images/arrow.png" alt="Show more testimonials of the caroseul"></button>
     <div class="testimonial-container">
-        @foreach($page->testimonials as $itens => $topics)
+        @foreach(collect($page->testimonials)->filter(fn ($topics) => ($topics->section ?? null) !== 'company') as $itens => $topics)
             <div class="testimonial-card">
                 <div class="testimonial_color_stars">
                     <i class="lni lni-star-fat"></i>
