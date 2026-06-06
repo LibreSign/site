@@ -7,8 +7,40 @@
       </a>
       <div class="collapse navbar-collapse mx-auto" id="main-navigation">
         <ul class="navbar-nav container">
-          <li class="nav-item">
-              <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'solutions') }}">{{$page->t("Solutions")}}</a>
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="solutions-menu-toggle"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+               aria-label="{{ $page->t('Open solutions submenu') }}">
+              {{ $page->t("Solutions") }}
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                aria-labelledby="solutions-menu-toggle"
+                aria-label="{{ $page->t('Solutions submenu') }}">
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'lawyers') }}">
+                  {{ $page->t('Lawyers') }}
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'tecnical-details') }}">
+                  {{ $page->t('IT Professionals') }}
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'company-solutions') }}">
+                  {{ $page->t('Companies') }}
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'public-sector') }}">
+                  {{ $page->t('Public Sector') }}
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'features') }}">{{$page->t("Features")}}</a>

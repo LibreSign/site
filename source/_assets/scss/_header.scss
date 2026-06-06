@@ -100,7 +100,7 @@
   & .nav-item {
     position: relative;
 
-    & > a {
+    & > .nav-link {
       font-size: 16px;
       font-weight: 400;
       color: var(--white);
@@ -115,16 +115,130 @@
       }
 
       &:hover:not(.link-button),
-      &.active:not(.link-button) {
+      &.active:not(.link-button),
+      &.show:not(.link-button) {
         color: var(--white);
         opacity: 0.5;
       }
     }
 
     &:hover {
-      & > a:not(.link-button) {
+      & > .nav-link:not(.link-button) {
         color: var(--white);
         opacity: 0.5;
+      }
+    }
+
+    .ud-nav-dropdown-toggle {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      line-height: 1.5;
+      margin: 0;
+      min-height: 40px;
+      text-decoration: none;
+      text-align: left;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        margin-left: 0;
+        margin-top: 2px;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid currentColor;
+        border-bottom: 0;
+        transform-origin: center;
+        @include transition(0.3s);
+      }
+
+      &:hover,
+      &:focus,
+      &.show {
+        color: var(--white);
+      }
+
+      &.show::after {
+        transform: rotate(180deg);
+        margin-top: -2px;
+      }
+
+      @media #{$md, $sm, $xs} {
+        justify-content: flex-start;
+      }
+    }
+
+    .ud-nav-submenu {
+      margin-top: 12px;
+      min-width: 220px;
+      padding: 8px;
+      border: none;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 15px 44px rgba(140, 140, 140, 0.18);
+
+      li + li {
+        margin-top: 4px;
+      }
+
+      .ud-nav-submenu-link {
+        border-radius: 8px;
+        color: var(--heading-color);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 10px 14px;
+        white-space: normal;
+
+        &:hover,
+        &:focus {
+          background: rgba(24, 76, 78, 0.08);
+          color: var(--primary-color);
+        }
+
+        &:focus {
+          outline: 2px solid var(--focus-color);
+          outline-offset: 2px;
+        }
+      }
+
+      @media #{$md, $sm, $xs} {
+        min-width: 0;
+        width: 100%;
+        margin-top: 4px;
+        padding: 8px 0 0 16px;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        position: static;
+        transform: none !important;
+        inset: auto !important;
+
+        li + li {
+          margin-top: 0;
+        }
+
+        .ud-nav-submenu-link {
+          color: var(--white);
+          font-size: 15px;
+          font-weight: 400;
+          opacity: 0.85;
+          padding: 8px 0;
+
+          &:hover,
+          &:focus {
+            background: transparent;
+            color: var(--white);
+            opacity: 1;
+          }
+        }
       }
     }
 
