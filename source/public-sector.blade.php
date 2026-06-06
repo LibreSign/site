@@ -4,42 +4,42 @@
   @php
     $publicSectorChallengeItems = [
       [
-        'title' => $page->t('Segurança e Validade Jurídica'),
+        'title' => $page->t('Security and Legal Validity'),
         'icon' => $page->baseUrl . 'assets/images/solutions/challenge-legal-icon.svg',
-        'body' => $page->t('Garanta a integridade, autenticidade e validade legal de cada documento, com assinaturas digitais conforme a legislação vigente.'),
+        'body' => $page->t('Ensure the integrity, authenticity, and legal validity of every document with digital signatures compliant with current regulations.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
-        'title' => $page->t('Otimização de Recursos Públicos'),
+        'title' => $page->t('Optimization of Public Resources'),
         'icon' => $page->baseUrl . 'assets/images/solutions/challenge-resources-icon.svg',
-        'body' => $page->t('Reduza custos com papel, impressão e logística. Direcione os recursos públicos para o que realmente importa: o cidadão.'),
+        'body' => $page->t('Reduce costs with paper, printing, and logistics. Redirect public resources to what truly matters: citizens.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
-        'title' => $page->t('Transparência e Rastreabilidade Total'),
+        'title' => $page->t('Full Transparency and Traceability'),
         'icon' => $page->baseUrl . 'assets/images/solutions/challenge-transparency-icon.svg',
-        'body' => $page->t('Cada assinatura é um registro auditável. Ofereça total transparência ao cidadão e facilite auditorias internas e externas.'),
+        'body' => $page->t('Every signature is an auditable record. Provide full transparency to citizens and simplify internal and external audits.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
     ];
 
     $publicSectorProcessItems = [
       [
-        'title' => $page->t('Carregue o Documento'),
+        'title' => $page->t('Upload the Document'),
         'icon' => $page->baseUrl . 'assets/images/solutions/process-upload-icon.png',
-        'body' => $page->t('Deixe o processo de lado. Simplesmente envie o documento para a plataforma, seja por upload ou integração.'),
+        'body' => $page->t('Leave bureaucracy behind. Simply send the document to the platform, either by upload or integration.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
-        'title' => $page->t('Assine e Envie'),
+        'title' => $page->t('Sign and Send'),
         'icon' => $page->baseUrl . 'assets/images/solutions/process-sign-icon.png',
-        'body' => $page->t('Assine o documento de forma eletrônica e convide outras partes para assinar de forma rápida e segura.'),
+        'body' => $page->t('Sign the document electronically and invite other parties to sign quickly and securely.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
-        'title' => $page->t('Valide e Arquive'),
+        'title' => $page->t('Validate and Archive'),
         'icon' => $page->baseUrl . 'assets/images/solutions/process-validate-icon.png',
-        'body' => $page->t('Acesse o histórico de assinaturas, valide a autentcidade do documento e armazene-o de forma segura, com total validade jurídica.'),
+        'body' => $page->t('Access signature history, validate document authenticity, and store it securely with full legal validity.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
     ];
@@ -47,17 +47,17 @@
 
   @include('_partials.home.hero-section', [
     'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/public-sector-background.png')",
-    'title' => $page->t('Assinatura digital: eficiência e validade para a gestão pública.'),
-    'description' => $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.'),
+    'title' => $page->t('Digital signatures: efficiency and legal validity for public administration.'),
+    'description' => $page->t('Streamline workflows with secure technology, ensuring transparency, traceability, and legal compliance for your organization.'),
     'actions' => [
       [
         'href' => locale_url($page, 'contact-us'),
-        'label' => $page->t('Solicite uma demonstração'),
+        'label' => $page->t('Request a demo'),
         'class' => 'ud-main-btn w-100 text-center',
       ],
       [
         'href' => locale_url($page, 'pricing'),
-        'label' => $page->t('Ver planos e preços'),
+        'label' => $page->t('View plans and pricing'),
         'class' => 'ud-secondary-btn w-100 text-center',
       ],
     ],
@@ -66,13 +66,13 @@
   <div class="ud-ps-page">
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-challenges ud-ps-section',
-      'title' => $page->t('Desafios do Setor Público que o LibreSign Transforma em Soluções.'),
-      'subtitle' => $page->t('Documentos físicos, processos lentos e a insegurança da gestão manual são dores do passado. Descubra como o LibreSign moderniza o seu órgão.'),
+      'title' => $page->t('Public Sector Challenges LibreSign Turns into Solutions.'),
+      'subtitle' => $page->t('Physical documents, slow workflows, and the insecurity of manual management are problems of the past. Discover how LibreSign modernizes your organization.'),
       'items' => $publicSectorChallengeItems,
       'sectionActions' => [
         [
           'href' => '#public-sector-process',
-          'label' => $page->t('Conheça Nossos Recursos'),
+          'label' => $page->t('Explore Our Features'),
           'class' => 'ud-main-btn ud-ps-section__cta',
         ],
       ],
@@ -82,9 +82,9 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
-            <h3 class="ud-ps-process__title">{{ $page->t('Transforme seus Processos em 3 Passos Simples.') }}</h3>
+            <h3 class="ud-ps-process__title">{{ $page->t('Transform Your Workflows in 3 Simple Steps.') }}</h3>
             <p class="ud-ps-process__subtitle">
-              {{ $page->t('Com a nossa plataforma, assinar, gerenciar e arquivar documentos nunca foi tão seguro e descomplicado para o seu órgão.') }}
+              {{ $page->t('With our platform, signing, managing, and archiving documents has never been safer or simpler for your organization.') }}
             </p>
           </div>
         </div>
@@ -105,10 +105,10 @@
 
         <div class="ud-ps-process__actions">
           <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-ps-process__btn ud-ps-process__btn--primary">
-            {{ $page->t('Ver Planos e Preços') }}
+            {{ $page->t('View Plans and Pricing') }}
           </a>
           <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-ps-process__btn ud-ps-process__btn--secondary">
-            {{ $page->t('Fale com Nossos Especialistas') }}
+            {{ $page->t('Talk to Our Specialists') }}
           </a>
         </div>
       </div>
