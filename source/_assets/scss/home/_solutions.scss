@@ -1,0 +1,119 @@
+@use "../variables" as *;
+
+.ud-home-solutions {
+  background: var(--bg-light);
+
+  .ud-home-section {
+    &__title {
+      color: var(--primary-color);
+    }
+
+    &__subtitle {
+      color: #3d4a5c;
+      font-size: 18px;
+    }
+  }
+}
+
+.ud-home-solution-card {
+  background: var(--white);
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--ud-home-solutions-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  padding: 40px 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+  }
+
+  &__icon {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 180px;
+    justify-content: center;
+    margin: 0 auto 24px;
+    padding: 12px;
+    width: 180px;
+
+    @media #{$md, $sm, $xs} {
+      height: 150px;
+      padding: 10px;
+      width: 150px;
+    }
+
+    img {
+      display: block;
+      filter: none;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      width: 100%;
+
+      @media #{$md, $sm, $xs} {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    min-height: 60px;
+  }
+
+  &__body {
+    color: var(--text-muted);
+    flex-grow: 1;
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  &__action {
+    align-items: center;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 18px;
+    color: var(--primary-color);
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    max-width: 100%;
+    min-height: 64px;
+    overflow-wrap: anywhere;
+    padding: 10px 12px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    white-space: normal;
+    width: 100%;
+    word-break: break-word;
+
+    @media #{$xs, $sm} {
+      font-size: 13px;
+      min-height: 56px;
+      padding: 10px;
+    }
+
+    @media #{$laptop} {
+      font-size: 13px;
+    }
+
+    &:hover {
+      background-color: rgba(24, 76, 78, 0.08);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../variables" as *;
+
+.ud-home-clients {
+  background-color: var(--white);
+  padding-top: 84px;
+  padding-bottom: 36px;
+
+  @media #{$xs} {
+    padding-top: 60px;
+    padding-bottom: 28px;
+  }
+
+  &__headline {
+    color: var(--ud-home-clients-text-color);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+
+    @media #{$xs} {
+      font-size: 36px;
+    }
+  }
+
+  &__logos {
+    margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 0;
+    }
+  }
+
+  &__logo-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__summary {
+    width: 100%;
+  }
+
+  &__summary-text {
+    color: var(--ud-home-clients-text-color);
+    font-size: 48px;
+    line-height: normal;
+    margin-top: 72px;
+    margin-bottom: 0;
+    text-align: center;
+
+    @media #{$xs} {
+      font-size: 36px;
+      margin-top: 32px;
+    }
+
+    @media #{$sm} {
+      margin-top: 36px;
+    }
+  }
+
+  &__highlight {
+    color: var(--ud-home-clients-text-color);
+    font-weight: 700;
+  }
+}

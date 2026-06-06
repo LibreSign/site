@@ -132,6 +132,129 @@
   }
 }
 
+.ud-contact-sales {
+  padding: 100px 0;
+  background: var(--bg-light);
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .contact-info-wrapper {
+    padding-right: 40px;
+
+    @media #{$md, $sm, $xs} {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+
+    .contact-title {
+      font-size: 42px;
+      font-weight: bold;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+
+      @media #{$sm, $xs} {
+        font-size: 32px;
+      }
+    }
+
+    .contact-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--heading-color);
+    }
+
+    .contact-benefits {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        padding-left: 30px;
+        position: relative;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-gray);
+
+        &:before {
+          content: "●";
+          position: absolute;
+          left: 0;
+          color: var(--accent-color);
+          font-size: 20px;
+        }
+
+        strong {
+          color: var(--heading-color);
+        }
+      }
+    }
+  }
+
+  .contact-form-wrapper {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
+    @media #{$xs} {
+      padding: 30px 20px;
+    }
+
+    .ud-contact-form-wrapper {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .ud-form-group {
+      margin-bottom: 20px;
+
+      label {
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid var(--border-input);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: var(--primary-color);
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .ud-main-btn {
+      background: var(--accent-color);
+
+      &:hover {
+        background: var(--primary-color);
+      }
+    }
+  }
+}
+
 .size-box-pricing {
   height: 310px;
 }
