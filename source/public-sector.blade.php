@@ -26,20 +26,20 @@
     $publicSectorProcessItems = [
       [
         'title' => $page->t('Carregue o Documento'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
-        'body' => $page->t('Envie o documento para a plataforma, seja por upload ou integração, e inicie o fluxo sem burocracia.'),
+        'icon' => $page->baseUrl . 'assets/images/solutions/process-upload-icon.png',
+        'body' => $page->t('Deixe o processo de lado. Simplesmente envie o documento para a plataforma, seja por upload ou integração.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
         'title' => $page->t('Assine e Envie'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/advanced-security.svg',
-        'body' => $page->t('Assine eletronicamente e convide outras partes para concluir o processo com rapidez e segurança.'),
+        'icon' => $page->baseUrl . 'assets/images/solutions/process-sign-icon.png',
+        'body' => $page->t('Assine o documento de forma eletrônica e convide outras partes para assinar de forma rápida e segura.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
         'title' => $page->t('Valide e Arquive'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/qrcode-validation.svg',
-        'body' => $page->t('Valide a autenticidade, acompanhe o histórico de assinaturas e arquive com total validade jurídica.'),
+        'icon' => $page->baseUrl . 'assets/images/solutions/process-validate-icon.png',
+        'body' => $page->t('Acesse o histórico de assinaturas, valide a autentcidade do documento e armazene-o de forma segura, com total validade jurídica.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
     ];
@@ -72,39 +72,48 @@
       'items' => $publicSectorChallengeItems,
       'sectionActions' => [
         [
-          'href' => '#public-sector-resources',
+          'href' => '#public-sector-process',
           'label' => $page->t('Conheça Nossos Recursos'),
           'class' => 'ud-main-btn ud-ps-section__cta',
         ],
       ],
     ])
 
-    @include('_partials.home.card-grid-section', [
-      'sectionClass' => 'ud-home-benefits ud-ps-section ud-ps-section--process',
-      'title' => $page->t('Transforme seus processos em 3 passos simples.'),
-      'subtitle' => $page->t('Com a nossa plataforma, assinar, gerenciar e arquivar documentos nunca foi tão seguro e descomplicado para o seu órgão.'),
-      'items' => $publicSectorProcessItems,
-      'rowClass' => 'row text-center justify-content-center gy-5 align-items-stretch',
-    ])
+    <section id="public-sector-process" class="ud-ps-process">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-10">
+            <h3 class="ud-ps-process__title">{{ $page->t('Transforme seus Processos em 3 Passos Simples.') }}</h3>
+            <p class="ud-ps-process__subtitle">
+              {{ $page->t('Com a nossa plataforma, assinar, gerenciar e arquivar documentos nunca foi tão seguro e descomplicado para o seu órgão.') }}
+            </p>
+          </div>
+        </div>
 
-    @include('_partials.home.cta-section', [
-      'sectionClass' => 'ud-home-cta ud-ps-cta',
-      'sectionId' => 'public-sector-resources',
-      'title' => $page->t('Conheça nossos recursos para modernizar a gestão pública.'),
-      'description' => $page->t('Leve mais eficiência, validade jurídica e transparência para os fluxos documentais do seu órgão com LibreSign.'),
-      'actions' => [
-        [
-          'href' => locale_url($page, 'contact-us'),
-          'label' => $page->t('Fale com nossos especialistas'),
-          'class' => 'ud-home-cta__btn ud-home-cta__btn--primary',
-        ],
-        [
-          'href' => locale_url($page, 'register'),
-          'label' => $page->t('Experimente gratuitamente'),
-          'class' => 'ud-home-cta__btn ud-home-cta__btn--secondary',
-        ],
-      ],
-    ])
+        <div class="row justify-content-center text-center gy-5 ud-ps-process__steps">
+          @foreach ($publicSectorProcessItems as $item)
+            <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+              <article class="ud-ps-process-step">
+                <div class="ud-ps-process-step__icon">
+                  <img src="{{ $item['icon'] }}" alt="" />
+                </div>
+                <h4 class="ud-ps-process-step__title">{{ $item['title'] }}</h4>
+                <p class="ud-ps-process-step__body">{{ $item['body'] }}</p>
+              </article>
+            </div>
+          @endforeach
+        </div>
+
+        <div class="ud-ps-process__actions">
+          <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-ps-process__btn ud-ps-process__btn--primary">
+            {{ $page->t('Ver Planos e Preços') }}
+          </a>
+          <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-ps-process__btn ud-ps-process__btn--secondary">
+            {{ $page->t('Fale com Nossos Especialistas') }}
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 
 @endsection

@@ -69,16 +69,126 @@
 
 .ud-ps-section--process {
   background: #f7faf9;
+}
 
-  .ud-home-card {
-    background: var(--white);
+.ud-ps-process {
+  background: #2d3748;
+  padding: 88px 0;
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
   }
 
-  .ud-home-card__icon {
-    background: rgba(0, 163, 190, 0.1);
+  &__title {
+    color: var(--white);
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 860px;
+  }
+
+  &__steps {
+    margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 48px;
+    }
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media #{$xs, $sm} {
+      margin-top: 40px;
+    }
+  }
+
+  &__btn {
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 56px;
+    min-width: 240px;
+    padding: 14px 28px;
+    text-align: center;
+  }
+
+  &__btn--primary {
+    background: #d97706;
+    border-color: #d97706;
+    color: var(--white);
+
+    &:hover {
+      background: #c56c04;
+      border-color: #c56c04;
+      color: var(--white);
+    }
+  }
+
+  &__btn--secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: var(--white);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
   }
 }
 
-.ud-ps-cta {
-  background: var(--primary-color);
+.ud-ps-process-step {
+  align-items: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 300px;
+  text-align: center;
+
+  &__icon {
+    align-items: center;
+    display: flex;
+    height: 115px;
+    justify-content: center;
+    margin-bottom: 28px;
+
+    img {
+      display: block;
+      height: auto;
+      max-height: 115px;
+      max-width: 180px;
+      width: auto;
+    }
+  }
+
+  &__title {
+    color: var(--white);
+    font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 24px;
+  }
+
+  &__body {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
+  }
 }
