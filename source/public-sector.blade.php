@@ -47,10 +47,7 @@
 
   @include('_partials.home.hero-section', [
     'sectionClass' => 'ud-hero ud-hero--public-sector',
-    'imageWrapperClass' => 'ud-hero-image ud-hero-image--public-sector wow fadeInUp',
     'contentWrapperClass' => 'ud-hero-content ud-hero-content--public-sector wow fadeInUp',
-    'imageSrc' => $page->baseUrl . 'assets/images/solutions/public-sector.png',
-    'imageAlt' => $page->t('Ilustração de gestão pública com assinatura digital'),
     'eyebrow' => $page->t('Setor público'),
     'title' => $page->t('Assinatura digital: eficiência e validade para a gestão pública.'),
     'description' => $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.'),
