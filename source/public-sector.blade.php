@@ -48,7 +48,6 @@
   @include('_partials.home.hero-section', [
     'sectionClass' => 'ud-hero ud-hero--public-sector',
     'contentWrapperClass' => 'ud-hero-content ud-hero-content--public-sector wow fadeInUp',
-    'eyebrow' => $page->t('Setor público'),
     'title' => $page->t('Assinatura digital: eficiência e validade para a gestão pública.'),
     'description' => $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.'),
     'actions' => [
