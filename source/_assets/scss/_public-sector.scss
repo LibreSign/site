@@ -13,6 +13,25 @@
 }
 
 .ud-ps-section {
+  .ud-home-section__actions {
+    .ud-ps-section__cta {
+      background: var(--primary-color);
+      border-radius: 999px;
+      color: var(--white);
+      display: inline-flex;
+      font-size: 0.95rem;
+      font-weight: 700;
+      justify-content: center;
+      min-height: 52px;
+      padding: 12px 28px;
+
+      &:hover {
+        background: var(--secondary-color);
+        color: var(--white);
+      }
+    }
+  }
+
   .ud-home-card {
     border: 1px solid #ececec;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);

@@ -48,5 +48,15 @@
         </div>
       @endforeach
     </div>
+
+    @if (!empty($sectionActions ?? []))
+      <div class="ud-home-section__actions text-center mt-5">
+        @foreach ($sectionActions as $action)
+          <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'ud-main-btn' }}">
+            {{ $action['label'] }}
+          </a>
+        @endforeach
+      </div>
+    @endif
   </div>
 </section>

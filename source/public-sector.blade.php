@@ -70,6 +70,13 @@
       'title' => $page->t('Desafios do setor público que o LibreSign transforma em soluções.'),
       'subtitle' => $page->t('Documentos físicos, processos lentos e insegurança operacional dão lugar a fluxos digitais confiáveis, auditáveis e eficientes.'),
       'items' => $publicSectorChallengeItems,
+      'sectionActions' => [
+        [
+          'href' => '#public-sector-resources',
+          'label' => $page->t('Conheça Nossos Recursos'),
+          'class' => 'ud-main-btn ud-ps-section__cta',
+        ],
+      ],
     ])
 
     @include('_partials.home.card-grid-section', [
@@ -82,6 +89,7 @@
 
     @include('_partials.home.cta-section', [
       'sectionClass' => 'ud-home-cta ud-ps-cta',
+      'sectionId' => 'public-sector-resources',
       'title' => $page->t('Conheça nossos recursos para modernizar a gestão pública.'),
       'description' => $page->t('Leve mais eficiência, validade jurídica e transparência para os fluxos documentais do seu órgão com LibreSign.'),
       'actions' => [
