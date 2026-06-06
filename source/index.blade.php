@@ -78,181 +78,97 @@
     </section>
 
     <!-- ====== Challenges Section Start ====== -->
-    <section class="ud-home-challenges" data-aos="fade-up">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="ud-home-section__title">{{ $page->t("Eliminate Bureaucracy, Ensure Security: LibreSign Solves Your Biggest Challenges.")}}</h3>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <p class="ud-home-section__subtitle">{{ $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for.") }}</p>
-          </div>
-        </div>
-        <div class="row text-center justify-content-evenly gy-5 align-items-stretch">
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="0">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Legal Validity and Undisputed Compliance?")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/legal-validity.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Minimize risks and ensure the authenticity of each document with electronic signatures that fully comply with the LGPD and current legislation.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn">
-                  {{ $page->t('Learn More for the Public Sector') }}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="150">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Simple, Secure and Affordable Digital Signature?")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/digital-signature.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Optimize your workflows, strengthen governance, and reduce operational costs without sacrificing security or ease of use.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn">
-                  {{ $page->t('Discover Solutions for Your Company.') }}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Total Control and Flexibility to Integrate?")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/integration-flexibility.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn">
-                  {{ $page->t('Technical Details for IT.') }}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @php
+      $homeChallengeItems = [
+        [
+          'title' => $page->t('Legal Validity and Undisputed Compliance?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
+          'body' => $page->t('Minimize risks and ensure the authenticity of each document with electronic signatures that fully comply with the LGPD and current legislation.'),
+          'actions' => [[
+            'href' => locale_url($page, 'public-sector'),
+            'label' => $page->t('Learn More for the Public Sector'),
+          ]],
+        ],
+        [
+          'title' => $page->t('Simple, Secure and Affordable Digital Signature?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
+          'body' => $page->t('Optimize your workflows, strengthen governance, and reduce operational costs without sacrificing security or ease of use.'),
+          'actions' => [[
+            'href' => locale_url($page, 'company-solutions'),
+            'label' => $page->t('Discover Solutions for Your Company.'),
+          ]],
+        ],
+        [
+          'title' => $page->t('Total Control and Flexibility to Integrate?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/integration-flexibility.svg',
+          'body' => $page->t('Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.'),
+          'actions' => [[
+            'href' => locale_url($page, 'tecnical-details'),
+            'label' => $page->t('Technical Details for IT.'),
+          ]],
+        ],
+      ];
+    @endphp
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-challenges',
+      'title' => $page->t("Eliminate Bureaucracy, Ensure Security: LibreSign Solves Your Biggest Challenges."),
+      'subtitle' => $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for."),
+      'items' => $homeChallengeItems,
+    ])
     <!-- ====== Challenges Section End ====== -->
 
     <!-- ====== Benefits Start ====== -->
-    <section class="ud-home-benefits" data-aos="fade-up">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="ud-home-section__title">{{ $page->t("Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.")}}</h3>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <p class="ud-home-section__subtitle">{{ $page->t("More than a tool, a strategic partner for digital efficiency and security.") }}</p>
-          </div>
-        </div>
-        <div class="row text-center gy-5 align-items-stretch">
-          <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="0">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Advanced Security")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/advanced-security.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Keep your documents secure with end-to-end encryption and multi-layer authentication, ensuring protection throughout the entire electronic document signing process.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
-                  {{ $page->t('Explore all the advantages of LibreSign') }}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="150">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Hybrid Signatures")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/hybrid-signatures.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Hybrid signatures simplify negotiation processes by offering flexibility in choosing between personal or system-generated digital certificates to digitally sign documents with LibreSign.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
-                  {{ $page->t('Explore all the advantages of LibreSign') }}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("Real-Time Monitoring.")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/realtime-monitoring.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders, and optimizing your team's efficiency. Try our solution for transparent and productive administration.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
-                  {{ $page->t('Explore all the advantages of LibreSign') }}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="450">
-            <div class="ud-home-card">
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $page->t("QR Code validation")}}</h5>
-              </div>
-              <div class="ud-home-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/qrcode-validation.svg" alt="" />
-              </div>
-              <div class="ud-home-card__body">
-                <p>
-                  {{ $page->t("Perform document authenticity verification using QR codes, ensuring security, efficiency, and convenience. Its instant validation, speed, transparency, and compatibility with various platforms make it perfect for sustainable businesses.") }}
-                </p>
-              </div>
-              <div class="ud-home-card__actions">
-                <a href="{{ locale_url($page, 'advantages') }}" class="ud-main-btn">
-                  {{ $page->t('Explore all the advantages of LibreSign') }}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @php
+      $homeBenefitItems = [
+        [
+          'colClass' => 'col-md-6 d-flex',
+          'title' => $page->t('Advanced Security'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/advanced-security.svg',
+          'body' => $page->t('Keep your documents secure with end-to-end encryption and multi-layer authentication, ensuring protection throughout the entire electronic document signing process.'),
+          'actions' => [[
+            'href' => locale_url($page, 'advantages'),
+            'label' => $page->t('Explore all the advantages of LibreSign'),
+          ]],
+        ],
+        [
+          'colClass' => 'col-md-6 d-flex',
+          'title' => $page->t('Hybrid Signatures'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/hybrid-signatures.svg',
+          'body' => $page->t('Hybrid signatures simplify negotiation processes by offering flexibility in choosing between personal or system-generated digital certificates to digitally sign documents with LibreSign.'),
+          'actions' => [[
+            'href' => locale_url($page, 'advantages'),
+            'label' => $page->t('Explore all the advantages of LibreSign'),
+          ]],
+        ],
+        [
+          'colClass' => 'col-md-6 d-flex',
+          'title' => $page->t('Real-Time Monitoring.'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/realtime-monitoring.svg',
+          'body' => $page->t("Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders, and optimizing your team's efficiency. Try our solution for transparent and productive administration."),
+          'actions' => [[
+            'href' => locale_url($page, 'advantages'),
+            'label' => $page->t('Explore all the advantages of LibreSign'),
+          ]],
+        ],
+        [
+          'colClass' => 'col-md-6 d-flex',
+          'title' => $page->t('QR Code validation'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/qrcode-validation.svg',
+          'body' => $page->t('Perform document authenticity verification using QR codes, ensuring security, efficiency, and convenience. Its instant validation, speed, transparency, and compatibility with various platforms make it perfect for sustainable businesses.'),
+          'actions' => [[
+            'href' => locale_url($page, 'advantages'),
+            'label' => $page->t('Explore all the advantages of LibreSign'),
+          ]],
+        ],
+      ];
+    @endphp
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-benefits',
+      'title' => $page->t('Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.'),
+      'subtitle' => $page->t('More than a tool, a strategic partner for digital efficiency and security.'),
+      'items' => $homeBenefitItems,
+      'rowClass' => 'row text-center gy-5 align-items-stretch',
+    ])
     <!-- ====== Benefits End ====== -->
 
     <!-- ====== Video Demo Section Start ====== -->
@@ -444,22 +360,21 @@
     <!-- ====== Blog/Content Section End ====== -->
 
     <!-- ====== CTA Start ====== -->
-    <section class="ud-home-cta" data-aos="fade-up">
-      <div class="container">
-        <div class="ud-home-cta__content wow fadeInUp" data-aos-delay=".2s">
-          <h2 class="ud-home-cta__title">{{ $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.') }}</h2>
-          <p class="ud-home-cta__description">{{ $page->t('Thousands of organizations already trust our digital signature technology. Be the next to transform your processes.') }}</p>
-
-          <div class="ud-home-cta__actions">
-            <a href="{{ locale_url($page, 'contact-us') }}" class="ud-home-cta__btn ud-home-cta__btn--primary">
-              {{ $page->t('Request your personalized demo') }}
-            </a>
-            <a href="{{ locale_url($page, 'register') }}" class="ud-home-cta__btn ud-home-cta__btn--secondary">
-              {{ $page->t('Try LibreSign now (free trial)') }}
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.cta-section', [
+      'title' => $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.'),
+      'description' => $page->t('Thousands of organizations already trust our digital signature technology. Be the next to transform your processes.'),
+      'actions' => [
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Request your personalized demo'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--primary',
+        ],
+        [
+          'href' => locale_url($page, 'register'),
+          'label' => $page->t('Try LibreSign now (free trial)'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--secondary',
+        ],
+      ],
+    ])
     <!-- ====== CTA End ====== -->
 @endsection

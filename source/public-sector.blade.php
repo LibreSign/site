@@ -1,16 +1,107 @@
 @extends('_layouts.main')
 
 @section('body')
-  <section class="ud-ps-svg-page">
-    <div class="ud-ps-svg-page__inner">
-      <img
-        src="{{ $page->baseUrl }}assets/images/solutions/public-sector-home.svg"
-        alt="{{ $page->t('Página Setor Público') }}"
-        class="ud-ps-svg-page__image"
-        loading="eager"
-        decoding="async"
-      />
+  @php
+    $publicSectorChallengeItems = [
+      [
+        'title' => $page->t('Segurança e Validade Jurídica'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
+        'body' => $page->t('Garanta a integridade, autenticidade e validade legal de cada documento, com assinaturas digitais conforme a legislação vigente.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+      [
+        'title' => $page->t('Otimização de Recursos Públicos'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
+        'body' => $page->t('Reduza custos com papel, impressão e logística. Direcione os recursos públicos para o que realmente importa: o cidadão.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+      [
+        'title' => $page->t('Transparência e Rastreabilidade Total'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/realtime-monitoring.svg',
+        'body' => $page->t('Cada assinatura é um registro auditável. Ofereça total transparência ao cidadão e facilite auditorias internas e externas.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+    ];
+
+    $publicSectorProcessItems = [
+      [
+        'title' => $page->t('Carregue o Documento'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
+        'body' => $page->t('Envie o documento para a plataforma, seja por upload ou integração, e inicie o fluxo sem burocracia.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+      [
+        'title' => $page->t('Assine e Envie'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/advanced-security.svg',
+        'body' => $page->t('Assine eletronicamente e convide outras partes para concluir o processo com rapidez e segurança.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+      [
+        'title' => $page->t('Valide e Arquive'),
+        'icon' => $page->baseUrl . 'assets/images/icon/features/qrcode-validation.svg',
+        'body' => $page->t('Valide a autenticidade, acompanhe o histórico de assinaturas e arquive com total validade jurídica.'),
+        'colClass' => 'col-lg-4 col-md-6 d-flex',
+      ],
+    ];
+  @endphp
+
+  <section class="ud-ps-hero">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-xl-9 col-lg-10">
+          <span class="ud-ps-hero__eyebrow">{{ $page->t('Setor público') }}</span>
+          <h1 class="ud-ps-hero__title">
+            {{ $page->t('Assinatura digital: eficiência e validade para a gestão pública.') }}
+          </h1>
+          <p class="ud-ps-hero__description">
+            {{ $page->t('Desburocratize processos com tecnologia segura, garantindo transparência, rastreabilidade e conformidade jurídica para o seu órgão.') }}
+          </p>
+          <div class="ud-ps-hero__actions">
+            <a href="{{ locale_url($page, 'contact-us') }}" class="ud-home-cta__btn ud-home-cta__btn--primary">
+              {{ $page->t('Solicite uma demonstração') }}
+            </a>
+            <a href="{{ locale_url($page, 'pricing') }}" class="ud-home-cta__btn ud-home-cta__btn--secondary">
+              {{ $page->t('Ver planos e preços') }}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <div class="ud-ps-page">
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-challenges ud-ps-section',
+      'title' => $page->t('Desafios do setor público que o LibreSign transforma em soluções.'),
+      'subtitle' => $page->t('Documentos físicos, processos lentos e insegurança operacional dão lugar a fluxos digitais confiáveis, auditáveis e eficientes.'),
+      'items' => $publicSectorChallengeItems,
+    ])
+
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-benefits ud-ps-section ud-ps-section--process',
+      'title' => $page->t('Transforme seus processos em 3 passos simples.'),
+      'subtitle' => $page->t('Com a nossa plataforma, assinar, gerenciar e arquivar documentos nunca foi tão seguro e descomplicado para o seu órgão.'),
+      'items' => $publicSectorProcessItems,
+      'rowClass' => 'row text-center justify-content-center gy-5 align-items-stretch',
+    ])
+
+    @include('_partials.home.cta-section', [
+      'sectionClass' => 'ud-home-cta ud-ps-cta',
+      'title' => $page->t('Conheça nossos recursos para modernizar a gestão pública.'),
+      'description' => $page->t('Leve mais eficiência, validade jurídica e transparência para os fluxos documentais do seu órgão com LibreSign.'),
+      'actions' => [
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Fale com nossos especialistas'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--primary',
+        ],
+        [
+          'href' => locale_url($page, 'register'),
+          'label' => $page->t('Experimente gratuitamente'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--secondary',
+        ],
+      ],
+    ])
+  </div>
 
 @endsection
