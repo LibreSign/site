@@ -6,13 +6,11 @@
     margin-right: auto;
     max-width: 860px;
   }
-
-  .ud-home-card__actions {
-    display: none;
-  }
 }
 
-.ud-ps-section {
+.ud-home-challenges.ud-ps-section {
+  background: #f7fafc;
+
   .ud-home-section__actions {
     .ud-ps-section__cta {
       background: var(--primary-color);
@@ -32,45 +30,6 @@
     }
   }
 
-  .ud-home-card {
-    border: 1px solid #ececec;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-    padding: 40px 34px 42px;
-  }
-
-  .ud-home-card__header {
-    min-height: 0;
-  }
-
-  .ud-home-card__title {
-    color: var(--primary-color);
-    font-size: 1.55rem;
-  }
-
-  .ud-home-card__icon {
-    background-color: rgba(24, 76, 78, 0.08);
-    height: 150px;
-    margin-bottom: 28px;
-    width: 150px;
-
-    img {
-      height: 62%;
-      max-height: 62%;
-      max-width: 62%;
-      width: 62%;
-    }
-  }
-
-  .ud-home-card__body p {
-    color: var(--text-gray);
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-}
-
-.ud-home-challenges.ud-ps-section {
-  background: #f7fafc;
-
   .ud-home-section__title {
     color: #2d3748;
     font-size: clamp(3rem, 5vw, 4.65rem);
@@ -87,7 +46,10 @@
   }
 
   .ud-home-card {
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     min-height: 620px;
+    padding: 40px 34px 42px;
   }
 
   .ud-home-card__header {
@@ -144,10 +106,6 @@
       width: 220px;
     }
   }
-}
-
-.ud-ps-section--process {
-  background: #f7faf9;
 }
 
 .ud-ps-process {
