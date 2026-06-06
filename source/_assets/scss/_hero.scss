@@ -120,29 +120,18 @@
     .ud-hero-title {
       color: var(--text-light);
       font-weight: bold;
-      font-size: 64px;
+      font-size: clamp(36px, 5vw, 72px);
       line-height: 1.22;
       margin-bottom: 30px;
-
-      @media #{$sm} {
-        font-size: 48px;
-      }
-
-      @media #{$xs} {
-        font-size: 36px;
-      }
+      max-width: 680px;
     }
 
     .ud-hero-desc {
       font-weight: medium;
-      font-size: 22px;
+      font-size: clamp(18px, 1.8vw, 24px);
       color: var(--text-light);
       max-width: 636px;
-      margin-bottom: 72px;
-
-      @media #{$xs} {
-        font-size: 18px;
-      }
+      margin-bottom: 52px;
     }
 
     .ud-hero-eyebrow {
@@ -195,16 +184,5 @@
 
   @media #{$xs} {
     background-position: 72% top;
-  }
-
-  .ud-hero-title {
-    font-size: clamp(42px, 5vw, 72px);
-    max-width: 680px;
-  }
-
-  .ud-hero-desc {
-    font-size: clamp(18px, 1.8vw, 24px);
-    margin-bottom: 52px;
-    max-width: 620px;
   }
 }
