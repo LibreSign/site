@@ -5,19 +5,19 @@
     $publicSectorChallengeItems = [
       [
         'title' => $page->t('Segurança e Validade Jurídica'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
+        'icon' => $page->baseUrl . 'assets/images/solutions/challenge-legal-icon.svg',
         'body' => $page->t('Garanta a integridade, autenticidade e validade legal de cada documento, com assinaturas digitais conforme a legislação vigente.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
         'title' => $page->t('Otimização de Recursos Públicos'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
+        'icon' => $page->baseUrl . 'assets/images/solutions/challenge-resources-icon.svg',
         'body' => $page->t('Reduza custos com papel, impressão e logística. Direcione os recursos públicos para o que realmente importa: o cidadão.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
         'title' => $page->t('Transparência e Rastreabilidade Total'),
-        'icon' => $page->baseUrl . 'assets/images/icon/features/realtime-monitoring.svg',
+        'icon' => $page->baseUrl . 'assets/images/solutions/challenge-transparency-icon.svg',
         'body' => $page->t('Cada assinatura é um registro auditável. Ofereça total transparência ao cidadão e facilite auditorias internas e externas.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
@@ -67,8 +67,8 @@
   <div class="ud-ps-page">
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-challenges ud-ps-section',
-      'title' => $page->t('Desafios do setor público que o LibreSign transforma em soluções.'),
-      'subtitle' => $page->t('Documentos físicos, processos lentos e insegurança operacional dão lugar a fluxos digitais confiáveis, auditáveis e eficientes.'),
+      'title' => $page->t('Desafios do Setor Público que o LibreSign Transforma em Soluções.'),
+      'subtitle' => $page->t('Documentos físicos, processos lentos e a insegurança da gestão manual são dores do passado. Descubra como o LibreSign moderniza o seu órgão.'),
       'items' => $publicSectorChallengeItems,
       'sectionActions' => [
         [
