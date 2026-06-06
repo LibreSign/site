@@ -4,19 +4,19 @@
   @php
     $companyBenefitItems = [
       [
-        'title' => $page->t('Agilidade e Produtividade'),
+        'title' => $page->t('Agility and Productivity'),
         'icon'  => $page->baseUrl . 'assets/images/solutions/company-agility-icon.svg',
-        'body' => $page->t('Assine contratos, propostas e documentos em minutos, de qualquer lugar, acelerando suas vendas e operações.'),
+        'body' => $page->t('Sign contracts, proposals, and documents in minutes from anywhere, accelerating your sales and operations.'),
       ],
       [
-        'title' => $page->t('Redução de Custos'),
+        'title' => $page->t('Cost Reduction'),
         'icon'  => $page->baseUrl . 'assets/images/solutions/company-cost-icon.svg',
-        'body' => $page->t('Elimine gastos desnecessários com impressora, correios, motoboy e arquivamento físico. Seu departamento financeiro agradece.'),
+        'body' => $page->t('Eliminate unnecessary spending on printers, mail, couriers, and physical filing. Your finance team will thank you.'),
       ],
       [
-        'title' => $page->t('Profissionalismo e Credibilidade'),
+        'title' => $page->t('Professionalism and Credibility'),
         'icon'  => $page->baseUrl . 'assets/images/solutions/company-credibility-icon.svg',
-        'body' => $page->t('Impressione seus clientes e parceiros com um processo de assinatura moderno, ágil, seguro, transparente e totalmente digital.'),
+        'body' => $page->t('Impress clients and partners with a modern, agile, secure, transparent, and fully digital signing process.'),
       ],
     ];
 
@@ -25,17 +25,17 @@
 
   @include('_partials.home.hero-section', [
     'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/company-solutions-background.png')",
-    'title' => $page->t('Assinatura digital que impulsiona o crescimento da sua empresa.'),
-    'description' => $page->t('Libere sua empresa da burocracia do papel. Foco no crescimento, agilidade e profissionalismo da sua gestão.'),
+    'title' => $page->t('Digital signatures that drive your company’s growth.'),
+    'description' => $page->t('Free your company from paperwork. Focus on growth, agility, and professionalism in your operations.'),
     'actions' => [
       [
         'href' => locale_url($page, 'contact-us'),
-        'label' => $page->t('Experimente Grátis Agora'),
+        'label' => $page->t('Try It Free Now'),
         'class' => 'ud-main-btn w-100 text-center',
       ],
       [
         'href' => '#company-benefits',
-        'label' => $page->t('Entenda como funciona'),
+        'label' => $page->t('See How It Works'),
         'class' => 'ud-secondary-btn w-100 text-center',
       ],
     ],
@@ -46,9 +46,9 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('Deixe para Trás o Papel e Abrace a Agilidade Digital.') }}</h3>
+            <h3 class="ud-home-section__title">{{ $page->t('Leave Paper Behind and Embrace Digital Agility.') }}</h3>
             <p class="ud-home-section__subtitle">
-              {{ $page->t('Transforme a papelada em produtividade. Descubra como o LibreSign otimiza seu tempo e reduz custos para o seu negócio.') }}
+              {{ $page->t('Turn paperwork into productivity. Discover how LibreSign optimizes your time and reduces costs for your business.') }}
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@
 
         <div class="ud-cs-benefits__actions text-center">
           <a href="#company-testimonials" class="ud-main-btn ud-cs-benefits__cta">
-            {{ $page->t('Conheça a Plataforma') }}
+            {{ $page->t('Discover the Platform') }}
           </a>
         </div>
       </div>
@@ -79,9 +79,9 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-xl-11">
-            <h3 class="ud-cs-testimonials__title">{{ $page->t('A Transformação Digital vista pelos Nossos Clientes.') }}</h3>
+            <h3 class="ud-cs-testimonials__title">{{ $page->t('Digital Transformation Through Our Customers’ Eyes.') }}</h3>
             <p class="ud-cs-testimonials__subtitle">
-              {{ $page->t('Conheça as histórias reais de empresas que, com o LibreSign, simplificaram processos, garantiram segurança e aceleraram seus resultados.') }}
+              {{ $page->t('Read real stories from companies that, with LibreSign, simplified processes, strengthened security, and accelerated results.') }}
             </p>
           </div>
         </div>
@@ -103,10 +103,10 @@
 
         <div class="ud-cs-testimonials__actions">
           <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-cs-testimonials__btn ud-cs-testimonials__btn--primary">
-            {{ $page->t('Ver Planos e Preços') }}
+            {{ $page->t('View Plans and Pricing') }}
           </a>
           <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-cs-testimonials__btn ud-cs-testimonials__btn--secondary">
-            {{ $page->t('Fale com Nossos Especialistas') }}
+            {{ $page->t('Talk to Our Specialists') }}
           </a>
         </div>
       </div>
