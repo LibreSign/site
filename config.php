@@ -119,6 +119,26 @@ return [
 
 
     ],
+    'companyTestimonials' => [
+        [
+            'photo' => '/assets/images/solutions/testimonial-1.png',
+            'name' => 'Leonardo Machado',
+            'role' => 'CEO da Garbo Marketing',
+            'quote' => 'O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.',
+        ],
+        [
+            'photo' => '/assets/images/solutions/testimonial-2.png',
+            'name' => 'Leonardo Machado',
+            'role' => 'CEO da Garbo Marketing',
+            'quote' => 'O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.',
+        ],
+        [
+            'photo' => '/assets/images/solutions/testimonial-3.png',
+            'name' => 'Leonardo Machado',
+            'role' => 'CEO da Garbo Marketing',
+            'quote' => 'O LibreSign é uma solução moderna, segura e prática que otimiza a assinatura de contratos e garante transparência e rastreabilidade nos processos.',
+        ],
+    ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
             glob('source/_posts/*'),
