@@ -49,6 +49,19 @@
     gap: 16px;
     align-items: center;
 
+    .ud-ps-hero__primary-btn {
+      background-color: var(--warning-color);
+      color: var(--color-dark);
+      border-radius: 32px;
+      padding: 10px 28px;
+      font-weight: 600;
+      font-size: 15px;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+
     .ud-secondary-btn {
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.5);

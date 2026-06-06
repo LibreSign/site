@@ -16,7 +16,7 @@
               {{ $page->t('Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value. LibreSign gives public organizations the security and traceability required by Brazilian legislation.') }}
             </p>
             <div class="ud-ps-hero__actions">
-              <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-ps-hero__primary-btn">
                 {{ $page->t('Request a Demonstration') }}
               </a>
               <a href="{{ locale_url($page, 'register') }}" class="ud-secondary-btn">
@@ -55,7 +55,7 @@
         <div class="col">
           <div class="ud-ps-challenge-card">
             <div class="ud-ps-challenge-card__icon">
-              <i class="lni lni-files" aria-hidden="true"></i>
+              <i class="lni lni-file-multiple" aria-hidden="true"></i>
             </div>
             <h3 class="ud-ps-challenge-card__title">{{ $page->t('Paper-Based and Slow Processes') }}</h3>
             <p class="ud-ps-challenge-card__body">
@@ -66,7 +66,7 @@
         <div class="col">
           <div class="ud-ps-challenge-card">
             <div class="ud-ps-challenge-card__icon">
-              <i class="lni lni-shield" aria-hidden="true"></i>
+              <i class="lni lni-shield-2-check" aria-hidden="true"></i>
             </div>
             <h3 class="ud-ps-challenge-card__title">{{ $page->t('Legal Compliance and LGPD') }}</h3>
             <p class="ud-ps-challenge-card__body">
@@ -88,7 +88,7 @@
         <div class="col">
           <div class="ud-ps-challenge-card">
             <div class="ud-ps-challenge-card__icon">
-              <i class="lni lni-lock-alt" aria-hidden="true"></i>
+              <i class="lni lni-locked-1" aria-hidden="true"></i>
             </div>
             <h3 class="ud-ps-challenge-card__title">{{ $page->t('Data Sovereignty and Vendor Lock-in') }}</h3>
             <p class="ud-ps-challenge-card__body">
@@ -99,7 +99,7 @@
         <div class="col">
           <div class="ud-ps-challenge-card">
             <div class="ud-ps-challenge-card__icon">
-              <i class="lni lni-network" aria-hidden="true"></i>
+              <i class="lni lni-gears-3" aria-hidden="true"></i>
             </div>
             <h3 class="ud-ps-challenge-card__title">{{ $page->t('Integration with Existing Systems') }}</h3>
             <p class="ud-ps-challenge-card__body">
@@ -110,7 +110,7 @@
         <div class="col">
           <div class="ud-ps-challenge-card">
             <div class="ud-ps-challenge-card__icon">
-              <i class="lni lni-users" aria-hidden="true"></i>
+              <i class="lni lni-user-multiple-4" aria-hidden="true"></i>
             </div>
             <h3 class="ud-ps-challenge-card__title">{{ $page->t('Resistance and User Adoption') }}</h3>
             <p class="ud-ps-challenge-card__body">
@@ -140,7 +140,7 @@
           <div class="ud-ps-solution-list">
             <div class="ud-ps-solution-item" data-aos="fade-right">
               <div class="ud-ps-solution-item__icon">
-                <i class="lni lni-certificate" aria-hidden="true"></i>
+                <i class="lni lni-certificate-badge-1" aria-hidden="true"></i>
               </div>
               <div class="ud-ps-solution-item__content">
                 <h3>{{ $page->t('ICP-Brasil Digital Certificate Support') }}</h3>
@@ -149,7 +149,7 @@
             </div>
             <div class="ud-ps-solution-item" data-aos="fade-right" data-aos-delay="100">
               <div class="ud-ps-solution-item__icon">
-                <i class="lni lni-checkmark-circle" aria-hidden="true"></i>
+                <i class="lni lni-check-circle-1" aria-hidden="true"></i>
               </div>
               <div class="ud-ps-solution-item__content">
                 <h3>{{ $page->t('Complete Audit Trails') }}</h3>
@@ -158,7 +158,7 @@
             </div>
             <div class="ud-ps-solution-item" data-aos="fade-right" data-aos-delay="200">
               <div class="ud-ps-solution-item__icon">
-                <i class="lni lni-cog" aria-hidden="true"></i>
+                <i class="lni lni-gear-1" aria-hidden="true"></i>
               </div>
               <div class="ud-ps-solution-item__content">
                 <h3>{{ $page->t('REST API for System Integration') }}</h3>
@@ -167,7 +167,7 @@
             </div>
             <div class="ud-ps-solution-item" data-aos="fade-right" data-aos-delay="300">
               <div class="ud-ps-solution-item__icon">
-                <i class="lni lni-code" aria-hidden="true"></i>
+                <i class="lni lni-code-1" aria-hidden="true"></i>
               </div>
               <div class="ud-ps-solution-item__content">
                 <h3>{{ $page->t('Free and Open Source Software') }}</h3>
