@@ -5,17 +5,17 @@
     $companyBenefitItems = [
       [
         'title' => $page->t('Agilidade e Produtividade'),
-        'iconClass' => 'lni lni-timer',
+        'icon'  => $page->baseUrl . 'assets/images/solutions/company-agility-icon.svg',
         'body' => $page->t('Assine contratos, propostas e documentos em minutos, de qualquer lugar, acelerando suas vendas e operações.'),
       ],
       [
         'title' => $page->t('Redução de Custos'),
-        'iconClass' => 'lni lni-wallet',
+        'icon'  => $page->baseUrl . 'assets/images/solutions/company-cost-icon.svg',
         'body' => $page->t('Elimine gastos desnecessários com impressora, correios, motoboy e arquivamento físico. Seu departamento financeiro agradece.'),
       ],
       [
         'title' => $page->t('Profissionalismo e Credibilidade'),
-        'iconClass' => 'lni lni-shield',
+        'icon'  => $page->baseUrl . 'assets/images/solutions/company-credibility-icon.svg',
         'body' => $page->t('Impressione seus clientes e parceiros com um processo de assinatura moderno, ágil, seguro, transparente e totalmente digital.'),
       ],
     ];
@@ -40,7 +40,7 @@
   @endphp
 
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/hero/hero-image.png')",
+    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/company-solutions-background.png')",
     'title' => $page->t('Assinatura digital que impulsiona o crescimento da sua empresa.'),
     'description' => $page->t('Libere sua empresa da burocracia do papel. Foco no crescimento, agilidade e profissionalismo da sua gestão.'),
     'actions' => [
@@ -73,8 +73,8 @@
           @foreach ($companyBenefitItems as $item)
             <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up">
               <article class="ud-cs-benefit-card">
-                <div class="ud-cs-benefit-card__icon" aria-hidden="true">
-                  <i class="{{ $item['iconClass'] }}"></i>
+                <div class="ud-cs-benefit-card__icon">
+                  <img src="{{ $item['icon'] }}" alt="" />
                 </div>
                 <h4 class="ud-cs-benefit-card__title">{{ $item['title'] }}</h4>
                 <p class="ud-cs-benefit-card__body">{{ $item['body'] }}</p>

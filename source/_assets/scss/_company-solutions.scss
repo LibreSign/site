@@ -58,18 +58,16 @@
 
   &__icon {
     align-items: center;
-    background: #e67e00;
-    border-radius: 50%;
-    color: #fff;
     display: flex;
-    font-size: 86px;
-    height: 220px;
+    height: 260px;
     justify-content: center;
     margin-bottom: 34px;
-    width: 220px;
+    width: 260px;
 
-    i {
-      line-height: 1;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
   }
 
