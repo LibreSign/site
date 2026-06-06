@@ -10,7 +10,11 @@
   background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: left top;
+
+  @media #{$xs} {
+    background-position: 72% top;
+  }
   margin-top: 76px;
   padding-top: 127px;
   padding-bottom: 88px;
@@ -177,12 +181,3 @@
   }
 }
 
-.ud-hero--public-sector {
-  background-position: left top;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @media #{$xs} {
-    background-position: 72% top;
-  }
-}
