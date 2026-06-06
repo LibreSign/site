@@ -1,4 +1,7 @@
-<section class="{{ $sectionClass ?? 'ud-hero' }}">
+<section
+  class="{{ $sectionClass ?? 'ud-hero' }}"
+  @if (!empty($backgroundImage ?? null)) style="background-image: {{ $backgroundImage }};" @endif
+>
   @if (!empty($imageSrc ?? null))
     <div class="{{ $imageWrapperClass ?? 'ud-hero-image wow fadeInUp' }}" data-aos-delay=".3s">
       <img src="{{ $imageSrc }}" alt="{{ $imageAlt }}" />

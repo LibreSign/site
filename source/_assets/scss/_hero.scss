@@ -189,38 +189,22 @@
 }
 
 .ud-hero--public-sector {
-  background-color: #123c40;
-  background-image: linear-gradient(90deg, rgba(18, 60, 64, 0.96) 0%, rgba(24, 76, 78, 0.9) 33%, rgba(24, 76, 78, 0.58) 58%, rgba(0, 163, 190, 0.18) 100%), url('/assets/images/solutions/public-sector-background.png');
-  background-position: left top, right center;
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
-  min-height: 980px;
-
-  @media #{$sm, $md, $lg} {
-    min-height: 900px;
-  }
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media #{$xs} {
-    min-height: auto;
+    background-position: 72% top;
   }
 
-  .ud-hero-content--public-sector {
-    max-width: 720px;
-
-    .ud-hero-title {
-      font-size: clamp(42px, 5vw, 72px);
-      max-width: 680px;
-    }
-
-    .ud-hero-desc {
-      font-size: clamp(18px, 1.8vw, 24px);
-      margin-bottom: 52px;
-      max-width: 620px;
-    }
+  .ud-hero-title {
+    font-size: clamp(42px, 5vw, 72px);
+    max-width: 680px;
   }
 
-  @media #{$xs, $sm} {
-    background-position: center top, 72% top;
-    background-size: cover, auto 100%;
+  .ud-hero-desc {
+    font-size: clamp(18px, 1.8vw, 24px);
+    margin-bottom: 52px;
+    max-width: 620px;
   }
 }
