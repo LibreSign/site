@@ -41,7 +41,9 @@ return [
             if (count($releases) < 100) break;
             $page++;
         }
-        return $total > 0 ? number_format($total, 0, '.', ',') : null;
+        // Round down to nearest thousand so the stat stays honest even between builds
+        $rounded = $total > 0 ? (int) floor($total / 1000) * 1000 : 0;
+        return $rounded > 0 ? number_format($rounded, 0, '.', ',') . '+' : null;
     })(),
     'wordPressVersion' => function($page) {
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
