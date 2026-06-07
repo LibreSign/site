@@ -43,7 +43,7 @@
     $postItems = $postItems->take($limit);
   }
 
-  $cardTpl = '_partials.post-card.' . $format;
+  $cardTemplate = '_partials.card-layouts.' . $format;
 @endphp
 
 <section class="{{ $sectionClass ?? 'ud-home-blog' }}" data-aos="fade-up">
@@ -62,7 +62,7 @@
           $postUrl = method_exists($post, 'getUrl') ? $post->getUrl() : ($post->url ?? '#');
         @endphp
         <div class="{{ $colClass }}">
-          @include($cardTpl, ['post' => $post, 'postUrl' => $postUrl])
+          @include($cardTemplate, ['post' => $post, 'postUrl' => $postUrl])
         </div>
       @endforeach
     </div>

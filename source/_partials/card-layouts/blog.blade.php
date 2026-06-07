@@ -1,10 +1,10 @@
 @php
-  $cats     = is_array($post->categories ?? null) ? $post->categories : [];
-  $rawCat   = !empty($cats) ? $cats[0] : 'article';
-  $catKey   = is_string($rawCat) ? strtolower($rawCat) : 'article';
-  $catMap   = ['features' => 'Features', 'security' => 'Security', 'article' => 'Article'];
-  $catLabel = $catMap[$catKey]
-    ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $catKey));
+  $categories    = is_array($post->categories ?? null) ? $post->categories : [];
+  $firstCategory = !empty($categories) ? $categories[0] : 'article';
+  $categoryKey   = is_string($firstCategory) ? strtolower($firstCategory) : 'article';
+  $categoryMap   = ['features' => 'Features', 'security' => 'Security', 'article' => 'Article'];
+  $categoryLabel = $categoryMap[$categoryKey]
+    ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $categoryKey));
 
   $authorAvatar = match(true) {
     ($post->author ?? null) === 'LibreSign'                                            => $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png',
@@ -19,7 +19,7 @@
     <div class="ud-home-blog-card__frame">
       <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
     </div>
-    <span class="ud-home-blog-card__category">{{ $page->t($catLabel) }}</span>
+    <span class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</span>
     <span class="ud-home-blog-card__badge" aria-hidden="true">
       <img src="{{ $authorAvatar }}" alt="" />
     </span>
