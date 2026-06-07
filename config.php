@@ -41,16 +41,8 @@ return [
             if (count($releases) < 100) break;
             $page++;
         }
-        // Format as scaled shorthand (e.g. 174K+, 2M+) rounded down so the stat never overstates
-        if ($total >= 1_000_000) {
-            $scaled = (int) floor($total / 1_000_000);
-            return $scaled . 'M+';
-        }
-        if ($total >= 1_000) {
-            $scaled = (int) floor($total / 1_000);
-            return $scaled . 'K+';
-        }
-        return $total > 0 ? (string) $total : null;
+        // Return raw integer — display formatting and unit translation happen in the template
+        return $total > 0 ? $total : null;
     })(),
     'wordPressVersion' => function($page) {
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');

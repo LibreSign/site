@@ -45,9 +45,15 @@
           <div class="col-12">
             <div class="ud-home-clients__summary">
             @php
-              $githubDownloads = (string) ($page->githubDownloads ?? '0');
-              $clientsSecondaryTemplate = $page->t('<strong>:count</strong> downloads on GitHub');
-              $clientsSecondaryWithCount = str_replace(':count', $githubDownloads, $clientsSecondaryTemplate);
+              $githubDownloadsRaw = (int) ($page->githubDownloads ?? 0);
+              if ($githubDownloadsRaw >= 1_000_000) {
+                $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000_000);
+                $clientsSecondaryTemplate = $page->t('More than <strong>:count million+</strong> downloads');
+              } else {
+                $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000);
+                $clientsSecondaryTemplate = $page->t('More than <strong>:count thousand+</strong> downloads');
+              }
+              $clientsSecondaryWithCount = str_replace(':count', $githubDownloadsScaled, $clientsSecondaryTemplate);
               $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
               $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
             @endphp
