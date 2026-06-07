@@ -1,39 +1,40 @@
 @extends('_layouts.main')
 
 @section('body')
- <section class="ud-hero" id="home">
+
+  {{-- Hero compacto: sem imagem, usa o helper dark existente --}}
+  <section class="ud-page-section--dark text-center">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
-            <h1 class="ud-hero-title">
-              {{ $page->t( "Our Pricing Plans") }}
-            </h1>
-            <p class="ud-hero-desc">
-              {{ $page->t("Choose the perfect plan for your needs - Flexibility and security for companies of all sizes!") }}
-            </p>
-          </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h1 class="display-4 fw-bold text-white mb-3">
+            {{ $page->t("Our Pricing Plans") }}
+          </h1>
+          <p class="fs-5 text-white-50">
+            {{ $page->t("Choose the perfect plan for your needs - Flexibility and security for companies of all sizes!") }}
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="ud-pricing">
-    <div class="container">
-
-      <div class="row g-0 align-items-center justify-content-center">
+  {{-- Cards de planos --}}
+  <section class="py-5 bg-white" id="pricing-plans">
+    <div class="container py-4">
+      <div class="row g-4 align-items-stretch justify-content-center">
         @foreach ($page->prices as $planName => $content)
           <div class="col-lg-4 col-md-6 col-sm-10">
-            <div
-              class="ud-single-pricing first-item{{ $content->isActive ? ' active' : ''}} wow fadeInUp"
-              data-wow-delay=".15s"
-            >
+            <div class="ud-single-pricing h-100{{ $content->isActive ? ' active' : '' }}">
               <div class="ud-pricing-header">
-                <h4 class="{{ $content->isActive ? ' ud-main-tag' : ''}}">{{$page->t($planName)}}</h4>
-                @if ($content->description)
-                  <h3>{{$page->t($content->description)}}</h3>
+                @if ($content->isActive)
+                  <span class="ud-main-tag">{{ $page->t($planName) }}</span>
+                @else
+                  <h4>{{ $page->t($planName) }}</h4>
                 @endif
-                <h4>{{$page->t($content->price)}}</h4>
+                @if ($content->description)
+                  <h3>{{ $page->t($content->description) }}</h3>
+                @endif
+                <h4>{{ $page->t($content->price) }}</h4>
               </div>
               @if ($content->list)
                 <div class="ud-pricing-body">
@@ -43,7 +44,7 @@
                 </div>
               @endif
               <div class="ud-pricing-footer">
-                <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
+                <a href="{{ locale_url($page, 'contact-us') }}" class="btn {{ $content->isActive ? 'ud-btn-solid-white' : 'ud-btn-outline-brand' }}">
                   {{ $page->t('Under Consultation') }}
                 </a>
               </div>
@@ -54,7 +55,8 @@
     </div>
   </section>
 
-  <section id="pricing" class="ud-pricing">
+  {{-- Tabela de detalhes do plano --}}
+  <section class="py-5 bg-light" id="plan-details">
     <div class="container">
 
       @php
@@ -77,38 +79,36 @@
         ));
       @endphp
 
-      <h2 class="display-6 text-center mb-4">{{ $page->t(count($comparePlans) > 1 ? 'Compare plans' : 'Plan details') }}</h2>
+      <h2 class="display-6 fw-bold text-center mb-4">{{ $page->t(count($comparePlans) > 1 ? 'Compare plans' : 'Plan details') }}</h2>
 
       @if (!empty($comparisonRows))
         <div class="table-responsive">
-          <table class="table text-center">
-
-            <thead>
+          <table class="table table-striped text-center align-middle">
+            <thead class="table-dark">
               <tr>
-                <th style="width: 34%;"></th>
+                <th class="text-start" style="width: 55%;">{{ $page->t('Feature') }}</th>
                 @foreach ($comparePlans as $plan)
-                  <th style="width: 22%;">{{ $page->t($plan['label']) }}</th>
+                  <th>{{ $page->t($plan['label']) }}</th>
                 @endforeach
               </tr>
             </thead>
             <tbody>
               @foreach ($comparisonRows as $optionList)
                 <tr>
-                  <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
+                  <th scope="row" class="text-start fw-normal">{{ $page->t($optionList->service) }}</th>
                   @foreach ($comparePlans as $plan)
                     @php($planValue = $optionList->{$plan['key']} ?? null)
                     <td>
                       @if (is_bool($planValue))
                         <span class="{{ $planValue ? 'text-success' : 'text-danger' }} fw-semibold">
                           <i class="lni lni-{{ $planValue ? 'check' : 'xmark' }}"></i>
-                          {{ $page->t($planValue ? 'Included' : 'Not included') }}
                         </span>
                       @elseif (is_string($planValue) && $planValue !== '')
                         {{ $page->t($planValue) }}
                       @elseif (is_numeric($planValue))
                         {{ $planValue }}
                       @else
-                        <span class="text-muted">-</span>
+                        <span class="text-muted">—</span>
                       @endif
                     </td>
                   @endforeach
@@ -118,52 +118,38 @@
           </table>
         </div>
       @else
-        <p class="text-center mb-4">{{ $page->t('This plan does not include a comparison table.') }}</p>
+        <p class="text-center">{{ $page->t('This plan does not include a comparison table.') }}</p>
       @endif
-
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-white mt-1">
-          {{ $page->t('Under Consultation') }}
-        </a>
-      </div>
 
     </div>
   </section>
 
-  <section id="testimonials" class="ud-testimonials">
+  {{-- Extras: API e Storage --}}
+  <section class="ud-page-section--dark" id="extras">
     <div class="container">
-      <div class="ud-section-title mx-auto text-center">
-        <h2>{{ $page->t('Need more features?') }}</h2>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-lg-5 mb-3">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
-            <div class="ud-info-icon mb-2">
-              <i class="lni lni-gear-1 fs-1"></i>
-            </div>
-            <div class="ud-info-meta">
-              <h5 class="fs-4">API</h5>
-              <p>{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
-            </div>
+      <h2 class="text-white fw-bold text-center mb-5">{{ $page->t('Need more features?') }}</h2>
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5">
+          <div class="rounded-3 p-4 h-100 bg-white bg-opacity-10 border border-white border-opacity-25 text-white">
+            <div class="mb-3"><i class="lni lni-gear-1 fs-1"></i></div>
+            <h5 class="fs-4 fw-bold mb-3">API</h5>
+            <p class="text-white-50 mb-0">{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
-            <div class="ud-info-icon">
-              <i class="lni lni-cloud-upload fs-1"></i>
-            </div>
-            <div class="ud-info-meta pb-5">
-              <h5 class="fs-4">{{ $page->t('Cloud Storage') }}</h5>
-              <p>{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
-            </div>
+          <div class="rounded-3 p-4 h-100 bg-white bg-opacity-10 border border-white border-opacity-25 text-white">
+            <div class="mb-3"><i class="lni lni-cloud-upload fs-1"></i></div>
+            <h5 class="fs-4 fw-bold mb-3">{{ $page->t('Cloud Storage') }}</h5>
+            <p class="text-white-50 mb-0">{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
           </div>
         </div>
       </div>
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-white mt-1">
+      <div class="text-center mt-5">
+        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">
           {{ $page->t('Under Consultation') }}
         </a>
       </div>
     </div>
   </section>
+
 @endsection

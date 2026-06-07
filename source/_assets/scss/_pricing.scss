@@ -1,15 +1,5 @@
 @use "variables" as *;
-/* ===== Pricing CSS ===== */
-
-.ud-pricing {
-  padding-top: 120px;
-  padding-bottom: 90px;
-
-  @media #{$xs} {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
-}
+/* ===== Pricing CSS =====*/
 
 .ud-single-pricing {
   margin-bottom: 40px;
