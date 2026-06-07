@@ -192,82 +192,48 @@
     <!-- ====== Video Demo Section End ====== -->
 
     <!-- ====== Solutions Section Start ====== -->
-    <section class="ud-home-solutions" data-aos="fade-up">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="ud-home-section__title">{{ $page->t("Tailored Solutions: LibreSign Meets the Unique Demands of Your Business.")}}</h3>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <p class="ud-home-section__subtitle">{{ $page->t("Developed with expertise to optimize processes across various segments.") }}</p>
-          </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center align-items-stretch">
-          <div class="col d-flex">
-            <div class="ud-home-solution-card">
-              <div class="ud-home-solution-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/public-sector.png" alt="" />
-              </div>
-              <h4 class="ud-home-solution-card__title">{{ $page->t("Public Management: Transparency, Validity, and Efficiency")}}</h4>
-              <p class="ud-home-solution-card__body">{{ $page->t("Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.") }}</p>
-              <a href="{{ locale_url($page, 'public-sector') }}" class="ud-main-btn ud-home-solution-card__action">
-                {{ $page->t('Discover the Perfect Solution for the Public Sector') }}
-              </a>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <div class="ud-home-solution-card">
-              <div class="ud-home-solution-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/small-business.png" alt="" />
-              </div>
-              <h4 class="ud-home-solution-card__title">{{ $page->t("Small and Medium Businesses: Grow with Security")}}</h4>
-              <p class="ud-home-solution-card__body">{{ $page->t("Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.") }}</p>
-              <a href="{{ locale_url($page, 'company-solutions') }}" class="ud-main-btn ud-home-solution-card__action">
-                {{ $page->t('Discover the Perfect Solution for Small and Medium Businesses') }}
-              </a>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <div class="ud-home-solution-card">
-              <div class="ud-home-solution-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/cooperatives.png" alt="" />
-              </div>
-              <h4 class="ud-home-solution-card__title">{{ $page->t("Cooperatives: Strengthen Governance and Member Participation")}}</h4>
-              <p class="ud-home-solution-card__body">{{ $page->t("Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.") }}</p>
-              <a href="{{ locale_url($page, 'cooperatives') }}" class="ud-main-btn ud-home-solution-card__action">
-                {{ $page->t('Discover the Perfect Solution for Cooperatives') }}
-              </a>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <div class="ud-home-solution-card">
-              <div class="ud-home-solution-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/it-professionals.png" alt="" />
-              </div>
-              <h4 class="ud-home-solution-card__title">{{ $page->t("Information Technology: Control and Total Flexibility")}}</h4>
-              <p class="ud-home-solution-card__body">{{ $page->t("Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.") }}</p>
-              <a href="{{ locale_url($page, 'tecnical-details') }}" class="ud-main-btn ud-home-solution-card__action">
-                {{ $page->t('Discover the Perfect Solution for IT Professionals') }}
-              </a>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <div class="ud-home-solution-card">
-              <div class="ud-home-solution-card__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/solutions/legal-sector.png" alt="" />
-              </div>
-              <h4 class="ud-home-solution-card__title">{{ $page->t("Legal Sector: Agility and Unquestionable Legal Security")}}</h4>
-              <p class="ud-home-solution-card__body">{{ $page->t("Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.") }}</p>
-              <a href="{{ locale_url($page, 'lawyers') }}" class="ud-main-btn ud-home-solution-card__action">
-                {{ $page->t('Discover the Perfect Solution for Lawyers') }}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @php
+      $homeSolutionItems = [
+        [
+          'title' => $page->t('Public Management: Transparency, Validity, and Efficiency'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/public-sector.png',
+          'body'  => $page->t('Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.'),
+          'actions' => [['href' => locale_url($page, 'public-sector'), 'label' => $page->t('Discover the Perfect Solution for the Public Sector')]],
+        ],
+        [
+          'title' => $page->t('Small and Medium Businesses: Grow with Security'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/small-business.png',
+          'body'  => $page->t('Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.'),
+          'actions' => [['href' => locale_url($page, 'company-solutions'), 'label' => $page->t('Discover the Perfect Solution for Small and Medium Businesses')]],
+        ],
+        [
+          'title' => $page->t('Cooperatives: Strengthen Governance and Member Participation'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/cooperatives.png',
+          'body'  => $page->t('Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.'),
+          'actions' => [['href' => locale_url($page, 'cooperatives'), 'label' => $page->t('Discover the Perfect Solution for Cooperatives')]],
+        ],
+        [
+          'title' => $page->t('Information Technology: Control and Total Flexibility'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/it-professionals.png',
+          'body'  => $page->t('Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.'),
+          'actions' => [['href' => locale_url($page, 'tecnical-details'), 'label' => $page->t('Discover the Perfect Solution for IT Professionals')]],
+        ],
+        [
+          'title' => $page->t('Legal Sector: Agility and Unquestionable Legal Security'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/legal-sector.png',
+          'body'  => $page->t('Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.'),
+          'actions' => [['href' => locale_url($page, 'lawyers'), 'label' => $page->t('Discover the Perfect Solution for Lawyers')]],
+        ],
+      ];
+    @endphp
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-solutions',
+      'title'        => $page->t('Tailored Solutions: LibreSign Meets the Unique Demands of Your Business.'),
+      'subtitle'     => $page->t('Developed with expertise to optimize processes across various segments.'),
+      'items'        => $homeSolutionItems,
+      'rowClass'     => 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center align-items-stretch',
+      'colClass'     => 'col d-flex',
+    ])
     <!-- ====== Solutions Section End ====== -->
 
     <!-- ====== Blog/Content Section Start ====== -->
