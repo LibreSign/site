@@ -47,8 +47,34 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'features') }}">{{$page->t("Features")}}</a>
+          <li class="nav-item dropdown ud-nav-dropdown ud-nav-split">
+            <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'features') }}">
+              {{$page->t("Features")}}
+            </a>
+            <button class="ud-nav-split-caret dropdown-toggle dropdown-toggle-split"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="{{ $page->t('Open features submenu') }}">
+              <span class="visually-hidden">{{ $page->t('Open features submenu') }}</span>
+            </button>
+            <ul class="dropdown-menu ud-nav-submenu"
+                aria-label="{{ $page->t('Features submenu') }}">
+              @foreach($page->getFromCategory('features-nav') as $featuredPost)
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ $featuredPost->url }}">
+                  {{ $page->t($featuredPost->title) }}
+                </a>
+              </li>
+              @endforeach
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link ud-nav-submenu-link--all" href="{{ locale_url($page, 'features') }}">
+                  {{ $page->t('All Features →') }}
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'pricing') }}">{{ $page->t('Plans and Pricing')}}</a>

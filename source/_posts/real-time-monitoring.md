@@ -4,7 +4,7 @@ title: Real-time monitoring
 author: Daiane Alves
 date: 2024-06-27
 description: Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders and optimizing your team's efficiency. Try our solution for transparent and productive administration.
-categories: [features, home-benefits]
+categories: [features, home-benefits, features-nav]
 icon: dashboard-square-1
 card_icon: assets/images/icon/features/realtime-monitoring.svg
 ---

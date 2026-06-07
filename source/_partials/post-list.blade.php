@@ -46,7 +46,9 @@
   $cardTemplate = '_partials.card-layouts.' . $format;
 @endphp
 
-<section class="{{ $sectionClass ?? 'ud-home-blog' }}" data-aos="fade-up">
+<section class="{{ $sectionClass ?? 'ud-home-blog' }}"
+  @if(!empty($sectionId ?? '')) id="{{ $sectionId }}"@endif
+  data-aos="fade-up">
   <div class="container">
 
     @if (!empty($title ?? null))
@@ -62,7 +64,7 @@
           $postUrl = method_exists($post, 'getUrl') ? $post->getUrl() : ($post->url ?? '#');
         @endphp
         <div class="{{ $colClass }}">
-          @include($cardTemplate, ['post' => $post, 'postUrl' => $postUrl])
+          @include($cardTemplate, ['post' => $post, 'postUrl' => $postUrl, 'cardModifier' => $cardModifier ?? null])
         </div>
       @endforeach
     </div>

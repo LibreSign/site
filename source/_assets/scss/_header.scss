@@ -242,6 +242,64 @@
       }
     }
 
+    // Split-link dropdown: nav link navigates, separate caret opens submenu
+    &.ud-nav-split {
+      display: inline-flex;
+      align-items: center;
+
+      & > .nav-link {
+        flex: 0 0 auto;
+      }
+    }
+
+    .ud-nav-split-caret {
+      background: transparent;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 2px 4px 6px;
+      opacity: 0.75;
+      @include transition(0.3s);
+
+      // Override Bootstrap's default dropdown-toggle-split caret
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        margin: 2px 0 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid currentColor;
+        border-bottom: 0;
+        transform-origin: center;
+        @include transition(0.3s);
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &.show::after {
+        transform: rotate(180deg);
+        margin-top: -2px;
+      }
+
+      &:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+    }
+
+    .ud-nav-submenu-link--all {
+      font-style: italic;
+      opacity: 0.85;
+    }
+
     .link-button {
       background-color: var(--secondary-color);
       color: var(--color-dark);

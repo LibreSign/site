@@ -1,8 +1,10 @@
 @php
-  $iconSrc = !empty($post->card_icon ?? null) ? $page->baseUrl . $post->card_icon : null;
+  $iconSrc      = !empty($post->card_icon ?? null) ? $page->baseUrl . $post->card_icon : null;
+  $cardModifier = $cardModifier ?? null;
+  $cardClasses  = trim('ud-card ' . ($cardModifier ?? ''));
 @endphp
 
-<div class="ud-card">
+<div class="{{ $cardClasses }}">
   <div class="ud-card__header">
     <h5 class="ud-card__title">{{ $page->t($post->title) }}</h5>
   </div>
