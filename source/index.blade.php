@@ -106,52 +106,19 @@
 
     <!-- ====== Benefits Start ====== -->
     @php
-      $homeBenefitItems = [
-        [
+      $homeBenefitItems = collect($page->getFromCategory('home-benefits'))
+        ->map(fn($post) => [
           'colClass' => 'col-md-6 d-flex',
-          'title' => $page->t('Advanced Security'),
-          'icon' => $page->baseUrl . 'assets/images/icon/features/advanced-security.svg',
-          'body' => $page->t('Keep your documents secure with end-to-end encryption and multi-layer authentication, ensuring protection throughout the entire electronic document signing process.'),
-          'actions' => [[
-            'href' => locale_url($page, 'posts/advanced-security'),
+          'title'    => $post['title'],
+          'icon'     => !empty($post['card_icon']) ? $page->baseUrl . $post['card_icon'] : null,
+          'body'     => $post['description'] ?? '',
+          'actions'  => [[
+            'href'  => $post['url'],
             'label' => $page->t('Learn more'),
             'class' => 'btn ud-btn-outline-brand ud-card__link',
           ]],
-        ],
-        [
-          'colClass' => 'col-md-6 d-flex',
-          'title' => $page->t('Hybrid Signatures'),
-          'icon' => $page->baseUrl . 'assets/images/icon/features/hybrid-signatures.svg',
-          'body' => $page->t('Hybrid signatures simplify negotiation processes by offering flexibility in choosing between personal or system-generated digital certificates to digitally sign documents with LibreSign.'),
-          'actions' => [[
-            'href' => locale_url($page, 'posts/hybrid-signatures'),
-            'label' => $page->t('Learn more'),
-            'class' => 'btn ud-btn-outline-brand ud-card__link',
-          ]],
-        ],
-        [
-          'colClass' => 'col-md-6 d-flex',
-          'title' => $page->t('Real-Time Monitoring.'),
-          'icon' => $page->baseUrl . 'assets/images/icon/features/realtime-monitoring.svg',
-          'body' => $page->t("Transform document management in public organizations with LibreSign, monitoring signatures in real time, sending automatic reminders, and optimizing your team's efficiency. Try our solution for transparent and productive administration."),
-          'actions' => [[
-            'href' => locale_url($page, 'posts/real-time-monitoring'),
-            'label' => $page->t('Learn more'),
-            'class' => 'btn ud-btn-outline-brand ud-card__link',
-          ]],
-        ],
-        [
-          'colClass' => 'col-md-6 d-flex',
-          'title' => $page->t('QR Code validation'),
-          'icon' => $page->baseUrl . 'assets/images/icon/features/qrcode-validation.svg',
-          'body' => $page->t('Perform document authenticity verification using QR codes, ensuring security, efficiency, and convenience. Its instant validation, speed, transparency, and compatibility with various platforms make it perfect for sustainable businesses.'),
-          'actions' => [[
-            'href' => locale_url($page, 'posts/document-validation-by-qr-code'),
-            'label' => $page->t('Learn more'),
-            'class' => 'btn ud-btn-outline-brand ud-card__link',
-          ]],
-        ],
-      ];
+        ])
+        ->all();
     @endphp
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-benefits',
