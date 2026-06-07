@@ -109,7 +109,7 @@
       'sectionClass' => 'ud-home-benefits',
       'title'        => $page->t('Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.'),
       'subtitle'     => $page->t('More than a tool, a strategic partner for digital efficiency and security.'),
-      'category'     => 'home-benefits',
+      'category'     => 'destaque',
       'format'       => 'feature',
     ])
     <!-- ====== Benefits End ====== -->
