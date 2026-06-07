@@ -449,5 +449,26 @@
         color: var(--primary-color);
       }
     }
+
+    .ud-submenu-divider {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin: 4px 0;
+    }
+
+    .ud-submenu-link--cta {
+      color: var(--primary-color);
+      font-size: 13px;
+      font-weight: 600;
+
+      span {
+        text-transform: none;
+      }
+
+      &:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+    }
   }
 }

@@ -117,6 +117,16 @@
               </a>
             </li>
           @endforeach
+            <li class="ud-submenu-divider" role="separator"></li>
+            <li class="ud-submenu-item">
+              <a class="ud-submenu-link ud-submenu-link--cta"
+                 href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="{{ $page->t('Help translate this site') }}">
+                <span>{{ $page->t('Help translate ✏️') }}</span>
+              </a>
+            </li>
           </ul>
         </div>
         <button class="navbar-toggler"
