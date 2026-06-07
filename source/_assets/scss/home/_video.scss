@@ -22,13 +22,6 @@
 }
 
 .ud-home-video__action {
-  background: var(--accent-color);
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 16px 40px;
-
-  &:hover {
-    filter: brightness(1.2);
-  }
+  // Shape and color from .ud-btn-accent via _button.scss
+  color: var(--white);
 }

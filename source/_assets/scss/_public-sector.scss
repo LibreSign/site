@@ -13,22 +13,7 @@
   // Unique overrides: larger icon (340px), bigger heading, min-height cards.
 
   .ud-home-section__actions {
-    .ud-ps-section__cta {
-      background: var(--primary-color);
-      border-radius: 999px;
-      color: var(--white);
-      display: inline-flex;
-      font-size: 0.95rem;
-      font-weight: 700;
-      justify-content: center;
-      min-height: 52px;
-      padding: 12px 28px;
-
-      &:hover {
-        background: var(--secondary-color);
-        color: var(--white);
-      }
-    }
+    margin-top: 52px !important;
   }
 
   .ud-home-section__title {
@@ -131,41 +116,6 @@
 
     @media #{$xs, $sm} {
       margin-top: 40px;
-    }
-  }
-
-  &__btn {
-    border-radius: 999px;
-    display: inline-flex;
-    font-size: 1rem;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 56px;
-    min-width: 240px;
-    padding: 14px 28px;
-    text-align: center;
-  }
-
-  &__btn--primary {
-    background: #d97706;
-    border-color: #d97706;
-    color: var(--white);
-
-    &:hover {
-      background: #c56c04;
-      border-color: #c56c04;
-      color: var(--white);
-    }
-  }
-
-  &__btn--secondary {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    color: var(--white);
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--white);
     }
   }
 }

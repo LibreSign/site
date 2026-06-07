@@ -47,12 +47,12 @@
       [
         'href' => '#it-pillars',
         'label' => $page->t('Explore Technical Pillars'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => '#it-architecture',
         'label' => $page->t('See the Architecture'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -68,7 +68,7 @@
       'sectionActions' => [[
         'href'  => '#it-architecture',
         'label' => $page->t('Access API Documentation'),
-        'class' => 'ud-main-btn ud-page-section__cta',
+        'class' => 'btn ud-btn-primary',
       ]],
     ])
 
@@ -85,17 +85,17 @@
         [
           'href'  => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to a Solutions Architect'),
-          'class' => 'ud-main-btn ud-page-section__btn ud-page-section__btn--primary',
+          'class' => 'btn ud-btn-accent',
         ],
         [
           'href'  => $page->baseUrl . 'assets/images/solutions/it-architecture-image.png',
           'label' => $page->t('Download Architecture Whitepaper'),
-          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
+          'class' => 'btn ud-btn-ghost',
         ],
         [
           'href'  => 'https://github.com/LibreSign/libresign',
           'label' => $page->t('Project on GitHub'),
-          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
+          'class' => 'btn ud-btn-ghost',
         ],
       ],
     ])

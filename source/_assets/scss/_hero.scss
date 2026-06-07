@@ -149,35 +149,6 @@
     }
   }
 
-  // --- CTA buttons (scoped: pill-shape & colours apply only inside the hero) ---
-  .ud-hero-buttons {
-    .ud-main-btn {
-      background-color: #ffc107;
-      padding: 12px 16px;
-      border-radius: 32px;
-      font-size: 18px;
-      font-weight: bold;
-      color: var(--primary-color);
-
-      &:hover {
-        filter: brightness(1.25);
-      }
-    }
-
-    .ud-secondary-btn {
-      background: transparent;
-      border: 1px solid var(--white);
-      padding: 12px 16px;
-      border-radius: 32px;
-      font-size: 18px;
-      color: var(--white);
-      font-weight: bold;
-
-      &:hover {
-        background: var(--white);
-        color: #195458;
-      }
-    }
-  }
 }
+
 

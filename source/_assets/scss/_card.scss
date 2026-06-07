@@ -124,7 +124,7 @@
     width: 100%;
   }
 
-  .ud-main-btn {
+  [class*="ud-btn-"] {
     align-items: center;
     display: flex;
     font-size: 0.95rem;
@@ -325,15 +325,9 @@
     margin-top: 52px;
   }
 
-  // Standard pill CTA button inside section actions
-  .ud-page-section__cta {
-    border-radius: 999px;
-    display: inline-flex;
-    font-size: 0.95rem;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 52px;
-    padding: 12px 28px;
+  // Standard pill CTA — shape now from .ud-btn-primary via _button.scss
+  .ud-home-section__actions {
+    margin-top: 52px;
   }
 }
 
@@ -374,40 +368,5 @@
       margin-top: 40px;
     }
   }
-
-  // Pill action buttons inside dark sections
-  .ud-page-section__btn {
-    border-radius: 999px;
-    display: inline-flex;
-    font-size: 1rem;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 56px;
-    min-width: 240px;
-    padding: 14px 28px;
-    text-align: center;
-  }
-
-  .ud-page-section__btn--primary {
-    background: #d97706;
-    border-color: #d97706;
-    color: #fff;
-
-    &:hover {
-      background: #c56c04;
-      border-color: #c56c04;
-      color: #fff;
-    }
-  }
-
-  .ud-page-section__btn--secondary {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    color: #fff;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-  }
+  // Action buttons: shape + color from .ud-btn-accent / .ud-btn-ghost via _button.scss
 }

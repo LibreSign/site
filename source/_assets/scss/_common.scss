@@ -173,30 +173,6 @@ p {
   clip-path: inset(50%) !important;
 }
 
-/*===== All Button Style =====*/
-
-.ud-main-btn {
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-
-  font-weight: 500;
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 15px 25px;
-  border: 1px solid transparent;
-  color: var(--white);
-  cursor: pointer;
-  z-index: 5;
-  @include transition(0.4s);
-  background: var(--primary-color);
-
-  &:hover {
-    color: var(--white);
-    background: var(--heading-color);
-  }
-}
 
 .container {
   @media #{$xs} {

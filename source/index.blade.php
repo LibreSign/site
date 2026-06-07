@@ -12,12 +12,12 @@
         [
           'href' => locale_url($page, 'contact-us'),
           'label' => $page->t('Try it For Free Now!'),
-          'class' => 'ud-main-btn w-100 text-center',
+          'class' => 'btn ud-btn-hero w-100 text-center',
         ],
         [
           'href' => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to Our Experts'),
-          'class' => 'ud-secondary-btn w-100 text-center',
+          'class' => 'btn ud-btn-ghost w-100 text-center',
         ],
       ],
     ])
@@ -181,7 +181,7 @@
               <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
             </div>
             <div class="mt-4">
-              <a href="#" class="ud-main-btn ud-home-video__action">
+              <a href="#" class="btn ud-btn-accent ud-home-video__action">
                 {{ $page->t('See How It Works') }}
               </a>
             </div>

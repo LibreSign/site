@@ -9,12 +9,12 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Talk to Our Specialists'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => locale_url($page, 'pricing'),
         'label' => $page->t('View All Plans'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -144,7 +144,7 @@
                 <span>{{ $page->t('President of LibreCode') }}</span>
               </footer>
             </blockquote>
-            <a href="{{ locale_url($page, 'team') }}" class="ud-main-btn ud-about-team__btn">{{ $page->t('Our Complete Story') }}</a>
+            <a href="{{ locale_url($page, 'team') }}" class="btn ud-btn-primary ud-about-team__btn">{{ $page->t('Our Complete Story') }}</a>
           </div>
         </div>
       </div>
@@ -160,8 +160,8 @@
         </div>
       </div>
       <div class="ud-about-cta__actions">
-        <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-about-cta__btn ud-about-cta__btn--primary">{{ $page->t('Explore Our Products') }}</a>
-        <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-about-cta__btn ud-about-cta__btn--secondary">{{ $page->t('Talk to a Specialist') }}</a>
+        <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">{{ $page->t('Explore Our Products') }}</a>
+        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">{{ $page->t('Talk to a Specialist') }}</a>
       </div>
     </div>
   </section>

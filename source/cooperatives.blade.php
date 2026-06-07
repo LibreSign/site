@@ -36,12 +36,12 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Request a Demo'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => '#cooperative-benefits',
         'label' => $page->t('Explore the Platform'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -57,7 +57,7 @@
       'sectionActions' => [[
         'href'  => '#cooperative-dna',
         'label' => $page->t('Explore the Cooperative Plan'),
-        'class' => 'ud-main-btn ud-page-section__cta',
+        'class' => 'btn ud-btn-primary',
       ]],
     ])
 
@@ -87,13 +87,13 @@
             </p>
 
             <div class="ud-coop-dna__actions">
-              <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-coop-dna__btn ud-coop-dna__btn--primary">
+              <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">
                 {{ $page->t('View Plans and Pricing') }}
               </a>
-              <a href="{{ locale_url($page, 'about') }}" class="ud-secondary-btn ud-coop-dna__btn ud-coop-dna__btn--secondary">
+              <a href="{{ locale_url($page, 'about') }}" class="btn ud-btn-ghost">
                 {{ $page->t('Learn LibreCode\'s Story') }}
               </a>
-              <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-coop-dna__btn ud-coop-dna__btn--secondary">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">
                 {{ $page->t('Talk to Our Specialists') }}
               </a>
             </div>

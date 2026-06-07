@@ -47,12 +47,12 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Try It Free'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => '#lawyers-challenges',
         'label' => $page->t('Explore Security Features'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -68,7 +68,7 @@
       'sectionActions' => [[
         'href'  => '#lawyers-value',
         'label' => $page->t('Discover Smart Legal Management'),
-        'class' => 'ud-main-btn ud-page-section__cta',
+        'class' => 'btn ud-btn-primary',
       ]],
     ])
 
@@ -85,12 +85,12 @@
         [
           'href'  => locale_url($page, 'pricing'),
           'label' => $page->t('View Plans and Pricing'),
-          'class' => 'ud-main-btn ud-page-section__btn ud-page-section__btn--primary',
+          'class' => 'btn ud-btn-accent',
         ],
         [
           'href'  => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to Our Specialists'),
-          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
+          'class' => 'btn ud-btn-ghost',
         ],
       ],
     ])

@@ -38,7 +38,7 @@
             @if (!empty($actions))
               <div class="ud-card__actions">
                 @foreach ($actions as $action)
-                  <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'ud-main-btn' }}">
+                  <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'btn ud-btn-primary' }}">
                     {{ $action['label'] }}
                   </a>
                 @endforeach
@@ -52,7 +52,7 @@
     @if (!empty($sectionActions ?? []))
       <div class="ud-home-section__actions text-center mt-5">
         @foreach ($sectionActions as $action)
-          <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'ud-main-btn' }}">
+          <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'btn ud-btn-primary' }}">
             {{ $action['label'] }}
           </a>
         @endforeach

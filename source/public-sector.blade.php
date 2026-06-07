@@ -53,12 +53,12 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Request a demo'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => locale_url($page, 'pricing'),
         'label' => $page->t('View plans and pricing'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -74,7 +74,7 @@
         [
           'href' => '#public-sector-process',
           'label' => $page->t('Explore Our Features'),
-          'class' => 'ud-main-btn ud-ps-section__cta',
+          'class' => 'btn ud-btn-primary',
         ],
       ],
     ])
@@ -105,10 +105,10 @@
         </div>
 
         <div class="ud-ps-process__actions">
-          <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-ps-process__btn ud-ps-process__btn--primary">
+          <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">
             {{ $page->t('View Plans and Pricing') }}
           </a>
-          <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-ps-process__btn ud-ps-process__btn--secondary">
+          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">
             {{ $page->t('Talk to Our Specialists') }}
           </a>
         </div>

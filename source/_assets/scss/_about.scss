@@ -228,17 +228,6 @@
       }
     }
   }
-
-  &__btn {
-    border-radius: 999px;
-    display: inline-flex;
-    font-size: 0.98rem;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 52px;
-    min-width: 220px;
-    padding: 12px 24px;
-  }
 }
 
 .ud-about-cta {
@@ -272,39 +261,5 @@
     gap: 14px;
     justify-content: center;
     margin-top: 36px;
-  }
-
-  &__btn {
-    border-radius: 999px;
-    display: inline-flex;
-    font-size: 0.98rem;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 54px;
-    min-width: 230px;
-    padding: 12px 24px;
-  }
-
-  &__btn--primary {
-    background: #d97706;
-    border-color: #d97706;
-    color: #fff;
-
-    &:hover {
-      background: #c56c04;
-      border-color: #c56c04;
-      color: #fff;
-    }
-  }
-
-  &__btn--secondary {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    color: #fff;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
   }
 }

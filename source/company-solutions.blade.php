@@ -43,12 +43,12 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Try It Free Now'),
-        'class' => 'ud-main-btn w-100 text-center',
+        'class' => 'btn ud-btn-hero w-100 text-center',
       ],
       [
         'href' => '#company-benefits',
         'label' => $page->t('See How It Works'),
-        'class' => 'ud-secondary-btn w-100 text-center',
+        'class' => 'btn ud-btn-ghost w-100 text-center',
       ],
     ],
   ])
@@ -64,7 +64,7 @@
       'sectionActions' => [[
         'href'  => '#company-testimonials',
         'label' => $page->t('Discover the Platform'),
-        'class' => 'ud-main-btn ud-page-section__cta',
+        'class' => 'btn ud-btn-primary',
       ]],
     ])
 
@@ -94,10 +94,10 @@
         </div>
 
         <div class="ud-cs-testimonials__actions">
-          <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-cs-testimonials__btn ud-cs-testimonials__btn--primary">
+          <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">
             {{ $page->t('View Plans and Pricing') }}
           </a>
-          <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-cs-testimonials__btn ud-cs-testimonials__btn--secondary">
+          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">
             {{ $page->t('Talk to Our Specialists') }}
           </a>
         </div>

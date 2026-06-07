@@ -1,0 +1,129 @@
+@use "variables" as *;
+
+// ─────────────────────────────────────────────────────────────
+// Button system — site-specific variants built on Bootstrap's .btn
+//
+// Usage: always pair with Bootstrap's base class for a11y/focus:
+//   <a class="btn ud-btn-primary">Contact</a>
+//
+// Bootstrap .btn provides: cursor, user-select, text-decoration:none,
+//   vertical-align:middle, and focus-ring accessibility.
+//
+// Variants:
+//   ud-btn-primary   teal var(--primary-color) — main CTA on light sections
+//   ud-btn-accent    orange #d97706 — primary CTA on dark sections
+//   ud-btn-ghost     transparent + white border — secondary on dark sections
+//   ud-btn-outline   white bg + primary border — secondary on light sections
+//   ud-btn-white     white bg + dark text — (pricing dark section)
+//   ud-btn-hero      amber + teal text — hero section primary action
+// ─────────────────────────────────────────────────────────────
+
+// Shared shape + layout baseline (all variants inherit via @extend)
+%ud-btn-base {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 28px;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    color 0.25s ease, filter 0.25s ease;
+}
+
+// Teal — site's main CTA (light section backgrounds)
+.ud-btn-primary {
+  @extend %ud-btn-base;
+
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: var(--heading-color);
+    border-color: var(--heading-color);
+    color: var(--white);
+  }
+}
+
+// Orange — primary CTA on dark section backgrounds
+.ud-btn-accent {
+  @extend %ud-btn-base;
+
+  background: #d97706;
+  border: 1px solid #d97706;
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: #c56c04;
+    border-color: #c56c04;
+    color: var(--white);
+  }
+}
+
+// Transparent + white border — secondary action on dark sections
+.ud-btn-ghost {
+  @extend %ud-btn-base;
+
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+  }
+}
+
+// White bg + primary-color border — secondary action on light sections
+.ud-btn-outline {
+  @extend %ud-btn-base;
+
+  background: var(--white);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+  }
+}
+
+// White bg + dark text — used in dark sections where solid white stands out
+.ud-btn-white {
+  @extend %ud-btn-base;
+
+  background: var(--white);
+  border: 1px solid transparent;
+  color: var(--heading-color);
+
+  &:hover,
+  &:focus {
+    background: var(--heading-color);
+    border-color: var(--heading-color);
+    color: var(--white);
+  }
+}
+
+// Amber — hero section primary action (larger, yellow-amber)
+.ud-btn-hero {
+  @extend %ud-btn-base;
+
+  background: #ffc107;
+  border: 1px solid #ffc107;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  min-height: 56px;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    filter: brightness(1.15);
+  }
+}
