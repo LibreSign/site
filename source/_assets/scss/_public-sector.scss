@@ -45,25 +45,25 @@
     max-width: 1320px;
   }
 
-  .ud-home-card {
+  .ud-card {
     border: 1px solid #ececec;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     min-height: 620px;
     padding: 40px 34px 42px;
   }
 
-  .ud-home-card__header {
+  .ud-card__header {
     min-height: 126px;
   }
 
-  .ud-home-card__title {
+  .ud-card__title {
     color: #2d3748;
     font-size: clamp(2rem, 2.4vw, 2.25rem);
     font-weight: 700;
     line-height: 1.2;
   }
 
-  .ud-home-card__icon {
+  .ud-card__icon {
     background: #e67e00;
     height: 340px;
     margin-bottom: 36px;
@@ -77,11 +77,11 @@
     }
   }
 
-  .ud-home-card__body {
+  .ud-card__body {
     align-items: flex-start;
   }
 
-  .ud-home-card__body p {
+  .ud-card__body p {
     color: #4a5568;
     font-size: 1.02rem;
     line-height: 1.75;
@@ -92,16 +92,16 @@
   }
 
   @media #{$xs, $sm} {
-    .ud-home-card {
+    .ud-card {
       min-height: auto;
       padding: 28px 22px 32px;
     }
 
-    .ud-home-card__header {
+    .ud-card__header {
       min-height: 0;
     }
 
-    .ud-home-card__icon {
+    .ud-card__icon {
       height: 220px;
       width: 220px;
     }

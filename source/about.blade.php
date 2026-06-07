@@ -92,25 +92,33 @@
 
       <div class="row gy-5 justify-content-center align-items-stretch">
         <div class="col-lg-6 d-flex">
-          <article class="ud-about-value-card">
-            <div class="ud-about-value-card__icon">
+          <article class="ud-card">
+            <div class="ud-card__icon">
               <img src="{{ $page->baseUrl }}assets/images/about/about-coop.png" alt="{{ $page->t('Cooperative model icon') }}" />
             </div>
-            <h3>{{ $page->t('Why a cooperative?') }}</h3>
-            <p>
-              {{ $page->t('We are a digital cooperative of open-source specialists with transparent and democratic decision-making. Our members are partners who grow together with the business, aligned around one goal: delivering the best solution for you.') }}
-            </p>
+            <div class="ud-card__header">
+              <h3 class="ud-card__title">{{ $page->t('Why a cooperative?') }}</h3>
+            </div>
+            <div class="ud-card__body">
+              <p>
+                {{ $page->t('We are a digital cooperative of open-source specialists with transparent and democratic decision-making. Our members are partners who grow together with the business, aligned around one goal: delivering the best solution for you.') }}
+              </p>
+            </div>
           </article>
         </div>
         <div class="col-lg-6 d-flex">
-          <article class="ud-about-value-card">
-            <div class="ud-about-value-card__icon">
+          <article class="ud-card">
+            <div class="ud-card__icon">
               <img src="{{ $page->baseUrl }}assets/images/about/about-gnu.png" alt="{{ $page->t('Open source icon') }}" />
             </div>
-            <h3>{{ $page->t('Why open-source software?') }}</h3>
-            <p>
-              {{ $page->t('Open-source software like LibreSign is built collaboratively. Specialists continuously test and improve the code, resulting in a fully auditable platform where transparency becomes your guarantee of security and innovation.') }}
-            </p>
+            <div class="ud-card__header">
+              <h3 class="ud-card__title">{{ $page->t('Why open-source software?') }}</h3>
+            </div>
+            <div class="ud-card__body">
+              <p>
+                {{ $page->t('Open-source software like LibreSign is built collaboratively. Specialists continuously test and improve the code, resulting in a fully auditable platform where transparency becomes your guarantee of security and innovation.') }}
+              </p>
+            </div>
           </article>
         </div>
       </div>

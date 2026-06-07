@@ -15,8 +15,8 @@
   }
 
   // ── Card overrides ──────────────────────────────────────────
-  // Reuse ud-home-card base structure; only aesthetic differences live here.
-  .ud-home-card {
+  // Reuse ud-card base structure; only aesthetic differences live here.
+  .ud-card {
     border-radius: var(--bs-border-radius-lg);
     box-shadow: var(--ud-home-solutions-shadow);
     padding: 40px 30px;

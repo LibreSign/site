@@ -30,7 +30,7 @@
     margin-bottom: 56px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     margin-top: 52px;
   }
 
@@ -43,62 +43,49 @@
     min-height: 52px;
     padding: 12px 28px;
   }
-}
 
-.ud-it-pillar-card {
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 40px 34px 42px;
-  width: 100%;
+  .ud-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    padding: 40px 34px 42px;
 
-  &__icon {
-    align-items: center;
-    background: #d97706;
-    border-radius: 50%;
-    display: flex;
-    height: 240px;
-    justify-content: center;
-    margin-bottom: 30px;
-    width: 240px;
+    &__icon {
+      background: #d97706;
+      height: 240px;
+      margin-bottom: 30px;
+      width: 240px;
 
-    img {
-      height: 52%;
-      max-height: 52%;
-      max-width: 52%;
-      object-fit: contain;
-      width: 52%;
+      img {
+        height: 52%;
+        max-height: 52%;
+        max-width: 52%;
+        object-fit: contain;
+        width: 52%;
+      }
+
+      @media #{$xs, $sm} {
+        height: 190px;
+        width: 190px;
+      }
+    }
+
+    &__title {
+      color: #2d3748;
+      font-size: clamp(1.8rem, 2.2vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    &__body p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.75;
     }
 
     @media #{$xs, $sm} {
-      height: 190px;
-      width: 190px;
+      padding: 28px 22px 32px;
     }
-  }
-
-  &__title {
-    color: #2d3748;
-    font-size: clamp(1.8rem, 2.2vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  &__body {
-    color: #4a5568;
-    font-size: 1.02rem;
-    line-height: 1.75;
-    margin: 0;
-    text-align: center;
-  }
-
-  @media #{$xs, $sm} {
-    padding: 28px 22px 32px;
   }
 }
 
@@ -111,7 +98,7 @@
     padding: 60px 0;
   }
 
-  &__title {
+  .ud-home-section__title {
     color: #fff;
     font-size: clamp(2.2rem, 4vw, 3.6rem);
     font-weight: 800;
@@ -119,7 +106,7 @@
     margin-bottom: 20px;
   }
 
-  &__subtitle {
+  .ud-home-section__subtitle {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.06rem;
     line-height: 1.7;
@@ -127,7 +114,7 @@
     max-width: 1040px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -174,45 +161,47 @@
       color: #fff;
     }
   }
-}
 
-.ud-it-architecture-card {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 20px 20px 28px;
-  text-align: center;
-  width: 100%;
-
-  &__media {
-    margin-bottom: 18px;
-    width: 100%;
-
-    img {
-      display: block;
-      height: auto;
-      margin: 0 auto;
-      max-width: 100%;
-      width: 100%;
-    }
-  }
-
-  &__title {
+  // ud-card overrides — architecture media cards (screenshot images, no circle icon)
+  .ud-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
     color: #fff;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+    padding: 20px 20px 28px;
 
-  &__body {
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0;
+    &__header {
+      min-height: auto;
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    // __icon used as full-width media area (screenshot image, no circle)
+    &__icon {
+      aspect-ratio: unset;
+      background: transparent;
+      border-radius: 0;
+      height: auto;
+      margin-bottom: 18px;
+      width: 100%;
+
+      img {
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        object-fit: unset;
+        width: 100%;
+      }
+    }
+
+    &__body p {
+      color: rgba(255, 255, 255, 0.92);
+    }
   }
 }

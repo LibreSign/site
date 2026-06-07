@@ -47,38 +47,18 @@
   ])
 
   <div class="ud-coop-page">
-    <section id="cooperative-benefits" class="ud-coop-benefits">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('From Governance to Operations: Turn Cooperative Challenges into Results.') }}</h3>
-            <p class="ud-home-section__subtitle">
-              {{ $page->t('Your cooperative faces unique challenges. See how LibreSign simplifies processes and strengthens governance with security and transparency.') }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row text-center justify-content-evenly gy-5 align-items-stretch">
-          @foreach ($cooperativeBenefitItems as $item)
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up">
-              <article class="ud-coop-benefit-card">
-                <div class="ud-coop-benefit-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-coop-benefit-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-coop-benefit-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-coop-benefits__actions text-center">
-          <a href="#cooperative-dna" class="ud-main-btn ud-coop-benefits__cta">
-            {{ $page->t('Explore the Cooperative Plan') }}
-          </a>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'  => 'cooperative-benefits',
+      'sectionClass' => 'ud-coop-benefits',
+      'title'    => $page->t('From Governance to Operations: Turn Cooperative Challenges into Results.'),
+      'subtitle' => $page->t('Your cooperative faces unique challenges. See how LibreSign simplifies processes and strengthens governance with security and transparency.'),
+      'items'    => $cooperativeBenefitItems,
+      'sectionActions' => [[
+        'href'  => '#cooperative-dna',
+        'label' => $page->t('Explore the Cooperative Plan'),
+        'class' => 'ud-main-btn ud-coop-benefits__cta',
+      ]],
+    ])
 
     <section id="cooperative-dna" class="ud-coop-dna">
       <div class="container">

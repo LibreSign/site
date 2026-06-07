@@ -1,4 +1,4 @@
-<section class="{{ $sectionClass }}" data-aos="fade-up">
+<section class="{{ $sectionClass }}"@if(!empty($sectionId ?? '')) id="{{ $sectionId }}"@endif data-aos="fade-up">
   <div class="container">
     @include('_partials.home.section-heading', [
       'title' => $title,
@@ -10,7 +10,7 @@
         @php
           $delay = $item['delay'] ?? ($index * 150);
           $itemColClass = $item['colClass'] ?? ($colClass ?? 'col-lg-4 col-md-6 d-flex');
-          $cardClass = trim('ud-home-card ' . ($item['cardClass'] ?? ''));
+          $cardClass = trim('ud-card ' . ($item['cardClass'] ?? ''));
           $iconAlt = $item['iconAlt'] ?? '';
           $actions = $item['actions'] ?? [];
         @endphp
@@ -18,25 +18,25 @@
         <div class="{{ $itemColClass }}" data-aos="fade-up" data-aos-delay="{{ $delay }}">
           <div class="{{ $cardClass }}">
             @if (!empty($item['title']))
-              <div class="ud-home-card__header">
-                <h5 class="ud-home-card__title">{{ $item['title'] }}</h5>
+              <div class="ud-card__header">
+                <h5 class="ud-card__title">{{ $item['title'] }}</h5>
               </div>
             @endif
 
             @if (!empty($item['icon']))
-              <div class="ud-home-card__icon">
+              <div class="ud-card__icon">
                 <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" />
               </div>
             @endif
 
             @if (!empty($item['body']))
-              <div class="ud-home-card__body">
+              <div class="ud-card__body">
                 <p>{{ $item['body'] }}</p>
               </div>
             @endif
 
             @if (!empty($actions))
-              <div class="ud-home-card__actions">
+              <div class="ud-card__actions">
                 @foreach ($actions as $action)
                   <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'ud-main-btn' }}">
                     {{ $action['label'] }}

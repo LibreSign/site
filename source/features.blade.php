@@ -4,24 +4,28 @@
   @php
     $featureMainItems = [
       [
-        'title' => $page->t('Advanced Security'),
-        'icon' => $page->baseUrl . 'assets/images/solutions/features-security-icon.png',
-        'body' => $page->t('Keep your documents protected with strong encryption and multi-factor authentication across the entire electronic signing flow.'),
+        'title'   => $page->t('Advanced Security'),
+        'icon'    => $page->baseUrl . 'assets/images/solutions/features-security-icon.png',
+        'body'    => $page->t('Keep your documents protected with strong encryption and multi-factor authentication across the entire electronic signing flow.'),
+        'actions' => [['href' => locale_url($page, 'contact-us'), 'label' => $page->t('Learn more'), 'class' => 'ud-card__link']],
       ],
       [
-        'title' => $page->t('Hybrid Signatures'),
-        'icon' => $page->baseUrl . 'assets/images/solutions/features-hybrid-icon.png',
-        'body' => $page->t('Gain flexibility by choosing personal digital certificates or system-generated certificates to sign documents with LibreSign.'),
+        'title'   => $page->t('Hybrid Signatures'),
+        'icon'    => $page->baseUrl . 'assets/images/solutions/features-hybrid-icon.png',
+        'body'    => $page->t('Gain flexibility by choosing personal digital certificates or system-generated certificates to sign documents with LibreSign.'),
+        'actions' => [['href' => locale_url($page, 'contact-us'), 'label' => $page->t('Learn more'), 'class' => 'ud-card__link']],
       ],
       [
-        'title' => $page->t('Real-Time Monitoring'),
-        'icon' => $page->baseUrl . 'assets/images/solutions/features-realtime-icon.png',
-        'body' => $page->t('Monitor signatures in real time and optimize your team’s efficiency with complete visibility over every document workflow.'),
+        'title'   => $page->t('Real-Time Monitoring'),
+        'icon'    => $page->baseUrl . 'assets/images/solutions/features-realtime-icon.png',
+        'body'    => $page->t('Monitor signatures in real time and optimize your team’s efficiency with complete visibility over every document workflow.'),
+        'actions' => [['href' => locale_url($page, 'contact-us'), 'label' => $page->t('Learn more'), 'class' => 'ud-card__link']],
       ],
       [
-        'title' => $page->t('QR Code Validation'),
-        'icon' => $page->baseUrl . 'assets/images/solutions/features-qrcode-icon.png',
-        'body' => $page->t('Simplify authenticity verification with QR Code validation, delivering security, speed, and convenience for all parties.'),
+        'title'   => $page->t('QR Code Validation'),
+        'icon'    => $page->baseUrl . 'assets/images/solutions/features-qrcode-icon.png',
+        'body'    => $page->t('Simplify authenticity verification with QR Code validation, delivering security, speed, and convenience for all parties.'),
+        'actions' => [['href' => locale_url($page, 'contact-us'), 'label' => $page->t('Learn more'), 'class' => 'ud-card__link']],
       ],
     ];
   @endphp
@@ -45,39 +49,20 @@
   ])
 
   <div class="ud-features-page">
-    <section id="feature-highlights" class="ud-features-highlights">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('Core Features That Power Your Business.') }}</h3>
-            <p class="ud-home-section__subtitle">
-              {{ $page->t('LibreSign combines agility, security, and flexibility through capabilities that adapt to your organization’s specific needs.') }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row text-center gy-5 align-items-stretch">
-          @foreach ($featureMainItems as $item)
-            <div class="col-lg-6 d-flex" data-aos="fade-up">
-              <article class="ud-features-card">
-                <div class="ud-features-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-features-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-features-card__body">{{ $item['body'] }}</p>
-                <a href="{{ locale_url($page, 'contact-us') }}" class="ud-features-card__link">{{ $page->t('Learn more') }}</a>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-features-highlights__actions text-center">
-          <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-features-highlights__cta">
-            {{ $page->t('View All Plans') }}
-          </a>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'feature-highlights',
+      'sectionClass' => 'ud-features-highlights',
+      'title'    => $page->t('Core Features That Power Your Business.'),
+      'subtitle' => $page->t('LibreSign combines agility, security, and flexibility through capabilities that adapt to your organization’s specific needs.'),
+      'items'    => $featureMainItems,
+      'rowClass' => 'row text-center gy-5 align-items-stretch',
+      'colClass' => 'col-lg-6 d-flex',
+      'sectionActions' => [[
+        'href'  => locale_url($page, 'pricing'),
+        'label' => $page->t('View All Plans'),
+        'class' => 'ud-main-btn ud-features-highlights__cta',
+      ]],
+    ])
 
     <section class="ud-features-cta">
       <div class="container">

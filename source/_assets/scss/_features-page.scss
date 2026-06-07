@@ -30,7 +30,7 @@
     margin-bottom: 56px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     margin-top: 52px;
   }
 
@@ -43,74 +43,63 @@
     min-height: 52px;
     padding: 12px 28px;
   }
-}
 
-.ud-features-card {
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 40px 34px 38px;
-  width: 100%;
+  .ud-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    padding: 40px 34px 38px;
 
-  &__icon {
-    align-items: center;
-    background: #d97706;
-    border-radius: 50%;
-    display: flex;
-    height: 220px;
-    justify-content: center;
-    margin-bottom: 28px;
-    width: 220px;
+    &__icon {
+      background: #d97706;
+      height: 220px;
+      margin-bottom: 28px;
+      width: 220px;
 
-    img {
-      height: 52%;
-      max-height: 52%;
-      max-width: 52%;
-      object-fit: contain;
-      width: 52%;
+      img {
+        height: 52%;
+        max-height: 52%;
+        max-width: 52%;
+        object-fit: contain;
+        width: 52%;
+      }
+
+      @media #{$xs, $sm} {
+        height: 170px;
+        width: 170px;
+      }
+    }
+
+    &__title {
+      color: #2d3748;
+      font-size: clamp(1.9rem, 2.2vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    &__body p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    // Text-link style for the "Learn more" action
+    &__actions .ud-card__link {
+      color: var(--primary-color);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
     }
 
     @media #{$xs, $sm} {
-      height: 170px;
-      width: 170px;
+      padding: 28px 22px 32px;
     }
-  }
-
-  &__title {
-    color: #2d3748;
-    font-size: clamp(1.9rem, 2.2vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  &__body {
-    color: #4a5568;
-    font-size: 1.02rem;
-    line-height: 1.75;
-    margin: 0 0 18px;
-    text-align: center;
-  }
-
-  &__link {
-    color: var(--primary-color);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-
-    &:hover {
-      color: var(--secondary-color);
-      text-decoration: underline;
-    }
-  }
-
-  @media #{$xs, $sm} {
-    padding: 28px 22px 32px;
   }
 }
 

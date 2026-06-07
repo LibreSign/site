@@ -23,18 +23,18 @@
     $itValueItems = [
       [
         'title' => $page->t('Total API Control'),
-        'image' => $page->baseUrl . 'assets/images/solutions/it-workflow-screen.png',
-        'body' => $page->t('Integrate smoothly with an intuitive and well-documented REST API that gives your team automation and end-to-end workflow control.'),
+        'icon'  => $page->baseUrl . 'assets/images/solutions/it-workflow-screen.png',
+        'body'  => $page->t('Integrate smoothly with an intuitive and well-documented REST API that gives your team automation and end-to-end workflow control.'),
       ],
       [
         'title' => $page->t('Proactive Security'),
-        'image' => $page->baseUrl . 'assets/images/solutions/it-compliance-screen.png',
-        'body' => $page->t('Ensure compliance with detailed audit logs and a security panel that gives complete real-time visibility.'),
+        'icon'  => $page->baseUrl . 'assets/images/solutions/it-compliance-screen.png',
+        'body'  => $page->t('Ensure compliance with detailed audit logs and a security panel that gives complete real-time visibility.'),
       ],
       [
         'title' => $page->t('Total Flexibility'),
-        'image' => $page->baseUrl . 'assets/images/solutions/it-control-screen.png',
-        'body' => $page->t('Adapt the solution to your ecosystem with scalability and compatibility across your current stack and tools.'),
+        'icon'  => $page->baseUrl . 'assets/images/solutions/it-control-screen.png',
+        'body'  => $page->t('Adapt the solution to your ecosystem with scalability and compatibility across your current stack and tools.'),
       ],
     ];
   @endphp
@@ -58,77 +58,45 @@
   ])
 
   <div class="ud-it-page">
-    <section id="it-pillars" class="ud-it-pillars">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('From Integration to Security: Freedom to Build.') }}</h3>
-            <p class="ud-home-section__subtitle">
-              {{ $page->t('Discover the technical pillars that give your team freedom to innovate with confidence, visibility, and governance.') }}
-            </p>
-          </div>
-        </div>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'it-pillars',
+      'sectionClass' => 'ud-it-pillars',
+      'title'    => $page->t('From Integration to Security: Freedom to Build.'),
+      'subtitle' => $page->t('Discover the technical pillars that give your team freedom to innovate with confidence, visibility, and governance.'),
+      'items'    => $itPillarItems,
+      'sectionActions' => [[
+        'href'  => '#it-architecture',
+        'label' => $page->t('Access API Documentation'),
+        'class' => 'ud-main-btn ud-it-pillars__cta',
+      ]],
+    ])
 
-        <div class="row text-center justify-content-evenly gy-5 align-items-stretch">
-          @foreach ($itPillarItems as $item)
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up">
-              <article class="ud-it-pillar-card">
-                <div class="ud-it-pillar-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-it-pillar-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-it-pillar-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-it-pillars__actions text-center">
-          <a href="#it-architecture" class="ud-main-btn ud-it-pillars__cta">
-            {{ $page->t('Access API Documentation') }}
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="it-architecture" class="ud-it-architecture">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-11">
-            <h3 class="ud-it-architecture__title">{{ $page->t('Robust Architecture: Built to Scale.') }}</h3>
-            <p class="ud-it-architecture__subtitle">
-              {{ $page->t('Discover the technology that guarantees performance, flexibility, and complete control over your digital signing workflows.') }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row gy-4 justify-content-center">
-          @foreach ($itValueItems as $item)
-            <div class="col-xl-4 col-md-6 d-flex">
-              <article class="ud-it-architecture-card">
-                <div class="ud-it-architecture-card__media">
-                  <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" />
-                </div>
-                <h4 class="ud-it-architecture-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-it-architecture-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-it-architecture__actions">
-          <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-it-architecture__btn ud-it-architecture__btn--primary">
-            {{ $page->t('Talk to a Solutions Architect') }}
-          </a>
-          <a href="{{ $page->baseUrl }}assets/images/solutions/it-architecture-image.png" class="ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary" target="_blank" rel="noopener noreferrer">
-            {{ $page->t('Download Architecture Whitepaper') }}
-          </a>
-          <a href="https://github.com/LibreSign/libresign" class="ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary" target="_blank" rel="noopener noreferrer">
-            {{ $page->t('Project on GitHub') }}
-          </a>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'it-architecture',
+      'sectionClass' => 'ud-it-architecture',
+      'title'    => $page->t('Robust Architecture: Built to Scale.'),
+      'subtitle' => $page->t('Discover the technology that guarantees performance, flexibility, and complete control over your digital signing workflows.'),
+      'items'    => $itValueItems,
+      'rowClass' => 'row gy-4 justify-content-center',
+      'colClass' => 'col-xl-4 col-md-6 d-flex',
+      'sectionActions' => [
+        [
+          'href'  => locale_url($page, 'contact-us'),
+          'label' => $page->t('Talk to a Solutions Architect'),
+          'class' => 'ud-main-btn ud-it-architecture__btn ud-it-architecture__btn--primary',
+        ],
+        [
+          'href'  => $page->baseUrl . 'assets/images/solutions/it-architecture-image.png',
+          'label' => $page->t('Download Architecture Whitepaper'),
+          'class' => 'ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary',
+        ],
+        [
+          'href'  => 'https://github.com/LibreSign/libresign',
+          'label' => $page->t('Project on GitHub'),
+          'class' => 'ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary',
+        ],
+      ],
+    ])
   </div>
 
 @endsection

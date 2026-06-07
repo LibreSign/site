@@ -30,7 +30,7 @@
     margin-bottom: 56px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     margin-top: 52px;
   }
 
@@ -43,68 +43,54 @@
     min-height: 52px;
     padding: 12px 28px;
   }
-}
 
-.ud-cs-benefit-card {
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 40px 34px 42px;
-  width: 100%;
+  .ud-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    padding: 40px 34px 42px;
 
-  &__icon {
-    align-items: center;
-    background: #d97706;
-    border-radius: 50%;
-    display: flex;
-    height: 260px;
-    justify-content: center;
-    margin-bottom: 34px;
-    width: 260px;
+    &__icon {
+      background: #d97706;
+      height: 260px;
+      margin-bottom: 34px;
+      width: 260px;
 
-    img {
-      height: 52%;
-      max-height: 52%;
-      max-width: 52%;
-      width: 52%;
-      object-fit: contain;
+      img {
+        height: 52%;
+        max-height: 52%;
+        max-width: 52%;
+        object-fit: contain;
+        width: 52%;
+      }
+
+      @media #{$xs, $sm} {
+        height: 200px;
+        width: 200px;
+      }
+    }
+
+    &__title {
+      color: #2d3748;
+      font-size: clamp(1.9rem, 2.2vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    &__body p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.75;
     }
 
     @media #{$xs, $sm} {
-      height: 200px;
-      width: 200px;
-    }
-  }
+      padding: 28px 22px 32px;
 
-  &__title {
-    color: #2d3748;
-    font-size: clamp(1.9rem, 2.2vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  &__body {
-    color: #4a5568;
-    font-size: 1.02rem;
-    line-height: 1.75;
-    margin: 0;
-    text-align: center;
-  }
-
-  @media #{$xs, $sm} {
-    padding: 28px 22px 32px;
-
-    &__icon {
-      font-size: 62px;
-      height: 170px;
-      margin-bottom: 26px;
-      width: 170px;
+      &__icon {
+        height: 170px;
+        margin-bottom: 26px;
+        width: 170px;
+      }
     }
   }
 }

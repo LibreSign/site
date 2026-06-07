@@ -30,7 +30,7 @@
     margin-bottom: 56px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     margin-top: 52px;
   }
 
@@ -43,63 +43,50 @@
     min-height: 52px;
     padding: 12px 28px;
   }
-}
 
-.ud-law-challenge-card {
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ececec;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 40px 34px 42px;
-  width: 100%;
+  .ud-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    padding: 40px 34px 42px;
 
-  &__icon {
-    align-items: center;
-    background: #d97706;
-    border-radius: 50%;
-    display: flex;
-    height: 240px;
-    justify-content: center;
-    margin-bottom: 30px;
-    width: 240px;
+    &__icon {
+      background: #d97706;
+      height: 240px;
+      margin-bottom: 30px;
+      width: 240px;
 
-    img {
-      filter: brightness(0) invert(1);
-      height: 52%;
-      max-height: 52%;
-      max-width: 52%;
-      object-fit: contain;
-      width: 52%;
+      img {
+        filter: brightness(0) invert(1);
+        height: 52%;
+        max-height: 52%;
+        max-width: 52%;
+        object-fit: contain;
+        width: 52%;
+      }
+
+      @media #{$xs, $sm} {
+        height: 190px;
+        width: 190px;
+      }
+    }
+
+    &__title {
+      color: #2d3748;
+      font-size: clamp(1.8rem, 2.2vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    &__body p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.75;
     }
 
     @media #{$xs, $sm} {
-      height: 190px;
-      width: 190px;
+      padding: 28px 22px 32px;
     }
-  }
-
-  &__title {
-    color: #2d3748;
-    font-size: clamp(1.8rem, 2.2vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  &__body {
-    color: #4a5568;
-    font-size: 1.02rem;
-    line-height: 1.75;
-    margin: 0;
-    text-align: center;
-  }
-
-  @media #{$xs, $sm} {
-    padding: 28px 22px 32px;
   }
 }
 
@@ -112,7 +99,7 @@
     padding: 60px 0;
   }
 
-  &__title {
+  .ud-home-section__title {
     color: #fff;
     font-size: clamp(2.2rem, 4vw, 3.6rem);
     font-weight: 800;
@@ -120,7 +107,7 @@
     margin-bottom: 20px;
   }
 
-  &__subtitle {
+  .ud-home-section__subtitle {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.06rem;
     line-height: 1.7;
@@ -128,7 +115,7 @@
     max-width: 1040px;
   }
 
-  &__actions {
+  .ud-home-section__actions {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -175,48 +162,44 @@
       color: #fff;
     }
   }
-}
 
-.ud-law-value-card {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 28px 26px 32px;
-  text-align: center;
-  width: 100%;
-
-  &__icon {
-    align-items: center;
-    display: flex;
-    height: 95px;
-    justify-content: center;
-    margin-bottom: 16px;
-
-    img {
-      display: block;
-      height: auto;
-      max-height: 95px;
-      max-width: 110px;
-      width: auto;
-    }
-  }
-
-  &__title {
+  // ud-card overrides — compact dark-bg cards (small icon, no circle)
+  .ud-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
     color: #fff;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+    padding: 28px 26px 32px;
 
-  &__body {
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0;
+    &__header {
+      min-height: auto;
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    &__icon {
+      background: transparent;
+      border-radius: 0;
+      height: 95px;
+      margin-bottom: 16px;
+      width: auto;
+
+      img {
+        height: auto;
+        max-height: 95px;
+        max-width: 110px;
+        object-fit: contain;
+        width: auto;
+      }
+    }
+
+    &__body p {
+      color: rgba(255, 255, 255, 0.92);
+    }
   }
 }

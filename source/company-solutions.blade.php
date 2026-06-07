@@ -54,38 +54,18 @@
   ])
 
   <div class="ud-cs-page">
-    <section id="company-benefits" class="ud-cs-benefits">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('Leave Paper Behind and Embrace Digital Agility.') }}</h3>
-            <p class="ud-home-section__subtitle">
-              {{ $page->t('Turn paperwork into productivity. Discover how LibreSign optimizes your time and reduces costs for your business.') }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row text-center justify-content-evenly gy-5 align-items-stretch">
-          @foreach ($companyBenefitItems as $item)
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up">
-              <article class="ud-cs-benefit-card">
-                <div class="ud-cs-benefit-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-cs-benefit-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-cs-benefit-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-cs-benefits__actions text-center">
-          <a href="#company-testimonials" class="ud-main-btn ud-cs-benefits__cta">
-            {{ $page->t('Discover the Platform') }}
-          </a>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'company-benefits',
+      'sectionClass' => 'ud-cs-benefits',
+      'title'    => $page->t('Leave Paper Behind and Embrace Digital Agility.'),
+      'subtitle' => $page->t('Turn paperwork into productivity. Discover how LibreSign optimizes your time and reduces costs for your business.'),
+      'items'    => $companyBenefitItems,
+      'sectionActions' => [[
+        'href'  => '#company-testimonials',
+        'label' => $page->t('Discover the Platform'),
+        'class' => 'ud-main-btn ud-cs-benefits__cta',
+      ]],
+    ])
 
     <section id="company-testimonials" class="ud-cs-testimonials">
       <div class="container">

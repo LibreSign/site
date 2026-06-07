@@ -1,0 +1,138 @@
+@use "variables" as *;
+
+// ──────────────────────────────────────────────────────────────
+// Generic card component — used site-wide.
+// Base styles live here; section-scoped visual overrides belong
+// in each page's SCSS file, e.g.:
+//   .ud-coop-benefits .ud-card { … }
+// ──────────────────────────────────────────────────────────────
+
+.ud-card {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: var(--ud-home-card-radius);
+  box-shadow: var(--ud-home-card-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--ud-home-card-padding);
+  width: 100%;
+
+  @media #{$laptop} {
+    max-width: 496px;
+    padding: var(--ud-home-card-padding-laptop);
+  }
+
+  @media #{$xs, $sm} {
+    padding: var(--ud-home-card-padding-sm);
+  }
+}
+
+.ud-card__header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  min-height: 80px;
+  width: 100%;
+
+  @media #{$laptop} {
+    margin-bottom: 42px;
+    min-height: 100px;
+  }
+
+  @media #{$xs, $sm} {
+    margin-bottom: 20px;
+    min-height: 60px;
+  }
+}
+
+.ud-card__title {
+  color: var(--ud-home-card-title-color);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+
+  @media #{$xs, $sm} {
+    font-size: 1.3rem;
+  }
+}
+
+.ud-card__icon {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  @media #{$laptop} {
+    height: 256px;
+    margin-bottom: 60px;
+  }
+
+  @media #{$xs, $sm} {
+    height: 150px;
+    margin-bottom: 24px;
+  }
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+.ud-card__body {
+  align-items: flex-start;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.ud-card__body p {
+  color: var(--ud-home-card-body-color);
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+
+  @media #{$xs, $sm} {
+    font-size: 0.9rem;
+  }
+}
+
+.ud-card__actions {
+  padding-top: 16px;
+  width: 100%;
+
+  @media #{$xs, $sm} {
+    padding-top: 12px;
+  }
+
+  .ud-hero-buttons,
+  .ud-hero-buttons li {
+    width: 100%;
+  }
+
+  .ud-main-btn {
+    align-items: center;
+    display: flex;
+    font-size: 0.95rem;
+    justify-content: center;
+    line-height: 1.3;
+    min-height: 56px;
+    padding: 8px 16px;
+    white-space: normal;
+    width: 100%;
+    word-break: break-word;
+
+    @media #{$xs, $sm} {
+      font-size: 0.8rem;
+      min-height: 48px;
+      padding: 6px 12px;
+    }
+  }
+}

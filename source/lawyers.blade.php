@@ -58,74 +58,40 @@
   ])
 
   <div class="ud-law-page">
-    <section id="lawyers-challenges" class="ud-law-challenges">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-10">
-            <h3 class="ud-home-section__title">{{ $page->t('Put an End to Risk and Document Management Complexity.') }}</h3>
-            <p class="ud-home-section__subtitle">
-              {{ $page->t('Legal management complexity should never become a liability. Discover solutions that provide security, traceability, and operational speed.') }}
-            </p>
-          </div>
-        </div>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'lawyers-challenges',
+      'sectionClass' => 'ud-law-challenges',
+      'title'    => $page->t('Put an End to Risk and Document Management Complexity.'),
+      'subtitle' => $page->t('Legal management complexity should never become a liability. Discover solutions that provide security, traceability, and operational speed.'),
+      'items'    => $lawyerChallengeItems,
+      'sectionActions' => [[
+        'href'  => '#lawyers-value',
+        'label' => $page->t('Discover Smart Legal Management'),
+        'class' => 'ud-main-btn ud-law-challenges__cta',
+      ]],
+    ])
 
-        <div class="row text-center justify-content-evenly gy-5 align-items-stretch">
-          @foreach ($lawyerChallengeItems as $item)
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up">
-              <article class="ud-law-challenge-card">
-                <div class="ud-law-challenge-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-law-challenge-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-law-challenge-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-law-challenges__actions text-center">
-          <a href="#lawyers-value" class="ud-main-btn ud-law-challenges__cta">
-            {{ $page->t('Discover Smart Legal Management') }}
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="lawyers-value" class="ud-law-value">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-11">
-            <h3 class="ud-law-value__title">{{ $page->t('Smart Legal Management.') }}</h3>
-            <p class="ud-law-value__subtitle">
-              {{ $page->t('Leave bureaucracy behind and focus your time on what matters most: legal strategy and client success.') }}
-            </p>
-          </div>
-        </div>
-
-        <div class="row gy-4 justify-content-center">
-          @foreach ($lawyerValueItems as $item)
-            <div class="col-xl-4 col-md-6 d-flex">
-              <article class="ud-law-value-card">
-                <div class="ud-law-value-card__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
-                </div>
-                <h4 class="ud-law-value-card__title">{{ $item['title'] }}</h4>
-                <p class="ud-law-value-card__body">{{ $item['body'] }}</p>
-              </article>
-            </div>
-          @endforeach
-        </div>
-
-        <div class="ud-law-value__actions">
-          <a href="{{ locale_url($page, 'pricing') }}" class="ud-main-btn ud-law-value__btn ud-law-value__btn--primary">
-            {{ $page->t('View Plans and Pricing') }}
-          </a>
-          <a href="{{ locale_url($page, 'contact-us') }}" class="ud-secondary-btn ud-law-value__btn ud-law-value__btn--secondary">
-            {{ $page->t('Talk to Our Specialists') }}
-          </a>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.card-grid-section', [
+      'sectionId'    => 'lawyers-value',
+      'sectionClass' => 'ud-law-value',
+      'title'    => $page->t('Smart Legal Management.'),
+      'subtitle' => $page->t('Leave bureaucracy behind and focus your time on what matters most: legal strategy and client success.'),
+      'items'    => $lawyerValueItems,
+      'rowClass' => 'row gy-4 justify-content-center',
+      'colClass' => 'col-xl-4 col-md-6 d-flex',
+      'sectionActions' => [
+        [
+          'href'  => locale_url($page, 'pricing'),
+          'label' => $page->t('View Plans and Pricing'),
+          'class' => 'ud-main-btn ud-law-value__btn ud-law-value__btn--primary',
+        ],
+        [
+          'href'  => locale_url($page, 'contact-us'),
+          'label' => $page->t('Talk to Our Specialists'),
+          'class' => 'ud-secondary-btn ud-law-value__btn ud-law-value__btn--secondary',
+        ],
+      ],
+    ])
   </div>
 
 @endsection
