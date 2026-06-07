@@ -150,10 +150,9 @@
     }
 
     .contact-title {
-      color: #2f3b51;
-      font-size: clamp(2.6rem, 4.7vw, 5rem);
-      font-weight: 700;
       color: var(--heading-color);
+      font-size: clamp(1.8rem, 3.75vw, 3rem);
+      font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.08;
       margin-bottom: 34px;
@@ -165,21 +164,19 @@
     }
 
     .contact-subtitle {
-      color: #1f2937;
-      font-size: 2rem;
-      font-size: clamp(1.35rem, 2.05vw, 2rem);
-      line-height: 1.36;
+      color: #4a5568;
+      font-size: 1.125rem;
+      line-height: 1.6;
       margin-bottom: 46px;
       max-width: 700px;
     }
 
     h3 {
-      color: #2f3b51;
-      font-size: clamp(2rem, 3vw, 3.25rem);
+      color: var(--heading-color);
+      font-size: 1.75rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 26px !important;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
     }
 
     .contact-benefits {
@@ -188,24 +185,24 @@
       margin: 0;
 
       li {
-        color: #2f3b51;
-        font-size: clamp(1.15rem, 1.5vw, 2.1rem);
-        line-height: 1.38;
-        margin-bottom: 24px;
+        color: #2d3748;
+        font-size: 1.25rem;
+        line-height: 1.55;
+        margin-bottom: 20px;
         padding: 0 0 0 30px;
         position: relative;
 
         &:before {
           content: "●";
-          color: #2f3b51;
-          font-size: 0.92em;
+          color: #d97706;
+          font-size: 0.7em;
           position: absolute;
           left: 0;
-          top: 0.18em;
+          top: 0.28em;
         }
 
         strong {
-          color: #2f3b51;
+          color: #2d3748;
           font-weight: 700;
         }
       }
@@ -239,7 +236,7 @@
 
       label {
         color: #475569;
-        font-size: 0.95rem;
+        font-size: 1rem;
         font-weight: 500;
         margin-bottom: 6px;
         display: block;
@@ -284,25 +281,6 @@
       background: transparent;
       border: 0;
       padding: 0;
-    }
-
-    .ud-main-btn {
-      background: #d97706;
-      border-color: #d97706;
-      border-radius: 999px;
-      display: inline-flex;
-      font-size: 0.95rem;
-      font-weight: 700;
-      justify-content: center;
-      min-height: 58px;
-      min-width: 290px;
-      padding: 12px 24px;
-      width: auto !important;
-
-      &:hover {
-        background: #c56c04;
-        border-color: #c56c04;
-      }
     }
 
     .ud-form-group.mb-0 {
