@@ -208,79 +208,12 @@
     <!-- ====== Solutions Section End ====== -->
 
     <!-- ====== Blog/Content Section Start ====== -->
-    <section class="ud-home-blog" data-aos="fade-up">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="ud-home-blog__header text-center mx-auto">
-              <h3 class="ud-home-section__title">{{ $page->t("LibreSign: Knowledge that Drives Your Digital Transformation.")}}</h3>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <p class="ud-home-section__subtitle">{{ $page->t("Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.") }}</p>
-          </div>
-        </div>
-        <div class="row g-4 mt-4 justify-content-center align-items-stretch">
-          @php
-            $homePosts = $page->mergeCollections($posts, $posts_wordpress)
-              ->filter(fn ($post) => current_path_locale($post) === current_path_locale($page))
-              ->take(3);
-
-            $categoryMap = [
-              'features' => 'Features',
-              'security' => 'Security',
-              'article' => 'Article',
-            ];
-          @endphp
-
-          @foreach ($homePosts as $post)
-            @php
-              $categories = $post->categories ?? [];
-              $rawCategory = is_array($categories) && !empty($categories)
-                ? $categories[0]
-                : ($post->category ?? 'article');
-
-              $categoryKey = is_string($rawCategory) ? strtolower($rawCategory) : 'article';
-              $categoryLabel = $categoryMap[$categoryKey] ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $categoryKey));
-
-              if (($post->author ?? null) === 'LibreSign') {
-                $authorAvatar = $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png';
-              } elseif (!empty($post->gravatar ?? null) && str_starts_with($post->gravatar, '/')) {
-                $authorAvatar = $page->baseUrl . ltrim($post->gravatar, '/');
-              } elseif (!empty($post->gravatar ?? null)) {
-                $authorAvatar = 'https://www.gravatar.com/avatar/' . $post->gravatar . '?size=80';
-              } else {
-                $authorAvatar = $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png';
-              }
-            @endphp
-
-            <div class="col-lg-4 col-md-6 d-flex">
-              <article class="ud-home-blog-card">
-                <div class="ud-home-blog-card__media">
-                  <div class="ud-home-blog-card__frame">
-                    <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
-                  </div>
-                  <span class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</span>
-                  <span class="ud-home-blog-card__badge" aria-hidden="true">
-                    <img src="{{ $authorAvatar }}" alt="" />
-                  </span>
-                </div>
-                <div class="ud-home-blog-card__content">
-                  <h4 class="ud-home-blog-card__title">{{ $page->t($post->title) }}</h4>
-                  <p class="ud-home-blog-card__excerpt">{{ $page->t($post->description) }}</p>
-                  <a href="{{ $post->getUrl() }}" class="ud-home-blog-card__link">{{ $page->t('Read more »') }}</a>
-                </div>
-              </article>
-            </div>
-          @endforeach
-        </div>
-        <div class="row">
-          <div class="col-12 d-flex justify-content-center">
-            <a href="{{ locale_url($page, 'posts') }}" class="ud-home-blog__cta">{{ $page->t('Access Our Full Blog') }}</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    @include('_partials.home.blog-section', [
+      'title'    => $page->t('LibreSign: Knowledge that Drives Your Digital Transformation.'),
+      'subtitle' => $page->t('Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.'),
+      'ctaHref'  => locale_url($page, 'posts'),
+      'ctaLabel' => $page->t('Access Our Full Blog'),
+    ])
     <!-- ====== Blog/Content Section End ====== -->
 
     <!-- ====== CTA Start ====== -->
