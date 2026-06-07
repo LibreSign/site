@@ -105,27 +105,12 @@
     <!-- ====== Challenges Section End ====== -->
 
     <!-- ====== Benefits Start ====== -->
-    @php
-      $homeBenefitItems = collect($page->getFromCategory('home-benefits'))
-        ->map(fn($post) => [
-          'colClass' => 'col-md-6 d-flex',
-          'title'    => $post['title'],
-          'icon'     => !empty($post['card_icon']) ? $page->baseUrl . $post['card_icon'] : null,
-          'body'     => $post['description'] ?? '',
-          'actions'  => [[
-            'href'  => $post['url'],
-            'label' => $page->t('Learn more'),
-            'class' => 'btn ud-btn-outline-brand ud-card__link',
-          ]],
-        ])
-        ->all();
-    @endphp
-    @include('_partials.home.card-grid-section', [
+    @include('_partials.post-list', [
       'sectionClass' => 'ud-home-benefits',
-      'title' => $page->t('Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.'),
-      'subtitle' => $page->t('More than a tool, a strategic partner for digital efficiency and security.'),
-      'items' => $homeBenefitItems,
-      'rowClass' => 'row text-center gy-5 align-items-stretch',
+      'title'        => $page->t('Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.'),
+      'subtitle'     => $page->t('More than a tool, a strategic partner for digital efficiency and security.'),
+      'category'     => 'home-benefits',
+      'format'       => 'feature',
     ])
     <!-- ====== Benefits End ====== -->
 
@@ -208,11 +193,13 @@
     <!-- ====== Solutions Section End ====== -->
 
     <!-- ====== Blog/Content Section Start ====== -->
-    @include('_partials.home.blog-section', [
-      'title'    => $page->t('LibreSign: Knowledge that Drives Your Digital Transformation.'),
-      'subtitle' => $page->t('Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.'),
-      'ctaHref'  => locale_url($page, 'posts'),
-      'ctaLabel' => $page->t('Access Our Full Blog'),
+    @include('_partials.post-list', [
+      'sectionClass' => 'ud-home-blog',
+      'title'        => $page->t('LibreSign: Knowledge that Drives Your Digital Transformation.'),
+      'subtitle'     => $page->t('Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.'),
+      'format'       => 'blog',
+      'limit'        => 3,
+      'cta'          => ['href' => locale_url($page, 'posts'), 'label' => $page->t('Access Our Full Blog')],
     ])
     <!-- ====== Blog/Content Section End ====== -->
 

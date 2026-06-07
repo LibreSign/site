@@ -168,7 +168,7 @@ return [
             }
         }
         usort($posts, fn($a, $b) => strcmp($b['date'] ?? '', $a['date'] ?? ''));
-        return $posts;
+        return array_map(fn($p) => (object) $p, $posts);
     },
     'mergeCollections' => function ($page, ...$collections) {
         $merged = collect();
