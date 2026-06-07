@@ -60,7 +60,7 @@
             <ul class="dropdown-menu ud-nav-submenu"
                 aria-labelledby="features-menu-toggle"
                 aria-label="{{ $page->t('Features submenu') }}">
-              @foreach($page->getFromCategory('destaque') as $featuredPost)
+              @foreach($page->getFromCategory('featured') as $featuredPost)
               <li>
                 <a class="dropdown-item ud-nav-submenu-link" href="{{ $featuredPost->url }}">
                   {{ $page->t($featuredPost->title) }}

@@ -4,7 +4,7 @@ title: Hybrid signatures
 author: Daiane Alves
 date: 2024-01-12
 description: Hybrid signatures streamline negotiation processes, offering flexibility in choosing between personal or system-generated digital certificates for signing documents digitally with LibreSign
-categories: [features, destaque]
+categories: [features, featured]
 icon: file-multiple
 card_icon: assets/images/icon/features/hybrid-signatures.svg
 ---
