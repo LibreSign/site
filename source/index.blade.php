@@ -48,10 +48,10 @@
               $githubDownloadsRaw = (int) ($page->githubDownloads ?? 0);
               if ($githubDownloadsRaw >= 1_000_000) {
                 $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000_000);
-                $clientsSecondaryTemplate = $page->t('More than <strong>:count million+</strong> downloads');
+                $clientsSecondaryTemplate = $page->t('More than <strong>:count million+</strong> installations worldwide');
               } else {
                 $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000);
-                $clientsSecondaryTemplate = $page->t('More than <strong>:count thousand+</strong> downloads');
+                $clientsSecondaryTemplate = $page->t('More than <strong>:count thousand+</strong> installations worldwide');
               }
               $clientsSecondaryWithCount = str_replace(':count', $githubDownloadsScaled, $clientsSecondaryTemplate);
               $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
