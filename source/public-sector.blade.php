@@ -65,7 +65,8 @@
 
   <div class="ud-ps-page">
     @include('_partials.home.card-grid-section', [
-      'sectionClass' => 'ud-home-challenges ud-ps-section',
+      'sectionClass' => 'ud-home-challenges ud-ps-section ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title' => $page->t('Public Sector Challenges LibreSign Turns into Solutions.'),
       'subtitle' => $page->t('Physical documents, slow workflows, and the insecurity of manual management are problems of the past. Discover how LibreSign modernizes your organization.'),
       'items' => $publicSectorChallengeItems,

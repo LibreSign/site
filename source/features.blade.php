@@ -51,7 +51,8 @@
   <div class="ud-features-page">
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'feature-highlights',
-      'sectionClass' => 'ud-features-highlights',
+      'sectionClass' => 'ud-features-highlights ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title'    => $page->t('Core Features That Power Your Business.'),
       'subtitle' => $page->t('LibreSign combines agility, security, and flexibility through capabilities that adapt to your organization’s specific needs.'),
       'items'    => $featureMainItems,
@@ -60,7 +61,7 @@
       'sectionActions' => [[
         'href'  => locale_url($page, 'pricing'),
         'label' => $page->t('View All Plans'),
-        'class' => 'ud-main-btn ud-features-highlights__cta',
+        'class' => 'ud-main-btn ud-page-section__cta',
       ]],
     ])
 

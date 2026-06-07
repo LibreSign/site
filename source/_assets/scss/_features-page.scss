@@ -9,96 +9,18 @@
 }
 
 .ud-features-highlights {
-  background: #f7fafc;
-  padding: 96px 0;
-
-  @media #{$xs, $sm} {
-    padding: 64px 0;
-  }
-
-  .ud-home-section__title {
-    color: #2d3748;
-    font-size: clamp(2.35rem, 4.2vw, 4rem);
-    line-height: 1.15;
-    margin-bottom: 22px;
-  }
-
-  .ud-home-section__subtitle {
-    color: #4a5568;
-    font-size: 1.03rem;
-    line-height: 1.72;
-    margin-bottom: 56px;
-  }
-
-  .ud-home-section__actions {
-    margin-top: 52px;
-  }
-
-  &__cta {
-    border-radius: 999px;
-    display: inline-flex;
+  // Background and padding from .ud-page-section; heading styles inherit from it.
+  // Cards styled by .ud-card--outlined.
+  // The "Learn more" text link needs its own style since it renders inside __actions.
+  .ud-card--outlined .ud-card__actions .ud-card__link {
+    color: var(--primary-color);
     font-size: 0.95rem;
     font-weight: 700;
-    justify-content: center;
-    min-height: 52px;
-    padding: 12px 28px;
-  }
+    text-decoration: none;
 
-  .ud-card {
-    background: #fff;
-    border: 1px solid #ececec;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-    padding: 40px 34px 38px;
-
-    &__icon {
-      background: #d97706;
-      height: 220px;
-      margin-bottom: 28px;
-      width: 220px;
-
-      img {
-        height: 52%;
-        max-height: 52%;
-        max-width: 52%;
-        object-fit: contain;
-        width: 52%;
-      }
-
-      @media #{$xs, $sm} {
-        height: 170px;
-        width: 170px;
-      }
-    }
-
-    &__title {
-      color: #2d3748;
-      font-size: clamp(1.9rem, 2.2vw, 2.25rem);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    &__body p {
-      color: #4a5568;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      margin-bottom: 18px;
-    }
-
-    // Text-link style for the "Learn more" action
-    &__actions .ud-card__link {
-      color: var(--primary-color);
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--secondary-color);
-        text-decoration: underline;
-      }
-    }
-
-    @media #{$xs, $sm} {
-      padding: 28px 22px 32px;
+    &:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
     }
   }
 }

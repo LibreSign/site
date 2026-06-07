@@ -2,9 +2,16 @@
 
 // ──────────────────────────────────────────────────────────────
 // Generic card component — used site-wide.
-// Base styles live here; section-scoped visual overrides belong
-// in each page's SCSS file, e.g.:
-//   .ud-coop-benefits .ud-card { … }
+//
+// Base: .ud-card
+// Variants (modifier classes):
+//   .ud-card--outlined  white, bordered, orange circle icon
+//   .ud-card--glass     semi-transparent on dark background
+//   .ud-card--media     image-first card (no icon circle)
+//
+// Per-section visual tweaks belong in each section's own SCSS,
+// scoped to the section class, e.g.:
+//   .ud-law-challenges .ud-card--outlined { ... }
 // ──────────────────────────────────────────────────────────────
 
 .ud-card {
@@ -133,6 +140,274 @@
       font-size: 0.8rem;
       min-height: 48px;
       padding: 6px 12px;
+    }
+  }
+}
+
+// ── Variant: outlined ─────────────────────────────────────────
+// Standard card for inner pages: white bg, subtle border/shadow,
+// orange circle icon (240 px), dark typography.
+// Usage: cardClass => 'ud-card--outlined'
+// ─────────────────────────────────────────────────────────────
+.ud-card--outlined {
+  border: 1px solid #ececec;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 40px 34px 42px;
+
+  @media #{$xs, $sm} {
+    padding: 28px 22px 32px;
+  }
+
+  .ud-card__icon {
+    background: #d97706;
+    height: 240px;
+    margin-bottom: 30px;
+    width: 240px;
+
+    img {
+      height: 52%;
+      max-height: 52%;
+      max-width: 52%;
+      object-fit: contain;
+      width: 52%;
+    }
+
+    @media #{$xs, $sm} {
+      height: 190px;
+      width: 190px;
+    }
+  }
+
+  .ud-card__header {
+    min-height: 70px;
+
+    @media #{$xs, $sm} {
+      min-height: 50px;
+    }
+  }
+
+  .ud-card__title {
+    color: #2d3748;
+    font-size: clamp(1.85rem, 2.2vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ud-card__body p {
+    color: #4a5568;
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+}
+
+// ── Variant: glass ────────────────────────────────────────────
+// Compact card for dark-background sections: semi-transparent,
+// white text, rounded corners, small icon (no circle).
+// Usage: cardClass => 'ud-card--glass'
+// ─────────────────────────────────────────────────────────────
+.ud-card--glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #fff;
+  padding: 28px 26px 32px;
+
+  .ud-card__header {
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
+  .ud-card__title {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .ud-card__icon {
+    background: transparent;
+    border-radius: 0;
+    height: 95px;
+    margin-bottom: 16px;
+    width: auto;
+
+    img {
+      height: auto;
+      max-height: 95px;
+      max-width: 110px;
+      object-fit: contain;
+      width: auto;
+    }
+  }
+
+  .ud-card__body p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// ── Variant: media ────────────────────────────────────────────
+// Card where __icon is a full-width screenshot/image area
+// (no circle, no fixed height). Used in IT architecture cards.
+// Usage: cardClass => 'ud-card--media'
+// ─────────────────────────────────────────────────────────────
+.ud-card--media {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #fff;
+  padding: 20px 20px 28px;
+
+  .ud-card__header {
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
+  .ud-card__title {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  // Override icon to behave as a full-width media slot
+  .ud-card__icon {
+    aspect-ratio: unset;
+    background: transparent;
+    border-radius: 0;
+    height: auto;
+    margin-bottom: 18px;
+    width: 100%;
+
+    img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 100%;
+      object-fit: unset;
+      width: 100%;
+    }
+  }
+
+  .ud-card__body p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// ── Generic page section helpers ──────────────────────────────
+// Reusable section container styles for inner pages.
+// Avoids repeating identical background/padding/heading rules
+// across every page-specific SCSS file.
+//
+// .ud-page-section       — light grey bg, standard inner-page section
+// .ud-page-section--dark — dark (#2d3748) bg, white text
+// ─────────────────────────────────────────────────────────────
+.ud-page-section {
+  background: #f7fafc;
+  padding: 96px 0;
+
+  @media #{$xs, $sm} {
+    padding: 64px 0;
+  }
+
+  .ud-home-section__title {
+    color: #2d3748;
+    font-size: clamp(2.35rem, 4.2vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+
+  .ud-home-section__subtitle {
+    color: #4a5568;
+    font-size: 1.03rem;
+    line-height: 1.72;
+    margin-bottom: 56px;
+  }
+
+  .ud-home-section__actions {
+    margin-top: 52px;
+  }
+
+  // Standard pill CTA button inside section actions
+  .ud-page-section__cta {
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 0.95rem;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 52px;
+    padding: 12px 28px;
+  }
+}
+
+.ud-page-section--dark {
+  background: #2d3748;
+  color: #fff;
+  padding: 88px 0;
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .ud-home-section__title {
+    color: #fff;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.16;
+    margin-bottom: 20px;
+  }
+
+  .ud-home-section__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.06rem;
+    line-height: 1.7;
+    margin: 0 auto 58px;
+    max-width: 1040px;
+  }
+
+  .ud-home-section__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media #{$xs, $sm} {
+      margin-top: 40px;
+    }
+  }
+
+  // Pill action buttons inside dark sections
+  .ud-page-section__btn {
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 56px;
+    min-width: 240px;
+    padding: 14px 28px;
+    text-align: center;
+  }
+
+  .ud-page-section__btn--primary {
+    background: #d97706;
+    border-color: #d97706;
+    color: #fff;
+
+    &:hover {
+      background: #c56c04;
+      border-color: #c56c04;
+      color: #fff;
+    }
+  }
+
+  .ud-page-section__btn--secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: #fff;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
     }
   }
 }

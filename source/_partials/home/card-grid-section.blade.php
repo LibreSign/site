@@ -10,7 +10,7 @@
         @php
           $delay = $item['delay'] ?? ($index * 150);
           $itemColClass = $item['colClass'] ?? ($colClass ?? 'col-lg-4 col-md-6 d-flex');
-          $cardClass = trim('ud-card ' . ($item['cardClass'] ?? ''));
+          $cardClass = trim('ud-card ' . ($item['cardClass'] ?? ($cardClass ?? '')));
           $iconAlt = $item['iconAlt'] ?? '';
           $actions = $item['actions'] ?? [];
         @endphp

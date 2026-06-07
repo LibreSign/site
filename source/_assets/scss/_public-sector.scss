@@ -9,7 +9,8 @@
 }
 
 .ud-home-challenges.ud-ps-section {
-  background: #f7fafc;
+  // Inherits background from .ud-page-section.
+  // Unique overrides: larger icon (340px), bigger heading, min-height cards.
 
   .ud-home-section__actions {
     .ud-ps-section__cta {
@@ -45,46 +46,27 @@
     max-width: 1320px;
   }
 
-  .ud-card {
-    border: 1px solid #ececec;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  .ud-card--outlined {
     min-height: 620px;
-    padding: 40px 34px 42px;
   }
 
-  .ud-card__header {
+  .ud-card--outlined .ud-card__header {
     min-height: 126px;
   }
 
-  .ud-card__title {
-    color: #2d3748;
+  .ud-card--outlined .ud-card__title {
     font-size: clamp(2rem, 2.4vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.2;
   }
 
-  .ud-card__icon {
+  .ud-card--outlined .ud-card__icon {
     background: #e67e00;
     height: 340px;
     margin-bottom: 36px;
     width: 340px;
-
-    img {
-      height: 52%;
-      max-height: 52%;
-      max-width: 52%;
-      width: 52%;
-    }
   }
 
-  .ud-card__body {
+  .ud-card--outlined .ud-card__body {
     align-items: flex-start;
-  }
-
-  .ud-card__body p {
-    color: #4a5568;
-    font-size: 1.02rem;
-    line-height: 1.75;
   }
 
   .ud-home-section__actions {
@@ -92,16 +74,15 @@
   }
 
   @media #{$xs, $sm} {
-    .ud-card {
+    .ud-card--outlined {
       min-height: auto;
-      padding: 28px 22px 32px;
     }
 
-    .ud-card__header {
+    .ud-card--outlined .ud-card__header {
       min-height: 0;
     }
 
-    .ud-card__icon {
+    .ud-card--outlined .ud-card__icon {
       height: 220px;
       width: 220px;
     }

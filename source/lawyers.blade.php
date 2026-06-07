@@ -60,20 +60,22 @@
   <div class="ud-law-page">
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'lawyers-challenges',
-      'sectionClass' => 'ud-law-challenges',
+      'sectionClass' => 'ud-law-challenges ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title'    => $page->t('Put an End to Risk and Document Management Complexity.'),
       'subtitle' => $page->t('Legal management complexity should never become a liability. Discover solutions that provide security, traceability, and operational speed.'),
       'items'    => $lawyerChallengeItems,
       'sectionActions' => [[
         'href'  => '#lawyers-value',
         'label' => $page->t('Discover Smart Legal Management'),
-        'class' => 'ud-main-btn ud-law-challenges__cta',
+        'class' => 'ud-main-btn ud-page-section__cta',
       ]],
     ])
 
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'lawyers-value',
-      'sectionClass' => 'ud-law-value',
+      'sectionClass' => 'ud-law-value ud-page-section--dark',
+      'cardClass'    => 'ud-card--glass',
       'title'    => $page->t('Smart Legal Management.'),
       'subtitle' => $page->t('Leave bureaucracy behind and focus your time on what matters most: legal strategy and client success.'),
       'items'    => $lawyerValueItems,
@@ -83,12 +85,12 @@
         [
           'href'  => locale_url($page, 'pricing'),
           'label' => $page->t('View Plans and Pricing'),
-          'class' => 'ud-main-btn ud-law-value__btn ud-law-value__btn--primary',
+          'class' => 'ud-main-btn ud-page-section__btn ud-page-section__btn--primary',
         ],
         [
           'href'  => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to Our Specialists'),
-          'class' => 'ud-secondary-btn ud-law-value__btn ud-law-value__btn--secondary',
+          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
         ],
       ],
     ])

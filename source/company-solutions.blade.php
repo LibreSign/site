@@ -56,14 +56,15 @@
   <div class="ud-cs-page">
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'company-benefits',
-      'sectionClass' => 'ud-cs-benefits',
+      'sectionClass' => 'ud-cs-benefits ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title'    => $page->t('Leave Paper Behind and Embrace Digital Agility.'),
       'subtitle' => $page->t('Turn paperwork into productivity. Discover how LibreSign optimizes your time and reduces costs for your business.'),
       'items'    => $companyBenefitItems,
       'sectionActions' => [[
         'href'  => '#company-testimonials',
         'label' => $page->t('Discover the Platform'),
-        'class' => 'ud-main-btn ud-cs-benefits__cta',
+        'class' => 'ud-main-btn ud-page-section__cta',
       ]],
     ])
 

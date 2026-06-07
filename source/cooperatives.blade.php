@@ -48,15 +48,16 @@
 
   <div class="ud-coop-page">
     @include('_partials.home.card-grid-section', [
-      'sectionId'  => 'cooperative-benefits',
-      'sectionClass' => 'ud-coop-benefits',
+      'sectionId'    => 'cooperative-benefits',
+      'sectionClass' => 'ud-coop-benefits ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title'    => $page->t('From Governance to Operations: Turn Cooperative Challenges into Results.'),
       'subtitle' => $page->t('Your cooperative faces unique challenges. See how LibreSign simplifies processes and strengthens governance with security and transparency.'),
       'items'    => $cooperativeBenefitItems,
       'sectionActions' => [[
         'href'  => '#cooperative-dna',
         'label' => $page->t('Explore the Cooperative Plan'),
-        'class' => 'ud-main-btn ud-coop-benefits__cta',
+        'class' => 'ud-main-btn ud-page-section__cta',
       ]],
     ])
 

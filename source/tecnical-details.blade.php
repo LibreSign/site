@@ -60,20 +60,22 @@
   <div class="ud-it-page">
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'it-pillars',
-      'sectionClass' => 'ud-it-pillars',
+      'sectionClass' => 'ud-it-pillars ud-page-section',
+      'cardClass'    => 'ud-card--outlined',
       'title'    => $page->t('From Integration to Security: Freedom to Build.'),
       'subtitle' => $page->t('Discover the technical pillars that give your team freedom to innovate with confidence, visibility, and governance.'),
       'items'    => $itPillarItems,
       'sectionActions' => [[
         'href'  => '#it-architecture',
         'label' => $page->t('Access API Documentation'),
-        'class' => 'ud-main-btn ud-it-pillars__cta',
+        'class' => 'ud-main-btn ud-page-section__cta',
       ]],
     ])
 
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'it-architecture',
-      'sectionClass' => 'ud-it-architecture',
+      'sectionClass' => 'ud-it-architecture ud-page-section--dark',
+      'cardClass'    => 'ud-card--media',
       'title'    => $page->t('Robust Architecture: Built to Scale.'),
       'subtitle' => $page->t('Discover the technology that guarantees performance, flexibility, and complete control over your digital signing workflows.'),
       'items'    => $itValueItems,
@@ -83,17 +85,17 @@
         [
           'href'  => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to a Solutions Architect'),
-          'class' => 'ud-main-btn ud-it-architecture__btn ud-it-architecture__btn--primary',
+          'class' => 'ud-main-btn ud-page-section__btn ud-page-section__btn--primary',
         ],
         [
           'href'  => $page->baseUrl . 'assets/images/solutions/it-architecture-image.png',
           'label' => $page->t('Download Architecture Whitepaper'),
-          'class' => 'ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary',
+          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
         ],
         [
           'href'  => 'https://github.com/LibreSign/libresign',
           'label' => $page->t('Project on GitHub'),
-          'class' => 'ud-secondary-btn ud-it-architecture__btn ud-it-architecture__btn--secondary',
+          'class' => 'ud-secondary-btn ud-page-section__btn ud-page-section__btn--secondary',
         ],
       ],
     ])
