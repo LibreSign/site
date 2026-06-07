@@ -1,15 +1,10 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Deploy
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the main branch
   push:
     branches: [ main ]
   workflow_dispatch:
   repository_dispatch:
-  # Weekly rebuild so GitHub download stats stay reasonably fresh
   schedule:
     - cron: '0 3 * * 1'  # Every Monday at 03:00 UTC
 
@@ -17,30 +12,26 @@ jobs:
   check:
     runs-on: ubuntu-latest
     outputs:
-      should_deploy: ${{ steps.compare.outputs.should_deploy }}
+      should_deploy: ${{ steps.check.outputs.should_deploy }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch total download count (schedule only)
-        if: github.event_name == 'schedule'
-        id: fetch
+      - name: Check if deploy is needed
+        id: check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TOTAL=$(gh api repos/LibreSign/libresign/releases --paginate \
-            --jq '[.[].assets[].download_count] | add // 0' \
-            | awk '{s+=$1} END {print s}')
-          echo "floor=$(( (TOTAL / 1000) * 1000 ))" >> "$GITHUB_OUTPUT"
-
-      - name: Compare with cache
-        id: compare
         run: |
           if [[ "${{ github.event_name }}" != "schedule" ]]; then
             echo "should_deploy=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
+          TOTAL=$(gh api repos/LibreSign/libresign/releases --paginate \
+            --jq '[.[].assets[].download_count] | add // 0' \
+            | awk '{s+=$1} END {print s}')
+          FLOOR=$(( (TOTAL / 1000) * 1000 ))
           CACHED=$(cat .github/download-count-cache 2>/dev/null || echo 0)
-          FLOOR="${{ steps.fetch.outputs.floor }}"
+
           if [[ "$FLOOR" == "$CACHED" ]]; then
             echo "No increment ($CACHED) — skipping deploy."
             echo "should_deploy=false" >> "$GITHUB_OUTPUT"
@@ -51,7 +42,7 @@ jobs:
           fi
 
       - uses: stefanzweifel/git-auto-commit-action@v5
-        if: steps.compare.outputs.should_deploy == 'true' && github.event_name == 'schedule'
+        if: steps.check.outputs.should_deploy == 'true' && github.event_name == 'schedule'
         with:
           commit_message: 'chore: update download count cache [skip ci]'
           file_pattern: .github/download-count-cache
@@ -62,23 +53,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Set up php 8.3
-        uses: shivammathur/setup-php@v2
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
-      - name: Set up PHP dependencie
-        run: composer i
-      - name: Run composer command
-        run: composer prod
-      - name: Build production site
-        run: ./vendor/bin/jigsaw build production
-      - name: Deploy to GitHub Pages
+      - run: composer i
+      - run: composer prod
+      - run: ./vendor/bin/jigsaw build production
+      - uses: crazy-max/ghaction-github-pages@v4
         if: success()
-        uses: crazy-max/ghaction-github-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
