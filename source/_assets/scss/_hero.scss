@@ -36,7 +36,6 @@
     .container {
       padding-left: 24px;
       padding-right: 24px;
-      padding-top: 32px;
     }
   }
 
@@ -53,15 +52,15 @@
 
   @media #{$xs} {
     margin-top: 76px;
-    padding-top: 0;
+    padding-top: 80px;
     padding-bottom: 48px;
     min-height: auto;
   }
 
   @media #{$sm} {
-    min-height: auto;
-    padding-top: 0;
+    padding-top: 100px;
     padding-bottom: 64px;
+    min-height: auto;
   }
 
   @media #{$md, $lg} {
@@ -88,18 +87,26 @@
       transform: none;
     }
 
+    // Dark gradient overlay so text is readable on all screen sizes
     &::after {
-      display: none;
-    }
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 60, 64, 0.55) 0%,
+        rgba(18, 60, 64, 0.75) 60%,
+        rgba(18, 60, 64, 0.90) 100%
+      );
 
-    @media #{$xs, $sm} {
-      position: static;
-      height: 280px;
-      margin-bottom: 0;
-    }
-
-    @media #{$xs} {
-      height: 240px;
+      @media #{$lg, $laptop} {
+        background: linear-gradient(
+          to right,
+          rgba(18, 60, 64, 0.92) 0%,
+          rgba(18, 60, 64, 0.72) 50%,
+          rgba(18, 60, 64, 0.10) 100%
+        );
+      }
     }
 
     .shape {
