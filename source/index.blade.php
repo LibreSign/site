@@ -46,14 +46,9 @@
             <div class="ud-home-clients__summary">
             @php
               $githubDownloadsRaw = (int) ($page->githubDownloads ?? 0);
-              if ($githubDownloadsRaw >= 1_000_000) {
-                $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000_000);
-                $clientsSecondaryTemplate = $page->t('More than <strong>:count million+</strong> installations worldwide');
-              } else {
-                $githubDownloadsScaled = (int) floor($githubDownloadsRaw / 1_000);
-                $clientsSecondaryTemplate = $page->t('More than <strong>:count thousand+</strong> installations worldwide');
-              }
-              $clientsSecondaryWithCount = str_replace(':count', $githubDownloadsScaled, $clientsSecondaryTemplate);
+              $githubDownloadsFormatted = number_format((int) floor($githubDownloadsRaw / 1_000) * 1_000, 0, '.', ',');
+              $clientsSecondaryTemplate = $page->t('Trusted worldwide, with over <strong>:count</strong> downloads');
+              $clientsSecondaryWithCount = str_replace(':count', $githubDownloadsFormatted, $clientsSecondaryTemplate);
               $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
               $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
             @endphp
