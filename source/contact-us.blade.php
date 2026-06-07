@@ -7,11 +7,11 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="contact-info-wrapper">
-            <h1 class="contact-title">{{ $page->t('Boost Your Business with Digital Signature.') }}</h1>
+            <h1 class="contact-title">{{ $page->t('Boost Your Business with LibreSign Digital Signature.') }}</h1>
             <p class="contact-subtitle">
               {{ $page->t('Fill out the form and schedule a conversation with one of our specialists to discover the ideal solution for your challenges.') }}
             </p>
-            
+
             <h3 class="mt-5 mb-4">{{ $page->t('Why Schedule Your Conversation With Us?') }}</h3>
             <ul class="contact-benefits">
               <li>

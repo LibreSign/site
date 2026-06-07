@@ -20,7 +20,19 @@
       ],
     ];
 
-    $companyTestimonials = collect($page->testimonials ?? [])->filter(fn ($item) => ($item->section ?? null) === 'company')->values();
+    $companyTestimonials = collect($page->testimonials ?? [])->filter(function ($item) {
+      $sections = data_get($item, 'section', []);
+
+      if ($sections instanceof \Illuminate\Support\Collection) {
+        return $sections->contains('company');
+      }
+
+      if (is_array($sections)) {
+        return in_array('company', $sections, true);
+      }
+
+      return $sections === 'company';
+    })->values();
   @endphp
 
   @include('_partials.home.hero-section', [
@@ -91,11 +103,10 @@
             <div class="col-xl-4 col-md-6 d-flex">
               <article class="ud-cs-testimonial-card">
                 <div class="ud-cs-testimonial-card__avatar">
-                  <img src="{{ $page->baseUrl }}{{ ltrim($item['photo'], '/') }}" alt="{{ $item['name'] }}" />
+                  <img src="{{ $page->baseUrl }}{{ ltrim($item['photo'], '/') }}" alt="{{ $item['author'] }}" />
                 </div>
-                <h4 class="ud-cs-testimonial-card__name">{{ $page->t($item['name']) }}</h4>
-                <p class="ud-cs-testimonial-card__role">{{ $page->t($item['role']) }}</p>
-                <p class="ud-cs-testimonial-card__quote">“{{ $page->t($item['quote']) }}”</p>
+                <h4 class="ud-cs-testimonial-card__name">{{ $page->t($item['author']) }}</h4>
+                <p class="ud-cs-testimonial-card__quote">“{{ $page->t($item['comment']) }}”</p>
               </article>
             </div>
           @endforeach

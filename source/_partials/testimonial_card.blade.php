@@ -4,7 +4,19 @@
     <button class="pre-btn"><img src="{{ $page->baseUrl }}assets/images/arrow.png" alt="Go back pagination of testimonials"></button>
     <button class="nxt-btn"><img src="{{ $page->baseUrl }}assets/images/arrow.png" alt="Show more testimonials of the caroseul"></button>
     <div class="testimonial-container">
-        @foreach(collect($page->testimonials)->filter(fn ($topics) => ($topics->section ?? null) !== 'company') as $itens => $topics)
+        @foreach(collect($page->testimonials)->filter(function ($topics) {
+            $sections = data_get($topics, 'section', []);
+
+            if ($sections instanceof \Illuminate\Support\Collection) {
+                return $sections->contains('testimonials');
+            }
+
+            if (is_array($sections)) {
+                return in_array('testimonials', $sections, true);
+            }
+
+            return $sections === 'testimonials';
+        }) as $itens => $topics)
             <div class="testimonial-card">
                 <div class="testimonial_color_stars">
                     <i class="lni lni-star-fat"></i>

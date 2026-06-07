@@ -133,15 +133,16 @@
 }
 
 .ud-contact-sales {
-  padding: 100px 0;
-  background: var(--bg-light);
+  padding: 90px 0 86px;
+  background: #eceff1;
 
   @media #{$xs, $sm} {
     padding: 60px 0;
   }
 
   .contact-info-wrapper {
-    padding-right: 40px;
+    max-width: 760px;
+    padding-right: 46px;
 
     @media #{$md, $sm, $xs} {
       padding-right: 0;
@@ -149,108 +150,164 @@
     }
 
     .contact-title {
-      font-size: 42px;
-      font-weight: bold;
+      color: #2f3b51;
+      font-size: clamp(2.6rem, 4.7vw, 5rem);
+      font-weight: 700;
       color: var(--heading-color);
-      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin-bottom: 34px;
+      max-width: 700px;
 
       @media #{$sm, $xs} {
-        font-size: 32px;
+        margin-bottom: 22px;
       }
     }
 
     .contact-subtitle {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 30px;
+      color: #1f2937;
+      font-size: 2rem;
+      font-size: clamp(1.35rem, 2.05vw, 2rem);
+      line-height: 1.36;
+      margin-bottom: 46px;
+      max-width: 700px;
     }
 
     h3 {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--heading-color);
+      color: #2f3b51;
+      font-size: clamp(2rem, 3vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 26px !important;
     }
 
     .contact-benefits {
       list-style: none;
       padding: 0;
+      margin: 0;
 
       li {
-        padding: 12px 0;
-        padding-left: 30px;
+        color: #2f3b51;
+        font-size: clamp(1.15rem, 1.5vw, 2.1rem);
+        line-height: 1.38;
+        margin-bottom: 24px;
+        padding: 0 0 0 30px;
         position: relative;
-        font-size: 16px;
-        line-height: 1.6;
-        color: var(--text-gray);
 
         &:before {
           content: "●";
+          color: #2f3b51;
+          font-size: 0.92em;
           position: absolute;
           left: 0;
-          color: var(--accent-color);
-          font-size: 20px;
+          top: 0.18em;
         }
 
         strong {
-          color: var(--heading-color);
+          color: #2f3b51;
+          font-weight: 700;
         }
+      }
+
+      li:last-child {
+        margin-bottom: 0;
       }
     }
   }
 
   .contact-form-wrapper {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    background: #efefef;
+    border: 1px solid #d4d4d4;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 30px;
 
     @media #{$xs} {
-      padding: 30px 20px;
+      padding: 22px 18px;
     }
 
     .ud-contact-form-wrapper {
       padding: 0;
       background: transparent;
       box-shadow: none;
+      border-radius: 0;
     }
 
     .ud-form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
 
       label {
-        font-weight: 600;
-        color: var(--heading-color);
-        margin-bottom: 8px;
+        color: #475569;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-bottom: 6px;
         display: block;
       }
 
       input,
       textarea {
+        background: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        border-radius: 0;
+        color: #2f3b51;
+        font-size: 1.05rem;
+        min-height: 56px;
+        padding: 11px 18px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
         width: 100%;
-        padding: 12px 16px;
-        border: 1px solid var(--border-input);
-        border-radius: 5px;
-        font-size: 16px;
-        transition: border-color 0.3s;
+
+        &::placeholder {
+          color: #6b7280;
+        }
 
         &:focus {
-          border-color: var(--primary-color);
+          background: #fff;
+          border-color: #c2c9d3;
+          box-shadow: 0 0 0 2px rgba(47, 59, 81, 0.08);
           outline: none;
         }
       }
 
       textarea {
+        min-height: 170px;
         resize: vertical;
-        min-height: 100px;
       }
     }
 
+    .ud-form-group:nth-last-child(2) {
+      margin-bottom: 20px;
+    }
+
+    #btnReload,
+    #audioIcon {
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
     .ud-main-btn {
-      background: var(--accent-color);
+      background: #d97706;
+      border-color: #d97706;
+      border-radius: 999px;
+      display: inline-flex;
+      font-size: 0.95rem;
+      font-weight: 700;
+      justify-content: center;
+      min-height: 58px;
+      min-width: 290px;
+      padding: 12px 24px;
+      width: auto !important;
 
       &:hover {
-        background: var(--primary-color);
+        background: #c56c04;
+        border-color: #c56c04;
       }
+    }
+
+    .ud-form-group.mb-0 {
+      margin-bottom: 0;
+      text-align: left;
     }
   }
 }

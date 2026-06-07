@@ -36,6 +36,11 @@
                 </a>
               </li>
               <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'cooperatives') }}">
+                  {{ $page->t('Cooperatives') }}
+                </a>
+              </li>
+              <li>
                 <a class="dropdown-item ud-nav-submenu-link" href="{{ locale_url($page, 'public-sector') }}">
                   {{ $page->t('Public Sector') }}
                 </a>

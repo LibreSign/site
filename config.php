@@ -10,9 +10,9 @@ return [
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
     'accountUrl' => getenv('ACCOUNT_URL'),
-    'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
-    'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
-    'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
+    'form_url' => '/suitecrm-form-middleware/validate.php',
+    'url_captcha' => '/suitecrm-form-middleware/captcha.php',
+    'url_captcha_audio' => '/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
     'signedDocumentsMillions' => getenv('SIGNED_DOCUMENTS_MILLIONS') ?: 'X',
@@ -89,53 +89,42 @@ return [
     ],
     'testimonials' => [
         [
+            'section' => ['testimonials', 'company'],
+            'photo' => '/assets/images/solutions/testimonial-1.png',
             'comment' => "Libresign's nextcloud integration has come a long way in the past year. If you tried it before and found it lacking, give it another chance. I can see it being a real option and alternative to other e-signature services.",
             'author' => 'Matt Nelson'
         ],
         [
+            'section' => ['testimonials', 'company'],
+            'photo' => '/assets/images/solutions/testimonial-2.png',
             'comment' => "Congratulations to the LibreSign development team for creating such an efficient solution for electronic signatures! LibreSign has an intuitive interface and ease of use, allowing integration with various APIs. I've been following the development and see it improving with each new release. LibreSign makes managing digital signatures a simple and reliable experience. I highly recommend it!",
             'author' => 'Lua Mello'
         ],
         [
+            'section' => ['testimonials', 'company'],
+            'photo' => '/assets/images/solutions/testimonial-3.png',
             'comment' => "Finally an excellent app for signing documents. Very good!",
             'author' => 'Daiane Alves'
         ],
         [
+            'section' => ['testimonials'],
             'comment' => "Libresign is becoming a fully-featured alternative to expensive cloud services like DocuSign. The nextcloud integration makes it a real option to use for e-signatures.",
             'author' => 'Metheos'
         ],
         [
+            'section' => ['testimonials'],
             'comment' => "LibreSign has come a long way and it is great replacement to most commercial e-signature solutions and it is open source.",
             'author' => '0-bandage-dugouts'
         ],
         [
+            'section' => ['testimonials'],
             'comment' => "It works perfectly with the electronic certificate issued by the Spanish Government. Installation has become very simple and affordable for anyone with minimal knowledge of Nextcloud. Developer support is fantastic. It works on all devices, including mobile devices. It has different options for creating, requesting and signing signatures. Version 9 is a great leap in quality and has a lot of future. It's incredible that this application works so well and is free.",
             'author' => 'Iván Gómez Fernández'
         ],
         [
+            'section' => ['testimonials'],
             'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
             'author' => 'Igor Afonso Oliveira Ruas'
-        ],
-        [
-            'section' => 'company',
-            'photo' => '/assets/images/solutions/testimonial-1.png',
-            'name' => 'Leonardo Machado',
-            'role' => 'CEO of Garbo Marketing',
-            'quote' => 'LibreSign is a modern, secure, and practical solution that streamlines contract signing and ensures transparency and traceability throughout the process.',
-        ],
-        [
-            'section' => 'company',
-            'photo' => '/assets/images/solutions/testimonial-2.png',
-            'name' => 'Leonardo Machado',
-            'role' => 'CEO of Garbo Marketing',
-            'quote' => 'LibreSign is a modern, secure, and practical solution that streamlines contract signing and ensures transparency and traceability throughout the process.',
-        ],
-        [
-            'section' => 'company',
-            'photo' => '/assets/images/solutions/testimonial-3.png',
-            'name' => 'Leonardo Machado',
-            'role' => 'CEO of Garbo Marketing',
-            'quote' => 'LibreSign is a modern, secure, and practical solution that streamlines contract signing and ensures transparency and traceability throughout the process.',
         ],
     ],
     'getFromCategory' => function($page, $category) {
