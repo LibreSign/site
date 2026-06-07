@@ -26,7 +26,7 @@
       'title'        => $page->t('Core Features That Power Your Business.'),
       'subtitle'     => $page->t('LibreSign combines agility, security, and flexibility through capabilities that adapt to your organization\'s specific needs.'),
       'format'       => 'feature',
-      'category'     => 'features',
+      'category'     => 'features-nav',
       'cardModifier' => 'ud-card--outlined',
       'rowClass'     => 'row text-center gy-5 align-items-stretch',
       'colClass'     => 'col-lg-6 d-flex',
