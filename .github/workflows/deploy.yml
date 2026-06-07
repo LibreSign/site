@@ -5,51 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
   repository_dispatch:
-  schedule:
-    - cron: '0 3 * * 1'  # Every Monday at 03:00 UTC
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    outputs:
-      should_deploy: ${{ steps.check.outputs.should_deploy }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check if deploy is needed
-        id: check
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [[ "${{ github.event_name }}" != "schedule" ]]; then
-            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          TOTAL=$(gh api repos/LibreSign/libresign/releases --paginate \
-            --jq '[.[].assets[].download_count] | add // 0' \
-            | awk '{s+=$1} END {print s}')
-          FLOOR=$(( (TOTAL / 1000) * 1000 ))
-          CACHED=$(cat .github/download-count-cache 2>/dev/null || echo 0)
-
-          if [[ "$FLOOR" == "$CACHED" ]]; then
-            echo "No increment ($CACHED) — skipping deploy."
-            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "Increment detected ($CACHED → $FLOOR) — will deploy."
-            echo "$FLOOR" > .github/download-count-cache
-            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        if: steps.check.outputs.should_deploy == 'true' && github.event_name == 'schedule'
-        with:
-          commit_message: 'chore: update download count cache [skip ci]'
-          file_pattern: .github/download-count-cache
-
   build:
-    needs: check
-    if: needs.check.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
