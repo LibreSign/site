@@ -83,7 +83,7 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-10">
-            <h3 class="ud-ps-process__title">{{ $page->t('Transform Your Workflows in 3 Simple Steps.') }}</h3>
+            <h2 class="ud-ps-process__title">{{ $page->t('Transform Your Workflows in 3 Simple Steps.') }}</h2>
             <p class="ud-ps-process__subtitle">
               {{ $page->t('With our platform, signing, managing, and archiving documents has never been safer or simpler for your organization.') }}
             </p>

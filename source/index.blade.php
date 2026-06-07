@@ -125,7 +125,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h3 class="ud-home-section__title">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h3>
+              <h2 class="ud-home-section__title">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h2>
             </div>
           </div>
           <div class="col-lg-12">
@@ -135,10 +135,10 @@
         <div class="row justify-content-center mt-5">
           <div class="col-lg-6 text-center">
             <div class="ud-home-video__media">
-              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" />
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy" />
             </div>
             <div class="mt-4">
-              <a href="#" class="btn ud-btn-solid-warm ud-home-video__action">
+              <a href="{{ locale_url($page, 'features') }}" class="btn ud-btn-solid-warm ud-home-video__action">
                 {{ $page->t('See How It Works') }}
               </a>
             </div>
@@ -204,6 +204,98 @@
     ])
     <!-- ====== Blog/Content Section End ====== -->
 
+    <!-- ====== About LibreSign Section (GEO) Start ====== -->
+    <section class="ud-home-about" aria-labelledby="about-libresign-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 id="about-libresign-heading" class="ud-home-section__title">{{ $page->t('What is LibreSign?') }}</h2>
+            <p class="ud-home-section__subtitle">
+              {{ $page->t('LibreSign is a free and open source application for electronic and digital document signing, developed and maintained by LibreCode — a cooperative of open source specialists.') }}
+            </p>
+          </div>
+        </div>
+        <div class="row gy-4 mt-3">
+          <div class="col-md-4 text-center">
+            <div class="ud-about-feature">
+              <h3>{{ $page->t('Open Source') }}</h3>
+              <p>{{ $page->t('All code is publicly auditable on GitHub. No hidden tracking, no vendor lock-in. You are free to inspect, modify, and redistribute.') }}</p>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="ud-about-feature">
+              <h3>{{ $page->t('Nextcloud Integration') }}</h3>
+              <p>{{ $page->t('LibreSign is a native Nextcloud app. It integrates seamlessly with your existing Nextcloud environment, keeping all documents within your own infrastructure.') }}</p>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="ud-about-feature">
+              <h3>{{ $page->t('Self-Hosted') }}</h3>
+              <p>{{ $page->t('Run LibreSign on your own servers or private cloud. Your documents and signing data never leave your infrastructure — full privacy and data sovereignty.') }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-8 text-center">
+            <p class="ud-home-about__cta-text">
+              {{ $page->t('Trusted by government agencies, cooperatives, law firms, and businesses that value control, transparency, and security over their document workflows.') }}
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
+              <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer" class="btn ud-btn-outline-brand">
+                {{ $page->t('View on GitHub') }}
+              </a>
+              <a href="{{ locale_url($page, 'about') }}" class="btn ud-btn-solid-brand">
+                {{ $page->t('About the Project') }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== About LibreSign Section (GEO) End ====== -->
+
+    <!-- ====== FAQ Section Start ====== -->
+    <section class="ud-home-faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 id="faq-heading" class="ud-home-section__title text-center">{{ $page->t('Frequently Asked Questions') }}</h2>
+            <dl class="ud-faq-list">
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('What is LibreSign?') }}</dt>
+                <dd>{{ $page->t('LibreSign is an open source electronic signature application integrated with Nextcloud. It allows individuals and organizations to sign, request signatures on, and manage digital documents securely — without relying on proprietary third-party services.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('Is LibreSign free and open source?') }}</dt>
+                <dd>{{ $page->t('Yes. LibreSign is released under the AGPL-3.0 license. The full source code is publicly available on GitHub. You are free to use, study, modify, and distribute the software according to the license terms.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('Does LibreSign work with Nextcloud?') }}</dt>
+                <dd>{{ $page->t('Yes. LibreSign is a native Nextcloud application. It is installed directly into your Nextcloud instance and uses Nextcloud\'s users, storage, and authentication infrastructure. You can find it in the official Nextcloud App Store.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('Can LibreSign be self-hosted?') }}</dt>
+                <dd>{{ $page->t('Yes. LibreSign is designed for self-hosting. You install it on your own servers or private cloud infrastructure, keeping full control over your data and signing workflows. No data is sent to external services.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('Who can use LibreSign?') }}</dt>
+                <dd>{{ $page->t('LibreSign is suitable for individuals, small businesses, enterprises, government agencies, cooperatives, law firms, and any organization that needs to sign or collect digital signatures on documents while maintaining data sovereignty.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('How can I contribute to LibreSign?') }}</dt>
+                <dd>{{ $page->t('You can contribute by reporting bugs, improving documentation, translating the interface, developing new features, or sponsoring the project. Visit the GitHub repository or contact the LibreCode cooperative to learn how to get involved.') }}</dd>
+              </div>
+              <div class="ud-faq-item">
+                <dt>{{ $page->t('How can my company or organization support LibreSign?') }}</dt>
+                <dd>{{ $page->t('Organizations can support LibreSign through sponsorship, purchasing managed hosting plans from LibreCode, or contributing development resources. Sustainable funding helps ensure ongoing maintenance, security updates, and new features for the entire community.') }}</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== FAQ Section End ====== -->
+
     <!-- ====== CTA Start ====== -->
     @include('_partials.home.cta-section', [
       'title' => $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.'),
@@ -222,4 +314,115 @@
       ],
     ])
     <!-- ====== CTA End ====== -->
+
+@push('structured-data')
+@verbatim
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://libresign.coop/#software",
+  "name": "LibreSign",
+  "alternateName": "LibreSign Electronic Signature",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Electronic Signature",
+  "operatingSystem": "Nextcloud, Linux, Docker",
+  "url": "https://libresign.coop",
+  "downloadUrl": "https://apps.nextcloud.com/apps/libresign",
+  "codeRepository": "https://github.com/LibreSign/libresign",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "description": "LibreSign is a free and open source electronic signature application for Nextcloud. It enables secure document signing, signature requests, and digital document management in a fully self-hosted environment.",
+  "featureList": [
+    "Electronic document signing",
+    "Digital certificate support (A1)",
+    "Multiple signers per document",
+    "Nextcloud integration",
+    "Self-hosted deployment",
+    "API access",
+    "Document validation and audit trail",
+    "End-to-end document security"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free and open source. Managed hosting plans available."
+  },
+  "author": {
+    "@id": "https://libresign.coop/#organization"
+  },
+  "publisher": {
+    "@id": "https://libresign.coop/#organization"
+  },
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is LibreSign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LibreSign is an open source electronic signature application integrated with Nextcloud. It allows individuals and organizations to sign, request signatures on, and manage digital documents securely — without relying on proprietary third-party services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is LibreSign free and open source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LibreSign is released under the AGPL-3.0 license. The full source code is publicly available on GitHub. You are free to use, study, modify, and distribute the software according to the license terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does LibreSign work with Nextcloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LibreSign is a native Nextcloud application. It is installed directly into your Nextcloud instance and uses Nextcloud's users, storage, and authentication infrastructure. You can find it in the official Nextcloud App Store."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can LibreSign be self-hosted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LibreSign is designed for self-hosting. You install it on your own servers or private cloud infrastructure, keeping full control over your data and signing workflows. No data is sent to external services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can use LibreSign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LibreSign is suitable for individuals, small businesses, enterprises, government agencies, cooperatives, law firms, and any organization that needs to sign or collect digital signatures on documents while maintaining data sovereignty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I contribute to LibreSign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can contribute by reporting bugs, improving documentation, translating the interface, developing new features, or sponsoring the project. Visit the GitHub repository at https://github.com/LibreSign/libresign or contact the LibreCode cooperative to learn how to get involved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can companies or governments support LibreSign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Organizations can support LibreSign through sponsorship, purchasing managed hosting plans from LibreCode, or contributing development resources. Sustainable funding helps ensure ongoing maintenance, security updates, and new features for the entire community."
+      }
+    }
+  ]
+}
+</script>
+@endverbatim
+@endpush
+
 @endsection

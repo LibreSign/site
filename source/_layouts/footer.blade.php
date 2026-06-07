@@ -8,7 +8,7 @@
                             <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
                         </a>
                         <p class="ud-widget-desc">
-                            {{ $page->t("We create digital experiences for brands and companies by using technology.")}}
+                            {{ $page->t("Open source electronic signature integrated with Nextcloud. Self-hosted, secure, and built for organizations that value privacy and data sovereignty.")}}
                         </p>
                         <nav aria-label="{{ $page->t('Social media links') }}">
                             <h3 class="visually-hidden">{{ $page->t("Follow us on social media") }}</h3>
@@ -113,6 +113,28 @@
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'privacy') }}">{{ $page->t("Privacy Policy")}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-12 col-sm-6 col-lg">
+                    <nav class="ud-widget" aria-labelledby="footer-nav-open-source">
+                        <h3 id="footer-nav-open-source" class="ud-widget-title">{{ $page->t("Open Source") }}</h3>
+                        <ul class="ud-widget-links">
+                            <li>
+                                <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer">{{ $page->t("GitHub Repository")}}</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.libresign.coop" target="_blank" rel="noopener noreferrer">{{ $page->t("Documentation")}}</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/LibreSign/libresign/issues" target="_blank" rel="noopener noreferrer">{{ $page->t("Report an issue")}}</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/LibreSign/libresign/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">{{ $page->t("How to contribute")}}</a>
+                            </li>
+                            <li>
+                                <a href="https://apps.nextcloud.com/apps/libresign" target="_blank" rel="noopener noreferrer">{{ $page->t("Nextcloud App Store")}}</a>
                             </li>
                         </ul>
                     </nav>

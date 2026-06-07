@@ -19,13 +19,13 @@
           <div class="{{ $cardClass }}">
             @if (!empty($item['title']))
               <div class="ud-card__header">
-                <h5 class="ud-card__title">{{ $item['title'] }}</h5>
+                <h3 class="ud-card__title">{{ $item['title'] }}</h3>
               </div>
             @endif
 
             @if (!empty($item['icon']))
               <div class="ud-card__icon">
-                <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" />
+                <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" loading="lazy" />
               </div>
             @endif
 

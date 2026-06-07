@@ -72,7 +72,7 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-xl-11">
-            <h3 class="ud-cs-testimonials__title">{{ $page->t('Digital Transformation Through Our Customers’ Eyes.') }}</h3>
+            <h2 class="ud-cs-testimonials__title">{{ $page->t('Digital Transformation Through Our Customers’ Eyes.') }}</h2>
             <p class="ud-cs-testimonials__subtitle">
               {{ $page->t('Read real stories from companies that, with LibreSign, simplified processes, strengthened security, and accelerated results.') }}
             </p>

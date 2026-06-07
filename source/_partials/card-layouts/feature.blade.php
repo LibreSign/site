@@ -6,7 +6,7 @@
 
 <div class="{{ $cardClasses }}">
   <div class="ud-card__header">
-    <h5 class="ud-card__title">{{ $page->t($post->title) }}</h5>
+    <h3 class="ud-card__title">{{ $page->t($post->title) }}</h3>
   </div>
 
   @if ($iconSrc)

@@ -25,7 +25,7 @@
     </span>
   </div>
   <div class="ud-home-blog-card__content">
-    <h4 class="ud-home-blog-card__title">{{ $page->t($post->title) }}</h4>
+    <h3 class="ud-home-blog-card__title">{{ $page->t($post->title) }}</h3>
     <p class="ud-home-blog-card__excerpt">{{ $page->t($post->description) }}</p>
     <a href="{{ $postUrl }}" class="ud-home-blog-card__link">{{ $page->t('Read more »') }}</a>
   </div>

@@ -13,8 +13,8 @@ return [
     'form_url' => '/suitecrm-form-middleware/validate.php',
     'url_captcha' => '/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => '/suitecrm-form-middleware/audio_captcha.php',
-    'title' => 'LibreSign - Electronic signature of digital documents',
-    'description' => 'Electronic signature of digital documents',
+    'title' => 'LibreSign - Open Source Electronic Signature for Nextcloud',
+    'description' => 'LibreSign is a free and open source electronic signature app for Nextcloud. Sign, request, and manage digital documents securely in your own self-hosted environment.',
     'githubDownloads' => (function() {
         $total = 0;
         $page = 1;

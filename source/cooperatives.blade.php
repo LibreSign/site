@@ -71,7 +71,7 @@
           </div>
 
           <div class="col-lg-7">
-            <h3 class="ud-coop-dna__title">{{ $page->t('LibreSign: Digital Signatures with Cooperative DNA.') }}</h3>
+            <h2 class="ud-coop-dna__title">{{ $page->t('LibreSign: Digital Signatures with Cooperative DNA.') }}</h2>
             <p class="ud-coop-dna__subtitle">
               {{ $page->t('Developed by LibreCode cooperative to strengthen trust, governance, and collaboration in your cooperative.') }}
             </p>

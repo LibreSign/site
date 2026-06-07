@@ -41,7 +41,7 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-xl-9">
-            <h3 class="ud-features-cta__title">{{ $page->t('Ready to Transform Your Operations?') }}</h3>
+            <h2 class="ud-features-cta__title">{{ $page->t('Ready to Transform Your Operations?') }}</h2>
             <p class="ud-features-cta__subtitle">
               {{ $page->t('Talk to our specialists or try LibreSign and raise your company’s security and efficiency standards.') }}
             </p>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ current_path_locale($page) }}">
+<html lang="{{ current_path_locale($page) ?: 'en' }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,25 +7,33 @@
     <title>{{ $page->title }}</title>
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="LibreSign - Electronic signature of digital documents">
     <link rel="canonical" href="{{ $page->getUrl() }}">
     <meta name="description" content="{{ $page->description }}">
+    <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
+    <meta name="author" content="LibreSign / LibreCode">
+
+    <!-- Hreflang: multilingual support -->
+    @foreach($page->locales() as $localeCode => $localeName)
+    <link rel="alternate" hreflang="{{ $localeCode ?: 'en' }}" href="{{ translate_url($page, $localeCode) }}" />
+    @endforeach
+    <link rel="alternate" hreflang="x-default" href="{{ translate_url($page, '') }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uideck.com/play/">
-    <meta property="og:title" content="LibreSign - Electronic signature of digital documents">
-    <meta property="og:description" content="LibreSign - Electronic signature of digital documents">
-    <!-- TODO: Think about the image -->
-    <meta property="og:image" content="">
+    <meta property="og:url" content="{{ $page->getUrl() }}">
+    <meta property="og:title" content="{{ $page->title }}">
+    <meta property="og:description" content="{{ $page->description }}">
+    <meta property="og:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
+    <meta property="og:site_name" content="LibreSign">
+    <meta property="og:locale" content="{{ str_replace('-', '_', current_path_locale($page) ?: 'en') }}">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://uideck.com/play/">
-    <meta property="twitter:title" content="LibreSign - Electronic signature of digital documents">
-    <meta property="twitter:description" content="LibreSign - Electronic signature of digital documents">
-    <!-- TODO: Think about the image -->
-    <meta property="twitter:image" content="">
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ $page->getUrl() }}">
+    <meta name="twitter:title" content="{{ $page->title }}">
+    <meta name="twitter:description" content="{{ $page->description }}">
+    <meta name="twitter:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
+    <meta name="twitter:site" content="@libresign">
 
     <!--====== Favicon Icon ======-->
     <link
@@ -59,18 +67,18 @@
 
     <script defer type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/main.js') }}"></script>
 
-    <script defer>
-        document.getElementById('back-to-top').onclick = function(e) {
-            e.preventDefault()
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            })
-        };
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.onclick = function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                };
+            }
 
-        // ==== for menu scroll
-        const pageLink = document.querySelectorAll(".ud-menu-scroll");
+            // ==== for menu scroll
+            const pageLink = document.querySelectorAll(".ud-menu-scroll");
 
         pageLink.forEach((elem) => {
             elem.addEventListener("click", (e) => {
@@ -121,7 +129,46 @@
         }
 
         window.document.addEventListener("scroll", onScroll);
+        }); // end DOMContentLoaded
     </script>
+
+    <!-- Structured data: base Organization + WebSite -->
+    @verbatim
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://libresign.coop/#organization",
+          "name": "LibreSign",
+          "url": "https://libresign.coop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://libresign.coop/assets/images/logo/logo.svg"
+          },
+          "sameAs": [
+            "https://github.com/LibreSign/libresign",
+            "https://www.linkedin.com/company/libresign/",
+            "https://t.me/LibreSign",
+            "https://www.instagram.com/libresign/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://libresign.coop/#website",
+          "url": "https://libresign.coop",
+          "name": "LibreSign",
+          "description": "Open source electronic signature and digital document management, integrated with Nextcloud.",
+          "publisher": {
+            "@id": "https://libresign.coop/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    @endverbatim
+    @stack('structured-data')
   </head>
   <body id="top">
     @include('_layouts.header')

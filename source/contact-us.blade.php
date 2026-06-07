@@ -12,7 +12,7 @@
               {{ $page->t('Fill out the form and schedule a conversation with one of our specialists to discover the ideal solution for your challenges.') }}
             </p>
 
-            <h3 class="mt-5 mb-4">{{ $page->t('Why Schedule Your Conversation With Us?') }}</h3>
+            <h2 class="mt-5 mb-4">{{ $page->t('Why Schedule Your Conversation With Us?') }}</h2>
             <ul class="contact-benefits">
               <li>
                 <strong>{{ $page->t('Personalized analysis:') }}</strong>
