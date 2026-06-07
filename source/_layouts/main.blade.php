@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="top" lang="{{ current_path_locale($page) }}">
+<html lang="{{ current_path_locale($page) }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
