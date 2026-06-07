@@ -9,6 +9,43 @@ AOS.init({
   disable: 'mobile'
 });
 
+// ====== Split-link dropdown (Features nav item)
+// Desktop (≥992px): CSS :hover opens submenu; click on link navigates normally.
+// Mobile (<992px):  tap opens/closes submenu; navigation via "All Features →" inside.
+(function () {
+  const splitItem = document.querySelector('.ud-nav-split');
+  if (!splitItem) return;
+
+  const splitLink = splitItem.querySelector('.ud-nav-split-link');
+  const submenu   = splitItem.querySelector('.ud-nav-submenu');
+
+  splitLink.addEventListener('click', function (e) {
+    if (window.innerWidth >= 992) return; // desktop: navigate normally
+    e.preventDefault();
+    const isOpen = submenu.classList.contains('show');
+    // Close any other open submenus first
+    document.querySelectorAll('.ud-nav-submenu.show').forEach(function (el) {
+      el.classList.remove('show');
+    });
+    if (!isOpen) submenu.classList.add('show');
+  });
+
+  // Close when tapping outside the item
+  document.addEventListener('click', function (e) {
+    if (!splitItem.contains(e.target)) {
+      submenu.classList.remove('show');
+    }
+  });
+
+  // Close when the navbar collapses (hamburger closed)
+  const navbar = document.getElementById('main-navigation');
+  if (navbar) {
+    navbar.addEventListener('hidden.bs.collapse', function () {
+      submenu.classList.remove('show');
+    });
+  }
+})();
+
 (function () {
   "use strict";
 
