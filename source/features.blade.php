@@ -38,7 +38,7 @@
       [
         'href' => '#feature-highlights',
         'label' => $page->t('Explore All Features'),
-        'class' => 'btn ud-btn-hero w-100 text-center',
+        'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
       ],
       [
         'href' => locale_url($page, 'contact-us'),
@@ -61,7 +61,7 @@
       'sectionActions' => [[
         'href'  => locale_url($page, 'pricing'),
         'label' => $page->t('View All Plans'),
-        'class' => 'btn ud-btn-primary',
+        'class' => 'btn ud-btn-solid-brand',
       ]],
     ])
 
@@ -77,7 +77,7 @@
         </div>
 
         <div class="ud-features-cta__actions">
-          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-accent">
+          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-warm">
             {{ $page->t('Talk to a Specialist') }}
           </a>
           <a href="{{ locale_url($page, 'register') }}" class="btn ud-btn-ghost">

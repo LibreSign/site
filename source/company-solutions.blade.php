@@ -43,7 +43,7 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Try It Free Now'),
-        'class' => 'btn ud-btn-hero w-100 text-center',
+        'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
       ],
       [
         'href' => '#company-benefits',
@@ -64,7 +64,7 @@
       'sectionActions' => [[
         'href'  => '#company-testimonials',
         'label' => $page->t('Discover the Platform'),
-        'class' => 'btn ud-btn-primary',
+        'class' => 'btn ud-btn-solid-brand',
       ]],
     ])
 
@@ -94,7 +94,7 @@
         </div>
 
         <div class="ud-cs-testimonials__actions">
-          <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">
+          <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-solid-warm">
             {{ $page->t('View Plans and Pricing') }}
           </a>
           <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">

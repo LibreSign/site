@@ -47,7 +47,7 @@
       [
         'href' => '#it-pillars',
         'label' => $page->t('Explore Technical Pillars'),
-        'class' => 'btn ud-btn-hero w-100 text-center',
+        'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
       ],
       [
         'href' => '#it-architecture',
@@ -68,7 +68,7 @@
       'sectionActions' => [[
         'href'  => '#it-architecture',
         'label' => $page->t('Access API Documentation'),
-        'class' => 'btn ud-btn-primary',
+        'class' => 'btn ud-btn-solid-brand',
       ]],
     ])
 
@@ -85,7 +85,7 @@
         [
           'href'  => locale_url($page, 'contact-us'),
           'label' => $page->t('Talk to a Solutions Architect'),
-          'class' => 'btn ud-btn-accent',
+          'class' => 'btn ud-btn-solid-warm',
         ],
         [
           'href'  => $page->baseUrl . 'assets/images/solutions/it-architecture-image.png',

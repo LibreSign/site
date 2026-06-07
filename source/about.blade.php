@@ -9,7 +9,7 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Talk to Our Specialists'),
-        'class' => 'btn ud-btn-hero w-100 text-center',
+        'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
       ],
       [
         'href' => locale_url($page, 'pricing'),
@@ -144,7 +144,7 @@
                 <span>{{ $page->t('President of LibreCode') }}</span>
               </footer>
             </blockquote>
-            <a href="{{ locale_url($page, 'team') }}" class="btn ud-btn-primary ud-about-team__btn">{{ $page->t('Our Complete Story') }}</a>
+            <a href="{{ locale_url($page, 'team') }}" class="btn ud-btn-solid-brand ud-about-team__btn">{{ $page->t('Our Complete Story') }}</a>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@
         </div>
       </div>
       <div class="ud-about-cta__actions">
-        <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">{{ $page->t('Explore Our Products') }}</a>
+        <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-solid-warm">{{ $page->t('Explore Our Products') }}</a>
         <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">{{ $page->t('Talk to a Specialist') }}</a>
       </div>
     </div>

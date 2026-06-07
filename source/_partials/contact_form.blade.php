@@ -168,7 +168,7 @@
               </script>
             </div>
             <div class="ud-form-group mb-0">
-              <button type="submit" class="btn ud-btn-primary w-100">
+              <button type="submit" class="btn ud-btn-solid-brand w-100">
                 {{ $page->t("Talk to a Specialist")}}
               </button>
             </div>

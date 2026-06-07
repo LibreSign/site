@@ -36,7 +36,7 @@
       [
         'href' => locale_url($page, 'contact-us'),
         'label' => $page->t('Request a Demo'),
-        'class' => 'btn ud-btn-hero w-100 text-center',
+        'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
       ],
       [
         'href' => '#cooperative-benefits',
@@ -57,7 +57,7 @@
       'sectionActions' => [[
         'href'  => '#cooperative-dna',
         'label' => $page->t('Explore the Cooperative Plan'),
-        'class' => 'btn ud-btn-primary',
+        'class' => 'btn ud-btn-solid-brand',
       ]],
     ])
 
@@ -87,7 +87,7 @@
             </p>
 
             <div class="ud-coop-dna__actions">
-              <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-accent">
+              <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-solid-warm">
                 {{ $page->t('View Plans and Pricing') }}
               </a>
               <a href="{{ locale_url($page, 'about') }}" class="btn ud-btn-ghost">

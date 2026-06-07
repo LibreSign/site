@@ -43,7 +43,7 @@
                 </div>
               @endif
               <div class="ud-pricing-footer">
-                <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline">
+                <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
                   {{ $page->t('Under Consultation') }}
                 </a>
               </div>
@@ -122,7 +122,7 @@
       @endif
 
       <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-white mt-1">
+        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-white mt-1">
           {{ $page->t('Under Consultation') }}
         </a>
       </div>
@@ -160,7 +160,7 @@
         </div>
       </div>
       <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-white mt-1">
+        <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-white mt-1">
           {{ $page->t('Under Consultation') }}
         </a>
       </div>
