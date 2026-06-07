@@ -47,14 +47,18 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item dropdown ud-nav-dropdown ud-nav-split">
-            <a class="nav-link ud-menu-scroll ud-nav-split-link"
-               href="{{ locale_url($page, 'features') }}"
-               aria-haspopup="true"
-               aria-label="{{ $page->t('Features, open submenu on hover') }}">
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="features-menu-toggle"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+               aria-label="{{ $page->t('Open features submenu') }}">
               {{$page->t("Features")}}
             </a>
             <ul class="dropdown-menu ud-nav-submenu"
+                aria-labelledby="features-menu-toggle"
                 aria-label="{{ $page->t('Features submenu') }}">
               @foreach($page->getFromCategory('features-nav') as $featuredPost)
               <li>

@@ -242,40 +242,6 @@
       }
     }
 
-    // Split-link: hover opens dropdown, click on text navigates.
-    // The <a> gets the same caret as ud-nav-dropdown-toggle.
-    &.ud-nav-split {
-      // Show submenu on hover (desktop only)
-      @media (min-width: 992px) {
-        &:hover > .dropdown-menu {
-          display: block;
-          margin-top: 0;
-        }
-      }
-    }
-
-    .ud-nav-split-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-
-      // Same caret as ud-nav-dropdown-toggle
-      &::after {
-        content: "";
-        width: 0;
-        height: 0;
-        margin-left: 0;
-        margin-top: 2px;
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
-        border-top: 7px solid currentColor;
-        border-bottom: 0;
-        transform-origin: center;
-        @include transition(0.3s);
-        flex-shrink: 0;
-      }
-    }
-
     .ud-nav-submenu-link--all {
       font-style: italic;
       opacity: 0.85;
