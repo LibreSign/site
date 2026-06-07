@@ -242,56 +242,37 @@
       }
     }
 
-    // Split-link dropdown: nav link navigates, separate caret opens submenu
+    // Split-link: hover opens dropdown, click on text navigates.
+    // The <a> gets the same caret as ud-nav-dropdown-toggle.
     &.ud-nav-split {
-      display: inline-flex;
-      align-items: center;
-
-      & > .nav-link {
-        flex: 0 0 auto;
+      // Show submenu on hover (desktop only)
+      @media (min-width: 992px) {
+        &:hover > .dropdown-menu {
+          display: block;
+          margin-top: 0;
+        }
       }
     }
 
-    .ud-nav-split-caret {
-      background: transparent;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
+    .ud-nav-split-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 4px 2px 4px 6px;
-      opacity: 0.75;
-      @include transition(0.3s);
+      gap: 12px;
 
-      // Override Bootstrap's default dropdown-toggle-split caret
+      // Same caret as ud-nav-dropdown-toggle
       &::after {
         content: "";
         width: 0;
         height: 0;
-        margin: 2px 0 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid currentColor;
+        margin-left: 0;
+        margin-top: 2px;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid currentColor;
         border-bottom: 0;
         transform-origin: center;
         @include transition(0.3s);
-      }
-
-      &:hover,
-      &:focus {
-        opacity: 1;
-      }
-
-      &.show::after {
-        transform: rotate(180deg);
-        margin-top: -2px;
-      }
-
-      &:focus {
-        outline: 3px solid var(--focus-color);
-        outline-offset: 2px;
-        border-radius: 4px;
+        flex-shrink: 0;
       }
     }
 

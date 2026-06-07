@@ -48,17 +48,12 @@
             </ul>
           </li>
           <li class="nav-item dropdown ud-nav-dropdown ud-nav-split">
-            <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'features') }}">
+            <a class="nav-link ud-menu-scroll ud-nav-split-link"
+               href="{{ locale_url($page, 'features') }}"
+               aria-haspopup="true"
+               aria-label="{{ $page->t('Features, open submenu on hover') }}">
               {{$page->t("Features")}}
             </a>
-            <button class="ud-nav-split-caret dropdown-toggle dropdown-toggle-split"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="{{ $page->t('Open features submenu') }}">
-              <span class="visually-hidden">{{ $page->t('Open features submenu') }}</span>
-            </button>
             <ul class="dropdown-menu ud-nav-submenu"
                 aria-label="{{ $page->t('Features submenu') }}">
               @foreach($page->getFromCategory('features-nav') as $featuredPost)
