@@ -45,9 +45,9 @@
           <div class="col-12">
             <div class="ud-home-clients__summary">
             @php
-              $clientsSignedDocumentsMillions = (string) ($page->signedDocumentsMillions ?? 'X');
-              $clientsSecondaryTemplate = $page->t('More than <strong>:count million</strong> documents signed securely and with legal validity.');
-              $clientsSecondaryWithCount = str_replace(':count', $clientsSignedDocumentsMillions, $clientsSecondaryTemplate);
+              $githubDownloads = (string) ($page->githubDownloads ?? '0');
+              $clientsSecondaryTemplate = $page->t('<strong>:count</strong> downloads on GitHub');
+              $clientsSecondaryWithCount = str_replace(':count', $githubDownloads, $clientsSecondaryTemplate);
               $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
               $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
             @endphp

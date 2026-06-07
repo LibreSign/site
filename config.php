@@ -15,7 +15,34 @@ return [
     'url_captcha_audio' => '/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Electronic signature of digital documents',
     'description' => 'Electronic signature of digital documents',
-    'signedDocumentsMillions' => getenv('SIGNED_DOCUMENTS_MILLIONS') ?: 'X',
+    'githubDownloads' => (function() {
+        $total = 0;
+        $page = 1;
+        $token = getenv('GITHUB_TOKEN');
+        $headers = ['User-Agent: libresign-site-build'];
+        if ($token) {
+            $headers[] = 'Authorization: Bearer ' . $token;
+        }
+        $context = stream_context_create(['http' => [
+            'header' => implode("\r\n", $headers),
+            'timeout' => 15,
+        ]]);
+        while (true) {
+            $url = "https://api.github.com/repos/LibreSign/libresign/releases?per_page=100&page={$page}";
+            $json = @file_get_contents($url, false, $context);
+            if ($json === false) break;
+            $releases = json_decode($json, true);
+            if (empty($releases)) break;
+            foreach ($releases as $release) {
+                foreach ($release['assets'] ?? [] as $asset) {
+                    $total += $asset['download_count'] ?? 0;
+                }
+            }
+            if (count($releases) < 100) break;
+            $page++;
+        }
+        return $total > 0 ? number_format($total, 0, '.', ',') : null;
+    })(),
     'wordPressVersion' => function($page) {
         $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
         return json_decode($version)->version;
