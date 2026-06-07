@@ -36,6 +36,7 @@
     .container {
       padding-left: 24px;
       padding-right: 24px;
+      padding-top: 32px;
     }
   }
 
@@ -51,13 +52,19 @@
   }
 
   @media #{$xs} {
-    margin-top: 0;
-    padding-top: 120px;
-    padding-bottom: 72px;
+    margin-top: 76px;
+    padding-top: 0;
+    padding-bottom: 48px;
     min-height: auto;
   }
 
-  @media #{$sm, $md, $lg} {
+  @media #{$sm} {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 64px;
+  }
+
+  @media #{$md, $lg} {
     min-height: 980px;
     padding-top: 150px;
   }
@@ -87,12 +94,12 @@
 
     @media #{$xs, $sm} {
       position: static;
-      height: 400px;
-      margin-bottom: 30px;
+      height: 280px;
+      margin-bottom: 0;
     }
 
     @media #{$xs} {
-      height: 300px;
+      height: 240px;
     }
 
     .shape {
