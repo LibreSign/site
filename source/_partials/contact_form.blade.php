@@ -4,14 +4,14 @@
           <form class="ud-contact-form" id="WebToLeadForm"
             name="WebToLeadForm">
             <div class="ud-form-group">
-              <label for="fullName">{{ $page->t("Full Name")}} *</label>
+              <label for="name">{{ $page->t("Full Name")}} *</label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="{{$page->t('Type your name')}}"
-                required=""
-              />
+                required
+              >
             </div>
             <div class="ud-form-group">
               <label for="email">Email*</label>
@@ -20,8 +20,8 @@
                 name="email"
                 id="email"
                 placeholder="example@yourmail.com"
-                required=""
-              />
+                required
+              >
             </div>
             <div class="ud-form-group">
               <label for="phone_mobile">{{ $page->t('Phone')}}</label>
@@ -57,25 +57,26 @@
                 id="description"
                 rows="3"
                 placeholder="{{$page->t('Type your message here')}}"
-                required=""
+                required
               ></textarea>
             </div>
             <div class="ud-form-group">
-              <label for="message">{{ $page->t("Type the code below")}} *</label>
+              <label for="codeImg">{{ $page->t("Type the code below")}} *</label>
               <input type="text" name="codeImg" id="codeImg"
                 placeholder="{{$page->t('Type the code below')}}"
-                required/>
+                required>
             </div>
             <div class="ud-form-group">
               <img alt="{{ $page->t('Image with captcha text') }}"
                 class="me-3 mb-3"
                 id="captcha"
-              />
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              >
               <button id="btnReload" type="button">
                 <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg"
                   alt="{{ $page->t( 'Button to reload characters captcha') }}"
-                  width="30px"
-                />
+                  width="30"
+                >
               </button>
               <script>
                 function contentLoad(url) {
@@ -147,8 +148,8 @@
               <button id="audioIcon" type="button">
                 <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg"
                   alt="{{ $page->t( 'Button to play characters captcha') }}"
-                  width="30px"
-                />
+                  width="30"
+                >
               </button>
 
               <script>
