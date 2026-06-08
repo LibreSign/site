@@ -34,11 +34,6 @@ description: "Explore LibreSign's core features: digital signatures, document ma
       'cardModifier' => 'ud-card--outlined',
       'rowClass'     => 'row text-center gy-5 align-items-stretch',
       'colClass'     => 'col-lg-6 d-flex',
-      'cta'          => [
-        'href'  => locale_url($page, 'pricing'),
-        'label' => $page->t('View All Plans'),
-        'class' => 'btn ud-btn-solid-brand',
-      ],
     ])
 
     <section class="ud-features-cta">
