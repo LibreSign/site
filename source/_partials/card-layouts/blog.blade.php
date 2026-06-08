@@ -35,6 +35,6 @@
       <a href="{{ $postUrl }}" class="ud-home-blog-card__title-link">{{ $page->t($post->title) }}</a>
     </h3>
     <p class="ud-home-blog-card__excerpt">{{ $page->t($post->description) }}</p>
-    <a href="{{ $postUrl }}" class="ud-home-blog-card__link">{{ $page->t('Read more »') }}</a>
+    <a href="{{ $postUrl }}" class="ud-home-blog-card__link" aria-label="{{ $page->t('Read more about') . ': ' . $page->t($post->title) }}">{{ $page->t('Read more »') }}</a>
   </div>
 </article>

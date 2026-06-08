@@ -42,6 +42,7 @@
       href="{{ $page->baseUrl }}assets/images/favicon.png"
       type="image/png"
     >
+    <link rel="apple-touch-icon" href="{{ $page->baseUrl }}assets/images/favicon.png">
 
     <!-- ===== All CSS files ===== -->
     @viteRefresh()

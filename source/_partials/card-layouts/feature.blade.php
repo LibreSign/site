@@ -11,7 +11,7 @@
 
   @if ($iconSrc)
     <div class="ud-card__icon">
-      <img src="{{ $iconSrc }}" alt="">
+      <img src="{{ $iconSrc }}" alt="{{ $page->t($post->title) }}">
     </div>
   @endif
 
@@ -20,7 +20,7 @@
   </div>
 
   <div class="ud-card__actions">
-    <a href="{{ $postUrl }}" class="btn ud-btn-outline-brand ud-card__link">
+    <a href="{{ $postUrl }}" class="btn ud-btn-outline-brand ud-card__link" aria-label="{{ $page->t('Learn more about') . ': ' . $page->t($post->title) }}">
       {{ $page->t('Learn more') }}
     </a>
   </div>
