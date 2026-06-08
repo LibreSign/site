@@ -3,7 +3,7 @@
   <div class="container">
       <nav class="navbar navbar-expand-lg" aria-label="{{ $page->t('Main navigation') }}">
       <a class="navbar-brand" href="{{ locale_url($page, '')  }}" aria-label="{{ $page->t('LibreSign home') }}">
-        <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
+        <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign">
       </a>
       <div class="collapse navbar-collapse mx-auto" id="main-navigation">
         <ul class="navbar-nav container">
@@ -82,7 +82,7 @@
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'about') }}">{{ $page->t("About") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'posts') }}">{{ $page->t("Content") }}</a>
+            <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'posts') }}">{{ $page->t("Blog") }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'contact-us') }}">{{ $page->t("Contact") }}</a>
@@ -107,7 +107,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   aria-label="{{ $page->t('Select language') }}">
-            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $activeLocale }}.svg" aria-hidden="true" />
+            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $activeLocale }}.svg" alt="" aria-hidden="true">
             <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales()[$activeLocale] ?? 'English' }}</span>
           </button>
           <ul class="dropdown-menu ud-submenu" id="language-menu" aria-label="{{ $page->t('Language selection') }}">
@@ -117,12 +117,12 @@
                  href="{{ translate_url($page, $localeCode) }}"
                  lang="{{ $localeCode ?: 'en' }}"
                  aria-label="{{ $page->t('Switch to') }} {{ $localeName }}">
-                <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $localeCode ?: 'en' }}.svg" aria-hidden="true" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $localeCode ?: 'en' }}.svg" alt="" aria-hidden="true">
                 <span>{{ $localeCode ?: 'en'}}</span>
               </a>
             </li>
           @endforeach
-            <li class="ud-submenu-divider" role="separator"></li>
+            <li class="ud-submenu-divider" role="none"><hr></li>
             <li class="ud-submenu-item">
               <a class="ud-submenu-link ud-submenu-link--cta"
                  href="https://hosted.weblate.org/projects/libresign-coop-site/site/"

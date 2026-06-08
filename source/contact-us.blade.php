@@ -24,7 +24,7 @@ description: "Get in touch with the LibreSign team. Schedule a conversation with
               </li>
               <li>
                 <strong>{{ $page->t('ROI calculation:') }}</strong>
-                {{ $page->t('we demonstrate the return on investment and the economy your company will have.') }}
+                {{ $page->t('we demonstrate the potential return on investment and the savings your organization can achieve.') }}
               </li>
               <li>
                 <strong>{{ $page->t('Strategic solution:') }}</strong>
@@ -36,7 +36,7 @@ description: "Get in touch with the LibreSign team. Schedule a conversation with
               </li>
               <li>
                 <strong>{{ $page->t('Focus on your needs:') }}</strong>
-                {{ $page->t('our specialists understand your challenges and build, in partnership, a 100% personalized proposal with LibreSign.') }}
+                {{ $page->t('our specialists understand your challenges and build, in partnership, a tailored proposal with LibreSign.') }}
               </li>
               <li>
                 <strong>{{ $page->t('Fast return:') }}</strong>

@@ -5,7 +5,7 @@
                 <div class="col-12 col-lg-4">
                     <div class="ud-widget">
                         <a href="{{ locale_url($page, '') }}" class="ud-footer-logo" aria-label="{{ $page->t('LibreSign - Go to homepage') }}">
-                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
+                            <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign">
                         </a>
                         <p class="ud-widget-desc">
                             {{ $page->t("Open source electronic signature integrated with Nextcloud. Self-hosted, secure, and built for organizations that value privacy and data sovereignty.")}}
@@ -59,7 +59,7 @@
 
                         <p id="copyright">&copy; {{ date('Y') }} LibreSign. {{ $page->t('All rights reserved.')}}</p>
                         <address id="address" class="ud-widget-address">
-                            {{ $page->t("Quinze de Novembro Street, 106, 3rd Floor, Room 309 - Centro") }} <br />
+                            {{ $page->t("Quinze de Novembro Street, 106, 3rd Floor, Room 309 - Centro") }} <br>
                             Niteroi - RJ
                         </address>
                     </div>
@@ -69,9 +69,6 @@
                     <nav class="ud-widget" aria-labelledby="footer-nav-product">
                         <h3 id="footer-nav-product" class="ud-widget-title">{{ $page->t("Product") }}</h3>
                         <ul class="ud-widget-links">
-                            <li>
-                                <a href="{{ locale_url($page, 'features') }}">{{ $page->t("Solutions")}}</a>
-                            </li>
                             <li>
                                 <a href="{{ locale_url($page, 'features') }}">{{ $page->t("Features")}}</a>
                             </li>
@@ -158,7 +155,7 @@
         </div>
         <div class="image-wrapper">
             <div class="image">
-                <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" aria-hidden="true">
+                <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" alt="" aria-hidden="true">
                 <div class="status" aria-hidden="true"></div>
             </div>
         </div>

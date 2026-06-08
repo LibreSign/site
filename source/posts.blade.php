@@ -11,7 +11,7 @@ description: "Read LibreSign's latest articles on digital signatures, document s
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-banner-content">
-              <h1>{{ $page->t( "Blog Page") }}</h1>
+              <h1>{{ $page->t( "LibreSign Blog") }}</h1>
             </div>
           </div>
         </div>

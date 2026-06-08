@@ -11,7 +11,7 @@
       'actions' => [
         [
           'href' => locale_url($page, 'contact-us'),
-          'label' => $page->t('Try it For Free Now!'),
+          'label' => $page->t('Try LibreSign'),
           'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
         ],
         [
@@ -27,7 +27,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 id="clients-heading" class="ud-home-clients__headline">{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</h2>
+            <h2 id="clients-heading" class="ud-home-clients__headline">{{ $page->t("Trusted by organizations around the world") }}</h2>
           </div>
         </div>
         <div class="row g-5 justify-content-evenly ud-home-clients__logos">
@@ -69,7 +69,7 @@
     @php
       $homeChallengeItems = [
         [
-          'title' => $page->t('Legal Validity and Undisputed Compliance?'),
+          'title' => $page->t('Secure Document Signing and Verifiable Traceability?'),
           'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
           'body' => $page->t('Minimize risks and support document authenticity with electronic signatures designed to align with LGPD requirements and current data protection practices.'),
           'actions' => [[
@@ -108,8 +108,8 @@
     <!-- ====== Benefits Start ====== -->
     @include('_partials.post-list', [
       'sectionClass' => 'ud-home-benefits',
-      'title'        => $page->t('Unlock the Future of Your Management: The Exclusive Benefits of LibreSign.'),
-      'subtitle'     => $page->t('More than a tool, a strategic partner for digital efficiency and security.'),
+      'title'        => $page->t('Key benefits of using LibreSign in your organization'),
+      'subtitle'     => $page->t('From document security to workflow automation — built for organizations of every size.'),
       'category'     => 'featured',
       'format'       => 'feature',
     ])
@@ -125,7 +125,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <h2 class="ud-home-section__title">{{ $page->t("See LibreSign in Action: Simplify Your Signatures in Detail.")}}</h2>
+              <h2 class="ud-home-section__title">{{ $page->t("See LibreSign in action")}}</h2>
             </div>
           </div>
           <div class="col-lg-12">
@@ -135,7 +135,7 @@
         <div class="row justify-content-center mt-5">
           <div class="col-lg-6 text-center">
             <div class="ud-home-video__media">
-              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy" />
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
             </div>
             <div class="mt-4">
               <a href="{{ locale_url($page, 'features') }}" class="btn ud-btn-solid-warm ud-home-video__action">
@@ -154,39 +154,39 @@
         [
           'title' => $page->t('Public Management: Transparency, Validity, and Efficiency'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/public-sector.png',
-          'body'  => $page->t('Digitize bids, contracts, and administrative processes with total compliance and agility, respecting public value.'),
-          'actions' => [['href' => locale_url($page, 'public-sector'), 'label' => $page->t('Discover the Perfect Solution for the Public Sector')]],
+          'body'  => $page->t('Digitize bids, contracts, and administrative processes with traceability and agility, respecting public sector values.'),
+          'actions' => [['href' => locale_url($page, 'public-sector'), 'label' => $page->t('Explore LibreSign for Public Sector')]],
         ],
         [
           'title' => $page->t('Small and Medium Businesses: Grow with Security'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/small-business.png',
-          'body'  => $page->t('Optimize contracts, reduce costs, and ensure the legal validity of your commercial agreements, streamlining your business.'),
-          'actions' => [['href' => locale_url($page, 'company-solutions'), 'label' => $page->t('Discover the Perfect Solution for Small and Medium Businesses')]],
+          'body'  => $page->t('Optimize contracts, reduce costs, and support the legal integrity of your commercial agreements, streamlining your business.'),
+          'actions' => [['href' => locale_url($page, 'company-solutions'), 'label' => $page->t('Explore LibreSign for Businesses')]],
         ],
         [
           'title' => $page->t('Cooperatives: Strengthen Governance and Member Participation'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/cooperatives.png',
           'body'  => $page->t('Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.'),
-          'actions' => [['href' => locale_url($page, 'cooperatives'), 'label' => $page->t('Discover the Perfect Solution for Cooperatives')]],
+          'actions' => [['href' => locale_url($page, 'cooperatives'), 'label' => $page->t('Explore LibreSign for Cooperatives')]],
         ],
         [
           'title' => $page->t('Information Technology: Control and Total Flexibility'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/it-professionals.png',
           'body'  => $page->t('Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.'),
-          'actions' => [['href' => locale_url($page, 'tecnical-details'), 'label' => $page->t('Discover the Perfect Solution for IT Professionals')]],
+          'actions' => [['href' => locale_url($page, 'tecnical-details'), 'label' => $page->t('Explore LibreSign for IT Professionals')]],
         ],
         [
           'title' => $page->t('Legal Sector: Agility and Reliable Document Security'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/legal-sector.png',
-          'body'  => $page->t('Support the legal validity of each signature and simplify document management, with strong protection for confidential information.'),
-          'actions' => [['href' => locale_url($page, 'lawyers'), 'label' => $page->t('Discover the Perfect Solution for Lawyers')]],
+          'body'  => $page->t('Support the integrity of each signature and simplify document management, with strong protection for confidential information.'),
+          'actions' => [['href' => locale_url($page, 'lawyers'), 'label' => $page->t('Explore LibreSign for Lawyers')]],
         ],
       ];
     @endphp
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-solutions',
-      'title'        => $page->t('Tailored Solutions: LibreSign Meets the Unique Demands of Your Business.'),
-      'subtitle'     => $page->t('Developed with expertise to optimize processes across various segments.'),
+      'title'        => $page->t('Solutions designed for your industry'),
+      'subtitle'     => $page->t('LibreSign adapts to the needs of different organizations and sectors.'),
       'items'        => $homeSolutionItems,
       'rowClass'     => 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center align-items-stretch',
       'colClass'     => 'col d-flex',
@@ -196,17 +196,17 @@
     <!-- ====== Blog/Content Section Start ====== -->
     @include('_partials.post-list', [
       'sectionClass' => 'ud-home-blog',
-      'title'        => $page->t('LibreSign: Knowledge that Drives Your Digital Transformation.'),
-      'subtitle'     => $page->t('Explore articles, guides, and insights about GDPR, technology, management, and the world of electronic signatures.'),
+      'title'        => $page->t('Articles and insights on digital signatures and open source'),
+      'subtitle'     => $page->t('Explore guides, technical articles, and news from the LibreSign team.'),
       'format'       => 'blog',
       'limit'        => 3,
-      'cta'          => ['href' => locale_url($page, 'posts'), 'label' => $page->t('Access Our Full Blog')],
+      'cta'          => ['href' => locale_url($page, 'posts'), 'label' => $page->t('Explore our blog')],
     ])
     <!-- ====== Blog/Content Section End ====== -->
 
     <!-- ====== CTA Start ====== -->
     @include('_partials.home.cta-section', [
-      'title' => $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.'),
+      'title' => $page->t('Simplify your document workflows with LibreSign.'),
       'description' => $page->t('Join organizations around the world already using LibreSign to manage secure, traceable digital signatures. Take control of your document workflows.'),
       'actions' => [
         [
@@ -248,13 +248,13 @@
     "Self-hosted deployment",
     "API access",
     "Document validation and audit trail",
-    "End-to-end document security"
+    "Secure document handling and access controls"
   ],
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
-    "description": "Free and open source. Managed hosting plans available."
+    "description": "Free and open source. Commercial plans available — contact us for details."
   },
   "author": {
     "@id": "https://libresign.coop/#organization"

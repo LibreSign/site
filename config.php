@@ -189,7 +189,7 @@ return [
         ],
         [
             'question' => 'Is a digital signature the same as a digitized signature?',
-            'answer' => 'No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.'
+            'answer' => 'No. The digitized signature is the reproduction of the handwritten signature as an image using a scanner or touchscreen. It does not guarantee the authorship of the electronic document, as there is no cryptographic association between the signer and the content, and it can be easily copied and inserted into another document.'
         ],
         [
             'question' => 'What is the name of the company that LibreSign was developed by?',
@@ -213,7 +213,7 @@ return [
         ],
         [
             'question' => 'What is LibreSign?',
-            'answer' => 'LibreSign is a platform that makes it easy to sign documents digitally and electronically, guaranteeing security and compliance with the law. With it, you can sign documents using personal and company digital certificates in a simple and secure way.'
+            'answer' => 'LibreSign is an open source platform for electronic and digital document signing, designed to help organizations manage secure, traceable signing workflows. It integrates with Nextcloud and can be fully self-hosted.'
         ],
         [
             'question' => 'What types of digital certificates does LibreSign accept?',
@@ -229,15 +229,15 @@ return [
         ],
         [
             'question' => 'Is it possible to integrate LibreSign with other systems?',
-            'answer' => 'Absolutely! LibreSign has APIs that allow you to integrate the platform with other systems you already use, helping to automate processes and make everything more agile.'
+            'answer' => 'Yes. LibreSign provides a full REST API that allows you to integrate the platform with other systems, helping automate signing processes and make workflows more agile.'
         ],
         [
-            'question' => 'Can LibreSign be used by public bodies?',
-            'answer' => 'Yes, LibreSign is perfect for town halls and public bodies that need a secure and legally valid solution for signing documents.'
+            'question' => 'Can LibreSign be used by public sector organizations?',
+            'answer' => 'Yes. LibreSign can support public sector workflows that require traceability, document integrity, and self-hosted infrastructure, depending on the organization\'s legal and technical requirements.'
         ],
         [
-            'question' => 'How can I buy LibreSign?',
-            'answer' => 'You can purchase LibreSign directly on our website or talk to our sales team, who will help you find the ideal plan for your needs.'
+            'question' => 'How can I adopt LibreSign for my organization?',
+            'answer' => 'LibreSign is free and open source — you can self-host it on your own Nextcloud instance at no cost. Commercial plans with support and managed services are being prepared. Contact our team to discuss your needs.'
         ],
         [
             'question' => 'Does LibreSign offer technical support?',
@@ -249,7 +249,7 @@ return [
         ],
         [
             'question' => 'Does LibreSign time-stamp documents?',
-            'answer' => 'Yes, LibreSign offers time stamping, which guarantees the exact date and time of the signature, which brings even more security and legal validity.'
+            'answer' => 'LibreSign records signing events and timestamps as part of the signing workflow. The legal weight of those timestamps may depend on configuration and applicable law.'
         ],
     ],
     'getFromCategory' => function($page, $category) {
