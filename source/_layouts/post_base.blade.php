@@ -39,13 +39,13 @@
                       @endphp
                       @if($page->author == 'LibreSign')
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="" />
+                        alt="LibreSign" />
                       @elseif(!empty($resolvedGravatar))
                         <img src="https://www.gravatar.com/avatar/{{$resolvedGravatar}}?size=40"
-                        alt="" />
+                        alt="{{ $page->author }}" />
                       @else
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="" />
+                        alt="{{ $page->author }}" />
                       @endif
                       <span>
                         @php
@@ -108,21 +108,21 @@
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                                alt=""
+                                alt="LibreSign"
                               />
                             </a>
                           @elseif(!empty($articleGravatar))
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=40"
-                                  alt=""
+                                  alt="{{ $article->author }}"
                                 />
                             </a>
                           @else
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                                alt=""
+                                alt="{{ $article->author }}"
                               />
                             </a>
                           @endif

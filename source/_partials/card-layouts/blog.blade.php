@@ -32,7 +32,7 @@
     </div>
     <span class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</span>
     <span class="ud-home-blog-card__badge" aria-hidden="true">
-      <img src="{{ $authorAvatar }}" alt="" />
+      <img src="{{ $authorAvatar }}" alt="{{ $post->author ?? '' }}" />
     </span>
   </div>
   <div class="ud-home-blog-card__content">
