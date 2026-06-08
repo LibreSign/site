@@ -306,12 +306,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LibreSign/jigsaw-localization",
-                "reference": "9e75df308963bb624d2c7638c6077f7c58053999"
+                "reference": "f187e8e554748614f374417e5ff2d2ea68e7391e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/9e75df308963bb624d2c7638c6077f7c58053999",
-                "reference": "9e75df308963bb624d2c7638c6077f7c58053999",
+                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/f187e8e554748614f374417e5ff2d2ea68e7391e",
+                "reference": "f187e8e554748614f374417e5ff2d2ea68e7391e",
                 "shasum": ""
             },
             "require": {
@@ -376,7 +376,7 @@
                 }
             ],
             "description": "Brings localization feature to \"tightenco/jigsaw\" using JSON files",
-            "time": "2026-06-03T01:54:30+00:00"
+            "time": "2026-06-08T03:11:02+00:00"
         },
         {
             "name": "elaborate-code/php-json-tongue",
