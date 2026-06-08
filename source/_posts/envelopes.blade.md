@@ -56,8 +56,4 @@ LibreSign also provides a clear and transparent validation view for envelopes.
 
 Each document inside the envelope keeps its own digital signatures and validation data, while the validation view makes it explicit that the documents belong to the same signing process.
 
-<div style="text-align: center;">
-  <img src="{{ $page->baseUrl}}assets/images/posts/envelopes/validation.png" alt="Envelope validation view showing related signed documents">
-</div>
-
 This helps users, auditors, and external systems understand the relationship between documents without introducing proprietary or opaque mechanisms.
