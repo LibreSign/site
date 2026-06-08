@@ -345,21 +345,33 @@ return [
                     $post->set('gravatar', $author->gravatar);
                 }
                 if(empty($post->cover_image)){
-                    if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
-                        $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.jpg')){
-                        $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.jpg');
-                    } else {
+                    $coverFound = false;
+                    foreach ([$path, $alternativePath] as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__.'/source/'.$p.'/cover.'.$ext)) {
+                                $post->set('cover_image', $post->baseUrl.$p.'/cover.'.$ext);
+                                $coverFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$coverFound) {
                         $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
 
                 if(empty($post->banner)){
-                    if(file_exists(__DIR__.'/source/'.$path.'/banner.jpg')){
-                        $post->set('banner',$post->baseUrl.$path.'/banner.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.jpg')){
-                        $post->set('banner',$post->baseUrl.$alternativePath.'/banner.jpg');
-                    } else {
+                    $bannerFound = false;
+                    foreach ([$path, $alternativePath] as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__.'/source/'.$p.'/banner.'.$ext)) {
+                                $post->set('banner', $post->baseUrl.$p.'/banner.'.$ext);
+                                $bannerFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$bannerFound) {
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
