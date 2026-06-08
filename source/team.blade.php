@@ -47,15 +47,15 @@
                 <h2 class="ud-team-card__name">
                   <a href="{{ $member->getUrl() }}">{{ $member->name }}</a>
                 </h2>
-                @if(!empty($member->role))
-                  <span class="ud-team-card__role">{{ $page->t($member->role) }}</span>
+                @if($member->job_title ?? false)
+                  <span class="ud-team-card__role">{{ $page->t($member->job_title) }}</span>
                 @endif
-                @if(!empty($member->bio))
+                @if($member->bio ?? false)
                   <p class="ud-team-card__bio">{{ $member->bio }}</p>
                 @endif
               </div>
               <div class="ud-team-card__footer">
-                @if(!empty($member->social))
+              @if($member->social ?? false)
                   <ul class="ud-team-card__socials list-unstyled d-flex justify-content-center gap-2 mb-3">
                     @foreach($member->social as $network => $url)
                       <li>

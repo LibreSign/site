@@ -33,10 +33,10 @@
                   width="180"
                   height="180"
                 />
-                @if(!empty($page->role))
-                  <span class="ud-team-profile__role d-block mb-3">{{ $page->t($page->role) }}</span>
+                @if($page->job_title ?? false)
+                  <span class="ud-team-profile__role d-block mb-3">{{ $page->t($page->job_title) }}</span>
                 @endif
-                @if(!empty($page->social))
+                @if($page->social ?? false)
                   <ul class="list-unstyled d-flex justify-content-center gap-3">
                     @foreach($page->social as $network => $url)
                       <li>
