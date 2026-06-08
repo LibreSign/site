@@ -88,7 +88,7 @@
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'contact-us') }}">{{ $page->t("Contact") }}</a>
           </li>
           <li class="nav-item" id="customer-area-link">
-            <a class="nav-link ud-menu-scroll link-button" href="{{ locale_url($page, 'client-area') }}" aria-label="{{ $page->t("Client Area") }}">
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer" aria-label="{{ $page->t("Client Area") }}">
               <span class="button-text">{{ $page->t("Client Area") }}</span>
               <i class="lni lni-user button-icon" aria-hidden="true"></i>
             </a>
