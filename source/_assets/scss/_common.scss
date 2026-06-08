@@ -235,9 +235,14 @@ p {
   }
 
   // Responsive design for smaller screens
+  @media (min-width: 577px) and (max-width: 992px) {
+    right: 11px;
+    bottom: 108px; // 20px (contact bottom) + 80px (contact height) + 8px gap
+  }
+
   @media (max-width: 576px) {
     right: 10px;
-    bottom: 100px;
+    bottom: 84px; // 12px (contact bottom) + 64px (contact height) + 8px gap
     width: 36px;
     height: 36px;
     line-height: 36px;
