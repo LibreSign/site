@@ -58,12 +58,16 @@
                         </a>
 
                         <p id="copyright">&copy; {{ date('Y') }} LibreSign. {{ $page->t('All rights reserved.')}}</p>
+                        <address id="address" class="ud-widget-address">
+                            {{ $page->t("Quinze de Novembro Street, 106, 3rd Floor, Room 309 - Centro") }} <br />
+                            Niteroi - RJ
+                        </address>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-6 col-lg">
-                    <nav class="ud-widget" aria-labelledby="footer-nav-1">
-                        <h3 id="footer-nav-1" class="visually-hidden">{{ $page->t("Quick links") }}</h3>
+                    <nav class="ud-widget" aria-labelledby="footer-nav-product">
+                        <h3 id="footer-nav-product" class="ud-widget-title">{{ $page->t("Product") }}</h3>
                         <ul class="ud-widget-links">
                             <li>
                                 <a href="{{ locale_url($page, 'solutions') }}">{{ $page->t("Solutions")}}</a>
@@ -83,39 +87,27 @@
                             <li>
                                 <a href="{{ locale_url($page, 'faq') }}">{{ $page->t("FAQ")}}</a>
                             </li>
-                            <li>
-                                <a href="{{ locale_url($page, 'ebooks') }}">{{ $page->t("E-books library")}}</a>
-                            </li>
-                            <li>
-                                <a href="{{ locale_url($page, 'newsletter') }}">{{ $page->t("Newsletter")}}</a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-12 col-sm-6 col-lg">
-                    <nav class="ud-widget" aria-labelledby="footer-nav-2">
-                        <h3 id="footer-nav-2" class="visually-hidden">{{ $page->t("Resources and support") }}</h3>
+                    <nav class="ud-widget" aria-labelledby="footer-nav-company">
+                        <h3 id="footer-nav-company" class="ud-widget-title">{{ $page->t("Company") }}</h3>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="{{ locale_url($page, 'success-stories') }}">{{ $page->t("Success stories")}}</a>
-                            </li>
-                            <li>
-                                <a href="{{ locale_url($page, 'academy') }}">{{ $page->t("LibreSign Academy")}}</a>
-                            </li>
-                            <li>
-                                <a href="{{ locale_url($page, 'cooperativism') }}">{{ $page->t("Cooperativism")}}</a>
-                            </li>
-                            <li>
-                                <a href="{{ locale_url($page, 'sales') }}">{{ $page->t("Talk to sales")}}</a>
+                                <a href="{{ locale_url($page, 'contact-us') }}">{{ $page->t("Contact us")}}</a>
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'support') }}">{{ $page->t("Support")}}</a>
                             </li>
                             <li>
-                                <a href="{{ locale_url($page, 'jobs') }}">{{ $page->t("Work with us")}}</a>
+                                <a href="{{ locale_url($page, 'team') }}">{{ $page->t("Team")}}</a>
                             </li>
                             <li>
-                                <a href="{{ locale_url($page, 'privacy') }}">{{ $page->t("Privacy Policy")}}</a>
+                                <a href="{{ locale_url($page, 'cooperatives') }}">{{ $page->t("Cooperatives")}}</a>
+                            </li>
+                            <li>
+                                <a href="{{ locale_url($page, 'privacy-policy') }}">{{ $page->t("Privacy Policy")}}</a>
                             </li>
                         </ul>
                     </nav>
@@ -141,15 +133,6 @@
                             </li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-12 col-lg">
-                    <div class="ud-widget ud-widget-address">
-                        <h3 class="visually-hidden">{{ $page->t("Contact information") }}</h3>
-                        <address id="address">
-                            {{ $page->t("Quinze de Novembro Street, 106, 3rd Floor, Room 309 - Centro") }} <br />
-                            Niteroi - RJ
-                        </address>
-                    </div>
                 </div>
             </div>
         </div>
