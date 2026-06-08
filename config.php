@@ -14,12 +14,9 @@ return [
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Open Source Electronic Signature for Nextcloud',
     'description' => 'LibreSign is a free and open source electronic signature app for Nextcloud. Sign, request, and manage digital documents securely in your own self-hosted environment.',
-    'locales' => [
-        '' => 'English',
-        'fr' => 'Français',
-        'nb-NO' => 'Norsk bokmål',
-        'pt-BR' => 'Português Brasil',
-    ],
+    'locales' => function ($page) {
+        return available_locales($page);
+    },
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
         $list = explode("\n", $list);
@@ -237,7 +234,18 @@ return [
                 $posts[] = $post;
             }
         }
-        return $posts;
+        return array_map(fn($p) => (object) $p, $posts);
+    },
+    'mergeCollections' => function ($page, ...$collections) {
+        $merged = collect();
+        foreach ($collections as $collection) {
+            foreach ($collection as $post) {
+                $merged->add($post);
+            }
+        }
+        return $merged
+            ->sortByDesc(fn($post) => $post->date)
+            ->values();
     },
     'collections' => [
         'redirect' => [
