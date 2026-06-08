@@ -19,10 +19,7 @@
         <div class="col-lg-12">
           <div class="ud-section-title text-center mx-auto">
             <span>FAQ</span>
-            <h2>{{ $page->t("Any Questions? Answered")}}</h2>
-            <p>
-              {{ $page->t("LibreSign frequently asked questions")}}
-            </p>
+            <h2>{{ $page->t("LibreSign frequently asked questions")}}</h2>
           </div>
         </div>
       </div>
