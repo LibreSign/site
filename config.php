@@ -285,9 +285,9 @@ return [
             }
             if (isset($post['categories']) && is_array($post['categories']) && in_array($category, $post['categories'])) {
                 if (!empty($post['original_title'])) {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
+                    $post['url'] = locale_url($page, 'posts/' . Str::slug($post['original_title']));
                 } else {
-                    $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                    $post['url'] = locale_url($page, 'posts/' . Str::slug($post['title']));
                 }
                 // Resolve cover_image if not in front matter (mirrors posts.map logic)
                 if (empty($post['cover_image'])) {
