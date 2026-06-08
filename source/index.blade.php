@@ -23,22 +23,22 @@
     ])
     <!-- ====== Principal Banner End ====== -->
 
-    <section class="ud-home-clients">
+    <section class="ud-home-clients" aria-labelledby="clients-heading">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <p class="ud-home-clients__headline">{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</p>
+            <h2 id="clients-heading" class="ud-home-clients__headline">{{ $page->t("Validated Trust: LibreSign Solutions from Those Who Understand Governance and Efficiency.") }}</h2>
           </div>
         </div>
         <div class="row g-5 justify-content-evenly ud-home-clients__logos">
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="264px" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
+            <img width="264" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
           </div>
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="256px" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
+            <img width="256" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
           </div>
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="80px" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
+            <img width="80" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
           </div>
         </div>
         <div class="row">

@@ -14,33 +14,33 @@
                             <h3 class="visually-hidden">{{ $page->t("Follow us on social media") }}</h3>
                             <ul class="ud-widget-socials">
                                 <li>
-                                    <a target="_blank" 
+                                    <a target="_blank"
                                        rel="noopener noreferrer"
-                                       href="https://github.com/LibreSign/libresign" 
+                                       href="https://github.com/LibreSign/libresign"
                                        aria-label="{{ $page->t('Visit our GitHub repository (opens in new tab)')}}">
                                         @include('_partials.social-icons', ['icon' => 'github'])
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" 
+                                    <a target="_blank"
                                        rel="noopener noreferrer"
-                                       href="https://www.linkedin.com/company/libresign/" 
+                                       href="https://www.linkedin.com/company/libresign/"
                                        aria-label="{{ $page->t('Follow us on LinkedIn (opens in new tab)')}}">
                                         @include('_partials.social-icons', ['icon' => 'linkedin'])
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" 
+                                    <a target="_blank"
                                        rel="noopener noreferrer"
-                                       href="https://t.me/LibreSign" 
+                                       href="https://t.me/LibreSign"
                                        aria-label="{{ $page->t('Join our Telegram group (opens in new tab)')}}">
                                         @include('_partials.social-icons', ['icon' => 'telegram'])
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" 
+                                    <a target="_blank"
                                        rel="noopener noreferrer"
-                                       href="https://www.instagram.com/libresign/" 
+                                       href="https://www.instagram.com/libresign/"
                                        aria-label="{{ $page->t('Follow us on Instagram (opens in new tab)')}}">
                                         @include('_partials.social-icons', ['icon' => 'instagram'])
                                     </a>
@@ -49,10 +49,10 @@
                         </nav>
                     </div>
                     <div class="ud-widget">
-                        <a id="coop-logo" 
-                           target="_blank" 
+                        <a id="coop-logo"
+                           target="_blank"
                            rel="noopener noreferrer"
-                           href="https://www.somos.coop.br/" 
+                           href="https://www.somos.coop.br/"
                            aria-label="{{ $page->t('Somos.Coop - National movement that values cooperative initiatives (opens in new tab)')}}">
                             <img src="{{ $page->baseUrl }}assets/images/icon/somoscoop.png" alt="Somos.Coop" aria-hidden="true">
                         </a>
@@ -141,9 +141,9 @@
         </div>
     </div>
     <!-- ====== Back To Top Start ====== -->
-    <a id="back-to-top" 
-       class="back-to-top" 
-       href="#top" 
+    <a id="back-to-top"
+       class="back-to-top"
+       href="#top"
        aria-label="{{ $page->t('Back to top') }}">
         <i class="lni lni-chevron-up" aria-hidden="true"></i>
     </a>
@@ -157,7 +157,7 @@
         </div>
         <div class="image-wrapper">
             <div class="image">
-                <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" alt="" role="presentation" />
+                <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" aria-hidden="true" />
                 <div class="status" aria-hidden="true"></div>
             </div>
         </div>

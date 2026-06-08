@@ -48,7 +48,7 @@
     @stack('styles')
 
     <!-- ====== All Javascript Files ====== -->
-    <script defer>
+    <script>
         var _mtm = window._mtm = window._mtm || [];
         _mtm.push({'mtm.startTime': (new Date().getTime()),
         'event': 'mtm.Start'});
@@ -61,11 +61,11 @@
         })();
     </script>
 
-    <script defer>
+    <script>
       window.baseUrl = "{{ $page->baseUrl === '/' ? '' : $page->baseUrl }}";
     </script>
 
-    <script defer type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/main.js') }}"></script>
+    <script type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/main.js') }}"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

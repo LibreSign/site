@@ -1,7 +1,7 @@
 <a href="#main-content" class="skip-to-content">{{ $page->t("Skip to main content") }}</a>
 <header class="ud-header">
   <div class="container">
-    <nav class="navbar navbar-expand-lg" role="navigation" aria-label="{{ $page->t('Main navigation') }}">
+      <nav class="navbar navbar-expand-lg" aria-label="{{ $page->t('Main navigation') }}">
       <a class="navbar-brand" href="{{ locale_url($page, '')  }}" aria-label="{{ $page->t('LibreSign home') }}">
         <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign" />
       </a>
@@ -102,7 +102,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   aria-label="{{ $page->t('Select language') }}">
-            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ current_path_locale($page) ?: 'en' }}.svg" alt="" role="presentation" />
+            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ current_path_locale($page) ?: 'en' }}.svg" aria-hidden="true" />
             <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales()[current_path_locale($page)] ?? 'English' }}</span>
           </button>
           <ul class="dropdown-menu ud-submenu" id="language-menu" aria-label="{{ $page->t('Language selection') }}">
@@ -112,7 +112,7 @@
                  href="{{ translate_url($page, $localeCode) }}"
                  lang="{{ $localeCode ?: 'en' }}"
                  aria-label="{{ $page->t('Switch to') }} {{ $localeName }}">
-                <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $localeCode ?: 'en' }}.svg" alt="" role="presentation" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $localeCode ?: 'en' }}.svg" aria-hidden="true" />
                 <span>{{ $localeCode ?: 'en'}}</span>
               </a>
             </li>
