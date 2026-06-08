@@ -333,16 +333,16 @@ return [
             'author' => 'LibreCode',
             'sort' => '-date',
             'map' => function ($post) {
+                static $authorGravatars = [
+                    'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
+                    'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
+                    'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
+                ];
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
                 $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
-                $items = $post->get('collections')->get('team')->get('items');
-                $author = array_filter($items->all(), function($author) use ($post){
-                    return $author->name === $post->author;
-                });
-                if(!empty($author)){
-                    $author = current($author);
-                    $post->set('gravatar', $author->gravatar);
+                if (!empty($authorGravatars[$post->author] ?? null)) {
+                    $post->set('gravatar', $authorGravatars[$post->author]);
                 }
                 if(empty($post->cover_image)){
                     $coverFound = false;
@@ -466,10 +466,21 @@ return [
                 [
                     'name' => 'Daiane Alves',
                     'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee' ,
-                    'bio' => '',
-                    'role' => '',
+                    'bio' => 'CEO at LibreCode, one of the largest Free Software cooperatives in Brazil, she teaches training courses on various free software programs, from basic to enterprise level, and contributes to the organization of events in the PHPRio and PHPWomenBR communities (PHP developer communities).',
+                    'role' => 'CEO',
                     'social' => [
+                        'github' => 'https://github.com/daianealvesrj/',
                         'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
+                    ]
+                ],
+                [
+                    'name' => 'Vitor Mattos',
+                    'gravatar' => '35d3d1e49e1939461e2670a4d1fac6a3',
+                    'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
+                    'role' => 'CTO',
+                    'social' => [
+                        'github' => 'https://github.com/vitormattos',
+                        'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
                     ]
                 ],
             ],

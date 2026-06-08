@@ -6,11 +6,22 @@
   $categoryLabel = $categoryMap[$categoryKey]
     ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $categoryKey));
 
+  $cardAuthorGravatars = [
+    'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
+    'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
+    'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
+  ];
+  $resolvedGravatar = ($post->gravatar ?? null) ?: ($cardAuthorGravatars[$post->author ?? ''] ?? null);
+
   $authorAvatar = match(true) {
-    ($post->author ?? null) === 'LibreSign'                                            => $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png',
-    !empty($post->gravatar ?? null) && str_starts_with($post->gravatar, '/')           => $page->baseUrl . ltrim($post->gravatar, '/'),
-    !empty($post->gravatar ?? null)                                                    => 'https://www.gravatar.com/avatar/' . $post->gravatar . '?size=80',
-    default                                                                            => $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png',
+    ($post->author ?? null) === 'LibreSign'
+       => $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png',
+    !empty($resolvedGravatar) && str_starts_with($resolvedGravatar, '/')
+       => $page->baseUrl . ltrim($resolvedGravatar, '/'),
+    !empty($resolvedGravatar)
+       => 'https://www.gravatar.com/avatar/' . $resolvedGravatar . '?size=80',
+    default
+       => $page->baseUrl . 'assets/images/logo/Avatar-LibreSign.png',
   };
 @endphp
 
