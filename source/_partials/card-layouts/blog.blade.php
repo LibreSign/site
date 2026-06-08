@@ -6,12 +6,7 @@
   $categoryLabel = $categoryMap[$categoryKey]
     ?? \Illuminate\Support\Str::headline(str_replace(['-', '_'], ' ', $categoryKey));
 
-  $cardAuthorGravatars = [
-    'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
-    'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
-    'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
-  ];
-  $resolvedGravatar = ($post->gravatar ?? null) ?: ($cardAuthorGravatars[$post->author ?? ''] ?? null);
+  $resolvedGravatar = ($post->gravatar ?? null) ?: ($page->authorGravatars[$post->author ?? ''] ?? null);
 
   $authorAvatar = match(true) {
     ($post->author ?? null) === 'LibreSign'

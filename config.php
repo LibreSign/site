@@ -5,6 +5,41 @@ use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
+$teamMembers = [
+    [
+        'name' => 'Crisciany Silva',
+        'gravatar' => 'f2f64ea713b5c39cb64268a0eda7e022',
+        'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
+        'role' => 'Software Engineer',
+        'social' => [
+            'github' => 'https://github.com/Any97Cris',
+            'linkedin' => 'https://www.linkedin.com/in/criscianysilva/'
+        ],
+    ],
+    [
+        'name' => 'Daiane Alves',
+        'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee',
+        'bio' => 'CEO at LibreCode, one of the largest Free Software cooperatives in Brazil, she teaches training courses on various free software programs, from basic to enterprise level, and contributes to the organization of events in the PHPRio and PHPWomenBR communities (PHP developer communities).',
+        'role' => 'CEO',
+        'social' => [
+            'github' => 'https://github.com/daianealvesrj/',
+            'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
+        ]
+    ],
+    [
+        'name' => 'Vitor Mattos',
+        'gravatar' => '35d3d1e49e1939461e2670a4d1fac6a3',
+        'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
+        'role' => 'CTO',
+        'social' => [
+            'github' => 'https://github.com/vitormattos',
+            'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
+        ]
+    ],
+];
+
+$authorGravatars = array_column($teamMembers, 'gravatar', 'name');
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
@@ -14,6 +49,7 @@ return [
     'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
     'title' => 'LibreSign - Open Source Electronic Signature for Nextcloud',
     'description' => 'LibreSign is a free and open source electronic signature app for Nextcloud. Sign, request, and manage digital documents securely in your own self-hosted environment.',
+    'authorGravatars' => $authorGravatars,
     'locales' => function ($page) {
         return available_locales($page);
     },
@@ -332,12 +368,7 @@ return [
             },
             'author' => 'LibreCode',
             'sort' => '-date',
-            'map' => function ($post) {
-                static $authorGravatars = [
-                    'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
-                    'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
-                    'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
-                ];
+            'map' => function ($post) use ($authorGravatars) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
                 $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
@@ -452,38 +483,7 @@ return [
                 return 'team/' . Str::slug($page->name);
             },
             'extends' => '_layouts.team-member',
-            'items' => [
-                [
-                    'name' => 'Crisciany Silva',
-                    'gravatar' => 'f2f64ea713b5c39cb64268a0eda7e022',
-                    'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
-                    'role' => 'Software Engineer',
-                    'social' => [
-                        'github' => 'https://github.com/Any97Cris',
-                        'linkedin' => 'https://www.linkedin.com/in/criscianysilva/'
-                    ],
-                ],
-                [
-                    'name' => 'Daiane Alves',
-                    'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee' ,
-                    'bio' => 'CEO at LibreCode, one of the largest Free Software cooperatives in Brazil, she teaches training courses on various free software programs, from basic to enterprise level, and contributes to the organization of events in the PHPRio and PHPWomenBR communities (PHP developer communities).',
-                    'role' => 'CEO',
-                    'social' => [
-                        'github' => 'https://github.com/daianealvesrj/',
-                        'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
-                    ]
-                ],
-                [
-                    'name' => 'Vitor Mattos',
-                    'gravatar' => '35d3d1e49e1939461e2670a4d1fac6a3',
-                    'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
-                    'role' => 'CTO',
-                    'social' => [
-                        'github' => 'https://github.com/vitormattos',
-                        'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
-                    ]
-                ],
-            ],
+            'items' => $teamMembers,
         ],
     ],
 ];

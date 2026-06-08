@@ -30,12 +30,7 @@
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
                       @php
-                        $authorGravatars = [
-                          'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
-                          'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
-                          'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
-                        ];
-                        $resolvedGravatar = $page->gravatar ?? $authorGravatars[$page->author] ?? null;
+                        $resolvedGravatar = $page->gravatar ?? ($page->authorGravatars[$page->author] ?? null);
                       @endphp
                       @if($page->author == 'LibreSign')
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
@@ -97,12 +92,7 @@
                       <li>
                         <div class="ud-article-image">
                           @php
-                            $sidebarGravatars = [
-                              'Crisciany Silva' => 'f2f64ea713b5c39cb64268a0eda7e022',
-                              'Daiane Alves'    => 'fe9fbbf8677e78931af9a4a5da35e1ee',
-                              'Vitor Mattos'    => '35d3d1e49e1939461e2670a4d1fac6a3',
-                            ];
-                            $articleGravatar = $article->gravatar ?? $sidebarGravatars[$article->author] ?? null;
+                            $articleGravatar = $article->gravatar ?? ($page->authorGravatars[$article->author] ?? null);
                           @endphp
                           @if($article->author === 'LibreSign')
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
