@@ -265,6 +265,12 @@
 }
 
 .ud-widget {
+  .ud-widget-title {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
   .ud-footer-logo {
     display: block;
     margin-bottom: 44px;
