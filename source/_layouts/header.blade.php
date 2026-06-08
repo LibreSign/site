@@ -96,14 +96,19 @@
         </ul>
       </div>
       <div class="d-flex align-items-center">
+        @php
+          $detectedLocale = current_path_locale($page);
+          $availableLocales = array_keys($page->locales());
+          $activeLocale = in_array($detectedLocale, $availableLocales) ? $detectedLocale : 'en';
+        @endphp
         <div class="dropdown selector">
           <button class="dropdown-toggle"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   aria-label="{{ $page->t('Select language') }}">
-            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ current_path_locale($page) ?: 'en' }}.svg" aria-hidden="true" />
-            <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales()[current_path_locale($page)] ?? 'English' }}</span>
+            <img src="{{ $page->baseUrl }}assets/images/icon/languages/{{ $activeLocale }}.svg" aria-hidden="true" />
+            <span class="visually-hidden">{{ $page->t('Current language') }}: {{ $page->locales()[$activeLocale] ?? 'English' }}</span>
           </button>
           <ul class="dropdown-menu ud-submenu" id="language-menu" aria-label="{{ $page->t('Language selection') }}">
           @foreach($page->locales() as $localeCode => $localeName)
