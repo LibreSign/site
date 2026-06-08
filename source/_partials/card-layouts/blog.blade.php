@@ -22,16 +22,18 @@
 
 <article class="ud-home-blog-card">
   <div class="ud-home-blog-card__media">
-    <div class="ud-home-blog-card__frame">
+    <a href="{{ $postUrl }}" class="ud-home-blog-card__frame" tabindex="-1" aria-hidden="true">
       <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
-    </div>
-    <span class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</span>
+    </a>
+    <a href="{{ locale_url($page, 'category/' . $categoryKey) }}" class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</a>
     <span class="ud-home-blog-card__badge" aria-hidden="true">
       <img src="{{ $authorAvatar }}" alt="{{ $post->author ?? '' }}" />
     </span>
   </div>
   <div class="ud-home-blog-card__content">
-    <h3 class="ud-home-blog-card__title">{{ $page->t($post->title) }}</h3>
+    <h3 class="ud-home-blog-card__title">
+      <a href="{{ $postUrl }}" class="ud-home-blog-card__title-link">{{ $page->t($post->title) }}</a>
+    </h3>
     <p class="ud-home-blog-card__excerpt">{{ $page->t($post->description) }}</p>
     <a href="{{ $postUrl }}" class="ud-home-blog-card__link">{{ $page->t('Read more »') }}</a>
   </div>

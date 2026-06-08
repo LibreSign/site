@@ -40,6 +40,9 @@ $teamMembers = [
 
 $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 
+// Categories that are used as internal filters and should NOT get a dedicated page.
+$categoryPageBlocklist = ['featured'];
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
@@ -295,6 +298,27 @@ return [
                 } else {
                     $post['url'] = locale_path($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
                 }
+                // Resolve cover_image if not in front matter (mirrors posts.map logic)
+                if (empty($post['cover_image'])) {
+                    $slug = Str::slug($post['original_title'] ?? $post['title'] ?? '');
+                    $paths = [
+                        'assets/images/posts/' . $slug,
+                        'assets/images/posts/' . str_replace($current_path_locale . '_', '', $slug),
+                    ];
+                    $coverFound = false;
+                    foreach ($paths as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__ . '/source/' . $p . '/cover.' . $ext)) {
+                                $post['cover_image'] = $page->baseUrl . $p . '/cover.' . $ext;
+                                $coverFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$coverFound) {
+                        $post['cover_image'] = $page->baseUrl . 'assets/images/logo/logo.svg';
+                    }
+                }
                 $posts[] = $post;
             }
         }
@@ -512,6 +536,39 @@ return [
             },
             'extends' => '_layouts.team-member',
             'items' => $teamMembers,
+        ],
+        'categories' => [
+            'path' => function($page) {
+                return 'category/' . $page->slug;
+            },
+            'extends' => '_layouts.category-page',
+            'items' => (function() use ($categoryPageBlocklist) {
+                $files = array_merge(
+                    glob('source/_posts/*.md') ?: [],
+                    glob('source/_posts/_tmp/*.md') ?: [],
+                );
+                $parser = new Parser(markdownParser: new MarkdownParser());
+                $fp     = new FrontMatterParser($parser);
+
+                $seen = [];
+                foreach ($files as $file) {
+                    if (!is_file($file)) {
+                        continue;
+                    }
+                    $fm = $fp->getFrontMatter(file_get_contents($file));
+                    foreach ($fm['categories'] ?? [] as $cat) {
+                        $cat = trim((string) $cat);
+                        $slug = Str::slug($cat);
+                        if ($slug && !in_array($slug, $categoryPageBlocklist, true) && !isset($seen[$slug])) {
+                            $seen[$slug] = [
+                                'slug'  => $slug,
+                                'label' => Str::headline(str_replace(['-', '_'], ' ', $cat)),
+                            ];
+                        }
+                    }
+                }
+                return array_values($seen);
+            })(),
         ],
     ],
 ];
