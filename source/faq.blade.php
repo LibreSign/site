@@ -1,3 +1,7 @@
+---
+title: "LibreSign FAQ - Digital Signature Questions Answered"
+description: "Answers to common questions about LibreSign: how it works, digital certificates, legal validity, cancellation, plans, and more."
+---
 @extends('_layouts.main')
 
 @section('body')

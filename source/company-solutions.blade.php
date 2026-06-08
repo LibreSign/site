@@ -1,3 +1,7 @@
+---
+title: "LibreSign for Companies - Secure Electronic Signature Workflows"
+description: "Empower your business with secure, traceable digital signatures. LibreSign integrates with Nextcloud for complete document lifecycle management in your own environment."
+---
 @extends('_layouts.main')
 
 @section('body')

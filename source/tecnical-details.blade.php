@@ -1,3 +1,7 @@
+---
+title: "LibreSign for IT Teams - Self-Hosted Digital Signature Platform"
+description: "Deploy LibreSign on your own infrastructure. Explore API capabilities, Nextcloud integration, digital certificate support, and full control over your data."
+---
 @extends('_layouts.main')
 
 @section('body')

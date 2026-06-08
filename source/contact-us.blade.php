@@ -1,3 +1,7 @@
+---
+title: "Contact LibreSign - Talk to Our Digital Signature Team"
+description: "Get in touch with the LibreSign team. Schedule a conversation with our specialists for a demo, pricing information, or any question about our open source digital signature platform."
+---
 @extends('_layouts.main')
 
 @section('body')
@@ -36,7 +40,7 @@
               </li>
               <li>
                 <strong>{{ $page->t('Fast return:') }}</strong>
-                {{ $page->t('we contact you within 24 useful hours to schedule your conversation.') }}
+                {{ $page->t('we contact you within one business day to schedule your conversation.') }}
               </li>
             </ul>
           </div>

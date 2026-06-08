@@ -9,6 +9,7 @@
     <!-- Primary Meta Tags -->
     <link rel="canonical" href="{{ $page->getUrl() }}">
     <meta name="description" content="{{ $page->description }}">
+    @if($page->noindex)<meta name="robots" content="noindex, nofollow">@endif
     <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
     <meta name="author" content="LibreSign / LibreCode">
 

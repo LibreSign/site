@@ -1,3 +1,7 @@
+---
+title: "LibreSign Blog - Digital Signature, Security and Open Source Insights"
+description: "Read LibreSign's latest articles on digital signatures, document security, Nextcloud integrations, and open source software."
+---
 @extends('_layouts.main')
 
 @section('body')

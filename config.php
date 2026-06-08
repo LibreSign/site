@@ -93,20 +93,20 @@ return [
     'prices' => [
         'Basic' => [
             'price' => '$ 600/mo',
-            'description' => 'STARTING FROM',
+            'description' => 'Starting from',
             'isActive' => false,
             'list' => <<<LIST
-                - Until 5 accounts
-                - Storage until 1Gb
+                - Up to 5 accounts
+                - Up to 1 GB storage
                 LIST,
         ],
         'Business' => [
-            'price' => 'Contact us to more informations',
-            'description' => '',
+            'price' => 'Custom pricing',
+            'description' => 'Contact us for details',
             'isActive' => true,
             'list' => <<<LIST
                 - Unlimited accounts
-                - Storage customized
+                - Custom storage
                 LIST,
         ],
     ],
@@ -190,11 +190,11 @@ return [
     'frequentlyQuestions' => [
         [
             'question' => 'Why LibreSign?',
-            'answer' => 'LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the GDPR - General Data Protection Law.'
+            'answer' => 'LibreSign lets you sign documents securely and with verifiable integrity. The platform generates a cryptographic hash for each signed document, ensuring any tampering can be detected. It also records the timestamp of every signature, creating a complete and auditable signing history. LibreSign is designed with privacy and data sovereignty in mind, following principles aligned with GDPR and LGPD.'
         ],
         [
-            'question' => 'What are the key features of LibreCode signature pads?',
-            'answer' => 'File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API'
+            'question' => 'What are the key features of LibreSign?',
+            'answer' => 'Document creation and upload, signature with personal or system-generated digital certificates, multi-signer workflows, document management, audit trail, document validation, and a full REST API for system integration.'
         ],
         [
             'question' => 'Is a digital signature the same as a digitized signature?',
@@ -206,11 +206,11 @@ return [
         ],
         [
             'question' => 'Does the plan have any kind of loyalty?',
-            'answer' => 'You are free to cancel your plan at any time. By canceling, Signater undertakes not to renew the billing for your plan.'
+            'answer' => 'No. You are free to cancel your plan at any time. LibreSign does not require minimum commitment periods.'
         ],
         [
             'question' => 'What happens if I cancel my plan?',
-            'answer' => 'Yes, at any time. After canceling, you will no longer be charged and there will be no automatic renewal.'
+            'answer' => 'After canceling, your plan will not be renewed and you will not be charged again. You will retain access until the end of your current billing period.'
         ],
         [
             'question' => 'Can I use my personal digital certificate to sign documents?',
@@ -397,6 +397,18 @@ return [
                 [
                     'from' => '/suporte',
                     'to' => '/',
+                ],
+                [
+                    'from' => '/blog',
+                    'to' => '/posts',
+                ],
+                [
+                    'from' => '/solutions',
+                    'to' => '/features',
+                ],
+                [
+                    'from' => '/support',
+                    'to' => '/contact-us',
                 ],
                 [
                     'from' => '/termos-e-condicoes',

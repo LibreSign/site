@@ -1,3 +1,7 @@
+---
+title: "LibreSign for Public Sector - Digital Signatures for Government Workflows"
+description: "LibreSign helps government agencies and public bodies manage digital document signing securely, transparently, and aligned with data protection standards such as LGPD."
+---
 @extends('_layouts.main')
 
 @section('body')

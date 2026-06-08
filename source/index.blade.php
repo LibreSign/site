@@ -6,7 +6,7 @@
     @include('_partials.home.hero-section', [
       'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
       'imageAlt' => $page->t('Professional using digital signature'),
-      'title' => $page->t('The secure and legally binding digital signature for your world.'),
+      'title' => $page->t('The secure, open source digital signature for your world.'),
       'description' => $page->t('Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.'),
       'actions' => [
         [
@@ -71,7 +71,7 @@
         [
           'title' => $page->t('Legal Validity and Undisputed Compliance?'),
           'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
-          'body' => $page->t('Minimize risks and ensure the authenticity of each document with electronic signatures that fully comply with the LGPD and current legislation.'),
+          'body' => $page->t('Minimize risks and support document authenticity with electronic signatures designed to align with LGPD requirements and current data protection practices.'),
           'actions' => [[
             'href' => locale_url($page, 'public-sector'),
             'label' => $page->t('Learn More for the Public Sector'),
@@ -176,9 +176,9 @@
           'actions' => [['href' => locale_url($page, 'tecnical-details'), 'label' => $page->t('Discover the Perfect Solution for IT Professionals')]],
         ],
         [
-          'title' => $page->t('Legal Sector: Agility and Unquestionable Legal Security'),
+          'title' => $page->t('Legal Sector: Agility and Reliable Document Security'),
           'icon'  => $page->baseUrl . 'assets/images/icon/solutions/legal-sector.png',
-          'body'  => $page->t('Ensure the legal validity of each signature and simplify document management, with total protection for confidential information.'),
+          'body'  => $page->t('Support the legal validity of each signature and simplify document management, with strong protection for confidential information.'),
           'actions' => [['href' => locale_url($page, 'lawyers'), 'label' => $page->t('Discover the Perfect Solution for Lawyers')]],
         ],
       ];
@@ -207,7 +207,7 @@
     <!-- ====== CTA Start ====== -->
     @include('_partials.home.cta-section', [
       'title' => $page->t('Don’t wait any longer: simplify your document workflows with LibreSign.'),
-      'description' => $page->t('Thousands of organizations already trust our digital signature technology. Be the next to transform your processes.'),
+      'description' => $page->t('Join organizations around the world already using LibreSign to manage secure, traceable digital signatures. Take control of your document workflows.'),
       'actions' => [
         [
           'href' => locale_url($page, 'contact-us'),

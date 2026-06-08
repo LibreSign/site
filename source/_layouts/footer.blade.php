@@ -70,7 +70,7 @@
                         <h3 id="footer-nav-product" class="ud-widget-title">{{ $page->t("Product") }}</h3>
                         <ul class="ud-widget-links">
                             <li>
-                                <a href="{{ locale_url($page, 'solutions') }}">{{ $page->t("Solutions")}}</a>
+                                <a href="{{ locale_url($page, 'features') }}">{{ $page->t("Solutions")}}</a>
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'features') }}">{{ $page->t("Features")}}</a>
@@ -82,7 +82,7 @@
                                 <a href="{{ locale_url($page, 'about') }}">{{ $page->t("About")}}</a>
                             </li>
                             <li>
-                                <a href="{{ locale_url($page, 'blog') }}">{{ $page->t("Blog")}}</a>
+                                <a href="{{ locale_url($page, 'posts') }}">{{ $page->t("Blog")}}</a>
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'ebooks') }}">{{ $page->t("E-books")}}</a>

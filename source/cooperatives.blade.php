@@ -1,3 +1,7 @@
+---
+title: "LibreSign for Cooperatives - Transparent Digital Signature Workflows"
+description: "Help your cooperative manage documents, approvals, and member sign-offs with secure, open source digital signatures built for transparency and accountability."
+---
 @extends('_layouts.main')
 
 @section('body')
@@ -22,7 +26,7 @@
 
     $cooperativeHighlights = [
       $page->t('Built by people who live cooperativism: our origin is your guarantee that we understand your needs and value trust-based relationships.'),
-      $page->t('Unquestionable security and auditability: every document is protected and traceable, delivering the reliability your members expect.'),
+      $page->t('Strong security and auditability: every document is protected and traceable, delivering the reliability your members expect.'),
       $page->t('Total control and autonomy: the platform is designed to give your cooperative democratic control over data and workflows, without lock-in.'),
       $page->t('Transparency at every stage: we believe trust is built with clarity, from signature request to final archive.'),
     ];

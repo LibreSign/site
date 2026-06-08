@@ -1,3 +1,7 @@
+---
+title: "LibreSign Pricing - Digital Signature Plans for Organizations"
+description: "Explore LibreSign plans for teams and organizations. Secure, self-hosted digital signature solutions built on Nextcloud. Contact us for pricing details."
+---
 @extends('_layouts.main')
 
 @section('body')
@@ -27,14 +31,14 @@
             <div class="ud-single-pricing h-100{{ $content->isActive ? ' active' : '' }}">
               <div class="ud-pricing-header">
                 @if ($content->isActive)
-                  <span class="ud-main-tag">{{ $page->t($planName) }}</span>
+                  <h3 class="ud-main-tag">{{ $page->t($planName) }}</h3>
                 @else
-                  <h4>{{ $page->t($planName) }}</h4>
+                  <h3>{{ $page->t($planName) }}</h3>
                 @endif
                 @if ($content->description)
-                  <h3>{{ $page->t($content->description) }}</h3>
+                  <p class="ud-pricing-tagline">{{ $page->t($content->description) }}</p>
                 @endif
-                <h4>{{ $page->t($content->price) }}</h4>
+                <p class="ud-pricing-price">{{ $page->t($content->price) }}</p>
               </div>
               @if ($content->list)
                 <div class="ud-pricing-body">
@@ -45,7 +49,7 @@
               @endif
               <div class="ud-pricing-footer">
                 <a href="{{ locale_url($page, 'contact-us') }}" class="btn {{ $content->isActive ? 'ud-btn-solid-white' : 'ud-btn-outline-brand' }}">
-                  {{ $page->t('Under Consultation') }}
+                  {{ $page->t('Talk to Our Team') }}
                 </a>
               </div>
             </div>
@@ -132,21 +136,21 @@
         <div class="col-lg-5">
           <div class="rounded-3 p-4 h-100 bg-white bg-opacity-10 border border-white border-opacity-25 text-white">
             <div class="mb-3"><i class="lni lni-gear-1 fs-1"></i></div>
-            <h5 class="fs-4 fw-bold mb-3">API</h5>
+            <h3 class="fs-4 fw-bold mb-3">API</h3>
             <p class="text-white-50 mb-0">{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
           </div>
         </div>
         <div class="col-lg-5">
           <div class="rounded-3 p-4 h-100 bg-white bg-opacity-10 border border-white border-opacity-25 text-white">
             <div class="mb-3"><i class="lni lni-cloud-upload fs-1"></i></div>
-            <h5 class="fs-4 fw-bold mb-3">{{ $page->t('Cloud Storage') }}</h5>
+            <h3 class="fs-4 fw-bold mb-3">{{ $page->t('Cloud Storage') }}</h3>
             <p class="text-white-50 mb-0">{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
           </div>
         </div>
       </div>
       <div class="text-center mt-5">
         <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-ghost">
-          {{ $page->t('Under Consultation') }}
+          {{ $page->t('Talk to Our Team') }}
         </a>
       </div>
     </div>

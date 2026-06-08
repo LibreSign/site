@@ -1,3 +1,7 @@
+---
+title: "LibreSign Success Stories - Organizations Using Open Source Digital Signatures"
+description: "See how organizations use LibreSign to sign documents securely, reduce bureaucracy, and maintain control over their data with a self-hosted open source platform."
+---
 @extends('_layouts.main')
 
 @section('body')

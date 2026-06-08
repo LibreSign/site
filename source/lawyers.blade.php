@@ -1,12 +1,16 @@
+---
+title: "LibreSign for Lawyers - Secure Digital Signatures for Legal Workflows"
+description: "Streamline contract signing, powers of attorney, and legal document management with LibreSign. Built for legal professionals who need traceability and compliance."
+---
 @extends('_layouts.main')
 
 @section('body')
   @php
     $lawyerChallengeItems = [
       [
-        'title' => $page->t('Signature with Full Legal Value'),
+        'title' => $page->t('Legally Valid Signatures'),
         'icon' => $page->baseUrl . 'assets/images/solutions/lawyers-legal-value-icon.png',
-        'body' => $page->t('Ensure your documents remain fully valid before the law with signatures that follow strict legal authenticity standards.'),
+        'body' => $page->t('Sign documents using digital certificates designed to meet legal authenticity standards. Verify signatures and maintain a complete, tamper-evident audit trail.'),
       ],
       [
         'title' => $page->t('Traceability and Chain of Custody'),
@@ -27,9 +31,9 @@
         'body' => $page->t('Automate document creation and signature flows to accelerate contracts and powers of attorney, boosting productivity in your daily routine.'),
       ],
       [
-        'title' => $page->t('Total Legal Security'),
+        'title' => $page->t('Document Security and Access Control'),
         'icon' => $page->baseUrl . 'assets/images/solutions/lawyers-security-icon.png',
-        'body' => $page->t('Rely on advanced encryption and ICP-Brasil standards to guarantee legal validity and confidentiality in every document.'),
+        'body' => $page->t('Protect your documents with encryption and role-based access controls. LibreSign supports digital certificates, including ICP-Brasil-compatible workflows, for secure and verifiable signing.'),
       ],
       [
         'title' => $page->t('Reputation and Credibility'),

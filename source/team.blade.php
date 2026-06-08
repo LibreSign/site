@@ -1,3 +1,7 @@
+---
+title: "LibreSign Team - The People Behind Open Source Electronic Signatures"
+description: "Meet the LibreCode cooperative team behind LibreSign — dedicated to building free, transparent, and secure digital signature software."
+---
 @extends('_layouts.main')
 
 @section('body')

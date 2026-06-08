@@ -1,3 +1,7 @@
+---
+title: "About LibreSign - Open Source Electronic Signature Software"
+description: "Learn the story of LibreSign and LibreCode, a cooperative of open-source specialists dedicated to building free, transparent, and secure digital signature software."
+---
 @extends('_layouts.main')
 
 @section('body')
