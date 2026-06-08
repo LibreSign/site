@@ -89,9 +89,6 @@
                             <li>
                                 <a href="{{ locale_url($page, 'newsletter') }}">{{ $page->t("Newsletter")}}</a>
                             </li>
-                            <li>
-                                <a href="{{ $page->baseUrl }}frequently-questions">{{ $page->t("FAQ")}}</a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
