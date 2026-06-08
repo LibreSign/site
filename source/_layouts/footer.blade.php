@@ -137,28 +137,28 @@
             </div>
         </div>
     </div>
-    <!-- ====== Back To Top Start ====== -->
-    <a id="back-to-top"
-       class="back-to-top"
-       href="#top"
-       aria-label="{{ $page->t('Back to top') }}">
-        <i class="lni lni-chevron-up" aria-hidden="true"></i>
-    </a>
-    <!-- ====== Back To Top End ====== -->
-    <div id="footer-contact"
-         role="button"
-         tabindex="0"
-         data-contact-url="https://wa.me/552120422073?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20do%20LibreSign"
-         aria-label="{{ $page->t('Contact sales team for a quote') }}">
-        <div class="bubble bubble-text">
-            <p>{{ $page->t("How about an exclusive quote to sign up for LibreSign?") }}</p>
-        </div>
-        <div class="image-wrapper">
-            <div class="image">
-                <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" alt="" aria-hidden="true">
-                <div class="status" aria-hidden="true"></div>
-            </div>
-        </div>
-    </div>
 
 </footer>
+<!-- ====== Back To Top Start ====== -->
+<a id="back-to-top"
+   class="back-to-top"
+   href="#top"
+   aria-label="{{ $page->t('Back to top') }}">
+    <i class="lni lni-chevron-up" aria-hidden="true"></i>
+</a>
+<!-- ====== Back To Top End ====== -->
+<div id="footer-contact"
+     role="button"
+     tabindex="0"
+     data-contact-url="https://wa.me/552120422073?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20do%20LibreSign"
+     aria-label="{{ $page->t('Contact sales team for a quote') }}">
+    <div class="bubble bubble-text">
+        <p>{{ $page->t("How about an exclusive quote to sign up for LibreSign?") }}</p>
+    </div>
+    <div class="image-wrapper">
+        <div class="image">
+            <img src="{{ $page->baseUrl }}assets/images/footer/attendant.png" alt="" aria-hidden="true">
+            <div class="status" aria-hidden="true"></div>
+        </div>
+    </div>
+</div>
