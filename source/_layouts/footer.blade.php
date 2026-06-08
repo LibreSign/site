@@ -85,6 +85,9 @@
                                 <a href="{{ locale_url($page, 'blog') }}">{{ $page->t("Blog")}}</a>
                             </li>
                             <li>
+                                <a href="{{ locale_url($page, 'ebooks') }}">{{ $page->t("E-books")}}</a>
+                            </li>
+                            <li>
                                 <a href="{{ locale_url($page, 'faq') }}">{{ $page->t("FAQ")}}</a>
                             </li>
                         </ul>
@@ -99,6 +102,9 @@
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'support') }}">{{ $page->t("Support")}}</a>
+                            </li>
+                            <li>
+                                <a href="{{ locale_url($page, 'success-stories') }}">{{ $page->t("Success Stories")}}</a>
                             </li>
                             <li>
                                 <a href="{{ locale_url($page, 'team') }}">{{ $page->t("Team")}}</a>
