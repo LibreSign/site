@@ -81,6 +81,9 @@
                                 <a href="{{ locale_url($page, 'blog') }}">{{ $page->t("Blog")}}</a>
                             </li>
                             <li>
+                                <a href="{{ locale_url($page, 'faq') }}">{{ $page->t("FAQ")}}</a>
+                            </li>
+                            <li>
                                 <a href="{{ locale_url($page, 'ebooks') }}">{{ $page->t("E-books library")}}</a>
                             </li>
                             <li>
