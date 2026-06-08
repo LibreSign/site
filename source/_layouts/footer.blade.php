@@ -101,9 +101,6 @@
                                 <a href="{{ locale_url($page, 'contact-us') }}">{{ $page->t("Contact us")}}</a>
                             </li>
                             <li>
-                                <a href="{{ locale_url($page, 'support') }}">{{ $page->t("Support")}}</a>
-                            </li>
-                            <li>
                                 <a href="{{ locale_url($page, 'success-stories') }}">{{ $page->t("Success Stories")}}</a>
                             </li>
                             <li>
