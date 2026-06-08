@@ -61,4 +61,4 @@ For questions about this Privacy Policy, contact us at:
 
 **contato@librecode.coop**
 
-*Last updated: April 8, 2024*
+*Last updated: June 7, 2026*
