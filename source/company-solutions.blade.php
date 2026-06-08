@@ -88,7 +88,7 @@ description: "Empower your business with secure, traceable digital signatures. L
             <div class="col-xl-4 col-md-6 d-flex">
               <article class="ud-cs-testimonial-card">
                 <div class="ud-cs-testimonial-card__avatar">
-                  <img src="{{ $page->baseUrl }}{{ ltrim($item['photo'], '/') }}" alt="{{ $item['author'] }}" />
+                  <img src="{{ $page->baseUrl }}{{ ltrim($item['photo'], '/') }}" alt="{{ $item['author'] }}">
                 </div>
                 <h4 class="ud-cs-testimonial-card__name">{{ $page->t($item['author']) }}</h4>
                 <p class="ud-cs-testimonial-card__quote">“{{ $page->t($item['comment']) }}”</p>

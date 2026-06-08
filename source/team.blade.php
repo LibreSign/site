@@ -44,7 +44,7 @@ description: "Meet the LibreCode cooperative team behind LibreSign — dedicated
                     width="120"
                     height="120"
                     loading="lazy"
-                  />
+                  >
                 </a>
               </div>
               <div class="ud-team-card__body">

@@ -25,7 +25,7 @@
                 <img
                   src="{{ $page->banner }}"
                   alt=""
-                />
+                >
                 <div class="ud-blog-overlay">
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
@@ -34,13 +34,13 @@
                       @endphp
                       @if($page->author == 'LibreSign')
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="LibreSign" />
+                        alt="LibreSign">
                       @elseif(!empty($resolvedGravatar))
                         <img src="https://www.gravatar.com/avatar/{{$resolvedGravatar}}?size=40"
-                        alt="{{ $page->author }}" />
+                        alt="{{ $page->author }}">
                       @else
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="{{ $page->author }}" />
+                        alt="{{ $page->author }}">
                       @endif
                       <span>
                         @php
@@ -99,21 +99,21 @@
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="LibreSign"
-                              />
+                              >
                             </a>
                           @elseif(!empty($articleGravatar))
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=40"
                                   alt="{{ $article->author }}"
-                                />
+                                >
                             </a>
                           @else
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="{{ $article->author }}"
-                              />
+                              >
                             </a>
                           @endif
                         </div>

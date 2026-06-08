@@ -23,11 +23,11 @@
 <article class="ud-home-blog-card">
   <div class="ud-home-blog-card__media">
     <a href="{{ $postUrl }}" class="ud-home-blog-card__frame" tabindex="-1" aria-hidden="true">
-      <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}" />
+      <img src="{{ $post->cover_image }}" alt="{{ $page->t($post->title) }}">
     </a>
     <a href="{{ locale_url($page, 'category/' . $categoryKey) }}" class="ud-home-blog-card__category">{{ $page->t($categoryLabel) }}</a>
     <span class="ud-home-blog-card__badge" aria-hidden="true">
-      <img src="{{ $authorAvatar }}" alt="{{ $post->author ?? '' }}" />
+      <img src="{{ $authorAvatar }}" alt="{{ $post->author ?? '' }}">
     </span>
   </div>
   <div class="ud-home-blog-card__content">

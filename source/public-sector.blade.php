@@ -99,7 +99,7 @@ description: "LibreSign helps government agencies and public bodies manage digit
             <div class="col-lg-4 col-md-6 d-flex justify-content-center">
               <article class="ud-ps-process-step">
                 <div class="ud-ps-process-step__icon">
-                  <img src="{{ $item['icon'] }}" alt="" />
+                  <img src="{{ $item['icon'] }}" alt="">
                 </div>
                 <h4 class="ud-ps-process-step__title">{{ $item['title'] }}</h4>
                 <p class="ud-ps-process-step__body">{{ $item['body'] }}</p>

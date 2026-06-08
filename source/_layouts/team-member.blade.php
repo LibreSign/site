@@ -32,7 +32,7 @@
                   class="ud-team-profile__avatar mb-4"
                   width="180"
                   height="180"
-                />
+                >
                 @if($page->job_title ?? false)
                   <span class="ud-team-profile__role d-block mb-3">{{ $page->t($page->job_title) }}</span>
                 @endif

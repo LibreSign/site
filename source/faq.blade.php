@@ -23,7 +23,7 @@ description: "Answers to common questions about LibreSign: how it works, digital
 
   <section class="ud-faq" aria-labelledby="faq-section-heading">
     <div class="shape" aria-hidden="true">
-      <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="" />
+      <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="">
     </div>
     <div class="container">
       <div class="row">

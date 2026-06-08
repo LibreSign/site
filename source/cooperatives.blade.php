@@ -70,7 +70,7 @@ description: "Help your cooperative manage documents, approvals, and member sign
         <div class="row g-5 align-items-center">
           <div class="col-lg-5">
             <div class="ud-coop-dna__media">
-              <img src="{{ $page->baseUrl }}assets/images/solutions/cooperative-team-photo.png" alt="{{ $page->t('LibreCode cooperative team') }}" />
+              <img src="{{ $page->baseUrl }}assets/images/solutions/cooperative-team-photo.png" alt="{{ $page->t('LibreCode cooperative team') }}">
             </div>
           </div>
 

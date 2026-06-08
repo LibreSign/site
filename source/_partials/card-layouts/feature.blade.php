@@ -11,7 +11,7 @@
 
   @if ($iconSrc)
     <div class="ud-card__icon">
-      <img src="{{ $iconSrc }}" alt="" />
+      <img src="{{ $iconSrc }}" alt="">
     </div>
   @endif
 

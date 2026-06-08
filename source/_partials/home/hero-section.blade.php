@@ -4,7 +4,7 @@
 >
   @if (!empty($imageSrc ?? null))
     <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
-      <img src="{{ $imageSrc }}" alt="{{ $imageAlt }}" />
+      <img src="{{ $imageSrc }}" alt="{{ $imageAlt }}">
     </div>
   @endif
   <div class="container">

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ current_path_locale($page) ?: 'en' }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $page->title }}</title>
 
     <!-- Primary Meta Tags -->
@@ -15,9 +15,9 @@
 
     <!-- Hreflang: multilingual support -->
     @foreach($page->locales() as $localeCode => $localeName)
-    <link rel="alternate" hreflang="{{ $localeCode ?: 'en' }}" href="{{ translate_url($page, $localeCode) }}" />
+    <link rel="alternate" hreflang="{{ $localeCode ?: 'en' }}" href="{{ translate_url($page, $localeCode) }}">
     @endforeach
-    <link rel="alternate" hreflang="x-default" href="{{ translate_url($page, '') }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ translate_url($page, '') }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -41,11 +41,11 @@
       rel="shortcut icon"
       href="{{ $page->baseUrl }}assets/images/favicon.png"
       type="image/png"
-    />
+    >
 
     <!-- ===== All CSS files ===== -->
     @viteRefresh()
-    <link rel="stylesheet" href="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/scss/ud-styles.scss') }}" />
+    <link rel="stylesheet" href="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/scss/ud-styles.scss') }}">
     @stack('styles')
 
     <!-- ====== All Javascript Files ====== -->

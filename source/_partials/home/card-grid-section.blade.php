@@ -25,7 +25,7 @@
 
             @if (!empty($item['icon']))
               <div class="ud-card__icon">
-                <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" loading="lazy" />
+                <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" loading="lazy">
               </div>
             @endif
 

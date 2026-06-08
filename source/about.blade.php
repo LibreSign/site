@@ -51,7 +51,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
             <article class="ud-about-timeline__item">
               <div class="ud-about-timeline__badge">01</div>
               <div class="ud-about-timeline__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/legal-validity.svg" alt="{{ $page->t('Document workflow icon') }}" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/legal-validity.svg" alt="{{ $page->t('Document workflow icon') }}">
               </div>
               <div class="ud-about-timeline__content">
                 <h3>{{ $page->t('The Beginning: The Era of Physical Documents.') }}</h3>
@@ -62,7 +62,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
             <article class="ud-about-timeline__item">
               <div class="ud-about-timeline__badge">02</div>
               <div class="ud-about-timeline__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/realtime-monitoring.svg" alt="{{ $page->t('Digital transformation icon') }}" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/realtime-monitoring.svg" alt="{{ $page->t('Digital transformation icon') }}">
               </div>
               <div class="ud-about-timeline__content">
                 <h3>{{ $page->t('The Need for Transformation.') }}</h3>
@@ -73,7 +73,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
             <article class="ud-about-timeline__item">
               <div class="ud-about-timeline__badge">03</div>
               <div class="ud-about-timeline__icon">
-                <img src="{{ $page->baseUrl }}assets/images/icon/features/integration-flexibility.svg" alt="{{ $page->t('Future workflow icon') }}" />
+                <img src="{{ $page->baseUrl }}assets/images/icon/features/integration-flexibility.svg" alt="{{ $page->t('Future workflow icon') }}">
               </div>
               <div class="ud-about-timeline__content">
                 <h3>{{ $page->t('The Future: Complete Digital Management.') }}</h3>
@@ -98,7 +98,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
         <div class="col-lg-6 d-flex">
           <article class="ud-card">
             <div class="ud-card__icon">
-              <img src="{{ $page->baseUrl }}assets/images/about/about-coop.png" alt="{{ $page->t('Cooperative model icon') }}" />
+              <img src="{{ $page->baseUrl }}assets/images/about/about-coop.png" alt="{{ $page->t('Cooperative model icon') }}">
             </div>
             <div class="ud-card__header">
               <h3 class="ud-card__title">{{ $page->t('Why a cooperative?') }}</h3>
@@ -113,7 +113,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
         <div class="col-lg-6 d-flex">
           <article class="ud-card">
             <div class="ud-card__icon">
-              <img src="{{ $page->baseUrl }}assets/images/about/about-gnu.png" alt="{{ $page->t('Open source icon') }}" />
+              <img src="{{ $page->baseUrl }}assets/images/about/about-gnu.png" alt="{{ $page->t('Open source icon') }}">
             </div>
             <div class="ud-card__header">
               <h3 class="ud-card__title">{{ $page->t('Why open-source software?') }}</h3>
@@ -134,7 +134,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
       <div class="row align-items-center gy-5">
         <div class="col-lg-6">
           <div class="ud-about-team__media">
-            <img src="{{ $page->baseUrl }}assets/images/about/about-team-photo.png" alt="{{ $page->t('LibreCode team') }}" />
+            <img src="{{ $page->baseUrl }}assets/images/about/about-team-photo.png" alt="{{ $page->t('LibreCode team') }}">
           </div>
         </div>
         <div class="col-lg-6">

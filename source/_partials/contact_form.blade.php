@@ -30,7 +30,7 @@
                 name="phone_mobile"
                 id="phone_mobile"
                 placeholder="+885 1254 5211 552"
-              />
+              >
             </div>
             <div class="ud-form-group">
               <label for="company_name">{{ $page->t('Company Name')}}</label>
@@ -39,7 +39,7 @@
                 name="company_name"
                 id="company_name"
                 placeholder="{{$page->t('Type your company name')}}"
-              />
+              >
             </div>
             <div class="ud-form-group">
               <label for="position">{{ $page->t('Position/Role')}}</label>
@@ -48,7 +48,7 @@
                 name="position"
                 id="position"
                 placeholder="{{$page->t('Type your position')}}"
-              />
+              >
             </div>
             <div class="ud-form-group">
               <label for="description">{{ $page->t("What is your main challenge?")}} *</label>
