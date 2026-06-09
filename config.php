@@ -255,7 +255,7 @@ return [
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
             glob('source/_posts/*'),
-            glob('source/_posts/_tmp/*'),
+            glob('source/_posts/_translated_tmp/*'),
         );
         $parser = new Parser(
             markdownParser: new MarkdownParser()
