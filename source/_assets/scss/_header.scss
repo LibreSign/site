@@ -79,6 +79,15 @@
   }
 }
 
+.ud-nav-submenu-link {
+  &:hover,
+  &:focus {
+    background: rgba(24, 76, 78, 0.08);
+    color: var(--primary-color);
+    border-radius: 4px;
+  }
+}
+
 .ud-nav-dropdown-toggle {
   &::after {
     content: "";
@@ -198,12 +207,6 @@
         font-weight: 600;
         padding: 10px 14px;
         white-space: normal;
-
-        &:hover,
-        &:focus {
-          background: rgba(24, 76, 78, 0.08);
-          color: var(--primary-color);
-        }
 
         &:focus {
           outline: 2px solid var(--focus-color);
