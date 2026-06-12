@@ -122,7 +122,7 @@
               </a>
             </li>
           @endforeach
-            <li class="ud-submenu-divider"><hr></li>
+            <li><hr></li>
             <li class="ud-submenu-item">
               <a class="ud-submenu-link ud-submenu-link--cta"
                  href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
