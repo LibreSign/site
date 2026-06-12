@@ -102,7 +102,7 @@
           $activeLocale = in_array($detectedLocale, $availableLocales) ? $detectedLocale : 'en';
         @endphp
         <div class="dropdown selector">
-          <button class="dropdown-toggle"
+          <button class="dropdown-toggle ud-nav-dropdown-toggle"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -113,7 +113,7 @@
           <ul class="dropdown-menu ud-submenu" id="language-menu" aria-label="{{ $page->t('Language selection') }}">
           @foreach($page->locales() as $localeCode => $localeName)
             <li class="ud-submenu-item">
-              <a class="ud-submenu-link"
+              <a class="ud-nav-submenu-link ud-submenu-link"
                  href="{{ translate_url($page, $localeCode) }}"
                  lang="{{ $localeCode ?: 'en' }}"
                  aria-label="{{ $page->t('Switch to') }} {{ $localeName }}">
@@ -124,7 +124,7 @@
           @endforeach
             <li><hr></li>
             <li class="ud-submenu-item">
-              <a class="ud-submenu-link ud-submenu-link--cta"
+              <a class="ud-nav-submenu-link ud-submenu-link ud-submenu-link--cta"
                  href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
                  target="_blank"
                  rel="noopener noreferrer"
