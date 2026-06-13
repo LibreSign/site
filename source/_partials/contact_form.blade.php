@@ -72,11 +72,8 @@
                 id="captcha"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               >
-              <button id="btnReload" type="button">
-                <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg"
-                  alt="{{ $page->t( 'Button to reload characters captcha') }}"
-                  width="30"
-                >
+              <button id="btnReload" type="button" aria-label="{{ $page->t('Button to reload characters captcha') }}">
+                <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" alt="" aria-hidden="true" width="30" height="30">
               </button>
               <script>
                 function contentLoad(url) {
@@ -145,11 +142,8 @@
                 });
               </script>
 
-              <button id="audioIcon" type="button">
-                <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg"
-                  alt="{{ $page->t( 'Button to play characters captcha') }}"
-                  width="30"
-                >
+              <button id="audioIcon" type="button" aria-label="{{ $page->t('Button to play characters captcha') }}">
+                <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" alt="" aria-hidden="true" width="30" height="30">
               </button>
 
               <script>
