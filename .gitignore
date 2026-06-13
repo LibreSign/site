@@ -11,9 +11,12 @@ npm-debug.log
 /source/_posts/_translated_tmp/
 /source/_redirect/
 /source/_team/
-# Optional ignores
-# /build_staging/
+/build_staging/
 /build_production/
+/source/assets/compiled/
 /source/assets/build/
+/source/hot
 
 .env
+docker-compose.override.yml
+.bash_history

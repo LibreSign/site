@@ -1,0 +1,35 @@
+@use "../variables" as *;
+
+.ud-home-section__title {
+  color: var(--ud-home-section-title-color);
+  font-size: clamp(2.35rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.ud-home-section__subtitle {
+  color: var(--ud-home-section-subtitle-color);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.ud-home-challenges,
+.ud-home-benefits,
+.ud-home-video,
+.ud-home-solutions,
+.ud-home-blog,
+.ud-home-cta {
+  padding-top: var(--ud-home-section-padding-y);
+  padding-bottom: var(--ud-home-section-padding-y);
+
+  @media #{$xs, $sm} {
+    padding-top: var(--ud-home-section-padding-y-sm);
+    padding-bottom: var(--ud-home-section-padding-y-sm);
+  }
+}
+
+// Card base styles moved to ../_card.scss (ud-card).

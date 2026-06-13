@@ -1,0 +1,39 @@
+@use "../variables" as *;
+
+.ud-home-benefits {
+  background-color: var(--white);
+
+  .ud-card {
+    &__title {
+      color: var(--primary-color);
+    }
+
+    &__icon {
+      background-color: #f3f4fe;
+
+      img {
+        height: 108px;
+        width: 108px;
+
+        @media #{$xs, $sm} {
+          height: 84px;
+          width: 84px;
+        }
+      }
+    }
+
+    &__actions {
+      .ud-main-btn {
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+
+        &:hover {
+          background-color: rgba(24, 76, 78, 0.08);
+          border-color: var(--primary-color);
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

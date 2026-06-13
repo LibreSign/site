@@ -1,78 +1,265 @@
-/* ===== About CSS ===== */
+@use "variables" as *;
 
-.ud-about {
-  background: #f3f4fe;
-  padding: 120px 0;
+.ud-about-story {
+  background: #f7fafc;
+  padding: 96px 0;
 
-  @media #{$xs} {
-    padding: 80px 0;
+  @media #{$xs, $sm} {
+    padding: 62px 0;
+  }
+
+  &__title {
+    color: #2d3748;
+    font-size: clamp(2.2rem, 4.1vw, 3.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.14;
+    margin-bottom: 54px;
+  }
+
+  &__text {
+    p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
-.ud-about-wrapper {
-  background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+.ud-about-timeline {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
 
-  @media #{$md, $xs} {
-    display: block;
+  &__item {
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    display: grid;
+    gap: 18px;
+    grid-template-columns: auto 92px 1fr;
+    padding: 22px;
+
+    @media #{$xs} {
+      gap: 14px;
+      grid-template-columns: auto 66px 1fr;
+      padding: 18px;
+    }
+  }
+
+  &__badge {
+    color: #2d3748;
+    font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1;
+    padding-top: 8px;
+  }
+
+  &__icon {
+    align-items: center;
+    background: #d97706;
+    border-radius: 50%;
+    display: flex;
+    height: 92px;
+    justify-content: center;
+    width: 92px;
+
+    @media #{$xs} {
+      height: 66px;
+      width: 66px;
+    }
+
+    img {
+      height: 52%;
+      max-height: 52%;
+      max-width: 52%;
+      object-fit: contain;
+      width: 52%;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__content {
+    h3 {
+      color: #2d3748;
+      font-size: clamp(1.22rem, 1.8vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.28;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #4a5568;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin: 0;
+    }
   }
 }
 
-.ud-about-content-wrapper {
-  padding: 70px;
+.ud-about-values {
+  background: #2d3748;
+  padding: 88px 0;
 
-  @media #{$xs} {
-    padding: 50px 30px;
+  @media #{$xs, $sm} {
+    padding: 60px 0;
   }
 
-  @media #{$sm} {
-    padding: 50px;
+  &__title {
+    color: #fff;
+    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.16;
+    margin-bottom: 52px;
+  }
+
+  // ud-card overrides — transparent cards on dark background
+  .ud-card {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    padding: 0;
+
+    &__icon {
+      background: #d97706;
+      height: 110px;
+      margin-bottom: 24px;
+      width: 110px;
+
+      img {
+        height: 56%;
+        max-height: 56%;
+        max-width: 56%;
+        object-fit: contain;
+        width: 56%;
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &__header {
+      min-height: auto;
+      margin-bottom: 14px;
+    }
+
+    &__title {
+      color: #fff;
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      font-weight: 700;
+    }
+
+    &__body p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
   }
 }
 
-.ud-about-content {
-  max-width: 500px;
+.ud-about-team {
+  background: #f7fafc;
+  padding: 94px 0;
 
-  .tag {
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--white);
-    background: var(--primary-color);
-    padding: 5px 20px;
-    display: inline-block;
-    margin-bottom: 20px;
+  @media #{$xs, $sm} {
+    padding: 62px 0;
+  }
+
+  &__media {
+    border-radius: 24px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    h2 {
+      color: #2d3748;
+      font-size: clamp(2.05rem, 3.8vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    > p {
+      color: #4a5568;
+      font-size: 1.02rem;
+      line-height: 1.76;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__quote {
+    background: #fff;
+    border-left: 4px solid #d97706;
+    margin: 0 0 30px;
+    padding: 22px 22px 20px;
+
+    p {
+      color: #2d3748;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      strong {
+        color: #2d3748;
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      span {
+        color: #64748b;
+        display: block;
+        font-size: 0.94rem;
+        margin-top: 3px;
+      }
+    }
+  }
+}
+
+.ud-about-cta {
+  background: #2d3748;
+  padding: 86px 0;
+
+  @media #{$xs, $sm} {
+    padding: 58px 0;
   }
 
   h2 {
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 45px;
-    margin-bottom: 30px;
-
-    @media #{$xs} {
-      font-size: 26px;
-      line-height: 38px;
-    }
+    color: #fff;
+    font-size: clamp(2.1rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
   }
 
   p {
-    font-size: 16px;
-    line-height: 28px;
-    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.05rem;
+    line-height: 1.72;
+    margin: 0 auto;
+    max-width: 920px;
   }
 
-  .ud-main-btn {
-    &:hover {
-      background: #15967b;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    }
-  }
-}
-
-.ud-about-image {
-  @media #{$md, $xs} {
-    text-align: center;
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 36px;
   }
 }

@@ -1,0 +1,20 @@
+@use "variables" as *;
+
+.ud-it-page {
+  .ud-home-section__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1120px;
+  }
+}
+
+.ud-it-pillars {
+  // Background and padding from .ud-page-section; heading styles inherit from it.
+  // Cards styled by .ud-card--outlined; no further card overrides needed.
+}
+
+.ud-it-architecture {
+  // Background, padding, headings, and action buttons from .ud-page-section--dark.
+  // Cards styled by .ud-card--media; no further card overrides needed.
+  color: inherit; // prevents empty-ruleset lint
+}

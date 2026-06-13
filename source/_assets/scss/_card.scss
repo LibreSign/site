@@ -1,0 +1,372 @@
+@use "variables" as *;
+
+// ──────────────────────────────────────────────────────────────
+// Generic card component — used site-wide.
+//
+// Base: .ud-card
+// Variants (modifier classes):
+//   .ud-card--outlined  white, bordered, orange circle icon
+//   .ud-card--glass     semi-transparent on dark background
+//   .ud-card--media     image-first card (no icon circle)
+//
+// Per-section visual tweaks belong in each section's own SCSS,
+// scoped to the section class, e.g.:
+//   .ud-law-challenges .ud-card--outlined { ... }
+// ──────────────────────────────────────────────────────────────
+
+.ud-card {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: var(--ud-home-card-radius);
+  box-shadow: var(--ud-home-card-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--ud-home-card-padding);
+  width: 100%;
+
+  @media #{$laptop} {
+    max-width: 496px;
+    padding: var(--ud-home-card-padding-laptop);
+  }
+
+  @media #{$xs, $sm} {
+    padding: var(--ud-home-card-padding-sm);
+  }
+}
+
+.ud-card__header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  min-height: 80px;
+  width: 100%;
+
+  @media #{$laptop} {
+    margin-bottom: 42px;
+    min-height: 100px;
+  }
+
+  @media #{$xs, $sm} {
+    margin-bottom: 20px;
+    min-height: 60px;
+  }
+}
+
+.ud-card__title {
+  color: var(--ud-home-card-title-color);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+
+  @media #{$xs, $sm} {
+    font-size: 1.3rem;
+  }
+}
+
+.ud-card__icon {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  @media #{$laptop} {
+    height: 256px;
+    margin-bottom: 60px;
+  }
+
+  @media #{$xs, $sm} {
+    height: 150px;
+    margin-bottom: 24px;
+  }
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+.ud-card__body {
+  align-items: flex-start;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.ud-card__body p {
+  color: var(--ud-home-card-body-color);
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+
+  @media #{$xs, $sm} {
+    font-size: 0.9rem;
+  }
+}
+
+.ud-card__actions {
+  padding-top: 16px;
+  width: 100%;
+
+  @media #{$xs, $sm} {
+    padding-top: 12px;
+  }
+
+  .ud-hero-buttons,
+  .ud-hero-buttons li {
+    width: 100%;
+  }
+
+  [class*="ud-btn-"] {
+    align-items: center;
+    display: flex;
+    font-size: 0.95rem;
+    justify-content: center;
+    line-height: 1.3;
+    min-height: 56px;
+    padding: 8px 16px;
+    white-space: normal;
+    width: 100%;
+    word-break: break-word;
+
+    @media #{$xs, $sm} {
+      font-size: 0.8rem;
+      min-height: 48px;
+      padding: 6px 12px;
+    }
+  }
+}
+
+// ── Variant: outlined ─────────────────────────────────────────
+// Standard card for inner pages: white bg, subtle border/shadow,
+// orange circle icon (240 px), dark typography.
+// Usage: cardClass => 'ud-card--outlined'
+// ─────────────────────────────────────────────────────────────
+.ud-card--outlined {
+  border: 1px solid #ececec;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 40px 34px 42px;
+
+  @media #{$xs, $sm} {
+    padding: 28px 22px 32px;
+  }
+
+  .ud-card__icon {
+    background: #d97706;
+    height: 240px;
+    margin-bottom: 30px;
+    width: 240px;
+
+    img {
+      height: 52%;
+      max-height: 52%;
+      max-width: 52%;
+      object-fit: contain;
+      width: 52%;
+    }
+
+    @media #{$xs, $sm} {
+      height: 190px;
+      width: 190px;
+    }
+  }
+
+  .ud-card__header {
+    min-height: 70px;
+
+    @media #{$xs, $sm} {
+      min-height: 50px;
+    }
+  }
+
+  .ud-card__title {
+    color: #2d3748;
+    font-size: clamp(1.85rem, 2.2vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ud-card__body p {
+    color: #4a5568;
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+}
+
+// ── Variant: glass ────────────────────────────────────────────
+// Compact card for dark-background sections: semi-transparent,
+// white text, rounded corners, small icon (no circle).
+// Usage: cardClass => 'ud-card--glass'
+// ─────────────────────────────────────────────────────────────
+.ud-card--glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #fff;
+  padding: 28px 26px 32px;
+
+  .ud-card__header {
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
+  .ud-card__title {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .ud-card__icon {
+    background: transparent;
+    border-radius: 0;
+    height: 95px;
+    margin-bottom: 16px;
+    width: auto;
+
+    img {
+      height: auto;
+      max-height: 95px;
+      max-width: 110px;
+      object-fit: contain;
+      width: auto;
+    }
+  }
+
+  .ud-card__body p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// ── Variant: media ────────────────────────────────────────────
+// Card where __icon is a full-width screenshot/image area
+// (no circle, no fixed height). Used in IT architecture cards.
+// Usage: cardClass => 'ud-card--media'
+// ─────────────────────────────────────────────────────────────
+.ud-card--media {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #fff;
+  padding: 20px 20px 28px;
+
+  .ud-card__header {
+    margin-bottom: 10px;
+    min-height: auto;
+  }
+
+  .ud-card__title {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  // Override icon to behave as a full-width media slot
+  .ud-card__icon {
+    aspect-ratio: unset;
+    background: transparent;
+    border-radius: 0;
+    height: auto;
+    margin-bottom: 18px;
+    width: 100%;
+
+    img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 100%;
+      object-fit: unset;
+      width: 100%;
+    }
+  }
+
+  .ud-card__body p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// ── Generic page section helpers ──────────────────────────────
+// Reusable section container styles for inner pages.
+// Avoids repeating identical background/padding/heading rules
+// across every page-specific SCSS file.
+//
+// .ud-page-section       — light grey bg, standard inner-page section
+// .ud-page-section--dark — dark (#2d3748) bg, white text
+// ─────────────────────────────────────────────────────────────
+.ud-page-section {
+  background: #f7fafc;
+  padding: 96px 0;
+
+  @media #{$xs, $sm} {
+    padding: 64px 0;
+  }
+
+  .ud-home-section__title {
+    color: #2d3748;
+    font-size: clamp(2.35rem, 4.2vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+
+  .ud-home-section__subtitle {
+    color: #4a5568;
+    font-size: 1.03rem;
+    line-height: 1.72;
+    margin-bottom: 56px;
+  }
+
+  .ud-home-section__actions {
+    margin-top: 52px;
+  }
+
+  // Standard pill CTA — shape now from .ud-btn-primary via _button.scss
+  .ud-home-section__actions {
+    margin-top: 52px;
+  }
+}
+
+.ud-page-section--dark {
+  background: #2d3748;
+  color: #fff;
+  padding: 88px 0;
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  .ud-home-section__title {
+    color: #fff;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.16;
+    margin-bottom: 20px;
+  }
+
+  .ud-home-section__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.06rem;
+    line-height: 1.7;
+    margin: 0 auto 58px;
+    max-width: 1040px;
+  }
+
+  .ud-home-section__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media #{$xs, $sm} {
+      margin-top: 40px;
+    }
+  }
+  // Action buttons: shape + color from .ud-btn-accent / .ud-btn-ghost via _button.scss
+}

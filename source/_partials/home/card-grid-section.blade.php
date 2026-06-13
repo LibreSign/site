@@ -1,0 +1,62 @@
+<section class="{{ $sectionClass }}"@if(!empty($sectionId ?? '')) id="{{ $sectionId }}"@endif data-aos="fade-up">
+  <div class="container">
+    @include('_partials.home.section-heading', [
+      'title' => $title,
+      'subtitle' => $subtitle ?? null,
+    ])
+
+    <div class="{{ $rowClass ?? 'row text-center justify-content-evenly gy-5 align-items-stretch' }}">
+      @foreach ($items as $index => $item)
+        @php
+          $delay = $item['delay'] ?? ($index * 150);
+          $itemColClass = $item['colClass'] ?? ($colClass ?? 'col-lg-4 col-md-6 d-flex');
+          $cardClass = trim('ud-card ' . ($item['cardClass'] ?? ($cardClass ?? '')));
+          $iconAlt = $item['iconAlt'] ?? $item['title'] ?? '';
+          $actions = $item['actions'] ?? [];
+        @endphp
+
+        <div class="{{ $itemColClass }}" data-aos="fade-up" data-aos-delay="{{ $delay }}">
+          <div class="{{ $cardClass }}">
+            @if (!empty($item['title']))
+              <div class="ud-card__header">
+                <h3 class="ud-card__title">{{ $item['title'] }}</h3>
+              </div>
+            @endif
+
+            @if (!empty($item['icon']))
+              <div class="ud-card__icon">
+                <img src="{{ $item['icon'] }}" alt="{{ $iconAlt }}" loading="lazy">
+              </div>
+            @endif
+
+            @if (!empty($item['body']))
+              <div class="ud-card__body">
+                <p>{{ $item['body'] }}</p>
+              </div>
+            @endif
+
+            @if (!empty($actions))
+              <div class="ud-card__actions">
+                @foreach ($actions as $action)
+                  <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'btn ud-btn-solid-brand' }}">
+                    {{ $action['label'] }}
+                  </a>
+                @endforeach
+              </div>
+            @endif
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+    @if (!empty($sectionActions ?? []))
+      <div class="ud-home-section__actions text-center mt-5">
+        @foreach ($sectionActions as $action)
+          <a href="{{ $action['href'] }}" class="{{ $action['class'] ?? 'btn ud-btn-solid-brand' }}">
+            {{ $action['label'] }}
+          </a>
+        @endforeach
+      </div>
+    @endif
+  </div>
+</section>

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 if [[ ! -d "vendor" ]]; then
     composer i
 fi
@@ -8,20 +10,22 @@ if [[ ! -d "node_modules" ]]; then
     npm ci
 fi
 
-php-fpm &
-
 MODE="${SERVER_MODE:-watch}"
 MODE="$(echo "$MODE" | tr '[:upper:]' '[:lower:]' | xargs)"
 
 echo "Starting php container with SERVER_MODE=$MODE"
 
 if [[ "$MODE" == 'watch' ]]; then
-    npm run watch
+    php-fpm -D
+    exec npm run watch
 else
-    if [[ ! -f "source/assets/build/mix-manifest.json" ]]; then
-        echo "Mix manifest missing. Running one-time asset build (npm run dev)..."
-        npm run dev
-    fi
+    # Remove the Vite hot file so Jigsaw uses the compiled manifest
+    # instead of pointing HTML to the dev server.
+    rm -f "source/hot"
 
-    php ./vendor/bin/jigsaw serve --host 0.0.0.0 --port 3000
+    # Build Vite assets and the local static site in one step.
+    # NODE_ENV=local causes the plugin to run `jigsaw build local`,
+    # so build_local is ready for nginx with no leftover build_staging.
+    npm run build-assets
+    exec php-fpm -F
 fi

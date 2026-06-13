@@ -12,6 +12,7 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
     && install-php-extensions \
     gd \
+    intl \
     xdebug \
     zip \
     @composer \
@@ -43,6 +44,7 @@ fi
 EOF
 
 WORKDIR /var/www/html
+ENV HISTFILE=/dev/null
 USER www-data
 
 COPY entrypoint.sh /var/www/scripts/

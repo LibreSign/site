@@ -1,61 +1,64 @@
 ---
 extends: _layouts.post
-title: Privacy policy term
+title: "LibreSign Privacy Policy"
+description: "LibreSign's privacy policy explains what personal data we collect through our contact form, how we use it, and your rights under LGPD and GDPR."
 ---
-
-# LibreSign Privacy Notice
 
 ## Introduction
 
-The **LibreSign** is documents signer free developed by **LibreCode**, cooperative of professional of IT. The LibreSign was thinked having to base  the security and the privacy of users.
+LibreSign is a free and open source electronic signature platform developed by **LibreCode**, a Brazilian IT cooperative. We take privacy and data security seriously.
 
-We establish this Privacy Notice to inform how the personal data collected through of the our contact form on website of LibreSign is treaties, protected and utilized.
+This Privacy Policy explains what personal data is collected through the LibreSign website (www.libresign.coop), how it is used, and your rights as a data subject. It reflects our commitment to protecting your privacy in accordance with the **Lei Geral de Proteção de Dados (LGPD)** (Brazilian Law No. 13,709/2018) and the **General Data Protection Regulation (GDPR)** (EU Regulation 2016/679), as applicable.
 
-This Notice is governed for norms of  General Data Protection Law (GDPL) by Brasil and General Data Protection Law (GDPL) by Europe Union, reflexeting our compromise in protect the privacy and the integration of users personal data.
+## Data We Collect
 
-## Collect of Data
+LibreCode collects the following personal data through the contact form on this website:
 
-The LibreCode collect and treat the following personal data through of your website (www.libresign.coop):
+- **Full name**
+- **Email address**
+- **Phone number** (optional)
 
-- **Name**
-- **E-mail**
-- **Phone**
+This data is provided voluntarily when you fill out the contact form. It is collected solely to allow us to respond to your inquiry.
 
-These data is provided voluntarily by users when filling the contact form available on our website. The collect these data have how finality exclusive establish a communication channel efficient with the interested in our products and services.
+## How We Use Your Data
 
-**When filling the registration form you agree with the treat of your data to publish of products of LibreCode. You can revoke your consent any time, just click on link available in communication or send an e-mail to:** contato@librecode.coop.
+The data collected is used exclusively for the following purposes:
 
-## Use of Data
+- Responding to your questions, requests, or comments
+- Sending information you have explicitly requested or that is directly relevant to your expressed interest
+- Maintaining a record of communications for service and support purposes
+- Complying with applicable legal or regulatory obligations
 
-The personal data collected is used just to the following finalities:
-
-- Answer of requests, doubts or users of comments
-- Send communications that have been expressly requested by user ou that be pertinent to your manifested interest
-- Register of attendance history
-- For legal and/or regulatory purposes
- 
-The LibreCode is committed to not use the data collected to specific distincts finality above without the prev notification of the data holders.
+We do not use your data for any purpose beyond what is described above without notifying you first.
 
 ## Data Sharing
 
-The LibreCode not share, sell, rent or another way provides collected personal data to third parties, except when necessary to fulfill with legal obligations or with user express authorization.
+LibreCode does not sell, rent, or share your personal data with third parties, except when required to comply with legal obligations or when you have given explicit authorization.
 
 ## Data Security
 
-We employ measures security technique and organizational to protected the personal data collected against accesses not authorized, undue changes, disclosure or destruction. Our commitment with security, include adoption of recommented pratics in terms of data protect. To know more about the security politic of LibreCode between in contact us.
+We apply appropriate technical and organizational measures to protect the personal data we collect against unauthorized access, alteration, disclosure, or destruction. For more information about our security practices, please contact us directly.
 
-## Data Holders Rights
+## Your Rights
 
-According to art 18 of LGPD and the GDPR, users have the use to access, to correct, delete or to carry personal user data, beside can limit or if oppose to your treat when substantiated in the interest legitimate of  the controller.
+Under the LGPD (Art. 18) and the GDPR, you have the right to:
 
-To exercise your rights, the holders of data and/or your responsible should **in to by way e-mail:**  contato@librecode.coop
+- Access the personal data we hold about you
+- Request correction of inaccurate or incomplete data
+- Request deletion of your data, subject to legal retention requirements
+- Restrict or object to processing in certain circumstances
+- Request data portability, where applicable
 
-## Changes of Privacy Politic
+To exercise any of these rights, contact us at: **contato@librecode.coop**
 
-LibreCode reserves the right to change this Privacy Policy any moment. The changes will be valid immediately after you publish on website. We recommend the periodic review this politic.
+## Changes to This Policy
+
+LibreCode may update this Privacy Policy from time to time. Any changes will take effect upon publication on this page. We recommend reviewing this policy periodically.
 
 ## Contact
 
-To relative questions to our Privacy Politic any moment contact us by e-mail: contato@librecode.coop
+For questions about this Privacy Policy, contact us at:
 
-This Privacy Politic was updated by last once on 08 april 2024
+**contato@librecode.coop**
+
+*Last updated: June 7, 2026*

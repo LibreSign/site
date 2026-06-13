@@ -1,0 +1,152 @@
+@use "variables" as *;
+
+// ─────────────────────────────────────────────────────────────
+// Button system — visual hierarchy: estilo → cor
+//
+// Estrutura de nomenclatura:
+//   ud-btn-{estilo}-{cor}   para botões com fundo preenchido ou borda
+//   ud-btn-ghost            transparente (sem cor fixa, adapta ao contexto)
+//   ud-btn-lg               modificador de tamanho (independente do estilo/cor)
+//
+// Estilos disponíveis:
+//   solid-{cor}   fundo preenchido
+//   outline-{cor} borda com fundo branco
+//   ghost         transparente + borda branca (seções escuras)
+//
+// Cores disponíveis:
+//   brand  →  teal #184c4e  (cor primária da marca)
+//   warm   →  laranja #d97706
+//   amber  →  âmbar #ffc107 (contraste máximo sobre hero teal)
+//   white  →  branco (seções escuras / pricing)
+//
+// Exemplos de uso:
+//   <a class="btn ud-btn-solid-brand">Contato</a>
+//   <a class="btn ud-btn-solid-amber ud-btn-lg">Começar grátis</a>
+//   <a class="btn ud-btn-ghost">Explorar</a>
+// ─────────────────────────────────────────────────────────────
+
+// Baseline compartilhada — forma, espaçamento, tipografia
+%ud-btn-base {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 28px;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    color 0.25s ease, filter 0.25s ease;
+}
+
+// ── SOLID ────────────────────────────────────────────────────
+// Fundo preenchido sólido, texto contrastante.
+
+// Teal — CTA principal em seções claras
+.ud-btn-solid-brand {
+  @extend %ud-btn-base;
+
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: var(--heading-color);
+    border-color: var(--heading-color);
+    color: var(--white);
+  }
+}
+
+// Laranja — CTA principal em seções escuras
+.ud-btn-solid-warm {
+  @extend %ud-btn-base;
+
+  background: #d97706;
+  border: 1px solid #d97706;
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: #c56c04;
+    border-color: #c56c04;
+    color: var(--white);
+  }
+}
+
+// Âmbar — CTA sobre fundo teal (hero); alto contraste texto escuro
+.ud-btn-solid-amber {
+  @extend %ud-btn-base;
+
+  background: #ffc107;
+  border: 1px solid #ffc107;
+  color: var(--primary-color);
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    filter: brightness(1.15);
+  }
+}
+
+// Branco — neutro em seções escuras (ex: pricing)
+.ud-btn-solid-white {
+  @extend %ud-btn-base;
+
+  background: var(--white);
+  border: 1px solid transparent;
+  color: var(--heading-color);
+
+  &:hover,
+  &:focus {
+    background: var(--heading-color);
+    border-color: var(--heading-color);
+    color: var(--white);
+  }
+}
+
+// ── OUTLINE ──────────────────────────────────────────────────
+// Borda visível, fundo branco/transparente.
+
+// Borda teal — ação secundária em seções claras
+.ud-btn-outline-brand {
+  @extend %ud-btn-base;
+
+  background: var(--white);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+  }
+}
+
+// ── GHOST ─────────────────────────────────────────────────────
+// Totalmente transparente, borda branca semi-opaca.
+// Funciona sobre qualquer fundo escuro sem precisar de cor específica.
+
+.ud-btn-ghost {
+  @extend %ud-btn-base;
+
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--white);
+
+  &:hover,
+  &:focus {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+  }
+}
+
+// ── SIZE MODIFIER ─────────────────────────────────────────────
+// Aplicar junto a qualquer variante. Ex: ud-btn-solid-amber ud-btn-lg
+
+.ud-btn-lg {
+  font-size: 1.1rem;
+  min-height: 56px;
+  padding: 14px 32px;
+}

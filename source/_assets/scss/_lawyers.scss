@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+.ud-law-page {
+  .ud-home-section__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+}
+
+.ud-law-challenges {
+  // Background and padding from .ud-page-section; heading styles inherit from it.
+  // Cards styled by .ud-card--outlined.
+  // Exception: lawyer icons are dark-colored PNGs — invert them on the orange circle.
+  .ud-card--outlined .ud-card__icon img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.ud-law-value {
+  // Background, padding, headings, and action buttons from .ud-page-section--dark.
+  // Cards styled by .ud-card--glass; no further card overrides needed here.
+  // (stylelint allow-empty: intentional placeholder to scope future overrides)
+  color: inherit; // no-op, prevents empty ruleset lint error
+}

@@ -25,16 +25,22 @@
                 <img
                   src="{{ $page->banner }}"
                   alt=""
-                />
+                >
                 <div class="ud-blog-overlay">
                   <div class="ud-blog-overlay-content">
                     <div class="ud-blog-author">
+                      @php
+                        $resolvedGravatar = $page->gravatar ?? ($page->authorGravatars[$page->author] ?? null);
+                      @endphp
                       @if($page->author == 'LibreSign')
                         <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                        alt="" />
+                        alt="LibreSign">
+                      @elseif(!empty($resolvedGravatar))
+                        <img src="https://www.gravatar.com/avatar/{{$resolvedGravatar}}?size=40"
+                        alt="{{ $page->author }}">
                       @else
-                        <img src="https://www.gravatar.com/avatar/{{$page->gravatar}}?size=40"
-                        alt="" />
+                        <img src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
+                        alt="{{ $page->author }}">
                       @endif
                       <span>
                         @php
@@ -85,19 +91,29 @@
                       @endif
                       <li>
                         <div class="ud-article-image">
+                          @php
+                            $articleGravatar = $article->gravatar ?? ($page->authorGravatars[$article->author] ?? null);
+                          @endphp
                           @if($article->author === 'LibreSign')
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
-                                alt=""
-                              />
+                                alt="LibreSign"
+                              >
+                            </a>
+                          @elseif(!empty($articleGravatar))
+                            <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
+                              <img
+                                  src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=40"
+                                  alt="{{ $article->author }}"
+                                >
                             </a>
                           @else
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
-                                  src="https://www.gravatar.com/avatar/{{ $article->gravatar }}?size=40"
-                                  alt=""
-                                />
+                                src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
+                                alt="{{ $article->author }}"
+                              >
                             </a>
                           @endif
                         </div>

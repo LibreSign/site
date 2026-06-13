@@ -1,3 +1,4 @@
+@use "variables" as *;
 /* ===== Contact CSS ===== */
 .ud-contact {
   padding: 120px 0px;
@@ -15,7 +16,7 @@
     top: 0;
     left: 0;
     height: 50%;
-    background: #f3f4fe;
+    background: var(--bg-light);
 
     @media #{$lg} {
       height: 45%;
@@ -121,7 +122,7 @@
       padding: 15px 0;
       border: none;
       outline: none;
-      border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid var(--border-input);
       resize: none;
 
       &:focus {
@@ -131,34 +132,162 @@
   }
 }
 
-.size-box-pricing {
-  height: 310px;
-}
+.ud-contact-sales {
+  padding: 90px 0 86px;
+  background: #eceff1;
 
-.size-box-feature {
-  height:315px;
-}
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
 
-@media (max-width: 1199px) {
-  .size-box-feature {
-    height:350px;
+  .contact-info-wrapper {
+    max-width: 760px;
+    padding-right: 46px;
+
+    @media #{$md, $sm, $xs} {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+
+    .contact-title {
+      color: var(--heading-color);
+      font-size: clamp(1.8rem, 3.75vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin-bottom: 34px;
+      max-width: 700px;
+
+      @media #{$sm, $xs} {
+        margin-bottom: 22px;
+      }
+    }
+
+    .contact-subtitle {
+      color: #4a5568;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 46px;
+      max-width: 700px;
+    }
+
+    h3 {
+      color: var(--heading-color);
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .contact-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: #2d3748;
+        font-size: 1.25rem;
+        line-height: 1.55;
+        margin-bottom: 20px;
+        padding: 0 0 0 30px;
+        position: relative;
+
+        &:before {
+          content: "●";
+          color: #d97706;
+          font-size: 0.7em;
+          position: absolute;
+          left: 0;
+          top: 0.28em;
+        }
+
+        strong {
+          color: #2d3748;
+          font-weight: 700;
+        }
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .contact-form-wrapper {
+    background: #efefef;
+    border: 1px solid #d4d4d4;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 30px;
+
+    @media #{$xs} {
+      padding: 22px 18px;
+    }
+
+    .ud-contact-form-wrapper {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .ud-form-group {
+      margin-bottom: 18px;
+
+      label {
+        color: #475569;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      input,
+      textarea {
+        background: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        border-radius: 0;
+        color: #2f3b51;
+        font-size: 1.05rem;
+        min-height: 56px;
+        padding: 11px 18px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+
+        &::placeholder {
+          color: #6b7280;
+        }
+
+        &:focus {
+          background: #fff;
+          border-color: #c2c9d3;
+          box-shadow: 0 0 0 2px rgba(47, 59, 81, 0.08);
+          outline: none;
+        }
+      }
+
+      textarea {
+        min-height: 170px;
+        resize: vertical;
+      }
+    }
+
+    .ud-form-group:nth-last-child(2) {
+      margin-bottom: 20px;
+    }
+
+    #btnReload,
+    #audioIcon {
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    .ud-form-group.mb-0 {
+      margin-bottom: 0;
+      text-align: left;
+    }
   }
 }
 
-@media (max-width: 991px) {
-  .size-box-feature {
-    height:260px;
-  }
-}
 
-@media (min-width: 250px) and (max-width: 260px) {
-  .size-box-pricing {
-    height:600px;
-  }
-}
-
-@media (min-width: 261px) and (max-width: 400px) {
-  .size-box-pricing {
-    height:550px;
-  }
-}

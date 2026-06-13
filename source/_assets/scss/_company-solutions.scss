@@ -1,0 +1,103 @@
+@use "variables" as *;
+
+.ud-cs-page {
+  .ud-home-section__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+}
+
+.ud-cs-benefits {
+  // Background and padding from .ud-page-section; heading styles inherit from it.
+  // Cards styled by .ud-card--outlined; no further card overrides needed.
+}
+
+.ud-cs-testimonials {
+  background: #2d3748;
+  padding: 88px 0;
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: clamp(2.3rem, 4vw, 3.65rem);
+    font-weight: 800;
+    line-height: 1.16;
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin: 0 auto 58px;
+    max-width: 1240px;
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media #{$xs, $sm} {
+      margin-top: 40px;
+    }
+  }
+}
+
+.ud-cs-testimonial-card {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 26px 32px;
+  text-align: center;
+  width: 100%;
+
+  &__avatar {
+    border-radius: 50%;
+    height: 130px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 130px;
+    flex-shrink: 0;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      width: 100%;
+    }
+  }
+
+  &__name {
+    color: #fff;
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__role {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.94rem;
+    margin-bottom: 18px;
+  }
+
+  &__quote {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin: 0;
+  }
+}

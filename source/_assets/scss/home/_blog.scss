@@ -1,0 +1,211 @@
+@use "../variables" as *;
+
+.ud-home-blog {
+  background: var(--white);
+  padding-bottom: 96px;
+
+  @media #{$xs, $sm} {
+    padding-bottom: 72px;
+  }
+
+  .ud-home-section__title {
+    color: var(--ud-home-highlight-color);
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  .ud-home-section__subtitle {
+    color: #4b4b4b;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    margin-top: 16px;
+  }
+
+  &__header {
+    max-width: 980px;
+  }
+
+  &__cta {
+    align-items: center;
+    border: 1.5px solid var(--ud-home-highlight-color);
+    border-radius: 999px;
+    color: var(--ud-home-highlight-color);
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin-top: 56px;
+    padding: 14px 30px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      background: rgba(11, 95, 85, 0.06);
+      border-color: var(--ud-home-highlight-color);
+      color: var(--ud-home-highlight-color);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.ud-home-blog-card {
+  background: var(--white);
+  border-radius: var(--bs-border-radius-sm);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__frame {
+    aspect-ratio: 465 / 275;
+    background: #f3f6f8;
+    display: block;
+    overflow: hidden;
+
+    img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+
+    &:hover img,
+    &:focus img {
+      transform: scale(1.03);
+    }
+  }
+
+  &__category {
+    align-items: center;
+    background: #ffc928;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    color: var(--ud-home-highlight-color);
+    display: inline-flex;
+    font-size: 17px;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    min-height: 36px;
+    padding: 8px 16px;
+    position: absolute;
+    right: 16px;
+    text-decoration: none;
+    top: 0;
+    transform: translateY(-32%);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    z-index: 3;
+
+    &:hover,
+    &:focus {
+      background: #ffb700;
+      color: var(--ud-home-highlight-color);
+      transform: translateY(-32%) scale(1.04);
+    }
+
+    @media #{$xs, $sm} {
+      font-size: 15px;
+      min-height: 32px;
+      padding: 7px 14px;
+      right: 12px;
+      transform: translateY(-28%);
+
+      &:hover,
+      &:focus {
+        transform: translateY(-28%) scale(1.04);
+      }
+    }
+  }
+
+  &__badge {
+    align-items: center;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    display: flex;
+    height: 46px;
+    justify-content: center;
+    left: 18px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -22px;
+    width: 46px;
+    z-index: 3;
+
+    img {
+      border-radius: 50%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+    padding: 36px 22px 24px;
+  }
+
+  &__title {
+    color: var(--ud-home-highlight-color);
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.28;
+    margin: 0;
+  }
+
+  &__title-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--ud-home-highlight-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &__excerpt {
+    color: #4f4f4f;
+    font-size: 16px;
+    line-height: 1.78;
+    margin: 0;
+  }
+
+  &__link {
+    color: #0f8777;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: auto;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--ud-home-highlight-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}
