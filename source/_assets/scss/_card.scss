@@ -107,7 +107,8 @@
   text-align: center;
 
   @media #{$xs, $sm} {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }
 
@@ -137,7 +138,7 @@
     word-break: break-word;
 
     @media #{$xs, $sm} {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       min-height: 48px;
       padding: 6px 12px;
     }

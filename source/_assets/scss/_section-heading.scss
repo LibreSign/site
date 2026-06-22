@@ -16,6 +16,12 @@
     line-height: 55px;
     color: var(--heading-color);
     margin-bottom: 20px;
+
+    @media #{$xs} {
+      font-size: 30px;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
   }
 
   p {

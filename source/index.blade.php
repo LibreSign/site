@@ -7,6 +7,7 @@
       'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
+      'mobileTitle' => $page->t('Secure digital signatures for your team.'),
       'description' => $page->t('Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.'),
       'actions' => [
         [
@@ -32,13 +33,13 @@
         </div>
         <div class="row g-5 justify-content-evenly ud-home-clients__logos">
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="264" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
+            <img class="ud-home-clients__logo ud-home-clients__logo--ocb" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
           </div>
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="256" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
+            <img class="ud-home-clients__logo ud-home-clients__logo--oab" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
           </div>
           <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img width="80" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
+            <img class="ud-home-clients__logo ud-home-clients__logo--fiocruz" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
           </div>
         </div>
         <div class="row">
@@ -99,7 +100,7 @@
     @endphp
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-challenges',
-      'title' => $page->t("Eliminate Bureaucracy, Ensure Security: LibreSign Solves Your Biggest Challenges."),
+      'title' => $page->t("Solve your biggest document challenges."),
       'subtitle' => $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for."),
       'items' => $homeChallengeItems,
     ])
@@ -108,7 +109,7 @@
     <!-- ====== Benefits Start ====== -->
     @include('_partials.post-list', [
       'sectionClass' => 'ud-home-benefits',
-      'title'        => $page->t('Key benefits of using LibreSign in your organization'),
+      'title'        => $page->t('Key benefits for your organization'),
       'subtitle'     => $page->t('From document security to workflow automation — built for organizations of every size.'),
       'category'     => 'featured',
       'format'       => 'feature',
@@ -185,7 +186,7 @@
     @endphp
     @include('_partials.home.card-grid-section', [
       'sectionClass' => 'ud-home-solutions',
-      'title'        => $page->t('Solutions designed for your industry'),
+      'title'        => $page->t('Solutions by industry'),
       'subtitle'     => $page->t('LibreSign adapts to the needs of different organizations and sectors.'),
       'items'        => $homeSolutionItems,
       'rowClass'     => 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center align-items-stretch',

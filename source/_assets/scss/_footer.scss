@@ -347,14 +347,17 @@
   .ud-widget-links {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 20px;
 
     a {
+      align-items: center;
+      display: inline-flex;
       font-size: 14px;
+      min-height: 44px;
+      padding: 10px 0;
       color: var(--white);
       transition: all 0.3s ease;
       border-radius: 4px;
-      padding: 4px 0;
 
       &:hover {
         color: var(--primary-color);
@@ -380,6 +383,18 @@
         color: var(--primary-color);
         padding-left: 8px;
       }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .ud-widget-links {
+      gap: 14px;
+    }
+
+    .ud-widget-links a {
+      font-size: 15px;
+      min-height: 44px;
+      padding: 12px 0;
     }
   }
 

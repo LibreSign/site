@@ -37,6 +37,25 @@
     justify-content: center;
   }
 
+  &__logo {
+    display: block;
+    height: auto;
+    object-fit: contain;
+    width: auto;
+  }
+
+  &__logo--ocb {
+    max-width: min(100%, 264px);
+  }
+
+  &__logo--oab {
+    max-width: min(100%, 256px);
+  }
+
+  &__logo--fiocruz {
+    max-width: min(100%, 140px);
+  }
+
   &__summary {
     width: 100%;
   }
@@ -62,5 +81,20 @@
   &__highlight {
     color: var(--ud-home-clients-text-color);
     font-weight: 700;
+  }
+
+  @media #{$xs} {
+    &__logos {
+      row-gap: 24px;
+    }
+
+    &__logo--ocb,
+    &__logo--oab {
+      max-width: min(100%, 220px);
+    }
+
+    &__logo--fiocruz {
+      max-width: min(100%, 112px);
+    }
   }
 }

@@ -180,6 +180,58 @@ return [
     ],
     'frequentlyQuestions' => [
         [
+            'question' => 'Is LibreSign free?',
+            'answer' => 'Yes. LibreSign is free and open source software. What you pay for, if needed, is support, managed hosting, and other enterprise services provided by LibreCode.'
+        ],
+        [
+            'question' => 'What does "user" mean for billing?',
+            'answer' => 'For billing, a user is a Nextcloud account in your organization. External signers who receive a signing link do not count as users.'
+        ],
+        [
+            'question' => 'Is there a limit to documents or signatures per month?',
+            'answer' => 'No. LibreSign does not impose a monthly limit on documents or signatures.'
+        ],
+        [
+            'question' => 'Does LibreSign work without Nextcloud?',
+            'answer' => 'No. LibreSign requires Nextcloud to run. If you do not already have a compatible environment, LibreCode can provide a fully managed setup.'
+        ],
+        [
+            'question' => 'What if we cannot install apps in our existing Nextcloud?',
+            'answer' => 'In that case, the managed hosting option is the best path. LibreCode can provision and operate a complete LibreSign environment for you, including deployments in Europe or Germany when data residency matters.'
+        ],
+        [
+            'question' => 'Can I define the order of signature for multiple recipients?',
+            'answer' => 'Yes. LibreSign supports sequential signing, so you can define the order in which recipients must sign.'
+        ],
+        [
+            'question' => 'Do recipients need an account to sign?',
+            'answer' => 'No. Recipients can sign through a secure link without creating a LibreSign or Nextcloud account.'
+        ],
+        [
+            'question' => 'Which signature standards are supported?',
+            'answer' => 'LibreSign supports SES, AES, and QES workflows. For QES, a qualified digital certificate in PFX format is required.'
+        ],
+        [
+            'question' => 'Is LibreSign eIDAS compliant?',
+            'answer' => 'LibreSign supports signing workflows that can be used in eIDAS-oriented setups, but compliance depends on the full solution: the certificate, identity verification, hosting, and operational process. For qualified signatures, you need a qualified certificate and a trust service setup that matches your legal requirements.'
+        ],
+        [
+            'question' => 'Can LibreSign be used under eIDAS and in court?',
+            'answer' => 'Yes, LibreSign can be used in eIDAS-oriented deployments. The legal weight of a signature, whether simple, advanced, or qualified, depends on how the system is configured, including identity verification, certificate type, QSCD usage, and the surrounding operational process.'
+        ],
+        [
+            'question' => 'How is identity verification handled?',
+            'answer' => 'LibreSign provides flexible workflows. At the simplest level, signatures can be linked to an email address. For stronger requirements, you can add document validation, approval workflows, or integrations with external identity providers and PKI systems. Each organization can define the level of assurance it needs.'
+        ],
+        [
+            'question' => 'In which countries is it available?',
+            'answer' => 'LibreSign is not limited to a specific country. It can be used in any environment, including integrations with national PKI systems or European trust service providers (QTSP).'
+        ],
+        [
+            'question' => 'Can the data be hosted in Europe or Germany?',
+            'answer' => 'Yes. LibreSign can be deployed on managed infrastructure in Europe, including Germany, to help meet GDPR and data residency requirements.'
+        ],
+        [
             'question' => 'Why LibreSign?',
             'answer' => 'LibreSign lets you sign documents securely and with verifiable integrity. The platform generates a cryptographic hash for each signed document, ensuring any tampering can be detected. It also records the timestamp of every signature, creating a complete and auditable signing history. LibreSign is designed with privacy and data sovereignty in mind, following principles aligned with GDPR and LGPD.'
         ],
@@ -237,7 +289,7 @@ return [
         ],
         [
             'question' => 'How can I adopt LibreSign for my organization?',
-            'answer' => 'LibreSign is free and open source — you can self-host it on your own Nextcloud instance at no cost. Commercial plans with support and managed services are being prepared. Contact our team to discuss your needs.'
+            'answer' => 'LibreSign is free and open source — you can self-host it on your own Nextcloud instance at no cost. If you prefer a managed deployment or support, our team can help you choose the right setup for your organization.'
         ],
         [
             'question' => 'Does LibreSign offer technical support?',
