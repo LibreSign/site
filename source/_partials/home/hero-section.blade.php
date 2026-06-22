@@ -12,7 +12,12 @@
       <div class="col-lg-6">
         <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
           <h1 class="ud-hero-title">
-            {{ $title }}
+            @if (!empty($mobileTitle ?? null))
+              <span class="ud-hero-title__desktop">{{ $title }}</span>
+              <span class="ud-hero-title__mobile">{{ $mobileTitle }}</span>
+            @else
+              {{ $title }}
+            @endif
           </h1>
 
           <p class="ud-hero-desc">
