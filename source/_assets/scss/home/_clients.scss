@@ -37,9 +37,6 @@
     justify-content: center;
   }
 
-  // Normalize every logo to a common height so they share the same optical
-  // weight; widths vary naturally but the rhythm stays even. object-fit keeps
-  // very wide marks (capped by max-width) from distorting.
   &__logo {
     display: block;
     height: 60px;
@@ -86,7 +83,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  // Soft fade on both edges so logos glide in and out of view.
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 
@@ -94,8 +90,6 @@
     display: flex;
     width: max-content;
     will-change: transform;
-    // Track holds repeated logo groups; -50% shifts exactly half of them,
-    // so the second half lands where the first was for a seamless loop.
     animation: ud-marquee-scroll 38s linear infinite;
   }
 
@@ -105,7 +99,6 @@
     flex-shrink: 0;
   }
 
-  // Pause when the visitor hovers or tabs into the marquee.
   &:hover &__track,
   &:focus-within &__track {
     animation-play-state: paused;
@@ -130,7 +123,6 @@
   }
 }
 
-// Respect reduced-motion: stop scrolling and show a single static, centered set.
 @media (prefers-reduced-motion: reduce) {
   .ud-marquee {
     -webkit-mask-image: none;
