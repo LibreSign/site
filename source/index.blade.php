@@ -31,15 +31,28 @@
             <h2 id="clients-heading" class="ud-home-clients__headline">{{ $page->t("Trusted by organizations around the world") }}</h2>
           </div>
         </div>
-        <div class="row g-5 justify-content-evenly ud-home-clients__logos">
-          <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img class="ud-home-clients__logo ud-home-clients__logo--ocb" src="{{ $page->baseUrl }}assets/images/logo/clients/ocb.png" alt="Sistema OCB/RJ">
-          </div>
-          <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img class="ud-home-clients__logo ud-home-clients__logo--oab" src="{{ $page->baseUrl }}assets/images/logo/clients/oab.png" alt="OAB|ESA">
-          </div>
-          <div class="col-12 col-md-auto ud-home-clients__logo-item">
-            <img class="ud-home-clients__logo ud-home-clients__logo--fiocruz" src="{{ $page->baseUrl }}assets/images/logo/clients/fiocruz.png" alt="Fiocruz">
+        @php
+          $clientLogos = [
+            ['file' => 'ocb.png', 'alt' => 'Sistema OCB/RJ', 'modifier' => 'ud-home-clients__logo--ocb'],
+            ['file' => 'oab.png', 'alt' => 'OAB|ESA', 'modifier' => 'ud-home-clients__logo--oab'],
+            ['file' => 'fiocruz.png', 'alt' => 'Fiocruz', 'modifier' => 'ud-home-clients__logo--fiocruz'],
+          ];
+          $clientLogoGroups = 4;
+        @endphp
+        <div class="ud-home-clients__logos ud-marquee" role="group" aria-label="{{ $page->t('Organizations that trust LibreSign') }}">
+          <div class="ud-marquee__track">
+            @for ($group = 0; $group < $clientLogoGroups; $group++)
+              <div class="ud-marquee__group" @if($group > 0) aria-hidden="true" @endif>
+                @foreach ($clientLogos as $logo)
+                  <div class="ud-home-clients__logo-item">
+                    <img class="ud-home-clients__logo {{ $logo['modifier'] }}"
+                         src="{{ $page->baseUrl }}assets/images/logo/clients/{{ $logo['file'] }}"
+                         alt="{{ $group === 0 ? $logo['alt'] : '' }}"
+                         loading="lazy">
+                  </div>
+                @endforeach
+              </div>
+            @endfor
           </div>
         </div>
         <div class="row">

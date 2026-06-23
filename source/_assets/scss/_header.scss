@@ -114,15 +114,7 @@
   gap: 24px;
   align-items: center;
 
-  @media #{$laptop} {
-    gap: 16px;
-  }
-
-  @media #{$lg} {
-    gap: 12px;
-  }
-
-  @media #{$md, $sm, $xs} {
+  @media #{$laptop, $lg, $md, $sm, $xs} {
     gap: 4px;
     align-items: start;
   }
@@ -182,7 +174,7 @@
         color: var(--white);
       }
 
-      @media #{$md, $sm, $xs} {
+      @media #{$laptop, $lg, $md, $sm, $xs} {
         justify-content: flex-start;
       }
     }
@@ -214,7 +206,7 @@
         }
       }
 
-      @media #{$md, $sm, $xs} {
+      @media #{$laptop, $lg, $md, $sm, $xs} {
         min-width: 0;
         width: 100%;
         margin-top: 4px;
@@ -262,6 +254,8 @@
       position: relative;
       display: flex;
       align-items: center;
+      justify-content: center;
+      white-space: nowrap;
 
       @media #{$lg, $sm, $xs} {
         padding: 0 16px;
@@ -291,46 +285,16 @@
 #customer-area-link {
   margin-left: 24px;
 
-  @media #{$laptop} {
-    margin-left: 12px;
-  }
-
-  @media #{$lg} {
-    margin-left: 8px;
-  }
-
-  @media #{$md, $sm, $xs} {
+  @media #{$laptop, $lg, $md, $sm, $xs} {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .button-icon {
-    display: none;
-  }
-
-  @media #{$lg} {
-    .button-text {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    .button-icon {
-      display: inline;
-    }
   }
 }
 
 .navbar-collapse {
   flex-grow: 0;
 
-  @media #{$md, $sm, $xs} {
+  @media #{$laptop, $lg, $md, $sm, $xs} {
     position: fixed;
     top: 76px;
     left: 0;

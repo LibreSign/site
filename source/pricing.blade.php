@@ -7,16 +7,14 @@ description: "LibreSign is preparing commercial plans for organizations that nee
 @section('body')
 
   {{-- Hero --}}
-  <section class="ud-page-section--dark text-center">
+  <section class="ud-page-banner">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <h1 class="display-4 fw-bold text-white mb-3">
-            {{ $page->t("LibreSign Plans and Pricing") }}
-          </h1>
-          <p class="fs-5 text-white-50">
-            {{ $page->t("LibreSign is preparing commercial plans for organizations that need support, managed services, cloud infrastructure, integrations, or dedicated guidance.") }}
-          </p>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ud-banner-content">
+            <h1>{{ $page->t("LibreSign Plans and Pricing") }}</h1>
+            <p>{{ $page->t("LibreSign is preparing commercial plans for organizations that need support, managed services, cloud infrastructure, integrations, or dedicated guidance.") }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -46,13 +44,13 @@ description: "LibreSign is preparing commercial plans for organizations that nee
       <div class="row g-4 align-items-stretch justify-content-center">
 
         <div class="col-lg-4 col-md-6 col-sm-10">
-          <div class="ud-single-pricing h-100 active">
+          <div class="ud-single-pricing h-100">
             <div class="ud-pricing-header">
-              <h3 class="ud-main-tag">{{ $page->t("Business") }}</h3>
+              <h3>{{ $page->t("Business") }}</h3>
               <p class="ud-pricing-tagline">{{ $page->t("For organizations that need support, guidance, and a tailored LibreSign adoption path.") }}</p>
             </div>
             <div class="ud-pricing-footer">
-              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-white">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
                 {{ $page->t("Request information") }}
               </a>
             </div>
