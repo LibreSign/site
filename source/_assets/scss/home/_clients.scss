@@ -27,7 +27,7 @@
     margin-top: 72px;
 
     @media #{$xs, $sm} {
-      margin-top: 0;
+      margin-top: 36px;
     }
   }
 
@@ -37,23 +37,20 @@
     justify-content: center;
   }
 
+  // Normalize every logo to a common height so they share the same optical
+  // weight; widths vary naturally but the rhythm stays even. object-fit keeps
+  // very wide marks (capped by max-width) from distorting.
   &__logo {
     display: block;
-    height: auto;
+    height: 60px;
+    max-width: 200px;
     object-fit: contain;
     width: auto;
-  }
 
-  &__logo--ocb {
-    max-width: min(100%, 264px);
-  }
-
-  &__logo--oab {
-    max-width: min(100%, 256px);
-  }
-
-  &__logo--fiocruz {
-    max-width: min(100%, 140px);
+    @media #{$xs} {
+      height: 46px;
+      max-width: 150px;
+    }
   }
 
   &__summary {
@@ -82,19 +79,78 @@
     color: var(--ud-home-clients-text-color);
     font-weight: 700;
   }
+}
 
-  @media #{$xs} {
-    &__logos {
+/* ===== Clients marquee ===== */
+.ud-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  // Soft fade on both edges so logos glide in and out of view.
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    // Track holds repeated logo groups; -50% shifts exactly half of them,
+    // so the second half lands where the first was for a seamless loop.
+    animation: ud-marquee-scroll 38s linear infinite;
+  }
+
+  &__group {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  // Pause when the visitor hovers or tabs into the marquee.
+  &:hover &__track,
+  &:focus-within &__track {
+    animation-play-state: paused;
+  }
+
+  .ud-home-clients__logo-item {
+    flex-shrink: 0;
+    padding: 0 44px;
+
+    @media #{$xs} {
+      padding: 0 24px;
+    }
+  }
+}
+
+@keyframes ud-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// Respect reduced-motion: stop scrolling and show a single static, centered set.
+@media (prefers-reduced-motion: reduce) {
+  .ud-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+
+    &__track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
       row-gap: 24px;
+      width: 100%;
     }
 
-    &__logo--ocb,
-    &__logo--oab {
-      max-width: min(100%, 220px);
-    }
+    &__group {
+      flex-wrap: wrap;
+      justify-content: center;
 
-    &__logo--fiocruz {
-      max-width: min(100%, 112px);
+      &[aria-hidden="true"] {
+        display: none;
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <a href="#main-content" class="skip-to-content">{{ $page->t("Skip to main content") }}</a>
 <header class="ud-header">
   <div class="container">
-      <nav class="navbar navbar-expand-lg" aria-label="{{ $page->t('Main navigation') }}">
+      <nav class="navbar navbar-expand-xxl" aria-label="{{ $page->t('Main navigation') }}">
       <a class="navbar-brand" href="{{ locale_url($page, '')  }}" aria-label="{{ $page->t('LibreSign home') }}">
         <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign">
       </a>
@@ -88,9 +88,8 @@
             <a class="nav-link ud-menu-scroll" href="{{ locale_url($page, 'contact-us') }}">{{ $page->t("Contact") }}</a>
           </li>
           <li class="nav-item" id="customer-area-link">
-            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer" aria-label="{{ $page->t("Client Area") }}">
-              <span class="button-text">{{ $page->t("Client Area") }}</span>
-              <i class="lni lni-user button-icon" aria-hidden="true"></i>
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer">
+              {{ $page->t("Client Area") }}
             </a>
           </li>
         </ul>

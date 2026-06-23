@@ -341,6 +341,18 @@
     padding: 60px 0;
   }
 
+  main > &:first-child {
+    padding-top: 160px;
+
+    @media #{$md} {
+      padding-top: 140px;
+    }
+
+    @media #{$xs, $sm} {
+      padding-top: 120px;
+    }
+  }
+
   .ud-home-section__title {
     color: #fff;
     font-size: clamp(2.2rem, 4vw, 3.6rem);
