@@ -101,6 +101,11 @@ return [
                 LIST,
         ],
     ],
+    'clientLogos' => [
+        ['file' => 'ocb.png', 'alt' => 'Sistema OCB/RJ', 'modifier' => 'ud-home-clients__logo--ocb'],
+        ['file' => 'oab.png', 'alt' => 'OAB|ESA', 'modifier' => 'ud-home-clients__logo--oab'],
+        ['file' => 'fiocruz.png', 'alt' => 'Fiocruz', 'modifier' => 'ud-home-clients__logo--fiocruz'],
+    ],
     'optionsServicesLibresign' => [
         [
             'service' => 'Electronic document management',

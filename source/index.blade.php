@@ -32,11 +32,7 @@
           </div>
         </div>
         @php
-          $clientLogos = [
-            ['file' => 'ocb.png', 'alt' => 'Sistema OCB/RJ', 'modifier' => 'ud-home-clients__logo--ocb'],
-            ['file' => 'oab.png', 'alt' => 'OAB|ESA', 'modifier' => 'ud-home-clients__logo--oab'],
-            ['file' => 'fiocruz.png', 'alt' => 'Fiocruz', 'modifier' => 'ud-home-clients__logo--fiocruz'],
-          ];
+          $clientLogos = $page->clientLogos;
           $clientLogoGroups = 4;
         @endphp
         <div class="ud-home-clients__logos ud-marquee" role="group" aria-label="{{ $page->t('Organizations that trust LibreSign') }}">
