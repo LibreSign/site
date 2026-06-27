@@ -322,7 +322,7 @@
       }
 
       &:hover .social-icon {
-        color: var(--primary-color);
+        color: var(--focus-color);
       }
 
       &:focus {
@@ -360,14 +360,14 @@
       border-radius: 4px;
 
       &:hover {
-        color: var(--primary-color);
+        color: var(--focus-color);
         padding-left: 10px;
       }
 
       &:focus {
         outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        color: var(--primary-color);
+        color: var(--focus-color);
         padding-left: 8px;
       }
 
@@ -380,7 +380,7 @@
       &:focus-visible {
         outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        color: var(--primary-color);
+        color: var(--focus-color);
         padding-left: 8px;
       }
     }
@@ -440,7 +440,7 @@
       }
 
       &:hover {
-        color: var(--primary-color);
+        color: var(--focus-color);
       }
     }
   }

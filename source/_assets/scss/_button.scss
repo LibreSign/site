@@ -84,6 +84,8 @@
 
   &:hover,
   &:focus {
+    background: #ffc107;
+    border-color: #ffc107;
     color: var(--primary-color);
     filter: brightness(1.15);
   }
@@ -138,6 +140,7 @@
   &:hover,
   &:focus {
     background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.85);
     color: var(--white);
   }
 }
