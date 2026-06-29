@@ -84,6 +84,10 @@ return [
     'locales' => function ($page) {
         return available_locales($page);
     },
+    'wordPressVersion' => function($page) {
+        $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
+        return json_decode($version)->version;
+    },
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
         $list = explode("\n", $list);
