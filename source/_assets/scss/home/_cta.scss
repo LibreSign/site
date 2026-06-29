@@ -1,0 +1,72 @@
+@use "../variables" as *;
+
+.ud-home-cta {
+  background: var(--ud-home-cta-bg);
+}
+
+.ud-home-cta__content {
+  margin: 0 auto;
+  max-width: 980px;
+  text-align: center;
+}
+
+.ud-home-cta__title {
+  color: var(--white);
+  font-size: clamp(2.35rem, 4.2vw, 4.55rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.ud-home-cta__description {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.7;
+  margin: 0 auto 40px;
+  max-width: 840px;
+}
+
+.ud-home-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.ud-home-cta__btn {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 1.2;
+  min-height: 64px;
+  padding: 16px 28px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+  @media #{$xs, $sm} {
+    min-height: 58px;
+    padding: 14px 24px;
+    width: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.ud-home-cta__btn--primary,
+.ud-home-cta__btn--secondary {
+  background: var(--ud-home-cta-button-bg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+  color: var(--ud-home-highlight-color);
+
+  &:hover {
+    background: var(--ud-home-cta-button-bg-hover);
+    color: var(--ud-home-highlight-color);
+  }
+}

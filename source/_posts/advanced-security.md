@@ -3,9 +3,10 @@ extends: _layouts.post
 title: Advanced security
 author: Daiane Alves
 date: 2024-06-27
-description: Keep your documents secure with end-to-end encryption and multi-factor authentication, ensuring protection throughout the electronic document signing process.
-categories: [features]
+description: Keep your documents secure with strong encryption and multi-factor authentication, supporting protection throughout the electronic document signing process.
+categories: [features, featured]
 icon: locked-1
+card_icon: assets/images/icon/features/advanced-security.svg
 ---
 
 ### Advanced security for public companies

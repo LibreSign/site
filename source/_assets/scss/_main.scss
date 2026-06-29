@@ -1,0 +1,21 @@
+@use "variables" as *;
+@import "bootstrap/dist/css/bootstrap.css";
+@import "lineicons/dist/lineicons.css";
+@import "aos/dist/aos.css";
+
+/*cards target audience*/
+
+.card-title {
+    color: var(--text-gray);
+}
+
+.main-cards {
+    background-color: var(--white);
+    padding: 32px 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--warning-color);
+    margin-bottom: 0.5rem;
+}
+

@@ -1,41 +1,16 @@
-/* ===== Pricing CSS ===== */
-
-.ud-pricing {
-  padding-top: 120px;
-  padding-bottom: 90px;
-
-  @media #{$xs} {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
-}
+@use "variables" as *;
+/* ===== Pricing CSS =====*/
 
 .ud-single-pricing {
   margin-bottom: 40px;
   background: var(--white);
-  border: 2px solid #d4deff;
+  border: 2px solid var(--border-light);
   border-radius: 8px;
   text-align: center;
   padding: 45px 30px;
   position: relative;
-
-  &.active {
-    background: linear-gradient(180deg, #184c4e 0%, #13c296 100%);
-    border: none;
-    padding: 55px 30px;
-
-    .ud-pricing-header {
-      h3,
-      h4 {
-        color: var(--white);
-      }
-    }
-    .ud-pricing-body {
-      li {
-        color: var(--white);
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
 
   &.first-item::after,
   &.last-item::after {
@@ -54,26 +29,17 @@
   }
 
   &.last-item::after {
-    background: #13c296;
+    background: var(--primary-dark);
     top: -2px;
     right: -2px;
     border-radius: 0px 8px 0px 55px;
   }
 
-  .ud-main-tag {
-    display: inline-block;
-    padding: 10px 25px;
-    color: var(--primary-color) !important;
-    background: var(--white);
-    border-radius: 30px;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-
   .ud-pricing-header {
     h3 {
-      font-weight: 500;
-      font-size: 15px;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--heading-color);
       margin-bottom: 8px;
     }
     h4 {
@@ -82,6 +48,13 @@
       color: var(--primary-color);
       margin-bottom: 40px;
     }
+  }
+
+  .ud-pricing-tagline {
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 0;
   }
 
   .ud-pricing-body {
@@ -94,29 +67,8 @@
     }
   }
 
-  .ud-main-btn {
-    border-radius: 30px;
-    padding: 15px 40px;
-  }
-
-  .ud-border-btn {
-    border: 1px solid #d4deff;
-    color: var(--primary-color);
-    background: var(--white);
-
-    &:hover {
-      color: var(--white);
-      border-color: var(--primary-color);
-      background: var(--primary-color);
-    }
-  }
-  .ud-white-btn {
-    background: var(--white);
-    color: var(--heading-color);
-
-    &:hover {
-      color: var(--white);
-      background: var(--heading-color);
-    }
+  .ud-pricing-footer {
+    margin-top: auto;
+    padding-top: 32px;
   }
 }

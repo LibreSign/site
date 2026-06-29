@@ -103,6 +103,8 @@ class PrepareTranslationFiles
                         if($file->getExtension() === 'md'){
                             $fileArray = explode('.', $translatedName);
                             $translatedName = $fileArray[0];
+                        } elseif (Str::endsWith($file->getFilename(), '.blade.php')) {
+                            $translatedName = substr($translatedName, 0, -strlen('.blade.php'));
                         }
                         $translatedName = Str::slug($translatedName);
                         $translatedName = $this->translateFilename($file, $translatedName);

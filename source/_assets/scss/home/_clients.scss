@@ -1,0 +1,148 @@
+@use "../variables" as *;
+
+.ud-home-clients {
+  background-color: var(--white);
+  padding-top: 84px;
+  padding-bottom: 36px;
+
+  @media #{$xs} {
+    padding-top: 60px;
+    padding-bottom: 28px;
+  }
+
+  &__headline {
+    color: var(--ud-home-clients-text-color);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+
+    @media #{$xs} {
+      font-size: 36px;
+    }
+  }
+
+  &__logos {
+    margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 36px;
+    }
+  }
+
+  &__logo-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__logo {
+    display: block;
+    height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+    width: auto;
+
+    @media #{$xs} {
+      height: 46px;
+      max-width: 150px;
+    }
+  }
+
+  &__summary {
+    width: 100%;
+  }
+
+  &__summary-text {
+    color: var(--ud-home-clients-text-color);
+    font-size: 48px;
+    line-height: normal;
+    margin-top: 72px;
+    margin-bottom: 0;
+    text-align: center;
+
+    @media #{$xs} {
+      font-size: 36px;
+      margin-top: 32px;
+    }
+
+    @media #{$sm} {
+      margin-top: 36px;
+    }
+  }
+
+  &__highlight {
+    color: var(--ud-home-clients-text-color);
+    font-weight: 700;
+  }
+}
+
+/* ===== Clients marquee ===== */
+.ud-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: ud-marquee-scroll 38s linear infinite;
+  }
+
+  &__group {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &:hover &__track,
+  &:focus-within &__track {
+    animation-play-state: paused;
+  }
+
+  .ud-home-clients__logo-item {
+    flex-shrink: 0;
+    padding: 0 44px;
+
+    @media #{$xs} {
+      padding: 0 24px;
+    }
+  }
+}
+
+@keyframes ud-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ud-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+
+    &__track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 24px;
+      width: 100%;
+    }
+
+    &__group {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &[aria-hidden="true"] {
+        display: none;
+      }
+    }
+  }
+}

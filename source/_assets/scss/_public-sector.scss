@@ -1,0 +1,162 @@
+@use "variables" as *;
+
+.ud-ps-page {
+  .ud-home-section__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 860px;
+  }
+}
+
+.ud-home-challenges.ud-ps-section {
+  // Inherits background from .ud-page-section.
+  // Unique overrides: larger icon (340px), bigger heading, min-height cards.
+
+  .ud-home-section__actions {
+    margin-top: 52px !important;
+  }
+
+  .ud-home-section__title {
+    color: #2d3748;
+    font-size: clamp(3rem, 5vw, 4.65rem);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  .ud-home-section__subtitle {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 56px;
+    max-width: 1320px;
+  }
+
+  .ud-card--outlined {
+    min-height: 620px;
+  }
+
+  .ud-card--outlined .ud-card__header {
+    min-height: 126px;
+  }
+
+  .ud-card--outlined .ud-card__title {
+    font-size: clamp(2rem, 2.4vw, 2.25rem);
+  }
+
+  .ud-card--outlined .ud-card__icon {
+    background: #e67e00;
+    height: 340px;
+    margin-bottom: 36px;
+    width: 340px;
+  }
+
+  .ud-card--outlined .ud-card__body {
+    align-items: flex-start;
+  }
+
+  .ud-home-section__actions {
+    margin-top: 52px !important;
+  }
+
+  @media #{$xs, $sm} {
+    .ud-card--outlined {
+      min-height: auto;
+    }
+
+    .ud-card--outlined .ud-card__header {
+      min-height: 0;
+    }
+
+    .ud-card--outlined .ud-card__icon {
+      height: 220px;
+      width: 220px;
+    }
+  }
+}
+
+.ud-ps-process {
+  background: #2d3748;
+  padding: 88px 0;
+
+  @media #{$xs, $sm} {
+    padding: 60px 0;
+  }
+
+  &__title {
+    color: var(--white);
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 860px;
+  }
+
+  &__steps {
+    margin-top: 72px;
+
+    @media #{$xs, $sm} {
+      margin-top: 48px;
+    }
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 56px;
+
+    @media #{$xs, $sm} {
+      margin-top: 40px;
+    }
+  }
+}
+
+.ud-ps-process-step {
+  align-items: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 300px;
+  text-align: center;
+
+  &__icon {
+    align-items: center;
+    display: flex;
+    height: 115px;
+    justify-content: center;
+    margin-bottom: 28px;
+
+    img {
+      display: block;
+      height: auto;
+      max-height: 115px;
+      max-width: 180px;
+      width: auto;
+    }
+  }
+
+  &__title {
+    color: var(--white);
+    font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 24px;
+  }
+
+  &__body {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+}

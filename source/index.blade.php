@@ -2,356 +2,281 @@
 
 @section('body')
 
- <!-- ====== Princiapl Banner Start ====== -->
-    <section class="ud-hero" id="home">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
-              <h1 class="ud-hero-title">
-                {{ $page->t( "Simplify your digital signatures and document management safely and efficiently") }}
-              </h1>
-              <p class="ud-hero-desc">
-                {{ $page->t("Easily create, send, sign and track all your contracts in one place") }}
-              </p>
-              <ul class="ud-hero-buttons">
-                <li>
-                  <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
-                    {{ $page->t('Talk to sales') }}
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="ud-hero-image wow fadeInUp" data-aos-delay=".25s">
-              <img src="{{ $page->baseUrl }}assets/images/print_main_screen.png" alt=""/>
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="{{ $page->baseUrl }}assets/images/dotted-shape.svg"
-                alt=""
-                class="shape shape-2"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Princiapl Banner End ====== -->
+ <!-- ====== Principal Banner Start ====== -->
+    @include('_partials.home.hero-section', [
+      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
+      'imageAlt' => $page->t('Professional using digital signature'),
+      'title' => $page->t('The secure, open source digital signature for your world.'),
+      'mobileTitle' => $page->t('Secure digital signatures for your team.'),
+      'description' => $page->t('Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.'),
+      'actions' => [
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Try LibreSign'),
+          'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
+        ],
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Talk to Our Experts'),
+          'class' => 'btn ud-btn-ghost w-100 text-center',
+        ],
+      ],
+    ])
+    <!-- ====== Principal Banner End ====== -->
 
-    <!-- ====== Features Start ====== -->
-    <section id="features" class="ud-features">
+    <section class="ud-home-clients" aria-labelledby="clients-heading">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>{{ $page->t("Features")}}</span>
-              <h2>{{ $page->t("Main features")}}</h2>
-              <p>
-                {{ $page->t("Beyond offering agility and security in digital signatures and document management, LibreSign features functionalities that adapt to the specific needs of your organization.") }}
-              </p>
-            </div>
+          <div class="col-12">
+            <h2 id="clients-heading" class="ud-home-clients__headline">{{ $page->t("Trusted by organizations around the world") }}</h2>
           </div>
         </div>
-        <div class="row">
-          @foreach ($page->getFromCategory('features') as $item)
-            <div class="col-xl-3 col-lg-3 col-sm-6">
-              <div class="ud-single-feature wow fadeInUp" data-aos-delay=".1s">
-                <div class="ud-feature-icon">
-                  <i class="lni lni-{{ $item['icon'] }}"></i>
-                </div>
-                <div class="ud-feature-content">
-                  <div class="size-box-feature">
-                    <h3>
-                      <a class="ud-feature-title ud-feature-link fs-5 fw-bold" href="{{ $item['url'] }}">{{ $page->t($item['title']) }}</a>
-                    </h3>
-                    <p class="ud-feature-desc">{{ $page->t($item['description']) }}</p>
+        @php
+          $clientLogos = $page->clientLogos;
+          $clientLogoGroups = 4;
+        @endphp
+        <div class="ud-home-clients__logos ud-marquee" role="group" aria-label="{{ $page->t('Organizations that trust LibreSign') }}">
+          <div class="ud-marquee__track">
+            @for ($group = 0; $group < $clientLogoGroups; $group++)
+              <div class="ud-marquee__group" @if($group > 0) aria-hidden="true" @endif>
+                @foreach ($clientLogos as $logo)
+                  <div class="ud-home-clients__logo-item">
+                    <img class="ud-home-clients__logo {{ $logo['modifier'] }}"
+                         src="{{ $page->baseUrl }}assets/images/logo/clients/{{ $logo['file'] }}"
+                         alt="{{ $group === 0 ? $logo['alt'] : '' }}"
+                         loading="lazy">
                   </div>
-                  <div>
-                    <a class="ud-main-btn" href="{{ $item['url'] }}">{{ $page->t("Learn more")}}</a>
-                  </div>
-                </div>
+                @endforeach
               </div>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </section>
-    <!-- ====== Features End ====== -->
-
-    <!-- ====== About Start ====== -->
-    <section id="about" class="ud-about">
-      <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-aos-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">{{ $page->t("About Us")}}</span>
-              <h2>{{ $page->t("The perfect tool to manage the signature flow of your documents")}}</h2>
-              <p>
-                {{ $page->t("LibreSign is a web application for electronic signatures (e-Sign) developed by the LibreCode cooperative (Brazilian cooperative specialized in free software development). Its development began at the beginning of 2020, in the midst of the pandemic, when people and companies were migrating their physical documentation to digital, and then there was a need to develop a web solution that could offer the possibility of signing documents, contracts and proposals online with security and agility.")}}
-              </p>
-
-              <p>
-                {{ $page->t("We use PKI technology to generate digital certificate keys. LibreSign is open source (and always will be), which allows it to be audited and customized for various needs and integrated with any system and, of course, maintained by the community.") }}
-              </p>
-              {{-- <a href="javascript:void(0)" class="ud-main-btn">Learn More</a> --}}
-            </div>
-          </div>
-          <div class="ud-about-image">
-            <img src="{{ $page->baseUrl }}assets/images/about/about-image.svg" alt="" />
+            @endfor
           </div>
         </div>
-      </div>
-    </section>
-    <!-- ====== About End ====== -->
-
-    @include('_partials/testimonial_card')
-
-    <!-- ====== Target Audience Start ====== -->
-    <section id="target_audience" class="ud-about">
-      <div class="container bg-white p-5 cards-one-below-the-other">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <h3 class="card-title fs-4 fw-bold">{{ $page->t("Target audience")}}</h3>
-            </div>
+          <div class="col-12">
+            <div class="ud-home-clients__summary">
+            @php
+              $githubDownloadsRaw = (int) ($page->githubDownloads ?? 0);
+              $githubDownloadsFormatted = number_format((int) floor($githubDownloadsRaw / 1_000) * 1_000, 0, '.', ',');
+              $clientsSecondaryTemplate = $page->t('Trusted worldwide, with over <strong>:count</strong> downloads');
+              $clientsSecondaryWithCount = str_replace(':count', $githubDownloadsFormatted, $clientsSecondaryTemplate);
+              $clientsSecondaryParts = explode('<strong>', $clientsSecondaryWithCount, 2);
+              $clientsSecondaryStrongParts = count($clientsSecondaryParts) === 2 ? explode('</strong>', $clientsSecondaryParts[1], 2) : [];
+            @endphp
+            <p class="ud-home-clients__summary-text animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+              @if (count($clientsSecondaryParts) === 2 && count($clientsSecondaryStrongParts) === 2)
+                {{ $clientsSecondaryParts[0] }}<span class="ud-home-clients__highlight animate__animated animate__pulse" style="animation-delay: 0.6s;"><strong>{{ $clientsSecondaryStrongParts[0] }}</strong></span>{{ $clientsSecondaryStrongParts[1] }}
+              @else
+                {{ $clientsSecondaryWithCount }}
+              @endif
+            </p>
           </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Public sector")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Optimize document management in the public sector with LibreSign. Our solution provides effective administration to handle specific government documentation, ensuring security, speed, and strict compliance with the General Data Protection Law (GDPR). Simplify bureaucratic processes, expedite document signing, and promote more efficient management with LibreSign for the public sector.") }}
-              </p>
-            </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Education")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{$page->t("LibreSign is the ideal choice for educational institutions looking to enhance their document processes with legal validity. Simplify the signing of contracts, authorizations, and other essential documents for academic administration. Promote effective document management, providing a streamlined and modern experience for students, teachers, and administrative staff.")}}
-              </p>
-            </div>
-          </div>
-          <div class="col-4 text-card">
-            <div class="cards-target-audience">
-              <h5 class="mb-3 text-white fs-5 fw-bold">{{ $page->t("Private companies")}}</h5>
-              <hr class="mb-3 border border-2 opacity-50 rounded-pill">
-              <p class="text-white">
-                {{ $page->t("Our electronic signature and document management solution streamline workflows, reducing time spent on manual processes. Achieve greater productivity, promote document security, and ensure compliance with the General Data Protection Law (GDPR), providing an agile experience for your clients and collaborators.") }}
-              </p>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====== Start Importance of digital signature ====== -->
-    <section id="features" class="ud-features">
-      <div class="container">
-        <h3 class="mb-5">{{ $page->t('Did you know that digital signature is the safest and most efficient way to validate electronic documents?') }}</h3>
+    <!-- ====== Challenges Section Start ====== -->
+    @php
+      $homeChallengeItems = [
+        [
+          'title' => $page->t('Secure Document Signing and Verifiable Traceability?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/legal-validity.svg',
+          'body' => $page->t('Minimize risks and support document authenticity with electronic signatures designed to align with LGPD requirements and current data protection practices.'),
+          'actions' => [[
+            'href' => locale_url($page, 'public-sector'),
+            'label' => $page->t('Learn More for the Public Sector'),
+          ]],
+        ],
+        [
+          'title' => $page->t('Simple, Secure and Affordable Digital Signature?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/digital-signature.svg',
+          'body' => $page->t('Optimize your workflows, strengthen governance, and reduce operational costs without sacrificing security or ease of use.'),
+          'actions' => [[
+            'href' => locale_url($page, 'company-solutions'),
+            'label' => $page->t('Discover Solutions for Your Company.'),
+          ]],
+        ],
+        [
+          'title' => $page->t('Total Control and Flexibility to Integrate?'),
+          'icon' => $page->baseUrl . 'assets/images/icon/features/integration-flexibility.svg',
+          'body' => $page->t('Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.'),
+          'actions' => [[
+            'href' => locale_url($page, 'tecnical-details'),
+            'label' => $page->t('Technical Details for IT.'),
+          ]],
+        ],
+      ];
+    @endphp
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-challenges',
+      'title' => $page->t("Solve your biggest document challenges."),
+      'subtitle' => $page->t("We understand the complexities of each industry. See how our platform is the answer you're looking for."),
+      'items' => $homeChallengeItems,
+    ])
+    <!-- ====== Challenges Section End ====== -->
 
-        <div class="row justify-content-md-center">
-          <div class="col-lg-6 mb-4">
-              <p>{{ $page->t("By using digital certificates issued by a Certification Authority, it is possible to ensure the signer's identity and the document's integrity. Physical signatures can be forged, compromising the validity of your documents. However, digital signatures, regulated by Provisional Measure No. 2.200-2/2001, provide the necessary security to protect the authenticity and legal validity of your documents.") }}</p>
+    <!-- ====== Benefits Start ====== -->
+    @include('_partials.post-list', [
+      'sectionClass' => 'ud-home-benefits',
+      'title'        => $page->t('Key benefits for your organization'),
+      'subtitle'     => $page->t('From document security to workflow automation — built for organizations of every size.'),
+      'category'     => 'featured',
+      'format'       => 'feature',
+    ])
+    <!-- ====== Benefits End ====== -->
 
-              <h4 class="mb-3 mt-4">{{ $page->t('Transform your processes with more security and efficiency') }}</h4>
-              <div class="row justify-content-md-center">
-                <div class="col-lg-6 mb-2 d-flex justify-content-center">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="me-2 card-title"><i class="lni lni-shield-2"></i> {{ $page->t('Security') }}</h5>
-                      <p class="card-text">{{ $page->t('Encrypted signatures that guarantee the integrity of your documents.') }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-2 d-flex justify-content-center">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><i class="lni lni-dashboard-square-1"></i> {{ $page->t('Speed') }}</h5>
-                      <p class="card-text">{{ $page->t('Sign and send documents in seconds, from anywhere in the world.') }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 d-flex justify-content-center">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><i class="lni lni-leaf-1"></i> {{ $page->t('Sustainability') }}</h5>
-                      <p class="card-text">{{ $page->t('Contribute to a greener world by eliminating the use of paper.') }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-4">
-            <img src="{{ $page->baseUrl }}assets/images/mobile_libresign.png" alt=""/>
-          </div>
-          <div class="col-lg-12 d-flex justify-content-center mt-5">
-            <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-border-btn">
-              {{ $page->t('Talk to sales') }}
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </section>
-    <!-- ====== End Importance of digital signature ====== -->
-
-    <!-- ====== FAQ Start ====== -->
-    <section id="faq" class="ud-faq">
-      <div class="shape">
-        <img src="{{ $page->baseUrl }}assets/images/faq/shape.svg" alt="" />
-      </div>
+    <!-- ====== Video Demo Section Start ====== -->
+    <section
+      class="ud-home-video"
+      data-aos="fade-up"
+      style="--ud-home-video-bg: url('{{ $page->baseUrl }}assets/images/conection_wallpaper_mobile.png');"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title text-center mx-auto">
-              <span>FAQ</span>
-              <h2>{{ $page->t("Any Questions? Answered")}}</h2>
-              <p>
-                {{ $page->t("LibreSign frequently asked questions")}}
-              </p>
+              <h2 class="ud-home-section__title">{{ $page->t("See LibreSign in action")}}</h2>
             </div>
+          </div>
+          <div class="col-lg-12">
+            <p class="ud-home-section__subtitle">{{ $page->t("Our complete video guide shows how to sign, manage, and validate documents step by step, in an easy and secure way.") }}</p>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".1s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>{{ $page->t("Why LibreSign?")}}</span>
-                </button>
-                <div id="collapseOne" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    {{ $page->t("LibreSign allows documents to be signed securely and with legal validity, since the system generates hashing - an algorithm that ensures that the file has not been altered after being signed - as well as numbers and records the times of each signature carried out in the document. In this way, the system meets all the requirements of the GDPR - General Data Protection Law.")}}
-                  </div>
-                </div>
-              </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-6 text-center">
+            <div class="ud-home-video__media">
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>{{ $page->t("What is electronic signature capture?")}}</span>
-                </button>
-                <div id="collapseTwo" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    {{ $page->t("Electronic signature capture is a technology for signing electronic document files with a handwritten signature. The use of this technology allows for the elimination of the mailing, storage, filing, copying, and retrieval of paper documents. This will save your business time and money.")}}
-                  </div>
-                </div>
-              </div>
+            <div class="mt-4">
+              <a href="{{ locale_url($page, 'features') }}" class="btn ud-btn-solid-warm ud-home-video__action">
+                {{ $page->t('See How It Works') }}
+              </a>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".2s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>
-                    {{ $page->t("What are the key features of LibreCode signature pads?")}}
-                  </span>
-                </button>
-                <div id="collapseThree" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    {{ $page->t("File Creation, Signature with Digital Certificate, Signature Management, Document Management, Validation, API")}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".1s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFour"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>
-                    {{ $page->t("Is a digital signature the same as a digitized signature?")}}
-                  </span>
-                </button>
-                <div id="collapseFour" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    {{ $page->t("No. The digitized signature is the reproduction of the handwritten signature as an image using scanner-type. It does not guarantee the authorship and of the electronic document, as there is no association between the signer and the text, as it can be easily copied and inserted another document.")}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ud-single-faq wow fadeInUp" data-aos-delay=".15s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFive"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>
-                    {{ $page->t("What is the name of the company that LibreSign was developed by?")}}
-                  </span>
-                </button>
-                <div id="collapseFive" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    {{ $page->t("LibreCode, a Brazilian cooperative of free software developers.")}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{-- <div class="ud-single-faq wow fadeInUp" data-aos-delay=".2s">
-              <div class="accordion">
-                <button
-                  class="ud-faq-btn collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseSix"
-                >
-                  <span class="icon flex-shrink-0">
-                    <i class="lni lni-chevron-down"></i>
-                  </span>
-                  <span>Where and how to host this template?</span>
-                </button>
-                <div id="collapseSix" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </div>
-                </div>
-              </div>
-            </div> --}}
           </div>
         </div>
       </div>
     </section>
-    <!-- ====== FAQ End ====== -->
-    @include('_partials/contact_form')
+    <!-- ====== Video Demo Section End ====== -->
+
+    <!-- ====== Solutions Section Start ====== -->
+    @php
+      $homeSolutionItems = [
+        [
+          'title' => $page->t('Public Management: Transparency, Validity, and Efficiency'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/public-sector.png',
+          'body'  => $page->t('Digitize bids, contracts, and administrative processes with traceability and agility, respecting public sector values.'),
+          'actions' => [['href' => locale_url($page, 'public-sector'), 'label' => $page->t('Explore LibreSign for Public Sector')]],
+        ],
+        [
+          'title' => $page->t('Small and Medium Businesses: Grow with Security'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/small-business.png',
+          'body'  => $page->t('Optimize contracts, reduce costs, and support the legal integrity of your commercial agreements, streamlining your business.'),
+          'actions' => [['href' => locale_url($page, 'company-solutions'), 'label' => $page->t('Explore LibreSign for Businesses')]],
+        ],
+        [
+          'title' => $page->t('Cooperatives: Strengthen Governance and Member Participation'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/cooperatives.png',
+          'body'  => $page->t('Digitize assemblies and internal processes, promoting transparency, collaboration, and alignment with your cooperative values.'),
+          'actions' => [['href' => locale_url($page, 'cooperatives'), 'label' => $page->t('Explore LibreSign for Cooperatives')]],
+        ],
+        [
+          'title' => $page->t('Information Technology: Control and Total Flexibility'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/it-professionals.png',
+          'body'  => $page->t('Integrate, customize, and scale a robust, open-source solution with autonomy that your infrastructure demands.'),
+          'actions' => [['href' => locale_url($page, 'tecnical-details'), 'label' => $page->t('Explore LibreSign for IT Professionals')]],
+        ],
+        [
+          'title' => $page->t('Legal Sector: Agility and Reliable Document Security'),
+          'icon'  => $page->baseUrl . 'assets/images/icon/solutions/legal-sector.png',
+          'body'  => $page->t('Support the integrity of each signature and simplify document management, with strong protection for confidential information.'),
+          'actions' => [['href' => locale_url($page, 'lawyers'), 'label' => $page->t('Explore LibreSign for Lawyers')]],
+        ],
+      ];
+    @endphp
+    @include('_partials.home.card-grid-section', [
+      'sectionClass' => 'ud-home-solutions',
+      'title'        => $page->t('Solutions by industry'),
+      'subtitle'     => $page->t('LibreSign adapts to the needs of different organizations and sectors.'),
+      'items'        => $homeSolutionItems,
+      'rowClass'     => 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center align-items-stretch',
+      'colClass'     => 'col d-flex',
+    ])
+    <!-- ====== Solutions Section End ====== -->
+
+    <!-- ====== Blog/Content Section Start ====== -->
+    @include('_partials.post-list', [
+      'sectionClass' => 'ud-home-blog',
+      'title'        => $page->t('Articles and insights on digital signatures and open source'),
+      'subtitle'     => $page->t('Explore guides, technical articles, and news from the LibreSign team.'),
+      'format'       => 'blog',
+      'limit'        => 3,
+      'cta'          => ['href' => locale_url($page, 'posts'), 'label' => $page->t('Explore our blog')],
+    ])
+    <!-- ====== Blog/Content Section End ====== -->
+
+    <!-- ====== CTA Start ====== -->
+    @include('_partials.home.cta-section', [
+      'title' => $page->t('Simplify your document workflows with LibreSign.'),
+      'description' => $page->t('Join organizations around the world already using LibreSign to manage secure, traceable digital signatures. Take control of your document workflows.'),
+      'actions' => [
+        [
+          'href' => locale_url($page, 'contact-us'),
+          'label' => $page->t('Request your personalized demo'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--primary',
+        ],
+        [
+          'href' => locale_url($page, 'register'),
+          'label' => $page->t('Try LibreSign now (free trial)'),
+          'class' => 'ud-home-cta__btn ud-home-cta__btn--secondary',
+        ],
+      ],
+    ])
+    <!-- ====== CTA End ====== -->
+
+@push('structured-data')
+@verbatim
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://libresign.coop/#software",
+  "name": "LibreSign",
+  "alternateName": "LibreSign Electronic Signature",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Electronic Signature",
+  "operatingSystem": "Nextcloud, Linux, Docker",
+  "url": "https://libresign.coop",
+  "downloadUrl": "https://apps.nextcloud.com/apps/libresign",
+  "codeRepository": "https://github.com/LibreSign/libresign",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "description": "LibreSign is a free and open source electronic signature application for Nextcloud. It enables secure document signing, signature requests, and digital document management in a fully self-hosted environment.",
+  "featureList": [
+    "Electronic document signing",
+    "Digital certificate support (A1)",
+    "Multiple signers per document",
+    "Nextcloud integration",
+    "Self-hosted deployment",
+    "API access",
+    "Document validation and audit trail",
+    "Secure document handling and access controls"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free and open source. Commercial plans available — contact us for details."
+  },
+  "author": {
+    "@id": "https://libresign.coop/#organization"
+  },
+  "publisher": {
+    "@id": "https://libresign.coop/#organization"
+  },
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true
+}
+</script>
+@endverbatim
+@endpush
+
 @endsection

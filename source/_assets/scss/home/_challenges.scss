@@ -1,0 +1,70 @@
+@use "../variables" as *;
+
+.ud-home-challenges {
+  background-color: #f9f9f9;
+
+  .ud-home-section {
+    &__title {
+      color: var(--ud-home-clients-text-color);
+    }
+
+    &__subtitle {
+      color: #333333;
+    }
+  }
+
+  .ud-card {
+    border: var(--ud-home-card-border);
+    box-shadow: none;
+
+    &__title {
+      color: var(--ud-home-clients-text-color);
+    }
+
+    &__icon {
+      background-color: #ffc107;
+      height: 170px;
+      margin-bottom: 32px;
+      width: 170px;
+
+      img {
+        height: 68%;
+        max-height: 68%;
+        max-width: 68%;
+        width: 68%;
+      }
+
+      @media #{$xs, $sm} {
+        height: 150px;
+        width: 150px;
+
+        img {
+          height: 66%;
+          max-height: 66%;
+          max-width: 66%;
+          width: 66%;
+        }
+      }
+    }
+
+    &__body {
+      p {
+        color: #333333;
+      }
+    }
+
+    &__actions {
+      .ud-main-btn {
+        background-color: #00796b;
+        border-color: #00796b;
+        color: var(--white);
+
+        &:hover {
+          background-color: #00685d;
+          border-color: #00685d;
+          color: var(--white);
+        }
+      }
+    }
+  }
+}

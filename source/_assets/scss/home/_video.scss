@@ -1,0 +1,27 @@
+.ud-home-video {
+  background-color: var(--ud-home-highlight-color);
+  background-image: var(--ud-home-video-bg, url('/assets/images/conection_wallpaper_mobile.png'));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .ud-home-section__title,
+  .ud-home-section__subtitle {
+    color: var(--white);
+  }
+}
+
+.ud-home-video__media {
+  margin: 0 auto;
+  max-width: 500px;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.ud-home-video__action {
+  // Shape and color from .ud-btn-accent via _button.scss
+  color: var(--white);
+}

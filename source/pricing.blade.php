@@ -1,169 +1,92 @@
+---
+title: "LibreSign Plans and Pricing - Commercial Options for Organizations"
+description: "LibreSign is preparing commercial plans for organizations that need support, managed services, integrations, and guided adoption. Contact us to discuss your needs."
+---
 @extends('_layouts.main')
 
 @section('body')
- <section class="ud-hero" id="home">
+
+  {{-- Hero --}}
+  <section class="ud-page-banner">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="ud-hero-content wow fadeInUp" data-aos-delay=".2s">
-            <h1 class="ud-hero-title">
-              {{ $page->t( "Our Pricing Plans") }}
-            </h1>
-            <p class="ud-hero-desc">
-              {{ $page->t("Choose the perfect plan for your needs - Flexibility and security for companies of all sizes!") }}
-            </p>
+          <div class="ud-banner-content">
+            <h1>{{ $page->t("LibreSign Plans and Pricing") }}</h1>
+            <p>{{ $page->t("LibreSign is preparing commercial plans for organizations that need support, managed services, cloud infrastructure, integrations, or dedicated guidance.") }}</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="ud-pricing">
+  {{-- Talk to our team --}}
+  <section class="py-5 bg-light text-center" id="contact-section">
     <div class="container">
-
-      <div class="row g-0 align-items-center justify-content-center">
-        @foreach ($page->prices as $planName => $content)
-          <div class="col-lg-4 col-md-6 col-sm-10">
-            <div
-              class="ud-single-pricing first-item{{ $content->isActive ? ' active' : ''}} wow fadeInUp"
-              data-wow-delay=".15s"
-            >
-              <div class="ud-pricing-header">
-                <h4 class="{{ $content->isActive ? ' ud-main-tag' : ''}}">{{$page->t($planName)}}</h4>
-                @if ($content->description)
-                  <h3>{{$page->t($content->description)}}</h3>
-                @endif
-                <h4>{{$page->t($content->price)}}</h4>
-              </div>
-              @if ($content->list)
-                <div class="ud-pricing-body">
-                  <ul>
-                    {!! $page->markdownListToHtml($content->list) !!}
-                  </ul>
-                </div>
-              @endif
-              <div class="ud-pricing-footer">
-                <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-border-btn">
-                  {{ $page->t('Under Consultation') }}
-                </a>
-              </div>
-            </div>
-          </div>
-        @endforeach
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h2 class="fw-bold mb-3">{{ $page->t("Talk to our team") }}</h2>
+          <p class="fs-5 text-muted mb-4">
+            {{ $page->t("While public pricing is not yet available, our team can help you understand the best option for your organization.") }}
+          </p>
+          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-brand">
+            {{ $page->t("Talk to our team") }}
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="ud-pricing">
-    <div class="container">
+  {{-- Available commercial options --}}
+  <section class="py-5 bg-white" id="pricing-plans">
+    <div class="container py-4">
+      <h2 class="display-6 fw-bold text-center mb-5">{{ $page->t("Available commercial options") }}</h2>
+      <div class="row g-4 align-items-stretch justify-content-center">
 
-      @php
-        $comparePlans = array_map(static fn ($planName) => [
-          'key' => strtolower($planName),
-          'label' => $planName,
-        ], array_keys((array) $page->prices));
-
-        $comparisonRows = array_values(array_filter(
-          (array) $page->optionsServicesLibresign,
-          static function ($optionList) use ($comparePlans): bool {
-            foreach ($comparePlans as $plan) {
-              $value = $optionList->{$plan['key']} ?? null;
-              if (is_bool($value) || (is_string($value) && $value !== '') || is_numeric($value)) {
-                return true;
-              }
-            }
-            return false;
-          }
-        ));
-      @endphp
-
-      <h2 class="display-6 text-center mb-4">{{ $page->t(count($comparePlans) > 1 ? 'Compare plans' : 'Plan details') }}</h2>
-
-      @if (!empty($comparisonRows))
-        <div class="table-responsive">
-          <table class="table text-center">
-
-            <thead>
-              <tr>
-                <th style="width: 34%;"></th>
-                @foreach ($comparePlans as $plan)
-                  <th style="width: 22%;">{{ $page->t($plan['label']) }}</th>
-                @endforeach
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($comparisonRows as $optionList)
-                <tr>
-                  <th scope="row" class="text-start">{{ $page->t($optionList->service) }}</th>
-                  @foreach ($comparePlans as $plan)
-                    @php($planValue = $optionList->{$plan['key']} ?? null)
-                    <td>
-                      @if (is_bool($planValue))
-                        <span class="{{ $planValue ? 'text-success' : 'text-danger' }} fw-semibold">
-                          <i class="lni lni-{{ $planValue ? 'check' : 'xmark' }}"></i>
-                          {{ $page->t($planValue ? 'Included' : 'Not included') }}
-                        </span>
-                      @elseif (is_string($planValue) && $planValue !== '')
-                        {{ $page->t($planValue) }}
-                      @elseif (is_numeric($planValue))
-                        {{ $planValue }}
-                      @else
-                        <span class="text-muted">-</span>
-                      @endif
-                    </td>
-                  @endforeach
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      @else
-        <p class="text-center mb-4">{{ $page->t('This plan does not include a comparison table.') }}</p>
-      @endif
-
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
-          {{ $page->t('Under Consultation') }}
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="testimonials" class="ud-testimonials">
-    <div class="container">
-      <div class="ud-section-title mx-auto text-center">
-        <h2>{{ $page->t('Need more features?') }}</h2>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-lg-5 mb-3">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
-            <div class="ud-info-icon mb-2">
-              <i class="lni lni-gear-1 fs-1"></i>
+        <div class="col-lg-4 col-md-6 col-sm-10">
+          <div class="ud-single-pricing h-100">
+            <div class="ud-pricing-header">
+              <h3>{{ $page->t("Business") }}</h3>
+              <p class="ud-pricing-tagline">{{ $page->t("For organizations that need support, guidance, and a tailored LibreSign adoption path.") }}</p>
             </div>
-            <div class="ud-info-meta">
-              <h5 class="fs-4">API</h5>
-              <p>{{ $page->t("Maximize your workflow efficiency with LibreSign's API integration. Automate digital signature processes, minimize manual errors and improve security. Our API makes it easy to incorporate digital signature functionality into your existing systems.") }}</p>
+            <div class="ud-pricing-footer">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
+                {{ $page->t("Request information") }}
+              </a>
             </div>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div class="ud-single-info border border-secondary-subtle rounded-bottom-1 rounded-top-1 p-3 size-box-pricing">
-            <div class="ud-info-icon">
-              <i class="lni lni-cloud-upload fs-1"></i>
+
+        <div class="col-lg-4 col-md-6 col-sm-10">
+          <div class="ud-single-pricing h-100">
+            <div class="ud-pricing-header">
+              <h3>{{ $page->t("API Integration") }}</h3>
+              <p class="ud-pricing-tagline">{{ $page->t("For organizations that want to integrate LibreSign with existing systems and workflows.") }}</p>
             </div>
-            <div class="ud-info-meta pb-5">
-              <h5 class="fs-4">{{ $page->t('Cloud Storage') }}</h5>
-              <p>{{ $page->t('We offer flexible plans to meet your secure digital storage needs. Easily rent more space and ensure all your important documents are always accessible and protected in our high-security cloud.') }}</p>
+            <div class="ud-pricing-footer">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
+                {{ $page->t("Discuss integration") }}
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="ud-pricing-footer text-center mt-5">
-        <a href="{{ locale_url($page, 'contact-us') }}" class="ud-main-btn ud-white-btn mt-1">
-          {{ $page->t('Under Consultation') }}
-        </a>
+
+        <div class="col-lg-4 col-md-6 col-sm-10">
+          <div class="ud-single-pricing h-100">
+            <div class="ud-pricing-header">
+              <h3>{{ $page->t("Cloud and Managed Services") }}</h3>
+              <p class="ud-pricing-tagline">{{ $page->t("For organizations interested in hosted or managed infrastructure options when available.") }}</p>
+            </div>
+            <div class="ud-pricing-footer">
+              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
+                {{ $page->t("Contact us") }}
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
 @endsection

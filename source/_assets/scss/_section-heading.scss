@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+.ud-section-title {
+  margin-bottom: 44px;
+
+  span {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 55px;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+
+    @media #{$xs} {
+      font-size: 30px;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 30px;
+
+    @media #{$xs} {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}

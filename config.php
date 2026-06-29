@@ -5,26 +5,85 @@ use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use TightenCo\Jigsaw\Parsers\MarkdownParser;
 
+$teamMembers = [
+    [
+        'name' => 'Crisciany Silva',
+        'gravatar' => 'f2f64ea713b5c39cb64268a0eda7e022',
+        'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
+        'job_title' => 'Software Engineer',
+        'social' => [
+            'github' => 'https://github.com/Any97Cris',
+            'linkedin' => 'https://www.linkedin.com/in/criscianysilva/'
+        ],
+    ],
+    [
+        'name' => 'Daiane Alves',
+        'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee',
+        'bio' => 'CEO at LibreCode, one of the largest Free Software cooperatives in Brazil, she teaches training courses on various free software programs, from basic to enterprise level, and contributes to the organization of events in the PHPRio and PHPWomenBR communities (PHP developer communities).',
+        'job_title' => 'CEO',
+        'social' => [
+            'github' => 'https://github.com/daianealvesrj/',
+            'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
+        ]
+    ],
+    [
+        'name' => 'Vitor Mattos',
+        'gravatar' => '35d3d1e49e1939461e2670a4d1fac6a3',
+        'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
+        'job_title' => 'CTO',
+        'social' => [
+            'github' => 'https://github.com/vitormattos',
+            'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
+        ]
+    ],
+];
+
+$authorGravatars = array_column($teamMembers, 'gravatar', 'name');
+
+// Categories that are used as internal filters and should NOT get a dedicated page.
+$categoryPageBlocklist = ['featured'];
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
-    'accountUrl' => getenv('ACCOUNT_URL'),
-    'form_url' => 'http://localhost/suitecrm-form-middleware/validate.php',
-    'url_captcha' => 'http://localhost/suitecrm-form-middleware/captcha.php',
-    'url_captcha_audio' => 'http://localhost/suitecrm-form-middleware/audio_captcha.php',
-    'title' => 'LibreSign - Electronic signature of digital documents',
-    'description' => 'Electronic signature of digital documents',
-    'wordPressVersion' => function($page) {
-        $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
-        return json_decode($version)->version;
+    'form_url' => '/suitecrm-form-middleware/validate.php',
+    'url_captcha' => '/suitecrm-form-middleware/captcha.php',
+    'url_captcha_audio' => '/suitecrm-form-middleware/audio_captcha.php',
+    'title' => 'LibreSign - Open Source Electronic Signature for Nextcloud',
+    'description' => 'LibreSign is a free and open source electronic signature app for Nextcloud. Sign, request, and manage digital documents securely in your own self-hosted environment.',
+    'authorGravatars' => $authorGravatars,
+    'githubDownloads' => (function() {
+        $total = 0;
+        $page = 1;
+        $token = getenv('GITHUB_TOKEN');
+        $headers = ['User-Agent: libresign-site-build'];
+        if ($token) {
+            $headers[] = 'Authorization: Bearer ' . $token;
+        }
+        $context = stream_context_create(['http' => [
+            'header' => implode("\r\n", $headers),
+            'timeout' => 15,
+        ]]);
+        while (true) {
+            $url = "https://api.github.com/repos/LibreSign/libresign/releases?per_page=100&page={$page}";
+            $json = @file_get_contents($url, false, $context);
+            if ($json === false) break;
+            $releases = json_decode($json, true);
+            if (empty($releases)) break;
+            foreach ($releases as $release) {
+                foreach ($release['assets'] ?? [] as $asset) {
+                    $total += $asset['download_count'] ?? 0;
+                }
+            }
+            if (count($releases) < 100) break;
+            $page++;
+        }
+        return $total > 0 ? $total : null;
+    })(),
+    'locales' => function ($page) {
+        return available_locales($page);
     },
-    'locales' => [
-        '' => 'English',
-        'fr' => 'Français',
-        'nb-NO' => 'Norsk bokmål',
-        'pt-BR' => 'Português Brasil',
-    ],
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
         $list = explode("\n", $list);
@@ -33,14 +92,19 @@ return [
     },
     'prices' => [
         'Business' => [
-            'price' => 'Contact us to more informations',
-            'description' => '',
+            'price' => 'Custom pricing',
+            'description' => 'Contact us for details',
             'isActive' => true,
             'list' => <<<LIST
                 - Unlimited accounts
-                - Storage customized
+                - Custom storage
                 LIST,
         ],
+    ],
+    'clientLogos' => [
+        ['file' => 'ocb.png', 'alt' => 'Sistema OCB/RJ', 'modifier' => 'ud-home-clients__logo--ocb'],
+        ['file' => 'oab.png', 'alt' => 'OAB|ESA', 'modifier' => 'ud-home-clients__logo--oab'],
+        ['file' => 'fiocruz.png', 'alt' => 'Fiocruz', 'modifier' => 'ud-home-clients__logo--fiocruz'],
     ],
     'optionsServicesLibresign' => [
         [
@@ -118,13 +182,137 @@ return [
             'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
             'author' => 'Igor Afonso Oliveira Ruas'
         ],
-
-
+    ],
+    'frequentlyQuestions' => [
+        [
+            'question' => 'Is LibreSign free?',
+            'answer' => 'Yes. LibreSign is free and open source software. What you pay for, if needed, is support, managed hosting, and other enterprise services provided by LibreCode.'
+        ],
+        [
+            'question' => 'What does "user" mean for billing?',
+            'answer' => 'For billing, a user is a Nextcloud account in your organization. External signers who receive a signing link do not count as users.'
+        ],
+        [
+            'question' => 'Is there a limit to documents or signatures per month?',
+            'answer' => 'No. LibreSign does not impose a monthly limit on documents or signatures.'
+        ],
+        [
+            'question' => 'Does LibreSign work without Nextcloud?',
+            'answer' => 'No. LibreSign requires Nextcloud to run. If you do not already have a compatible environment, LibreCode can provide a fully managed setup.'
+        ],
+        [
+            'question' => 'What if we cannot install apps in our existing Nextcloud?',
+            'answer' => 'In that case, the managed hosting option is the best path. LibreCode can provision and operate a complete LibreSign environment for you, including deployments in Europe or Germany when data residency matters.'
+        ],
+        [
+            'question' => 'Can I define the order of signature for multiple recipients?',
+            'answer' => 'Yes. LibreSign supports sequential signing, so you can define the order in which recipients must sign.'
+        ],
+        [
+            'question' => 'Do recipients need an account to sign?',
+            'answer' => 'No. Recipients can sign through a secure link without creating a LibreSign or Nextcloud account.'
+        ],
+        [
+            'question' => 'Which signature standards are supported?',
+            'answer' => 'LibreSign supports SES, AES, and QES workflows. For QES, a qualified digital certificate in PFX format is required.'
+        ],
+        [
+            'question' => 'Is LibreSign eIDAS compliant?',
+            'answer' => 'LibreSign supports signing workflows that can be used in eIDAS-oriented setups, but compliance depends on the full solution: the certificate, identity verification, hosting, and operational process. For qualified signatures, you need a qualified certificate and a trust service setup that matches your legal requirements.'
+        ],
+        [
+            'question' => 'Can LibreSign be used under eIDAS and in court?',
+            'answer' => 'Yes, LibreSign can be used in eIDAS-oriented deployments. The legal weight of a signature, whether simple, advanced, or qualified, depends on how the system is configured, including identity verification, certificate type, QSCD usage, and the surrounding operational process.'
+        ],
+        [
+            'question' => 'How is identity verification handled?',
+            'answer' => 'LibreSign provides flexible workflows. At the simplest level, signatures can be linked to an email address. For stronger requirements, you can add document validation, approval workflows, or integrations with external identity providers and PKI systems. Each organization can define the level of assurance it needs.'
+        ],
+        [
+            'question' => 'In which countries is it available?',
+            'answer' => 'LibreSign is not limited to a specific country. It can be used in any environment, including integrations with national PKI systems or European trust service providers (QTSP).'
+        ],
+        [
+            'question' => 'Can the data be hosted in Europe or Germany?',
+            'answer' => 'Yes. LibreSign can be deployed on managed infrastructure in Europe, including Germany, to help meet GDPR and data residency requirements.'
+        ],
+        [
+            'question' => 'Why LibreSign?',
+            'answer' => 'LibreSign lets you sign documents securely and with verifiable integrity. The platform generates a cryptographic hash for each signed document, ensuring any tampering can be detected. It also records the timestamp of every signature, creating a complete and auditable signing history. LibreSign is designed with privacy and data sovereignty in mind, following principles aligned with GDPR and LGPD.'
+        ],
+        [
+            'question' => 'What are the key features of LibreSign?',
+            'answer' => 'Document creation and upload, signature with personal or system-generated digital certificates, multi-signer workflows, document management, audit trail, document validation, and a full REST API for system integration.'
+        ],
+        [
+            'question' => 'Is a digital signature the same as a digitized signature?',
+            'answer' => 'No. The digitized signature is the reproduction of the handwritten signature as an image using a scanner or touchscreen. It does not guarantee the authorship of the electronic document, as there is no cryptographic association between the signer and the content, and it can be easily copied and inserted into another document.'
+        ],
+        [
+            'question' => 'What is the name of the company that LibreSign was developed by?',
+            'answer' => 'LibreCode, a Brazilian cooperative of free software developers.'
+        ],
+        [
+            'question' => 'Does the plan have any kind of loyalty?',
+            'answer' => 'No. You are free to cancel your plan at any time. LibreSign does not require minimum commitment periods.'
+        ],
+        [
+            'question' => 'What happens if I cancel my plan?',
+            'answer' => 'After canceling, your plan will not be renewed and you will not be charged again. You will retain access until the end of your current billing period.'
+        ],
+        [
+            'question' => 'Can I use my personal digital certificate to sign documents?',
+            'answer' => 'Yes. You can store your digital certificate in LibreSign and when you sign a document you will be asked for your password.'
+        ],
+        [
+            'question' => 'Do I need a digital certificate to sign documents?',
+            'answer' => 'No. LibreSign creates a digital certificate for each user who does not have a personal digital certificate.'
+        ],
+        [
+            'question' => 'What is LibreSign?',
+            'answer' => 'LibreSign is an open source platform for electronic and digital document signing, designed to help organizations manage secure, traceable signing workflows. It integrates with Nextcloud and can be fully self-hosted.'
+        ],
+        [
+            'question' => 'What types of digital certificates does LibreSign accept?',
+            'answer' => 'LibreSign accepts personal and company digital certificates, including certificates issued by Certificate Authorities in the ICP-Brasil standard. In addition, if you prefer, you can use certificates generated by the system itself.'
+        ],
+        [
+            'question' => 'What is the difference between digital and electronic signatures?',
+            'answer' => 'A digital signature uses a digital certificate, which provides greater security and legal validity. Electronic signatures, on the other hand, are made in other ways, such as by e-mail or cell phone, and also have legal validity, depending on the context.'
+        ],
+        [
+            'question' => 'Is LibreSign compatible with mobile devices?',
+            'answer' => 'Yes, you can use LibreSign directly from your smartphone or tablet by simply accessing the browser. This allows you to sign your documents from anywhere.'
+        ],
+        [
+            'question' => 'Is it possible to integrate LibreSign with other systems?',
+            'answer' => 'Yes. LibreSign provides a full REST API that allows you to integrate the platform with other systems, helping automate signing processes and make workflows more agile.'
+        ],
+        [
+            'question' => 'Can LibreSign be used by public sector organizations?',
+            'answer' => 'Yes. LibreSign can support public sector workflows that require traceability, document integrity, and self-hosted infrastructure, depending on the organization\'s legal and technical requirements.'
+        ],
+        [
+            'question' => 'How can I adopt LibreSign for my organization?',
+            'answer' => 'LibreSign is free and open source — you can self-host it on your own Nextcloud instance at no cost. If you prefer a managed deployment or support, our team can help you choose the right setup for your organization.'
+        ],
+        [
+            'question' => 'Does LibreSign offer technical support?',
+            'answer' => 'Yes, our support team is ready to help you with the configuration and with any questions or problems you may have.'
+        ],
+        [
+            'question' => 'How are documents signed in LibreSign?',
+            'answer' => 'It is very simple! All you have to do is upload the document to the platform, choose who is going to sign it and select the form of signature (digital or electronic). The system will record everything and ensure that the process is secure and traceable.'
+        ],
+        [
+            'question' => 'Does LibreSign time-stamp documents?',
+            'answer' => 'LibreSign records signing events and timestamps as part of the signing workflow. The legal weight of those timestamps may depend on configuration and applicable law.'
+        ],
     ],
     'getFromCategory' => function($page, $category) {
         $files = array_merge(
             glob('source/_posts/*'),
-            glob('source/_posts/' . \App\Listeners\PrepareTranslationFiles::TEMP_DIRECTORY_NAME . '/*'),
+            glob('source/_posts/_translated_tmp/*'),
         );
         $parser = new Parser(
             markdownParser: new MarkdownParser()
@@ -154,14 +342,35 @@ return [
             }
             if (isset($post['categories']) && is_array($post['categories']) && in_array($category, $post['categories'])) {
                 if (!empty($post['original_title'])) {
-                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['original_title']));
+                    $post['url'] = locale_url($page, 'posts/' . Str::slug($post['original_title']));
                 } else {
-                    $post['url'] = locale_url($page, $page->baseUrl . 'posts/' . Str::slug($post['title']));
+                    $post['url'] = locale_url($page, 'posts/' . Str::slug($post['title']));
+                }
+                // Resolve cover_image if not in front matter (mirrors posts.map logic)
+                if (empty($post['cover_image'])) {
+                    $slug = Str::slug($post['original_title'] ?? $post['title'] ?? '');
+                    $paths = [
+                        'assets/images/posts/' . $slug,
+                        'assets/images/posts/' . str_replace($current_path_locale . '_', '', $slug),
+                    ];
+                    $coverFound = false;
+                    foreach ($paths as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__ . '/source/' . $p . '/cover.' . $ext)) {
+                                $post['cover_image'] = $page->baseUrl . $p . '/cover.' . $ext;
+                                $coverFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$coverFound) {
+                        $post['cover_image'] = $page->baseUrl . 'assets/images/logo/logo.svg';
+                    }
                 }
                 $posts[] = $post;
             }
         }
-        return $posts;
+        return array_map(fn($p) => (object) $p, $posts);
     },
     'mergeCollections' => function ($page, ...$collections) {
         $merged = collect();
@@ -238,6 +447,18 @@ return [
                     'to' => '/',
                 ],
                 [
+                    'from' => '/blog',
+                    'to' => '/posts',
+                ],
+                [
+                    'from' => '/solutions',
+                    'to' => '/features',
+                ],
+                [
+                    'from' => '/support',
+                    'to' => '/contact-us',
+                ],
+                [
                     'from' => '/termos-e-condicoes',
                     'to' => '/',
                 ],
@@ -257,45 +478,43 @@ return [
                 }
                 return 'posts/' . Str::slug($page->title);
             },
-            'author' => 'LibreSign',
-            'map' => function ($post) {
+            'author' => 'LibreCode',
+            'sort' => '-date',
+            'map' => function ($post) use ($authorGravatars) {
                 $postLang = current_path_locale($post);
                 $path = 'assets/images/posts/'.$post->getFilename();
                 $alternativePath = 'assets/images/posts/'. str_replace($postLang . '_', '', $post->getFilename());
-                $items = $post->get('collections')->get('team')->get('items');
-                $author = array_filter($items->all(), function($author) use ($post){
-                    return $author->name === $post->author;
-                });
-
-                if(!empty($author)){
-                    $author = current($author);
-                    $post->set('gravatar', $author->gravatar);
+                if (!empty($authorGravatars[$post->author] ?? null)) {
+                    $post->set('gravatar', $authorGravatars[$post->author]);
                 }
-
                 if(empty($post->cover_image)){
-                    if(file_exists(__DIR__.'/source/'.$path.'/cover.jpg')){
-                        $post->set('cover_image',$post->baseUrl.$path.'/cover.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$path.'/cover.png')){
-                        $post->set('cover_image',$post->baseUrl.$path.'/cover.png');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.jpg')){
-                        $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/cover.png')){
-                        $post->set('cover_image',$post->baseUrl.$alternativePath.'/cover.png');
-                    } else {
+                    $coverFound = false;
+                    foreach ([$path, $alternativePath] as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__.'/source/'.$p.'/cover.'.$ext)) {
+                                $post->set('cover_image', $post->baseUrl.$p.'/cover.'.$ext);
+                                $coverFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$coverFound) {
                         $post->set('cover_image',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
 
                 if(empty($post->banner)){
-                    if(file_exists(__DIR__.'/source/'.$path.'/banner.jpg')){
-                        $post->set('banner',$post->baseUrl.$path.'/banner.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$path.'/banner.png')){
-                        $post->set('banner',$post->baseUrl.$path.'/banner.png');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.jpg')){
-                        $post->set('banner',$post->baseUrl.$alternativePath.'/banner.jpg');
-                    } elseif(file_exists(__DIR__.'/source/'.$alternativePath.'/banner.png')){
-                        $post->set('banner',$post->baseUrl.$alternativePath.'/banner.png');
-                    } else {
+                    $bannerFound = false;
+                    foreach ([$path, $alternativePath] as $p) {
+                        foreach (['jpg', 'png', 'webp'] as $ext) {
+                            if (file_exists(__DIR__.'/source/'.$p.'/banner.'.$ext)) {
+                                $post->set('banner', $post->baseUrl.$p.'/banner.'.$ext);
+                                $bannerFound = true;
+                                break 2;
+                            }
+                        }
+                    }
+                    if (!$bannerFound) {
                         $post->set('banner',$post->baseUrl.'assets/images/logo/logo.svg');
                     }
                 }
@@ -306,7 +525,7 @@ return [
         'posts_wordpress' => [
             'extends' => '_layouts.post_wordpress',
             'path' => function($page) {
-                foreach ($page->locales as $localeCode => $localeName) {
+                foreach ($page->locales() as $localeCode => $localeName) {
                     if ($localeCode === $page->lang) {
                         return $page->lang . '/posts/' . $page->slug;
                     } elseif ($localeCode === $page->langSlug) {
@@ -376,45 +595,40 @@ return [
                 return 'team/' . Str::slug($page->name);
             },
             'extends' => '_layouts.team-member',
-            'items' => [
-                [
-                    'name' => 'Crisciany Silva',
-                    'gravatar' => 'f2f64ea713b5c39cb64268a0eda7e022',
-                    'bio' => 'I\'m a Developer. I currently study the PHP language with a focus on the Laravel framework. I have professional experience in PHP on a web-oriented system and some system maintenance such as screen creation, reports with jasper reports and mpdf and system versioning with git.',
-                    'role' => 'Software Engineer',
-                    'social' => [
-                        'github' => 'https://github.com/Any97Cris',
-                        'linkedin' => 'https://www.linkedin.com/in/criscianysilva/'
-                    ],
-                ],
-                [
-                    'name' => 'Daiane Alves',
-                    'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee' ,
-                    'bio' => '',
-                    'role' => '',
-                    'social' => [
-                        'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
-                    ]
-                ],
-                [
-                    'name' => 'Vitor Mattos',
-                    'gravatar' => '2656fb55188f5a28ee7a99db0b9e6d8f4b91c7f6b88eead05c57386a3a05ff49' ,
-                    'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
-                    'role' => 'CTO',
-                    'social' => [
-                        'linkedin' => 'https://www.linkedin.com/in/vitormattos/',
-                    ]
-                ],
-                [
-                    'name' => 'LibreSign',
-                    'gravatar' => '/source/assets/images/logo/Avatar-LibreSign.png' ,
-                    'bio' => '',
-                    'role' => 'Cooperativa',
-                    'social' => [
-                        'linkedin' => 'https://www.linkedin.com/company/libresign/posts/?feedView=all',
-                    ]
-                ],
-            ],
+            'items' => $teamMembers,
+        ],
+        'categories' => [
+            'path' => function($page) {
+                return 'category/' . $page->slug;
+            },
+            'extends' => '_layouts.category-page',
+            'items' => (function() use ($categoryPageBlocklist) {
+                $files = array_merge(
+                    glob('source/_posts/*.md') ?: [],
+                    glob('source/_posts/_tmp/*.md') ?: [],
+                );
+                $parser = new Parser(markdownParser: new MarkdownParser());
+                $fp     = new FrontMatterParser($parser);
+
+                $seen = [];
+                foreach ($files as $file) {
+                    if (!is_file($file)) {
+                        continue;
+                    }
+                    $fm = $fp->getFrontMatter(file_get_contents($file));
+                    foreach ($fm['categories'] ?? [] as $cat) {
+                        $cat = trim((string) $cat);
+                        $slug = Str::slug($cat);
+                        if ($slug && !in_array($slug, $categoryPageBlocklist, true) && !isset($seen[$slug])) {
+                            $seen[$slug] = [
+                                'slug'  => $slug,
+                                'label' => Str::headline(str_replace(['-', '_'], ' ', $cat)),
+                            ];
+                        }
+                    }
+                }
+                return array_values($seen);
+            })(),
         ],
     ],
 ];
