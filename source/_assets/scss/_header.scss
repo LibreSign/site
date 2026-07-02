@@ -7,8 +7,8 @@
   top: 0;
   z-index: 999;
   padding: 12px 24px;
-  background-color: var(--secondary-color);
-  color: var(--color-dark);
+  background-color: var(--amber);
+  color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
   border-radius: 0 0 8px 0;
@@ -140,14 +140,16 @@
       &.active:not(.link-button),
       &.show:not(.link-button) {
         color: var(--white);
-        opacity: 0.5;
+        opacity: 0.75;
+        text-decoration: underline;
+        text-underline-offset: 6px;
       }
     }
 
     &:hover {
       & > .nav-link:not(.link-button) {
         color: var(--white);
-        opacity: 0.5;
+        opacity: 0.75;
       }
     }
 
@@ -245,8 +247,8 @@
     }
 
     .link-button {
-      background-color: var(--secondary-color);
-      color: var(--color-dark);
+      background-color: var(--amber);
+      color: var(--primary-color);
       height: 38px;
       border-radius: 32px;
       font-weight: 600;
@@ -267,16 +269,8 @@
       }
 
       &:hover {
-        color: var(--color-dark);
-        filter: brightness(1.25);
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        inset: 4px;
-        border: 1px solid var(--focus-color);
-        border-radius: 20px;
+        background-color: var(--amber-hover);
+        color: var(--primary-color);
       }
     }
   }
@@ -358,7 +352,7 @@
 
     &:hover,
     &.show {
-      opacity: 0.5;
+      opacity: 0.75;
     }
   }
 
@@ -393,7 +387,7 @@
       gap: 8px;
 
       &:focus {
-        outline: 2px solid var(--secondary-color);
+        outline: 2px solid var(--focus-color);
         outline-offset: 2px;
         border-radius: 4px;
       }

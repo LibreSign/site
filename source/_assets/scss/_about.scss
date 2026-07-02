@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .ud-about-story {
-  background: #f7fafc;
+  background: var(--bg-light);
   padding: 96px 0;
 
   @media #{$xs, $sm} {
@@ -9,8 +9,8 @@
   }
 
   &__title {
-    color: #2d3748;
-    font-size: clamp(2.2rem, 4.1vw, 3.85rem);
+    color: var(--text-gray);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.14;
@@ -19,7 +19,7 @@
 
   &__text {
     p {
-      color: #4a5568;
+      color: var(--text-muted);
       font-size: 1.02rem;
       line-height: 1.8;
       margin-bottom: 20px;
@@ -38,8 +38,8 @@
 
   &__item {
     align-items: flex-start;
-    background: #fff;
-    border: 1px solid #ececec;
+    background: var(--white);
+    border: 1px solid var(--border-light);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     display: grid;
     gap: 18px;
@@ -54,7 +54,7 @@
   }
 
   &__badge {
-    color: #2d3748;
+    color: var(--text-gray);
     font-size: clamp(1.75rem, 2.6vw, 2.4rem);
     font-weight: 800;
     line-height: 1;
@@ -63,7 +63,7 @@
 
   &__icon {
     align-items: center;
-    background: #d97706;
+    background: var(--accent-color);
     border-radius: 50%;
     display: flex;
     height: 92px;
@@ -87,7 +87,7 @@
 
   &__content {
     h3 {
-      color: #2d3748;
+      color: var(--text-gray);
       font-size: clamp(1.22rem, 1.8vw, 1.6rem);
       font-weight: 700;
       line-height: 1.28;
@@ -95,7 +95,7 @@
     }
 
     p {
-      color: #4a5568;
+      color: var(--text-muted);
       font-size: 0.98rem;
       line-height: 1.7;
       margin: 0;
@@ -104,7 +104,7 @@
 }
 
 .ud-about-values {
-  background: #2d3748;
+  background: var(--surface-dark);
   padding: 88px 0;
 
   @media #{$xs, $sm} {
@@ -112,8 +112,8 @@
   }
 
   &__title {
-    color: #fff;
-    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    color: var(--white);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.16;
     margin-bottom: 52px;
@@ -124,11 +124,11 @@
     background: transparent;
     border: 0;
     box-shadow: none;
-    color: #fff;
+    color: var(--white);
     padding: 0;
 
     &__icon {
-      background: #d97706;
+      background: var(--accent-color);
       height: 110px;
       margin-bottom: 24px;
       width: 110px;
@@ -149,8 +149,8 @@
     }
 
     &__title {
-      color: #fff;
-      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      color: var(--white);
+      font-size: var(--fs-h3-card);
       font-weight: 700;
     }
 
@@ -163,7 +163,7 @@
 }
 
 .ud-about-team {
-  background: #f7fafc;
+  background: var(--bg-light);
   padding: 94px 0;
 
   @media #{$xs, $sm} {
@@ -183,15 +183,15 @@
 
   &__content {
     h2 {
-      color: #2d3748;
-      font-size: clamp(2.05rem, 3.8vw, 3.35rem);
+      color: var(--text-gray);
+      font-size: var(--fs-h2-section);
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 16px;
     }
 
     > p {
-      color: #4a5568;
+      color: var(--text-muted);
       font-size: 1.02rem;
       line-height: 1.76;
       margin-bottom: 24px;
@@ -199,13 +199,13 @@
   }
 
   &__quote {
-    background: #fff;
-    border-left: 4px solid #d97706;
+    background: var(--white);
+    border-left: 4px solid var(--accent-color);
     margin: 0 0 30px;
     padding: 22px 22px 20px;
 
     p {
-      color: #2d3748;
+      color: var(--text-gray);
       font-size: 1.05rem;
       font-style: italic;
       line-height: 1.7;
@@ -214,14 +214,14 @@
 
     footer {
       strong {
-        color: #2d3748;
+        color: var(--text-gray);
         display: block;
         font-size: 1rem;
         font-weight: 700;
       }
 
       span {
-        color: #64748b;
+        color: var(--text-muted);
         display: block;
         font-size: 0.94rem;
         margin-top: 3px;
@@ -231,7 +231,7 @@
 }
 
 .ud-about-cta {
-  background: #2d3748;
+  background: var(--surface-dark);
   padding: 86px 0;
 
   @media #{$xs, $sm} {
@@ -239,8 +239,8 @@
   }
 
   h2 {
-    color: #fff;
-    font-size: clamp(2.1rem, 4vw, 3.5rem);
+    color: var(--white);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 16px;

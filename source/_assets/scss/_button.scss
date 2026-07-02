@@ -52,8 +52,8 @@
 
   &:hover,
   &:focus {
-    background: var(--heading-color);
-    border-color: var(--heading-color);
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
     color: var(--white);
   }
 }
@@ -62,14 +62,14 @@
 .ud-btn-solid-warm {
   @extend %ud-btn-base;
 
-  background: #d97706;
-  border: 1px solid #d97706;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
   color: var(--white);
 
   &:hover,
   &:focus {
-    background: #c56c04;
-    border-color: #c56c04;
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
     color: var(--white);
   }
 }
@@ -78,16 +78,15 @@
 .ud-btn-solid-amber {
   @extend %ud-btn-base;
 
-  background: #ffc107;
-  border: 1px solid #ffc107;
+  background: var(--amber);
+  border: 1px solid var(--amber);
   color: var(--primary-color);
 
   &:hover,
   &:focus {
-    background: #ffc107;
-    border-color: #ffc107;
+    background: var(--amber-hover);
+    border-color: var(--amber-hover);
     color: var(--primary-color);
-    filter: brightness(1.15);
   }
 }
 

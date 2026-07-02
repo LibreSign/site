@@ -7,8 +7,9 @@
   z-index: 1;
   overflow: hidden;
 
-  &>div {
-    margin-bottom: 200px;
+  & > div {
+    padding-top: 32px;
+    padding-bottom: 64px;
   }
 }
 
@@ -322,7 +323,7 @@
       }
 
       &:hover .social-icon {
-        color: var(--focus-color);
+        color: var(--amber);
       }
 
       &:focus {
@@ -360,14 +361,14 @@
       border-radius: 4px;
 
       &:hover {
-        color: var(--focus-color);
+        color: var(--amber);
         padding-left: 10px;
       }
 
       &:focus {
         outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        color: var(--focus-color);
+        color: var(--amber);
         padding-left: 8px;
       }
 
@@ -380,7 +381,7 @@
       &:focus-visible {
         outline: 3px solid var(--focus-color);
         outline-offset: 2px;
-        color: var(--focus-color);
+        color: var(--amber);
         padding-left: 8px;
       }
     }
@@ -440,7 +441,7 @@
       }
 
       &:hover {
-        color: var(--focus-color);
+        color: var(--amber);
       }
     }
   }
@@ -452,10 +453,12 @@
     color: var(--text-footer);
 
     a {
-      color: var(--primary-color);
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 3px;
 
       &:hover {
-        text-decoration: underline;
+        color: var(--amber);
       }
     }
 

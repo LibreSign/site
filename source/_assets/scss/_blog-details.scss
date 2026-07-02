@@ -78,7 +78,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 28px;
-      color: #ffffff;
+      color: var(--white);
     }
 
     a {
@@ -101,7 +101,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 28px;
-      color: #ffffff;
+      color: var(--white);
       margin-right: 30px;
 
       &:last-child {
@@ -394,14 +394,16 @@
     }
 
     .ud-main-btn {
-      background: #13c296;
+      background: var(--amber);
+      color: var(--primary-color);
       box-shadow: 0px 4px 42px rgba(0, 0, 0, 0.01);
       border-radius: 5px;
       width: 100%;
       margin-bottom: 24px;
 
       &:hover {
-        background: var(--heading-color);
+        background: var(--amber-hover);
+        color: var(--primary-color);
       }
     }
 
@@ -437,7 +439,7 @@
   .ud-articles-list {
     li {
       padding: 20px 0;
-      border-bottom: 1px solid #f2f3f8;
+      border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
 

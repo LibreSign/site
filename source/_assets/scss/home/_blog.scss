@@ -10,14 +10,14 @@
 
   .ud-home-section__title {
     color: var(--ud-home-highlight-color);
-    font-size: clamp(2rem, 3vw, 3.5rem);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.12;
   }
 
   .ud-home-section__subtitle {
-    color: #4b4b4b;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 0;
@@ -74,7 +74,7 @@
 
   &__frame {
     aspect-ratio: 465 / 275;
-    background: #f3f6f8;
+    background: var(--bg-light);
     display: block;
     overflow: hidden;
 
@@ -94,7 +94,7 @@
 
   &__category {
     align-items: center;
-    background: #ffc928;
+    background: var(--amber);
     border-radius: 999px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
     color: var(--ud-home-highlight-color);
@@ -116,7 +116,7 @@
 
     &:hover,
     &:focus {
-      background: #ffb700;
+      background: var(--amber-hover);
       color: var(--ud-home-highlight-color);
       transform: translateY(-32%) scale(1.04);
     }
@@ -188,14 +188,14 @@
   }
 
   &__excerpt {
-    color: #4f4f4f;
+    color: var(--text-muted);
     font-size: 16px;
     line-height: 1.78;
     margin: 0;
   }
 
   &__link {
-    color: #0f8777;
+    color: var(--primary-color);
     font-size: 16px;
     font-weight: 700;
     line-height: 1.2;

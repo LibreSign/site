@@ -151,7 +151,7 @@
 // Usage: cardClass => 'ud-card--outlined'
 // ─────────────────────────────────────────────────────────────
 .ud-card--outlined {
-  border: 1px solid #ececec;
+  border: 1px solid var(--border-light);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
   padding: 40px 34px 42px;
 
@@ -160,7 +160,7 @@
   }
 
   .ud-card__icon {
-    background: #d97706;
+    background: var(--accent-color);
     height: 240px;
     margin-bottom: 30px;
     width: 240px;
@@ -188,14 +188,14 @@
   }
 
   .ud-card__title {
-    color: #2d3748;
-    font-size: clamp(1.85rem, 2.2vw, 2.25rem);
+    color: var(--text-gray);
+    font-size: var(--fs-h3-card);
     font-weight: 700;
     line-height: 1.2;
   }
 
   .ud-card__body p {
-    color: #4a5568;
+    color: var(--text-muted);
     font-size: 1.02rem;
     line-height: 1.75;
   }
@@ -210,7 +210,7 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
-  color: #fff;
+  color: var(--white);
   padding: 28px 26px 32px;
 
   .ud-card__header {
@@ -219,7 +219,7 @@
   }
 
   .ud-card__title {
-    color: #fff;
+    color: var(--white);
     font-size: 1.15rem;
     font-weight: 700;
   }
@@ -254,7 +254,7 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
-  color: #fff;
+  color: var(--white);
   padding: 20px 20px 28px;
 
   .ud-card__header {
@@ -263,7 +263,7 @@
   }
 
   .ud-card__title {
-    color: #fff;
+    color: var(--white);
     font-size: 1.15rem;
     font-weight: 700;
   }
@@ -298,10 +298,10 @@
 // across every page-specific SCSS file.
 //
 // .ud-page-section       — light grey bg, standard inner-page section
-// .ud-page-section--dark — dark (#2d3748) bg, white text
+// .ud-page-section--dark — dark brand-teal bg, white text
 // ─────────────────────────────────────────────────────────────
 .ud-page-section {
-  background: #f7fafc;
+  background: var(--bg-light);
   padding: 96px 0;
 
   @media #{$xs, $sm} {
@@ -309,32 +309,28 @@
   }
 
   .ud-home-section__title {
-    color: #2d3748;
-    font-size: clamp(2.35rem, 4.2vw, 4rem);
+    color: var(--text-gray);
+    font-size: var(--fs-h2-section);
     line-height: 1.15;
     margin-bottom: 22px;
   }
 
   .ud-home-section__subtitle {
-    color: #4a5568;
+    color: var(--text-muted);
     font-size: 1.03rem;
     line-height: 1.72;
     margin-bottom: 56px;
   }
 
-  .ud-home-section__actions {
-    margin-top: 52px;
-  }
-
-  // Standard pill CTA — shape now from .ud-btn-primary via _button.scss
+  // Standard pill CTA — shape from the ud-btn system in _button.scss
   .ud-home-section__actions {
     margin-top: 52px;
   }
 }
 
 .ud-page-section--dark {
-  background: #2d3748;
-  color: #fff;
+  background: var(--surface-dark);
+  color: var(--white);
   padding: 88px 0;
 
   @media #{$xs, $sm} {
@@ -354,8 +350,8 @@
   }
 
   .ud-home-section__title {
-    color: #fff;
-    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    color: var(--white);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.16;
     margin-bottom: 20px;
