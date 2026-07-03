@@ -17,14 +17,14 @@
   }
 
   .ud-home-section__title {
-    color: #2d3748;
-    font-size: clamp(3rem, 5vw, 4.65rem);
+    color: var(--text-gray);
+    font-size: var(--fs-h2-section);
     letter-spacing: -0.03em;
     line-height: 1.12;
   }
 
   .ud-home-section__subtitle {
-    color: #4a5568;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 56px;
@@ -40,11 +40,11 @@
   }
 
   .ud-card--outlined .ud-card__title {
-    font-size: clamp(2rem, 2.4vw, 2.25rem);
+    font-size: var(--fs-h3-card);
   }
 
   .ud-card--outlined .ud-card__icon {
-    background: #e67e00;
+    background: var(--accent-color);
     height: 340px;
     margin-bottom: 36px;
     width: 340px;
@@ -75,7 +75,7 @@
 }
 
 .ud-ps-process {
-  background: #2d3748;
+  background: var(--surface-dark);
   padding: 88px 0;
 
   @media #{$xs, $sm} {
@@ -84,7 +84,7 @@
 
   &__title {
     color: var(--white);
-    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 28px;
@@ -147,7 +147,7 @@
 
   &__title {
     color: var(--white);
-    font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+    font-size: var(--fs-h3-card);
     font-weight: 700;
     line-height: 1.18;
     margin-bottom: 24px;

@@ -1,7 +1,7 @@
 @use "../variables" as *;
 
 .ud-home-challenges {
-  background-color: #f9f9f9;
+  background-color: var(--bg-light);
 
   .ud-home-section {
     &__title {
@@ -9,7 +9,7 @@
     }
 
     &__subtitle {
-      color: #333333;
+      color: var(--text-gray);
     }
   }
 
@@ -22,7 +22,7 @@
     }
 
     &__icon {
-      background-color: #ffc107;
+      background-color: var(--amber);
       height: 170px;
       margin-bottom: 32px;
       width: 170px;
@@ -49,21 +49,7 @@
 
     &__body {
       p {
-        color: #333333;
-      }
-    }
-
-    &__actions {
-      .ud-main-btn {
-        background-color: #00796b;
-        border-color: #00796b;
-        color: var(--white);
-
-        &:hover {
-          background-color: #00685d;
-          border-color: #00685d;
-          color: var(--white);
-        }
+        color: var(--text-gray);
       }
     }
   }

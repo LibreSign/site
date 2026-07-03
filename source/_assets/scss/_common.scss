@@ -14,13 +14,18 @@
   --font: "Montserrat", sans-serif;
 
   --primary-color: #184c4e;
-  --primary-dark: #13c296;
+  --primary-hover: #0f3739;
+  --primary-dark: #0b5f55;
+  --surface-dark: #123c40; // dark brand sections & heroes
   --secondary-color: #00a3be;
   --accent-color: #d97706;
+  --accent-hover: #b45309;
+  --amber: #ffc107;
+  --amber-hover: #ffb300;
 
-  --color-dark: #263238;
+  --color-dark: #263238; // header/footer chrome
   --heading-color: #212b36;
-  --body-color: #000000;
+  --body-color: #2d3748;
   --white: #ffffff;
   --text-light: #f5f5f5;
   --text-gray: #2d3748;
@@ -30,20 +35,50 @@
 
   --bg-light: #f7fafc;
   --bg-hover: rgba(0, 219, 255, 0.1);
+  --tint-teal: #e3efec; // soft brand tint for avatars/badges
 
-  --border-light: #d4deff;
+  --border-light: #e2e8f0;
   --border-footer: rgba(136, 144, 164, 0.43);
-  --border-input: #f1f1f1;
+  --border-input: #8b99a8;
 
-  --focus-color: #00dbff;
+  // Cyan is reserved for the focus ring on dark surfaces — never an accent.
+  --focus-color-light: #005e54;
+  --focus-color-dark: #00dbff;
+  --focus-color: var(--focus-color-light);
   --success-color: #2ecc71;
   --warning-color: #ffc107;
-  --star-color: #fbb040;
-  --error-color: #ff7d7d;
+  --star-color: #ffc107;
+  --error-color: #c62828;
 
   --color-gray: #afb2b5;
   --color-light-muted: #cdced6;
   --shadow-light: #ebeffd;
+
+  --fs-display: clamp(2.25rem, 4.5vw, 4rem); // page hero h1
+  --fs-h2-section: clamp(2rem, 3.4vw, 3rem); // section titles
+  --fs-h3-card: clamp(1.5rem, 2vw, 1.9rem); // card titles
+}
+
+.ud-header,
+.ud-footer,
+.ud-hero,
+.ud-page-banner,
+.ud-page-section--dark,
+.ud-home-cta,
+.back-to-top,
+#footer-contact,
+.ud-about-values,
+.ud-about-cta,
+.ud-features-cta,
+.ud-coop-dna,
+.ud-ps-process {
+  --focus-color: var(--focus-color-dark);
+}
+
+// White dropdowns floating over the dark header
+.ud-header .ud-nav-submenu,
+.ud-header .ud-submenu {
+  --focus-color: var(--focus-color-light);
 }
 
 body {
@@ -72,19 +107,23 @@ textarea {
 }
 
 a,
-a:focus,
-input:focus,
-textarea:focus,
-button:focus,
-.navbar-toggler:focus {
-  text-decoration: none;
-  outline: none;
-  box-shadow: none;
-}
-
-a:focus,
 a:hover {
   text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 i,
@@ -115,10 +154,10 @@ h6 {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: clamp(34px, 4vw, 48px);
 }
 h2 {
-  font-size: 36px;
+  font-size: clamp(28px, 3vw, 36px);
 }
 h3 {
   font-size: 28px;
@@ -156,6 +195,22 @@ p {
 }
 
 /*===== Accessibility =====*/
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 .visually-hidden {
   position: absolute !important;

@@ -14,7 +14,7 @@
 }
 
 .ud-cs-testimonials {
-  background: #2d3748;
+  background: var(--surface-dark);
   padding: 88px 0;
 
   @media #{$xs, $sm} {
@@ -23,7 +23,7 @@
 
   &__title {
     color: #fff;
-    font-size: clamp(2.3rem, 4vw, 3.65rem);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.16;
     margin-bottom: 24px;

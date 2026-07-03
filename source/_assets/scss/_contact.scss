@@ -134,7 +134,7 @@
 
 .ud-contact-sales {
   padding: 90px 0 86px;
-  background: #eceff1;
+  background: var(--bg-light);
 
   @media #{$xs, $sm} {
     padding: 60px 0;
@@ -164,7 +164,7 @@
     }
 
     .contact-subtitle {
-      color: #4a5568;
+      color: var(--text-muted);
       font-size: 1.125rem;
       line-height: 1.6;
       margin-bottom: 46px;
@@ -185,7 +185,7 @@
       margin: 0;
 
       li {
-        color: #2d3748;
+        color: var(--text-gray);
         font-size: 1.25rem;
         line-height: 1.55;
         margin-bottom: 20px;
@@ -194,7 +194,7 @@
 
         &:before {
           content: "●";
-          color: #d97706;
+          color: var(--accent-color);
           font-size: 0.7em;
           position: absolute;
           left: 0;
@@ -202,7 +202,7 @@
         }
 
         strong {
-          color: #2d3748;
+          color: var(--text-gray);
           font-weight: 700;
         }
       }
@@ -214,10 +214,10 @@
   }
 
   .contact-form-wrapper {
-    background: #efefef;
-    border: 1px solid #d4d4d4;
-    border-radius: 0;
-    box-shadow: none;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.05);
     padding: 30px;
 
     @media #{$xs} {
@@ -235,7 +235,7 @@
       margin-bottom: 18px;
 
       label {
-        color: #475569;
+        color: var(--text-muted);
         font-size: 1rem;
         font-weight: 500;
         margin-bottom: 6px;
@@ -244,10 +244,10 @@
 
       input,
       textarea {
-        background: #d9d9d9;
-        border: 1px solid #d9d9d9;
-        border-radius: 0;
-        color: #2f3b51;
+        background: var(--white);
+        border: 1px solid var(--border-input);
+        border-radius: 8px;
+        color: var(--text-gray);
         font-size: 1.05rem;
         min-height: 56px;
         padding: 11px 18px;
@@ -259,9 +259,8 @@
         }
 
         &:focus {
-          background: #fff;
-          border-color: #c2c9d3;
-          box-shadow: 0 0 0 2px rgba(47, 59, 81, 0.08);
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 3px rgba(24, 76, 78, 0.15);
           outline: none;
         }
       }

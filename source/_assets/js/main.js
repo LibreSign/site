@@ -2,11 +2,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'animate.css';
 
 import AOS from 'aos';
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 AOS.init({
   duration: 800,
   easing: 'ease-in-out-quart',
   once: true,
-  disable: 'mobile'
+  disable: prefersReducedMotion || 'mobile'
 });
 
 (function () {
@@ -36,9 +37,11 @@ AOS.init({
       if (shouldShow) {
         backToTop.classList.add("visible");
         backToTop.setAttribute("aria-hidden", "false");
+        backToTop.removeAttribute("tabindex");
       } else {
         backToTop.classList.remove("visible");
         backToTop.setAttribute("aria-hidden", "true");
+        backToTop.setAttribute("tabindex", "-1");
       }
     }
 
@@ -46,9 +49,11 @@ AOS.init({
       if (shouldShow) {
         footerContact.classList.add("visible");
         footerContact.setAttribute("aria-hidden", "false");
+        footerContact.setAttribute("tabindex", "0");
       } else {
         footerContact.classList.remove("visible");
         footerContact.setAttribute("aria-hidden", "true");
+        footerContact.setAttribute("tabindex", "-1");
       }
     }
   }

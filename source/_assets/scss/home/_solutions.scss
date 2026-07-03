@@ -9,7 +9,7 @@
     }
 
     &__subtitle {
-      color: #3d4a5c;
+      color: var(--text-muted);
       font-size: 18px;
     }
   }
@@ -71,27 +71,6 @@
       margin-bottom: 25px;
 
       p { color: var(--text-muted); }
-    }
-
-    &__actions {
-      .ud-main-btn {
-        background: transparent;
-        border: 2px solid var(--primary-color);
-        border-radius: 18px;
-        color: var(--primary-color);
-        font-size: 14px;
-        min-height: 64px;
-
-        @media #{$xs, $sm} {
-          font-size: 13px;
-          min-height: 56px;
-        }
-
-        &:hover {
-          background-color: rgba(24, 76, 78, 0.08);
-          color: var(--primary-color);
-        }
-      }
     }
   }
 }

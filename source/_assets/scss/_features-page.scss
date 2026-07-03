@@ -19,15 +19,15 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--secondary-color);
+      color: var(--primary-hover);
       text-decoration: underline;
     }
   }
 }
 
 .ud-features-cta {
-  background: #2d3748;
-  color: #fff;
+  background: var(--surface-dark);
+  color: var(--white);
   padding: 88px 0;
 
   @media #{$xs, $sm} {
@@ -35,8 +35,8 @@
   }
 
   &__title {
-    color: #fff;
-    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    color: var(--white);
+    font-size: var(--fs-h2-section);
     font-weight: 800;
     line-height: 1.16;
     margin-bottom: 20px;

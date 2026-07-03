@@ -2,7 +2,7 @@
 
 .ud-home-section__title {
   color: var(--ud-home-section-title-color);
-  font-size: clamp(2.35rem, 4vw, 4rem);
+  font-size: var(--fs-h2-section);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.15;

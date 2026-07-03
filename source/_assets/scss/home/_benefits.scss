@@ -9,7 +9,7 @@
     }
 
     &__icon {
-      background-color: #f3f4fe;
+      background-color: var(--bg-light);
 
       img {
         height: 108px;
@@ -18,20 +18,6 @@
         @media #{$xs, $sm} {
           height: 84px;
           width: 84px;
-        }
-      }
-    }
-
-    &__actions {
-      .ud-main-btn {
-        background-color: transparent;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
-
-        &:hover {
-          background-color: rgba(24, 76, 78, 0.08);
-          border-color: var(--primary-color);
-          color: var(--primary-color);
         }
       }
     }
