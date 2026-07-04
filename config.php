@@ -1,5 +1,7 @@
 <?php
 
+use App\Support\Pricing\WooCommerceAuthHeadersBuilder;
+use App\Support\Pricing\WooCommerceProductCollection;
 use Illuminate\Support\Str;
 use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -42,6 +44,14 @@ $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 
 // Categories that are used as internal filters and should NOT get a dedicated page.
 $categoryPageBlocklist = ['featured'];
+
+$wooCommerceConsumerKey = getenv('WC_CONSUMER_KEY') ?: null;
+$wooCommerceConsumerSecret = getenv('WC_CONSUMER_SECRET') ?: null;
+
+$wooCommerceAuthenticatedHeaders = (new WooCommerceAuthHeadersBuilder())
+    ->build($wooCommerceConsumerKey, $wooCommerceConsumerSecret);
+
+$wooCommerceProductCollection = new WooCommerceProductCollection($wooCommerceAuthenticatedHeaders);
 
 return [
     'production' => false,
@@ -593,6 +603,9 @@ return [
                     return $data;
                 });
             },
+        ],
+        'products_wordpress' => [
+            'items' => fn ($page) => $wooCommerceProductCollection->items($page),
         ],
         'team' => [
             'path' => function($page){
