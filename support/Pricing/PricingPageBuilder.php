@@ -10,12 +10,15 @@ final class PricingPageBuilder
 {
     public function build(iterable $products, ?string $currentLocale, ?string $defaultLocale): array
     {
+        $currentLocaleVariants = $this->localeVariants($currentLocale);
+        $defaultLocaleVariants = $this->localeVariants($defaultLocale);
+
         $productGroups = collect($products)
             ->groupBy(fn ($product) => $product->translationGroup ?? (string) ($product->id ?? $product->slug ?? ''))
             ->map(fn ($group) => collect($group)->values());
 
         $orderedProductEntries = $productGroups
-            ->map(fn (Collection $group) => $this->buildProductEntry($group, $currentLocale, $defaultLocale))
+            ->map(fn (Collection $group) => $this->buildProductEntry($group, $currentLocaleVariants, $defaultLocaleVariants))
             ->filter()
             ->sort(fn (array $leftEntry, array $rightEntry) => $this->compareProductEntries($leftEntry, $rightEntry))
             ->values();
@@ -53,10 +56,10 @@ final class PricingPageBuilder
 
     private function buildProductEntry(
         Collection $group,
-        ?string $currentLocale,
-        ?string $defaultLocale,
+        array $currentLocaleVariants,
+        array $defaultLocaleVariants,
     ): ?array {
-        $selectedProduct = $this->selectLocalizedProduct($group, $currentLocale, $defaultLocale);
+        $selectedProduct = $this->selectLocalizedProduct($group, $currentLocaleVariants, $defaultLocaleVariants);
 
         if (empty($selectedProduct)) {
             return null;
@@ -65,10 +68,10 @@ final class PricingPageBuilder
         $displayAttributes = $this->mergeDisplayAttributes(
             $this->filterFriendlyAttributes($selectedProduct->attributes ?? []),
             $this->filterFriendlyAttributes(
-                $this->firstMatchingAttributes($group, $currentLocale)?->attributes ?? []
+                $this->firstMatchingAttributes($group, $currentLocaleVariants)?->attributes ?? []
             ),
             $this->filterFriendlyAttributes(
-                $this->firstMatchingAttributes($group, $defaultLocale)?->attributes ?? []
+                $this->firstMatchingAttributes($group, $defaultLocaleVariants)?->attributes ?? []
             ),
             $this->filterFriendlyAttributes(
                 $group->first(fn ($product) => !empty($this->filterFriendlyAttributes($product->attributes ?? [])))?->attributes ?? []
@@ -78,8 +81,8 @@ final class PricingPageBuilder
         $storageAttribute = $this->resolveGroupAttribute(
             $group,
             ['storage', 'storage_available', 'available_storage', 'nextcloud_storage'],
-            $currentLocale,
-            $defaultLocale,
+            $currentLocaleVariants,
+            $defaultLocaleVariants,
         );
 
         return [
@@ -269,40 +272,30 @@ final class PricingPageBuilder
         return strcasecmp((string) ($leftEntry['product']->title ?? ''), (string) ($rightEntry['product']->title ?? ''));
     }
 
-    private function selectLocalizedProduct(Collection $group, ?string $currentLocale, ?string $defaultLocale)
+    private function selectLocalizedProduct(Collection $group, array $currentLocaleVariants, array $defaultLocaleVariants)
     {
-        return $this->bestMatchingProduct($group, $currentLocale)
-            ?? $this->bestMatchingProduct($group, $defaultLocale)
+        return $group->first(fn ($product) => $this->matchesLocale($product, $currentLocaleVariants))
+            ?? $group->first(fn ($product) => $this->matchesLocale($product, $defaultLocaleVariants))
             ?? $group->first();
     }
 
-    private function firstMatchingAttributes(Collection $group, ?string $preferredLocale)
+    private function firstMatchingAttributes(Collection $group, array $targetLocales)
     {
-        return $this->bestMatchingProduct(
-            $group,
-            $preferredLocale,
-            fn ($product) => !empty($this->filterFriendlyAttributes($product->attributes ?? []))
-        );
+        return $group->first(fn ($product) => $this->matchesLocale($product, $targetLocales) && !empty($this->filterFriendlyAttributes($product->attributes ?? [])));
     }
 
-    private function normalizeLocale(?string $locale): ?string
+    private function localeVariants(?string $locale): array
     {
         if (empty($locale)) {
-            return null;
+            return [];
         }
 
-        return strtolower(str_replace('_', '-', trim((string) $locale)));
-    }
+        $baseLocale = explode('-', $locale)[0] ?? null;
 
-    private function localeBase(?string $locale): ?string
-    {
-        $normalizedLocale = $this->normalizeLocale($locale);
-
-        if ($normalizedLocale === null) {
-            return null;
-        }
-
-        return explode('-', $normalizedLocale)[0] ?: null;
+        return array_values(array_unique(array_filter([
+            $locale,
+            $baseLocale,
+        ])));
     }
 
     private function normalizeAttributeName(?string $attributeName): string
@@ -312,56 +305,14 @@ final class PricingPageBuilder
         return trim((string) preg_replace('/[^a-z0-9]+/', '_', $attributeName), '_');
     }
 
-    private function bestMatchingProduct(Collection $group, ?string $preferredLocale, ?callable $predicate = null)
+    private function matchesLocale($product, array $targetLocales): bool
     {
-        $predicate ??= static fn ($product) => true;
-        $bestProduct = null;
-        $bestScore = 0;
-
-        foreach ($group as $product) {
-            if (!$predicate($product)) {
-                continue;
-            }
-
-            $score = $this->localeMatchScore($product, $preferredLocale);
-
-            if ($score > $bestScore) {
-                $bestScore = $score;
-                $bestProduct = $product;
-            }
-        }
-
-        return $bestProduct;
-    }
-
-    private function localeMatchScore($product, ?string $preferredLocale): int
-    {
-        $normalizedPreferredLocale = $this->normalizeLocale($preferredLocale);
-        $preferredBaseLocale = $this->localeBase($preferredLocale);
-
-        if ($normalizedPreferredLocale === null && $preferredBaseLocale === null) {
-            return 0;
-        }
-
-        $productLocales = array_values(array_unique(array_filter([
-            $this->normalizeLocale($product->lang ?? null),
-            $this->normalizeLocale($product->langSlug ?? null),
-        ])));
-
-        if ($normalizedPreferredLocale !== null && in_array($normalizedPreferredLocale, $productLocales, true)) {
-            return 20;
-        }
-
-        $productBaseLocales = array_values(array_unique(array_filter(array_map(
-            fn ($locale) => $this->localeBase($locale),
-            $productLocales,
+        $productLocales = array_values(array_unique(array_filter(array_merge(
+            $this->localeVariants($product->lang ?? null),
+            $this->localeVariants($product->langSlug ?? null),
         ))));
 
-        if ($preferredBaseLocale !== null && in_array($preferredBaseLocale, $productBaseLocales, true)) {
-            return 10;
-        }
-
-        return 0;
+        return !empty(array_intersect($productLocales, $targetLocales));
     }
 
     private function filterFriendlyAttributes(array $attributes): array
@@ -407,13 +358,11 @@ final class PricingPageBuilder
     private function resolveGroupAttribute(
         Collection $group,
         array $candidateNames,
-        ?string $currentLocale,
-        ?string $defaultLocale,
+        array $currentLocaleVariants,
+        array $defaultLocaleVariants,
     ): ?array {
-        $hasMatchingAttributes = fn ($product) => !empty($this->findAttributeByNames($product, $candidateNames)['values'] ?? []);
-
-        $attributeSource = $this->bestMatchingProduct($group, $currentLocale, $hasMatchingAttributes)
-            ?? $this->bestMatchingProduct($group, $defaultLocale, $hasMatchingAttributes)
+        $attributeSource = $group->first(fn ($product) => $this->matchesLocale($product, $currentLocaleVariants) && !empty($this->findAttributeByNames($product, $candidateNames)['values'] ?? []))
+            ?? $group->first(fn ($product) => $this->matchesLocale($product, $defaultLocaleVariants) && !empty($this->findAttributeByNames($product, $candidateNames)['values'] ?? []))
             ?? $group->first(fn ($product) => !empty($this->findAttributeByNames($product, $candidateNames)['values'] ?? []));
 
         return $attributeSource ? $this->findAttributeByNames($attributeSource, $candidateNames) : null;
