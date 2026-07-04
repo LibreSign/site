@@ -4,6 +4,10 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
 ---
 @extends('_layouts.main')
 
+@push('scripts')
+  <script type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/pages/pricing.js') }}"></script>
+@endpush
+
 @section('body')
 
   @php
@@ -120,6 +124,10 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
           <div class="col-lg-12">
             <div class="text-center mb-5">
               <h2 class="display-6 fw-bold mb-0">{{ $page->t('Compare plans') }}</h2>
+            </div>
+
+            <div class="pricing-comparison-sticky-header" aria-hidden="true">
+              <div class="pricing-comparison-sticky-header__viewport"></div>
             </div>
 
             <div

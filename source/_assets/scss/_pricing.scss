@@ -148,6 +148,38 @@
 }
 
 #pricing-comparison {
+  .pricing-comparison-sticky-header {
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.18s ease;
+    visibility: hidden;
+    z-index: 98;
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .pricing-comparison-sticky-header__viewport {
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 14px 28px rgba(15, 110, 86, 0.12);
+    overflow: hidden;
+  }
+
+  .pricing-comparison-sticky-header-table {
+    margin-bottom: 0;
+
+    th {
+      border-top: 0;
+      white-space: normal;
+      word-break: break-word;
+    }
+  }
+
   .pricing-comparison-table {
     min-width: 42rem;
   }
@@ -175,6 +207,10 @@
 
 @media (max-width: 991.98px) {
   #pricing-comparison {
+    .pricing-comparison-sticky-header {
+      z-index: 98;
+    }
+
     .pricing-comparison-shell {
       border: 1px solid #dfe7e2;
       box-shadow: 0 10px 24px rgba(15, 110, 86, 0.08) !important;
