@@ -122,12 +122,15 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
               <h2 class="display-6 fw-bold mb-0">{{ $page->t('Compare plans') }}</h2>
             </div>
 
-            <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+            <div
+              class="bg-white rounded-4 shadow-sm overflow-hidden pricing-comparison-shell"
+              style="--comparison-plan-count: {{ max($comparisonProducts->count(), 1) }};"
+            >
               <div class="table-responsive">
-                <table class="table table-bordered align-middle mb-0" style="min-width: 42rem;">
+                <table class="table table-bordered align-middle mb-0 pricing-comparison-table">
                   <thead class="table-light">
-                    <tr>
-                      <th scope="col" class="position-sticky start-0 bg-light text-uppercase small text-muted" style="min-width: 14rem; z-index: 2;">{{ $page->t('Features') }}</th>
+                    <tr class="pricing-comparison-header-row">
+                      <th scope="col" class="pricing-comparison-feature-column position-sticky start-0 bg-light text-uppercase small text-muted" style="min-width: 14rem; z-index: 2;">{{ $page->t('Features') }}</th>
                       @foreach ($comparisonProducts as $comparisonProduct)
                         @php
                           $comparisonPlanHeaderStyle = $pricingStyleBuilder->buildComparisonHeaderStyle(
@@ -140,14 +143,14 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
                   </thead>
                   <tbody>
                     @foreach ($comparisonFeatureGroups as $comparisonFeatureGroup)
-                      <tr class="table-light">
-                        <th scope="colgroup" colspan="{{ $comparisonProducts->count() + 1 }}" class="position-sticky start-0 bg-light text-uppercase small text-muted" style="z-index: 2;">{{ $page->t($comparisonFeatureGroup['label'] ?? 'Features') }}</th>
+                      <tr class="table-light pricing-comparison-group-row">
+                        <th scope="colgroup" colspan="{{ $comparisonProducts->count() + 1 }}" class="pricing-comparison-group-heading position-sticky start-0 bg-light text-uppercase small text-muted" style="z-index: 2;">{{ $page->t($comparisonFeatureGroup['label'] ?? 'Features') }}</th>
                       </tr>
                       @foreach ($comparisonFeatureGroup['rows'] as $featureRow)
-                        <tr>
-                          <th scope="row" class="position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $featureRow['label'] }}</th>
+                        <tr class="pricing-comparison-data-row">
+                          <th scope="row" class="pricing-comparison-feature-label position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $featureRow['label'] }}</th>
                           @foreach ($featureRow['products'] as $comparisonProduct)
-                            <td class="text-center px-3 py-3">
+                            <td class="pricing-comparison-feature-value text-center px-3 py-3" data-plan-title="{{ $comparisonProduct['title'] }}">
                               @if ($comparisonProduct['included'])
                                 <span class="text-success fw-bold fs-5 lh-1" aria-hidden="true">✓</span>
                                 <span class="visually-hidden">{{ $page->t('Included') }}</span>
@@ -162,23 +165,23 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
                     @endforeach
 
                     @if ($detailRows->isNotEmpty())
-                      <tr class="table-light">
-                        <th scope="colgroup" colspan="{{ $comparisonProducts->count() + 1 }}" class="position-sticky start-0 bg-light text-uppercase small text-muted" style="z-index: 2;">{{ $page->t('Plan details') }}</th>
+                      <tr class="table-light pricing-comparison-group-row">
+                        <th scope="colgroup" colspan="{{ $comparisonProducts->count() + 1 }}" class="pricing-comparison-group-heading position-sticky start-0 bg-light text-uppercase small text-muted" style="z-index: 2;">{{ $page->t('Plan details') }}</th>
                       </tr>
                     @endif
 
                     @foreach ($detailRows as $row)
-                      <tr>
-                        <th scope="row" class="position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $row['label'] }}</th>
+                      <tr class="pricing-comparison-data-row">
+                        <th scope="row" class="pricing-comparison-feature-label position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $row['label'] }}</th>
                         @foreach ($row['products'] as $comparisonProduct)
-                          <td class="px-3 py-3">
+                          <td class="pricing-comparison-detail-value px-3 py-3" data-plan-title="{{ $comparisonProduct['title'] }}">
                             @if (!empty($comparisonProduct['values']))
                               @if (count($comparisonProduct['values']) === 1)
                                 <span class="fw-semibold">{{ $comparisonProduct['values'][0] }}</span>
                               @else
-                                <ul class="list-unstyled mb-0">
+                                <ul class="pricing-comparison-detail-list list-unstyled mb-0">
                                   @foreach ($comparisonProduct['values'] as $value)
-                                    <li class="d-flex mb-2">
+                                    <li class="pricing-comparison-detail-item d-flex mb-2">
                                       <span class="me-2 text-primary">•</span>
                                       <span>{{ $value }}</span>
                                     </li>
