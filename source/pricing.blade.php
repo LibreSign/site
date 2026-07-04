@@ -158,7 +158,7 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
                         <tr class="pricing-comparison-data-row">
                           <th scope="row" class="pricing-comparison-feature-label position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $featureRow['label'] }}</th>
                           @foreach ($featureRow['products'] as $comparisonProduct)
-                            <td class="pricing-comparison-feature-value text-center px-3 py-3" data-plan-title="{{ $comparisonProduct['title'] }}">
+                            <td class="pricing-comparison-feature-value text-center px-3 py-3">
                               @if ($comparisonProduct['included'])
                                 <span class="text-success fw-bold fs-5 lh-1" aria-hidden="true">✓</span>
                                 <span class="visually-hidden">{{ $page->t('Included') }}</span>
@@ -182,7 +182,7 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
                       <tr class="pricing-comparison-data-row">
                         <th scope="row" class="pricing-comparison-feature-label position-sticky start-0 bg-white fw-semibold" style="min-width: 14rem; z-index: 1;">{{ $row['label'] }}</th>
                         @foreach ($row['products'] as $comparisonProduct)
-                          <td class="pricing-comparison-detail-value px-3 py-3" data-plan-title="{{ $comparisonProduct['title'] }}">
+                          <td class="pricing-comparison-detail-value px-3 py-3">
                             @if (!empty($comparisonProduct['values']))
                               @if (count($comparisonProduct['values']) === 1)
                                 <span class="fw-semibold">{{ $comparisonProduct['values'][0] }}</span>
