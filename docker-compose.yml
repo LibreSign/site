@@ -35,3 +35,5 @@ services:
       - CAMPAIGN_ID=${CAMPAIGN_ID:-123}
       - URL_SUITECRM=${URL_SUITECRM:-123}
       - URL_SITE=${URL_SITE:-http://localhost}
+      - WC_CONSUMER_KEY=${WC_CONSUMER_KEY:-}
+      - WC_CONSUMER_SECRET=${WC_CONSUMER_SECRET:-}
