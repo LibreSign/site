@@ -16,6 +16,7 @@ npm-debug.log
 /source/assets/compiled/
 /source/assets/build/
 /source/hot
+/.phpunit.cache/
 
 .env
 docker-compose.override.yml
