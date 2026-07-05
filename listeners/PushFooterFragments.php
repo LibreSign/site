@@ -9,7 +9,7 @@ use TightenCo\Jigsaw\Jigsaw;
 class PushFooterFragments
 {
     private const ASSET_BASE_TOKEN = '__LIBRESIGN_FOOTER_ASSET_BASE_URL__';
-    private const HTML_FRAGMENT_PATTERN = '/fragments/footer/index.html';
+    private const HTML_FRAGMENT_SUFFIX = '/footer/index.html';
 
     public function handle(Jigsaw $jigsaw): void
     {
@@ -85,7 +85,12 @@ class PushFooterFragments
             }
 
             $pathname = str_replace('\\', '/', $fileInfo->getPathname());
-            if (str_ends_with($pathname, self::HTML_FRAGMENT_PATTERN)) {
+            $relativePath = ltrim(str_replace(str_replace('\\', '/', $destinationPath), '', $pathname), '/');
+
+            if (
+                str_starts_with($relativePath, 'fragments/')
+                && str_ends_with($relativePath, self::HTML_FRAGMENT_SUFFIX)
+            ) {
                 $files[] = $pathname;
             }
         }
@@ -130,10 +135,7 @@ class PushFooterFragments
         }
 
         $relativeFragmentPath = ltrim(str_replace(str_replace('\\', '/', $destinationPath), '', $fragmentFile), '/');
-        $locale = '';
-        if (preg_match('#^(.*?)/fragments/footer/index\.html$#', $relativeFragmentPath, $matches)) {
-            $locale = trim((string) ($matches[1] ?? ''), '/');
-        }
+        $locale = $this->extractLocaleFromFragmentPath($relativeFragmentPath);
 
         return [
             'locale' => $locale,
@@ -221,5 +223,24 @@ class PushFooterFragments
         ]);
 
         @file_get_contents($webhookUrl, false, $context);
+    }
+
+    private function extractLocaleFromFragmentPath(string $relativeFragmentPath): string
+    {
+        $normalized = trim(str_replace('\\', '/', $relativeFragmentPath), '/');
+
+        if (! str_starts_with($normalized, 'fragments/')) {
+            return '';
+        }
+
+        $suffix = '/footer/index.html';
+        if (! str_ends_with($normalized, $suffix)) {
+            return '';
+        }
+
+        $candidate = substr($normalized, strlen('fragments/'));
+        $candidate = substr($candidate, 0, -strlen($suffix));
+
+        return trim((string) $candidate, '/');
     }
 }
