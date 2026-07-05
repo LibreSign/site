@@ -47,6 +47,11 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'siteOrigin' => rtrim(
+        getenv('URL_SITE')
+            ?: 'https://' . trim(@file_get_contents('CNAME') ?: 'libresign.coop'),
+        '/'
+    ),
     'form_url' => '/suitecrm-form-middleware/validate.php',
     'url_captcha' => '/suitecrm-form-middleware/captcha.php',
     'url_captcha_audio' => '/suitecrm-form-middleware/audio_captcha.php',
