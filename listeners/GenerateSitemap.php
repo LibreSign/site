@@ -23,6 +23,7 @@ class GenerateSitemap
 
     public function isAsset($path)
     {
-        return str_starts_with($path, '/assets');
+        return str_starts_with($path, '/assets')
+            || str_starts_with($path, '/fragments/');
     }
 }
