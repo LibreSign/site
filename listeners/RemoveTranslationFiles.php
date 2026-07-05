@@ -26,14 +26,6 @@ class RemoveTranslationFiles
     {
         $directoriesToRemove = [];
 
-        // Remove only top-level locale folders generated for translated pages.
-        foreach ($this->langs as $lang) {
-            $localeDirectory = rtrim($sourcePath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $lang;
-            if (is_dir($localeDirectory)) {
-                $directoriesToRemove[] = $localeDirectory;
-            }
-        }
-
         if (!is_dir($sourcePath)) {
             return;
         }
@@ -50,6 +42,12 @@ class RemoveTranslationFiles
                 }
 
                 $directoryName = $item->getFilename();
+
+                if (in_array($directoryName, $this->langs, true)) {
+                    $directoriesToRemove[] = $item->getPathname();
+                    continue;
+                }
+
                 if ($directoryName === PrepareTranslationFiles::TEMP_DIRECTORY_NAME) {
                     $directoriesToRemove[] = $item->getPathname();
                 }
