@@ -191,9 +191,9 @@ class PushFooterFragments
         $path = '/' . ltrim($assetPath, '/');
 
         return [
-            $path,
             'http://localhost:8081' . $path,
             'https://libresign.coop' . $path,
+            $path,
         ];
     }
 
