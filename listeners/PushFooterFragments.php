@@ -10,9 +10,14 @@ class PushFooterFragments
 {
     private const ASSET_BASE_TOKEN = '__LIBRESIGN_FOOTER_ASSET_BASE_URL__';
     private const HTML_FRAGMENT_SUFFIX = '/footer/index.html';
+    private const PUBLISH_FLAG = 'LIBRESIGN_PUBLISH_FOOTER_FRAGMENTS';
 
     public function handle(Jigsaw $jigsaw): void
     {
+        if (! $this->shouldPublish()) {
+            return;
+        }
+
         $webhookUrl = trim((string) getenv('LIBRESIGN_FOOTER_WEBHOOK_URL'));
         $secret = trim((string) getenv('LIBRESIGN_FOOTER_WEBHOOK_SECRET'));
 
@@ -223,6 +228,11 @@ class PushFooterFragments
         ]);
 
         @file_get_contents($webhookUrl, false, $context);
+    }
+
+    private function shouldPublish(): bool
+    {
+        return filter_var(getenv(self::PUBLISH_FLAG), FILTER_VALIDATE_BOOL) === true;
     }
 
     private function extractLocaleFromFragmentPath(string $relativeFragmentPath): string
