@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\GitHub\GitHubReleaseDownloadsCounter;
 use Illuminate\Support\Str;
 use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -43,6 +44,8 @@ $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 // Categories that are used as internal filters and should NOT get a dedicated page.
 $categoryPageBlocklist = ['featured'];
 
+$gitHubReleaseDownloadsCounter = new GitHubReleaseDownloadsCounter();
+
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
@@ -58,34 +61,7 @@ return [
     'title' => 'LibreSign - Open Source Electronic Signature for Nextcloud',
     'description' => 'LibreSign is a free and open source electronic signature app for Nextcloud. Sign, request, and manage digital documents securely in your own self-hosted environment.',
     'authorGravatars' => $authorGravatars,
-    'githubDownloads' => (function() {
-        $total = 0;
-        $page = 1;
-        $token = getenv('GITHUB_TOKEN');
-        $headers = ['User-Agent: libresign-site-build'];
-        if ($token) {
-            $headers[] = 'Authorization: Bearer ' . $token;
-        }
-        $context = stream_context_create(['http' => [
-            'header' => implode("\r\n", $headers),
-            'timeout' => 15,
-        ]]);
-        while (true) {
-            $url = "https://api.github.com/repos/LibreSign/libresign/releases?per_page=100&page={$page}";
-            $json = @file_get_contents($url, false, $context);
-            if ($json === false) break;
-            $releases = json_decode($json, true);
-            if (empty($releases)) break;
-            foreach ($releases as $release) {
-                foreach ($release['assets'] ?? [] as $asset) {
-                    $total += $asset['download_count'] ?? 0;
-                }
-            }
-            if (count($releases) < 100) break;
-            $page++;
-        }
-        return $total > 0 ? $total : null;
-    })(),
+    'githubDownloads' => $gitHubReleaseDownloadsCounter->count(getenv('GITHUB_TOKEN') ?: null),
     'locales' => function ($page) {
         return available_locales($page);
     },

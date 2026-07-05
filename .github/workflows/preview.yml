@@ -2,7 +2,9 @@ name: Deploy PR previews
 
 on: pull_request
 
-concurrency: preview-${{ github.ref }}
+concurrency:
+  group: site-preview-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy-preview:
