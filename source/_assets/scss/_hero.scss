@@ -15,7 +15,7 @@
   @media #{$xs} {
     background-position: 72% top;
   }
-  margin-top: 76px;
+  margin-top: var(--ud-header-height);
   padding-top: 127px;
   padding-bottom: 88px;
   min-height: 1210px;
@@ -51,7 +51,7 @@
   }
 
   @media #{$xs} {
-    margin-top: 76px;
+    margin-top: var(--ud-header-height);
     padding-top: 80px;
     padding-bottom: 48px;
     min-height: auto;
