@@ -324,6 +324,23 @@
     margin: 5px 0;
     position: relative;
     @include transition(0.3s);
+    transform-origin: center;
+  }
+
+  &[aria-expanded="true"] .toggler-icon:nth-child(1),
+  &:not(.collapsed) .toggler-icon:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &[aria-expanded="true"] .toggler-icon:nth-child(2),
+  &:not(.collapsed) .toggler-icon:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  &[aria-expanded="true"] .toggler-icon:nth-child(3),
+  &:not(.collapsed) .toggler-icon:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 }
 
