@@ -1,7 +1,7 @@
 <a href="#main-content" class="skip-to-content">{{ $page->t("Skip to main content") }}</a>
 <header class="ud-header">
   <div class="container">
-      <nav class="navbar navbar-expand-xxl" aria-label="{{ $page->t('Main navigation') }}">
+      <nav class="navbar navbar-expand-xl" aria-label="{{ $page->t('Main navigation') }}">
       <a class="navbar-brand" href="{{ locale_url($page, '')  }}" aria-label="{{ $page->t('LibreSign home') }}">
         <img src="{{ $page->baseUrl }}assets/images/logo/logo.svg" alt="LibreSign">
       </a>
