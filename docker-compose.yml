@@ -21,6 +21,8 @@ services:
       - .:/var/www/html
       - ${COMPOSER_HOME_DIR:-${HOME}/.composer}:/var/www/.composer/
       - ${NPM_CACHE_DIR:-${HOME}/.npm}:/var/www/.npm/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     working_dir: /var/www/html
     environment:
       - HOME=/var/www/html
@@ -35,3 +37,9 @@ services:
       - CAMPAIGN_ID=${CAMPAIGN_ID:-123}
       - URL_SUITECRM=${URL_SUITECRM:-123}
       - URL_SITE=${URL_SITE:-http://localhost}
+      - LIBRESIGN_PUBLISH_HEADER_FRAGMENTS=${LIBRESIGN_PUBLISH_HEADER_FRAGMENTS:-false}
+      - LIBRESIGN_HEADER_WEBHOOK_URL=${LIBRESIGN_HEADER_WEBHOOK_URL:-}
+      - LIBRESIGN_HEADER_WEBHOOK_SECRET=${LIBRESIGN_HEADER_WEBHOOK_SECRET:-}
+      - LIBRESIGN_PUBLISH_FOOTER_FRAGMENTS=${LIBRESIGN_PUBLISH_FOOTER_FRAGMENTS:-false}
+      - LIBRESIGN_FOOTER_WEBHOOK_URL=${LIBRESIGN_FOOTER_WEBHOOK_URL:-}
+      - LIBRESIGN_FOOTER_WEBHOOK_SECRET=${LIBRESIGN_FOOTER_WEBHOOK_SECRET:-}
