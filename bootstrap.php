@@ -17,4 +17,5 @@ $events->afterBuild([
     RemoveTranslationFiles::class,
     App\Listeners\GenerateSitemap::class,
     App\Listeners\CleanupCollectionDirectories::class,
+    App\Listeners\PushFooterFragments::class,
 ]);

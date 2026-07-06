@@ -7,7 +7,9 @@ export default defineConfig({
         jigsaw({
             input: [
                 'source/_assets/scss/ud-styles.scss',
+                'source/_assets/scss/footer-fragment.scss',
                 'source/_assets/js/main.js',
+                'source/_assets/js/footer-fragment.js',
             ],
             refresh: {
                 ignored: [
