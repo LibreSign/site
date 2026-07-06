@@ -114,7 +114,11 @@
   gap: 24px;
   align-items: center;
 
-  @media #{$laptop, $lg, $md, $sm, $xs} {
+  @media #{$laptop} {
+    gap: 16px;
+  }
+
+  @media #{$lg, $md, $sm, $xs} {
     gap: 4px;
     align-items: start;
   }
@@ -176,7 +180,7 @@
         color: var(--white);
       }
 
-      @media #{$laptop, $lg, $md, $sm, $xs} {
+      @media #{$lg, $md, $sm, $xs} {
         justify-content: flex-start;
       }
     }
@@ -208,7 +212,7 @@
         }
       }
 
-      @media #{$laptop, $lg, $md, $sm, $xs} {
+      @media #{$lg, $md, $sm, $xs} {
         min-width: 0;
         width: 100%;
         margin-top: 4px;
@@ -279,7 +283,7 @@
 #customer-area-link {
   margin-left: 24px;
 
-  @media #{$laptop, $lg, $md, $sm, $xs} {
+  @media #{$lg, $md, $sm, $xs} {
     margin-left: auto;
     margin-right: auto;
   }
@@ -288,7 +292,7 @@
 .navbar-collapse {
   flex-grow: 0;
 
-  @media #{$laptop, $lg, $md, $sm, $xs} {
+  @media #{$lg, $md, $sm, $xs} {
     position: fixed;
     top: 76px;
     left: 0;
