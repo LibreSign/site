@@ -11,7 +11,7 @@
       'description' => $page->t('Reduce bureaucracy and speed up your processes: sign, manage, and validate documents with technology you control.'),
       'actions' => [
         [
-          'href' => 'https://account.libresign.coop/',
+          'href' => locale_url($page, 'pricing'),
           'label' => $page->t('Try LibreSign'),
           'class' => 'btn ud-btn-solid-amber ud-btn-lg w-100 text-center',
         ],
