@@ -47,7 +47,6 @@ $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 $categoryPageBlocklist = ['featured'];
 
 $gitHubReleaseDownloadsCounter = new GitHubReleaseDownloadsCounter();
-
 $wooCommerceConsumerKey = getenv('WC_CONSUMER_KEY') ?: null;
 $wooCommerceConsumerSecret = getenv('WC_CONSUMER_SECRET') ?: null;
 

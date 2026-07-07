@@ -59,7 +59,7 @@ AOS.init({
   }
 
   // Attach scroll handler with debounce
-  window.addEventListener("scroll", debounce(handleScrollElements, 10));
+  window.addEventListener("scroll", debounce(handleScrollElements, 10), { passive: true });
 
   // ====== scroll top js
   function scrollTo(element, to = 0, duration = 500) {
