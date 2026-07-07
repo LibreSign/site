@@ -133,7 +133,7 @@
             </li>
           </ul>
         </div>
-        <button class="navbar-toggler"
+        <button class="navbar-toggler collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#main-navigation"
