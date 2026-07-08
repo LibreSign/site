@@ -235,4 +235,49 @@ final class WooCommerceProductTransformerTest extends TestCase
             ],
         ], $result['attributes']);
     }
+
+    public function testMapProductHandlesProductsWithoutLanguageMetadata(): void
+    {
+        $fromApi = [
+            'id' => 21,
+            'slug' => 'starter',
+            'date' => '2026-07-08T12:00:00',
+            'translations' => [],
+            'link' => 'https://account.example.test/product/starter/',
+            'title' => ['rendered' => 'Starter fallback'],
+        ];
+        $productDetails = [
+            'name' => 'Starter',
+            'short_description' => '<p>Starter description</p>',
+            'permalink' => 'https://account.example.test/product/starter/',
+            'type' => 'simple',
+            'is_purchasable' => true,
+            'has_options' => false,
+            'prices' => [
+                'currency_prefix' => '$',
+                'currency_suffix' => '',
+                'currency_minor_unit' => 2,
+                'currency_decimal_separator' => '.',
+                'currency_thousand_separator' => ',',
+                'price' => '2900',
+            ],
+            'add_to_cart' => [
+                'text' => 'View product',
+            ],
+            'attributes' => [],
+        ];
+
+        $result = $this->transformer->mapProduct(
+            $fromApi,
+            $productDetails,
+            [],
+            [],
+        );
+
+        self::assertSame('Starter', $result['title']);
+        self::assertSame('$29.00', $result['price']);
+        self::assertNull($result['lang']);
+        self::assertNull($result['langSlug']);
+        self::assertSame('21', $result['translationGroup']);
+    }
 }
