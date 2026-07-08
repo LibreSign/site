@@ -3,6 +3,7 @@
 use App\Support\GitHub\GitHubReleaseDownloadsCounter;
 use App\Support\Pricing\WooCommerceAuthHeadersBuilder;
 use App\Support\Pricing\WooCommerceProductCollection;
+use App\Support\WordPress\WordPressBuildClient;
 use Illuminate\Support\Str;
 use Mni\FrontYAML\Parser;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -54,6 +55,7 @@ $wooCommerceAuthenticatedHeaders = (new WooCommerceAuthHeadersBuilder())
     ->build($wooCommerceConsumerKey, $wooCommerceConsumerSecret);
 
 $wooCommerceProductCollection = new WooCommerceProductCollection($wooCommerceAuthenticatedHeaders);
+$wordPressBuildClient = new WordPressBuildClient();
 
 return [
     'production' => false,
@@ -75,9 +77,12 @@ return [
     'locales' => function ($page) {
         return available_locales($page);
     },
-    'wordPressVersion' => function($page) {
-        $version = file_get_contents($page->accountUrl . '/wp-json/libresign/v1/version');
-        return json_decode($version)->version;
+    'wordPressVersion' => function($page) use ($wordPressBuildClient) {
+        if (empty($page->accountUrl)) {
+            return '';
+        }
+
+        return $wordPressBuildClient->fetchVersion($page->accountUrl) ?? '';
     },
     'markdownListToHtml' => function($page, $list) {
         $list = $page->t($list);
@@ -529,44 +534,26 @@ return [
                 }
                 return 'posts/' . $page->slug;
             },
-            'items' => function ($post) {
+            'items' => function ($post) use ($wordPressBuildClient) {
                 if(empty($post->get('accountUrl'))){
                     return [];
                 }
-                $categories = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/wp/v2/categories'));
-                $categories = array_filter($categories, fn ($c) => $c->slug === 'article');
-                $posts = [];
-                foreach ($categories as $category) {
-                    $baseUrl = $post->get('accountUrl') . '/wp-json/wp/v2/posts?_embed&categories=' . $category->id . '&lang=' . $category->lang;
-                    $headers = get_headers($baseUrl);
-                    $totalPages = 1;
-                    foreach ($headers as $header) {
-                        if (stripos($header, 'X-WP-TotalPages:') !== false) {
-                            $totalPages = (int) trim(substr($header, strpos($header, ':') + 1));
-                            break;
-                        }
-                    }
-                    $page = 1;
-                    while ($page <= $totalPages) {
-                        $url = $baseUrl . '&page=' . $page;
-                        if (!$response = file_get_contents($url)) {
-                            break;
-                        }
-                        $posts = array_merge($posts, json_decode($response, true));
-                        $page++;
-                    };
-                }
+                $posts = $wordPressBuildClient->fetchArticlePosts($post->get('accountUrl'));
+                $wordPressLanguages = $wordPressBuildClient->fetchLanguages($post->get('accountUrl'));
 
-                $wordPressLanguages = json_decode(file_get_contents($post->get('accountUrl') . '/wp-json/pll/v1/languages'));
-                return collect($posts)->map(function ($fromApi) use ($wordPressLanguages, $post) {
-                    $currentLang = current(array_filter($wordPressLanguages, fn ($l) => $l->slug === $fromApi['lang']));
+                return collect($posts)->map(function (array $fromApi) use ($wordPressLanguages, $post) {
+                    $currentLang = current(array_filter(
+                        $wordPressLanguages,
+                        fn (array $language) => ($language['slug'] ?? null) === ($fromApi['lang'] ?? null)
+                    )) ?: [];
+
                     $data = [
                         'title' => $fromApi['title']['rendered'],
                         'slug' => $fromApi['slug'],
                         'date' => Carbon\Carbon::parse($fromApi['date'])->timestamp,
                         'content' => $fromApi['content']['rendered'],
-                        'lang' => $currentLang->w3c ?? $fromApi['lang'],
-                        'langSlug' => $currentLang->slug ?? $fromApi['lang'],
+                        'lang' => $currentLang['w3c'] ?? $fromApi['lang'],
+                        'langSlug' => $currentLang['slug'] ?? $fromApi['lang'],
                         'description' => $fromApi['acf']['description'],
                     ];
                     if (is_array($fromApi['author'])) {
