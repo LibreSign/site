@@ -21,7 +21,6 @@ jobs:
           php-version: 8.3
       - run: composer i
       - run: composer prod
-      - run: ./vendor/bin/jigsaw build production
       - uses: crazy-max/ghaction-github-pages@v4
         if: success()
         env:
