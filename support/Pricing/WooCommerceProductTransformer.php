@@ -110,6 +110,9 @@ final class WooCommerceProductTransformer
         array $authenticatedProductDetails,
         array $wordPressLanguages,
     ): array {
+        $rawLanguage = isset($fromApi['lang']) && is_string($fromApi['lang'])
+            ? $fromApi['lang']
+            : null;
         $translations = array_filter(
             $fromApi['translations'] ?? [],
             static fn ($translationId) => !empty($translationId)
@@ -118,10 +121,12 @@ final class WooCommerceProductTransformer
         sort($translationIds);
         $translationGroup = implode('-', $translationIds ?: [$fromApi['id']]);
 
-        $currentLang = current(array_filter(
-            $wordPressLanguages,
-            static fn ($language) => $language->slug === $fromApi['lang']
-        ));
+        $currentLang = $rawLanguage === null
+            ? false
+            : current(array_filter(
+                $wordPressLanguages,
+                static fn ($language) => $language->slug === $rawLanguage
+            ));
         if ($currentLang === false) {
             $currentLang = null;
         }
@@ -150,8 +155,8 @@ final class WooCommerceProductTransformer
             'title' => $productDetails['name'] ?? $fromApi['title']['rendered'],
             'slug' => $fromApi['slug'],
             'date' => Carbon::parse($fromApi['date'])->timestamp,
-            'lang' => $currentLang?->w3c ?? $fromApi['lang'],
-            'langSlug' => $currentLang?->slug ?? $fromApi['lang'],
+            'lang' => $currentLang?->w3c ?? $rawLanguage,
+            'langSlug' => $currentLang?->slug ?? $rawLanguage,
             'description' => !empty($productDetails['short_description'])
                 ? $productDetails['short_description']
                 : ($productDetails['description'] ?? ''),

@@ -47,7 +47,6 @@ $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 $categoryPageBlocklist = ['featured'];
 
 $gitHubReleaseDownloadsCounter = new GitHubReleaseDownloadsCounter();
-
 $wooCommerceConsumerKey = getenv('WC_CONSUMER_KEY') ?: null;
 $wooCommerceConsumerSecret = getenv('WC_CONSUMER_SECRET') ?: null;
 
@@ -60,6 +59,7 @@ return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
+    'accountUrl' => rtrim(getenv('ACCOUNT_URL') ?: 'http://host.docker.internal', '/'),
     'siteOrigin' => rtrim(
         getenv('URL_SITE')
             ?: 'https://' . trim(@file_get_contents('CNAME') ?: 'libresign.coop'),
