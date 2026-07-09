@@ -63,10 +63,9 @@ jobs:
       - name: Publish production fragments
         if: steps.merged-pr.outputs.merged == 'true'
         env:
-          LIBRESIGN_HEADER_WEBHOOK_URL: ${{ secrets.LIBRESIGN_HEADER_WEBHOOK_URL }}
-          LIBRESIGN_HEADER_WEBHOOK_SECRET: ${{ secrets.LIBRESIGN_HEADER_WEBHOOK_SECRET }}
-          LIBRESIGN_FOOTER_WEBHOOK_URL: ${{ secrets.LIBRESIGN_FOOTER_WEBHOOK_URL }}
-          LIBRESIGN_FOOTER_WEBHOOK_SECRET: ${{ secrets.LIBRESIGN_FOOTER_WEBHOOK_SECRET }}
+          LIBRESIGN_HEADER_WEBHOOK_URL: ${{ vars.LIBRESIGN_HEADER_WEBHOOK_URL }}
+          LIBRESIGN_FOOTER_WEBHOOK_URL: ${{ vars.LIBRESIGN_FOOTER_WEBHOOK_URL }}
+          LIBRESIGN_FRAGMENT_WEBHOOK_SECRET: ${{ secrets.LIBRESIGN_FRAGMENT_WEBHOOK_SECRET }}
           LIBRESIGN_MERGED_PR_NUMBER: ${{ steps.merged-pr.outputs.pr_number }}
           LIBRESIGN_MERGED_PR_HEAD_REF: ${{ steps.merged-pr.outputs.pr_head_ref }}
           LIBRESIGN_MERGED_PR_MERGED_AT: ${{ steps.merged-pr.outputs.pr_merged_at }}

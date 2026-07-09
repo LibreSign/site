@@ -49,9 +49,6 @@ Help to translate the project on Weblate platform: https://hosted.weblate.org/pr
 - Header and footer fragments are **not** pushed during the Jigsaw build anymore.
 - Fragment publication now runs only in the production deploy workflow, after the site build/deploy step.
 - The workflow only publishes fragments when the deployed `main` commit is associated with a merged PR in `LibreSign/site`.
-- Required GitHub secrets for production publication:
-	- `LIBRESIGN_HEADER_WEBHOOK_URL`
-	- `LIBRESIGN_HEADER_WEBHOOK_SECRET`
-	- `LIBRESIGN_FOOTER_WEBHOOK_URL`
-	- `LIBRESIGN_FOOTER_WEBHOOK_SECRET`
+- The only sensitive repository configuration for production publication is the shared HMAC secret: `LIBRESIGN_FRAGMENT_WEBHOOK_SECRET`.
+- Webhook URLs are regular repository configuration (`LIBRESIGN_HEADER_WEBHOOK_URL` and `LIBRESIGN_FOOTER_WEBHOOK_URL`), not GitHub secrets.
 - The webhook consumer should validate both the HMAC headers (`X-LibreSign-Timestamp` and `X-LibreSign-Signature`) and the `deployment` payload fields such as repository, ref, event, and merged PR metadata.

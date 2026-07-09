@@ -16,6 +16,7 @@ if (! is_dir($destinationPath)) {
 }
 
 $publisher = new FragmentWebhookPublisher();
+$secret = trim((string) getenv('LIBRESIGN_FRAGMENT_WEBHOOK_SECRET'));
 $deployment = array_filter([
     'source' => 'github-actions',
     'repository' => getenv('GITHUB_REPOSITORY') ?: null,
@@ -36,19 +37,17 @@ $deployment = array_filter([
 $webhooks = [
     'header' => [
         'url' => trim((string) getenv('LIBRESIGN_HEADER_WEBHOOK_URL')),
-        'secret' => trim((string) getenv('LIBRESIGN_HEADER_WEBHOOK_SECRET')),
     ],
     'footer' => [
         'url' => trim((string) getenv('LIBRESIGN_FOOTER_WEBHOOK_URL')),
-        'secret' => trim((string) getenv('LIBRESIGN_FOOTER_WEBHOOK_SECRET')),
     ],
 ];
 
 $totalPublished = 0;
 
 foreach ($webhooks as $fragmentType => $webhook) {
-    if ($webhook['url'] === '' || $webhook['secret'] === '') {
-        fwrite(STDOUT, sprintf("Skipping %s fragments: webhook URL/secret not configured.\n", $fragmentType));
+    if ($webhook['url'] === '' || $secret === '') {
+        fwrite(STDOUT, sprintf("Skipping %s fragments: webhook URL or shared secret not configured.\n", $fragmentType));
         continue;
     }
 
@@ -56,7 +55,7 @@ foreach ($webhooks as $fragmentType => $webhook) {
         $fragmentType,
         $destinationPath,
         $webhook['url'],
-        $webhook['secret'],
+        $secret,
         $deployment,
     );
 
