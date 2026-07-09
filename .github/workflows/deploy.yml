@@ -22,9 +22,6 @@ jobs:
           php-version: 8.3
       - run: composer i
       - run: composer prod
-      - name: Record timestamp before GitHub Pages push
-        id: before-pages
-        run: echo "after=$(date -u '+%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
       - uses: crazy-max/ghaction-github-pages@v4
         if: success()
         env:
@@ -33,31 +30,3 @@ jobs:
           build_dir: build_production
           fqdn: libresign.coop
           jekyll: false
-      - name: Wait for GitHub Pages deployment
-        if: success()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          AFTER: ${{ steps.before-pages.outputs.after }}
-        run: |
-          WORKFLOW_ID=$(gh api repos/LibreSign/site/actions/workflows \
-            --jq '.workflows[] | select(.name == "pages build and deployment") | .id' 2>/dev/null || echo "")
-          if [ -z "$WORKFLOW_ID" ]; then
-            echo "pages-build-deployment workflow not found; skipping wait."
-            exit 0
-          fi
-          echo "Waiting for pages-build-deployment (workflow $WORKFLOW_ID) started after $AFTER..."
-          for attempt in $(seq 1 30); do
-            run=$(gh api "repos/LibreSign/site/actions/workflows/$WORKFLOW_ID/runs" \
-              --jq "[.workflow_runs[] | select(.created_at > \"$AFTER\")] | .[0] | {status, conclusion}" \
-              2>/dev/null || echo '{}')
-            status=$(echo "$run" | jq -r '.status // "not_started"')
-            conclusion=$(echo "$run" | jq -r '.conclusion // ""')
-            echo "Attempt $attempt/30: status=$status conclusion=$conclusion"
-            if [ "$status" = "completed" ]; then
-              echo "GitHub Pages deployment finished: $conclusion"
-              exit 0
-            fi
-            sleep 10
-          done
-          echo "Warning: timed out waiting for GitHub Pages deployment."
-          exit 0
