@@ -1,6 +1,6 @@
 ---
-title: "LibreSign Plans and Pricing - Commercial Options for Organizations"
-description: "LibreSign is preparing commercial plans for organizations that need support, managed services, integrations, and guided adoption. Contact us to discuss your needs."
+title: "LibreSign Plans and Pricing - Featured commercial options"
+description: "Browse public LibreSign plans and featured WooCommerce subscriptions synchronized during the static site build."
 ---
 @extends('_layouts.main')
 
