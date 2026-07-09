@@ -56,12 +56,13 @@ $wooCommerceAuthenticatedHeaders = (new WooCommerceAuthHeadersBuilder())
 
 $wooCommerceProductCollection = new WooCommerceProductCollection($wooCommerceAuthenticatedHeaders);
 $wordPressBuildClient = new WordPressBuildClient();
+$accountUrl = 'https://account.libresign.coop';
 
 return [
     'production' => false,
     'matomo_container' => '8jNjdh8C_dev_dc9cf71ee2745d3690156798',
     'baseUrl' => '/',
-    'accountUrl' => rtrim(getenv('ACCOUNT_URL') ?: 'http://host.docker.internal', '/'),
+    'accountUrl' => $accountUrl,
     'siteOrigin' => rtrim(
         getenv('URL_SITE')
             ?: 'https://' . trim(@file_get_contents('CNAME') ?: 'libresign.coop'),
