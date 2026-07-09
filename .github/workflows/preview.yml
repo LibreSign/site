@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ACCOUNT_URL: ${{ secrets.ACCOUNT_URL }}
+      WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
+      WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
