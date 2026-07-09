@@ -1,6 +1,12 @@
 name: Deploy PR previews
 
-on: pull_request
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 
 concurrency:
   group: site-preview-deploy
@@ -16,16 +22,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
+        if: github.event.action != 'closed'
         uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Set up php 8.3
+        if: github.event.action != 'closed'
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
       - name: Set up PHP dependencie
+        if: github.event.action != 'closed'
         run: composer i
       - name: Change config.php
+        if: github.event.action != 'closed'
         run: |
           sed -i "s|libresign.coop|libresign.github.io|g" CNAME
           sed -i "s|baseUrl' => '/'|baseUrl' => 'https://LibreSign.github.io/site-preview/pr-preview/pr-${{ github.event.pull_request.number }}/'|g" config.php
@@ -36,6 +46,7 @@ jobs:
             sed -i "/'accountUrl'/d" config.production.php
           fi
       - name: Run composer command
+        if: github.event.action != 'closed'
         run: composer prod
 
       - name: Deploy preview
@@ -45,6 +56,6 @@ jobs:
           pages-base-url: libresign.github.io/site-preview
           deploy-repository: LibreSign/site-preview
           preview-branch: main
-          wait-for-pages-deployment: true
+          wait-for-pages-deployment: false
           token: ${{ secrets.PREVIEW_TOKEN }}
           comment: ${{ github.event.pull_request.user.type != 'Bot' }}
