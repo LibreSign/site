@@ -68,6 +68,7 @@
     </script>
 
     <script type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/main.js') }}"></script>
+    @stack('scripts')
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
