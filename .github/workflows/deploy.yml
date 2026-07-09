@@ -14,6 +14,28 @@ jobs:
       WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Find merged PR
+        id: pr
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          data=$(gh api repos/${{ github.repository }}/commits/${{ github.sha }}/pulls \
+            --jq '[.[] | select(.merged_at != null)] | .[0] | {number: .number, title: .title}' \
+            2>/dev/null || echo 'null')
+          echo "data=$data" >> "$GITHUB_OUTPUT"
+
+      - name: Comment starting deploy on PR
+        if: steps.pr.outputs.data != 'null' && steps.pr.outputs.data != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_number=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.number // empty')
+          [ -n "$pr_number" ] && gh pr comment "$pr_number" \
+            --repo ${{ github.repository }} \
+            --body $'🚀 Starting production deploy of site header and footer fragments...'
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,6 +44,21 @@ jobs:
           php-version: 8.3
       - run: composer i
       - run: composer prod
+
+      - name: Store deployment info
+        if: success()
+        run: |
+          pr_number=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.number // empty')
+          pr_title=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.title // ""')
+          jq -n \
+            --arg sha    "${{ github.sha }}" \
+            --arg repo   "${{ github.repository }}" \
+            --arg ts     "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg title  "$pr_title" \
+            --argjson num "${pr_number:-null}" \
+            '{commit_sha: $sha, pr_number: $num, pr_title: $title, repository: $repo, timestamp: $ts}' \
+            > build_production/_deployment-info.json
+
       - uses: crazy-max/ghaction-github-pages@v4
         if: success()
         env:
