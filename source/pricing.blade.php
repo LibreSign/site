@@ -6,6 +6,19 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
 
 @section('body')
 
+  @php
+    $pricingStyleBuilder = new \App\Support\Pricing\PricingStyleBuilder();
+    $pricingPageData = (new \App\Support\Pricing\PricingPageBuilder())->build(
+      collect($products_wordpress ?? []),
+      current_path_locale($page) ?: packageDefaultLocale($page),
+      packageDefaultLocale($page),
+    );
+    $productEntries = $pricingPageData['productEntries'];
+    $comparisonProducts = $pricingPageData['comparisonProducts'];
+    $comparisonFeatureGroups = $pricingPageData['comparisonFeatureGroups'];
+    $detailRows = $pricingPageData['detailRows'];
+  @endphp
+
   {{-- Hero --}}
   <section class="ud-page-banner">
     <div class="container">
@@ -40,7 +53,7 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
   {{-- Available commercial options --}}
   <section class="py-5 bg-white" id="pricing-plans">
     <div class="container py-4">
-      <h2 class="display-6 fw-bold text-center mb-5">{{ $page->t("Available commercial options") }}</h2>
+      <h2 class="display-6 fw-bold text-center mb-5">{{ $page->t('Featured products') }}</h2>
       <div class="row g-4 align-items-stretch justify-content-center">
 
         <div class="col-lg-4 col-md-6 col-sm-10">
@@ -71,20 +84,19 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-10">
-          <div class="ud-single-pricing h-100">
-            <div class="ud-pricing-header">
-              <h3>{{ $page->t("Cloud and Managed Services") }}</h3>
-              <p class="ud-pricing-tagline">{{ $page->t("For organizations interested in hosted or managed infrastructure options when available.") }}</p>
-            </div>
-            <div class="ud-pricing-footer">
-              <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
-                {{ $page->t("Contact us") }}
-              </a>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="py-5 bg-light text-center" id="contact-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h2 class="fw-bold mb-3">{{ $page->t('Need more features?') }}</h2>
+          <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-brand">
+            {{ $page->t('Talk to sales') }}
+          </a>
+        </div>
       </div>
     </div>
   </section>
