@@ -1,5 +1,5 @@
 const HEADER_ROOT_SELECTOR = '.libresign-site-header-fragment';
-const DESKTOP_BREAKPOINT = 1400;
+const DESKTOP_BREAKPOINT = 1200;
 
 const root = document.querySelector(HEADER_ROOT_SELECTOR);
 
