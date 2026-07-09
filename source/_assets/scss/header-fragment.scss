@@ -125,8 +125,8 @@
 }
 
 .libresign-site-header-fragment .mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .libresign-site-header-fragment .dropdown {
@@ -201,10 +201,13 @@ body.admin-bar .libresign-site-header-fragment__spacer {
 
 .libresign-site-header-fragment .navbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   padding: 18px 0;
+}
+
+.libresign-site-header-fragment .navbar-expand-xl {
+  justify-content: space-between;
 }
 
 .libresign-site-header-fragment .navbar-nav.container {
@@ -215,6 +218,7 @@ body.admin-bar .libresign-site-header-fragment__spacer {
 
 .libresign-site-header-fragment .navbar-brand {
   flex: 0 0 auto;
+  margin-right: 16px;
   padding: 0;
 }
 
@@ -250,7 +254,6 @@ body.admin-bar .libresign-site-header-fragment__spacer {
   font-weight: 400;
   color: var(--white);
   padding: 8px 0;
-  min-height: 40px;
   display: inline-flex;
   align-items: center;
 }
@@ -356,9 +359,10 @@ body.admin-bar .libresign-site-header-fragment__spacer {
   opacity: 0.85;
 }
 
-.libresign-site-header-fragment .link-button {
+.libresign-site-header-fragment .nav-item > .nav-link.link-button {
   background-color: var(--amber);
   color: var(--primary-color);
+  min-height: 38px;
   height: 38px;
   border-radius: 32px;
   font-weight: 600;
@@ -369,8 +373,8 @@ body.admin-bar .libresign-site-header-fragment__spacer {
   white-space: nowrap;
 }
 
-.libresign-site-header-fragment .link-button:hover,
-.libresign-site-header-fragment .link-button:focus {
+.libresign-site-header-fragment .nav-item > .nav-link.link-button:hover,
+.libresign-site-header-fragment .nav-item > .nav-link.link-button:focus {
   background-color: var(--amber-hover);
   color: var(--primary-color);
   opacity: 1;
@@ -491,7 +495,7 @@ body.admin-bar .libresign-site-header-fragment__spacer {
   margin: 8px 0;
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1199px) {
   .libresign-site-header-fragment .navbar {
     gap: 16px;
   }
@@ -580,16 +584,21 @@ body.admin-bar .libresign-site-header-fragment__spacer {
     margin-right: auto;
   }
 
-  .libresign-site-header-fragment .link-button {
+  .libresign-site-header-fragment .nav-item > .nav-link.link-button {
     padding: 0 16px;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
+  .libresign-site-header-fragment .navbar-expand-xl {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
   .libresign-site-header-fragment .navbar-collapse {
     display: flex !important;
     align-items: center;
-    justify-content: center;
-    flex: 1 1 auto;
+    flex-basis: auto;
+    justify-content: normal;
   }
 }

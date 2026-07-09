@@ -153,28 +153,27 @@
 .libresign-site-footer-fragment .row > [class*="col-"] {
   padding-left: 12px;
   padding-right: 12px;
-  width: 100%;
 }
 
-.libresign-site-footer-fragment .col-12 {
+.libresign-site-footer-fragment .row > .col-12 {
   flex: 0 0 auto;
   width: 100%;
 }
 
 @media (min-width: 576px) {
-  .libresign-site-footer-fragment .col-sm-6 {
+  .libresign-site-footer-fragment .row > .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
   }
 }
 
 @media (min-width: 992px) {
-  .libresign-site-footer-fragment .col-lg {
+  .libresign-site-footer-fragment .row > .col-lg {
     flex: 1 0 0;
     width: auto;
   }
 
-  .libresign-site-footer-fragment .col-lg-4 {
+  .libresign-site-footer-fragment .row > .col-lg-4 {
     flex: 0 0 auto;
     width: 33.333333%;
   }
@@ -182,6 +181,8 @@
 
 .libresign-site-footer-fragment .ud-footer {
   background: var(--color-dark);
+  padding-top: 0;
+  padding-bottom: 0;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -234,6 +235,7 @@
 .libresign-site-footer-fragment .ud-widget .ud-widget-title {
   color: var(--white);
   font-size: 18px;
+  font-weight: 700;
   margin-bottom: 28px;
 }
 
