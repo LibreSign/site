@@ -78,10 +78,6 @@ return [
         return available_locales($page);
     },
     'wordPressVersion' => function($page) use ($wordPressBuildClient) {
-        if (empty($page->accountUrl)) {
-            return '';
-        }
-
         return $wordPressBuildClient->fetchVersion($page->accountUrl) ?? '';
     },
     'markdownListToHtml' => function($page, $list) {
