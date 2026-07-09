@@ -26,8 +26,10 @@ final class WooCommerceProductCollectionTest extends TestCase
             $authenticatedHeaders,
         );
 
-        self::assertInstanceOf(Collection::class, $collection->items($page));
-        self::assertCount(0, $collection->items($page));
+        $items = $collection->items($page);
+
+        self::assertInstanceOf(Collection::class, $items);
+        self::assertCount(0, $items);
     }
 
     public static function emptyItemsProvider(): iterable
@@ -106,71 +108,80 @@ final class WooCommerceProductCollectionTest extends TestCase
                         'status' => 'publish',
                     ],
                 ],
-                'https://account.example.test/wp-json/wc/store/v1/products/10' => [
-                    'name' => 'Basic',
-                    'short_description' => '<p>Short description</p>',
-                    'permalink' => 'https://account.example.test/product/basic/',
-                    'type' => 'simple',
-                    'is_purchasable' => true,
-                    'has_options' => false,
-                    'prices' => [
-                        'currency_prefix' => 'R$ ',
-                        'currency_suffix' => '',
-                        'currency_minor_unit' => 2,
-                        'currency_decimal_separator' => ',',
-                        'currency_thousand_separator' => '.',
-                        'price' => '5500',
-                        'price_range' => ['min_amount' => '5500'],
-                    ],
-                    'add_to_cart' => [
-                        'text' => 'View product',
-                        'single_text' => 'View product',
-                    ],
-                    'attributes' => [
-                        [
-                            'name' => 'Storage',
-                            'options' => ['1 Gb'],
-                            'visible' => true,
+                'https://account.example.test/wp-json/wc/store/v1/products?include=10,11&orderby=include&per_page=100' => [
+                    [
+                        'id' => 10,
+                        'name' => 'Basic',
+                        'short_description' => '<p>Short description</p>',
+                        'permalink' => 'https://account.example.test/product/basic/',
+                        'type' => 'simple',
+                        'is_purchasable' => true,
+                        'has_options' => false,
+                        'prices' => [
+                            'currency_prefix' => 'R$ ',
+                            'currency_suffix' => '',
+                            'currency_minor_unit' => 2,
+                            'currency_decimal_separator' => ',',
+                            'currency_thousand_separator' => '.',
+                            'price' => '5500',
+                            'price_range' => ['min_amount' => '5500'],
+                        ],
+                        'add_to_cart' => [
+                            'text' => 'View product',
+                            'single_text' => 'View product',
+                        ],
+                        'attributes' => [
+                            [
+                                'name' => 'Storage',
+                                'options' => ['1 Gb'],
+                                'visible' => true,
+                            ],
                         ],
                     ],
-                ],
-                'https://account.example.test/wp-json/wc/v3/products/10?_fields=id,attributes' => [
-                    'attributes' => [
-                        [
-                            'name' => 'Storage',
-                            'options' => ['2 Gb'],
-                            'visible' => true,
+                    [
+                        'id' => 11,
+                        'name' => 'Básico',
+                        'short_description' => '<p>Descrição curta</p>',
+                        'permalink' => 'https://account.example.test/product/basic-pt/',
+                        'type' => 'simple',
+                        'is_purchasable' => true,
+                        'has_options' => false,
+                        'prices' => [
+                            'currency_prefix' => 'R$ ',
+                            'currency_suffix' => '',
+                            'currency_minor_unit' => 2,
+                            'currency_decimal_separator' => ',',
+                            'currency_thousand_separator' => '.',
+                            'price' => '5500',
+                            'price_range' => ['min_amount' => '5500'],
                         ],
-                        [
-                            'name' => 'pricing_card_colors',
-                            'options' => ['background:#EBF7F2', 'button_text:#FFFFFF'],
-                            'visible' => true,
+                        'add_to_cart' => [
+                            'text' => 'Ver produto',
+                            'single_text' => 'Ver produto',
+                        ],
+                        'attributes' => [],
+                    ],
+                ],
+                'https://account.example.test/wp-json/wc/v3/products?include=10,11&orderby=include&per_page=100&_fields=id,attributes' => [
+                    [
+                        'id' => 10,
+                        'attributes' => [
+                            [
+                                'name' => 'Storage',
+                                'options' => ['2 Gb'],
+                                'visible' => true,
+                            ],
+                            [
+                                'name' => 'pricing_card_colors',
+                                'options' => ['background:#EBF7F2', 'button_text:#FFFFFF'],
+                                'visible' => true,
+                            ],
                         ],
                     ],
-                ],
-                'https://account.example.test/wp-json/wc/store/v1/products/11' => [
-                    'name' => 'Básico',
-                    'short_description' => '<p>Descrição curta</p>',
-                    'permalink' => 'https://account.example.test/product/basic-pt/',
-                    'type' => 'simple',
-                    'is_purchasable' => true,
-                    'has_options' => false,
-                    'prices' => [
-                        'currency_prefix' => 'R$ ',
-                        'currency_suffix' => '',
-                        'currency_minor_unit' => 2,
-                        'currency_decimal_separator' => ',',
-                        'currency_thousand_separator' => '.',
-                        'price' => '5500',
-                        'price_range' => ['min_amount' => '5500'],
+                    [
+                        'id' => 11,
+                        'attributes' => [],
                     ],
-                    'add_to_cart' => [
-                        'text' => 'Ver produto',
-                        'single_text' => 'Ver produto',
-                    ],
-                ],
-                'https://account.example.test/wp-json/wc/v3/products/11?_fields=id,attributes' => [
-                    'attributes' => [],
                 ],
             ],
             [
@@ -194,11 +205,24 @@ final class WooCommerceProductCollectionTest extends TestCase
         ], $items[0]['pricingCardColors']);
         self::assertSame('Básico', $items[1]['title']);
         self::assertSame('pt-BR', $items[1]['lang']);
+        self::assertSame([
+            'https://account.example.test/wp-json/wp/v2/product?featured=true&per_page=100&_fields=id,slug,title,date,lang,translations,link,status',
+            'https://account.example.test/wp-json/wp/v2/product?include=10,11&orderby=include&per_page=100&_fields=id,slug,title,date,lang,translations,link,status',
+            'https://account.example.test/wp-json/wc/store/v1/products?include=10,11&orderby=include&per_page=100',
+            'https://account.example.test/wp-json/wc/v3/products?include=10,11&orderby=include&per_page=100&_fields=id,attributes',
+        ], $collection->requestedJsonUrls());
+        self::assertSame([
+            'https://account.example.test/wp-json/pll/v1/languages',
+        ], $collection->requestedContentUrls());
     }
 }
 
 final class FakeWooCommerceProductCollection extends WooCommerceProductCollection
 {
+    private array $requestedJsonUrls = [];
+
+    private array $requestedContentUrls = [];
+
     public function __construct(
         private readonly array $jsonResponses,
         private readonly array $contentResponses,
@@ -210,12 +234,26 @@ final class FakeWooCommerceProductCollection extends WooCommerceProductCollectio
 
     protected function fetchJson(string $url, array $headers = []): ?array
     {
+        $this->requestedJsonUrls[] = $url;
+
         return $this->jsonResponses[$url] ?? null;
     }
 
     protected function fetchContent(string $url, array $headers = []): string|false
     {
+        $this->requestedContentUrls[] = $url;
+
         return $this->contentResponses[$url] ?? false;
+    }
+
+    public function requestedJsonUrls(): array
+    {
+        return $this->requestedJsonUrls;
+    }
+
+    public function requestedContentUrls(): array
+    {
+        return $this->requestedContentUrls;
     }
 }
 
