@@ -30,3 +30,20 @@ jobs:
           build_dir: build_production
           fqdn: libresign.coop
           jekyll: false
+      - name: Wait for GitHub Pages to serve updated fragments
+        if: success()
+        run: |
+          echo "Waiting for libresign.coop to serve the latest build..."
+          BUILT_HASH=$(md5sum build_production/fragments/header/index.html | cut -d' ' -f1)
+          echo "Expected MD5: $BUILT_HASH"
+          for attempt in $(seq 1 30); do
+            LIVE_HASH=$(curl -sf --max-time 15 "https://libresign.coop/fragments/header/" | md5sum | cut -d' ' -f1)
+            echo "Attempt $attempt/30: live=$LIVE_HASH expected=$BUILT_HASH"
+            if [ "$LIVE_HASH" = "$BUILT_HASH" ]; then
+              echo "GitHub Pages is serving the latest content."
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Warning: timed out waiting for GitHub Pages update. Fragment sync may use stale content."
+          exit 0
