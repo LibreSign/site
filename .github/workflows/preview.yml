@@ -1,6 +1,8 @@
 name: Deploy PR previews
 
-on: pull_request
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, closed]
 
 concurrency:
   group: site-preview-deploy
@@ -14,6 +16,11 @@ jobs:
       WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Explicitly check out the PR head so fork PRs build the right code.
+          # pull_request_target gives access to secrets even for forks; the explicit
+          # ref ensures we build the contributor's branch, not the base branch.
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
