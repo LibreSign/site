@@ -8,6 +8,9 @@ concurrency:
 
 jobs:
   deploy-preview:
+    # Skip fork PRs (e.g. Weblate translations) — secrets are not available
+    # for forks and a visual preview is not useful for translation-only changes.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     env:
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
