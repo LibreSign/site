@@ -1,8 +1,6 @@
 name: Deploy PR previews
 
-on:
-  pull_request_target:
-    types: [opened, reopened, synchronize, closed]
+on: pull_request
 
 concurrency:
   group: site-preview-deploy
@@ -10,17 +8,15 @@ concurrency:
 
 jobs:
   deploy-preview:
+    # Skip fork PRs (e.g. Weblate translations) — secrets are not available
+    # for forks and a visual preview is not useful for translation-only changes.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     env:
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
       WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          # Explicitly check out the PR head so fork PRs build the right code.
-          # pull_request_target gives access to secrets even for forks; the explicit
-          # ref ensures we build the contributor's branch, not the base branch.
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
