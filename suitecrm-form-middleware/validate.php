@@ -2,7 +2,7 @@
 
 include "../vendor/autoload.php";
 use Gregwar\Captcha\CaptchaBuilder;
-require __DIR__ . '/session_bootstrap.php';
+\App\Support\Http\SessionCookie::configureCrossSite();
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
