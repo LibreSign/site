@@ -68,6 +68,7 @@
     </script>
 
     <script type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/main.js') }}"></script>
+    <script type="module" src="{{ rtrim($page->baseUrl, '/') . vite('source/_assets/js/header-fragment.js') }}"></script>
     @stack('scripts')
 
     <script>
