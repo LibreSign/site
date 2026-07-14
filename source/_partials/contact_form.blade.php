@@ -129,7 +129,7 @@
 
                     if (this.readyState == 4) {
                       if (this.status == 200) {
-                        window.top.location.href = 'thank-you-contact'
+                        window.top.location.href = '{{ locale_url($page, 'thank-you-contact') }}'
                       } else {
                         let message = document.getElementById('message')
                         message.textContent = '{{ $page->t( 'Invalid Captcha') }}'

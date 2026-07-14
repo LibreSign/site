@@ -2,13 +2,16 @@
 
 include "../vendor/autoload.php";
 use Gregwar\Captcha\CaptchaBuilder;
+require __DIR__ . '/session_bootstrap.php';
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
 header("Access-Control-Allow-Credentials: true");
 
-$builder = new CaptchaBuilder($_SESSION['code']);
+$builder = new CaptchaBuilder($_SESSION['code'] ?? null);
 $codeImg = filter_input(INPUT_POST, 'codeImg');
+
+session_write_close();
 
 if( !$builder->testPhrase($codeImg)){
     http_response_code(404);
@@ -29,6 +32,8 @@ $ch = curl_init($_ENV['URL_SUITECRM']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $formulario_data);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 
 $resposta = curl_exec($ch);
 
