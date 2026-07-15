@@ -5,7 +5,7 @@ include "../vendor/autoload.php";
 use Gregwar\Captcha\CaptchaBuilder;
 use Libresign\Espeak\Espeak;
 
-\App\Support\Http\SessionCookie::configureCrossSite();
+require __DIR__ . '/session_bootstrap.php';
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
