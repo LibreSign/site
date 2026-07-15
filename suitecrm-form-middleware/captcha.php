@@ -7,6 +7,7 @@ use Gregwar\Captcha\CaptchaBuilder;
 $builder = new CaptchaBuilder();
 $builder->build();
 
+\App\Support\Http\SessionCookie::configureCrossSite();
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
