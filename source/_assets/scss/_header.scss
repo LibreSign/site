@@ -389,8 +389,9 @@
     z-index: 100;
 
     position: absolute;
-    width: 128px;
+    min-width: 160px;
     background: var(--white);
+    border: none;
     top: 100%;
     margin-top: 16px;
     padding: 8px 16px;
@@ -404,12 +405,17 @@
     flex-direction: column;
     gap: 8px;
 
+    hr {
+      margin: 8px 0;
+    }
+
     &.show {
       display: flex;
     }
 
     .ud-submenu-link {
       color: var(--heading-color);
+      font-size: 15px;
 
       display: flex;
       align-items: center;
