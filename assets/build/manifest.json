@@ -1,0 +1,431 @@
+{
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff": {
+    "file": "assets/montserrat-cyrillic-400-normal-jEs4Tk-Z.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-400-normal-BPq32Q8K.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-400-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff": {
+    "file": "assets/montserrat-cyrillic-500-normal-CyGtXmN9.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-500-normal-T0SG181k.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-500-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff": {
+    "file": "assets/montserrat-cyrillic-600-normal-DUglwBrH.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-600-normal-CQEPC0hM.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-600-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff": {
+    "file": "assets/montserrat-cyrillic-700-normal-BvLYcGP1.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-700-normal-D-Pqjtdp.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-700-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-800-normal.woff": {
+    "file": "assets/montserrat-cyrillic-800-normal-B_mUCQ9O.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-800-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-800-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-800-normal-DDmpGQGC.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-800-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-400-normal.woff": {
+    "file": "assets/montserrat-cyrillic-ext-400-normal-DRPPeomZ.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-400-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-400-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-ext-400-normal-Xqov12YL.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-500-normal.woff": {
+    "file": "assets/montserrat-cyrillic-ext-500-normal-DOzfAZ45.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-500-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-500-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-ext-500-normal-11xBT7e1.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-500-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-600-normal.woff": {
+    "file": "assets/montserrat-cyrillic-ext-600-normal-wReYPmz2.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-600-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-600-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-ext-600-normal-BtBW-rpm.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-600-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-700-normal.woff": {
+    "file": "assets/montserrat-cyrillic-ext-700-normal-D-Mk2xRJ.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-700-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-700-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-ext-700-normal-MyDreaeu.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-700-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-800-normal.woff": {
+    "file": "assets/montserrat-cyrillic-ext-800-normal-mB3PmEeV.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-800-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-800-normal.woff2": {
+    "file": "assets/montserrat-cyrillic-ext-800-normal-GOAQXnVZ.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-cyrillic-ext-800-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff": {
+    "file": "assets/montserrat-latin-400-normal-xItZbAXg.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff2": {
+    "file": "assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-500-normal.woff": {
+    "file": "assets/montserrat-latin-500-normal-Dok2oTci.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-500-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-500-normal.woff2": {
+    "file": "assets/montserrat-latin-500-normal-DRFEGfly.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-500-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff": {
+    "file": "assets/montserrat-latin-600-normal-CdhFl4lI.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2": {
+    "file": "assets/montserrat-latin-600-normal-UVxSCcoG.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff": {
+    "file": "assets/montserrat-latin-700-normal-BWkrl476.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2": {
+    "file": "assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff": {
+    "file": "assets/montserrat-latin-800-normal-C3dfDxXV.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2": {
+    "file": "assets/montserrat-latin-800-normal-axpkC1rd.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-400-normal.woff": {
+    "file": "assets/montserrat-latin-ext-400-normal-BffdBkAA.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-400-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-400-normal.woff2": {
+    "file": "assets/montserrat-latin-ext-400-normal-B8bwfy6Y.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-500-normal.woff": {
+    "file": "assets/montserrat-latin-ext-500-normal-DWPqqZgs.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-500-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-500-normal.woff2": {
+    "file": "assets/montserrat-latin-ext-500-normal-BKtbrd6n.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-500-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff": {
+    "file": "assets/montserrat-latin-ext-600-normal-CSDhkhgS.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2": {
+    "file": "assets/montserrat-latin-ext-600-normal-DSkTqI9L.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff": {
+    "file": "assets/montserrat-latin-ext-700-normal-DdDFr05Z.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2": {
+    "file": "assets/montserrat-latin-ext-700-normal-BOP2Nhf0.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff": {
+    "file": "assets/montserrat-latin-ext-800-normal-Wjq_OapB.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2": {
+    "file": "assets/montserrat-latin-ext-800-normal-BBvmbyWk.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-400-normal.woff": {
+    "file": "assets/montserrat-vietnamese-400-normal-BeEscFYY.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-400-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-400-normal.woff2": {
+    "file": "assets/montserrat-vietnamese-400-normal-D4oHqQTd.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-400-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-500-normal.woff": {
+    "file": "assets/montserrat-vietnamese-500-normal-DpeZlV_K.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-500-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-500-normal.woff2": {
+    "file": "assets/montserrat-vietnamese-500-normal-NT-t8RG1.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-500-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-600-normal.woff": {
+    "file": "assets/montserrat-vietnamese-600-normal-SJ-HTWuM.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-600-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-600-normal.woff2": {
+    "file": "assets/montserrat-vietnamese-600-normal-DKe6qT_E.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-600-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-700-normal.woff": {
+    "file": "assets/montserrat-vietnamese-700-normal-DnwGT2D9.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-700-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-700-normal.woff2": {
+    "file": "assets/montserrat-vietnamese-700-normal-C0x1De3p.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-700-normal.woff2"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-800-normal.woff": {
+    "file": "assets/montserrat-vietnamese-800-normal-Chy8GRiB.woff",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-800-normal.woff"
+  },
+  "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-800-normal.woff2": {
+    "file": "assets/montserrat-vietnamese-800-normal-BDwqwvSG.woff2",
+    "src": "node_modules/@fontsource/montserrat/files/montserrat-vietnamese-800-normal.woff2"
+  },
+  "node_modules/lineicons/dist/68caad34b1e80fa12b3a.woff": {
+    "file": "assets/68caad34b1e80fa12b3a-4Cpu5VkB.woff",
+    "src": "node_modules/lineicons/dist/68caad34b1e80fa12b3a.woff"
+  },
+  "node_modules/lineicons/dist/6b042d50787d4a81d659.svg": {
+    "file": "assets/6b042d50787d4a81d659-D7JGeKLp.svg",
+    "src": "node_modules/lineicons/dist/6b042d50787d4a81d659.svg"
+  },
+  "node_modules/lineicons/dist/9065bfe481020b04b68a.woff2": {
+    "file": "assets/9065bfe481020b04b68a-CMveUrS1.woff2",
+    "src": "node_modules/lineicons/dist/9065bfe481020b04b68a.woff2"
+  },
+  "node_modules/lineicons/dist/a9c9056a643325579e2a.ttf": {
+    "file": "assets/a9c9056a643325579e2a-CCNAgZDa.ttf",
+    "src": "node_modules/lineicons/dist/a9c9056a643325579e2a.ttf"
+  },
+  "node_modules/lineicons/dist/d495aba62101f856c80f.eot": {
+    "file": "assets/d495aba62101f856c80f-DJ4Lg1TH.eot",
+    "src": "node_modules/lineicons/dist/d495aba62101f856c80f.eot"
+  },
+  "source/_assets/js/footer-fragment.js": {
+    "file": "assets/footer-fragment-C1e-wSx2.js",
+    "name": "footer-fragment",
+    "src": "source/_assets/js/footer-fragment.js",
+    "isEntry": true
+  },
+  "source/_assets/js/header-fragment.js": {
+    "file": "assets/header-fragment-DgwCOlsk.js",
+    "name": "header-fragment",
+    "src": "source/_assets/js/header-fragment.js",
+    "isEntry": true
+  },
+  "source/_assets/js/main.js": {
+    "file": "assets/main-TJz90C4O.js",
+    "name": "main",
+    "src": "source/_assets/js/main.js",
+    "isEntry": true,
+    "css": [
+      "assets/main-BZ5jLx49.css"
+    ]
+  },
+  "source/_assets/scss/footer-fragment.scss": {
+    "file": "assets/footer-fragment-BXf4zx1M.css",
+    "name": "footer-fragment",
+    "names": [
+      "footer-fragment.css"
+    ],
+    "src": "source/_assets/scss/footer-fragment.scss",
+    "isEntry": true,
+    "assets": [
+      "assets/montserrat-cyrillic-ext-400-normal-Xqov12YL.woff2",
+      "assets/montserrat-cyrillic-ext-400-normal-DRPPeomZ.woff",
+      "assets/montserrat-cyrillic-400-normal-BPq32Q8K.woff2",
+      "assets/montserrat-cyrillic-400-normal-jEs4Tk-Z.woff",
+      "assets/montserrat-vietnamese-400-normal-D4oHqQTd.woff2",
+      "assets/montserrat-vietnamese-400-normal-BeEscFYY.woff",
+      "assets/montserrat-latin-ext-400-normal-B8bwfy6Y.woff2",
+      "assets/montserrat-latin-ext-400-normal-BffdBkAA.woff",
+      "assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+      "assets/montserrat-latin-400-normal-xItZbAXg.woff",
+      "assets/montserrat-cyrillic-ext-500-normal-11xBT7e1.woff2",
+      "assets/montserrat-cyrillic-ext-500-normal-DOzfAZ45.woff",
+      "assets/montserrat-cyrillic-500-normal-T0SG181k.woff2",
+      "assets/montserrat-cyrillic-500-normal-CyGtXmN9.woff",
+      "assets/montserrat-vietnamese-500-normal-NT-t8RG1.woff2",
+      "assets/montserrat-vietnamese-500-normal-DpeZlV_K.woff",
+      "assets/montserrat-latin-ext-500-normal-BKtbrd6n.woff2",
+      "assets/montserrat-latin-ext-500-normal-DWPqqZgs.woff",
+      "assets/montserrat-latin-500-normal-DRFEGfly.woff2",
+      "assets/montserrat-latin-500-normal-Dok2oTci.woff",
+      "assets/montserrat-cyrillic-ext-600-normal-BtBW-rpm.woff2",
+      "assets/montserrat-cyrillic-ext-600-normal-wReYPmz2.woff",
+      "assets/montserrat-cyrillic-600-normal-CQEPC0hM.woff2",
+      "assets/montserrat-cyrillic-600-normal-DUglwBrH.woff",
+      "assets/montserrat-vietnamese-600-normal-DKe6qT_E.woff2",
+      "assets/montserrat-vietnamese-600-normal-SJ-HTWuM.woff",
+      "assets/montserrat-latin-ext-600-normal-DSkTqI9L.woff2",
+      "assets/montserrat-latin-ext-600-normal-CSDhkhgS.woff",
+      "assets/montserrat-latin-600-normal-UVxSCcoG.woff2",
+      "assets/montserrat-latin-600-normal-CdhFl4lI.woff",
+      "assets/montserrat-cyrillic-ext-700-normal-MyDreaeu.woff2",
+      "assets/montserrat-cyrillic-ext-700-normal-D-Mk2xRJ.woff",
+      "assets/montserrat-cyrillic-700-normal-D-Pqjtdp.woff2",
+      "assets/montserrat-cyrillic-700-normal-BvLYcGP1.woff",
+      "assets/montserrat-vietnamese-700-normal-C0x1De3p.woff2",
+      "assets/montserrat-vietnamese-700-normal-DnwGT2D9.woff",
+      "assets/montserrat-latin-ext-700-normal-BOP2Nhf0.woff2",
+      "assets/montserrat-latin-ext-700-normal-DdDFr05Z.woff",
+      "assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+      "assets/montserrat-latin-700-normal-BWkrl476.woff",
+      "assets/montserrat-cyrillic-ext-800-normal-GOAQXnVZ.woff2",
+      "assets/montserrat-cyrillic-ext-800-normal-mB3PmEeV.woff",
+      "assets/montserrat-cyrillic-800-normal-DDmpGQGC.woff2",
+      "assets/montserrat-cyrillic-800-normal-B_mUCQ9O.woff",
+      "assets/montserrat-vietnamese-800-normal-BDwqwvSG.woff2",
+      "assets/montserrat-vietnamese-800-normal-Chy8GRiB.woff",
+      "assets/montserrat-latin-ext-800-normal-BBvmbyWk.woff2",
+      "assets/montserrat-latin-ext-800-normal-Wjq_OapB.woff",
+      "assets/montserrat-latin-800-normal-axpkC1rd.woff2",
+      "assets/montserrat-latin-800-normal-C3dfDxXV.woff"
+    ]
+  },
+  "source/_assets/scss/header-fragment.scss": {
+    "file": "assets/header-fragment-CtDOjP2w.css",
+    "name": "header-fragment",
+    "names": [
+      "header-fragment.css"
+    ],
+    "src": "source/_assets/scss/header-fragment.scss",
+    "isEntry": true,
+    "assets": [
+      "assets/montserrat-cyrillic-ext-400-normal-Xqov12YL.woff2",
+      "assets/montserrat-cyrillic-ext-400-normal-DRPPeomZ.woff",
+      "assets/montserrat-cyrillic-400-normal-BPq32Q8K.woff2",
+      "assets/montserrat-cyrillic-400-normal-jEs4Tk-Z.woff",
+      "assets/montserrat-vietnamese-400-normal-D4oHqQTd.woff2",
+      "assets/montserrat-vietnamese-400-normal-BeEscFYY.woff",
+      "assets/montserrat-latin-ext-400-normal-B8bwfy6Y.woff2",
+      "assets/montserrat-latin-ext-400-normal-BffdBkAA.woff",
+      "assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+      "assets/montserrat-latin-400-normal-xItZbAXg.woff",
+      "assets/montserrat-cyrillic-ext-500-normal-11xBT7e1.woff2",
+      "assets/montserrat-cyrillic-ext-500-normal-DOzfAZ45.woff",
+      "assets/montserrat-cyrillic-500-normal-T0SG181k.woff2",
+      "assets/montserrat-cyrillic-500-normal-CyGtXmN9.woff",
+      "assets/montserrat-vietnamese-500-normal-NT-t8RG1.woff2",
+      "assets/montserrat-vietnamese-500-normal-DpeZlV_K.woff",
+      "assets/montserrat-latin-ext-500-normal-BKtbrd6n.woff2",
+      "assets/montserrat-latin-ext-500-normal-DWPqqZgs.woff",
+      "assets/montserrat-latin-500-normal-DRFEGfly.woff2",
+      "assets/montserrat-latin-500-normal-Dok2oTci.woff",
+      "assets/montserrat-cyrillic-ext-600-normal-BtBW-rpm.woff2",
+      "assets/montserrat-cyrillic-ext-600-normal-wReYPmz2.woff",
+      "assets/montserrat-cyrillic-600-normal-CQEPC0hM.woff2",
+      "assets/montserrat-cyrillic-600-normal-DUglwBrH.woff",
+      "assets/montserrat-vietnamese-600-normal-DKe6qT_E.woff2",
+      "assets/montserrat-vietnamese-600-normal-SJ-HTWuM.woff",
+      "assets/montserrat-latin-ext-600-normal-DSkTqI9L.woff2",
+      "assets/montserrat-latin-ext-600-normal-CSDhkhgS.woff",
+      "assets/montserrat-latin-600-normal-UVxSCcoG.woff2",
+      "assets/montserrat-latin-600-normal-CdhFl4lI.woff",
+      "assets/montserrat-cyrillic-ext-700-normal-MyDreaeu.woff2",
+      "assets/montserrat-cyrillic-ext-700-normal-D-Mk2xRJ.woff",
+      "assets/montserrat-cyrillic-700-normal-D-Pqjtdp.woff2",
+      "assets/montserrat-cyrillic-700-normal-BvLYcGP1.woff",
+      "assets/montserrat-vietnamese-700-normal-C0x1De3p.woff2",
+      "assets/montserrat-vietnamese-700-normal-DnwGT2D9.woff",
+      "assets/montserrat-latin-ext-700-normal-BOP2Nhf0.woff2",
+      "assets/montserrat-latin-ext-700-normal-DdDFr05Z.woff",
+      "assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+      "assets/montserrat-latin-700-normal-BWkrl476.woff",
+      "assets/montserrat-cyrillic-ext-800-normal-GOAQXnVZ.woff2",
+      "assets/montserrat-cyrillic-ext-800-normal-mB3PmEeV.woff",
+      "assets/montserrat-cyrillic-800-normal-DDmpGQGC.woff2",
+      "assets/montserrat-cyrillic-800-normal-B_mUCQ9O.woff",
+      "assets/montserrat-vietnamese-800-normal-BDwqwvSG.woff2",
+      "assets/montserrat-vietnamese-800-normal-Chy8GRiB.woff",
+      "assets/montserrat-latin-ext-800-normal-BBvmbyWk.woff2",
+      "assets/montserrat-latin-ext-800-normal-Wjq_OapB.woff",
+      "assets/montserrat-latin-800-normal-axpkC1rd.woff2",
+      "assets/montserrat-latin-800-normal-C3dfDxXV.woff"
+    ]
+  },
+  "source/_assets/scss/ud-styles.scss": {
+    "file": "assets/ud-styles-DVISYjzq.css",
+    "name": "ud-styles",
+    "names": [
+      "ud-styles.css"
+    ],
+    "src": "source/_assets/scss/ud-styles.scss",
+    "isEntry": true,
+    "assets": [
+      "assets/d495aba62101f856c80f-DJ4Lg1TH.eot",
+      "assets/9065bfe481020b04b68a-CMveUrS1.woff2",
+      "assets/68caad34b1e80fa12b3a-4Cpu5VkB.woff",
+      "assets/a9c9056a643325579e2a-CCNAgZDa.ttf",
+      "assets/6b042d50787d4a81d659-D7JGeKLp.svg",
+      "assets/montserrat-cyrillic-ext-400-normal-Xqov12YL.woff2",
+      "assets/montserrat-cyrillic-ext-400-normal-DRPPeomZ.woff",
+      "assets/montserrat-cyrillic-400-normal-BPq32Q8K.woff2",
+      "assets/montserrat-cyrillic-400-normal-jEs4Tk-Z.woff",
+      "assets/montserrat-vietnamese-400-normal-D4oHqQTd.woff2",
+      "assets/montserrat-vietnamese-400-normal-BeEscFYY.woff",
+      "assets/montserrat-latin-ext-400-normal-B8bwfy6Y.woff2",
+      "assets/montserrat-latin-ext-400-normal-BffdBkAA.woff",
+      "assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+      "assets/montserrat-latin-400-normal-xItZbAXg.woff",
+      "assets/montserrat-cyrillic-ext-500-normal-11xBT7e1.woff2",
+      "assets/montserrat-cyrillic-ext-500-normal-DOzfAZ45.woff",
+      "assets/montserrat-cyrillic-500-normal-T0SG181k.woff2",
+      "assets/montserrat-cyrillic-500-normal-CyGtXmN9.woff",
+      "assets/montserrat-vietnamese-500-normal-NT-t8RG1.woff2",
+      "assets/montserrat-vietnamese-500-normal-DpeZlV_K.woff",
+      "assets/montserrat-latin-ext-500-normal-BKtbrd6n.woff2",
+      "assets/montserrat-latin-ext-500-normal-DWPqqZgs.woff",
+      "assets/montserrat-latin-500-normal-DRFEGfly.woff2",
+      "assets/montserrat-latin-500-normal-Dok2oTci.woff",
+      "assets/montserrat-cyrillic-ext-600-normal-BtBW-rpm.woff2",
+      "assets/montserrat-cyrillic-ext-600-normal-wReYPmz2.woff",
+      "assets/montserrat-cyrillic-600-normal-CQEPC0hM.woff2",
+      "assets/montserrat-cyrillic-600-normal-DUglwBrH.woff",
+      "assets/montserrat-vietnamese-600-normal-DKe6qT_E.woff2",
+      "assets/montserrat-vietnamese-600-normal-SJ-HTWuM.woff",
+      "assets/montserrat-latin-ext-600-normal-DSkTqI9L.woff2",
+      "assets/montserrat-latin-ext-600-normal-CSDhkhgS.woff",
+      "assets/montserrat-latin-600-normal-UVxSCcoG.woff2",
+      "assets/montserrat-latin-600-normal-CdhFl4lI.woff",
+      "assets/montserrat-cyrillic-ext-700-normal-MyDreaeu.woff2",
+      "assets/montserrat-cyrillic-ext-700-normal-D-Mk2xRJ.woff",
+      "assets/montserrat-cyrillic-700-normal-D-Pqjtdp.woff2",
+      "assets/montserrat-cyrillic-700-normal-BvLYcGP1.woff",
+      "assets/montserrat-vietnamese-700-normal-C0x1De3p.woff2",
+      "assets/montserrat-vietnamese-700-normal-DnwGT2D9.woff",
+      "assets/montserrat-latin-ext-700-normal-BOP2Nhf0.woff2",
+      "assets/montserrat-latin-ext-700-normal-DdDFr05Z.woff",
+      "assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+      "assets/montserrat-latin-700-normal-BWkrl476.woff",
+      "assets/montserrat-cyrillic-ext-800-normal-GOAQXnVZ.woff2",
+      "assets/montserrat-cyrillic-ext-800-normal-mB3PmEeV.woff",
+      "assets/montserrat-cyrillic-800-normal-DDmpGQGC.woff2",
+      "assets/montserrat-cyrillic-800-normal-B_mUCQ9O.woff",
+      "assets/montserrat-vietnamese-800-normal-BDwqwvSG.woff2",
+      "assets/montserrat-vietnamese-800-normal-Chy8GRiB.woff",
+      "assets/montserrat-latin-ext-800-normal-BBvmbyWk.woff2",
+      "assets/montserrat-latin-ext-800-normal-Wjq_OapB.woff",
+      "assets/montserrat-latin-800-normal-axpkC1rd.woff2",
+      "assets/montserrat-latin-800-normal-C3dfDxXV.woff"
+    ]
+  }
+}

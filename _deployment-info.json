@@ -1,0 +1,7 @@
+{
+  "commit_sha": "73a81bfe2b239dcb0728383f447793537ed01d68",
+  "pr_number": 452,
+  "pr_title": "fix: resolve CSS isolation conflicts in language selector when embedded in WordPress",
+  "repository": "LibreSign/site",
+  "timestamp": "2026-07-22T18:46:03Z"
+}

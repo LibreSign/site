@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocMDP (Document Modification Detection and Prevention) in LibreSign</title>
+
+    <!-- Primary Meta Tags -->
+    <link rel="canonical" href="/cs/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+    <meta name="description" content="Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.">
+        <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
+    <meta name="author" content="LibreSign / LibreCode">
+
+    <!-- Hreflang: multilingual support -->
+        <link rel="alternate" hreflang="cs" href="/cs/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="en" href="/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="fr" href="/fr/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="nb-NO" href="/nb-NO/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="pt" href="/pt/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="pt-BR" href="/pt-BR/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="ta" href="/ta/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+        <link rel="alternate" hreflang="x-default" href="/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/cs/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+    <meta property="og:title" content="DocMDP (Document Modification Detection and Prevention) in LibreSign">
+    <meta property="og:description" content="Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.">
+    <meta property="og:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta property="og:site_name" content="LibreSign">
+    <meta property="og:locale" content="cs">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="/cs/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+    <meta name="twitter:title" content="DocMDP (Document Modification Detection and Prevention) in LibreSign">
+    <meta name="twitter:description" content="Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.">
+    <meta name="twitter:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta name="twitter:site" content="@libresign">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/png"
+    >
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+    <!-- ===== All CSS files ===== -->
+        <link rel="stylesheet" href="/assets/build/assets/ud-styles-DVISYjzq.css">
+    
+    <!-- ====== All Javascript Files ====== -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <script>
+      window.baseUrl = "";
+    </script>
+
+    <script type="module" src="/assets/build/assets/main-TJz90C4O.js"></script>
+    <script type="module" src="/assets/build/assets/header-fragment-DgwCOlsk.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.onclick = function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                };
+            }
+
+            // ==== for menu scroll
+            const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+        }); // end DOMContentLoaded
+    </script>
+
+    <!-- Structured data: base Organization + WebSite -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://libresign.coop/#organization",
+          "name": "LibreSign",
+          "url": "https://libresign.coop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://libresign.coop/assets/images/logo/logo.svg"
+          },
+          "sameAs": [
+            "https://github.com/LibreSign/libresign",
+            "https://www.linkedin.com/company/libresign/",
+            "https://t.me/LibreSign",
+            "https://www.instagram.com/libresign/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://libresign.coop/#website",
+          "url": "https://libresign.coop",
+          "name": "LibreSign",
+          "description": "Open source electronic signature and digital document management, integrated with Nextcloud.",
+          "publisher": {
+            "@id": "https://libresign.coop/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    
+      </head>
+  <body id="top">
+    <div class="libresign-site-header-fragment"
+          >
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  <header class="ud-header" data-libresign-header>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl" aria-label="Main navigation">
+      <a class="navbar-brand" href="/cs" aria-label="LibreSign home">
+        <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+      </a>
+      <div class="collapse navbar-collapse mx-auto" id="main-navigation">
+        <ul class="navbar-nav container">
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="solutions-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="solutions-menu"
+               aria-expanded="false"
+               aria-label="Open solutions submenu">
+              Solutions
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="solutions-menu"
+                hidden
+                aria-labelledby="solutions-menu-toggle"
+                aria-label="Solutions submenu">
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/lawyers">
+                  Lawyers
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/tecnical-details">
+                  IT Professionals
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/company-solutions">
+                  Companies
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/cooperatives">
+                  Cooperatives
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/public-sector">
+                  Public Sector
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="features-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="features-menu"
+               aria-expanded="false"
+               aria-label="Open features submenu">
+              Features
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="features-menu"
+                hidden
+                aria-labelledby="features-menu-toggle"
+                aria-label="Features submenu">
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/advanced-security">
+                  Advanced security
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/hybrid-signatures">
+                  Hybrid signatures
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/document-validation-by-qr-code">
+                  Document validation by QR Code
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/real-time-monitoring">
+                  Real-time monitoring
+                </a>
+              </li>
+                            <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link ud-nav-submenu-link--all" href="/cs/features">
+                  All Features →
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/pricing">Plans and Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/posts">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/contact-us">Contact</a>
+          </li>
+          <li class="nav-item" id="customer-area-link">
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer">
+              Client Area
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+                <div class="dropdown selector">
+          <button class="dropdown-toggle ud-nav-dropdown-toggle"
+                  type="button"
+                  data-libresign-dropdown-toggle
+                  aria-controls="language-menu"
+                  aria-expanded="false"
+                  aria-label="Select language">
+            <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+            <span class="visually-hidden">Current language: čeština</span>
+          </button>
+          <ul class="dropdown-menu ud-submenu" id="language-menu" hidden aria-label="Language selection">
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/cs/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="cs"
+                 aria-label="Switch to čeština">
+                <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+                <span>cs</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="en"
+                 aria-label="Switch to English">
+                <img src="/assets/images/icon/languages/en.svg" alt="" aria-hidden="true">
+                <span>en</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/fr/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="fr"
+                 aria-label="Switch to français">
+                <img src="/assets/images/icon/languages/fr.svg" alt="" aria-hidden="true">
+                <span>fr</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/nb-NO/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="nb-NO"
+                 aria-label="Switch to Norwegian Bokmål (Norway)">
+                <img src="/assets/images/icon/languages/nb-NO.svg" alt="" aria-hidden="true">
+                <span>nb-NO</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="pt"
+                 aria-label="Switch to português">
+                <img src="/assets/images/icon/languages/pt.svg" alt="" aria-hidden="true">
+                <span>pt</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt-BR/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="pt-BR"
+                 aria-label="Switch to português (Brasil)">
+                <img src="/assets/images/icon/languages/pt-BR.svg" alt="" aria-hidden="true">
+                <span>pt-BR</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/ta/posts/docmdp-document-modification-detection-and-prevention-in-libresign"
+                 lang="ta"
+                 aria-label="Switch to தமிழ்">
+                <img src="/assets/images/icon/languages/ta.svg" alt="" aria-hidden="true">
+                <span>ta</span>
+              </a>
+            </li>
+                      <li><hr></li>
+            <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link ud-submenu-link--cta"
+                 href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Help translate this site">
+                <span>Help translate ✏️</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler collapsed"
+          data-libresign-header-toggle
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  </header>
+  </div>
+    <main id="main-content">
+          <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>DocMDP (Document Modification Detection and Prevention) in LibreSign</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== Blog Details Start ====== -->
+    <section class="ud-blog-details">
+      <div class="container">
+        <div class="row">
+                      <div class="col-lg-12">
+              <div class="ud-blog-details-image">
+                <img
+                  src="/assets/images/posts/docmdp/banner.png"
+                  alt=""
+                >
+                <div class="ud-blog-overlay">
+                  <div class="ud-blog-overlay-content">
+                    <div class="ud-blog-author">
+                                                                    <img src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=40"
+                        alt="Vitor Mattos">
+                                            <span>
+                                                By <a href="/team/vitor-mattos"> Vitor Mattos</a>
+                      </span>
+                    </div>
+
+                    <div class="ud-blog-meta">
+                      <p class="date">
+                                                <i class="lni lni-calendar-days"></i> <span>22. pro 2025</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="col-lg-8">
+            <div class="ud-blog-details-content text-justify">
+              <div class="article" style="text-align:justify;">
+                <h2>DocMDP in LibreSign</h2>
+
+<p>LibreSign now provides <strong>optional support for DocMDP (Document Management Policy)</strong>, allowing administrators to define control policies for digitally signed documents.</p>
+
+<p>DocMDP is a mechanism defined in the PDF format specification, standardized by <strong>ISO 32000 (ISO 32000-1 and ISO 32000-2)</strong>, which makes it possible to establish <strong>restrictions on permitted changes after a document is signed</strong>, ensuring greater <strong>integrity, predictability, and legal reliability</strong> of signed documents.</p>
+
+<h4>What is DocMDP?</h4>
+
+<p>DocMDP allows a PDF document to define <strong>which level of modification is acceptable</strong> after a certifying digital signature is applied. These rules are embedded directly into the document and are interpreted by validators compatible with the PDF standard defined by ISO 32000.</p>
+
+<p>In LibreSign, administrators can choose between different <strong>levels of protection</strong>, according to the needs of the organization’s signing workflow.</p>
+
+<h4>Available protection levels</h4>
+
+<p>LibreSign supports the following DocMDP levels, as defined in the PDF specification standard (ISO 32000):</p>
+
+<ul>
+<li><p><strong>No certification</strong>
+The document is not certified. Edits and additional signatures are allowed; however, any modification will cause previous signatures to be marked as modified.</p></li>
+<li><p><strong>No changes allowed</strong>
+After the first certifying signature, no edits or additional signatures are allowed. Any modification invalidates the document’s certification.</p></li>
+<li><p><strong>Form filling allowed</strong>
+After the first signature, only form filling and the addition of new signatures are allowed. Any other changes invalidate the certification.</p></li>
+<li><p><strong>Form filling and comments allowed</strong>
+After the first signature, form filling, comments, and new signatures are allowed. Any other changes invalidate the certification.</p></li>
+</ul>
+
+<h4>LibreSign behavior according to the selected policy</h4>
+
+<p>When the <strong>“No changes allowed”</strong> level is enabled, LibreSign <strong>does not allow more than one signer</strong> to be added to the document. This happens because, according to the DocMDP rules defined in ISO 32000, any structural modification, including the addition of new signatures, would violate the certification policy applied to the document.</p>
+
+<p>For this reason, it is essential that administrators understand the impact of the selected policy before starting a signing workflow, in order to avoid configurations that are incompatible with the document’s purpose.</p>
+
+<p>For the other certification levels, LibreSign allows multiple signers.</p>
+
+<h4>Validation</h4>
+
+<p>During the validation of signed documents, LibreSign clearly exposes the <strong>DocMDP information</strong>, indicating the level of protection applied to the document according to the defined policy.</p>
+
+<p>This allows PDF validators compatible with ISO 32000 to:</p>
+
+<ul>
+<li>Understand the restrictions applied to the document</li>
+<li>Verify that the content integrity has been preserved</li>
+<li>Confirm that the document follows internationally recognized policies</li>
+</ul>
+
+<p>With this support, LibreSign reinforces its commitment to <strong>international best practices for PDF digital signatures</strong>, offering transparency, interoperability, and a high level of technical compliance.</p>
+              </div>
+            </div>
+          </div>
+
+                      <div class="col-lg-4">
+              <div class="ud-blog-sidebar">
+                <div class="ud-articles-box">
+                  <h3 class="ud-articles-box-title">Last articles</h3>
+                  <ul class="ud-articles-list">
+                                                                                                                                <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/cs/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=40"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/cs/posts/envelopes-batch-document-signing-in-libresign">
+                              Envelopes - Batch document signing in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/cs/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/cs/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=40"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/cs/posts/crl-certificate-revocation-list-implementation-in-libresign">
+                              CRL (Certificate Revocation List) Implementation in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/cs/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                            <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/cs/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=40"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/cs/posts/signature-order-sequential-or-parallel-signing-in-libresign">
+                              Signature Order - Sequential or Parallel Signing in LibreSign
+                            </a>
+                          </h5>
+                          <a href="/cs/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/cs/team/libresign">
+                              <img
+                                src="/assets/images/logo/Avatar-LibreSign.png"
+                                alt="LibreSign"
+                              >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/cs/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+                              What is a Digital Signature? Types, Advantages, and How to Obtain It?
+                            </a>
+                          </h5>
+                          <a href="/cs/team/libresign"> LibreSign </a>
+                        </div>
+                      </li>
+                                                                                                          </ul>
+                </div>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </section>
+    <!-- ====== Blog Details End ====== -->
+    </main>
+    <div class="libresign-site-footer-fragment"
+          >
+    <footer class="ud-footer wow fadeInUp" data-aos-delay=".15s">
+        <div>
+            <div class="container">
+                <div class="row widgets">
+                    <div class="col-12 col-lg-4">
+                        <div class="ud-widget">
+                            <a href="/cs" class="ud-footer-logo" aria-label="LibreSign - Go to homepage">
+                                <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+                            </a>
+                            <p class="ud-widget-desc">
+                                Open source electronic signature integrated with Nextcloud. Self-hosted, secure, and built for organizations that value privacy and data sovereignty.
+                            </p>
+                            <nav aria-label="Social media links">
+                                <h3 class="visually-hidden">Follow us on social media</h3>
+                                <ul class="ud-widget-socials">
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://github.com/LibreSign/libresign"
+                                           aria-label="Visit our GitHub repository (opens in new tab)">
+                                            <svg width="32" height="32" viewBox="0 0 8.9045515 8.4666739" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="GitHub">
+  <title>GitHub</title>
+  <path d="m 0,0 c -0.876,0.168 -1.719,0.49 -2.472,0.969 -4.656,2.968 -7.581,8.092 -7.581,14.062 v 0 c 0,9.293 7.534,16.827 16.828,16.827 v 0 c 9.293,0 16.827,-7.534 16.827,-16.827 v 0 C 23.602,10.079 21.462,5.629 18.057,2.55 16.659,1.286 14.882,0.497 12.999,0.403 11.014,0.303 10.837,1.13 10.837,1.13 v 4.196 c 0,0.261 -0.022,0.523 -0.079,0.777 -0.081,0.359 -0.208,0.712 -0.397,1.029 -0.058,0.097 -0.122,0.19 -0.192,0.278 -0.03,0.037 -0.06,0.074 -0.093,0.107 -0.024,0.025 -0.062,0.048 -0.068,0.085 0.043,0.037 0.153,0.028 0.208,0.037 0.092,0.017 0.184,0.039 0.276,0.06 0.166,0.039 0.333,0.068 0.501,0.099 0.35,0.065 0.696,0.153 1.036,0.257 0.956,0.291 1.882,0.745 2.577,1.478 0.376,0.396 0.66,0.864 0.896,1.356 0.884,1.844 1.018,4.103 0.133,5.973 -0.151,0.319 -0.327,0.627 -0.531,0.916 -0.023,0.032 -0.252,0.278 -0.242,0.312 0.581,2.093 -0.17,3.634 -0.17,3.634 -1.843,0.014 -3.77,-1.432 -3.77,-1.432 C 7.548,21.412 3.948,20.32 3.948,20.32 1.851,21.766 0.235,21.724 0.235,21.724 -0.403,20.42 0.008,18.09 0.008,18.09 -1.863,15.86 -1.594,12.171 -0.233,10.087 1.128,8.004 4.959,7.597 4.959,7.597 4.562,7.271 4.147,6.393 4.099,5.953 4.052,5.514 2.857,5.438 2.857,5.438 0.986,5.268 0.32,6.515 0.32,6.515 -0.332,7.72 -0.927,7.933 -0.927,7.933 c 0,0 -0.539,0.354 -1.276,0.326 C -2.94,8.23 -2.614,7.862 -2.614,7.862 -1.296,7.167 -0.885,6.076 -0.885,6.076 -0.29,4.517 0.377,4.163 0.377,4.163 1.766,3.114 4.048,3.652 4.048,3.652 V 1.115 C 3.523,-0.699 0.083,-0.016 0.083,-0.016 Z" transform="matrix(0.26458333,0,0,-0.26458333,2.65986,8.43837)" fill="currentColor"/>
+</svg>
+
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.linkedin.com/company/libresign/"
+                                           aria-label="Follow us on LinkedIn (opens in new tab)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="LinkedIn">
+  <title>LinkedIn</title>
+  <path d="m 0,0 h -3.162 v 5.143 c 0,1.292 -0.464,2.174 -1.623,2.174 -0.885,0 -1.412,-0.595 -1.644,-1.169 C -6.513,5.943 -6.534,5.655 -6.534,5.368 V 0 h -3.223 v 0 c 0,0 0.042,8.786 0,9.696 h 3.223 V 8.253 C -6.111,8.908 -5.355,9.84 -3.665,9.84 -1.57,9.84 0,8.466 0,5.513 Z m -13.09,10.96 v 10e-4 h -0.02 c -1.073,0 -1.766,0.738 -1.766,1.66 0,0.944 0.714,1.661 1.808,1.661 1.093,0 1.765,-0.717 1.786,-1.661 0,-0.922 -0.693,-1.661 -1.808,-1.661 m -1.665,-1.264 h 3.162 V 0 h -3.162 z m 7.317,13.445 v 0 c -8.837,0 -16,-7.163 -16,-16 v 0 c 0,-8.836 7.163,-16 16,-16 v 0 c 8.836,0 16,7.164 16,16 v 0 c 0,8.837 -7.164,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.20130465,6.12272)" fill="currentColor"/>
+</svg>
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://t.me/LibreSign"
+                                           aria-label="Join our Telegram group (opens in new tab)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Telegram">
+  <title>Telegram</title>
+  <path d="m 0,0 c -0.279,-1.345 -0.485,-2.708 -0.736,-4.059 -0.392,-2.11 -0.748,-4.228 -1.082,-6.349 -0.049,-0.312 -0.074,-0.64 -0.176,-0.941 -0.092,-0.272 -0.267,-0.514 -0.491,-0.692 -0.218,-0.173 -0.481,-0.287 -0.757,-0.323 -0.279,-0.037 -0.552,0.016 -0.807,0.13 -0.249,0.112 -0.476,0.269 -0.703,0.418 -0.27,0.177 -0.536,0.359 -0.8,0.544 -0.528,0.372 -1.045,0.758 -1.557,1.152 -0.515,0.396 -1.023,0.8 -1.531,1.205 -0.241,0.193 -0.497,0.373 -0.725,0.581 -0.192,0.174 -0.332,0.393 -0.321,0.66 0.01,0.258 0.15,0.491 0.312,0.683 0.264,0.311 0.603,0.546 0.922,0.796 0.965,0.758 1.892,1.566 2.765,2.429 0.24,0.236 0.482,0.471 0.709,0.72 0.255,0.28 0.609,0.602 0.671,0.996 0.042,0.269 -0.126,0.39 -0.369,0.259 -0.644,-0.345 -1.203,-0.825 -1.805,-1.236 -0.474,-0.324 -0.96,-0.628 -1.434,-0.952 -0.485,-0.333 -0.965,-0.672 -1.446,-1.011 -1.031,-0.727 -2.181,-1.625 -3.505,-1.64 -0.418,-0.005 -0.831,0.07 -1.236,0.169 -0.404,0.098 -0.805,0.21 -1.207,0.319 -0.519,0.141 -2.482,0.563 -1.672,1.463 0.178,0.197 0.435,0.299 0.682,0.395 0.719,0.279 1.437,0.559 2.155,0.841 0,0.042 0.617,0.242 0.685,0.269 0.239,0.094 0.478,0.189 0.717,0.283 0.479,0.19 0.956,0.38 1.434,0.57 0.926,0.369 1.85,0.739 2.776,1.106 1.135,0.451 2.271,0.902 3.398,1.375 0.557,0.235 1.11,0.48 1.671,0.707 0.67,0.27 1.351,0.516 2.021,0.788 0.047,0.019 0.095,0.038 0.144,0.055 0.144,0.05 0.292,0.087 0.446,0.079 C -0.418,1.767 -0.024,1.444 0.087,1.025 0.177,0.687 0.069,0.331 0,0 m -7.152,10.707 v 0 c -8.836,0 -16,-7.163 -16,-16 v 0 c 0,-8.837 7.164,-16 16,-16 v 0 c 8.837,0 16,7.163 16,16 v 0 c 0,8.837 -7.163,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.12563,2.83289)" fill="currentColor"/>
+</svg>
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.instagram.com/libresign/"
+                                           aria-label="Follow us on Instagram (opens in new tab)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4665594 8.4667759" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Instagram">
+  <title>Instagram</title>
+  <g transform="translate(-86.518751,-126.20626)">
+    <path d="m 0,0 c -1.321,0 -2.397,-1.075 -2.397,-2.397 0,-1.321 1.076,-2.396 2.397,-2.396 1.321,0 2.397,1.075 2.397,2.396 C 2.397,-1.075 1.321,0 0,0" transform="matrix(0.26458333,0,0,-0.26458333,90.745918,129.79171)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-0.355 -0.288,-0.643 -0.643,-0.643 h -0.503 c -0.355,0 -0.643,0.288 -0.643,0.643 v 0.503 c 0,0.355 0.288,0.643 0.643,0.643 h 0.503 C -0.288,1.146 0,0.858 0,0.503 Z m -5.735,-7.84 c -2.062,0 -3.739,1.677 -3.739,3.739 0,2.061 1.677,3.738 3.739,3.738 2.061,0 3.738,-1.677 3.738,-3.738 0,-2.062 -1.677,-3.739 -3.738,-3.739 m 3.11,11.051 H -8.8 c -2.362,0 -4.277,-1.915 -4.277,-4.277 v -6.175 c 0,-2.362 1.915,-4.277 4.277,-4.277 h 6.175 c 2.362,0 4.277,1.915 4.277,4.277 v 6.175 c 0,2.362 -1.915,4.277 -4.277,4.277" transform="matrix(0.26458333,0,0,-0.26458333,92.263384,129.34066)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-3.103 -2.516,-5.618 -5.618,-5.618 h -6.245 c -3.103,0 -5.618,2.515 -5.618,5.618 v 6.244 c 0,3.103 2.515,5.619 5.618,5.619 h 6.245 C -2.516,11.863 0,9.347 0,6.244 Z m -6.921,19.017 v 0 C -15.7,20.022 -23.631,13.72 -24.635,4.941 v 0 c -1.005,-8.778 5.297,-16.709 14.075,-17.714 v 0 C -1.781,-13.777 6.149,-7.476 7.154,1.303 8.159,10.081 1.857,18.012 -6.921,19.017" transform="matrix(0.26458333,0,0,-0.26458333,93.064621,131.2657)" fill="currentColor"/>
+  </g>
+</svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="ud-widget">
+                            <a id="coop-logo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               href="https://www.somos.coop.br/"
+                               aria-label="Somos.Coop - National movement that values cooperative initiatives (opens in new tab)">
+                                <img src="/assets/images/icon/somoscoop.png" alt="Somos.Coop" aria-hidden="true">
+                            </a>
+
+                            <p id="copyright">&copy; 2026 LibreSign. All rights reserved.</p>
+                            <address id="address" class="ud-widget-address">
+                                Quinze de Novembro Street, 106, 3rd Floor, Room 309 - Centro <br>
+                                Niteroi - RJ
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-product">
+                            <h3 id="footer-nav-product" class="ud-widget-title">Product</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/cs/features">Features</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/pricing">Plans and Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/about">About</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/posts">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/ebooks">E-books</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/faq">FAQ</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-company">
+                            <h3 id="footer-nav-company" class="ud-widget-title">Company</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/cs/contact-us">Contact us</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/success-stories">Success Stories</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/team">Team</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/cooperatives">Cooperatives</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/privacy-policy">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-open-source">
+                            <h3 id="footer-nav-open-source" class="ud-widget-title">Open Source</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.libresign.coop" target="_blank" rel="noopener noreferrer">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/issues" target="_blank" rel="noopener noreferrer">Report an issue</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">How to contribute</a>
+                                </li>
+                                <li>
+                                    <a href="https://apps.nextcloud.com/apps/libresign" target="_blank" rel="noopener noreferrer">Nextcloud App Store</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a id="back-to-top"
+       class="back-to-top"
+       href="#top"
+       aria-label="Back to top">
+        <svg class="back-to-top__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L8 6L12 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <div id="footer-contact"
+         role="button"
+         tabindex="0"
+         data-contact-url="https://contato.librecode.coop/"
+         aria-label="Contact sales team for a quote">
+        <div class="bubble bubble-text">
+            <p>How about an exclusive quote to sign up for LibreSign?</p>
+        </div>
+        <div class="image-wrapper">
+            <div class="image">
+                <img src="/assets/images/footer/attendant.png" alt="" aria-hidden="true">
+                <div class="status" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  </body>
+</html>

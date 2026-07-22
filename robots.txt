@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Disallow: /fragments/
+Sitemap: https://libresign.coop/sitemap.xml
