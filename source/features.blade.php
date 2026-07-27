@@ -51,7 +51,7 @@ description: "Explore LibreSign's core features: digital signatures, document ma
           <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-solid-warm">
             {{ $page->t('Talk to a Specialist') }}
           </a>
-          <a href="{{ locale_url($page, 'register') }}" class="btn ud-btn-ghost">
+          <a href="{{ locale_url($page, 'pricing') }}" class="btn ud-btn-ghost">
             {{ $page->t('Try for Free') }}
           </a>
         </div>
