@@ -66,7 +66,7 @@ description: "Empower your business with secure, traceable digital signatures. L
       'subtitle' => $page->t('Turn paperwork into productivity. Discover how LibreSign optimizes your time and reduces costs for your business.'),
       'items'    => $companyBenefitItems,
       'sectionActions' => [[
-        'href'  => '#company-testimonials',
+        'href'  => locale_url($page, 'pricing'),
         'label' => $page->t('Discover the Platform'),
         'class' => 'btn ud-btn-solid-brand',
       ]],
