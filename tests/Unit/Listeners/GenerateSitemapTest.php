@@ -82,7 +82,6 @@ final class GenerateSitemapTest extends TestCase
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
                 '<loc>https://libresign.coop/posts/advanced-security</loc>',
                 '<image:loc>https://libresign.coop/assets/images/posts/advanced-security/banner.jpg</image:loc>',
-                '<image:loc>https://libresign.coop/assets/images/posts/advanced-security/cover.jpg</image:loc>',
                 '<loc>https://libresign.coop/posts/libresign-api-guide</loc>',
                 '<image:loc>https://cdn.example.com/libresign-api-guide/banner.webp</image:loc>',
                 '<loc>https://libresign.coop/posts/free-and-open-source-software-for-electronic-signatures</loc>',
@@ -91,6 +90,7 @@ final class GenerateSitemapTest extends TestCase
             [
                 '<loc>https://libresign.coop/assets/build/assets/main.js</loc>',
                 '<image:loc>https://libresign.coop/assets/images/logo/logo.svg</image:loc>',
+                '<image:loc>https://libresign.coop/assets/images/posts/advanced-security/cover.jpg</image:loc>',
             ],
         ];
 
