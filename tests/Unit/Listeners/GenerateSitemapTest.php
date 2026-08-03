@@ -83,6 +83,31 @@ final class GenerateSitemapTest extends TestCase
         ], $listener->exposeBuildImageLookup($jigsaw, 'libresign.coop'));
     }
 
+    public function testBuildImageLookupUsesCanonicalPathForPreviewUrls(): void
+    {
+        $listener = new TestableGenerateSitemap();
+        $jigsaw = $this->createStub(Jigsaw::class);
+
+        $jigsaw->method('getCollection')->willReturnCallback(
+            static fn (string $collectionName) => match ($collectionName) {
+                'posts' => [
+                    new FakeCollectionItem(
+                        'https://libresign.github.io/site-preview/pr-preview/pr-460/posts/advanced-security',
+                        [
+                            'banner' => '/assets/images/posts/advanced-security/banner.jpg',
+                        ],
+                        '/posts/advanced-security',
+                    ),
+                ],
+                default => null,
+            },
+        );
+
+        self::assertSame([
+            '/posts/advanced-security' => ['https://libresign.coop/assets/images/posts/advanced-security/banner.jpg'],
+        ], $listener->exposeBuildImageLookup($jigsaw, 'libresign.coop'));
+    }
+
     public function testHandleWritesPrimaryImagesForContentPages(): void
     {
         $xml = $this->buildSitemapXml();
@@ -173,12 +198,18 @@ final class FakeCollectionItem
     public function __construct(
         private string $url,
         private array $attributes,
+        private ?string $path = null,
     ) {
     }
 
     public function getUrl(): string
     {
         return $this->url;
+    }
+
+    public function getPath(): string
+    {
+        return $this->path ?? $this->url;
     }
 
     public function __get(string $name): mixed
