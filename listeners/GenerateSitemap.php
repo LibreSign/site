@@ -74,8 +74,6 @@ class GenerateSitemap
             return [];
         }
 
-        $images = [];
-
         foreach (['banner', 'cover_image'] as $property) {
             $value = $page->{$property} ?? null;
 
@@ -89,10 +87,10 @@ class GenerateSitemap
                 continue;
             }
 
-            $images[] = $normalized;
+            return [$normalized];
         }
 
-        return array_values(array_unique($images));
+        return [];
     }
 
     protected function normalizeOutputPath(string $path): string
