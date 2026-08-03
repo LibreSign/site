@@ -11,109 +11,161 @@ use TightenCo\Jigsaw\Jigsaw;
 
 final class GenerateSitemapTest extends TestCase
 {
-    #[DataProvider('handleProvider')]
-    public function testHandleGeneratesExpectedSitemap(
-        array $pages,
-        array $collections,
-        array $expectedFragments,
-        array $unexpectedFragments = [],
-    ): void
+    #[DataProvider('resolveImagesProvider')]
+    public function testResolveImagesReturnsExpectedPrimaryImage(object $page, array $expected): void
     {
-        $listener = new GenerateSitemap();
-        $jigsaw = $this->createStub(Jigsaw::class);
-        \org\bovigo\vfs\vfsStream::setup('build');
+        $listener = new TestableGenerateSitemap();
 
-        $destinationPath = \org\bovigo\vfs\vfsStream::url('build');
-
-        $jigsaw->method('getDestinationPath')->willReturn($destinationPath);
-        $jigsaw->method('getPages')->willReturn(new FakePageCollection($pages));
-        $jigsaw->method('getCollection')->willReturnCallback(
-            static fn (string $collectionName) => $collections[$collectionName] ?? null,
-        );
-
-        $listener->handle($jigsaw);
-
-        $xml = file_get_contents($destinationPath . '/sitemap.xml');
-
-        self::assertIsString($xml);
-
-        foreach ($expectedFragments as $fragment) {
-            self::assertStringContainsString($fragment, $xml);
-        }
-
-        foreach ($unexpectedFragments as $fragment) {
-            self::assertStringNotContainsString($fragment, $xml);
-        }
+        self::assertSame($expected, $listener->exposeResolveImages('libresign.coop', $page));
     }
 
-    public static function handleProvider(): iterable
+    public static function resolveImagesProvider(): iterable
     {
-        yield 'collects images from page metadata' => [
-            [
-                '/posts/advanced-security' => (object) ['page' => (object) []],
-                '/posts/libresign-api-guide' => (object) ['page' => (object) []],
-                '/posts/free-and-open-source-software-for-electronic-signatures' => (object) ['page' => (object) []],
-                '/assets/build/assets/main.js' => (object) [
-                    'page' => (object) [
-                        'banner' => '/assets/images/posts/should-not-appear/banner.jpg',
-                    ],
-                ],
-                '/' => (object) [
-                    'page' => (object) [],
-                ],
+        yield 'prefers banner over cover' => [
+            (object) [
+                'banner' => '/assets/images/posts/advanced-security/banner.jpg',
+                'cover_image' => '/assets/images/posts/advanced-security/cover.jpg',
             ],
-            [
+            ['https://libresign.coop/assets/images/posts/advanced-security/banner.jpg'],
+        ];
+
+        yield 'falls back to cover image' => [
+            (object) [
+                'cover_image' => '/assets/images/posts/advanced-security/cover.jpg',
+            ],
+            ['https://libresign.coop/assets/images/posts/advanced-security/cover.jpg'],
+        ];
+
+        yield 'keeps absolute wordpress image' => [
+            (object) [
+                'banner' => 'https://cdn.example.com/libresign-api-guide/banner.webp',
+            ],
+            ['https://cdn.example.com/libresign-api-guide/banner.webp'],
+        ];
+
+        yield 'ignores default logo variants' => [
+            (object) [
+                'banner' => '/assets/images/logo/logo.svg',
+                'cover_image' => '/assets/images/logo/logo.svg',
+            ],
+            [],
+        ];
+    }
+
+    public function testBuildImageLookupCollectsContentImagesFromBothCollections(): void
+    {
+        $listener = new TestableGenerateSitemap();
+        $jigsaw = $this->createStub(Jigsaw::class);
+
+        $jigsaw->method('getCollection')->willReturnCallback(
+            static fn (string $collectionName) => match ($collectionName) {
                 'posts' => [
                     new FakeCollectionItem('/posts/advanced-security', [
                         'banner' => '/assets/images/posts/advanced-security/banner.jpg',
                         'cover_image' => '/assets/images/posts/advanced-security/cover.jpg',
                     ]),
-                    new FakeCollectionItem('/posts/libresign-api-guide', [
-                        'banner' => 'https://cdn.example.com/libresign-api-guide/banner.webp',
-                        'cover_image' => 'https://cdn.example.com/libresign-api-guide/banner.webp',
-                    ]),
                     new FakeCollectionItem('/posts/free-and-open-source-software-for-electronic-signatures', [
                         'banner' => '/assets/images/logo/logo.svg',
-                        'cover_image' => '/assets/images/logo/logo.svg',
                     ]),
                 ],
-            ],
-            [
-                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-                '<loc>https://libresign.coop/posts/advanced-security</loc>',
-                '<image:loc>https://libresign.coop/assets/images/posts/advanced-security/banner.jpg</image:loc>',
-                '<loc>https://libresign.coop/posts/libresign-api-guide</loc>',
-                '<image:loc>https://cdn.example.com/libresign-api-guide/banner.webp</image:loc>',
-                '<loc>https://libresign.coop/posts/free-and-open-source-software-for-electronic-signatures</loc>',
-                '<loc>https://libresign.coop/</loc>',
-            ],
-            [
-                '<loc>https://libresign.coop/assets/build/assets/main.js</loc>',
-                '<image:loc>https://libresign.coop/assets/images/logo/logo.svg</image:loc>',
-                '<image:loc>https://libresign.coop/assets/images/posts/advanced-security/cover.jpg</image:loc>',
-            ],
-        ];
-
-        yield 'uses posts_wordpress collection too' => [
-            [
-                '/posts/libresign-api-guide' => (object) [
-                    'page' => (object) [],
-                ],
-            ],
-            [
                 'posts_wordpress' => [
                     new FakeCollectionItem('/posts/libresign-api-guide', [
                         'banner' => 'https://cdn.example.com/libresign-api-guide/banner.webp',
                     ]),
                 ],
-            ],
-            [
-                '<loc>https://libresign.coop/posts/libresign-api-guide</loc>',
-                '<image:loc>https://cdn.example.com/libresign-api-guide/banner.webp</image:loc>',
-            ],
-        ];
+                default => null,
+            },
+        );
+
+        self::assertSame([
+            '/posts/advanced-security' => ['https://libresign.coop/assets/images/posts/advanced-security/banner.jpg'],
+            '/posts/libresign-api-guide' => ['https://cdn.example.com/libresign-api-guide/banner.webp'],
+        ], $listener->exposeBuildImageLookup($jigsaw, 'libresign.coop'));
     }
 
+    public function testHandleWritesPrimaryImagesForContentPages(): void
+    {
+        $xml = $this->buildSitemapXml();
+
+        self::assertStringContainsString('<loc>https://libresign.coop/posts/advanced-security</loc>', $xml);
+        self::assertStringContainsString('<image:loc>https://libresign.coop/assets/images/posts/advanced-security/banner.jpg</image:loc>', $xml);
+        self::assertStringContainsString('<loc>https://libresign.coop/posts/libresign-api-guide</loc>', $xml);
+        self::assertStringContainsString('<image:loc>https://cdn.example.com/libresign-api-guide/banner.webp</image:loc>', $xml);
+    }
+
+    public function testHandleSkipsVariantsDefaultImagesAndAssets(): void
+    {
+        $xml = $this->buildSitemapXml();
+
+        self::assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">', $xml);
+        self::assertStringNotContainsString('<image:loc>https://libresign.coop/assets/images/posts/advanced-security/cover.jpg</image:loc>', $xml);
+        self::assertStringNotContainsString('<image:loc>https://libresign.coop/assets/images/logo/logo.svg</image:loc>', $xml);
+        self::assertStringNotContainsString('<loc>https://libresign.coop/assets/build/assets/main.js</loc>', $xml);
+    }
+
+    private function buildSitemapXml(): string
+    {
+        $listener = new GenerateSitemap();
+        $jigsaw = $this->createSitemapJigsawStub();
+
+        $listener->handle($jigsaw);
+
+        $xml = file_get_contents(\org\bovigo\vfs\vfsStream::url('build/sitemap.xml'));
+
+        self::assertIsString($xml);
+
+        return $xml;
+    }
+
+    private function createSitemapJigsawStub(): Jigsaw
+    {
+        $jigsaw = $this->createStub(Jigsaw::class);
+        \org\bovigo\vfs\vfsStream::setup('build');
+
+        $jigsaw->method('getDestinationPath')->willReturn(\org\bovigo\vfs\vfsStream::url('build'));
+        $jigsaw->method('getPages')->willReturn(new FakePageCollection([
+            '/posts/advanced-security' => (object) ['page' => (object) []],
+            '/posts/libresign-api-guide' => (object) ['page' => (object) []],
+            '/posts/free-and-open-source-software-for-electronic-signatures' => (object) ['page' => (object) []],
+            '/assets/build/assets/main.js' => (object) ['page' => (object) []],
+            '/' => (object) ['page' => (object) []],
+        ]));
+        $jigsaw->method('getCollection')->willReturnCallback(
+            static fn (string $collectionName) => match ($collectionName) {
+                'posts' => [
+                    new FakeCollectionItem('/posts/advanced-security', [
+                        'banner' => '/assets/images/posts/advanced-security/banner.jpg',
+                        'cover_image' => '/assets/images/posts/advanced-security/cover.jpg',
+                    ]),
+                    new FakeCollectionItem('/posts/free-and-open-source-software-for-electronic-signatures', [
+                        'banner' => '/assets/images/logo/logo.svg',
+                    ]),
+                ],
+                'posts_wordpress' => [
+                    new FakeCollectionItem('/posts/libresign-api-guide', [
+                        'banner' => 'https://cdn.example.com/libresign-api-guide/banner.webp',
+                    ]),
+                ],
+                default => null,
+            },
+        );
+
+        return $jigsaw;
+    }
+
+}
+
+final class TestableGenerateSitemap extends GenerateSitemap
+{
+    public function exposeResolveImages(string $siteHost, object $page): array
+    {
+        return $this->resolveImages($siteHost, $page);
+    }
+
+    public function exposeBuildImageLookup(Jigsaw $jigsaw, string $siteHost): array
+    {
+        return $this->buildImageLookup($jigsaw, $siteHost);
+    }
 }
 
 final class FakeCollectionItem
@@ -137,40 +189,8 @@ final class FakeCollectionItem
 
 final class FakePageCollection
 {
-    /**
-     * @param array<string, object> $items
-     */
     public function __construct(private array $items)
     {
-    }
-
-    public function map(callable $callback): self
-    {
-        $mapped = [];
-
-        foreach ($this->items as $key => $value) {
-            $mapped[$key] = $callback($value, $key);
-        }
-
-        return new self($mapped);
-    }
-
-    public function filter(callable $callback): self
-    {
-        $filtered = [];
-
-        foreach ($this->items as $key => $value) {
-            if ($callback($value, $key)) {
-                $filtered[$key] = $value;
-            }
-        }
-
-        return new self($filtered);
-    }
-
-    public function values(): self
-    {
-        return new self(array_values($this->items));
     }
 
     public function each(callable $callback): self
