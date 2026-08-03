@@ -46,7 +46,7 @@ class GenerateSitemap
             }
 
             foreach ($collection as $item) {
-                $path = $this->normalizeOutputPath($item->getUrl());
+                $path = $this->normalizeOutputPath($item->getPath());
                 $images = $this->resolveImages($siteHost, $item);
 
                 if ($images === []) {
