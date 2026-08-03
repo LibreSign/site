@@ -1,16 +1,16 @@
-name: Deploy PR previews
+name: Preview Build
 
-on: pull_request
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, reopened, synchronize]
 
 concurrency:
-  group: site-preview-deploy
-  cancel-in-progress: false
+  group: preview-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
-  deploy-preview:
-    # Skip fork PRs (e.g. Weblate translations) — secrets are not available
-    # for forks and a visual preview is not useful for translation-only changes.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+  build-preview:
     runs-on: ubuntu-latest
     env:
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
@@ -37,13 +37,9 @@ jobs:
       - name: Run composer command
         run: composer prod
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Upload preview build artifact
+        uses: actions/upload-artifact@v4
         with:
-          source-dir: ./build_production/
-          pages-base-url: libresign.github.io/site-preview
-          deploy-repository: LibreSign/site-preview
-          preview-branch: main
-          wait-for-pages-deployment: false
-          token: ${{ secrets.PREVIEW_TOKEN }}
-          comment: ${{ github.event.pull_request.user.type != 'Bot' }}
+          name: preview-build
+          path: build_production/
+          retention-days: 1
