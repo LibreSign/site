@@ -70,9 +70,10 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
       'subtitle' => $page->t('Discover the technical pillars that give your team freedom to innovate with confidence, visibility, and governance.'),
       'items'    => $itPillarItems,
       'sectionActions' => [[
-        'href'  => '#it-architecture',
-        'label' => $page->t('Access API Documentation'),
-        'class' => 'btn ud-btn-solid-brand',
+        'href'   => 'https://docs.libresign.coop/developer_manual/api/',
+        'label'  => $page->t('Access API Documentation'),
+        'class'  => 'btn ud-btn-solid-brand',
+        'target' => '_blank',
       ]],
     ])
 
@@ -92,14 +93,16 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
           'class' => 'btn ud-btn-solid-warm',
         ],
         [
-          'href'  => $page->baseUrl . 'assets/images/solutions/it-architecture-image.png',
-          'label' => $page->t('Download Architecture Whitepaper'),
-          'class' => 'btn ud-btn-ghost',
+          'href'   => 'https://docs.libresign.coop/admin_manual/',
+          'label'  => $page->t('Read the Admin Documentation'),
+          'class'  => 'btn ud-btn-ghost',
+          'target' => '_blank',
         ],
         [
-          'href'  => 'https://github.com/LibreSign/libresign',
-          'label' => $page->t('Project on GitHub'),
-          'class' => 'btn ud-btn-ghost',
+          'href'   => 'https://github.com/LibreSign/libresign',
+          'label'  => $page->t('Project on GitHub'),
+          'class'  => 'btn ud-btn-ghost',
+          'target' => '_blank',
         ],
       ],
     ])
