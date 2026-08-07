@@ -4,6 +4,16 @@ on:
   workflow_run:
     workflows: ["Preview Build"]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Preview Build run ID
+        required: true
+        type: string
+      pr_number:
+        description: Pull request number
+        required: true
+        type: string
   pull_request_target:
     branches: [ main ]
     types: [closed]
@@ -20,25 +30,41 @@ concurrency:
 jobs:
   deploy-preview:
     if: >
-      github.event_name == 'workflow_run' &&
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event == 'pull_request'
+      (
+        github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'pull_request'
+      ) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve preview build run ID
+        id: source
+        run: |
+          if [[ '${{ github.event_name }}' == 'workflow_dispatch' ]]; then
+            echo 'run_id=${{ inputs.run_id }}' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run_id=${{ github.event.workflow_run.id }}' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Download PR number artifact
+        if: github.event_name == 'workflow_run'
         uses: actions/download-artifact@v4
         with:
           name: preview-pr-number
           path: ${{ runner.temp }}/preview-metadata/
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ steps.source.outputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract PR number
+      - name: Resolve PR number
         id: pr
         run: |
-          pr_number=$(< '${{ runner.temp }}/preview-metadata/preview-pr-number.txt')
+          if [[ '${{ github.event_name }}' == 'workflow_dispatch' ]]; then
+            pr_number='${{ inputs.pr_number }}'
+          else
+            pr_number=$(< '${{ runner.temp }}/preview-metadata/preview-pr-number.txt')
+          fi
           echo "number=$pr_number" >> "$GITHUB_OUTPUT"
 
       - name: Download preview build artifact
@@ -47,7 +73,7 @@ jobs:
         with:
           name: preview-build
           path: build_production/
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ steps.source.outputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy preview
