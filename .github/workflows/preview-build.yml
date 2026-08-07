@@ -37,6 +37,16 @@ jobs:
       - name: Run composer command
         run: composer prod
 
+      - name: Save PR number
+        run: printf '%s\n' '${{ github.event.pull_request.number }}' > preview-pr-number.txt
+
+      - name: Upload PR number artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-pr-number
+          path: preview-pr-number.txt
+          retention-days: 1
+
       - name: Upload preview build artifact
         uses: actions/upload-artifact@v4
         with:
