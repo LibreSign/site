@@ -15,16 +15,27 @@
   @media #{$xs} {
     background-position: 72% top;
   }
+  --ud-hero-height-cap: 720px;
+
   margin-top: var(--ud-header-height);
-  padding-top: 127px;
-  padding-bottom: 88px;
-  min-height: 1210px;
+  padding-top: clamp(56px, 7vw, 104px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+  min-height: min(
+    calc(100vh - var(--ud-header-height)),
+    var(--ud-hero-height-cap)
+  );
+  min-height: min(
+    calc(100svh - var(--ud-header-height)),
+    var(--ud-hero-height-cap)
+  );
   position: relative;
   overflow: hidden;
-  display: block;
+  display: flex;
+  align-items: center;
   line-height: normal;
 
   .container {
+    width: 100%;
     max-width: 100%;
     padding-left: 72px;
     padding-right: 72px;
@@ -51,21 +62,27 @@
   }
 
   @media #{$xs} {
-    margin-top: var(--ud-header-height);
-    padding-top: 80px;
-    padding-bottom: 48px;
-    min-height: auto;
+    --ud-hero-height-cap: 520px;
   }
 
   @media #{$sm} {
-    padding-top: 100px;
-    padding-bottom: 64px;
-    min-height: auto;
+    --ud-hero-height-cap: 560px;
   }
 
-  @media #{$md, $lg} {
-    min-height: 980px;
-    padding-top: 150px;
+  @media #{$md} {
+    --ud-hero-height-cap: 600px;
+  }
+
+  @media #{$lg, $laptop} {
+    --ud-hero-height-cap: 660px;
+  }
+
+  @media #{$xl-desktop} {
+    --ud-hero-height-cap: 760px;
+  }
+
+  @media (max-height: 560px) {
+    --ud-hero-height-cap: 0px;
   }
 
   // --- Full-bleed background image ---
@@ -131,10 +148,6 @@
     position: relative;
     z-index: 2;
 
-    @media #{$xs, $sm} {
-      margin-bottom: 40px;
-    }
-
     .ud-hero-title {
       color: var(--text-light);
       font-weight: bold;
@@ -167,12 +180,12 @@
       font-size: clamp(18px, 1.8vw, 24px);
       color: var(--text-light);
       max-width: 636px;
-      margin-bottom: 52px;
+      margin-bottom: clamp(28px, 3vw, 40px);
 
       @media #{$xs} {
         font-size: 16px;
         line-height: 1.6;
-        margin-bottom: 36px;
+        margin-bottom: 28px;
       }
     }
 
