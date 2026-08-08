@@ -151,32 +151,46 @@ return [
     ],
     'testimonials' => [
         [
-            'comment' => "Libresign's nextcloud integration has come a long way in the past year. If you tried it before and found it lacking, give it another chance. I can see it being a real option and alternative to other e-signature services.",
-            'author' => 'Matt Nelson'
+            'author' => 'Matt Nelson',
+            'description' => "Libresign's nextcloud integration has come a long way in the past year. If you tried it before and found it lacking, give it another chance. I can see it being a real option and alternative to other e-signature services.",
+            'origin' => 'Nextcloud App Store',
+            'url' => 'https://apps.nextcloud.com/apps/libresign',
         ],
         [
-            'comment' => "Congratulations to the LibreSign development team for creating such an efficient solution for electronic signatures! LibreSign has an intuitive interface and ease of use, allowing integration with various APIs. I've been following the development and see it improving with each new release. LibreSign makes managing digital signatures a simple and reliable experience. I highly recommend it!",
-            'author' => 'Lua Mello'
+            'author' => 'Lua Mello',
+            'description' => "Congratulations to the LibreSign development team for creating such an efficient solution for electronic signatures! LibreSign has an intuitive interface and ease of use, allowing integration with various APIs. I've been following the development and see it improving with each new release. LibreSign makes managing digital signatures a simple and reliable experience. I highly recommend it!",
+            'origin' => 'Nextcloud App Store',
+            'url' => 'https://apps.nextcloud.com/apps/libresign',
         ],
         [
-            'comment' => "Finally an excellent app for signing documents. Very good!",
-            'author' => 'Daiane Alves'
+            'author' => 'Daiane Alves',
+            'description' => "Finally an excellent app for signing documents. Very good!",
+            'origin' => 'Nextcloud App Store',
+            'url' => 'https://apps.nextcloud.com/apps/libresign',
         ],
         [
-            'comment' => "Libresign is becoming a fully-featured alternative to expensive cloud services like DocuSign. The nextcloud integration makes it a real option to use for e-signatures.",
-            'author' => 'Metheos'
+            'author' => 'Metheos',
+            'description' => "Libresign is becoming a fully-featured alternative to expensive cloud services like DocuSign. The nextcloud integration makes it a real option to use for e-signatures.",
+            'origin' => 'AlternativeTo',
+            'url' => 'https://alternativeto.net/software/libresign/about/',
         ],
         [
-            'comment' => "LibreSign has come a long way and it is great replacement to most commercial e-signature solutions and it is open source.",
-            'author' => '0-bandage-dugouts'
+            'author' => '0-bandage-dugouts',
+            'description' => "LibreSign has come a long way and it is great replacement to most commercial e-signature solutions and it is open source.",
+            'origin' => 'AlternativeTo',
+            'url' => 'https://alternativeto.net/software/libresign/about/#post-142731',
         ],
         [
-            'comment' => "It works perfectly with the electronic certificate issued by the Spanish Government. Installation has become very simple and affordable for anyone with minimal knowledge of Nextcloud. Developer support is fantastic. It works on all devices, including mobile devices. It has different options for creating, requesting and signing signatures. Version 9 is a great leap in quality and has a lot of future. It's incredible that this application works so well and is free.",
-            'author' => 'Iván Gómez Fernández'
+            'author' => 'Iván Gómez Fernández',
+            'description' => "It works perfectly with the electronic certificate issued by the Spanish Government. Installation has become very simple and affordable for anyone with minimal knowledge of Nextcloud. Developer support is fantastic. It works on all devices, including mobile devices. It has different options for creating, requesting and signing signatures. Version 9 is a great leap in quality and has a lot of future. It's incredible that this application works so well and is free.",
+            'origin' => 'LibreSign customer story',
+            'url' => 'https://libresign.coop/posts/libresign-brings-digital-signature-solutions-with-agility-security-and-autonomy/',
         ],
         [
-            'comment' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
-            'author' => 'Igor Afonso Oliveira Ruas'
+            'author' => 'Igor Afonso Oliveira Ruas',
+            'description' => "A simple and complete solution. It speeds up processes and can eliminate the use of paper. We integrated it with our public management system or e-Cidade, it was absurdly good. Congratulations.",
+            'origin' => 'Direct customer testimonial',
+            'url' => null,
         ],
     ],
     'frequentlyQuestions' => [
