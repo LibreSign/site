@@ -224,11 +224,6 @@
           'label' => $page->t('Request your personalized demo'),
           'class' => 'ud-home-cta__btn ud-home-cta__btn--primary',
         ],
-        [
-          'href' => locale_url($page, 'register'),
-          'label' => $page->t('Try LibreSign now (free trial)'),
-          'class' => 'ud-home-cta__btn ud-home-cta__btn--secondary',
-        ],
       ],
     ])
     <!-- ====== CTA End ====== -->
