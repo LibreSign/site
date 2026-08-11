@@ -26,8 +26,28 @@
                     <i class="lni lni-star-fat"></i>
                 </div>
                 <div class="testimonial-info">
-                    <p class="text-justify">{{ $page->t($topics->comment) }}</p>
-                    <h6 class="testimonial-brand">{{ $topics->author }}</h6>
+                    <p class="text-justify">{{ $page->t($topics->description) }}</p>
+
+                    @if (!empty($topics->author))
+                        <h6 class="testimonial-brand">{{ $topics->author }}</h6>
+                    @endif
+
+                    @if (!empty($topics->origin))
+                        <p class="testimonial-origin">
+                            {{ $page->t('Source') }}:
+                            @if (!empty($topics->url))
+                                <a
+                                    href="{{ $topics->url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {{ $topics->origin }}
+                                </a>
+                            @else
+                                <span>{{ $topics->origin }}</span>
+                            @endif
+                        </p>
+                    @endif
                 </div>
             </div>
         @endforeach

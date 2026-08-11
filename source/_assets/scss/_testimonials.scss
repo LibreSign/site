@@ -186,7 +186,24 @@
 }
 
 .testimonial-brand {
-  text-transform: uppercase;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+
+.testimonial-origin {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+
+  a {
+    color: var(--primary-color);
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
 }
 
 .testimonial-short-description {
