@@ -25,6 +25,12 @@
 //   <a class="btn ud-btn-ghost">Explorar</a>
 // ─────────────────────────────────────────────────────────────
 
+@mixin ud-btn-active($background, $border, $text) {
+  --bs-btn-active-bg: #{$background};
+  --bs-btn-active-border-color: #{$border};
+  --bs-btn-active-color: #{$text};
+}
+
 // Baseline compartilhada — forma, espaçamento, tipografia
 %ud-btn-base {
   align-items: center;
@@ -45,6 +51,7 @@
 // Teal — CTA principal em seções claras
 .ud-btn-solid-brand {
   @extend %ud-btn-base;
+  @include ud-btn-active(var(--primary-hover), var(--primary-hover), var(--white));
 
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -61,6 +68,7 @@
 // Laranja — CTA principal em seções escuras
 .ud-btn-solid-warm {
   @extend %ud-btn-base;
+  @include ud-btn-active(var(--accent-hover), var(--accent-hover), var(--white));
 
   background: var(--accent-color);
   border: 1px solid var(--accent-color);
@@ -77,6 +85,7 @@
 // Âmbar — CTA sobre fundo teal (hero); alto contraste texto escuro
 .ud-btn-solid-amber {
   @extend %ud-btn-base;
+  @include ud-btn-active(var(--amber-hover), var(--amber-hover), var(--primary-color));
 
   background: var(--amber);
   border: 1px solid var(--amber);
@@ -93,6 +102,7 @@
 // Branco — neutro em seções escuras (ex: pricing)
 .ud-btn-solid-white {
   @extend %ud-btn-base;
+  @include ud-btn-active(var(--heading-color), var(--heading-color), var(--white));
 
   background: var(--white);
   border: 1px solid transparent;
@@ -112,6 +122,7 @@
 // Borda teal — ação secundária em seções claras
 .ud-btn-outline-brand {
   @extend %ud-btn-base;
+  @include ud-btn-active(var(--primary-color), var(--primary-color), var(--white));
 
   background: var(--white);
   border: 1px solid var(--primary-color);
@@ -131,6 +142,7 @@
 
 .ud-btn-ghost {
   @extend %ud-btn-base;
+  @include ud-btn-active(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.85), var(--white));
 
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.85);
