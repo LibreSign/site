@@ -31,7 +31,7 @@ description: "See how organizations use LibreSign to sign documents securely, re
                 <i class="lni lni-star-fat" aria-hidden="true"></i>
               </div>
               <blockquote class="ud-testimonial-content flex-grow-1">
-                <p>{{ $testimonial['comment'] }}</p>
+                <p>{{ $testimonial['description'] }}</p>
               </blockquote>
               <footer class="ud-testimonial-info">
                 <div class="ud-testimonial-author">
