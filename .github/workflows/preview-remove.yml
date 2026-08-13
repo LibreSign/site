@@ -1,0 +1,46 @@
+name: PR Preview Manual Remove
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull request number to remove preview for"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-preview-deploy
+  cancel-in-progress: false
+
+jobs:
+  remove-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR number input
+        id: validate
+        env:
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          if ! [[ "$INPUT_PR_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid pr_number: must be a positive integer." >&2
+            exit 1
+          fi
+
+          echo "pr_number=$INPUT_PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Remove preview snapshot
+        # Keep this pinned to the same fork used by workflow_run to preserve
+        # native sticky-comment PR number behavior consistency.
+        uses: LibreSign/pr-preview-action@5c36c543173b4222877afc2448caefb840a2dde5
+        with:
+          action: remove
+          pr-number: ${{ steps.validate.outputs.pr_number }}
+          deploy-repository: LibreSign/site-preview
+          preview-branch: main
+          pages-base-url: libresign.github.io/site-preview
+          wait-for-pages-deployment: true
+          comment: false
+          token: ${{ secrets.PREVIEW_TOKEN }}
