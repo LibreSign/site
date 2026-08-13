@@ -280,4 +280,82 @@ final class WooCommerceProductTransformerTest extends TestCase
         self::assertNull($result['langSlug']);
         self::assertSame('21', $result['translationGroup']);
     }
+
+    public function testAuthenticatedDataEnrichesPublicProductData(): void
+    {
+        $fromApi = [
+            'id' => 99,
+            'slug' => 'plus',
+            'date' => '2026-07-08T12:00:00',
+            'lang' => 'en',
+            'translations' => ['en' => 99],
+            'link' => 'https://account.example.test/product/plus/',
+            'title' => ['rendered' => 'Plus fallback'],
+        ];
+        $publicProductDetails = [
+            'name' => 'Plus',
+            'short_description' => '<p>Public description</p>',
+            'permalink' => 'https://account.example.test/product/plus/',
+            'prices' => [
+                'currency_prefix' => '$',
+                'currency_minor_unit' => 2,
+                'currency_decimal_separator' => '.',
+                'currency_thousand_separator' => ',',
+                'price' => '4900',
+            ],
+            'attributes' => [
+                [
+                    'name' => 'Storage',
+                    'options' => ['2 Gb'],
+                ],
+            ],
+        ];
+        $authenticatedEnrichment = [
+            'attributes' => [
+                [
+                    'name' => 'Storage',
+                    'options' => ['20 Gb'],
+                ],
+            ],
+        ];
+
+        $result = $this->transformer->mapProduct(
+            $fromApi,
+            $publicProductDetails,
+            $authenticatedEnrichment,
+            []
+        );
+
+        self::assertSame('Plus', $result['title']);
+        self::assertSame(['20 Gb'], $result['attributes'][0]['values']);
+    }
+
+    public function testMapProductFallsBackToSafeDefaultsWhenPublicDetailsAreMissing(): void
+    {
+        $fromApi = [
+            'id' => 501,
+            'slug' => 'fallback-plan',
+            'date' => '2026-07-08T12:00:00',
+            'translations' => [],
+            'link' => 'https://account.example.test/product/fallback-plan/',
+            'title' => ['rendered' => 'Fallback Plan'],
+        ];
+
+        $result = $this->transformer->mapProduct(
+            $fromApi,
+            [],
+            [],
+            []
+        );
+
+        self::assertSame('Fallback Plan', $result['title']);
+        self::assertSame('fallback-plan', $result['slug']);
+        self::assertNull($result['price']);
+        self::assertSame('', $result['description']);
+        self::assertSame('https://account.example.test/product/fallback-plan/', $result['permalink']);
+        self::assertSame('View product', $result['buttonLabel']);
+        self::assertSame([], $result['attributes']);
+        self::assertSame([], $result['pricingCardColors']);
+    }
 }
+
