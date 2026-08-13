@@ -12,6 +12,7 @@ permissions:
 concurrency:
   group: site-preview-deploy
   cancel-in-progress: false
+  queue: max
 
 jobs:
   preview:
