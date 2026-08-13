@@ -215,6 +215,170 @@ final class WooCommerceProductCollectionTest extends TestCase
             'https://account.example.test/wp-json/pll/v1/languages',
         ], $collection->requestedContentUrls());
     }
+
+    public function testItBuildsProductWithoutAuthenticatedWooCommerceData(): void
+    {
+        $page = new FakeJigsawPage(['accountUrl' => 'https://account.example.test']);
+        $collection = new FakeWooCommerceProductCollection(
+            [
+                'https://account.example.test/wp-json/wp/v2/product?featured=true&per_page=100&_fields=id,slug,title,date,lang,translations,link,status' => [
+                    [
+                        'id' => 10,
+                        'slug' => 'basic',
+                        'title' => ['rendered' => 'Basic fallback'],
+                        'date' => '2026-07-03T12:00:00',
+                        'lang' => 'en',
+                        'translations' => ['en' => 10],
+                        'link' => 'https://account.example.test/product/basic/',
+                        'status' => 'publish',
+                    ],
+                ],
+                'https://account.example.test/wp-json/wp/v2/product?include=10&orderby=include&per_page=100&_fields=id,slug,title,date,lang,translations,link,status' => [
+                    [
+                        'id' => 10,
+                        'slug' => 'basic',
+                        'title' => ['rendered' => 'Basic fallback'],
+                        'date' => '2026-07-03T12:00:00',
+                        'lang' => 'en',
+                        'translations' => ['en' => 10],
+                        'link' => 'https://account.example.test/product/basic/',
+                        'status' => 'publish',
+                    ],
+                ],
+                'https://account.example.test/wp-json/wc/store/v1/products?include=10&orderby=include&per_page=100' => [
+                    [
+                        'id' => 10,
+                        'name' => 'Basic',
+                        'short_description' => '<p>Short description</p>',
+                        'permalink' => 'https://account.example.test/product/basic/',
+                        'type' => 'simple',
+                        'is_purchasable' => true,
+                        'has_options' => false,
+                        'prices' => [
+                            'currency_prefix' => 'R$ ',
+                            'currency_suffix' => '',
+                            'currency_minor_unit' => 2,
+                            'currency_decimal_separator' => ',',
+                            'currency_thousand_separator' => '.',
+                            'price' => '5500',
+                        ],
+                        'add_to_cart' => [
+                            'text' => 'View product',
+                        ],
+                        'attributes' => [
+                            [
+                                'name' => 'Storage',
+                                'options' => ['1 Gb'],
+                                'visible' => true,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            [
+                'https://account.example.test/wp-json/pll/v1/languages' => json_encode([
+                    ['slug' => 'en', 'w3c' => 'en-US'],
+                ]),
+            ],
+            [],
+            new WooCommerceProductTransformer(),
+        );
+
+        $items = $collection->items($page);
+
+        self::assertCount(1, $items);
+        self::assertSame('Basic', $items[0]['title']);
+        self::assertSame('basic', $items[0]['slug']);
+        self::assertSame('R$ 55,00', $items[0]['price']);
+        self::assertSame('<p>Short description</p>', $items[0]['description']);
+        self::assertSame('https://account.example.test/product/basic/', $items[0]['permalink']);
+        self::assertSame('Storage', $items[0]['attributes'][0]['name']);
+        self::assertSame(['1 Gb'], $items[0]['attributes'][0]['values']);
+        self::assertSame([], $collection->authenticatedEnrichmentFailures());
+        self::assertNotContains(
+            'https://account.example.test/wp-json/wc/v3/products?include=10&orderby=include&per_page=100&_fields=id,attributes',
+            $collection->requestedJsonUrls()
+        );
+    }
+
+    public function testAuthenticatedEndpointFailureFallsBackToPublicStoreData(): void
+    {
+        $page = new FakeJigsawPage(['accountUrl' => 'https://account.example.test']);
+        $collection = new FakeWooCommerceProductCollection(
+            [
+                'https://account.example.test/wp-json/wp/v2/product?featured=true&per_page=100&_fields=id,slug,title,date,lang,translations,link,status' => [
+                    [
+                        'id' => 10,
+                        'slug' => 'basic',
+                        'title' => ['rendered' => 'Basic fallback'],
+                        'date' => '2026-07-03T12:00:00',
+                        'lang' => 'en',
+                        'translations' => ['en' => 10],
+                        'link' => 'https://account.example.test/product/basic/',
+                        'status' => 'publish',
+                    ],
+                ],
+                'https://account.example.test/wp-json/wp/v2/product?include=10&orderby=include&per_page=100&_fields=id,slug,title,date,lang,translations,link,status' => [
+                    [
+                        'id' => 10,
+                        'slug' => 'basic',
+                        'title' => ['rendered' => 'Basic fallback'],
+                        'date' => '2026-07-03T12:00:00',
+                        'lang' => 'en',
+                        'translations' => ['en' => 10],
+                        'link' => 'https://account.example.test/product/basic/',
+                        'status' => 'publish',
+                    ],
+                ],
+                'https://account.example.test/wp-json/wc/store/v1/products?include=10&orderby=include&per_page=100' => [
+                    [
+                        'id' => 10,
+                        'name' => 'Basic',
+                        'short_description' => '<p>Short description</p>',
+                        'permalink' => 'https://account.example.test/product/basic/',
+                        'type' => 'simple',
+                        'is_purchasable' => true,
+                        'has_options' => false,
+                        'prices' => [
+                            'currency_prefix' => 'R$ ',
+                            'currency_suffix' => '',
+                            'currency_minor_unit' => 2,
+                            'currency_decimal_separator' => ',',
+                            'currency_thousand_separator' => '.',
+                            'price' => '5500',
+                        ],
+                        'add_to_cart' => [
+                            'text' => 'View product',
+                        ],
+                        'attributes' => [
+                            [
+                                'name' => 'Storage',
+                                'options' => ['1 Gb'],
+                                'visible' => true,
+                            ],
+                        ],
+                    ],
+                ],
+                // Intentionally missing authenticated endpoint response to simulate outage.
+            ],
+            [
+                'https://account.example.test/wp-json/pll/v1/languages' => json_encode([
+                    ['slug' => 'en', 'w3c' => 'en-US'],
+                ]),
+            ],
+            ['Authorization: Basic test'],
+            new WooCommerceProductTransformer(),
+        );
+
+        $items = $collection->items($page);
+
+        self::assertCount(1, $items);
+        self::assertSame('Basic', $items[0]['title']);
+        self::assertSame(['1 Gb'], $items[0]['attributes'][0]['values']);
+        self::assertSame([
+            'https://account.example.test/wp-json/wc/v3/products?include=10&orderby=include&per_page=100&_fields=id,attributes',
+        ], $collection->authenticatedEnrichmentFailures());
+    }
 }
 
 final class FakeWooCommerceProductCollection extends WooCommerceProductCollection
@@ -222,6 +386,8 @@ final class FakeWooCommerceProductCollection extends WooCommerceProductCollectio
     private array $requestedJsonUrls = [];
 
     private array $requestedContentUrls = [];
+
+    private array $authenticatedEnrichmentFailures = [];
 
     public function __construct(
         private readonly array $jsonResponses,
@@ -255,6 +421,16 @@ final class FakeWooCommerceProductCollection extends WooCommerceProductCollectio
     {
         return $this->requestedContentUrls;
     }
+
+    public function authenticatedEnrichmentFailures(): array
+    {
+        return $this->authenticatedEnrichmentFailures;
+    }
+
+    protected function logAuthenticatedEnrichmentFailure(string $url): void
+    {
+        $this->authenticatedEnrichmentFailures[] = $url;
+    }
 }
 
 final class FakeJigsawPage
@@ -268,3 +444,4 @@ final class FakeJigsawPage
         return $this->config[$key] ?? null;
     }
 }
+
