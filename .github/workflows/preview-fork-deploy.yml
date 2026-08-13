@@ -2,7 +2,7 @@ name: PR Preview Fork Deploy
 
 on:
   workflow_run:
-    workflows: ["PR Preview Build"]
+    workflows: ["PR Preview"]
     types: [completed]
 
 permissions:
@@ -73,6 +73,8 @@ jobs:
 
       - name: Deploy fork preview
         if: steps.pr.outputs.number != '' && steps.pr_meta.outputs.should_deploy == 'true'
+        # Temporary LibreSign fork: forwards `pr-number` to native sticky comment
+        # when this action runs from `workflow_run`.
         uses: LibreSign/pr-preview-action@5c36c543173b4222877afc2448caefb840a2dde5
         with:
           action: deploy
