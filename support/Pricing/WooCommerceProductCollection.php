@@ -56,14 +56,14 @@ class WooCommerceProductCollection
             ->values();
 
         $localizedProductsById = $this->fetchLocalizedProducts($localizedProductIds, $accountUrl, $productFields);
-        $productDetailsById = $this->fetchStoreProductDetails($localizedProductIds, $accountUrl);
-        $authenticatedProductDetailsById = $this->fetchAuthenticatedProductDetails($localizedProductIds, $accountUrl);
+        $publicProductDetailsById = $this->fetchPublicStoreProductDetails($localizedProductIds, $accountUrl);
+        $authenticatedEnrichmentById = $this->fetchAuthenticatedProductEnrichment($localizedProductIds, $accountUrl);
 
         return $localizedProductIds
             ->map(function (int $productId) use (
                 $localizedProductsById,
-                $productDetailsById,
-                $authenticatedProductDetailsById,
+                $publicProductDetailsById,
+                $authenticatedEnrichmentById,
                 $wordPressLanguages,
             ) {
                 $fromApi = $localizedProductsById->get($productId);
@@ -74,8 +74,8 @@ class WooCommerceProductCollection
 
                 return $this->transformer->mapProduct(
                     $fromApi,
-                    $productDetailsById->get($productId, []),
-                    $authenticatedProductDetailsById->get($productId, []),
+                    $publicProductDetailsById->get($productId, []),
+                    $authenticatedEnrichmentById->get($productId, []),
                     $wordPressLanguages
                 );
             })
@@ -98,7 +98,7 @@ class WooCommerceProductCollection
             ->keyBy('id');
     }
 
-    private function fetchStoreProductDetails(Collection $localizedProductIds, string $accountUrl): Collection
+    private function fetchPublicStoreProductDetails(Collection $localizedProductIds, string $accountUrl): Collection
     {
         return $localizedProductIds
             ->chunk(100)
@@ -113,7 +113,7 @@ class WooCommerceProductCollection
             ->keyBy('id');
     }
 
-    private function fetchAuthenticatedProductDetails(Collection $localizedProductIds, string $accountUrl): Collection
+    private function fetchAuthenticatedProductEnrichment(Collection $localizedProductIds, string $accountUrl): Collection
     {
         if (empty($this->authenticatedHeaders)) {
             return collect();
@@ -122,15 +122,29 @@ class WooCommerceProductCollection
         return $localizedProductIds
             ->chunk(100)
             ->flatMap(function (Collection $chunk) use ($accountUrl) {
-                return $this->fetchJson(
-                    $accountUrl
+                $url = $accountUrl
                     . '/wp-json/wc/v3/products?include=' . implode(',', $chunk->all())
-                    . '&orderby=include&per_page=100&_fields=id,attributes',
-                    $this->authenticatedHeaders
-                ) ?: [];
+                    . '&orderby=include&per_page=100&_fields=id,attributes';
+                $response = $this->fetchJson($url, $this->authenticatedHeaders);
+
+                if ($response === null) {
+                    $this->logAuthenticatedEnrichmentFailure($url);
+
+                    return [];
+                }
+
+                return $response;
             })
             ->filter(fn (array $product) => isset($product['id']))
             ->keyBy('id');
+    }
+
+    protected function logAuthenticatedEnrichmentFailure(string $url): void
+    {
+        error_log(sprintf(
+            '[WooCommerceProductCollection] Authenticated enrichment unavailable, using public Store API data only: %s',
+            $url
+        ));
     }
 
     protected function fetchJson(string $url, array $headers = []): ?array
@@ -161,3 +175,4 @@ class WooCommerceProductCollection
     }
 
 }
+
