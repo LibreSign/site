@@ -33,9 +33,9 @@ jobs:
           echo "pr_number=$INPUT_PR_NUMBER" >> "$GITHUB_OUTPUT"
 
       - name: Remove preview snapshot
-        # Keep this pinned to the same fork used by workflow_run to preserve
-        # native sticky-comment PR number behavior consistency.
-        uses: LibreSign/pr-preview-action@5c36c543173b4222877afc2448caefb840a2dde5
+        # Keep this pinned to the same reviewed fork commit used by other
+        # privileged preview paths for consistent behavior.
+        uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: remove
           pr-number: ${{ steps.validate.outputs.pr_number }}
