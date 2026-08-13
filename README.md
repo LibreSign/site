@@ -40,6 +40,7 @@ docker compose exec php bash -lc "npm run build-assets"
 Help to translate the project on Weblate platform: https://hosted.weblate.org/projects/libresign-coop-site/site/
 
 ### Maintainer notes
-- `lang/` is managed by Weblate and automation PRs.
-- Source strings are refreshed automatically by GitHub Actions daily at `02:00` (cron).
-- Normal builds must not modify `lang/`.
+
+- Files under `lang/` must not be changed manually in regular pull requests.
+- `lang/en/main.json` is refreshed automatically by the deploy workflow.
+- Translations are managed by Weblate and returned to the repository through pull requests.
