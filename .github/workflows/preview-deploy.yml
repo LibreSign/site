@@ -1,12 +1,9 @@
-name: Deploy PR previews
+name: Preview Deploy
 
 on:
   workflow_run:
     workflows: ["Preview Build"]
     types: [completed]
-  pull_request_target:
-    branches: [ main ]
-    types: [closed]
 
 permissions:
   actions: read
@@ -31,27 +28,8 @@ jobs:
           pr_number=$(jq -r '.workflow_run.pull_requests[0].number // empty' "$GITHUB_EVENT_PATH")
           echo "number=$pr_number" >> "$GITHUB_OUTPUT"
 
-      - name: Verify workflow_run matches current PR HEAD
-        id: pr_head
-        if: steps.pr.outputs.number != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pr_head_sha=$(curl -sS \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.pr.outputs.number }}" \
-            | jq -r '.head.sha // empty')
-
-          if [ -n "$pr_head_sha" ] && [ "$pr_head_sha" = "${{ github.event.workflow_run.head_sha }}" ]; then
-            echo "is_latest=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "is_latest=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping stale workflow_run: expected current PR HEAD, got ${{ github.event.workflow_run.head_sha }}"
-          fi
-
       - name: Download preview build artifact
-        if: steps.pr.outputs.number != '' && steps.pr_head.outputs.is_latest == 'true'
+        if: steps.pr.outputs.number != ''
         uses: actions/download-artifact@v4
         with:
           name: preview-build
@@ -60,7 +38,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy preview
-        if: steps.pr.outputs.number != '' && steps.pr_head.outputs.is_latest == 'true'
+        id: preview
+        if: steps.pr.outputs.number != ''
         uses: rossjrw/pr-preview-action@v1.8.1
         with:
           action: deploy
@@ -74,37 +53,12 @@ jobs:
           token: ${{ secrets.PREVIEW_TOKEN }}
 
       - name: Comment preview URL on the PR
-        if: steps.pr.outputs.number != '' && steps.pr_head.outputs.is_latest == 'true'
+        if: steps.pr.outputs.number != '' && steps.preview.outcome == 'success'
         uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
         with:
           header: pr-preview
           number: ${{ steps.pr.outputs.number }}
           message: |
-            🚀 Preview: https://libresign.github.io/site-preview/pr-preview/pr-${{ steps.pr.outputs.number }}/
+            🚀 Preview: ${{ steps.preview.outputs.preview-url }}
 
-            Deployed from ${{ github.event.workflow_run.head_sha }}. The link becomes available once the [GitHub Pages deployment](https://github.com/LibreSign/site-preview/deployments) completes.
-
-  remove-preview:
-    if: >
-      github.event_name == 'pull_request_target' &&
-      github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Remove preview
-        uses: rossjrw/pr-preview-action@v1.8.1
-        with:
-          action: remove
-          pr-number: ${{ github.event.pull_request.number }}
-          pages-base-url: libresign.github.io/site-preview
-          deploy-repository: LibreSign/site-preview
-          preview-branch: main
-          comment: false
-          token: ${{ secrets.PREVIEW_TOKEN }}
-
-      - name: Mark preview as unavailable
-        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
-        with:
-          header: pr-preview
-          number: ${{ github.event.pull_request.number }}
-          message: |
-            ⚠️ Preview indisponível: este PR foi fechado e o ambiente de preview foi removido.
+            Built with PR Preview Action ${{ steps.preview.outputs.action-version }} at ${{ steps.preview.outputs.action-start-time }}.
