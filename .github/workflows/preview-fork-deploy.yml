@@ -73,9 +73,9 @@ jobs:
 
       - name: Deploy fork preview
         if: steps.pr.outputs.number != '' && steps.pr_meta.outputs.should_deploy == 'true'
-        # Temporary LibreSign fork: forwards `pr-number` to native sticky comment
-        # when this action runs from `workflow_run`.
-        uses: LibreSign/pr-preview-action@5c36c543173b4222877afc2448caefb840a2dde5
+        # Temporary LibreSign fork: forwards explicit `pr-number` to the native
+        # sticky PR comment in `workflow_run`; replace with upstream after merge/release.
+        uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: deploy
           source-dir: ./build_production/
