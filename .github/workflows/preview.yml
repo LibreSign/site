@@ -3,7 +3,7 @@ name: PR Preview
 on:
   pull_request:
     branches: [ main ]
-    types: [opened, reopened, synchronize, closed]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -52,11 +52,19 @@ jobs:
           WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
         run: composer prod
 
-      - name: Deploy or remove preview
+      - name: Upload fork preview artifact
+        if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-build-fork
+          path: build_production/
+          retention-days: 1
+
+      - name: Deploy preview
         if: github.event.pull_request.head.repo.full_name == github.repository
         uses: rossjrw/pr-preview-action@v1.8.1
         with:
-          action: ${{ github.event.action == 'closed' && 'remove' || 'deploy' }}
+          action: deploy
           source-dir: ./build_production/
           pr-number: ${{ github.event.pull_request.number }}
           pages-base-url: libresign.github.io/site-preview
