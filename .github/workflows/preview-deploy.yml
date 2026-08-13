@@ -66,3 +66,20 @@ jobs:
             🚀 Preview: https://libresign.github.io/site-preview/pr-preview/pr-${{ steps.pr.outputs.number }}/
 
             Deployed from ${{ github.event.workflow_run.head_sha }}. The link becomes available once the [GitHub Pages deployment](https://github.com/LibreSign/site-preview/deployments) completes.
+
+  remove-preview:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Remove preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          action: remove
+          pr-number: ${{ github.event.pull_request.number }}
+          pages-base-url: libresign.github.io/site-preview
+          deploy-repository: LibreSign/site-preview
+          preview-branch: main
+          token: ${{ secrets.PREVIEW_TOKEN }}
