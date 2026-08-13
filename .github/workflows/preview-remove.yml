@@ -42,6 +42,6 @@ jobs:
           deploy-repository: LibreSign/site-preview
           preview-branch: main
           pages-base-url: libresign.github.io/site-preview
-          wait-for-pages-deployment: true
+          wait-for-pages-deployment: false
           comment: false
           token: ${{ secrets.PREVIEW_TOKEN }}
