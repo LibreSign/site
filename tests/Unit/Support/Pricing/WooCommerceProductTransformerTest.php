@@ -238,34 +238,29 @@ final class WooCommerceProductTransformerTest extends TestCase
 
     public function testMapProductHandlesProductsWithoutLanguageMetadata(): void
     {
-        $fromApi = [
+        $fromApi = self::wpProduct([
             'id' => 21,
             'slug' => 'starter',
-            'date' => '2026-07-08T12:00:00',
-            'translations' => [],
             'link' => 'https://account.example.test/product/starter/',
             'title' => ['rendered' => 'Starter fallback'],
-        ];
-        $productDetails = [
+            'lang' => null,
+        ]);
+        $fromApi['translations'] = [];
+        unset($fromApi['lang']);
+
+        $productDetails = self::storeProduct([
             'name' => 'Starter',
             'short_description' => '<p>Starter description</p>',
             'permalink' => 'https://account.example.test/product/starter/',
-            'type' => 'simple',
-            'is_purchasable' => true,
-            'has_options' => false,
-            'prices' => [
+            'prices' => self::prices([
                 'currency_prefix' => '$',
                 'currency_suffix' => '',
-                'currency_minor_unit' => 2,
                 'currency_decimal_separator' => '.',
                 'currency_thousand_separator' => ',',
                 'price' => '2900',
-            ],
-            'add_to_cart' => [
-                'text' => 'View product',
-            ],
+            ]),
             'attributes' => [],
-        ];
+        ]);
 
         $result = $this->transformer->mapProduct(
             $fromApi,
@@ -281,42 +276,36 @@ final class WooCommerceProductTransformerTest extends TestCase
         self::assertSame('21', $result['translationGroup']);
     }
 
-    public function testAuthenticatedDataEnrichesPublicProductData(): void
+    #[DataProvider('authenticatedAttributeMergeProvider')]
+    public function testAuthenticatedAttributesAreMerged(
+        array $publicAttributes,
+        array $authenticatedAttributes,
+        array $expectedAttributes,
+    ): void
     {
-        $fromApi = [
+        $fromApi = self::wpProduct([
             'id' => 99,
             'slug' => 'plus',
-            'date' => '2026-07-08T12:00:00',
-            'lang' => 'en',
-            'translations' => ['en' => 99],
-            'link' => 'https://account.example.test/product/plus/',
             'title' => ['rendered' => 'Plus fallback'],
-        ];
-        $publicProductDetails = [
+            'link' => 'https://account.example.test/product/plus/',
+            'translations' => ['en' => 99],
+        ]);
+
+        $publicProductDetails = self::storeProduct([
             'name' => 'Plus',
             'short_description' => '<p>Public description</p>',
             'permalink' => 'https://account.example.test/product/plus/',
-            'prices' => [
+            'prices' => self::prices([
                 'currency_prefix' => '$',
-                'currency_minor_unit' => 2,
                 'currency_decimal_separator' => '.',
                 'currency_thousand_separator' => ',',
                 'price' => '4900',
-            ],
-            'attributes' => [
-                [
-                    'name' => 'Storage',
-                    'options' => ['2 Gb'],
-                ],
-            ],
-        ];
+            ]),
+            'attributes' => $publicAttributes,
+        ]);
+
         $authenticatedEnrichment = [
-            'attributes' => [
-                [
-                    'name' => 'Storage',
-                    'options' => ['20 Gb'],
-                ],
-            ],
+            'attributes' => $authenticatedAttributes,
         ];
 
         $result = $this->transformer->mapProduct(
@@ -326,160 +315,105 @@ final class WooCommerceProductTransformerTest extends TestCase
             []
         );
 
-        self::assertSame('Plus', $result['title']);
-        self::assertSame(['20 Gb'], $result['attributes'][0]['values']);
+        self::assertSame($expectedAttributes, $result['attributes']);
     }
 
-    public function testAuthenticatedAttributeEnrichmentKeepsPublicAttributesNotProvidedByAuth(): void
+    public static function authenticatedAttributeMergeProvider(): iterable
     {
-        $fromApi = [
-            'id' => 100,
-            'slug' => 'pro',
-            'date' => '2026-07-08T12:00:00',
-            'lang' => 'en',
-            'translations' => ['en' => 100],
-            'link' => 'https://account.example.test/product/pro/',
-            'title' => ['rendered' => 'Pro fallback'],
-        ];
-
-        $publicProductDetails = [
-            'name' => 'Pro',
-            'prices' => [
-                'currency_prefix' => '$',
-                'currency_minor_unit' => 2,
-                'currency_decimal_separator' => '.',
-                'currency_thousand_separator' => ',',
-                'price' => '9900',
+        yield 'authenticated attribute overrides matching public attribute' => [
+            [
+                self::attribute('Storage', ['2 Gb']),
             ],
-            'attributes' => [
-                [
-                    'name' => 'Storage',
-                    'options' => ['2 Gb'],
-                ],
-                [
-                    'name' => 'Support',
-                    'options' => ['Email'],
-                ],
+            [
+                self::attribute('Storage', ['20 Gb']),
+            ],
+            [
+                self::normalizedAttribute('Storage', ['20 Gb']),
             ],
         ];
 
-        $authenticatedEnrichment = [
-            'attributes' => [
-                [
-                    'name' => 'Storage',
-                    'options' => ['20 Gb'],
-                ],
+        yield 'public-only attributes are preserved when auth provides subset' => [
+            [
+                self::attribute('Storage', ['2 Gb']),
+                self::attribute('Support', ['Email']),
+            ],
+            [
+                self::attribute('Storage', ['20 Gb']),
+            ],
+            [
+                self::normalizedAttribute('Storage', ['20 Gb']),
+                self::normalizedAttribute('Support', ['Email']),
             ],
         ];
 
-        $result = $this->transformer->mapProduct(
-            $fromApi,
-            $publicProductDetails,
-            $authenticatedEnrichment,
-            []
-        );
+        yield 'authenticated-only attributes are appended to public set' => [
+            [
+                self::attribute('Storage', ['2 Gb']),
+            ],
+            [
+                self::attribute('Storage', ['20 Gb']),
+                self::attribute('pricing_card_colors', ['background:#EBF7F2']),
+            ],
+            [
+                self::normalizedAttribute('Storage', ['20 Gb']),
+                self::normalizedAttribute('pricing_card_colors', ['background:#EBF7F2']),
+            ],
+        ];
 
-        self::assertSame(
+        yield 'attribute names are normalized before matching and duplicates are avoided' => [
+            [
+                self::attribute('Storage', ['2 GB']),
+                self::attribute('pricing_card_colors', ['background:#EBF7F2']),
+            ],
+            [
+                self::attribute(' storage ', ['20 GB']),
+                self::attribute('Pricing Card Colors', ['background:#00A86B']),
+            ],
+            [
+                self::normalizedAttribute(' storage ', ['20 GB']),
+                self::normalizedAttribute('Pricing Card Colors', ['background:#00A86B']),
+            ],
+        ];
+
+        yield 'empty authenticated attributes preserve all public attributes' => [
+            [
+                self::attribute('Storage', ['2 Gb']),
+                self::attribute('Support', ['Community']),
+            ],
+            [],
+            [
+                self::normalizedAttribute('Storage', ['2 Gb']),
+                self::normalizedAttribute('Support', ['Community']),
+            ],
+        ];
+
+        yield 'explicit empty authenticated attribute entries preserve public attributes' => [
+            [
+                self::attribute('Storage', ['2 Gb']),
+            ],
             [
                 [
                     'name' => 'Storage',
-                    'values' => ['20 Gb'],
-                    'visible' => true,
-                ],
-                [
-                    'name' => 'Support',
-                    'values' => ['Email'],
-                    'visible' => true,
+                    'attributes' => [],
                 ],
             ],
-            $result['attributes']
-        );
-    }
-
-    public function testAuthenticatedAttributeMergeNormalizesNamesAndAvoidsDuplicates(): void
-    {
-        $fromApi = [
-            'id' => 101,
-            'slug' => 'business',
-            'date' => '2026-07-08T12:00:00',
-            'translations' => [],
-            'link' => 'https://account.example.test/product/business/',
-            'title' => ['rendered' => 'Business'],
-        ];
-
-        $publicProductDetails = [
-            'name' => 'Business',
-            'prices' => [
-                'currency_prefix' => '$',
-                'currency_minor_unit' => 2,
-                'currency_decimal_separator' => '.',
-                'currency_thousand_separator' => ',',
-                'price' => '12900',
-            ],
-            'attributes' => [
-                [
-                    'name' => 'Storage',
-                    'options' => ['2 GB'],
-                ],
-                [
-                    'name' => 'Support',
-                    'options' => ['Community'],
-                ],
-            ],
-        ];
-
-        $authenticatedEnrichment = [
-            'attributes' => [
-                [
-                    'name' => ' storage ',
-                    'options' => ['20 GB'],
-                ],
-                [
-                    'name' => 'Pricing Card Colors',
-                    'options' => ['background:#00A86B'],
-                ],
-            ],
-        ];
-
-        $result = $this->transformer->mapProduct(
-            $fromApi,
-            $publicProductDetails,
-            $authenticatedEnrichment,
-            []
-        );
-
-        self::assertSame(
             [
-                [
-                    'name' => ' storage ',
-                    'values' => ['20 GB'],
-                    'visible' => true,
-                ],
-                [
-                    'name' => 'Support',
-                    'values' => ['Community'],
-                    'visible' => true,
-                ],
-                [
-                    'name' => 'Pricing Card Colors',
-                    'values' => ['background:#00A86B'],
-                    'visible' => true,
-                ],
+                self::normalizedAttribute('Storage', ['2 Gb']),
             ],
-            $result['attributes']
-        );
+        ];
     }
 
     public function testMapProductFallsBackToSafeDefaultsWhenPublicDetailsAreMissing(): void
     {
-        $fromApi = [
+        $fromApi = self::wpProduct([
             'id' => 501,
             'slug' => 'fallback-plan',
-            'date' => '2026-07-08T12:00:00',
-            'translations' => [],
             'link' => 'https://account.example.test/product/fallback-plan/',
             'title' => ['rendered' => 'Fallback Plan'],
-        ];
+            'lang' => null,
+        ]);
+        $fromApi['translations'] = [];
+        unset($fromApi['lang']);
 
         $result = $this->transformer->mapProduct(
             $fromApi,
@@ -496,6 +430,81 @@ final class WooCommerceProductTransformerTest extends TestCase
         self::assertSame('View product', $result['buttonLabel']);
         self::assertSame([], $result['attributes']);
         self::assertSame([], $result['pricingCardColors']);
+    }
+
+    private static function wpProduct(array $overrides = []): array
+    {
+        return self::mergeRecursiveDistinct([
+            'id' => 10,
+            'slug' => 'basic',
+            'date' => '2026-07-08T12:00:00',
+            'lang' => 'en',
+            'translations' => ['en' => 10],
+            'link' => 'https://account.example.test/product/basic/',
+            'title' => ['rendered' => 'Basic fallback'],
+        ], $overrides);
+    }
+
+    private static function storeProduct(array $overrides = []): array
+    {
+        return self::mergeRecursiveDistinct([
+            'name' => 'Basic',
+            'short_description' => '<p>Short description</p>',
+            'permalink' => 'https://account.example.test/product/basic/',
+            'type' => 'simple',
+            'is_purchasable' => true,
+            'has_options' => false,
+            'prices' => self::prices(),
+            'add_to_cart' => [
+                'text' => 'View product',
+                'single_text' => 'View product',
+            ],
+            'attributes' => [],
+        ], $overrides);
+    }
+
+    private static function prices(array $overrides = []): array
+    {
+        return self::mergeRecursiveDistinct([
+            'currency_prefix' => 'R$ ',
+            'currency_suffix' => '',
+            'currency_minor_unit' => 2,
+            'currency_decimal_separator' => ',',
+            'currency_thousand_separator' => '.',
+            'price' => '5500',
+        ], $overrides);
+    }
+
+    private static function attribute(string $name, array $options, bool $visible = true): array
+    {
+        return [
+            'name' => $name,
+            'options' => $options,
+            'visible' => $visible,
+        ];
+    }
+
+    private static function normalizedAttribute(string $name, array $values, bool $visible = true): array
+    {
+        return [
+            'name' => $name,
+            'values' => $values,
+            'visible' => $visible,
+        ];
+    }
+
+    private static function mergeRecursiveDistinct(array $base, array $overrides): array
+    {
+        foreach ($overrides as $key => $value) {
+            if (is_array($value) && isset($base[$key]) && is_array($base[$key])) {
+                $base[$key] = self::mergeRecursiveDistinct($base[$key], $value);
+                continue;
+            }
+
+            $base[$key] = $value;
+        }
+
+        return $base;
     }
 }
 
