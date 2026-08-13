@@ -330,6 +330,72 @@ final class WooCommerceProductTransformerTest extends TestCase
         self::assertSame(['20 Gb'], $result['attributes'][0]['values']);
     }
 
+    public function testAuthenticatedAttributeEnrichmentKeepsPublicAttributesNotProvidedByAuth(): void
+    {
+        $fromApi = [
+            'id' => 100,
+            'slug' => 'pro',
+            'date' => '2026-07-08T12:00:00',
+            'lang' => 'en',
+            'translations' => ['en' => 100],
+            'link' => 'https://account.example.test/product/pro/',
+            'title' => ['rendered' => 'Pro fallback'],
+        ];
+
+        $publicProductDetails = [
+            'name' => 'Pro',
+            'prices' => [
+                'currency_prefix' => '$',
+                'currency_minor_unit' => 2,
+                'currency_decimal_separator' => '.',
+                'currency_thousand_separator' => ',',
+                'price' => '9900',
+            ],
+            'attributes' => [
+                [
+                    'name' => 'Storage',
+                    'options' => ['2 Gb'],
+                ],
+                [
+                    'name' => 'Support',
+                    'options' => ['Email'],
+                ],
+            ],
+        ];
+
+        $authenticatedEnrichment = [
+            'attributes' => [
+                [
+                    'name' => 'Storage',
+                    'options' => ['20 Gb'],
+                ],
+            ],
+        ];
+
+        $result = $this->transformer->mapProduct(
+            $fromApi,
+            $publicProductDetails,
+            $authenticatedEnrichment,
+            []
+        );
+
+        self::assertSame(
+            [
+                [
+                    'name' => 'Storage',
+                    'values' => ['20 Gb'],
+                    'visible' => true,
+                ],
+                [
+                    'name' => 'Support',
+                    'values' => ['Email'],
+                    'visible' => true,
+                ],
+            ],
+            $result['attributes']
+        );
+    }
+
     public function testMapProductFallsBackToSafeDefaultsWhenPublicDetailsAreMissing(): void
     {
         $fromApi = [
