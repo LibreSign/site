@@ -106,8 +106,8 @@ final class WooCommerceProductTransformer
 
     public function mapProduct(
         array $fromApi,
-        array $productDetails,
-        array $authenticatedProductDetails,
+        array $publicProductDetails,
+        array $authenticatedEnrichment,
         array $wordPressLanguages,
     ): array {
         $rawLanguage = isset($fromApi['lang']) && is_string($fromApi['lang'])
@@ -131,16 +131,16 @@ final class WooCommerceProductTransformer
             $currentLang = null;
         }
 
-        $prices = $productDetails['prices'] ?? [];
+        $prices = $publicProductDetails['prices'] ?? [];
         $priceRange = $prices['price_range'] ?? null;
         $priceAmount = $this->formatWooCommercePrice(
             $prices,
             $priceRange['min_amount'] ?? $prices['price'] ?? null
         );
 
-        $attributeSource = !empty($authenticatedProductDetails['attributes'])
-            ? $authenticatedProductDetails['attributes']
-            : ($productDetails['attributes'] ?? []);
+        $attributeSource = !empty($authenticatedEnrichment['attributes'])
+            ? $authenticatedEnrichment['attributes']
+            : ($publicProductDetails['attributes'] ?? []);
 
         $attributes = collect($attributeSource)
             ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
@@ -152,23 +152,23 @@ final class WooCommerceProductTransformer
             'id' => $fromApi['id'],
             'translationGroup' => $translationGroup,
             'translations' => $translations,
-            'title' => $productDetails['name'] ?? $fromApi['title']['rendered'],
+            'title' => $publicProductDetails['name'] ?? $fromApi['title']['rendered'],
             'slug' => $fromApi['slug'],
             'date' => Carbon::parse($fromApi['date'])->timestamp,
             'lang' => $currentLang?->w3c ?? $rawLanguage,
             'langSlug' => $currentLang?->slug ?? $rawLanguage,
-            'description' => !empty($productDetails['short_description'])
-                ? $productDetails['short_description']
-                : ($productDetails['description'] ?? ''),
-            'permalink' => $productDetails['permalink'] ?? $fromApi['link'],
-            'buttonLabel' => $productDetails['add_to_cart']['single_text']
-                ?? $productDetails['add_to_cart']['text']
+            'description' => !empty($publicProductDetails['short_description'])
+                ? $publicProductDetails['short_description']
+                : ($publicProductDetails['description'] ?? ''),
+            'permalink' => $publicProductDetails['permalink'] ?? $fromApi['link'],
+            'buttonLabel' => $publicProductDetails['add_to_cart']['single_text']
+                ?? $publicProductDetails['add_to_cart']['text']
                 ?? 'View product',
             'price' => $priceAmount,
             'hasPriceRange' => !empty($priceRange['min_amount']),
-            'productType' => $productDetails['type'] ?? null,
-            'isPurchasable' => $productDetails['is_purchasable'] ?? false,
-            'hasOptions' => $productDetails['has_options'] ?? false,
+            'productType' => $publicProductDetails['type'] ?? null,
+            'isPurchasable' => $publicProductDetails['is_purchasable'] ?? false,
+            'hasOptions' => $publicProductDetails['has_options'] ?? false,
             'attributes' => $attributes,
             'pricingCardColors' => $this->parsePricingCardColors($attributes),
         ];
@@ -181,3 +181,4 @@ final class WooCommerceProductTransformer
         return trim((string) preg_replace('/[^a-z0-9]+/', '_', $attributeName), '_');
     }
 }
+
