@@ -1,9 +1,9 @@
-name: PR Preview
+name: PR Preview Build
 
 on:
   pull_request:
     branches: [ main ]
-    types: [opened, reopened, synchronize, closed]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -66,18 +66,6 @@ jobs:
         with:
           action: deploy
           source-dir: ./build_production/
-          pr-number: ${{ github.event.pull_request.number }}
-          pages-base-url: libresign.github.io/site-preview
-          deploy-repository: LibreSign/site-preview
-          preview-branch: main
-          wait-for-pages-deployment: true
-          token: ${{ secrets.PREVIEW_TOKEN }}
-
-      - name: Remove preview
-        if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
-        uses: rossjrw/pr-preview-action@v1.8.1
-        with:
-          action: remove
           pr-number: ${{ github.event.pull_request.number }}
           pages-base-url: libresign.github.io/site-preview
           deploy-repository: LibreSign/site-preview
