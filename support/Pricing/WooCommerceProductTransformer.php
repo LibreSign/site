@@ -138,15 +138,10 @@ final class WooCommerceProductTransformer
             $priceRange['min_amount'] ?? $prices['price'] ?? null
         );
 
-        $attributeSource = !empty($authenticatedEnrichment['attributes'])
-            ? $authenticatedEnrichment['attributes']
-            : ($publicProductDetails['attributes'] ?? []);
-
-        $attributes = collect($attributeSource)
-            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
-            ->filter()
-            ->values()
-            ->all();
+        $attributes = $this->mergeAttributes(
+            $publicProductDetails['attributes'] ?? [],
+            $authenticatedEnrichment['attributes'] ?? []
+        );
 
         return [
             'id' => $fromApi['id'],
@@ -179,6 +174,44 @@ final class WooCommerceProductTransformer
         $attributeName = strtolower(trim((string) $attributeName));
 
         return trim((string) preg_replace('/[^a-z0-9]+/', '_', $attributeName), '_');
+    }
+
+    private function mergeAttributes(array $publicAttributes, array $authenticatedAttributes): array
+    {
+        $normalizedPublic = collect($publicAttributes)
+            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
+            ->filter()
+            ->values();
+
+        $normalizedAuthenticated = collect($authenticatedAttributes)
+            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
+            ->filter()
+            ->values();
+
+        if ($normalizedAuthenticated->isEmpty()) {
+            return $normalizedPublic->all();
+        }
+
+        $attributesByKey = $normalizedPublic
+            ->values()
+            ->keyBy(function (array $attribute, int $index): string {
+                $key = $this->normalizeAttributeKey($attribute['name'] ?? '');
+
+                return $key !== '' ? $key : 'public_' . $index;
+            });
+
+        $normalizedAuthenticated
+            ->values()
+            ->each(function (array $attribute, int $index) use ($attributesByKey): void {
+                $key = $this->normalizeAttributeKey($attribute['name'] ?? '');
+                $resolvedKey = $key !== '' ? $key : 'authenticated_' . $index;
+
+                $attributesByKey->put($resolvedKey, $attribute);
+            });
+
+        return $attributesByKey
+            ->values()
+            ->all();
     }
 }
 
