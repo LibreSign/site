@@ -13,6 +13,7 @@ permissions:
 concurrency:
   group: site-preview-deploy
   cancel-in-progress: false
+  queue: max
 
 jobs:
   deploy-fork-preview:
@@ -39,7 +40,6 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.pr.outputs.number }}")
 
-          pr_state=$(echo "$pr_json" | jq -r '.state // ""')
           pr_head_sha=$(echo "$pr_json" | jq -r '.head.sha // ""')
           pr_head_repo=$(echo "$pr_json" | jq -r '.head.repo.full_name // ""')
 
@@ -54,7 +54,7 @@ jobs:
           fi
 
           should_deploy=false
-          if [ "$is_fork" = "true" ] && [ "$pr_state" = "open" ] && [ "$is_latest" = "true" ]; then
+          if [ "$is_fork" = "true" ] && [ "$is_latest" = "true" ]; then
             should_deploy=true
           fi
 
