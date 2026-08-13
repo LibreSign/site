@@ -32,7 +32,9 @@ jobs:
             exit 0
           fi
 
-          if [[ "$PR_AUTHOR" == "github-actions[bot]" ]] || [[ "$PR_HEAD_REF" == "chore/i18n-refresh-source-strings" ]]; then
+          if [[ "$PR_AUTHOR" == "github-actions[bot]" ]] && \
+             [[ "$PR_HEAD_REF" == "chore/i18n-refresh-source-strings" ]] && \
+             [[ "$PR_HEAD_REPO" == "LibreSign/site" ]]; then
             echo "Automation PR: allowing lang/ changes."
             exit 0
           fi
