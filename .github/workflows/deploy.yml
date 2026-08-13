@@ -8,6 +8,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     env:
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
@@ -44,6 +47,30 @@ jobs:
           php-version: 8.3
       - run: composer i
       - run: composer prod
+
+      - name: Extract source strings
+        run: composer extract-strings
+
+      - name: Create pull request with source string updates
+        uses: peter-evans/create-pull-request@v8
+        with:
+          base: main
+          commit-message: |
+            chore(i18n): refresh source strings
+
+            Signed-off-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          title: "chore(i18n): refresh source strings"
+          body: |
+            Automated update of source strings for Weblate synchronization.
+
+            - Ran `composer extract-strings`
+            - Updated source catalog used by Weblate
+          branch: chore/i18n-refresh-source-strings
+          delete-branch: true
+          add-paths: |
+            lang/en/main.json
 
       - name: Store deployment info
         if: success()
