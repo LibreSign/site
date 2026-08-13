@@ -55,3 +55,14 @@ jobs:
           preview-branch: main
           wait-for-pages-deployment: false
           token: ${{ secrets.PREVIEW_TOKEN }}
+
+      - name: Comment preview URL on the PR
+        if: steps.pr.outputs.number != ''
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          number: ${{ steps.pr.outputs.number }}
+          message: |
+            🚀 Preview: https://libresign.github.io/site-preview/pr-preview/pr-${{ steps.pr.outputs.number }}/
+
+            Deployed from ${{ github.event.workflow_run.head_sha }}. The link becomes available once the [GitHub Pages deployment](https://github.com/LibreSign/site-preview/deployments) completes.
