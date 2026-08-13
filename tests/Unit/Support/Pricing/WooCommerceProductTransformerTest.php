@@ -396,6 +396,80 @@ final class WooCommerceProductTransformerTest extends TestCase
         );
     }
 
+    public function testAuthenticatedAttributeMergeNormalizesNamesAndAvoidsDuplicates(): void
+    {
+        $fromApi = [
+            'id' => 101,
+            'slug' => 'business',
+            'date' => '2026-07-08T12:00:00',
+            'translations' => [],
+            'link' => 'https://account.example.test/product/business/',
+            'title' => ['rendered' => 'Business'],
+        ];
+
+        $publicProductDetails = [
+            'name' => 'Business',
+            'prices' => [
+                'currency_prefix' => '$',
+                'currency_minor_unit' => 2,
+                'currency_decimal_separator' => '.',
+                'currency_thousand_separator' => ',',
+                'price' => '12900',
+            ],
+            'attributes' => [
+                [
+                    'name' => 'Storage',
+                    'options' => ['2 GB'],
+                ],
+                [
+                    'name' => 'Support',
+                    'options' => ['Community'],
+                ],
+            ],
+        ];
+
+        $authenticatedEnrichment = [
+            'attributes' => [
+                [
+                    'name' => ' storage ',
+                    'options' => ['20 GB'],
+                ],
+                [
+                    'name' => 'Pricing Card Colors',
+                    'options' => ['background:#00A86B'],
+                ],
+            ],
+        ];
+
+        $result = $this->transformer->mapProduct(
+            $fromApi,
+            $publicProductDetails,
+            $authenticatedEnrichment,
+            []
+        );
+
+        self::assertSame(
+            [
+                [
+                    'name' => ' storage ',
+                    'values' => ['20 GB'],
+                    'visible' => true,
+                ],
+                [
+                    'name' => 'Support',
+                    'values' => ['Community'],
+                    'visible' => true,
+                ],
+                [
+                    'name' => 'Pricing Card Colors',
+                    'values' => ['background:#00A86B'],
+                    'visible' => true,
+                ],
+            ],
+            $result['attributes']
+        );
+    }
+
     public function testMapProductFallsBackToSafeDefaultsWhenPublicDetailsAreMissing(): void
     {
         $fromApi = [

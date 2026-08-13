@@ -4,6 +4,9 @@ on:
   workflow_run:
     workflows: ["PR Preview"]
     types: [completed]
+  pull_request_target:
+    branches: [ main ]
+    types: [closed]
 
 permissions:
   actions: read
@@ -78,6 +81,24 @@ jobs:
           action: deploy
           source-dir: ./build_production/
           pr-number: ${{ steps.pr.outputs.number }}
+          pages-base-url: libresign.github.io/site-preview
+          deploy-repository: LibreSign/site-preview
+          preview-branch: main
+          wait-for-pages-deployment: true
+          token: ${{ secrets.PREVIEW_TOKEN }}
+
+  remove-fork-preview:
+    if: >
+      github.event_name == 'pull_request_target' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove fork preview
+        uses: LibreSign/pr-preview-action@5c36c543173b4222877afc2448caefb840a2dde5
+        with:
+          action: remove
+          pr-number: ${{ github.event.pull_request.number }}
           pages-base-url: libresign.github.io/site-preview
           deploy-repository: LibreSign/site-preview
           preview-branch: main
