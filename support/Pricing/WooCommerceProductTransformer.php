@@ -106,8 +106,8 @@ final class WooCommerceProductTransformer
 
     public function mapProduct(
         array $fromApi,
-        array $productDetails,
-        array $authenticatedProductDetails,
+        array $publicProductDetails,
+        array $authenticatedEnrichment,
         array $wordPressLanguages,
     ): array {
         $rawLanguage = isset($fromApi['lang']) && is_string($fromApi['lang'])
@@ -131,44 +131,39 @@ final class WooCommerceProductTransformer
             $currentLang = null;
         }
 
-        $prices = $productDetails['prices'] ?? [];
+        $prices = $publicProductDetails['prices'] ?? [];
         $priceRange = $prices['price_range'] ?? null;
         $priceAmount = $this->formatWooCommercePrice(
             $prices,
             $priceRange['min_amount'] ?? $prices['price'] ?? null
         );
 
-        $attributeSource = !empty($authenticatedProductDetails['attributes'])
-            ? $authenticatedProductDetails['attributes']
-            : ($productDetails['attributes'] ?? []);
-
-        $attributes = collect($attributeSource)
-            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
-            ->filter()
-            ->values()
-            ->all();
+        $attributes = $this->mergeAttributes(
+            $publicProductDetails['attributes'] ?? [],
+            $authenticatedEnrichment['attributes'] ?? []
+        );
 
         return [
             'id' => $fromApi['id'],
             'translationGroup' => $translationGroup,
             'translations' => $translations,
-            'title' => $productDetails['name'] ?? $fromApi['title']['rendered'],
+            'title' => $publicProductDetails['name'] ?? $fromApi['title']['rendered'],
             'slug' => $fromApi['slug'],
             'date' => Carbon::parse($fromApi['date'])->timestamp,
             'lang' => $currentLang?->w3c ?? $rawLanguage,
             'langSlug' => $currentLang?->slug ?? $rawLanguage,
-            'description' => !empty($productDetails['short_description'])
-                ? $productDetails['short_description']
-                : ($productDetails['description'] ?? ''),
-            'permalink' => $productDetails['permalink'] ?? $fromApi['link'],
-            'buttonLabel' => $productDetails['add_to_cart']['single_text']
-                ?? $productDetails['add_to_cart']['text']
+            'description' => !empty($publicProductDetails['short_description'])
+                ? $publicProductDetails['short_description']
+                : ($publicProductDetails['description'] ?? ''),
+            'permalink' => $publicProductDetails['permalink'] ?? $fromApi['link'],
+            'buttonLabel' => $publicProductDetails['add_to_cart']['single_text']
+                ?? $publicProductDetails['add_to_cart']['text']
                 ?? 'View product',
             'price' => $priceAmount,
             'hasPriceRange' => !empty($priceRange['min_amount']),
-            'productType' => $productDetails['type'] ?? null,
-            'isPurchasable' => $productDetails['is_purchasable'] ?? false,
-            'hasOptions' => $productDetails['has_options'] ?? false,
+            'productType' => $publicProductDetails['type'] ?? null,
+            'isPurchasable' => $publicProductDetails['is_purchasable'] ?? false,
+            'hasOptions' => $publicProductDetails['has_options'] ?? false,
             'attributes' => $attributes,
             'pricingCardColors' => $this->parsePricingCardColors($attributes),
         ];
@@ -180,4 +175,43 @@ final class WooCommerceProductTransformer
 
         return trim((string) preg_replace('/[^a-z0-9]+/', '_', $attributeName), '_');
     }
+
+    private function mergeAttributes(array $publicAttributes, array $authenticatedAttributes): array
+    {
+        $normalizedPublic = collect($publicAttributes)
+            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
+            ->filter()
+            ->values();
+
+        $normalizedAuthenticated = collect($authenticatedAttributes)
+            ->map(fn (array $attribute) => $this->normalizeWooCommerceAttribute($attribute))
+            ->filter()
+            ->values();
+
+        if ($normalizedAuthenticated->isEmpty()) {
+            return $normalizedPublic->all();
+        }
+
+        $attributesByKey = $normalizedPublic
+            ->values()
+            ->keyBy(function (array $attribute, int $index): string {
+                $key = $this->normalizeAttributeKey($attribute['name'] ?? '');
+
+                return $key !== '' ? $key : 'public_' . $index;
+            });
+
+        $normalizedAuthenticated
+            ->values()
+            ->each(function (array $attribute, int $index) use ($attributesByKey): void {
+                $key = $this->normalizeAttributeKey($attribute['name'] ?? '');
+                $resolvedKey = $key !== '' ? $key : 'authenticated_' . $index;
+
+                $attributesByKey->put($resolvedKey, $attribute);
+            });
+
+        return $attributesByKey
+            ->values()
+            ->all();
+    }
 }
+

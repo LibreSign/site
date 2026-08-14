@@ -1,0 +1,88 @@
+name: PR Preview Fork Deploy
+
+on:
+  workflow_run:
+    workflows: ["PR Preview"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: site-preview-deploy
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  deploy-fork-preview:
+    if: >
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract PR number from workflow_run payload
+        id: pr
+        run: |
+          pr_number=$(jq -r '.workflow_run.pull_requests[0].number // empty' "$GITHUB_EVENT_PATH")
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Evaluate fork and freshness
+        id: pr_meta
+        if: steps.pr.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_json=$(curl -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.pr.outputs.number }}")
+
+          pr_head_sha=$(echo "$pr_json" | jq -r '.head.sha // ""')
+          pr_head_repo=$(echo "$pr_json" | jq -r '.head.repo.full_name // ""')
+
+          is_fork=false
+          if [ "$pr_head_repo" != "${{ github.repository }}" ]; then
+            is_fork=true
+          fi
+
+          is_latest=false
+          if [ "$pr_head_sha" = "${{ github.event.workflow_run.head_sha }}" ]; then
+            is_latest=true
+          fi
+
+          should_deploy=false
+          if [ "$is_fork" = "true" ] && [ "$is_latest" = "true" ]; then
+            should_deploy=true
+          fi
+
+          echo "is_fork=$is_fork" >> "$GITHUB_OUTPUT"
+          echo "is_latest=$is_latest" >> "$GITHUB_OUTPUT"
+          echo "should_deploy=$should_deploy" >> "$GITHUB_OUTPUT"
+
+      - name: Download fork build artifact
+        if: steps.pr.outputs.number != '' && steps.pr_meta.outputs.should_deploy == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: preview-build-fork
+          path: build_production/
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy fork preview
+        if: steps.pr.outputs.number != '' && steps.pr_meta.outputs.should_deploy == 'true'
+        # Temporary LibreSign fork: forwards explicit `pr-number` to the native
+        # sticky PR comment in `workflow_run`; replace with upstream after merge/release.
+        uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
+        with:
+          action: deploy
+          source-dir: ./build_production/
+          pr-number: ${{ steps.pr.outputs.number }}
+          pages-base-url: libresign.github.io/site-preview
+          deploy-repository: LibreSign/site-preview
+          preview-branch: main
+          wait-for-pages-deployment: false
+          token: ${{ secrets.PREVIEW_TOKEN }}
+

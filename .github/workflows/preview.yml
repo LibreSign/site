@@ -1,0 +1,72 @@
+name: PR Preview
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: site-preview-deploy
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      # Deliberately no `closed` handling: previews are kept as historical snapshots.
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Install PHP dependencies
+        run: composer install
+
+      - name: Adjust preview base URLs and config
+        run: |
+          sed -i "s|libresign.coop|libresign.github.io|g" CNAME
+          sed -i "s|baseUrl' => '/'|baseUrl' => 'https://LibreSign.github.io/site-preview/pr-preview/pr-${{ github.event.pull_request.number }}/'|g" config.php
+          sed -i "s|base: '/assets/build/'|base: 'https://libresign.github.io/site-preview/pr-preview/pr-${{ github.event.pull_request.number }}/assets/build/'|g" vite.config.js
+          cat config.php|grep "'baseUrl' => "
+          sed -i "/'matomo_container'/d" config.production.php
+
+      - name: Build production site
+        env:
+          WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
+          WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
+        run: composer prod
+
+      - name: Upload fork preview artifact
+        if: github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-build-fork
+          path: build_production/
+          retention-days: 1
+
+      - name: Deploy internal preview
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        # Temporary LibreSign fork with the pr-number forwarding fix.
+        # Replace with upstream once the fix is merged and released.
+        uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
+        with:
+          action: deploy
+          source-dir: ./build_production/
+          pr-number: ${{ github.event.pull_request.number }}
+          pages-base-url: libresign.github.io/site-preview
+          deploy-repository: LibreSign/site-preview
+          preview-branch: main
+          wait-for-pages-deployment: false
+          token: ${{ secrets.PREVIEW_TOKEN }}
