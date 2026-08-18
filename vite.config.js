@@ -12,6 +12,7 @@ export default defineConfig({
                 'source/_assets/js/main.js',
                 'source/_assets/js/header-fragment.js',
                 'source/_assets/js/footer-fragment.js',
+                'source/_assets/js/pages/pricing.js',
             ],
             refresh: {
                 ignored: [
