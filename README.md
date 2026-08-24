@@ -44,3 +44,7 @@ Help to translate the project on Weblate platform: https://hosted.weblate.org/pr
 - Files under `lang/` must not be changed manually in regular pull requests.
 - `lang/en/main.json` is refreshed automatically by the deploy workflow.
 - Translations are managed by Weblate and returned to the repository through pull requests.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
