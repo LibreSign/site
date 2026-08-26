@@ -3,9 +3,6 @@
 
 .ud-hero {
   width: 100%;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: var(--surface-dark);
   background-image: none;
   background-repeat: no-repeat;
@@ -36,7 +33,9 @@
 
   .container {
     width: 100%;
-    max-width: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 72px;
     padding-right: 72px;
     position: relative;
@@ -116,7 +115,7 @@
         rgba(18, 60, 64, 0.90) 100%
       );
 
-      @media #{$lg, $laptop} {
+      @media #{$lg, $laptop, $desktop, $xl-desktop} {
         background: linear-gradient(
           to right,
           rgba(18, 60, 64, 0.92) 0%,
