@@ -1,10 +1,32 @@
+@php
+  $heroImage = $imageSrc ?? null;
+  $heroGradient = $overlayGradient ?? null;
+  $heroAlt = $imageAlt ?? null;
+
+  $heroStyles = [];
+
+  if (!empty($heroImage)) {
+    $heroStyles[] = "--ud-hero-image: url('{$heroImage}')";
+  }
+
+  if (!empty($heroGradient)) {
+    $heroStyles[] = "--ud-hero-gradient: {$heroGradient}";
+  }
+
+  $heroImageClass = !empty($heroAlt)
+    ? 'ud-hero-image wow fadeInUp'
+    : 'ud-hero-image ud-hero-image--bg';
+@endphp
+
 <section
   class="{{ $sectionClass ?? 'ud-hero' }}"
-  @if (!empty($backgroundImage ?? null)) style="background-image: {{ $backgroundImage }};" @endif
+  @if ($heroStyles) style="{{ implode('; ', $heroStyles) }};" @endif
 >
-  @if (!empty($imageSrc ?? null))
-    <div class="ud-hero-image wow fadeInUp" data-aos-delay=".3s">
-      <img src="{{ $imageSrc }}" alt="{{ $imageAlt }}">
+  @if (!empty($heroImage))
+    <div class="{{ $heroImageClass }}" data-aos-delay=".3s">
+      @if (!empty($heroAlt))
+        <img src="{{ $heroImage }}" alt="{{ $heroAlt }}">
+      @endif
     </div>
   @endif
   <div class="container">

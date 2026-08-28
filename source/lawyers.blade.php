@@ -44,7 +44,8 @@ description: "Streamline contract signing, powers of attorney, and legal documen
   @endphp
 
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/lawyers-hero.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/solutions/lawyers-hero.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Your Firm’s Credibility, the Legal Validity of Every Signature.'),
     'description' => $page->t('Simplify the management of documents, contracts, and powers of attorney with the legal compliance and security your practice requires.'),
     'actions' => [

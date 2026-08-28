@@ -40,7 +40,8 @@ description: "Empower your business with secure, traceable digital signatures. L
   @endphp
 
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/company-solutions-background.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/solutions/company-solutions-background.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Digital signatures that drive your company’s growth.'),
     'description' => $page->t('Free your company from paperwork. Focus on growth, agility, and professionalism in your operations.'),
     'actions' => [
