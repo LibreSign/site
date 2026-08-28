@@ -44,7 +44,8 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
   @endphp
 
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/it-hero.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/solutions/it-hero.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Digital Signatures: Open Control and Technology for IT Teams.'),
     'description' => $page->t('From integration to security, give your team the freedom to build with robust architecture, powerful APIs, and full governance.'),
     'actions' => [

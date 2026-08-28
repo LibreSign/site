@@ -50,7 +50,8 @@ description: "LibreSign helps government agencies and public bodies manage digit
   @endphp
 
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/public-sector-background.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/solutions/public-sector-background.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Digital signatures: efficiency and legal validity for public administration.'),
     'description' => $page->t('Streamline workflows with secure technology, ensuring transparency, traceability, and legal compliance for your organization.'),
     'actions' => [

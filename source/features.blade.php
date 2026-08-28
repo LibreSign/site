@@ -6,7 +6,8 @@ description: "Explore LibreSign's core features: digital signatures, document ma
 
 @section('body')
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%), url('{$page->baseUrl}assets/images/solutions/features-hero.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/solutions/features-hero.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Innovation and Security on a Single Platform.'),
     'description' => $page->t('Explore the capabilities that transform digital document management and elevate security and efficiency across your organization.'),
     'actions' => [

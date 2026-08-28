@@ -6,7 +6,8 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
 
 @section('body')
   @include('_partials.home.hero-section', [
-    'backgroundImage' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(18,60,64,.9) 33%, rgba(18,60,64,.72) 58%, rgba(18,60,64,.35) 100%), url('{$page->baseUrl}assets/images/about/hero.png')",
+    'imageSrc' => "{$page->baseUrl}assets/images/about/hero.png",
+    'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(18,60,64,.9) 33%, rgba(18,60,64,.72) 58%, rgba(18,60,64,.35) 100%)",
     'title' => $page->t('Technology, People, and Open Source Software.'),
     'description' => $page->t('Learn the story of a cooperative of open-source specialists created to bring more freedom, transparency, and security to your digital world.'),
     'actions' => [

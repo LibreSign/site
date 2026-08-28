@@ -1,20 +1,17 @@
 @use "variables" as *;
 /* ===== Hero CSS ===== */
 
+$hero-edge-fade: linear-gradient(
+  to right,
+  transparent 0,
+  #000 240px,
+  #000 calc(100% - 240px),
+  transparent 100%
+);
+
 .ud-hero {
   width: 100%;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: var(--surface-dark);
-  background-image: none;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left top;
-
-  @media #{$xs} {
-    background-position: 72% top;
-  }
   --ud-hero-height-cap: 720px;
 
   margin-top: var(--ud-header-height);
@@ -30,17 +27,20 @@
   );
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   display: flex;
   align-items: center;
   line-height: normal;
 
   .container {
     width: 100%;
-    max-width: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 72px;
     padding-right: 72px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   @media #{$xs} {
@@ -55,10 +55,6 @@
       padding-left: 40px;
       padding-right: 40px;
     }
-  }
-
-  &::before {
-    display: none;
   }
 
   @media #{$xs} {
@@ -85,6 +81,67 @@
     --ud-hero-height-cap: 0px;
   }
 
+  &::before {
+    display: none;
+  }
+
+  @media #{$xl-desktop} {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      inset: -40px;
+      z-index: 0;
+      background-image: var(--ud-hero-image);
+      background-size: 100% 100%;
+      background-position: center;
+      filter: blur(120px) saturate(0.35);
+      transform: scale(1.2);
+      opacity: 0.35;
+    }
+  }
+
+  // Dark gradient overlay so text is readable on all screen sizes
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: var(
+      --ud-hero-gradient,
+      linear-gradient(
+        to bottom,
+        rgba(18, 60, 64, 0.55) 0%,
+        rgba(18, 60, 64, 0.75) 60%,
+        rgba(18, 60, 64, 0.90) 100%
+      )
+    );
+
+    @media #{$lg, $laptop, $desktop, $xl-desktop} {
+      background: var(
+        --ud-hero-gradient,
+        linear-gradient(
+          to right,
+          rgba(18, 60, 64, 0.92) 0%,
+          rgba(18, 60, 64, 0.72) 50%,
+          rgba(18, 60, 64, 0.10) 100%
+        )
+      );
+    }
+
+    @media #{$xl-desktop} {
+      background: linear-gradient(
+        to right,
+        rgba(18, 60, 64, 0.62) 0,
+        rgba(18, 60, 64, 0.92) calc(50% - 960px),
+        rgba(18, 60, 64, 0.72) 50%,
+        rgba(18, 60, 64, 0.10) calc(50% + 960px),
+        rgba(18, 60, 64, 0.25) 100%
+      );
+    }
+  }
+
   // --- Full-bleed background image ---
   .ud-hero-image {
     display: flex;
@@ -95,6 +152,25 @@
     margin-bottom: 0;
     z-index: 0;
 
+    &--bg {
+      background-image: var(--ud-hero-image);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left top;
+
+      @media #{$xs} {
+        background-position: 72% top;
+      }
+    }
+
+    @media #{$xl-desktop} {
+      inset: 0;
+      width: min(1920px, 100%);
+      margin-inline: auto;
+      -webkit-mask-image: $hero-edge-fade;
+      mask-image: $hero-edge-fade;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -102,28 +178,6 @@
       object-position: center top;
       border-radius: 0;
       transform: none;
-    }
-
-    // Dark gradient overlay so text is readable on all screen sizes
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(18, 60, 64, 0.55) 0%,
-        rgba(18, 60, 64, 0.75) 60%,
-        rgba(18, 60, 64, 0.90) 100%
-      );
-
-      @media #{$lg, $laptop} {
-        background: linear-gradient(
-          to right,
-          rgba(18, 60, 64, 0.92) 0%,
-          rgba(18, 60, 64, 0.72) 50%,
-          rgba(18, 60, 64, 0.10) 100%
-        );
-      }
     }
 
     .shape {
