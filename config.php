@@ -196,7 +196,7 @@ return [
     'frequentlyQuestions' => [
         [
             'question' => 'Is LibreSign free?',
-            'answer' => 'Yes. LibreSign is free and open source software. What you pay for, if needed, is support, managed hosting, and other enterprise services provided by LibreCode.'
+            'answer' => 'Yes. LibreSign is free and open source software, with no license fees. "Free" means both no cost and freedom: the source code is available on <a href="https://github.com/LibreSign/libresign">GitHub</a>, and anyone can inspect and modify it. LibreCode only charges for optional services, such as managed hosting and professional support.'
         ],
         [
             'question' => 'What does "user" mean for billing?',
