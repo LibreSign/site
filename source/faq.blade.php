@@ -54,7 +54,7 @@ description: "Answers to common questions about LibreSign: how it works, digital
                 </button>
                 <div id="faq-item-{{ $item }}" class="accordion-collapse collapse">
                   <div class="ud-faq-body">
-                    {{ $page->t($frequentlyQuestion->answer)}}
+                    {!! $page->t($frequentlyQuestion->answer)!!}
                   </div>
                 </div>
               </div>
