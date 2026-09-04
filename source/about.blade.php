@@ -42,7 +42,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
               {{ $page->t('From that urgent context, our mission emerged: to build a web solution that allows contracts and proposals to be signed and managed online with full security and agility, without giving up freedom and control. This mission is deeply connected to our commitment to open source software.') }}
             </p>
             <p>
-              {{ $page->t('As an open-source solution, LibreSign gives you the freedom to audit, customize, and scale the platform to your needs. We believe trust is the core of every digital relationship — that is why every signature and workflow is protected with robust technology and complete traceability.') }}
+              {{ $page->t('As an open-source solution, LibreSign gives you the freedom to audit, customize, and scale the platform to your needs. We believe trust is the core of every digital relationship; that is why every signature and workflow is protected with robust technology and complete traceability.') }}
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
               </div>
               <div class="ud-about-timeline__content">
                 <h3>{{ $page->t('The Future: Complete Digital Management.') }}</h3>
-                <p>{{ $page->t('From this scenario, LibreSign was born — combining open-source freedom with digital-signature security to transform end-to-end management.') }}</p>
+                <p>{{ $page->t('From this scenario, LibreSign was born, combining open-source freedom with digital-signature security to transform end-to-end management.') }}</p>
               </div>
             </article>
           </div>

@@ -1,6 +1,6 @@
 ---
 title: "LibreSign Features - Secure Open Source Digital Signatures"
-description: "Explore LibreSign's core features: digital signatures, document management, multi-signer workflows, API integrations, and more — all on your own self-hosted Nextcloud."
+description: "Explore LibreSign's core features: digital signatures, document management, multi-signer workflows, API integrations, and more on your own self-hosted Nextcloud."
 ---
 @extends('_layouts.main')
 

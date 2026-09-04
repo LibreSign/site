@@ -119,7 +119,7 @@
     @include('_partials.post-list', [
       'sectionClass' => 'ud-home-benefits',
       'title'        => $page->t('Key benefits for your organization'),
-      'subtitle'     => $page->t('From document security to workflow automation — built for organizations of every size.'),
+      'subtitle'     => $page->t('From document security to workflow automation: built for organizations of every size.'),
       'category'     => 'featured',
       'format'       => 'feature',
     ])
@@ -259,7 +259,7 @@
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
-    "description": "Free and open source. Commercial plans available — contact us for details."
+    "description": "Free and open source. Commercial plans available, contact us for details."
   },
   "author": {
     "@id": "https://libresign.coop/#organization"
