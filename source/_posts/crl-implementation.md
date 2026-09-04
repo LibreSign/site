@@ -73,4 +73,4 @@ With the implementation of CRL, LibreSign:
 * Aligns with **international best practices** for digital signature validation
 * Prevents the misuse of compromised certificates
 
-This is another step in LibreSign's commitment to **security, transparency, and technical compliance**. Security is not an optional feature — it is a design principle in LibreSign.
+This is another step in LibreSign's commitment to **security, transparency, and technical compliance**. Security is not an optional feature: it is a design principle in LibreSign.

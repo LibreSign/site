@@ -1,6 +1,6 @@
 ---
 title: "LibreSign Team - The People Behind Open Source Electronic Signatures"
-description: "Meet the LibreCode cooperative team behind LibreSign — dedicated to building free, transparent, and secure digital signature software."
+description: "Meet the LibreCode cooperative team behind LibreSign, dedicated to building free, transparent, and secure digital signature software."
 ---
 @extends('_layouts.main')
 
@@ -20,7 +20,7 @@ description: "Meet the LibreCode cooperative team behind LibreSign — dedicated
   <section class="ud-team-intro">
     <div class="container">
       <p class="ud-team-intro__subtitle">{{ $page->t("The people behind LibreSign") }}</p>
-      <p class="ud-team-intro__description">{{ $page->t("We are a passionate cooperative team dedicated to building open source electronic signature software. We believe data sovereignty matters — our software is free, self-hostable, and privacy-first.") }}</p>
+      <p class="ud-team-intro__description">{{ $page->t("We are a passionate cooperative team dedicated to building open source electronic signature software. We believe data sovereignty matters; our software is free, self-hostable, and privacy-first.") }}</p>
     </div>
   </section>
 
