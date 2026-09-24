@@ -1,6 +1,6 @@
 ---
 title: "LibreSign Brand and Pronunciation"
-description: "Official guidance for the LibreSign name, pronunciation, visual identity resources, and relationship to the LibreCode Coop brand family."
+description: "Official guidance for the LibreSign name, pronunciation, and visual identity."
 ---
 @extends('_layouts.main')
 
@@ -19,7 +19,6 @@ description: "Official guidance for the LibreSign name, pronunciation, visual id
             <h2>{{ $page->t('The name') }}</h2>
             <p>{{ $page->t('Always write LibreSign with an uppercase L and S, with no space between Libre and Sign.') }}</p>
             <p>{{ $page->t('Avoid spellings such as Libresign, Libre Sign, or libreSign.') }}</p>
-            <p>{{ $page->t('LibreSign was named after LibreCode, which in turn was inspired by LibreOffice. Libre refers to freedom and the free-software tradition.') }}</p>
           </div>
         </div>
 
@@ -27,8 +26,7 @@ description: "Official guidance for the LibreSign name, pronunciation, visual id
           <div class="ud-about-story__text">
             <h2>{{ $page->t('Pronunciation') }}</h2>
             <p><strong>Libre</strong>: <span aria-label="{{ $page->t('International Phonetic Alphabet transcription') }}">/ˈli.bɾe/</span>. {{ $page->t('It begins with an ee sound, not “lye” as in “laibre”.') }}</p>
-            <p><strong>LibreSign</strong>: <span aria-label="{{ $page->t('International Phonetic Alphabet transcription') }}">/ˈli.bɾe saɪn/</span>.</p>
-            <p>{{ $page->t('Sign keeps its English pronunciation. The pronunciation follows the same Libre identity used across the LibreCode brand family.') }}</p>
+            <p><strong>LibreSign</strong>: <span aria-label="{{ $page->t('International Phonetic Alphabet transcription') }}">/ˈli.bɾe saɪn/</span>. {{ $page->t('Sign keeps its English pronunciation.') }}</p>
           </div>
         </div>
       </div>
@@ -39,34 +37,30 @@ description: "Official guidance for the LibreSign name, pronunciation, visual id
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-xl-10">
-          <h2 class="ud-about-values__title">{{ $page->t('Visual identity resources') }}</h2>
-          <p>{{ $page->t('Approved logos, variations, and brand-manual materials are available in the public LibreSign brand folder.') }}</p>
-          <p>
-            <a class="btn ud-btn-solid-brand"
-               href="https://cloud.librecode.coop/s/HpkZbZZrsdn9Gqj"
-               target="_blank"
-               rel="noopener noreferrer">
-              {{ $page->t('Open LibreSign brand assets') }}
-            </a>
-          </p>
+          <h2 class="ud-about-values__title">{{ $page->t('Why “Libre” matters') }}</h2>
+          <p>{{ $page->t('Libre means freedom. With LibreSign, that means the freedom to run your own signing infrastructure, keep control of documents and data, inspect and adapt the software, integrate it with your environment, and avoid being locked into a single proprietary service.') }}</p>
+          <p>{{ $page->t('For organizations, that freedom supports data sovereignty, interoperability, continuity, and the ability to choose how and by whom the solution is operated and maintained.') }}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ud-about-team">
+  <section class="ud-about-team" id="assets">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-10">
           <div class="ud-about-team__content">
-            <h2>{{ $page->t('Part of the LibreCode Coop brand family') }}</h2>
-            <p>{{ $page->t('LibreSign has its own product identity, while shared naming and brand-family guidance is maintained by LibreCode Coop as the canonical institutional reference.') }}</p>
-            <a href="https://librecode.coop/brand#libresign"
-               class="btn ud-btn-ghost"
-               target="_blank"
-               rel="noopener noreferrer">
-              {{ $page->t('See the LibreCode Coop brand guidelines') }}
-            </a>
+            <h2>{{ $page->t('Official LibreSign assets') }}</h2>
+            <p>{{ $page->t('Use official, versioned assets and preserve their proportions and visual integrity.') }}</p>
+            <p>
+              <a href="{{ $page->baseUrl }}assets/images/logo/logo.svg" class="btn ud-btn-solid-brand" download>
+                {{ $page->t('Download LibreSign logo (SVG)') }}
+              </a>
+              <a href="{{ $page->baseUrl }}assets/images/logo/logo-libresign-large.png" class="btn ud-btn-ghost" download>
+                {{ $page->t('Download LibreSign logo (PNG)') }}
+              </a>
+            </p>
+            <p>{{ $page->t('Complete visual specifications — variants, colors, clear space, minimum sizes, and incorrect uses — will be maintained as versioned brand documentation and published here.') }}</p>
           </div>
         </div>
       </div>
