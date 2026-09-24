@@ -62,7 +62,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
             </p>
             <p>{{ $page->t('The core identity preserves the approved logo geometry, variants, clear space, and minimum sizes. The current website uses #184c4e as its primary digital color and Montserrat as its UI typeface; these belong to the digital design-system layer and do not rewrite historical logo artwork.') }}</p>
                         <p>
-              <a href="https://github.com/LibreSign/brand/releases/latest/download/libresign-brand-manual.pdf" class="btn ud-btn-solid-brand">
+              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-brand-manual.pdf" class="btn ud-btn-solid-brand">
                 {{ $page->t('Download latest brand manual (PDF)') }}
               </a>
               <a href="https://github.com/LibreSign/brand" class="btn ud-btn-ghost" target="_blank" rel="noopener noreferrer">{{ $page->t('View canonical brand source') }}</a>
