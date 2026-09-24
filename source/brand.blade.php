@@ -51,7 +51,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
         <div class="col-xl-10">
           <div class="ud-about-team__content">
             <h2>{{ $page->t('Official LibreSign assets') }}</h2>
-            <p>{{ $page->t('Use official, versioned assets and preserve their proportions and visual integrity.') }}</p>
+            <p>{{ $page->t('Use official, versioned assets and preserve their proportions and visual integrity.') }} {{ $page->t('The canonical source for LibreSign brand rules and assets is versioned in the public brand repository.') }}</p>
             <p>
               <a href="{{ $page->baseUrl }}assets/images/logo/logo.svg" class="btn ud-btn-solid-brand" download>
                 {{ $page->t('Download LibreSign logo (SVG)') }}
@@ -60,7 +60,8 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
                 {{ $page->t('Download LibreSign logo (PNG)') }}
               </a>
             </p>
-            <p>{{ $page->t('Complete visual specifications — variants, colors, clear space, minimum sizes, and incorrect uses — will be maintained as versioned brand documentation and published here.') }}</p>
+            <p>{{ $page->t('Complete visual specifications — variants, colors, clear space, minimum sizes, and incorrect uses — are maintained as versioned brand documentation and published here.') }}</p>
+            <p><a href="https://github.com/LibreSign/brand" class="btn ud-btn-ghost" target="_blank" rel="noopener noreferrer">{{ $page->t('View canonical brand source') }}</a></p>
           </div>
         </div>
       </div>
