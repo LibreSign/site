@@ -129,6 +129,9 @@
                                 <li>
                                     <a href="{{ $footerLocaleUrl('privacy-policy') }}">{{ $page->t("Privacy Policy")}}</a>
                                 </li>
+                                <li>
+                                    <a href="https://librecode.coop/brand#libresign" target="_blank" rel="noopener noreferrer">{{ $page->t("Brand and pronunciation")}}</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
