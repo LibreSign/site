@@ -60,7 +60,8 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
                 {{ $page->t('Download LibreSign logo (PNG)') }}
               </a>
             </p>
-            <p>{{ $page->t('Complete visual specifications — variants, colors, clear space, minimum sizes, and incorrect uses — are maintained as versioned brand documentation and published here.') }}</p>
+            <p>{{ $page->t('The core identity preserves the approved logo geometry, variants, clear space, and minimum sizes. The current website uses #184c4e as its primary digital color and Montserrat as its UI typeface; these belong to the digital design-system layer and do not rewrite historical logo artwork.') }}</p>
+            <p>{{ $page->t('The historical manual has been reviewed and is being rebuilt from open, reproducible source. Administrative documents and historical files containing personal information are intentionally excluded from the public brand repository.') }}</p>
             <p><a href="https://github.com/LibreSign/brand" class="btn ud-btn-ghost" target="_blank" rel="noopener noreferrer">{{ $page->t('View canonical brand source') }}</a></p>
           </div>
         </div>
