@@ -1,6 +1,6 @@
 ---
 title: "LibreSign Brand and Pronunciation"
-description: "Official guidance for the LibreSign name, pronunciation, visual identity resources, and relationship to the LibreCode Co-op brand family."
+description: "Official guidance for the LibreSign name, pronunciation, visual identity resources, and relationship to the LibreCode Coop brand family."
 ---
 @extends('_layouts.main')
 
@@ -59,13 +59,13 @@ description: "Official guidance for the LibreSign name, pronunciation, visual id
       <div class="row justify-content-center">
         <div class="col-xl-10">
           <div class="ud-about-team__content">
-            <h2>{{ $page->t('Part of the LibreCode Co-op brand family') }}</h2>
-            <p>{{ $page->t('LibreSign has its own product identity, while shared naming and brand-family guidance is maintained by LibreCode Co-op as the canonical institutional reference.') }}</p>
+            <h2>{{ $page->t('Part of the LibreCode Coop brand family') }}</h2>
+            <p>{{ $page->t('LibreSign has its own product identity, while shared naming and brand-family guidance is maintained by LibreCode Coop as the canonical institutional reference.') }}</p>
             <a href="https://librecode.coop/brand#libresign"
                class="btn ud-btn-ghost"
                target="_blank"
                rel="noopener noreferrer">
-              {{ $page->t('See the LibreCode Co-op brand guidelines') }}
+              {{ $page->t('See the LibreCode Coop brand guidelines') }}
             </a>
           </div>
         </div>
