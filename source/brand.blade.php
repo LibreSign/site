@@ -39,18 +39,22 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
               {{ $page->t('Stress the first syllable. It begins with an ee sound, not “lye”.') }}
             </p>
             <p><strong><span lang="en">Sign</span></strong>: {{ $page->t('Use the English pronunciation.') }}</p>
+            <audio
+              data-brand-pronunciation-audio
+              preload="none"
+              src="{{ $page->baseUrl }}assets/audio/libresign-pronunciation.ogg"
+            ></audio>
             <button
               type="button"
               class="btn ud-btn-outline-brand ud-brand-pronunciation__button"
               data-brand-pronunciation
               aria-describedby="libresign-pronunciation-help libresign-pronunciation-note"
-              hidden
             >
               <span aria-hidden="true">▶</span>
               <span>{{ $page->t('Hear pronunciation') }}</span>
             </button>
             <p id="libresign-pronunciation-note" class="ud-brand-pronunciation__note">
-              {{ $page->t('Playback uses speech voices installed in your browser or device, so the voice may vary slightly. The written pronunciation above remains the reference.') }}
+              {{ $page->t('Recorded human pronunciation of LibreSign. The written pronunciation above remains available as a text reference.') }}
             </p>
             <p class="visually-hidden" data-brand-pronunciation-status aria-live="polite"></p>
           </article>
