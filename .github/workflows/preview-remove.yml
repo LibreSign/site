@@ -1,6 +1,9 @@
-name: PR Preview Manual Remove
+name: PR Preview Remove
 
 on:
+  pull_request_target:
+    branches: [ main ]
+    types: [closed]
   workflow_dispatch:
     inputs:
       pr_number:
@@ -12,33 +15,42 @@ permissions:
   contents: read
 
 concurrency:
-  group: site-preview-deploy
-  cancel-in-progress: false
-  queue: max
+  group: site-preview-deploy-v2
+  cancel-in-progress: true
 
 jobs:
   remove-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate PR number input
-        id: validate
+      - name: Resolve PR number
+        id: pr
         env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
           INPUT_PR_NUMBER: ${{ inputs.pr_number }}
         run: |
-          if ! [[ "$INPUT_PR_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
-            echo "Invalid pr_number: must be a positive integer." >&2
+          set -euo pipefail
+
+          if [ "$EVENT_NAME" = "pull_request_target" ]; then
+            pr_number="$EVENT_PR_NUMBER"
+          else
+            pr_number="$INPUT_PR_NUMBER"
+          fi
+
+          if ! [[ "$pr_number" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid PR number: must be a positive integer." >&2
             exit 1
           fi
 
-          echo "pr_number=$INPUT_PR_NUMBER" >> "$GITHUB_OUTPUT"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
 
       - name: Remove preview snapshot
-        # Keep this pinned to the same reviewed fork commit used by other
-        # privileged preview paths for consistent behavior.
+        # This workflow never checks out or executes pull-request code.
+        # It only uses the PR number from the trusted base-repository event.
         uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: remove
-          pr-number: ${{ steps.validate.outputs.pr_number }}
+          pr-number: ${{ steps.pr.outputs.number }}
           deploy-repository: LibreSign/site-preview
           preview-branch: main
           pages-base-url: libresign.github.io/site-preview
