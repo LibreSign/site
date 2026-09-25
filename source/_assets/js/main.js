@@ -1,3 +1,4 @@
+import './brand-pronunciation.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'animate.css';
 
