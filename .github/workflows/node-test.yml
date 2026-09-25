@@ -1,4 +1,4 @@
-name: JavaScript tests
+name: Node tests
 
 on:
   pull_request:
@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run JavaScript tests
+      - name: Run Node tests
         run: npm run test:js

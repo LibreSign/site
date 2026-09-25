@@ -2,58 +2,24 @@ name: PR Preview Remove
 
 on:
   pull_request_target:
-    branches: [ main ]
+    branches: [main]
     types: [closed]
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: "Pull request number to remove preview for"
-        required: true
-        type: string
 
 permissions:
   contents: read
 
-concurrency:
-  group: site-preview-deploy-v2
-  cancel-in-progress: true
-
 jobs:
-  remove-preview:
+  remove:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Resolve PR number
-        id: pr
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
-          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
-        run: |
-          set -euo pipefail
-
-          if [ "$EVENT_NAME" = "pull_request_target" ]; then
-            pr_number="$EVENT_PR_NUMBER"
-          else
-            pr_number="$INPUT_PR_NUMBER"
-          fi
-
-          if ! [[ "$pr_number" =~ ^[1-9][0-9]*$ ]]; then
-            echo "Invalid PR number: must be a positive integer." >&2
-            exit 1
-          fi
-
-          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
-
-      - name: Remove preview snapshot
-        # This workflow never checks out or executes pull-request code.
-        # It only uses the PR number from the trusted base-repository event.
+      - name: Remove preview
         uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: remove
-          pr-number: ${{ steps.pr.outputs.number }}
+          pr-number: ${{ github.event.pull_request.number }}
           deploy-repository: LibreSign/site-preview
           preview-branch: main
           pages-base-url: libresign.github.io/site-preview
-          wait-for-pages-deployment: false
           comment: false
           token: ${{ secrets.PREVIEW_TOKEN }}

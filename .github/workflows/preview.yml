@@ -2,91 +2,60 @@ name: PR Preview
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
     types: [opened, reopened, synchronize]
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
   pull-requests: write
 
-concurrency:
-  group: site-preview-deploy-v2
-  cancel-in-progress: true
-
 jobs:
   preview:
     runs-on: ubuntu-latest
+
     steps:
-      # Deliberately no `closed` handling: previews are kept as historical snapshots.
       - uses: actions/checkout@v4
 
-      - name: Check whether this is still the latest PR revision
-        id: freshness
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          RUN_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-
-          current_head=$(curl -fsSL \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER" \
-            | jq -r '.head.sha')
-
-          if [ "$current_head" = "$RUN_HEAD_SHA" ]; then
-            echo "is_latest=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "is_latest=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping stale preview run for $RUN_HEAD_SHA; current PR head is $current_head"
-          fi
-
       - name: Set up Node.js
-        if: steps.freshness.outputs.is_latest == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Set up PHP 8.3
-        if: steps.freshness.outputs.is_latest == 'true'
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
 
       - name: Install PHP dependencies
-        if: steps.freshness.outputs.is_latest == 'true'
         run: composer install
 
-      - name: Adjust preview base URLs and config
-        if: steps.freshness.outputs.is_latest == 'true'
+      - name: Adjust preview URLs
         run: |
           sed -i "s|libresign.coop|libresign.github.io|g" CNAME
           sed -i "s|baseUrl' => '/'|baseUrl' => 'https://LibreSign.github.io/site-preview/pr-preview/pr-${{ github.event.pull_request.number }}/'|g" config.php
           sed -i "s|base: '/assets/build/'|base: 'https://libresign.github.io/site-preview/pr-preview/pr-${{ github.event.pull_request.number }}/assets/build/'|g" vite.config.js
-          cat config.php|grep "'baseUrl' => "
           sed -i "/'matomo_container'/d" config.production.php
 
       - name: Build production site
-        if: steps.freshness.outputs.is_latest == 'true'
         env:
           WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
           WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
         run: composer prod
 
       - name: Upload fork preview artifact
-        if: steps.freshness.outputs.is_latest == 'true' && github.event.pull_request.head.repo.full_name != github.repository
+        if: github.event.pull_request.head.repo.full_name != github.repository
         uses: actions/upload-artifact@v4
         with:
           name: preview-build-fork
           path: build_production/
           retention-days: 1
 
-      - name: Deploy internal preview
-        id: deploy_preview
-        if: steps.freshness.outputs.is_latest == 'true' && github.event.pull_request.head.repo.full_name == github.repository
-        # Temporary LibreSign fork with the pr-number forwarding fix.
-        # Replace with upstream once the fix is merged and released.
+      - name: Deploy preview
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: deploy
@@ -95,43 +64,5 @@ jobs:
           pages-base-url: libresign.github.io/site-preview
           deploy-repository: LibreSign/site-preview
           preview-branch: main
-          wait-for-pages-deployment: false
+          wait-for-pages-deployment: true
           token: ${{ secrets.PREVIEW_TOKEN }}
-
-
-      - name: Wait for preview Pages publication
-        if: steps.freshness.outputs.is_latest == 'true' && github.event.pull_request.head.repo.full_name == github.repository
-        env:
-          DEPLOYED_SHA: ${{ steps.deploy_preview.outputs.deployed-commit-sha }}
-          GH_TOKEN: ${{ secrets.PREVIEW_TOKEN }}
-        run: |
-          set -euo pipefail
-
-          for attempt in $(seq 1 60); do
-            runs=$(curl -fsSL \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/LibreSign/site-preview/actions/runs?head_sha=$DEPLOYED_SHA&per_page=20")
-
-            status=$(echo "$runs" | jq -r '
-              [.workflow_runs[] | select(.name == "pages build and deployment")][0].status // "missing"
-            ')
-            conclusion=$(echo "$runs" | jq -r '
-              [.workflow_runs[] | select(.name == "pages build and deployment")][0].conclusion // ""
-            ')
-
-            if [ "$status" = "completed" ]; then
-              if [ "$conclusion" = "success" ]; then
-                exit 0
-              fi
-
-              echo "Pages deployment finished with conclusion: $conclusion"
-              exit 1
-            fi
-
-            echo "Waiting for Pages deployment of $DEPLOYED_SHA (status: $status, attempt: $attempt/60)"
-            sleep 10
-          done
-
-          echo "Timed out waiting for Pages deployment of $DEPLOYED_SHA"
-          exit 1
