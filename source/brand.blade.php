@@ -40,6 +40,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
           <h2 class="ud-about-values__title">{{ $page->t('Why “Libre” matters') }}</h2>
           <p>{{ $page->t('Libre means freedom. With LibreSign, that means the freedom to run your own signing infrastructure, keep control of documents and data, inspect and adapt the software, integrate it with your environment, and avoid being locked into a single proprietary service.') }}</p>
           <p>{{ $page->t('For organizations, that freedom supports data sovereignty, interoperability, continuity, and the ability to choose how and by whom the solution is operated and maintained.') }}</p>
+          <p><strong>{{ $page->t('Brand promise:') }}</strong> {{ $page->t('Freedom and control for electronic signing.') }}</p>
         </div>
       </div>
     </div>
@@ -53,17 +54,17 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
             <h2>{{ $page->t('Official LibreSign assets') }}</h2>
             <p>{{ $page->t('Use official, versioned assets and preserve their proportions and visual integrity.') }} {{ $page->t('The canonical source for LibreSign brand rules and assets is versioned in the public brand repository.') }}</p>
             <p>
-              <a href="{{ $page->baseUrl }}assets/images/logo/logo.svg" class="btn ud-btn-solid-brand" download>
+              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.svg" class="btn ud-btn-solid-brand">
                 {{ $page->t('Download LibreSign logo (SVG)') }}
               </a>
-              <a href="{{ $page->baseUrl }}assets/images/logo/logo-libresign-large.png" class="btn ud-btn-ghost" download>
+              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.png" class="btn ud-btn-ghost">
                 {{ $page->t('Download LibreSign logo (PNG)') }}
               </a>
             </p>
-            <p>{{ $page->t('The core identity preserves the approved logo geometry, variants, clear space, and minimum sizes. The current website uses #184c4e as its primary digital color and Montserrat as its UI typeface; these belong to the digital design-system layer and do not rewrite historical logo artwork.') }}</p>
-                        <p>
+            <p>{{ $page->t('The current LibreSign digital brand system uses #184c4e as its primary teal and Montserrat as its official digital typeface. Do not infer logo colors from interface colors; always use the official artwork.') }}</p>
+            <p>
               <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-brand-manual.pdf" class="btn ud-btn-solid-brand">
-                {{ $page->t('Download latest brand manual (PDF)') }}
+                {{ $page->t('Download current brand manual (PDF)') }}
               </a>
               <a href="https://github.com/LibreSign/brand" class="btn ud-btn-ghost" target="_blank" rel="noopener noreferrer">{{ $page->t('View canonical brand source') }}</a>
             </p>
