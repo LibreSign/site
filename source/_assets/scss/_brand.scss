@@ -64,6 +64,24 @@
   }
 }
 
+
+.ud-brand-pronunciation {
+  &__button {
+    align-items: center;
+    display: inline-flex;
+    gap: 9px;
+    margin-top: 8px;
+  }
+
+  &__note {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-top: 14px;
+    max-width: 36rem;
+  }
+}
+
 .ud-brand-section-label {
   color: var(--primary-color);
   font-size: 0.82rem;
