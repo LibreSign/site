@@ -32,12 +32,11 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
             <p class="ud-brand-card__label">{{ $page->t('Pronunciation') }}</p>
             <h2 id="libresign-pronunciation">
               <span aria-hidden="true">/ˈli.bɾe saɪn/</span>
-              <span class="visually-hidden">{{ $page->t('LibreSign pronunciation') }}</span>
+              <span class="visually-hidden">{{ $page->t('LibreSign: Libre with stress on the first syllable, followed by the English word Sign.') }}</span>
             </h2>
             <p id="libresign-pronunciation-help">
               <strong><span lang="es">Libre</span></strong>: <span aria-hidden="true">/ˈli.bɾe/</span>
-              <span class="visually-hidden">{{ $page->t('stress the first syllable; it begins with an ee sound') }}</span>.
-              {{ $page->t('It begins with an ee sound, not “lye”.') }}
+              {{ $page->t('Stress the first syllable. It begins with an ee sound, not “lye”.') }}
             </p>
             <p><strong><span lang="en">Sign</span></strong>: {{ $page->t('Use the English pronunciation.') }}</p>
             <button
@@ -109,7 +108,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
             </div>
 
             <a href="https://github.com/LibreSign/brand" class="ud-brand-source-link" target="_blank" rel="noopener noreferrer">
-              {{ $page->t('View the canonical brand source on GitHub') }} →
+              {{ $page->t('View the canonical brand source on GitHub') }} <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
