@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: site-preview-deploy
+  group: site-preview-deploy-v2
   cancel-in-progress: true
 
 jobs:
