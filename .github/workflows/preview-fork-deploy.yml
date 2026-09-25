@@ -11,9 +11,8 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: site-preview-deploy
-  cancel-in-progress: false
-  queue: max
+  group: site-preview-deploy-v2
+  cancel-in-progress: true
 
 jobs:
   deploy-fork-preview:
