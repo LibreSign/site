@@ -104,7 +104,7 @@
                           @elseif(!empty($articleGravatar))
                             <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
                               <img
-                                  src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=40"
+                                  src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=80"
                                   alt="{{ $article->author }}"
                                 >
                             </a>
