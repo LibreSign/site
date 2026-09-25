@@ -30,9 +30,30 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
         <div class="col-lg-6 d-flex">
           <article class="ud-brand-card w-100">
             <p class="ud-brand-card__label">{{ $page->t('Pronunciation') }}</p>
-            <h2><span aria-label="{{ $page->t('International Phonetic Alphabet transcription') }}">/ˈli.bɾe saɪn/</span></h2>
-            <p><strong>Libre</strong>: /ˈli.bɾe/. {{ $page->t('It begins with an ee sound, not “lye”.') }}</p>
-            <p><strong>Sign</strong>: {{ $page->t('Use the English pronunciation.') }}</p>
+            <h2 id="libresign-pronunciation">
+              <span aria-hidden="true">/ˈli.bɾe saɪn/</span>
+              <span class="visually-hidden">{{ $page->t('LibreSign pronunciation') }}</span>
+            </h2>
+            <p id="libresign-pronunciation-help">
+              <strong><span lang="es">Libre</span></strong>: <span aria-hidden="true">/ˈli.bɾe/</span>
+              <span class="visually-hidden">{{ $page->t('stress the first syllable; it begins with an ee sound') }}</span>.
+              {{ $page->t('It begins with an ee sound, not “lye”.') }}
+            </p>
+            <p><strong><span lang="en">Sign</span></strong>: {{ $page->t('Use the English pronunciation.') }}</p>
+            <button
+              type="button"
+              class="btn ud-btn-outline-brand ud-brand-pronunciation__button"
+              data-brand-pronunciation
+              aria-describedby="libresign-pronunciation-help libresign-pronunciation-note"
+              hidden
+            >
+              <span aria-hidden="true">▶</span>
+              <span>{{ $page->t('Hear pronunciation') }}</span>
+            </button>
+            <p id="libresign-pronunciation-note" class="ud-brand-pronunciation__note">
+              {{ $page->t('Playback uses speech voices installed in your browser or device, so the voice may vary slightly. The written pronunciation above remains the reference.') }}
+            </p>
+            <p class="visually-hidden" data-brand-pronunciation-status aria-live="polite"></p>
           </article>
         </div>
       </div>
@@ -62,8 +83,8 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
         <div class="col-lg-5">
           <div class="ud-brand-assets__preview">
             <img
-              src="{{ $page->baseUrl }}assets/images/logo/logo.svg"
-              alt="{{ $page->t('Official LibreSign logo') }}"
+              src="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.svg"
+              alt="{{ $page->t('Official full-color LibreSign logo for light backgrounds') }}"
               width="369"
               height="162"
             >
