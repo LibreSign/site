@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3049e0cf2923968c8c39c9c4df3dc770",
+    "content-hash": "18f57ae3ca4f0da260ee780f9db077fe",
     "packages": [
         {
             "name": "brick/math",
@@ -571,27 +571,31 @@
         },
         {
             "name": "gregwar/captcha",
-            "version": "v1.3.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/Captcha.git",
-                "reference": "4edbcd09fde4353b94ce550f43460eba73baf2cc"
+                "reference": "c1e67b3d7ac4f873f785daa366051d7c73d19ca0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/4edbcd09fde4353b94ce550f43460eba73baf2cc",
-                "reference": "4edbcd09fde4353b94ce550f43460eba73baf2cc",
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/c1e67b3d7ac4f873f785daa366051d7c73d19ca0",
+                "reference": "c1e67b3d7ac4f873f785daa366051d7c73d19ca0",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
                 "ext-gd": "*",
                 "ext-mbstring": "*",
-                "php": ">=5.3.0",
+                "php": "^8.2",
                 "symfony/finder": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7.21 || ^6.4 || ^7.0 || ^8.0 || ^9.0"
+                "friendsofphp/php-cs-fixer": "^3.49",
+                "phpstan/phpstan": "2.1.17",
+                "phpstan/phpstan-phpunit": "2.0.6",
+                "phpunit/phpunit": "^9.6",
+                "squizlabs/php_codesniffer": "4.0.4"
             },
             "type": "library",
             "autoload": {
@@ -623,9 +627,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Gregwar/Captcha/issues",
-                "source": "https://github.com/Gregwar/Captcha/tree/v1.3.0"
+                "source": "https://github.com/Gregwar/Captcha/tree/v2.1.1"
             },
-            "time": "2025-06-23T12:25:54+00:00"
+            "time": "2026-08-27T10:37:12+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -3664,23 +3668,23 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v7.4.14",
+            "version": "v8.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "13b38720174286f55d1761152b575a8d1436fc25"
+                "reference": "8d7acede2b2ae07605783d1c43e49b5767036474"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/13b38720174286f55d1761152b575a8d1436fc25",
-                "reference": "13b38720174286f55d1761152b575a8d1436fc25",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/8d7acede2b2ae07605783d1c43e49b5767036474",
+                "reference": "8d7acede2b2ae07605783d1c43e49b5767036474",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2"
+                "php": ">=8.4.1"
             },
             "require-dev": {
-                "symfony/filesystem": "^6.4|^7.0|^8.0"
+                "symfony/filesystem": "^7.4|^8.0"
             },
             "type": "library",
             "autoload": {
@@ -3708,7 +3712,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v7.4.14"
+                "source": "https://github.com/symfony/finder/tree/v8.1.5"
             },
             "funding": [
                 {
@@ -3728,7 +3732,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-27T08:31:18+00:00"
+            "time": "2026-08-21T12:16:08+00:00"
         },
         {
             "name": "symfony/http-foundation",
