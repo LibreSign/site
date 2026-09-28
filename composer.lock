@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3049e0cf2923968c8c39c9c4df3dc770",
+    "content-hash": "51575ff713558dd90c0db5ad1c535b43",
     "packages": [
         {
             "name": "brick/math",
@@ -298,143 +298,6 @@
                 }
             ],
             "time": "2025-08-10T19:31:58+00:00"
-        },
-        {
-            "name": "elaborate-code/jigsaw-localization",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LibreSign/jigsaw-localization",
-                "reference": "2f771d1f0c016d41d4144e47cbb545c1aca18972"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/2f771d1f0c016d41d4144e47cbb545c1aca18972",
-                "reference": "2f771d1f0c016d41d4144e47cbb545c1aca18972",
-                "shasum": ""
-            },
-            "require": {
-                "elaborate-code/php-json-tongue": "^1.0",
-                "php": "^8.0",
-                "symfony/intl": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.8",
-                "laravel/pint": "^1.2",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "tightenco/jigsaw": "^1.7"
-            },
-            "suggest": {
-                "ext-intl": "For faster locale display name resolution"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "bamarni-bin": {
-                    "bin-links": true,
-                    "forward-command": true
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "ElaborateCode\\JigsawLocalization\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests",
-                    "ElaborateCode\\JigsawLocalization\\Mocks\\": "tests/_Mocks"
-                }
-            },
-            "scripts": {
-                "bin": [
-                    "echo 'bin not installed'"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/phpunit  --colors=always"
-                ],
-                "format": [
-                    "vendor/bin/pint"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mohamed Ilies BOUDOUMA",
-                    "email": "medilies.contact@gmail.com"
-                }
-            ],
-            "description": "Brings localization feature to \"tightenco/jigsaw\" using JSON files",
-            "time": "2026-06-09T18:43:33+00:00"
-        },
-        {
-            "name": "elaborate-code/php-json-tongue",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elaborate-code/php-json-tongue.git",
-                "reference": "9adcf445e8f94d5e7eb68e419efca050e4e79539"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elaborate-code/php-json-tongue/zipball/9adcf445e8f94d5e7eb68e419efca050e4e79539",
-                "reference": "9adcf445e8f94d5e7eb68e419efca050e4e79539",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.2",
-                "pestphp/pest": "^1.22",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Helpers/helpers.php"
-                ],
-                "psr-4": {
-                    "ElaborateCode\\JsonTongue\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mohamed Ilies BOUDOUMA",
-                    "email": "medilies.contact@gmail.com"
-                }
-            ],
-            "description": "A Facade for loading localization data from JSONs within a lang folder",
-            "homepage": "https://github.com/elaborate-code/php-json-tongue",
-            "keywords": [
-                "internationalization",
-                "json",
-                "languages",
-                "locale",
-                "localization",
-                "translation"
-            ],
-            "support": {
-                "issues": "https://github.com/elaborate-code/php-json-tongue/issues",
-                "source": "https://github.com/elaborate-code/php-json-tongue/tree/v1.2.1"
-            },
-            "time": "2022-10-08T10:57:24+00:00"
         },
         {
             "name": "filp/whoops",
@@ -1860,6 +1723,105 @@
                 "source": "https://github.com/LibreSign/espeak/tree/main"
             },
             "time": "2024-02-27T16:30:54+00:00"
+        },
+        {
+            "name": "libresign/jigsaw-localization",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LibreSign/jigsaw-localization.git",
+                "reference": "0c0e08df42178c0de3343f9ca88d511909584b63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/0c0e08df42178c0de3343f9ca88d511909584b63",
+                "reference": "0c0e08df42178c0de3343f9ca88d511909584b63",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "symfony/intl": "^6.0|^7.0|^8.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.9",
+                "tightenco/jigsaw": "^1.7"
+            },
+            "suggest": {
+                "ext-intl": "For locale display name resolution"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": false,
+                    "forward-command": true
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "LibreSign\\JigsawLocalization\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests",
+                    "LibreSign\\JigsawLocalization\\Mocks\\": "tests/_Mocks"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "vendor-bin/phpstan/vendor/bin/phpstan analyse --no-progress"
+                ],
+                "test": [
+                    "vendor-bin/phpunit/vendor/bin/phpunit --colors=always"
+                ],
+                "format": [
+                    "vendor-bin/pint/vendor/bin/pint"
+                ],
+                "ci": [
+                    "@test",
+                    "@analyse",
+                    "@complexity",
+                    "vendor-bin/pint/vendor/bin/pint --test"
+                ],
+                "complexity": [
+                    "vendor-bin/phpmd/vendor/bin/phpmd src text phpmd.xml"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Ilies BOUDOUMA",
+                    "email": "medilies.contact@gmail.com",
+                    "role": "Original author"
+                },
+                {
+                    "name": "LibreSign",
+                    "homepage": "https://libresign.coop",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Localization and translation toolkit for Tighten Jigsaw with JSON catalogs, extraction, validation, and locale-aware routing",
+            "homepage": "https://github.com/LibreSign/jigsaw-localization",
+            "keywords": [
+                "blade",
+                "i18n",
+                "internationalization",
+                "jigsaw",
+                "localization",
+                "static-site-generator",
+                "translation"
+            ],
+            "support": {
+                "issues": "https://github.com/LibreSign/jigsaw-localization/issues",
+                "source": "https://github.com/LibreSign/jigsaw-localization"
+            },
+            "time": "2026-09-28T19:11:58+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -3814,16 +3776,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v7.4.14",
+            "version": "v7.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "02d77a81a198788444a8371658ef98e2e20c8c2b"
+                "reference": "ebd1e30a84e79c4cb4ad0eacf88d5e3fef47ad1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/02d77a81a198788444a8371658ef98e2e20c8c2b",
-                "reference": "02d77a81a198788444a8371658ef98e2e20c8c2b",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/ebd1e30a84e79c4cb4ad0eacf88d5e3fef47ad1d",
+                "reference": "ebd1e30a84e79c4cb4ad0eacf88d5e3fef47ad1d",
                 "shasum": ""
             },
             "require": {
@@ -3880,7 +3842,7 @@
                 "localization"
             ],
             "support": {
-                "source": "https://github.com/symfony/intl/tree/v7.4.14"
+                "source": "https://github.com/symfony/intl/tree/v7.4.17"
             },
             "funding": [
                 {
@@ -3900,7 +3862,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-05T06:22:21+00:00"
+            "time": "2026-08-21T17:40:08+00:00"
         },
         {
             "name": "symfony/mime",
@@ -7400,8 +7362,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "elaborate-code/jigsaw-localization": 20,
-        "libresign/espeak": 20
+        "libresign/espeak": 20,
+        "libresign/jigsaw-localization": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

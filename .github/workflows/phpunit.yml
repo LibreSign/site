@@ -22,5 +22,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-scripts
 
+      - name: Validate translation catalogs
+        run: composer validate-translations
+
       - name: Run PHPUnit
         run: composer test
