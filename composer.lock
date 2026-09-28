@@ -1730,12 +1730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LibreSign/jigsaw-localization.git",
-                "reference": "0c0e08df42178c0de3343f9ca88d511909584b63"
+                "reference": "672c0381f2ed94f460030cf74d3f5b840fcb795e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/0c0e08df42178c0de3343f9ca88d511909584b63",
-                "reference": "0c0e08df42178c0de3343f9ca88d511909584b63",
+                "url": "https://api.github.com/repos/LibreSign/jigsaw-localization/zipball/672c0381f2ed94f460030cf74d3f5b840fcb795e",
+                "reference": "672c0381f2ed94f460030cf74d3f5b840fcb795e",
                 "shasum": ""
             },
             "require": {
