@@ -66,7 +66,7 @@ MD
         $catalog = $this->extract();
 
         self::assertArrayHasKey('Blade markdown', $catalog);
-        self::assertArrayHasKey("Body with {{ \$page->baseUrl }}.\n", $catalog);
+        self::assertArrayHasKey('Body with {{ $page->baseUrl }}.', $catalog);
     }
 
     public function testIgnoresGeneratedAndLocalizedMarkdownSources(): void
@@ -79,7 +79,7 @@ MD
         $catalog = $this->extract();
 
         self::assertArrayHasKey('Source title', $catalog);
-        self::assertArrayHasKey('Source body.', $catalog);
+        self::assertArrayHasKey("Source body.\n", $catalog);
         self::assertArrayNotHasKey('Traduzido', $catalog);
         self::assertArrayNotHasKey('Traduit', $catalog);
         self::assertArrayNotHasKey('Traduit prefix', $catalog);
