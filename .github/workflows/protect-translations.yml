@@ -20,6 +20,8 @@ jobs:
 
       - name: Validate language-file changes
         env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           PR_HEAD_REF: ${{ github.head_ref || github.event.pull_request.head.ref }}
           PR_HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
@@ -40,8 +42,15 @@ jobs:
           fi
 
           if git diff --name-only "origin/${BASE_REF}"...HEAD -- lang | grep -q .; then
+            permission=$(gh api "repos/${REPOSITORY}/collaborators/${PR_AUTHOR}/permission" --jq '.user.permission')
+
+            if [[ "$permission" == "admin" || "$permission" == "maintain" ]]; then
+              echo "Maintainer PR: allowing lang/ changes."
+              exit 0
+            fi
+
             echo "Regular PRs must not edit files under lang/."
-            echo "Allowed exceptions: Weblate PRs and source-string refresh automation."
+            echo "Allowed exceptions: Weblate, source-string automation, and repository maintainers."
             exit 1
           fi
 
