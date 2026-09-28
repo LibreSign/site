@@ -39,6 +39,13 @@ jobs:
             exit 0
           fi
 
+          if [[ "$PR_AUTHOR" == "vitormattos" ]] && \
+             [[ "$PR_HEAD_REF" == "chore/i18n-migrate-weblate" ]] && \
+             [[ "$PR_HEAD_REPO" == "LibreSign/site" ]]; then
+            echo "One-time Weblate migration PR: allowing lang/ changes."
+            exit 0
+          fi
+
           if git diff --name-only "origin/${BASE_REF}"...HEAD -- lang | grep -q .; then
             echo "Regular PRs must not edit files under lang/."
             echo "Allowed exceptions: Weblate PRs and source-string refresh automation."
