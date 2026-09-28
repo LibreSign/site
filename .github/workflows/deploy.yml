@@ -51,6 +51,9 @@ jobs:
       - name: Extract source strings
         run: composer extract-strings
 
+      - name: Validate extracted source catalog
+        run: composer validate-translations -- --canonical-source
+
       - name: Create pull request with source string updates
         uses: peter-evans/create-pull-request@v8
         with:

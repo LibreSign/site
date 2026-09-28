@@ -2,83 +2,51 @@
 
 namespace App\Listeners;
 
+use LibreSign\JigsawLocalization\Catalog\JsonTranslationCatalog;
+use LibreSign\JigsawLocalization\Catalog\SourceStringCollector;
+use LibreSign\JigsawLocalization\Catalog\TranslationCatalogSynchronizer;
 use TightenCo\Jigsaw\Jigsaw;
 
 /**
- * Tracks all translatable strings encountered during a Jigsaw build.
- *
- * During normal builds this class only collects strings in memory and never
- * writes to disk, keeping the lang/ directory clean for Weblate to manage.
- *
- * When JIGSAW_EXTRACT_STRINGS=1 is set (extraction mode), the afterBuild
- * listener PersistExtractedStrings calls persistExtractedStrings() to sync
- * lang/{defaultLocale}/main.json with the current set of source strings.
+ * Connects the site's Jigsaw translation macro to the reusable localization
+ * package and persists the canonical source catalog only during extraction.
  */
 class AddNewTranslation
 {
-    private static array $encounteredStrings = [];
+    private static ?SourceStringCollector $collector = null;
 
     public function handle(Jigsaw $jigsaw): void
     {
-        $self = $this;
-        $jigsaw->getSiteData()->macro('addNewTranslation', function (string $currentLanguage, string $text) use ($self): void {
-            $self->track($text);
-        });
+        $collector = new SourceStringCollector(packageDefaultLocale());
+        self::$collector = $collector;
+
+        $jigsaw->getSiteData()->macro(
+            'addNewTranslation',
+            static function (string $currentLanguage, string $text) use ($collector): void {
+                $collector->collect($currentLanguage, $text);
+            }
+        );
     }
 
-    public function track(string $text): void
-    {
-        self::$encounteredStrings[$text] = $text;
-    }
-
-    /**
-     * Persist the collected strings to lang/{defaultLocale}/main.json.
-     *
-     * New strings are added with the source text as the default value.
-     * Strings no longer present in the templates are removed.
-     * Existing translations for the default locale are preserved.
-     *
-     * Only runs when JIGSAW_EXTRACT_STRINGS env var is set to a truthy value.
-     */
     public function persistExtractedStrings(): void
     {
-        if (!self::isExtractionMode()) {
+        if (! self::isExtractionMode() || self::$collector === null) {
             return;
         }
 
         $defaultLocale = packageDefaultLocale();
-        $translationFile = 'lang/' . $defaultLocale . '/main.json';
+        $catalog = new JsonTranslationCatalog(
+            'lang/'.$defaultLocale.'/main.json'
+        );
+        $synchronizer = new TranslationCatalogSynchronizer();
 
-        $existing = [];
-        if (file_exists($translationFile)) {
-            $existing = json_decode(file_get_contents($translationFile), true) ?? [];
-        }
-
-        // Rebuild the source file: keep only strings still in use, add new ones.
-        $updated = [];
-        foreach (self::$encounteredStrings as $text => $_) {
-            $updated[$text] = $existing[$text] ?? $text;
-        }
-        ksort($updated);
-
-        if (!is_dir('lang/' . $defaultLocale)) {
-            mkdir('lang/' . $defaultLocale, 0755, true);
-        }
-
-        $encoded = json_encode($updated, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL;
-
-        if (is_file($translationFile) && file_get_contents($translationFile) === $encoded) {
-            return;
-        }
-
-        file_put_contents(
-            $translationFile,
-            $encoded
+        $catalog->write(
+            $synchronizer->source(array_keys(self::$collector->all()))
         );
     }
 
     public static function isExtractionMode(): bool
     {
-        return !empty(getenv('JIGSAW_EXTRACT_STRINGS'));
+        return ! empty(getenv('JIGSAW_EXTRACT_STRINGS'));
     }
 }
