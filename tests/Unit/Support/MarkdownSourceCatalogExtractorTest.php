@@ -48,7 +48,7 @@ MD
 
         self::assertSame('Example title', $catalog['Example title']);
         self::assertSame('Example description', $catalog['Example description']);
-        self::assertSame("Example body.\n", $catalog["Example body.\n"]);
+        self::assertSame('Example body.', $catalog['Example body.']);
     }
 
     public function testSupportsBladeMarkdownFiles(): void
@@ -79,7 +79,7 @@ MD
         $catalog = $this->extract();
 
         self::assertArrayHasKey('Source title', $catalog);
-        self::assertArrayHasKey("Source body.\n", $catalog);
+        self::assertArrayHasKey('Source body.', $catalog);
         self::assertArrayNotHasKey('Traduzido', $catalog);
         self::assertArrayNotHasKey('Traduit', $catalog);
         self::assertArrayNotHasKey('Traduit prefix', $catalog);
