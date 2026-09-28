@@ -2,10 +2,12 @@
 
 namespace App\Listeners;
 
+use App\Support\MarkdownSourceCatalogExtractor;
 use LibreSign\JigsawLocalization\Catalog\JsonTranslationCatalog;
 use LibreSign\JigsawLocalization\Catalog\SourceStringCollector;
 use LibreSign\JigsawLocalization\Catalog\TranslationCatalogSynchronizer;
 use TightenCo\Jigsaw\Jigsaw;
+use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 
 /**
  * Connects the site's Jigsaw translation macro to the reusable localization
@@ -28,7 +30,7 @@ class AddNewTranslation
         );
     }
 
-    public function persistExtractedStrings(): void
+    public function persistExtractedStrings(Jigsaw $jigsaw): void
     {
         if (! self::isExtractionMode() || self::$collector === null) {
             return;
@@ -40,8 +42,18 @@ class AddNewTranslation
         );
         $synchronizer = new TranslationCatalogSynchronizer();
 
+        $markdownCatalog = (new MarkdownSourceCatalogExtractor())->extract(
+            $jigsaw->getSourcePath(),
+            $defaultLocale,
+            $jigsaw->app->make(FrontMatterParser::class),
+            $jigsaw->getSiteData()->localization->keys()->all(),
+        );
+
         $catalog->write(
-            $synchronizer->source(array_keys(self::$collector->all()))
+            $synchronizer->source([
+                ...array_keys(self::$collector->all()),
+                ...array_keys($markdownCatalog),
+            ])
         );
     }
 
