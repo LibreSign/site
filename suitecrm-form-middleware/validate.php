@@ -1,7 +1,9 @@
 <?php
 
 include "../vendor/autoload.php";
-use Gregwar\Captcha\CaptchaBuilder;
+
+use App\Support\Captcha\CaptchaService;
+
 require __DIR__ . '/session_bootstrap.php';
 session_start();
 
@@ -13,14 +15,10 @@ $codeImg = filter_input(INPUT_POST, 'codeImg');
 
 session_write_close();
 
-if (!is_string($sessionCode) || !is_string($codeImg)) {
-    http_response_code(404);
-    return;
-}
-
-$builder = new CaptchaBuilder($sessionCode);
-
-if (!$builder->testPhrase($codeImg)) {
+if (!(new CaptchaService())->validate(
+    is_string($sessionCode) ? $sessionCode : null,
+    is_string($codeImg) ? $codeImg : null,
+)) {
     http_response_code(404);
     return;
 }
