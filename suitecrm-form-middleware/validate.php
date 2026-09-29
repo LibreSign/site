@@ -8,15 +8,23 @@ session_start();
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
 header("Access-Control-Allow-Credentials: true");
 
-$builder = new CaptchaBuilder($_SESSION['code'] ?? null);
+$sessionCode = $_SESSION['code'] ?? null;
 $codeImg = filter_input(INPUT_POST, 'codeImg');
 
 session_write_close();
 
-if( !$builder->testPhrase($codeImg)){
+if (!is_string($sessionCode) || !is_string($codeImg)) {
     http_response_code(404);
     return;
 }
+
+$builder = new CaptchaBuilder($sessionCode);
+
+if (!$builder->testPhrase($codeImg)) {
+    http_response_code(404);
+    return;
+}
+
 $formulario_data = array(
     'moduleDir' => 'Contacts',
     'assigned_user_id' => $_ENV['ASSIGNED_USER_ID'],
