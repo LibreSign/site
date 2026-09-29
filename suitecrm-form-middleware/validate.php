@@ -1,22 +1,28 @@
 <?php
 
 include "../vendor/autoload.php";
-use Gregwar\Captcha\CaptchaBuilder;
+
+use App\Support\Captcha\CaptchaService;
+
 require __DIR__ . '/session_bootstrap.php';
 session_start();
 
 header("Access-Control-Allow-Origin: {$_ENV['URL_SITE']}");
 header("Access-Control-Allow-Credentials: true");
 
-$builder = new CaptchaBuilder($_SESSION['code'] ?? null);
+$sessionCode = $_SESSION['code'] ?? null;
 $codeImg = filter_input(INPUT_POST, 'codeImg');
 
 session_write_close();
 
-if( !$builder->testPhrase($codeImg)){
+if (!(new CaptchaService())->validate(
+    is_string($sessionCode) ? $sessionCode : null,
+    is_string($codeImg) ? $codeImg : null,
+)) {
     http_response_code(404);
     return;
 }
+
 $formulario_data = array(
     'moduleDir' => 'Contacts',
     'assigned_user_id' => $_ENV['ASSIGNED_USER_ID'],
