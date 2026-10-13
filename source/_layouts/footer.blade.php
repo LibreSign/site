@@ -129,6 +129,9 @@
                                 <li>
                                     <a href="{{ $footerLocaleUrl('privacy-policy') }}">{{ $page->t("Privacy Policy")}}</a>
                                 </li>
+                                <li>
+                                    <a href="{{ $footerLocaleUrl('brand') }}">{{ $page->t("Brand and pronunciation")}}</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

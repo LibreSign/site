@@ -1,5 +1,8 @@
+import { initBrandPronunciation } from './brand-pronunciation.mjs';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'animate.css';
+
+initBrandPronunciation();
 
 import AOS from 'aos';
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
