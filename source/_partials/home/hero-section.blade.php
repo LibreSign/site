@@ -3,6 +3,7 @@
   $heroGradient = $overlayGradient ?? null;
   $heroAlt = $imageAlt ?? null;
   $heroSrcset = $imageSrcset ?? null;
+  $heroSizes = $imageSizes ?? '(min-width: 1921px) 1920px, 100vw';
   $heroPositionMobile = $imagePositionMobile ?? null;
 
   $heroStyles = [];
@@ -33,7 +34,7 @@
       @if (!empty($heroAlt))
         <img
           src="{{ $heroImage }}"
-          @if (!empty($heroSrcset)) srcset="{{ $heroSrcset }}" sizes="(min-width: 1921px) 1920px, 100vw" @endif
+          @if (!empty($heroSrcset)) srcset="{{ $heroSrcset }}" sizes="{{ $heroSizes }}" @endif
           alt="{{ $heroAlt }}"
         >
       @endif

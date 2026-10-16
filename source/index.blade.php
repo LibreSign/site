@@ -11,6 +11,7 @@
         $page->baseUrl . 'assets/images/hero/hero-image-1920.webp 1920w',
         $page->baseUrl . 'assets/images/hero/hero-image.webp 2880w',
       ]),
+      'imageSizes' => '(max-width: 991px) 1440px, (max-width: 1399px) 1584px, (max-width: 1727px) 1728px, (min-width: 1921px) 1920px, 100vw',
       'imagePositionMobile' => '75% top',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
