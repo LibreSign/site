@@ -2,11 +2,18 @@
   $heroImage = $imageSrc ?? null;
   $heroGradient = $overlayGradient ?? null;
   $heroAlt = $imageAlt ?? null;
+  $heroSrcset = $imageSrcset ?? null;
+  $heroSizes = $imageSizes ?? '(min-width: 1921px) 1920px, 100vw';
+  $heroPositionMobile = $imagePositionMobile ?? null;
 
   $heroStyles = [];
 
   if (!empty($heroImage)) {
     $heroStyles[] = "--ud-hero-image: url('{$heroImage}')";
+  }
+
+  if (!empty($heroPositionMobile)) {
+    $heroStyles[] = "--ud-hero-image-position-mobile: {$heroPositionMobile}";
   }
 
   if (!empty($heroGradient)) {
@@ -25,7 +32,11 @@
   @if (!empty($heroImage))
     <div class="{{ $heroImageClass }}" data-aos-delay=".3s">
       @if (!empty($heroAlt))
-        <img src="{{ $heroImage }}" alt="{{ $heroAlt }}">
+        <img
+          src="{{ $heroImage }}"
+          @if (!empty($heroSrcset)) srcset="{{ $heroSrcset }}" sizes="{{ $heroSizes }}" @endif
+          alt="{{ $heroAlt }}"
+        >
       @endif
     </div>
   @endif

@@ -15,3 +15,9 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2020-2026 LibreCode coop and contributors"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = "source/assets/images/hero/hero-image*.webp"
+precedence = "override"
+SPDX-FileCopyrightText = "Direct Media <https://stocksnap.io/photo/business-woman-ZRNIM4IB6S>"
+SPDX-License-Identifier = "CC0-1.0"

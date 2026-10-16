@@ -178,6 +178,10 @@ $hero-edge-fade: linear-gradient(
       object-position: center top;
       border-radius: 0;
       transform: none;
+
+      @media #{$xs, $sm, $md} {
+        object-position: var(--ud-hero-image-position-mobile, center top);
+      }
     }
 
     .shape {
