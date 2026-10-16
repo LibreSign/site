@@ -5,6 +5,13 @@
  <!-- ====== Principal Banner Start ====== -->
     @include('_partials.home.hero-section', [
       'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.webp',
+      'imageSrcset' => implode(', ', [
+        $page->baseUrl . 'assets/images/hero/hero-image-960.webp 960w',
+        $page->baseUrl . 'assets/images/hero/hero-image-1440.webp 1440w',
+        $page->baseUrl . 'assets/images/hero/hero-image-1920.webp 1920w',
+        $page->baseUrl . 'assets/images/hero/hero-image.webp 2880w',
+      ]),
+      'imagePositionMobile' => '75% top',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
       'mobileTitle' => $page->t('Secure digital signatures for your team.'),
