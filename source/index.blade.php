@@ -4,7 +4,7 @@
 
  <!-- ====== Principal Banner Start ====== -->
     @include('_partials.home.hero-section', [
-      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
+      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.webp',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
       'mobileTitle' => $page->t('Secure digital signatures for your team.'),
@@ -129,7 +129,7 @@
     <section
       class="ud-home-video"
       data-aos="fade-up"
-      style="--ud-home-video-bg: url('{{ $page->baseUrl }}assets/images/conection_wallpaper_mobile.png');"
+      style="--ud-home-video-bg: url('{{ $page->baseUrl }}assets/images/conection_wallpaper_mobile.webp');"
     >
       <div class="container">
         <div class="row">
@@ -145,7 +145,7 @@
         <div class="row justify-content-center mt-5">
           <div class="col-lg-6 text-center">
             <div class="ud-home-video__media">
-              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.webp" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
             </div>
             <div class="mt-4">
               <a href="{{ locale_url($page, 'features') }}" class="btn ud-btn-solid-warm ud-home-video__action">
