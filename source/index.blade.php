@@ -4,7 +4,15 @@
 
  <!-- ====== Principal Banner Start ====== -->
     @include('_partials.home.hero-section', [
-      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.png',
+      'imageSrc' => $page->baseUrl . 'assets/images/hero/hero-image.webp',
+      'imageSrcset' => implode(', ', [
+        $page->baseUrl . 'assets/images/hero/hero-image-960.webp 960w',
+        $page->baseUrl . 'assets/images/hero/hero-image-1440.webp 1440w',
+        $page->baseUrl . 'assets/images/hero/hero-image-1920.webp 1920w',
+        $page->baseUrl . 'assets/images/hero/hero-image.webp 2880w',
+      ]),
+      'imageSizes' => '(max-width: 991px) 1440px, (max-width: 1399px) 1584px, (max-width: 1727px) 1728px, (min-width: 1921px) 1920px, 100vw',
+      'imagePositionMobile' => '75% top',
       'imageAlt' => $page->t('Professional using digital signature'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
       'mobileTitle' => $page->t('Secure digital signatures for your team.'),
@@ -129,7 +137,7 @@
     <section
       class="ud-home-video"
       data-aos="fade-up"
-      style="--ud-home-video-bg: url('{{ $page->baseUrl }}assets/images/conection_wallpaper_mobile.png');"
+      style="--ud-home-video-bg: url('{{ $page->baseUrl }}assets/images/conection_wallpaper_mobile.webp');"
     >
       <div class="container">
         <div class="row">
@@ -145,7 +153,7 @@
         <div class="row justify-content-center mt-5">
           <div class="col-lg-6 text-center">
             <div class="ud-home-video__media">
-              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.png" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
+              <img src="{{ $page->baseUrl }}assets/images/libresign_mobile_acess_oficial.webp" alt="{{ $page->t('LibreSign mobile application demo') }}" loading="lazy">
             </div>
             <div class="mt-4">
               <a href="{{ locale_url($page, 'features') }}" class="btn ud-btn-solid-warm ud-home-video__action">
