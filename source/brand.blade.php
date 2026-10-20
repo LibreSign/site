@@ -86,7 +86,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
         <div class="col-lg-5">
           <div class="ud-brand-assets__preview">
             <img
-              src="{{ $page->baseUrl }}assets/images/logo/logo.svg"
+              src="{{ $page->baseUrl }}assets/images/logo/logo-2.svg"
               alt="{{ $page->t('Official full-color LibreSign logo for light backgrounds') }}"
               width="369"
               height="162"
