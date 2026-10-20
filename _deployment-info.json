@@ -1,0 +1,7 @@
+{
+  "commit_sha": "995d4b360cb15a68aa740a6c81054ff69c7ebaa1",
+  "pr_number": 519,
+  "pr_title": "fix(ci): restore preview cleanup after PR closure",
+  "repository": "LibreSign/site",
+  "timestamp": "2026-10-20T15:45:47Z"
+}
