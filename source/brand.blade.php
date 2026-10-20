@@ -86,7 +86,7 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
         <div class="col-lg-5">
           <div class="ud-brand-assets__preview">
             <img
-              src="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.svg"
+              src="{{ $page->baseUrl }}assets/images/logo/logo-2.svg"
               alt="{{ $page->t('Official full-color LibreSign logo for light backgrounds') }}"
               width="369"
               height="162"
@@ -103,7 +103,8 @@ description: "Official guidance for the LibreSign name, pronunciation, and visua
             <div class="ud-brand-assets__actions">
               <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.svg" class="btn ud-btn-solid-brand">{{ $page->t('Logo SVG') }}</a>
               <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-logo.png" class="btn ud-btn-outline-brand">{{ $page->t('Logo PNG') }}</a>
-              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-brand-manual.pdf" class="btn ud-btn-outline-brand">{{ $page->t('Brand manual PDF') }}</a>
+              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-brand-manual.pdf" class="btn ud-btn-outline-brand">{{ $page->t('Brand manual — A4 (PDF)') }}</a>
+              <a href="https://github.com/LibreSign/brand/releases/download/latest/libresign-brand-manual-slides.pdf" class="btn ud-btn-outline-brand">{{ $page->t('Brand manual — 16:9 (PDF)') }}</a>
             </div>
 
             <div class="ud-brand-assets__meta">
