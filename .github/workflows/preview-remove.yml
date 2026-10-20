@@ -4,6 +4,12 @@ on:
   pull_request_target:
     branches: [main]
     types: [closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Closed PR number whose preview should be removed
+        required: true
+        type: number
 
 permissions:
   contents: read
@@ -13,11 +19,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # The deployment action calls git config in the checkout directory.
+      # Never check out the PR head in this privileged workflow.
+      - name: Checkout trusted base branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
       - name: Remove preview
         uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
         with:
           action: remove
-          pr-number: ${{ github.event.pull_request.number }}
+          pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
           deploy-repository: LibreSign/site-preview
           preview-branch: main
           pages-base-url: libresign.github.io/site-preview
