@@ -260,3 +260,30 @@ $hero-edge-fade: linear-gradient(
 
 }
 
+
+
+// The homepage uses an isolated real photograph; keep the subject on the right
+// without stretching or cropping the person across the full-bleed hero.
+.ud-hero--portrait {
+  .ud-hero-image {
+    justify-content: flex-end;
+
+    img {
+      width: min(60%, 850px);
+      height: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+    }
+  }
+
+  @media #{$xs, $sm, $md} {
+    .ud-hero-image {
+      opacity: 0.35;
+
+      img {
+        width: 100%;
+        object-position: right bottom;
+      }
+    }
+  }
+}
