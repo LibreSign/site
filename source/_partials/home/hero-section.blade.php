@@ -32,11 +32,18 @@
   @if (!empty($heroImage))
     <div class="{{ $heroImageClass }}" data-aos-delay=".3s">
       @if (!empty($heroAlt))
+        @if (!empty($imageMobileSrc))
+          <picture>
+            <source media="(max-width: 991px)" srcset="{{ $imageMobileSrc }}">
+        @endif
         <img
           src="{{ $heroImage }}"
           @if (!empty($heroSrcset)) srcset="{{ $heroSrcset }}" sizes="{{ $heroSizes }}" @endif
           alt="{{ $heroAlt }}"
         >
+        @if (!empty($imageMobileSrc))
+          </picture>
+        @endif
       @endif
     </div>
   @endif

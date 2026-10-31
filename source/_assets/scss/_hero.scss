@@ -262,11 +262,15 @@ $hero-edge-fade: linear-gradient(
 
 
 
-// The homepage uses an isolated real photograph; keep the subject on the right
-// without stretching or cropping the person across the full-bleed hero.
+// Homepage: preserve the original photo's context on smaller screens.
+// The isolated portrait remains on desktop beside the copy.
 .ud-hero--portrait {
   .ud-hero-image {
     justify-content: flex-end;
+
+    picture {
+      display: contents;
+    }
 
     img {
       width: min(60%, 850px);
@@ -277,12 +281,20 @@ $hero-edge-fade: linear-gradient(
   }
 
   @media #{$xs, $sm, $md} {
-    .ud-hero-image {
-      opacity: 0.35;
+    &::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 60, 64, 0.50) 0%,
+        rgba(18, 60, 64, 0.54) 44%,
+        rgba(18, 60, 64, 0.72) 100%
+      );
+    }
 
+    .ud-hero-image {
       img {
         width: 100%;
-        object-position: right bottom;
+        object-fit: cover;
+        object-position: 64% center;
       }
     }
   }
