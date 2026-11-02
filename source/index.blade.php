@@ -5,8 +5,7 @@
  <!-- ====== Principal Banner Start ====== -->
     @include('_partials.home.hero-section', [
       'sectionClass' => 'ud-hero ud-hero--portrait',
-      'imageSrc' => $page->baseUrl . 'assets/images/hero/mari-signing.webp',
-      'imageMobileSrc' => $page->baseUrl . 'assets/images/hero/mari-original.webp',
+      'imageSrc' => $page->baseUrl . 'assets/images/hero/mari-hero.webp',
       'imageAlt' => $page->t('LibreCode cooperative member signing a document digitally'),
       'title' => $page->t('The secure, open source digital signature for your world.'),
       'mobileTitle' => $page->t('Secure digital signatures for your team.'),

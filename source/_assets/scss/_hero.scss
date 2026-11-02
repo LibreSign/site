@@ -262,9 +262,22 @@ $hero-edge-fade: linear-gradient(
 
 
 
-// Homepage: preserve the original photo's context on smaller screens.
-// The isolated portrait remains on desktop beside the copy.
+// Homepage: the same context-rich photo is used at every breakpoint.
+// Feathered photograph edges are baked into the hero asset without cutting out Mari.
 .ud-hero--portrait {
+  // The photo is already feathered: no second edge mask or blurred backdrop.
+  @media #{$xl-desktop} {
+    &::before {
+      display: none;
+    }
+
+    .ud-hero-image {
+      width: 100%;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+
   .ud-hero-image {
     justify-content: flex-end;
 
@@ -273,7 +286,8 @@ $hero-edge-fade: linear-gradient(
     }
 
     img {
-      width: min(60%, 850px);
+      width: auto;
+      max-width: none;
       height: 100%;
       object-fit: contain;
       object-position: right bottom;
