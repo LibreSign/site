@@ -182,6 +182,10 @@ $hero-edge-fade: linear-gradient(
       @media #{$xs, $sm, $md} {
         object-position: var(--ud-hero-image-position-mobile, center top);
       }
+
+      @media #{$sm, $md} {
+        object-position: var(--ud-hero-image-position-tablet, var(--ud-hero-image-position-mobile, center top));
+      }
     }
 
     .shape {
@@ -258,59 +262,4 @@ $hero-edge-fade: linear-gradient(
     }
   }
 
-}
-
-
-
-// Homepage: use one context-rich photograph with room-only extensions.
-// Keep the subject opaque; never mask or blur its hair, hands or tablet.
-.ud-hero--portrait {
-  @media #{$xl-desktop} {
-    &::before {
-      display: none;
-    }
-
-    .ud-hero-image {
-      // Center the composition within the same 1920px cap as the text on ultrawide screens.
-      width: min(1920px, 100%);
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-  }
-
-  .ud-hero-image {
-    justify-content: flex-end;
-
-    picture {
-      display: contents;
-    }
-
-    img {
-      width: auto;
-      max-width: none;
-      height: 100%;
-      object-fit: contain;
-      object-position: right bottom;
-    }
-  }
-
-  @media #{$xs, $sm, $md} {
-    // The copy overlaps the room photo on narrow viewports; favor contrast.
-    &::after {
-      background: linear-gradient(
-        to right,
-        rgba(18, 60, 64, 0.95) 0%,
-        rgba(18, 60, 64, 0.85) 55%,
-        rgba(18, 60, 64, 0.58) 100%
-      );
-    }
-
-    .ud-hero-image {
-      img {
-        width: 100%;
-        object-fit: cover;
-        object-position: 38% center;
-      }
-    }
-  }
 }
