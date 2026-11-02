@@ -262,17 +262,17 @@ $hero-edge-fade: linear-gradient(
 
 
 
-// Homepage: the same context-rich photo is used at every breakpoint.
-// Feathered photograph edges are baked into the hero asset without cutting out Mari.
+// Homepage: use one context-rich photograph with room-only extensions.
+// Keep the subject opaque; never mask or blur its hair, hands or tablet.
 .ud-hero--portrait {
-  // The photo is already feathered: no second edge mask or blurred backdrop.
   @media #{$xl-desktop} {
     &::before {
       display: none;
     }
 
     .ud-hero-image {
-      width: 100%;
+      // Center the composition within the same 1920px cap as the text on ultrawide screens.
+      width: min(1920px, 100%);
       -webkit-mask-image: none;
       mask-image: none;
     }
@@ -295,12 +295,13 @@ $hero-edge-fade: linear-gradient(
   }
 
   @media #{$xs, $sm, $md} {
+    // The copy overlaps the room photo on narrow viewports; favor contrast.
     &::after {
       background: linear-gradient(
-        to bottom,
-        rgba(18, 60, 64, 0.50) 0%,
-        rgba(18, 60, 64, 0.54) 44%,
-        rgba(18, 60, 64, 0.72) 100%
+        to right,
+        rgba(18, 60, 64, 0.95) 0%,
+        rgba(18, 60, 64, 0.85) 55%,
+        rgba(18, 60, 64, 0.58) 100%
       );
     }
 
@@ -308,7 +309,7 @@ $hero-edge-fade: linear-gradient(
       img {
         width: 100%;
         object-fit: cover;
-        object-position: 64% center;
+        object-position: 38% center;
       }
     }
   }
