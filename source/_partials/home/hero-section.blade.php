@@ -5,6 +5,7 @@
   $heroSrcset = $imageSrcset ?? null;
   $heroSizes = $imageSizes ?? '(min-width: 1921px) 1920px, 100vw';
   $heroPositionMobile = $imagePositionMobile ?? null;
+  $heroPositionTablet = $imagePositionTablet ?? null;
 
   $heroStyles = [];
 
@@ -14,6 +15,10 @@
 
   if (!empty($heroPositionMobile)) {
     $heroStyles[] = "--ud-hero-image-position-mobile: {$heroPositionMobile}";
+  }
+
+  if (!empty($heroPositionTablet)) {
+    $heroStyles[] = "--ud-hero-image-position-tablet: {$heroPositionTablet}";
   }
 
   if (!empty($heroGradient)) {

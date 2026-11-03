@@ -33,7 +33,7 @@ jobs:
           action: remove
           pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
           deploy-repository: LibreSign/site-preview
-          preview-branch: main
+          preview-branch: gh-pages
           pages-base-url: libresign.github.io/site-preview
           comment: false
           token: ${{ secrets.PREVIEW_TOKEN }}

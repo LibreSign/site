@@ -182,6 +182,10 @@ $hero-edge-fade: linear-gradient(
       @media #{$xs, $sm, $md} {
         object-position: var(--ud-hero-image-position-mobile, center top);
       }
+
+      @media #{$sm, $md} {
+        object-position: var(--ud-hero-image-position-tablet, var(--ud-hero-image-position-mobile, center top));
+      }
     }
 
     .shape {
@@ -259,4 +263,3 @@ $hero-edge-fade: linear-gradient(
   }
 
 }
-
