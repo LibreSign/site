@@ -33,8 +33,9 @@ jobs:
         if: steps.pr.outputs.data != 'null' && steps.pr.outputs.data != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_DATA: ${{ steps.pr.outputs.data }}
         run: |
-          pr_number=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.number // empty')
+          pr_number=$(jq -r '.number // empty' <<< "$PR_DATA")
           [ -n "$pr_number" ] && gh pr comment "$pr_number" \
             --repo ${{ github.repository }} \
             --body $'🚀 Starting production deploy of site header and footer fragments...'
@@ -77,9 +78,11 @@ jobs:
 
       - name: Store deployment info
         if: success()
+        env:
+          PR_DATA: ${{ steps.pr.outputs.data }}
         run: |
-          pr_number=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.number // empty')
-          pr_title=$(echo '${{ steps.pr.outputs.data }}' | jq -r '.title // ""')
+          pr_number=$(jq -r '.number // empty' <<< "${PR_DATA:-null}")
+          pr_title=$(jq -r '.title // ""' <<< "${PR_DATA:-null}")
           jq -n \
             --arg sha    "${{ github.sha }}" \
             --arg repo   "${{ github.repository }}" \
