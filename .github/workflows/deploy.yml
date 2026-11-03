@@ -6,12 +6,21 @@ on:
   workflow_dispatch:
   repository_dispatch:
 
+concurrency:
+  group: production-pages
+  cancel-in-progress: false
+
 jobs:
   build:
     permissions:
       contents: write
       pull-requests: write
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
       WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
@@ -92,11 +101,20 @@ jobs:
             '{commit_sha: $sha, pr_number: $num, pr_title: $title, repository: $repo, timestamp: $ts}' \
             > build_production/_deployment-info.json
 
-      - uses: crazy-max/ghaction-github-pages@v4
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check GitHub Pages artifact size
+        run: |
+          bytes=$(du -sb build_production | cut -f1)
+          echo "Site size: ${bytes} bytes"
+          if (( bytes > 1000000000 )); then
+            echo "::error::Generated site exceeds the GitHub Pages 1 GB limit."
+            exit 1
+          fi
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          build_dir: build_production
-          fqdn: libresign.coop
-          jekyll: false
+          path: build_production
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
