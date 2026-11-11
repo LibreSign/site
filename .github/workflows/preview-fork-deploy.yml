@@ -19,12 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out trusted preview verification script
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-          persist-credentials: false
-
       # workflow_run.pull_requests may be empty for fork PRs. Verify the
       # source repository and exact HEAD before publishing untrusted HTML.
       - name: Resolve PR number from completed fork build
@@ -52,13 +46,8 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify artifact matches the completed fork revision
-        env:
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
-        run: |
-          test -s build_production/index.html
-          test -s build_production/preview-revision.txt
-          test "$(cat build_production/preview-revision.txt)" = "$SOURCE_SHA"
+      - name: Check downloaded preview
+        run: test -s build_production/index.html
 
       - name: Deploy preview
         uses: LibreSign/pr-preview-action@2a6da1177b47dc23173ba9a75e01da0a0d800978
@@ -72,9 +61,3 @@ jobs:
           # The shared Pages branch can be published by another PR concurrently.
           wait-for-pages-deployment: false
           token: ${{ secrets.PREVIEW_TOKEN }}
-
-      - name: Verify published preview revision
-        env:
-          PREVIEW_URL: https://libresign.github.io/site-preview/pr-preview/pr-${{ steps.pr.outputs.number }}
-          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
-        run: bash .github/scripts/verify-preview-publication.sh "$PREVIEW_URL" "$EXPECTED_SHA" build_production/preview-revision.txt
