@@ -3,27 +3,36 @@ extends: _layouts.post
 title: LibreSign API Guide
 author: Vitor Mattos
 date: 2024-10-10
-description: Provides a practical guide on how to use the LibreSign API, including querying endpoints and understanding usage flows by observing requests in the application.
+updated: 2026-11-10
+description: Use LibreSign's versioned OpenAPI contracts, official integration guides, and examples to connect external systems securely.
 categories: [features]
 icon: dashboard-square-1
 ---
 
-# LibreSign API: Endpoints and usage flows
+# LibreSign API: Integrating with other systems
 
-## API Endpoints
+*Updated on November 10, 2026. Originally published on October 10, 2024.*
 
-To find out which endpoints are available in the LibreSign API, follow these steps:
+LibreSign is free and open-source software for electronic signatures on Nextcloud. Its REST API, based on Nextcloud's OCS protocol, lets an external system request signatures, track progress, and validate documents. An existing application can keep its own interface and workflows while its backend communicates with LibreSign. The API is included in the software; you do not need to purchase separate API access. Hosting, integration services, and support are optional.
 
-1. **Install the OCS API Viewer App**: Start by installing the [OCS API Viewer](https://apps.nextcloud.com/apps/ocs_api_viewer) in your Nextcloud environment.
-2. **Access the API Documentation**: In the Nextcloud menu, locate the OCS app. Here, you will find the documentation for the LibreSign API, as well as other Nextcloud APIs.
+## Find the documentation for your LibreSign version
 
-## Understanding the LibreSign API usage flows
+Start at the [official LibreSign documentation](https://docs.libresign.coop/) and select the version installed on your Nextcloud server. Each release has its own integration guides, practical examples, and OpenAPI contract:
 
-To understand how to perform specific operations, such as requesting a signature, you can use the LibreSign application itself as a reference. Here’s how to do it:
+- **LibreSign 15:** [integration guide](https://docs.libresign.coop/15/developer_manual/integration/index.html), [external signer example](https://docs.libresign.coop/15/developer_manual/api/external-email-signers.html), and [OpenAPI reference](https://docs.libresign.coop/15/developer_manual/api/openapi.html) ([JSON](https://docs.libresign.coop/15/developer_manual/api/openapi.json)).
+- **LibreSign 14:** [integration guide](https://docs.libresign.coop/14/developer_manual/integration/index.html), [external signer example](https://docs.libresign.coop/14/developer_manual/api/external-email-signers.html), and [OpenAPI reference](https://docs.libresign.coop/14/developer_manual/api/openapi.html) ([JSON](https://docs.libresign.coop/14/developer_manual/api/openapi.json)).
+- **LibreSign 13:** [integration guide](https://docs.libresign.coop/13/developer_manual/integration/index.html), [external signer example](https://docs.libresign.coop/13/developer_manual/api/external-email-signers.html), and [OpenAPI reference](https://docs.libresign.coop/13/developer_manual/api/openapi.html) ([JSON](https://docs.libresign.coop/13/developer_manual/api/openapi.json)).
 
-1. **Open Developer Tools**: Press the F12 key in your browser to access the developer tools.
-2. **Go to the Network Tab**: Navigate to the "Network" tab to monitor the API requests.
-3. **Filter the requests**: Use the filter to show only the requests related to LibreSign by typing "libresign."
-4. **Perform actions in LibreSign**: Execute the desired actions in the LibreSign application. Observe the requests sent to the API at each step and analyze how they are structured.
+The `/api/v1` segment in the OCS URL is the API protocol version, **not** the installed LibreSign release. Request fields can differ between LibreSign releases, so follow the matching contract instead of copying calls from development documentation.
 
-By following these steps, you will be able to query the available endpoints of the LibreSign API and understand the usage flows by monitoring the requests made by the application. This will help you integrate and use the API in your projects.
+## Authentication and integration with external systems
+
+For a server-to-server integration, use HTTPS and an authorized Nextcloud account with a **revocable App Password**. OCS requests normally use HTTP Basic authentication and the `OCS-APIRequest: true` header. Keep credentials on your backend, never in client-side code. Bearer tokens depend on the authentication configuration of your Nextcloud instance; signing in to another application does not automatically grant API access.
+
+Your backend can create signature requests and track their status through documented endpoints. Depending on the settings enabled in LibreSign, recipients can sign with their Nextcloud accounts or through individual invitations without creating a Nextcloud account. An integration account must not be used to impersonate signers.
+
+For an example of the full flow, see the [authentication guide](https://docs.libresign.coop/15/developer_manual/integration/identity.html) and [external signer walkthrough](https://docs.libresign.coop/15/developer_manual/api/external-email-signers.html) for LibreSign 15. If you use another release, follow its links above.
+
+## Browser inspection is a diagnostic tool
+
+The browser's Network tab (F12) and the [OCS API Viewer](https://apps.nextcloud.com/apps/ocs_api_viewer) can help investigate requests and responses on a specific installation. They are complementary troubleshooting tools, **not a replacement for the official OpenAPI contract**: browser calls can depend on session cookies or interface-specific behavior. Use the versioned guides and examples first, and avoid exposing credentials, signing links, or document contents when debugging.
