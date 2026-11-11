@@ -73,8 +73,9 @@ description: "Browse public LibreSign plans and featured WooCommerce subscriptio
         <div class="col-lg-4 col-md-6 col-sm-10">
           <div class="ud-single-pricing h-100">
             <div class="ud-pricing-header">
-              <h3>{{ $page->t("API Integration") }}</h3>
-              <p class="ud-pricing-tagline">{{ $page->t("For organizations that want to integrate LibreSign with existing systems and workflows.") }}</p>
+              <h3>{{ $page->t("Professional API integration services") }}</h3>
+              <p class="ud-pricing-tagline">{{ $page->t("The LibreSign API is part of the free and open-source software; no paid plan is required to use it. Our team offers optional integration services for existing systems and workflows.") }}</p>
+              <p><a href="https://docs.libresign.coop/">{{ $page->t("Explore the API documentation") }}</a></p>
             </div>
             <div class="ud-pricing-footer">
               <a href="{{ locale_url($page, 'contact-us') }}" class="btn ud-btn-outline-brand">
