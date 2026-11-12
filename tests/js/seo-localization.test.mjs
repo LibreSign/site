@@ -36,3 +36,11 @@ test('pricing front matter uses keys already extracted to the Weblate English ca
   assert.match(pricing, /no paid plan is required to use it/);
   assert.match(pricing, /optional integration services/);
 });
+
+test('FAQ JSON-LD uses translated questions and answers and safely escapes HTML', () => {
+  const faq = readFileSync(new URL('../../source/faq.blade.php', import.meta.url), 'utf8');
+
+  assert.match(faq, /'name'\s*=>\s*\$page->t\(\$fq->question\)/);
+  assert.match(faq, /'text'\s*=>\s*\$page->t\(\$fq->answer\)/);
+  assert.match(faq, /JSON_HEX_TAG/);
+});
