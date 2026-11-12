@@ -10,9 +10,9 @@ icon: shield-2-check
 
 ## DocMDP in LibreSign
 
-LibreSign now provides **optional support for DocMDP (Document Management Policy)**, allowing administrators to define control policies for digitally signed documents.
+LibreSign provides **optional support for DocMDP (Document Modification Detection and Prevention)**, allowing administrators to choose which later modifications are permitted after a certifying PDF signature.
 
-DocMDP is a mechanism defined in the PDF format specification, standardized by **ISO 32000 (ISO 32000-1 and ISO 32000-2)**, which makes it possible to establish **restrictions on permitted changes after a document is signed**, ensuring greater **integrity, predictability, and legal reliability** of signed documents.
+DocMDP is defined by the **ISO 32000 PDF specifications**. The policy indicates which subsequent changes are permitted and which invalidate a certification signature; it does not guarantee that a PDF cannot be changed or establish legal validity on its own.
 
 #### What is DocMDP?
 

@@ -288,7 +288,7 @@ return [
         ],
         [
             'question' => 'What is the difference between digital and electronic signatures?',
-            'answer' => 'A digital signature uses a digital certificate, which provides greater security and legal validity. Electronic signatures, on the other hand, are made in other ways, such as by e-mail or cell phone, and also have legal validity, depending on the context.'
+            'answer' => 'A digital signature is a cryptographic form of electronic signature that uses cryptographic keys to detect changes to signed data and may rely on a certificate to bind a key to an identity. Other electronic signatures may use different evidence of identity and intent. Their legal effects depend on applicable law and the complete signing process.'
         ],
         [
             'question' => 'Is LibreSign compatible with mobile devices?',
