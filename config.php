@@ -165,6 +165,8 @@ return [
         [
             'author' => 'Daiane Alves',
             'description' => "Finally an excellent app for signing documents. Very good!",
+            // Disclose this reviewer's role in the cooperative behind LibreSign.
+            'affiliation' => 'President of LibreCode',
             'origin' => 'Nextcloud App Store',
             'url' => 'https://apps.nextcloud.com/apps/libresign',
         ],
