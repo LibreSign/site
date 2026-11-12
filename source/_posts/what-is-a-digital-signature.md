@@ -11,7 +11,7 @@ The agility and convenience of using technology to our advantage to reduce time 
 ### What is a digital signature?
 A digital signature is a secure technology for authenticating electronic documents for individuals or companies, with legal validity. We live in a scenario where the exchange of information increasingly occurs online, making it necessary to ensure the guarantee, integrity, and authenticity of documents.
 
-Digital signatures use encryption to validate the user's identity and ensure that the document's content has not been altered after signing. This means that the signature has the same legal value as a handwritten signature recognized by a notary. However, digital signatures eliminate the need for sending, storing, archiving, copying, and retrieving paper documents.
+Digital signatures use cryptography to support signer authentication and detect changes to signed documents. Their legal effect depends on applicable law, the certificate and identity-verification arrangements, and the signing process; a digital signature is not automatically equivalent to a notarized handwritten signature. Electronic workflows can reduce the need to handle paper documents.
 
 It is important to clarify that a digital signature is a type of electronic signature, but not all electronic signatures are digital. What does this mean? It means there are different ways to sign a document electronically, and it is essential to understand them.
 
@@ -50,10 +50,10 @@ A digitally performed signature, which can have different security levels accord
 
 #### 3 - Digital Signature
 
-A type of qualified electronic signature with a high level of security.
+A cryptographic mechanism for signing electronic data. A digital signature is not automatically a qualified electronic signature under Brazilian law or eIDAS.
 
-- Requires a digital certificate issued by a CA under the ICP-Brasil standard.
-- The most secure form of electronic signature.
+- May use a certificate from a certification authority; whether a certificate must be issued under ICP-Brasil depends on the relevant Brazilian signature category and use case.
+- Supports integrity verification and cryptographic authentication, while assurance also depends on certificate trust, key protection, and identity verification.
 - Ensures document integrity and authenticity, preventing undetected alterations.
 
 ##### Used in:
@@ -67,7 +67,7 @@ While physical signatures can be forged, compromising the validity of your docum
 
 1. Time savings: You save time that would be spent on manual processes, as digital signatures can be completed much faster and more efficiently, speeding up contract closures and negotiations.
 2. Cost reduction: By eliminating the need for physical storage space for company documents, you reduce costs associated with paper, printing supplies, transportation, postal services, couriers, notary fees, and more.
-3. Security: Digital signatures are protected by encryption, making them the most secure way to validate electronic documents. When using digital certificates issued by a Certification Authority, it is possible to guarantee the user’s identity and the document’s integrity, reducing the risk of fraud and forgery. Therefore, investing in information security is crucial to protect data, clients, and the company’s reputation.
+3. Security: Cryptographic digital signatures help detect document alterations and verify signatures against certificates. Assurance about signer identity depends on certificate issuance, trust validation, and how signing keys are protected. Organizations should also apply appropriate access controls and information-security practices.
 4. Sustainability: By using cloud storage instead of physical paper, we contribute to the environment and avoid the unnecessary use of resources.
 5. Organization and mobility: Easy access to documents since they are stored electronically and can be accessed and signed from anywhere with an internet connection.
 
