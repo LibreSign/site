@@ -23,19 +23,27 @@ description: "See how organizations use LibreSign to sign documents securely, re
         @foreach($page->testimonials as $testimonial)
           <div class="col-lg-4 col-md-6 d-flex">
             <article class="ud-single-testimonial d-flex flex-column w-100">
-              <div class="ud-testimonial-ratings" aria-label="{{ $page->t('5 out of 5 stars') }}">
-                <i class="lni lni-star-fat" aria-hidden="true"></i>
-                <i class="lni lni-star-fat" aria-hidden="true"></i>
-                <i class="lni lni-star-fat" aria-hidden="true"></i>
-                <i class="lni lni-star-fat" aria-hidden="true"></i>
-                <i class="lni lni-star-fat" aria-hidden="true"></i>
-              </div>
               <blockquote class="ud-testimonial-content flex-grow-1">
-                <p>{{ $testimonial['description'] }}</p>
+                <p>{{ $page->t($testimonial['description']) }}</p>
               </blockquote>
               <footer class="ud-testimonial-info">
                 <div class="ud-testimonial-author">
                   <h3 class="ud-testimonial-name">{{ $testimonial['author'] }}</h3>
+                  @if (!empty($testimonial['affiliation']))
+                    <p class="small mb-1">{{ $page->t($testimonial['affiliation']) }}</p>
+                  @endif
+                  @if (!empty($testimonial['origin']))
+                    <p class="small mb-0">
+                      {{ $page->t('Source') }}:
+                      @if (!empty($testimonial['url']))
+                        <a href="{{ $testimonial['url'] }}" target="_blank" rel="noopener noreferrer">
+                          {{ $page->t($testimonial['origin']) }}
+                        </a>
+                      @else
+                        {{ $page->t($testimonial['origin']) }}
+                      @endif
+                    </p>
+                  @endif
                 </div>
               </footer>
             </article>

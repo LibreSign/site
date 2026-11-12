@@ -27,7 +27,7 @@ description: "Meet the LibreCode cooperative team behind LibreSign, dedicated to
   <section class="ud-team-grid">
     <div class="container">
       <div class="row g-4 justify-content-center">
-        @foreach($team as $member)
+        @foreach($team->filter(fn($member) => current_path_locale($member) === current_path_locale($page)) as $member)
           @php
             $gravatar = str_starts_with($member->gravatar ?? '', '/')
               ? $page->baseUrl . $member->gravatar
