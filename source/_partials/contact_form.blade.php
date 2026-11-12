@@ -67,12 +67,12 @@
                 required>
             </div>
             <div class="ud-form-group">
-              <img alt="{{ $page->t('Image with captcha text') }}"
+              <img alt="{{ $page->t('CAPTCHA image containing a verification code') }}"
                 class="me-3 mb-3"
                 id="captcha"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               >
-              <button id="btnReload" type="button" aria-label="{{ $page->t('Button to reload characters captcha') }}">
+              <button id="btnReload" type="button" aria-label="{{ $page->t('Generate a new CAPTCHA code') }}">
                 <img src="{{ $page->baseUrl }}assets/images/icon/reload.svg" alt="" aria-hidden="true" width="30" height="30">
               </button>
               <script>
@@ -142,7 +142,7 @@
                 });
               </script>
 
-              <button id="audioIcon" type="button" aria-label="{{ $page->t('Button to play characters captcha') }}">
+              <button id="audioIcon" type="button" aria-label="{{ $page->t('Play CAPTCHA code as audio') }}">
                 <img src="{{ $page->baseUrl }}assets/images/icon/volume-high.svg" alt="" aria-hidden="true" width="30" height="30">
               </button>
 
