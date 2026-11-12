@@ -33,7 +33,7 @@ $teamMembers = [
     [
         'name' => 'Vitor Mattos',
         'gravatar' => '35d3d1e49e1939461e2670a4d1fac6a3',
-        'bio' => 'With over 20 years of experience as CTO of LibreCode, is a Zend Certified Engineer and expert in PHP, Linux, and FLOSS solutions. Passionate about technology, is an entrepreneur in the IT field and an activist for privacy. As a strong advocate for open-source software, frequently speaks at regional and national events, demonstrating his commitment to sharing knowledge, promoting the adoption of open technologies, and emphasizing the importance of privacy.',
+        'bio' => 'Vitor Mattos is LibreCode\'s CTO and has over 20 years of experience in software engineering. He is a Zend Certified Engineer with expertise in PHP, Linux, and free and open-source software (FLOSS). An IT entrepreneur and an advocate for open-source technology and privacy, he frequently speaks at regional and national events to share knowledge, promote open technologies, and emphasize the importance of privacy.',
         'job_title' => 'CTO',
         'social' => [
             'github' => 'https://github.com/vitormattos',
