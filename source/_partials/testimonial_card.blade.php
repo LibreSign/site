@@ -18,13 +18,6 @@
             return $sections === 'testimonials';
         }) as $itens => $topics)
             <div class="testimonial-card">
-                <div class="testimonial_color_stars">
-                    <i class="lni lni-star-fat"></i>
-                    <i class="lni lni-star-fat"></i>
-                    <i class="lni lni-star-fat"></i>
-                    <i class="lni lni-star-fat"></i>
-                    <i class="lni lni-star-fat"></i>
-                </div>
                 <div class="testimonial-info">
                     <p class="text-justify">{{ $page->t($topics->description) }}</p>
 
