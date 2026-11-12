@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Symfony\Component\Yaml\Yaml;
 use TightenCo\Jigsaw\File\InputFile;
 use TightenCo\Jigsaw\PageData;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
@@ -93,7 +94,9 @@ class TranslateContentHandler
                     continue;
                 }
                 $fileContent = implode("\n", array_slice($rows, 0, $i)) . "\n";
-                $fileContent.= $headerName . ': ' . $this->pageData->page->t($header[$headerName], [], $this->languageCode) . "\n";
+                $translatedValue = $this->pageData->page->t($header[$headerName], [], $this->languageCode);
+                $yamlHeader = Yaml::dump([$headerName => $translatedValue], 2, 2);
+                $fileContent .= rtrim($yamlHeader, "\n") . "\n";
                 $fileContent.= implode("\n", array_slice($rows, $i + 1));
                 $this->translated = $fileContent;
             }
