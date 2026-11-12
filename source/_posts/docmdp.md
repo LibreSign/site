@@ -3,7 +3,7 @@ extends: _layouts.post
 title: DocMDP (Document Modification Detection and Prevention) in LibreSign
 author: Vitor Mattos
 date: 2025-12-22
-description: Learn how LibreSign implements DocMDP support according to ISO 32000 standards, providing document protection policies that ensure integrity and control over modifications after digital signature.
+description: Learn how LibreSign uses DocMDP policies under ISO 32000 to signal which modifications are permitted after a certifying PDF signature.
 categories: [features, security]
 icon: shield-2-check
 ---
