@@ -9,23 +9,23 @@ icon: locked-1
 card_icon: assets/images/icon/features/advanced-security.svg
 ---
 
-### Advanced security for public companies
+### Advanced security for public sector organizations
 
-In a digital environment where information security is crucial, especially for public companies that deal with large volumes of sensitive documents, LibreSign stands out for offering advanced security. Using data encryption and multi-factor authentication, LibreSign ensures that your data is always protected.
+Public sector organizations handle sensitive documents and need reliable controls. LibreSign provides digital signing and verification features that can work alongside Nextcloud access controls and authentication safeguards. The protection achieved depends on the deployment, configuration, and operating practices.
 
 #### See some advantages:
 
-End-to-end encryption ensures that only authorized recipients can access and read document content. With LibreSign, each document is encrypted from submission to final signature, ensuring your information remains secure every step of the way.
+HTTPS protects communications in transit when configured correctly. Storage encryption and document access protections depend on the Nextcloud deployment. Do not assume that every LibreSign document is end-to-end encrypted: signing and validating documents may involve server-side processing.
 
-This encryption protects against interception during the transmission and storage of documents, ensuring that even if the data is accessed by third parties, it will be indecipherable and useless. For public companies that frequently deal with confidential information, this additional security is essential to protect the integrity of their administrative processes.
+Public organizations should review access permissions, storage security, backups, and operational controls as well as document integrity. No single feature guarantees protection from every security incident.
 
 #### Secure authentication
 
-LibreSign implements multi-factor authentication (MFA), making unauthorized access difficult and ensuring that only verified people can sign documents. This method requires users to provide two or more forms of verification before accessing documents, making the signing process more secure and reliable.
+Multi-factor authentication (MFA), where configured and enforced in the appropriate Nextcloud or signing flow, can help reduce unauthorized access. The level of identity assurance depends on the verification methods and the deployment.
 
 For example, in addition to the password, a code sent to the user's cell phone or email may be required. This additional level of verification prevents unauthorized people from forging signatures or accessing important documents. For public organizations, where accuracy and accountability are paramount, MFA provides an indispensable extra layer of security.
 
-### The importance of digital security in public companies
+### The importance of digital security in public organizations
 
 Public companies deal daily with information that requires the highest level of security. From contracts and agreements to legislative documents and citizen records, protecting this data is crucial. Any security breach can result in serious consequences, including data loss, unauthorized access to sensitive information and damage to the organization's reputation.
 
@@ -41,7 +41,7 @@ In addition to advanced security features, LibreSign offers other advantages tha
 
 ### Conclusion
 
-The security of your documents cannot be compromised. With LibreSign, you are guaranteed maximum protection through end-to-end encryption and authentication with multiple identification factors. Our solution is developed to meet the stringent security requirements of public companies, ensuring that each document is treated with the highest level of integrity and reliability.
+Document security needs a combination of technical and organizational safeguards. LibreSign supports integrity verification and traceable signing workflows, while organizations must assess the complete deployment against their security and legal requirements.
 
 Don't wait until a security breach affects your organization. Contact us today to learn more about how LibreSign can meet the needs of your public organization. Schedule a demonstration and discover how we can improve document management and administrative efficiency at your institution.
 
