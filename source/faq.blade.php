@@ -78,10 +78,10 @@ description: "Answers to common questions about LibreSign: how it works, digital
   foreach ($page->frequentlyQuestions as $fq) {
     $faqEntities[] = [
       '@type' => 'Question',
-      'name' => $fq->question,
+      'name' => $page->t($fq->question),
       'acceptedAnswer' => [
         '@type' => 'Answer',
-        'text' => $fq->answer,
+        'text' => $page->t($fq->answer),
       ],
     ];
   }
@@ -89,7 +89,7 @@ description: "Answers to common questions about LibreSign: how it works, digital
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
     'mainEntity' => $faqEntities,
-  ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+  ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_HEX_TAG);
 @endphp
 <script type="application/ld+json">
 {!! $faqJsonLd !!}
