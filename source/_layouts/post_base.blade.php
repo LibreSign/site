@@ -1,6 +1,13 @@
 @extends('_layouts.main')
 
 @section('body')
+    @php
+      // Not every blog author has an individual team profile (for example, LibreSign).
+      $authorPath = static fn (?string $author): string =>
+        $author !== null && isset($page->authorGravatars[$author])
+          ? 'team/' . \Illuminate\Support\Str::slug($author)
+          : 'team';
+    @endphp
     <!-- ====== Banner Start ====== -->
     <section class="ud-page-banner">
       <div class="container">
@@ -44,7 +51,7 @@
                       @endif
                       <span>
                         @php
-                            $author = '<a href="' . $page->baseUrl . 'team/' . \Illuminate\Support\Str::slug($page->author) . '"> ' . $page->author . '</a>';
+                            $author = '<a href="' . locale_url($page, $authorPath($page->author)) . '"> ' . $page->author . '</a>';
                         @endphp
                         {!! $page->t("By %s", [$author]) !!}
                       </span>
@@ -95,21 +102,21 @@
                             $articleGravatar = $article->gravatar ?? ($page->authorGravatars[$article->author] ?? null);
                           @endphp
                           @if($article->author === 'LibreSign')
-                            <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
+                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="LibreSign"
                               >
                             </a>
                           @elseif(!empty($articleGravatar))
-                            <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
+                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=80"
                                   alt="{{ $article->author }}"
                                 >
                             </a>
                           @else
-                            <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}">
+                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="{{ $article->author }}"
@@ -123,7 +130,7 @@
                               {{ $page->t($article->title) }}
                             </a>
                           </h5>
-                          <a href="{{ locale_url($page, 'team/' . \Illuminate\Support\Str::slug($article->author)) }}"> {{ $article->author }} </a>
+                          <a href="{{ locale_url($page, $authorPath($article->author)) }}"> {{ $article->author }} </a>
                         </div>
                       </li>
                       @php $count++; @endphp

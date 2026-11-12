@@ -44,6 +44,22 @@ $teamMembers = [
 
 $authorGravatars = array_column($teamMembers, 'gravatar', 'name');
 
+// Generate collection detail pages for each catalog locale, not only English.
+// A new language catalog automatically enables its collection pages on the next build.
+$collectionLocales = array_map(
+    static fn (string $file): string => basename(dirname($file)),
+    glob(__DIR__ . '/lang/*/main.json') ?: [],
+);
+$expandLocalizedItems = static function (array $items) use ($collectionLocales): array {
+    $expanded = [];
+    foreach ($collectionLocales as $locale) {
+        foreach ($items as $item) {
+            $expanded[] = [...$item, 'locale' => $locale];
+        }
+    }
+    return $expanded;
+};
+
 // Categories that are used as internal filters and should NOT get a dedicated page.
 $categoryPageBlocklist = ['featured'];
 
@@ -587,17 +603,19 @@ return [
         ],
         'team' => [
             'path' => function($page){
-                return 'team/' . Str::slug($page->name);
+                return ($page->locale === packageDefaultLocale() ? '' : $page->locale . '/')
+                    . 'team/' . Str::slug($page->name);
             },
             'extends' => '_layouts.team-member',
-            'items' => $teamMembers,
+            'items' => $expandLocalizedItems($teamMembers),
         ],
         'categories' => [
             'path' => function($page) {
-                return 'category/' . $page->slug;
+                return ($page->locale === packageDefaultLocale() ? '' : $page->locale . '/')
+                    . 'category/' . $page->slug;
             },
             'extends' => '_layouts.category-page',
-            'items' => (function() use ($categoryPageBlocklist) {
+            'items' => (function() use ($categoryPageBlocklist, $expandLocalizedItems) {
                 $files = array_merge(
                     glob('source/_posts/*.md') ?: [],
                     glob('source/_posts/_tmp/*.md') ?: [],
@@ -622,7 +640,7 @@ return [
                         }
                     }
                 }
-                return array_values($seen);
+                return $expandLocalizedItems(array_values($seen));
             })(),
         ],
     ],
