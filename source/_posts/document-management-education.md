@@ -23,9 +23,9 @@ LibreSign is a digital signature platform that allows educational institutions t
 Among its features, we highlight:
 
 1. Digital document signing using digital certificates (e-CPF, e-CNPJ, or system-generated certificates).
-2. Legal validity and compliance with Brazilian legislation, including the General Data Protection Law (LGPD), and the European Union's General Data Protection Regulation (GDPR).
+2. Electronic signing workflows can help institutions meet applicable legal and recordkeeping requirements. Whether a signature is legally sufficient, and whether personal data processing complies with the LGPD or GDPR, depends on the use case, configuration, and organizational measures.
 3. Centralizes the creation, storage, and signing of documents in a single system, facilitating access and management, reducing bureaucracy, and increasing the efficiency of academic offices.
-4. Uses advanced encryption to protect documents from unauthorized access, ensuring data integrity and confidentiality, which is essential for LGPD compliance.
+4. Supports cryptographic signature integrity checks; confidentiality and access protection depend on the Nextcloud deployment, permissions, and storage and transport security settings.
 5. Eliminates the need for physical document sending, saving time and resources.
 
 ### Examples of documents that can be signed
@@ -40,16 +40,16 @@ LibreSign can be used to sign a wide variety of school and academic documents, i
 6. Statements and requests
 7. Various administrative forms
 
-Using LibreSign for these documents increases practicality, security, efficiency, and legal compliance, benefiting both institutions and students.
+Using LibreSign for these documents can improve workflow efficiency and support record integrity. Institutions remain responsible for verifying legal requirements for each document type.
 
 #### Discover the benefits of using LibreSign
 
 - Speed: Reduce the time needed to sign and process documents, increasing productivity.
 - Cost Reduction: Eliminate costs associated with paper, printing, and sending documents.
-- Security: Ensure the protection of sensitive data and compliance with the LGPD.
+- Security: Apply appropriate access controls and privacy safeguards to protect sensitive data and support compliance with applicable law.
 - Sustainability: Contribute to environmental preservation by reducing paper usage.
 - Accessibility: Allow documents to be signed from anywhere, at any time, facilitating remote management.
 
-Digitizing signing processes is a crucial step towards modernizing educational institutions. LibreSign offers a complete solution that not only improves efficiency and reduces costs but also ensures data security and compliance. Transform your institution's document management with LibreSign and enjoy all the benefits of digital transformation.
+Digitizing signing processes can help educational institutions streamline document workflows and reduce paper handling. LibreSign provides signing and integrity-verification capabilities, while data security and legal compliance depend on each institution's wider technical and organizational measures.
 
 🌐 Contact us: [LibreSign Contact Us](https://libresign.coop/contact-us)
