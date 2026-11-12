@@ -23,8 +23,8 @@ $teamMembers = [
     [
         'name' => 'Daiane Alves',
         'gravatar' => 'fe9fbbf8677e78931af9a4a5da35e1ee',
-        'bio' => 'CEO at LibreCode, one of the largest Free Software cooperatives in Brazil, she teaches training courses on various free software programs, from basic to enterprise level, and contributes to the organization of events in the PHPRio and PHPWomenBR communities (PHP developer communities).',
-        'job_title' => 'CEO',
+        'bio' => 'President of LibreCode, a Brazilian free-software cooperative. She teaches courses on free software, from basic to enterprise level, and helps organize events in the PHPRio and PHPWomenBR communities.',
+        'job_title' => 'President',
         'social' => [
             'github' => 'https://github.com/daianealvesrj/',
             'linkedin' => 'https://www.linkedin.com/in/daianealvesrj/',
@@ -224,7 +224,7 @@ return [
         ],
         [
             'question' => 'Which signature standards are supported?',
-            'answer' => 'LibreSign supports SES, AES, and QES workflows. For QES, a qualified digital certificate in PFX format is required.'
+            'answer' => 'LibreSign supports workflows for simple, advanced, and qualified electronic signatures, depending on the identity and trust-service configuration. Under eIDAS, a qualified electronic signature requires a qualified certificate and a qualified signature creation device (QSCD); a PFX file alone does not establish QES status.'
         ],
         [
             'question' => 'Is LibreSign eIDAS compliant?',
@@ -276,7 +276,7 @@ return [
         ],
         [
             'question' => 'Do I need a digital certificate to sign documents?',
-            'answer' => 'No. LibreSign creates a digital certificate for each user who does not have a personal digital certificate.'
+            'answer' => 'No. Depending on the signing mode and configuration, users can sign electronically without supplying a personal digital certificate. Where internal certificate issuance is enabled, LibreSign can generate a certificate for the signer.'
         ],
         [
             'question' => 'What is LibreSign?',

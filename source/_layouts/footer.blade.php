@@ -175,7 +175,7 @@
          data-contact-url="https://contato.librecode.coop/"
          aria-label="{{ $page->t('Contact sales team for a quote') }}">
         <div class="bubble bubble-text">
-            <p>{{ $page->t("How about an exclusive quote to sign up for LibreSign?") }}</p>
+            <p>{{ $page->t("Need help deploying LibreSign? Ask for a quote for optional professional services.") }}</p>
         </div>
         <div class="image-wrapper">
             <div class="image">
