@@ -14,7 +14,7 @@ The **Certificate Revocation List (CRL)** is an essential technical feature for 
 
 #### What is a CRL?
 
-The digital certificates used to sign documents are issued by a **Certificate Authority (CA)**. This authority is responsible for maintaining a list containing the **serial numbers of all revoked certificates**, including the certificate of the certificate authority itself.
+Digital certificates used to sign documents are issued by a **Certificate Authority (CA)**. A CA can publish a signed list of the **serial numbers of certificates it has revoked**. The revocation of an intermediate CA certificate is handled by its issuing authority.
 
 When a CA supports CRL, the issued certificate includes a **public URL** pointing to the revocation list. This URL allows systems and validators to check, at any time, whether a specific certificate has been revoked.
 
@@ -31,7 +31,7 @@ In these situations, keeping the certificate active would represent a security r
 
 #### How does CRL-based validation work?
 
-When a document is signed using a certificate that has an associated CRL, this information is embedded in the signature data.
+A certificate may reference the CRL distribution point, but that reference does **not** mean the revocation list is embedded in the signed PDF.
 
 When validating the document with a CRL-compatible system, the following process takes place:
 
@@ -39,7 +39,7 @@ When validating the document with a CRL-compatible system, the following process
 2. The certificate serial number is checked against the list
 3. The revocation date is compared with the signature date
 
-If the certificate was revoked **before the signing date**, the document is considered **invalid**, as it was signed using a certificate that was no longer trustworthy at that time. If the revocation occurred after the signing date, the signature remains valid.
+Revocation **before signing** may invalidate a signature. If the certificate is revoked after signing, the result still depends on trustworthy evidence of the signing time, chain validation, and the applicable validation policy; comparing two dates alone is not sufficient.
 
 #### What has changed in LibreSign?
 
@@ -62,7 +62,7 @@ This means that:
 * **Certificate management**, administrators can:
 
   * Manage the certificate revocation list
-  * Revoke any certificate when necessary
+  * Revoke certificates issued by a certificate authority they manage, when necessary
 
 #### Why is this important?
 
