@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ta">
+  <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>டிஜிட்டல் கையொப்பம் என்றால் என்ன? வகைகள், நன்மைகள் மற்றும் அதை எவ்வாறு பெறுவது?</title>
+
+    <!-- Primary Meta Tags -->
+    <link rel="canonical" href="/ta/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+    <meta name="description" content="மறையாக்கவியல் கையொப்பங்கள் ஆவண ஒருமைப்பாட்டைச் சரிபார்க்க எவ்வாறு உதவுகின்றன, மின்னணு கையொப்பங்களின் உறுதிப்பாட்டு நிலைகள் எவ்வாறு வேறுபடுகின்றன, சட்டத் தேவைகள் எப்போது பொருந்துகின்றன என்பதை அறியுங்கள்.">
+        <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
+    <meta name="author" content="LibreSign / LibreCode">
+
+    <!-- Hreflang: multilingual support -->
+        <link rel="alternate" hreflang="cs" href="/cs/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="en" href="/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="fr" href="/fr/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="nb-NO" href="/nb-NO/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="pt" href="/pt/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="pt-BR" href="/pt-BR/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="ta" href="/ta/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+        <link rel="alternate" hreflang="x-default" href="/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ta/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+    <meta property="og:title" content="டிஜிட்டல் கையொப்பம் என்றால் என்ன? வகைகள், நன்மைகள் மற்றும் அதை எவ்வாறு பெறுவது?">
+    <meta property="og:description" content="மறையாக்கவியல் கையொப்பங்கள் ஆவண ஒருமைப்பாட்டைச் சரிபார்க்க எவ்வாறு உதவுகின்றன, மின்னணு கையொப்பங்களின் உறுதிப்பாட்டு நிலைகள் எவ்வாறு வேறுபடுகின்றன, சட்டத் தேவைகள் எப்போது பொருந்துகின்றன என்பதை அறியுங்கள்.">
+    <meta property="og:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta property="og:site_name" content="LibreSign">
+    <meta property="og:locale" content="ta">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="/ta/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it">
+    <meta name="twitter:title" content="டிஜிட்டல் கையொப்பம் என்றால் என்ன? வகைகள், நன்மைகள் மற்றும் அதை எவ்வாறு பெறுவது?">
+    <meta name="twitter:description" content="மறையாக்கவியல் கையொப்பங்கள் ஆவண ஒருமைப்பாட்டைச் சரிபார்க்க எவ்வாறு உதவுகின்றன, மின்னணு கையொப்பங்களின் உறுதிப்பாட்டு நிலைகள் எவ்வாறு வேறுபடுகின்றன, சட்டத் தேவைகள் எப்போது பொருந்துகின்றன என்பதை அறியுங்கள்.">
+    <meta name="twitter:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta name="twitter:site" content="@libresign">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/png"
+    >
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+    <!-- ===== All CSS files ===== -->
+        <link rel="stylesheet" href="/assets/build/assets/ud-styles-DvHA-Iw9.css">
+    
+    <!-- ====== All Javascript Files ====== -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <script>
+      window.baseUrl = "";
+    </script>
+
+    <script type="module" src="/assets/build/assets/main-OamVToNl.js"></script>
+    <script type="module" src="/assets/build/assets/header-fragment-CHEuQro2.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.onclick = function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                };
+            }
+
+            // ==== for menu scroll
+            const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+        }); // end DOMContentLoaded
+    </script>
+
+    <!-- Structured data: base Organization + WebSite -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://libresign.coop/#organization",
+          "name": "LibreSign",
+          "url": "https://libresign.coop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://libresign.coop/assets/images/logo/logo.svg"
+          },
+          "sameAs": [
+            "https://github.com/LibreSign/libresign",
+            "https://www.linkedin.com/company/libresign/",
+            "https://t.me/LibreSign",
+            "https://www.instagram.com/libresign/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://libresign.coop/#website",
+          "url": "https://libresign.coop",
+          "name": "LibreSign",
+          "description": "Open source electronic signature and digital document management, integrated with Nextcloud.",
+          "publisher": {
+            "@id": "https://libresign.coop/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    
+      </head>
+  <body id="top">
+    <div class="libresign-site-header-fragment"
+          >
+  <a href="#main-content" class="skip-to-content">முதன்மை உள்ளடக்கத்திற்குச் செல்லவும்</a>
+  <header class="ud-header" data-libresign-header>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl" aria-label="முதன்மை வழிசெலுத்தல்">
+      <a class="navbar-brand" href="/ta" aria-label="LibreSign முகப்பு">
+        <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+      </a>
+      <div class="collapse navbar-collapse mx-auto" id="main-navigation">
+        <ul class="navbar-nav container">
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="solutions-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="solutions-menu"
+               aria-expanded="false"
+               aria-label="தீர்வுகள் துணைமெனுவைத் திறக்கவும்">
+              தீர்வுகள்
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="solutions-menu"
+                hidden
+                aria-labelledby="solutions-menu-toggle"
+                aria-label="தீர்வுகளுக்கான துணைமெனு">
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/lawyers">
+                  வழக்கறிஞர்கள்
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/tecnical-details">
+                  தகவல் தொழில்நுட்ப நிபுணர்கள்
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/company-solutions">
+                  நிறுவனங்கள்
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/cooperatives">
+                  கூட்டுறவு நிறுவனங்கள்
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/public-sector">
+                  பொதுத்துறை
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="features-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="features-menu"
+               aria-expanded="false"
+               aria-label="அம்சங்கள் துணைமெனுவைத் திறக்கவும்">
+              அம்சங்கள்
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="features-menu"
+                hidden
+                aria-labelledby="features-menu-toggle"
+                aria-label="அம்சங்கள் துணைமெனு">
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/posts/advanced-security">
+                  மேம்பட்ட பாதுகாப்பு
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/posts/hybrid-signatures">
+                  கலப்பின கையொப்பங்கள்
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/posts/document-validation-by-qr-code">
+                  QR குறியீட்டின் ஆவண சரிபார்ப்பு
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/ta/posts/real-time-monitoring">
+                  நிகழ்நேர கண்காணிப்பு
+                </a>
+              </li>
+                            <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link ud-nav-submenu-link--all" href="/ta/features">
+                  அனைத்து அம்சங்களும் →
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/ta/pricing">திட்டங்களும் விலைகளும்</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/ta/about">பற்றி</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/ta/posts">வலைப்பதிவு</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/ta/contact-us">தொடர்பு</a>
+          </li>
+          <li class="nav-item" id="customer-area-link">
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer">
+              வாடிக்கையாளர் பகுதி
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+                <div class="dropdown selector">
+          <button class="dropdown-toggle ud-nav-dropdown-toggle"
+                  type="button"
+                  data-libresign-dropdown-toggle
+                  aria-controls="language-menu"
+                  aria-expanded="false"
+                  aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
+            <img src="/assets/images/icon/languages/ta.svg" alt="" aria-hidden="true">
+            <span class="visually-hidden">தற்போதைய மொழி: தமிழ்</span>
+          </button>
+          <ul class="dropdown-menu ud-submenu" id="language-menu" hidden aria-label="மொழித் தேர்வு">
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/cs/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="cs"
+                 aria-label="இதற்கு மாற்றவும் čeština">
+                <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+                <span>cs</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="en"
+                 aria-label="இதற்கு மாற்றவும் English">
+                <img src="/assets/images/icon/languages/en.svg" alt="" aria-hidden="true">
+                <span>en</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/fr/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="fr"
+                 aria-label="இதற்கு மாற்றவும் français">
+                <img src="/assets/images/icon/languages/fr.svg" alt="" aria-hidden="true">
+                <span>fr</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/nb-NO/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="nb-NO"
+                 aria-label="இதற்கு மாற்றவும் norsk bokmål (Norge)">
+                <img src="/assets/images/icon/languages/nb-NO.svg" alt="" aria-hidden="true">
+                <span>nb-NO</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="pt"
+                 aria-label="இதற்கு மாற்றவும் português">
+                <img src="/assets/images/icon/languages/pt.svg" alt="" aria-hidden="true">
+                <span>pt</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt-BR/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="pt-BR"
+                 aria-label="இதற்கு மாற்றவும் português (Brasil)">
+                <img src="/assets/images/icon/languages/pt-BR.svg" alt="" aria-hidden="true">
+                <span>pt-BR</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/ta/posts/what-is-a-digital-signature-types-advantages-and-how-to-obtain-it"
+                 lang="ta"
+                 aria-label="இதற்கு மாற்றவும் தமிழ்">
+                <img src="/assets/images/icon/languages/ta.svg" alt="" aria-hidden="true">
+                <span>ta</span>
+              </a>
+            </li>
+                      <li><hr></li>
+            <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link ud-submenu-link--cta"
+                 href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="இந்தத் தளத்தை மொழிபெயர்க்க உதவுங்கள்">
+                <span>மொழிபெயர்க்க உதவுங்கள் ✏️</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler collapsed"
+          data-libresign-header-toggle
+                type="button"
+                aria-label="வழிசெலுத்தல் மெனுவைத் திறக்கவும் அல்லது மூடவும்"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  </header>
+  </div>
+    <main id="main-content">
+              <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>டிஜிட்டல் கையொப்பம் என்றால் என்ன? வகைகள், நன்மைகள் மற்றும் அதை எவ்வாறு பெறுவது?</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== Blog Details Start ====== -->
+    <section class="ud-blog-details">
+      <div class="container">
+        <div class="row">
+                      <div class="col-lg-12">
+              <div class="ud-blog-details-image">
+                <img
+                  src="/assets/images/posts/what-is-a-digital-signature/banner.jpg"
+                  alt=""
+                >
+                <div class="ud-blog-overlay">
+                  <div class="ud-blog-overlay-content">
+                    <div class="ud-blog-author">
+                                                                    <img src="/assets/images/logo/Avatar-LibreSign.png"
+                        alt="LibreSign">
+                                            <span>
+                                                மூலம் <a href="/ta/team"> LibreSign</a>
+                      </span>
+                    </div>
+
+                    <div class="ud-blog-meta">
+                      <p class="date">
+                                                <i class="lni lni-calendar-days"></i> <span>17 பிப்ரவரி 2025</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="col-lg-8">
+            <div class="ud-blog-details-content text-justify">
+              <div class="article" style="text-align:justify;">
+                <p>நேரத்தையும் செலவுகளையும் குறைக்கத் தொழில்நுட்பத்தைப் பயன்படுத்துவதால் கிடைக்கும் வேகமும் வசதியும், குறிப்பாகப் பெருந்தொற்றுக்குப் பிறகு, வணிக நிறுவனங்களுக்கு எண்மக் கையொப்பங்களை ஒரு நடைமுறைத் தேர்வாக மாற்றியுள்ளன. போட்டி அதிகரிக்கும் சந்தையில் நேரத்தையும் வளங்களையும் சேமித்தல், உற்பத்தித்திறனை உயர்த்துதல், நிலைத்தன்மையில் முதலீடு செய்தல் ஆகியவை வாடிக்கையாளர் அனுபவத்தை மேம்படுத்த முக்கியமானவையாகியுள்ளன. பிரேசிலில் எண்மக் கையொப்பச் சந்தை வளர்ந்து வருகிறது. இச்சேவையின் நம்பகத்தன்மையையும் ஆவண ஒருமைப்பாட்டையும் சரியாக மதிப்பிட, எண்மக் கையொப்பம் என்றால் என்ன, அதன் வகைகள், நன்மைகள் மற்றும் அதை எவ்வாறு பெறுவது என்பதைப் புரிந்துகொள்ள வேண்டும்.</p>
+
+<h3>எண்மக் கையொப்பம் என்றால் என்ன?</h3>
+
+<p>எண்மக் கையொப்பம் என்பது தனிநபர்கள் அல்லது நிறுவனங்களின் மின்னணு ஆவணங்களைச் சரிபார்க்க உதவும் பாதுகாப்பான தொழில்நுட்ப முறையாகும். அதன் சட்டப்பூர்வச் செல்லுபடித்தன்மை பொருந்தக்கூடிய விதிகளைக் கொண்டே தீர்மானிக்கப்படுகிறது. தகவல் பரிமாற்றம் அதிகமாக இணையத்தில் நடைபெறும் இக்காலத்தில், ஆவணங்களின் ஒருமைப்பாடும் நம்பகத்தன்மையும் உறுதிப்படுத்தப்பட வேண்டியவை.</p>
+
+<p>எண்மக் கையொப்பங்கள் மறையாக்கவியல் விசைகளைப் பயன்படுத்துவதால் கையொப்பமிட்ட பிறகு தரவில் ஏற்படும் மாற்றங்களைக் கண்டறிய முடியும். ஒரு விசையை அடையாளத்துடன் இணைக்கச் சான்றிதழ்களும் பயன்படுத்தப்படலாம். ஆனால் எண்மக் கையொப்பத்தின் சட்ட விளைவு தானாகவே கையெழுத்துக் கையொப்பத்திற்கோ நோட்டரி சான்றளித்த கையொப்பத்திற்கோ சமமானதாகாது. சட்டக் கட்டமைப்பு, கையொப்பமிடுபவரின் அடையாளச் சரிபார்ப்பு, சான்றிதழ்கள் மற்றும் நம்பிக்கைச் சேவைகளின் உள்ளமைப்பு ஆகியவற்றைப் பொறுத்ததே அதன் சட்ட மதிப்பு.</p>
+
+<p>எண்மக் கையொப்பம் என்பது மின்னணு கையொப்பத்தின் ஒரு வகை என்பதை நினைவில் கொள்ள வேண்டும். ஆனால் எல்லா மின்னணு கையொப்பங்களும் மறையாக்கவியல் அடிப்படையிலான எண்மக் கையொப்பங்கள் அல்ல. அதாவது, ஆவணங்களில் மின்னணு முறையில் கையொப்பமிடப் பல்வேறு வழிகள் உள்ளன; அவற்றின் வேறுபாடுகளைப் புரிந்துகொள்வது அவசியம்.</p>
+
+<h3>எண்மக் கையொப்பங்களின் வகைகள் என்ன?</h3>
+
+<p>பிரேசிலின் சட்டம் 14.063/2020 மற்றும் ஐரோப்பிய ஒன்றியத்தின் eIDAS கட்டமைப்பின் கீழ், மின்னணு கையொப்பங்களுக்கு சாதாரண, மேம்பட்ட மற்றும் தகுதிவாய்ந்த வகைப்பாடுகள் உள்ளன. ஆனால் இரண்டு சட்ட அமைப்புகளிலும் அவற்றுக்கான துல்லியமான தேவைகள் வேறுபடுகின்றன. எண்மக் கையொப்பம் என்பது ஒரு மறையாக்கவியல் தொழில்நுட்ப முறை; கையெழுத்துக் கையொப்பம் மற்றும் மின்னணு கையொப்பத்துடன் இணையாக உள்ள தனி சட்ட வகை அல்ல.</p>
+
+<h3>கையெழுத்து, மின்னணு மற்றும் எண்மக் கையொப்பங்களின் ஒப்பீடு</h3>
+
+<h4>1 - கையெழுத்துக் கையொப்பம்</h4>
+
+<p>காகித ஆவணங்களில் பேனாவைப் பயன்படுத்திக் கையால் இடப்படும் பாரம்பரியமான அடையாளச் சரிபார்ப்பு முறை.</p>
+
+<ul>
+<li>காகித ஆவணத்தின் பிரதியுடன் நேரில் கையொப்பமிட வேண்டியிருக்கலாம்.</li>
+<li>நோட்டரி அலுவலகத்தில் கையொப்பத்தைச் சரிபார்த்தல் போன்ற வெளிப்புற நடவடிக்கைகளைப் பொறுத்துப் பாதுகாப்பு அமையும்.</li>
+<li>காகித ஆவணங்களைப் பாதுகாப்பாகச் சேமிக்க வேண்டும்.</li>
+</ul>
+
+<h5>பயன்படுத்தப்படும் சூழல்கள்:</h5>
+
+<ul>
+<li>நிறுவன ஒப்பந்தங்களில் கையொப்பமிடுதல்.</li>
+<li>நோட்டரி அலுவலகத்தில் கையொப்பத்தை உறுதிப்படுத்துதல்.</li>
+<li>முறையான காகித ஆவணங்கள்.</li>
+</ul>
+
+<h4>2 - மின்னணு கையொப்பம்</h4>
+
+<p>எண்மச் சூழலில் இடப்படும் கையொப்பம். பிரேசிலின் சட்டம் 14.063/20-இன்படி இதற்குச் சாதாரண, மேம்பட்ட மற்றும் தகுதிவாய்ந்த கையொப்பங்கள் என வெவ்வேறு உறுதிப்பாட்டு நிலைகள் இருக்கலாம்.</p>
+
+<ul>
+<li><strong>சாதாரண (Simple)</strong>: மின்னஞ்சல், கடவுச்சொல் அல்லது தொலைபேசி போன்ற அடிப்படை ஆதாரங்களின் மூலம் கையொப்பமிடுபவரை அடையாளம் காண்கிறது. குறைந்த அபாயமுள்ள சூழல்களுக்கு ஏற்றதாக இருக்கலாம்.</li>
+<li><strong>மேம்பட்ட (Advanced)</strong>: கையொப்பமிடுபவரின் அடையாளம் மற்றும் கையொப்பமிட்ட தரவின் ஒருமைப்பாட்டுக்குப் பொருந்தக்கூடிய தேவைகளைப் பூர்த்திசெய்ய வேண்டும். பிரேசிலில் தொடர்புடைய விதிகள் அனுமதிக்கும் சூழல்களில் ICP-Brasil சான்றிதழைத் தவிர்ந்த பிற ஆதாரங்களையும் பயன்படுத்தலாம்.</li>
+<li><strong>தகுதிவாய்ந்த (Qualified)</strong>: பிரேசிலில் ICP-Brasil எண்மச் சான்றிதழ் தேவை. eIDAS-இன் கீழ் தகுதிவாய்ந்த சான்றிதழும் தகுதிவாய்ந்த கையொப்ப உருவாக்கச் சாதனமும் (QSCD) தேவை. இந்த இரண்டு சட்ட அமைப்புகளின் தேவைகளை ஒன்றாகக் கருதக் கூடாது.</li>
+</ul>
+
+<h5>பயன்படுத்தப்படும் சூழல்கள்:</h5>
+
+<ul>
+<li><strong>சாதாரண</strong>: அறிக்கைகள், ரசீதுகள், சேவை முன்பதிவுகள்.</li>
+<li><strong>மேம்பட்ட</strong>: நிதிப் பரிவர்த்தனைகள், முக்கியமான ஒப்பந்தங்கள்.</li>
+<li><strong>தகுதிவாய்ந்த</strong>: மின்னணு விலைப்பட்டியல்கள், மருத்துவப் பதிவுகள், சொத்துப் பரிவர்த்தனைகள்.</li>
+</ul>
+
+<h4>3 - எண்மக் கையொப்பம்</h4>
+
+<p>தனிப்பட்ட விசையைப் பயன்படுத்தி மின்னணுத் தரவில் மறையாக்கவியல் கையொப்பமிட்டு, தொடர்புடைய பொதுவிசையின் மூலம் அதைச் சரிபார்க்கும் முறை. மேம்பட்ட அல்லது தகுதிவாய்ந்த மின்னணு கையொப்பங்களுக்கு இம்முறை அடிப்படையாக இருக்கலாம். ஆனால் மறையாக்கவியல் தொழில்நுட்பம் மட்டுமே தகுதிவாய்ந்த நிலையை அளிக்காது.</p>
+
+<ul>
+<li>மறையாக்கவியல் விசைகளைப் பயன்படுத்துகிறது; ஒரு விசையை அடையாளத்துடன் இணைக்கச் சான்றிதழும் பயன்படுத்தப்படலாம்.</li>
+<li>கையொப்பமிட்ட தரவுகளில் ஏற்பட்ட மாற்றங்களைக் கண்டறிய உதவுகிறது.</li>
+<li>அதன் சட்ட வகைப்பாடு கையொப்பமிடுபவரின் அடையாளச் சரிபார்ப்பு, சான்றிதழின் நிலை, கையொப்பமிடல் நடைமுறைகள் மற்றும் பொருந்தக்கூடிய விதிகளைப் பொறுத்தது.</li>
+</ul>
+
+<h5>பயன்படுத்தப்படும் சூழல்கள்:</h5>
+
+<ul>
+<li>அதிகாரப்பூர்வ ஆவணங்களில் கையொப்பமிடுதல்.</li>
+<li>சொத்து உரிமை மாற்றங்கள்.</li>
+<li>மின்னணு விலைப்பட்டியல்கள் வழங்குதல்.</li>
+</ul>
+
+<h3>எண்மக் கையொப்பங்களின் நன்மைகள் என்ன?</h3>
+
+<p>எண்மக் கையொப்பங்கள் மாற்ற முயற்சிகளைக் கண்டறிய உதவலாம். ஆனால் அவற்றின் சட்டப்பூர்வச் செல்லுபடித்தன்மையும் ஆதார வலிமையும் சம்பந்தப்பட்ட நாட்டின் சட்டத்தையும் சரிபார்ப்புச் சூழலையும் பொறுத்தவை. பிரேசிலில் தற்காலிகச் சட்ட நடவடிக்கை எண் 2.200-2/2001, ICP-Brasil சான்றிதழ்களைப் பயன்படுத்திக் கையொப்பமிடப்பட்ட ஆவணங்களுக்கு குறிப்பிட்ட விதிகளை வகுக்கிறது. நடைமுறையில் இதனால் கிடைக்கக்கூடிய ஐந்து நன்மைகள்:</p>
+
+<ol>
+<li><strong>நேரச் சேமிப்பு:</strong> கைமுறைச் செயல்முறைகளைவிட எண்மக் கையொப்பங்களை விரைவாக நிறைவேற்ற முடிவதால், ஒப்பந்தங்களையும் பேச்சுவார்த்தைகளையும் முடிப்பது எளிதாகும்.</li>
+<li><strong>செலவுக் குறைப்பு:</strong> காகித ஆவணங்களுக்கான சேமிப்பிடம் தேவையைக் குறைப்பதன் மூலம் காகிதம், அச்சுப்பொருட்கள், போக்குவரத்து, அஞ்சல், கூரியர், நோட்டரிக் கட்டணங்கள் உள்ளிட்ட பல செலவுகளைக் குறைக்கலாம்.</li>
+<li><strong>பாதுகாப்பு:</strong> மறையாக்கவியல் சரிபார்ப்பு கையொப்பமிட்ட தரவில் மாற்றம் ஏற்பட்டதைக் கண்டறிய உதவுகிறது. நம்பகமான சான்றிதழ் அடையாளச் சரிபார்ப்புக்கு ஆதரவாக இருக்கலாம்; இருப்பினும் அடையாளம் எவ்வாறு சரிபார்க்கப்பட்டது, தனிப்பட்ட விசைகள் எவ்வாறு பாதுகாக்கப்பட்டன என்பவையும் நம்பகமான பொறுப்புச் சுட்டுதலுக்கு அவசியம்.</li>
+<li><strong>நிலைத்தன்மை:</strong> காகிதத்திற்குப் பதிலாக மேகச் சேமிப்பைப் பயன்படுத்துவதால் வளங்களின் தேவையற்ற பயன்பாட்டைக் குறைத்து சுற்றுச்சூழலுக்கு உதவலாம்.</li>
+<li><strong>ஒழுங்கமைப்பும் நகர்வுத் திறனும்:</strong> ஆவணங்கள் மின்னணு வடிவில் சேமிக்கப்படுவதால் அவற்றை எளிதாக அணுகலாம்; இணைய இணைப்பு உள்ள எந்த இடத்திலிருந்தும் பார்க்கவும் கையொப்பமிடவும் முடியும்.</li>
+</ol>
+
+<h3>எண்மக் கையொப்பம் பெறுவது எப்படி?</h3>
+
+<p>LibreCode கூட்டுறவு நிறுவனம் LibreSign எனப்படும் மின்னணு கையொப்பத் தளத்தை வழங்குகிறது. இது திறன்பேசிகளிலும் கணினிகளிலும் உலாவி மூலம் பயன்படுத்தக்கூடியது. ஒவ்வொரு நிறுவனத்தின் குறிப்பிட்ட சட்ட, தனியுரிமை மற்றும் சான்றிதழ் தேவைகளுக்கேற்ப உள்ளமைக்கக்கூடிய ஆவணக் கையொப்பமிடல் மற்றும் மேலாண்மைச் செயலோட்டங்களை ஆதரிக்கிறது. LGPD அல்லது ICP-Brasil இணக்கம் தானாக ஏற்படாது.</p>
+
+<p>LibreSign ஒவ்வொரு நிறுவனத்தின் தேவைகளுக்கேற்ப மாற்றியமைக்கக்கூடிய அம்சங்களை வழங்குகிறது. திறந்த மூல மென்பொருளை அடிப்படையாகக் கொண்ட இத்தீர்வு அறிவைப் பொதுவாக அணுகுவதையும் ஒத்துழைப்பையும் ஊக்குவித்து, வாடிக்கையாளர்கள் பயன்படுத்தும் தொழில்நுட்பத்தின் மீது அவர்களுக்குத் தன்னாட்சியை அளிக்கிறது. தனிப்பயனாக்கமும் அணுகல் வசதியும் முக்கிய நோக்கங்களாக இருப்பதால், சிறு நிறுவனங்கள், பெரிய நிறுவனங்கள் மற்றும் அரசுத் துறைகளுக்கும் இது பொருந்தும்.</p>
+
+<p>பாதுகாப்புச் சம்பவங்கள் தரவு இழப்பு, அங்கீகரிக்கப்படாத அணுகல் மற்றும் நற்பெயருக்குச் சேதம் போன்ற விளைவுகளை ஏற்படுத்தக்கூடும். LibreSign Nextcloud அனுமதிகளையும் உள்ளமைக்கக்கூடிய கையொப்பமிடல் மற்றும் அழைப்புக் கட்டுப்பாடுகளையும் பயன்படுத்துகிறது; கூடுதல் அங்கீகாரக் கட்டுப்பாடுகள் நிறுவல் முறையைப் பொறுத்தவை. பலகாரணி அங்கீகாரம் (MFA) உள்ளமைக்கப்பட்டால் அங்கீகரிக்கப்படாத அணுகலைக் குறைக்க உதவும். ஆனால் மின்னஞ்சல், SMS மற்றும் செய்தியிடல் அழைப்புகள் மட்டும் பலகாரணி அங்கீகாரமாக அவசியம் கருதப்படமாட்டா. HTTPS தொடர்பில் பரிமாறப்படும் தரவைப் பாதுகாக்க உதவும். சேமிப்பகக் குறியாக்கமும் முனைமுதல் முனைவரை குறியாக்கமும் தனித்தனி உள்ளமைப்புகளைப் பொறுத்தவை; எல்லா செயலோட்டங்களிலும் அவை உறுதியாகக் கிடைக்கும் என்று கூற முடியாது. அடையாளச் சரிபார்ப்பு, அணுகல், சேமிப்பு மற்றும் விசை மேலாண்மைக் கட்டுப்பாடுகளை நிறுவனங்கள் மதிப்பிட வேண்டும்.</p>
+
+<p>எங்கள் சேவையைப் பற்றி மேலும் அறிய +55 (21) 2042-2073 என்ற எண்ணிலோ <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#111;&#x6e;&#116;&#x61;t&#111;&#x40;&#108;&#x69;b&#114;&#x65;&#99;&#x6f;&#x64;&#101;&#x2e;&#99;&#111;&#x6f;&#112;">contato@librecode.coop</a> என்ற மின்னஞ்சல் முகவரியிலோ தொடர்புகொள்ளுங்கள். செயல்விளக்கத்தைத் திட்டமிட்டு, உங்கள் ஆவண மேலாண்மையையும் நிர்வாகச் செயல்திறனையும் எவ்வாறு மேம்படுத்த உதவலாம் என்பதை அறியுங்கள். அடுத்த தலைப்பான “எண்மக் கையொப்பத்தை உருவாக்குவது எப்படி” என்பதையும் பாருங்கள்.</p>
+              </div>
+            </div>
+          </div>
+
+                      <div class="col-lg-4">
+              <div class="ud-blog-sidebar">
+                <div class="ud-articles-box">
+                  <h3 class="ud-articles-box-title">சமீபத்திய கட்டுரைகள்</h3>
+                  <ul class="ud-articles-list">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/ta/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=80"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/ta/posts/envelopes-batch-document-signing-in-libresign">
+                              LibreSign உறைகள் – பல ஆவணங்களைத் தொகுப்பாகக் கையொப்பமிடுதல்
+                            </a>
+                          </h5>
+                          <a href="/ta/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/ta/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=80"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/ta/posts/crl-certificate-revocation-list-implementation-in-libresign">
+                              LibreSign-இல் சான்றிதழ் திரும்பப்பெறல் பட்டியல் (CRL) செயலாக்கம்
+                            </a>
+                          </h5>
+                          <a href="/ta/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                  <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/ta/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=80"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/ta/posts/docmdp-document-modification-detection-and-prevention-in-libresign">
+                              LibreSign-இல் DocMDP (ஆவண மாற்றங்களைக் கண்டறிதலும் தடுப்பதும்)
+                            </a>
+                          </h5>
+                          <a href="/ta/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                                                  <li>
+                        <div class="ud-article-image">
+                                                                                <a href="/ta/team/vitor-mattos">
+                              <img
+                                  src="https://www.gravatar.com/avatar/35d3d1e49e1939461e2670a4d1fac6a3?size=80"
+                                  alt="Vitor Mattos"
+                                >
+                            </a>
+                                                  </div>
+                        <div class="ud-article-content">
+                          <h5 class="ud-article-title">
+                            <a href="/ta/posts/signature-order-sequential-or-parallel-signing-in-libresign">
+                              கையொப்ப வரிசை – LibreSign-இல் தொடர்ச்சியான அல்லது இணையான கையொப்பமிடல்
+                            </a>
+                          </h5>
+                          <a href="/ta/team/vitor-mattos"> Vitor Mattos </a>
+                        </div>
+                      </li>
+                                                                                                          </ul>
+                </div>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </section>
+    <!-- ====== Blog Details End ====== -->
+    </main>
+    <div class="libresign-site-footer-fragment"
+          >
+    <footer class="ud-footer wow fadeInUp" data-aos-delay=".15s">
+        <div>
+            <div class="container">
+                <div class="row widgets">
+                    <div class="col-12 col-lg-4">
+                        <div class="ud-widget">
+                            <a href="/ta" class="ud-footer-logo" aria-label="LibreSign – முகப்புப் பக்கத்திற்குச் செல்லவும்">
+                                <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+                            </a>
+                            <p class="ud-widget-desc">
+                                Nextcloud-உடன் ஒருங்கிணைந்த திறந்த மூல மின்னணு கையொப்பத் தீர்வு. சொந்த உள்கட்டமைப்பில் இயக்கக்கூடியது; தனியுரிமையையும் தரவு இறையாண்மையையும் மதிக்கும் நிறுவனங்களுக்காக உருவாக்கப்பட்டது.
+                            </p>
+                            <nav aria-label="சமூக ஊடக இணைப்புகள்">
+                                <h3 class="visually-hidden">சமூக ஊடகங்களில் எங்களைப் பின்தொடருங்கள்</h3>
+                                <ul class="ud-widget-socials">
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://github.com/LibreSign/libresign"
+                                           aria-label="எங்கள் GitHub களஞ்சியத்தைப் பாருங்கள் (புதிய தாவலில் திறக்கும்)">
+                                            <svg width="32" height="32" viewBox="0 0 8.9045515 8.4666739" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="GitHub">
+  <title>GitHub</title>
+  <path d="m 0,0 c -0.876,0.168 -1.719,0.49 -2.472,0.969 -4.656,2.968 -7.581,8.092 -7.581,14.062 v 0 c 0,9.293 7.534,16.827 16.828,16.827 v 0 c 9.293,0 16.827,-7.534 16.827,-16.827 v 0 C 23.602,10.079 21.462,5.629 18.057,2.55 16.659,1.286 14.882,0.497 12.999,0.403 11.014,0.303 10.837,1.13 10.837,1.13 v 4.196 c 0,0.261 -0.022,0.523 -0.079,0.777 -0.081,0.359 -0.208,0.712 -0.397,1.029 -0.058,0.097 -0.122,0.19 -0.192,0.278 -0.03,0.037 -0.06,0.074 -0.093,0.107 -0.024,0.025 -0.062,0.048 -0.068,0.085 0.043,0.037 0.153,0.028 0.208,0.037 0.092,0.017 0.184,0.039 0.276,0.06 0.166,0.039 0.333,0.068 0.501,0.099 0.35,0.065 0.696,0.153 1.036,0.257 0.956,0.291 1.882,0.745 2.577,1.478 0.376,0.396 0.66,0.864 0.896,1.356 0.884,1.844 1.018,4.103 0.133,5.973 -0.151,0.319 -0.327,0.627 -0.531,0.916 -0.023,0.032 -0.252,0.278 -0.242,0.312 0.581,2.093 -0.17,3.634 -0.17,3.634 -1.843,0.014 -3.77,-1.432 -3.77,-1.432 C 7.548,21.412 3.948,20.32 3.948,20.32 1.851,21.766 0.235,21.724 0.235,21.724 -0.403,20.42 0.008,18.09 0.008,18.09 -1.863,15.86 -1.594,12.171 -0.233,10.087 1.128,8.004 4.959,7.597 4.959,7.597 4.562,7.271 4.147,6.393 4.099,5.953 4.052,5.514 2.857,5.438 2.857,5.438 0.986,5.268 0.32,6.515 0.32,6.515 -0.332,7.72 -0.927,7.933 -0.927,7.933 c 0,0 -0.539,0.354 -1.276,0.326 C -2.94,8.23 -2.614,7.862 -2.614,7.862 -1.296,7.167 -0.885,6.076 -0.885,6.076 -0.29,4.517 0.377,4.163 0.377,4.163 1.766,3.114 4.048,3.652 4.048,3.652 V 1.115 C 3.523,-0.699 0.083,-0.016 0.083,-0.016 Z" transform="matrix(0.26458333,0,0,-0.26458333,2.65986,8.43837)" fill="currentColor"/>
+</svg>
+
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.linkedin.com/company/libresign/"
+                                           aria-label="LinkedIn-இல் எங்களைப் பின்தொடரவும் (புதிய தாவலில் திறக்கும்)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="LinkedIn">
+  <title>LinkedIn</title>
+  <path d="m 0,0 h -3.162 v 5.143 c 0,1.292 -0.464,2.174 -1.623,2.174 -0.885,0 -1.412,-0.595 -1.644,-1.169 C -6.513,5.943 -6.534,5.655 -6.534,5.368 V 0 h -3.223 v 0 c 0,0 0.042,8.786 0,9.696 h 3.223 V 8.253 C -6.111,8.908 -5.355,9.84 -3.665,9.84 -1.57,9.84 0,8.466 0,5.513 Z m -13.09,10.96 v 10e-4 h -0.02 c -1.073,0 -1.766,0.738 -1.766,1.66 0,0.944 0.714,1.661 1.808,1.661 1.093,0 1.765,-0.717 1.786,-1.661 0,-0.922 -0.693,-1.661 -1.808,-1.661 m -1.665,-1.264 h 3.162 V 0 h -3.162 z m 7.317,13.445 v 0 c -8.837,0 -16,-7.163 -16,-16 v 0 c 0,-8.836 7.163,-16 16,-16 v 0 c 8.836,0 16,7.164 16,16 v 0 c 0,8.837 -7.164,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.20130465,6.12272)" fill="currentColor"/>
+</svg>
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://t.me/LibreSign"
+                                           aria-label="எங்கள் Telegram குழுவில் இணையுங்கள் (புதிய தாவலில் திறக்கும்)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Telegram">
+  <title>Telegram</title>
+  <path d="m 0,0 c -0.279,-1.345 -0.485,-2.708 -0.736,-4.059 -0.392,-2.11 -0.748,-4.228 -1.082,-6.349 -0.049,-0.312 -0.074,-0.64 -0.176,-0.941 -0.092,-0.272 -0.267,-0.514 -0.491,-0.692 -0.218,-0.173 -0.481,-0.287 -0.757,-0.323 -0.279,-0.037 -0.552,0.016 -0.807,0.13 -0.249,0.112 -0.476,0.269 -0.703,0.418 -0.27,0.177 -0.536,0.359 -0.8,0.544 -0.528,0.372 -1.045,0.758 -1.557,1.152 -0.515,0.396 -1.023,0.8 -1.531,1.205 -0.241,0.193 -0.497,0.373 -0.725,0.581 -0.192,0.174 -0.332,0.393 -0.321,0.66 0.01,0.258 0.15,0.491 0.312,0.683 0.264,0.311 0.603,0.546 0.922,0.796 0.965,0.758 1.892,1.566 2.765,2.429 0.24,0.236 0.482,0.471 0.709,0.72 0.255,0.28 0.609,0.602 0.671,0.996 0.042,0.269 -0.126,0.39 -0.369,0.259 -0.644,-0.345 -1.203,-0.825 -1.805,-1.236 -0.474,-0.324 -0.96,-0.628 -1.434,-0.952 -0.485,-0.333 -0.965,-0.672 -1.446,-1.011 -1.031,-0.727 -2.181,-1.625 -3.505,-1.64 -0.418,-0.005 -0.831,0.07 -1.236,0.169 -0.404,0.098 -0.805,0.21 -1.207,0.319 -0.519,0.141 -2.482,0.563 -1.672,1.463 0.178,0.197 0.435,0.299 0.682,0.395 0.719,0.279 1.437,0.559 2.155,0.841 0,0.042 0.617,0.242 0.685,0.269 0.239,0.094 0.478,0.189 0.717,0.283 0.479,0.19 0.956,0.38 1.434,0.57 0.926,0.369 1.85,0.739 2.776,1.106 1.135,0.451 2.271,0.902 3.398,1.375 0.557,0.235 1.11,0.48 1.671,0.707 0.67,0.27 1.351,0.516 2.021,0.788 0.047,0.019 0.095,0.038 0.144,0.055 0.144,0.05 0.292,0.087 0.446,0.079 C -0.418,1.767 -0.024,1.444 0.087,1.025 0.177,0.687 0.069,0.331 0,0 m -7.152,10.707 v 0 c -8.836,0 -16,-7.163 -16,-16 v 0 c 0,-8.837 7.164,-16 16,-16 v 0 c 8.837,0 16,7.163 16,16 v 0 c 0,8.837 -7.163,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.12563,2.83289)" fill="currentColor"/>
+</svg>
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.instagram.com/libresign/"
+                                           aria-label="Instagram-இல் எங்களைப் பின்தொடரவும் (புதிய தாவலில் திறக்கும்)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4665594 8.4667759" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Instagram">
+  <title>Instagram</title>
+  <g transform="translate(-86.518751,-126.20626)">
+    <path d="m 0,0 c -1.321,0 -2.397,-1.075 -2.397,-2.397 0,-1.321 1.076,-2.396 2.397,-2.396 1.321,0 2.397,1.075 2.397,2.396 C 2.397,-1.075 1.321,0 0,0" transform="matrix(0.26458333,0,0,-0.26458333,90.745918,129.79171)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-0.355 -0.288,-0.643 -0.643,-0.643 h -0.503 c -0.355,0 -0.643,0.288 -0.643,0.643 v 0.503 c 0,0.355 0.288,0.643 0.643,0.643 h 0.503 C -0.288,1.146 0,0.858 0,0.503 Z m -5.735,-7.84 c -2.062,0 -3.739,1.677 -3.739,3.739 0,2.061 1.677,3.738 3.739,3.738 2.061,0 3.738,-1.677 3.738,-3.738 0,-2.062 -1.677,-3.739 -3.738,-3.739 m 3.11,11.051 H -8.8 c -2.362,0 -4.277,-1.915 -4.277,-4.277 v -6.175 c 0,-2.362 1.915,-4.277 4.277,-4.277 h 6.175 c 2.362,0 4.277,1.915 4.277,4.277 v 6.175 c 0,2.362 -1.915,4.277 -4.277,4.277" transform="matrix(0.26458333,0,0,-0.26458333,92.263384,129.34066)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-3.103 -2.516,-5.618 -5.618,-5.618 h -6.245 c -3.103,0 -5.618,2.515 -5.618,5.618 v 6.244 c 0,3.103 2.515,5.619 5.618,5.619 h 6.245 C -2.516,11.863 0,9.347 0,6.244 Z m -6.921,19.017 v 0 C -15.7,20.022 -23.631,13.72 -24.635,4.941 v 0 c -1.005,-8.778 5.297,-16.709 14.075,-17.714 v 0 C -1.781,-13.777 6.149,-7.476 7.154,1.303 8.159,10.081 1.857,18.012 -6.921,19.017" transform="matrix(0.26458333,0,0,-0.26458333,93.064621,131.2657)" fill="currentColor"/>
+  </g>
+</svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="ud-widget">
+                            <a id="coop-logo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               href="https://www.somos.coop.br/"
+                               aria-label="Somos.Coop – கூட்டுறவு முயற்சிகளை மதிக்கும் தேசிய இயக்கம் (புதிய தாவலில் திறக்கும்)">
+                                <img src="/assets/images/icon/somoscoop.png" alt="Somos.Coop" aria-hidden="true">
+                            </a>
+
+                            <p id="copyright">&copy; 2026 LibreSign. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+                            <address id="address" class="ud-widget-address">
+                                Quinze de Novembro தெரு, எண் 106, 3-ஆம் மாடி, அறை 309 – Centro <br>
+                                Niteroi - RJ
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-product">
+                            <h3 id="footer-nav-product" class="ud-widget-title">தயாரிப்பு</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/ta/features">அம்சங்கள்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/pricing">திட்டங்களும் விலைகளும்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/about">பற்றி</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/posts">வலைப்பதிவு</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/ebooks">மின்னூல்கள்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/faq">அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ)</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-company">
+                            <h3 id="footer-nav-company" class="ud-widget-title">நிறுவனம்</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/ta/contact-us">எங்களைத் தொடர்புகொள்ளவும்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/success-stories">வெற்றிக் கதைகள்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/team">குழு</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/cooperatives">கூட்டுறவு நிறுவனங்கள்</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/privacy-policy">தனியுரிமைக் கொள்கை</a>
+                                </li>
+                                <li>
+                                    <a href="/ta/brand">பிராண்ட் பெயரும் உச்சரிப்பும்</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-open-source">
+                            <h3 id="footer-nav-open-source" class="ud-widget-title">திறந்த மூல மென்பொருள்</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer">GitHub களஞ்சியம்</a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.libresign.coop" target="_blank" rel="noopener noreferrer">ஆவணங்கள்</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/issues" target="_blank" rel="noopener noreferrer">சிக்கலைப் புகாரளிக்கவும்</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">எவ்வாறு பங்களிப்பது</a>
+                                </li>
+                                <li>
+                                    <a href="https://apps.nextcloud.com/apps/libresign" target="_blank" rel="noopener noreferrer">Nextcloud செயலி அங்காடி</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a id="back-to-top"
+       class="back-to-top"
+       href="#top"
+       aria-label="மேலே செல்லவும்">
+        <svg class="back-to-top__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L8 6L12 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <div id="footer-contact"
+         role="button"
+         tabindex="0"
+         data-contact-url="https://contato.librecode.coop/"
+         aria-label="விலை முன்மொழிவுக்கு விற்பனைக் குழுவைத் தொடர்புகொள்ளவும்">
+        <div class="bubble bubble-text">
+            <p>LibreSign-ஐ நிறுவ உதவி வேண்டுமா? விருப்பத்திற்கேற்ப வழங்கப்படும் தொழில்முறைச் சேவைகளுக்கான விலை முன்மொழிவைக் கோருங்கள்.</p>
+        </div>
+        <div class="image-wrapper">
+            <div class="image">
+                <img src="/assets/images/footer/attendant.png" alt="" aria-hidden="true">
+                <div class="status" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  </body>
+</html>

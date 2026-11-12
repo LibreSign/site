@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zásady ochrany osobních údajů LibreSign</title>
+
+    <!-- Primary Meta Tags -->
+    <link rel="canonical" href="/cs/privacy-policy">
+    <meta name="description" content="Politika ochrany osobních údajů LibreSign vysvětluje, jaké osobní údaje shromažďujeme prostřednictvím našeho kontaktního formuláře, jak je používáme, a vaše práva v rámci LGPD a GDPR.">
+        <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
+    <meta name="author" content="LibreSign / LibreCode">
+
+    <!-- Hreflang: multilingual support -->
+        <link rel="alternate" hreflang="cs" href="/cs/privacy-policy">
+        <link rel="alternate" hreflang="en" href="/privacy-policy">
+        <link rel="alternate" hreflang="fr" href="/fr/privacy-policy">
+        <link rel="alternate" hreflang="nb-NO" href="/nb-NO/privacy-policy">
+        <link rel="alternate" hreflang="pt" href="/pt/privacy-policy">
+        <link rel="alternate" hreflang="pt-BR" href="/pt-BR/privacy-policy">
+        <link rel="alternate" hreflang="ta" href="/ta/privacy-policy">
+        <link rel="alternate" hreflang="x-default" href="/privacy-policy">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/cs/privacy-policy">
+    <meta property="og:title" content="Zásady ochrany osobních údajů LibreSign">
+    <meta property="og:description" content="Politika ochrany osobních údajů LibreSign vysvětluje, jaké osobní údaje shromažďujeme prostřednictvím našeho kontaktního formuláře, jak je používáme, a vaše práva v rámci LGPD a GDPR.">
+    <meta property="og:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta property="og:site_name" content="LibreSign">
+    <meta property="og:locale" content="cs">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="/cs/privacy-policy">
+    <meta name="twitter:title" content="Zásady ochrany osobních údajů LibreSign">
+    <meta name="twitter:description" content="Politika ochrany osobních údajů LibreSign vysvětluje, jaké osobní údaje shromažďujeme prostřednictvím našeho kontaktního formuláře, jak je používáme, a vaše práva v rámci LGPD a GDPR.">
+    <meta name="twitter:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta name="twitter:site" content="@libresign">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/png"
+    >
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+    <!-- ===== All CSS files ===== -->
+        <link rel="stylesheet" href="/assets/build/assets/ud-styles-DvHA-Iw9.css">
+    
+    <!-- ====== All Javascript Files ====== -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <script>
+      window.baseUrl = "";
+    </script>
+
+    <script type="module" src="/assets/build/assets/main-OamVToNl.js"></script>
+    <script type="module" src="/assets/build/assets/header-fragment-CHEuQro2.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.onclick = function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                };
+            }
+
+            // ==== for menu scroll
+            const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+        }); // end DOMContentLoaded
+    </script>
+
+    <!-- Structured data: base Organization + WebSite -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://libresign.coop/#organization",
+          "name": "LibreSign",
+          "url": "https://libresign.coop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://libresign.coop/assets/images/logo/logo.svg"
+          },
+          "sameAs": [
+            "https://github.com/LibreSign/libresign",
+            "https://www.linkedin.com/company/libresign/",
+            "https://t.me/LibreSign",
+            "https://www.instagram.com/libresign/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://libresign.coop/#website",
+          "url": "https://libresign.coop",
+          "name": "LibreSign",
+          "description": "Open source electronic signature and digital document management, integrated with Nextcloud.",
+          "publisher": {
+            "@id": "https://libresign.coop/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    
+      </head>
+  <body id="top">
+    <div class="libresign-site-header-fragment"
+          >
+  <a href="#main-content" class="skip-to-content">Přeskočit na hlavní obsah</a>
+  <header class="ud-header" data-libresign-header>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl" aria-label="Hlavní navigace">
+      <a class="navbar-brand" href="/cs" aria-label="Domovská stránka LibreSign">
+        <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+      </a>
+      <div class="collapse navbar-collapse mx-auto" id="main-navigation">
+        <ul class="navbar-nav container">
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="solutions-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="solutions-menu"
+               aria-expanded="false"
+               aria-label="Otevřít podmenu řešení">
+              Řešení
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="solutions-menu"
+                hidden
+                aria-labelledby="solutions-menu-toggle"
+                aria-label="Submenu řešení">
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/lawyers">
+                  Právníci
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/tecnical-details">
+                  IT Profesionálové
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/company-solutions">
+                  Společnosti
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/cooperatives">
+                  Družstva
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/public-sector">
+                  Veřejný sektor
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="features-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="features-menu"
+               aria-expanded="false"
+               aria-label="Otevřené funkce submenu">
+              Vlastnosti
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="features-menu"
+                hidden
+                aria-labelledby="features-menu-toggle"
+                aria-label="Funkční podmenu">
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/advanced-security">
+                  Pokročilé zabezpečení
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/hybrid-signatures">
+                  Hybridní podpisy
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/document-validation-by-qr-code">
+                  Ověření dokumentu kódem QR
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/cs/posts/real-time-monitoring">
+                  Monitorování v reálném čase
+                </a>
+              </li>
+                            <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link ud-nav-submenu-link--all" href="/cs/features">
+                  Všechny funkce →
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/pricing">Plány a ceny</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/about">O nás</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/posts">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/cs/contact-us">Kontakt</a>
+          </li>
+          <li class="nav-item" id="customer-area-link">
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer">
+              Oblast klienta
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+                <div class="dropdown selector">
+          <button class="dropdown-toggle ud-nav-dropdown-toggle"
+                  type="button"
+                  data-libresign-dropdown-toggle
+                  aria-controls="language-menu"
+                  aria-expanded="false"
+                  aria-label="Vybrat jazyk">
+            <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+            <span class="visually-hidden">Současný jazyk: čeština</span>
+          </button>
+          <ul class="dropdown-menu ud-submenu" id="language-menu" hidden aria-label="Výběr jazyka">
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/cs/privacy-policy"
+                 lang="cs"
+                 aria-label="Přepnout na čeština">
+                <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+                <span>cs</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/privacy-policy"
+                 lang="en"
+                 aria-label="Přepnout na English">
+                <img src="/assets/images/icon/languages/en.svg" alt="" aria-hidden="true">
+                <span>en</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/fr/privacy-policy"
+                 lang="fr"
+                 aria-label="Přepnout na français">
+                <img src="/assets/images/icon/languages/fr.svg" alt="" aria-hidden="true">
+                <span>fr</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/nb-NO/privacy-policy"
+                 lang="nb-NO"
+                 aria-label="Přepnout na norsk bokmål (Norge)">
+                <img src="/assets/images/icon/languages/nb-NO.svg" alt="" aria-hidden="true">
+                <span>nb-NO</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt/privacy-policy"
+                 lang="pt"
+                 aria-label="Přepnout na português">
+                <img src="/assets/images/icon/languages/pt.svg" alt="" aria-hidden="true">
+                <span>pt</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt-BR/privacy-policy"
+                 lang="pt-BR"
+                 aria-label="Přepnout na português (Brasil)">
+                <img src="/assets/images/icon/languages/pt-BR.svg" alt="" aria-hidden="true">
+                <span>pt-BR</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/ta/privacy-policy"
+                 lang="ta"
+                 aria-label="Přepnout na தமிழ்">
+                <img src="/assets/images/icon/languages/ta.svg" alt="" aria-hidden="true">
+                <span>ta</span>
+              </a>
+            </li>
+                      <li><hr></li>
+            <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link ud-submenu-link--cta"
+                 href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Nápověda přeložit tuto stránku">
+                <span>Nápověda Přeložit</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler collapsed"
+          data-libresign-header-toggle
+                type="button"
+                aria-label="Přepnout navigační menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  </header>
+  </div>
+    <main id="main-content">
+              <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>Zásady ochrany osobních údajů LibreSign</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== Blog Details Start ====== -->
+    <section class="ud-blog-details">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-lg-8">
+            <div class="ud-blog-details-content text-justify">
+              <div class="article" style="text-align:justify;">
+                <h2>Úvod</h2>
+
+<p>LibreSign je svobodná a open-source platforma pro elektronické podpisy vyvinutá <strong>LibreCode</strong>. Ochranu soukromí a bezpečnost dat bereme vážně. soukromí a zabezpečení dat vážně.</p>
+
+<p>Tato Zásada ochrany osobních údajů vysvětluje, jaké osobní údaje jsou shromažďovány prostřednictvím webové stránky LibreSign (www.libresign.coop), jak se používají, a vaše práva jako subjekt údajů. Odráží náš závazek chránit vaše soukromí v souladu s <strong>Lei Geral de Proteção de Dados (LGPD)</strong> (Brazilský zákon č. 13,709 / 2018) <strong>Obecné nařízení o ochraně údajů</strong> (nařízení EU 2016 / 679).</p>
+
+<h2>Jaké údaje shromažďujeme</h2>
+
+<p>LibreCode shromažďuje následující osobní údaje prostřednictvím kontaktního formuláře na těchto webových stránkách:</p>
+
+<ul>
+<li><strong>Celé jméno</strong></li>
+<li><strong>E-mailová adresa</strong></li>
+<li><strong>Číslo telefonu</strong> (nepovinně)</li>
+</ul>
+
+<p>Tyto údaje jsou poskytovány dobrovolně, když vyplníte kontaktní formulář. Jsou shromažďovány výhradně proto, abychom mohli reagovat na Váš dotaz.</p>
+
+<h2>Jak využíváme vaše data</h2>
+
+<p>Shromážděné údaje se používají výhradně pro tyto účely:</p>
+
+<ul>
+<li>Reakce na Vaše dotazy, požadavky nebo připomínky</li>
+<li>Odesílání informací, které jste si výslovně vyžádali nebo které jsou přímo relevantní pro váš vyjádřený zájem</li>
+<li>Vedení záznamů o komunikaci pro účely služby a podpory</li>
+<li>Dodržování příslušných právních nebo regulačních povinností</li>
+</ul>
+
+<p>Vaše údaje nepoužíváme k žádnému účelu, kromě toho, co je popsáno výše, aniž bychom vás předem informovali.</p>
+
+<h2>Sdílení údajů</h2>
+
+<p>LibreCode neprodává, nepronajímá ani nesdílí Vaše osobní údaje s třetími stranami, s výjimkou případů, kdy je vyžadováno splnění zákonných povinností nebo kdy jste dali výslovné povolení.</p>
+
+<h2>Bezpečnost údajů</h2>
+
+<p>Uplatňujeme vhodná technická a organizační opatření na ochranu osobních údajů, které shromažďujeme, před neoprávněným přístupem, změnou, zveřejněním nebo zničením. Pro více informací o našich bezpečnostních postupech nás prosím kontaktujte přímo.</p>
+
+<h2>Vaše práva</h2>
+
+<p>Podle LGPD (článek 18) a GDPR máte právo:</p>
+
+<ul>
+<li>Přístup k osobním údajům, které o vás máme</li>
+<li>Oprava žádosti o nepřesné nebo neúplné údaje</li>
+<li>Žádost o vymazání Vašich údajů, s výhradou zákonných požadavků na uchovávání</li>
+<li>Za určitých okolností omezí zpracování nebo předmět na zpracování</li>
+<li>Žádost o přenositelnost údajů, je-li to vhodné</li>
+</ul>
+
+<p>Pro uplatnění některého z těchto práv nás kontaktujte na: <strong>contato@librecode.coop</strong></p>
+
+<h2>Změny této politiky</h2>
+
+<p>LibreCode může aktualizovat tuto Zásadu ochrany osobních údajů čas od času. Jakékoli změny nabudou účinku po zveřejnění na této stránce. Doporučujeme pravidelně přezkoumávat tuto politiku.</p>
+
+<h2>Kontakt</h2>
+
+<p>Pro dotazy týkající se těchto Zásad ochrany osobních údajů nás kontaktujte na:</p>
+
+<p><strong>contato@librecode.coop</strong></p>
+
+<p><em>Poslední aktualizace: 7. června 2026</em></p>
+              </div>
+            </div>
+          </div>
+
+                  </div>
+      </div>
+    </section>
+    <!-- ====== Blog Details End ====== -->
+    </main>
+    <div class="libresign-site-footer-fragment"
+          >
+    <footer class="ud-footer wow fadeInUp" data-aos-delay=".15s">
+        <div>
+            <div class="container">
+                <div class="row widgets">
+                    <div class="col-12 col-lg-4">
+                        <div class="ud-widget">
+                            <a href="/cs" class="ud-footer-logo" aria-label="LibreSign - Přejít na domovskou stránku">
+                                <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+                            </a>
+                            <p class="ud-widget-desc">
+                                Otevřený zdrojový elektronický podpis integrovaný s Nextcloudem. Self- hostoval, zabezpečoval a postaven pro organizace, které si cení soukromí a datové suverenity.
+                            </p>
+                            <nav aria-label="Odkazy na sociální média">
+                                <h3 class="visually-hidden">Sledujte nás na sociálních sítích</h3>
+                                <ul class="ud-widget-socials">
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://github.com/LibreSign/libresign"
+                                           aria-label="Navštivte náš úložiště GitHub (otevře se v nové kartě)">
+                                            <svg width="32" height="32" viewBox="0 0 8.9045515 8.4666739" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="GitHub">
+  <title>GitHub</title>
+  <path d="m 0,0 c -0.876,0.168 -1.719,0.49 -2.472,0.969 -4.656,2.968 -7.581,8.092 -7.581,14.062 v 0 c 0,9.293 7.534,16.827 16.828,16.827 v 0 c 9.293,0 16.827,-7.534 16.827,-16.827 v 0 C 23.602,10.079 21.462,5.629 18.057,2.55 16.659,1.286 14.882,0.497 12.999,0.403 11.014,0.303 10.837,1.13 10.837,1.13 v 4.196 c 0,0.261 -0.022,0.523 -0.079,0.777 -0.081,0.359 -0.208,0.712 -0.397,1.029 -0.058,0.097 -0.122,0.19 -0.192,0.278 -0.03,0.037 -0.06,0.074 -0.093,0.107 -0.024,0.025 -0.062,0.048 -0.068,0.085 0.043,0.037 0.153,0.028 0.208,0.037 0.092,0.017 0.184,0.039 0.276,0.06 0.166,0.039 0.333,0.068 0.501,0.099 0.35,0.065 0.696,0.153 1.036,0.257 0.956,0.291 1.882,0.745 2.577,1.478 0.376,0.396 0.66,0.864 0.896,1.356 0.884,1.844 1.018,4.103 0.133,5.973 -0.151,0.319 -0.327,0.627 -0.531,0.916 -0.023,0.032 -0.252,0.278 -0.242,0.312 0.581,2.093 -0.17,3.634 -0.17,3.634 -1.843,0.014 -3.77,-1.432 -3.77,-1.432 C 7.548,21.412 3.948,20.32 3.948,20.32 1.851,21.766 0.235,21.724 0.235,21.724 -0.403,20.42 0.008,18.09 0.008,18.09 -1.863,15.86 -1.594,12.171 -0.233,10.087 1.128,8.004 4.959,7.597 4.959,7.597 4.562,7.271 4.147,6.393 4.099,5.953 4.052,5.514 2.857,5.438 2.857,5.438 0.986,5.268 0.32,6.515 0.32,6.515 -0.332,7.72 -0.927,7.933 -0.927,7.933 c 0,0 -0.539,0.354 -1.276,0.326 C -2.94,8.23 -2.614,7.862 -2.614,7.862 -1.296,7.167 -0.885,6.076 -0.885,6.076 -0.29,4.517 0.377,4.163 0.377,4.163 1.766,3.114 4.048,3.652 4.048,3.652 V 1.115 C 3.523,-0.699 0.083,-0.016 0.083,-0.016 Z" transform="matrix(0.26458333,0,0,-0.26458333,2.65986,8.43837)" fill="currentColor"/>
+</svg>
+
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.linkedin.com/company/libresign/"
+                                           aria-label="Sledujte nás na LinkedIn (otevře se v nové kartě)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="LinkedIn">
+  <title>LinkedIn</title>
+  <path d="m 0,0 h -3.162 v 5.143 c 0,1.292 -0.464,2.174 -1.623,2.174 -0.885,0 -1.412,-0.595 -1.644,-1.169 C -6.513,5.943 -6.534,5.655 -6.534,5.368 V 0 h -3.223 v 0 c 0,0 0.042,8.786 0,9.696 h 3.223 V 8.253 C -6.111,8.908 -5.355,9.84 -3.665,9.84 -1.57,9.84 0,8.466 0,5.513 Z m -13.09,10.96 v 10e-4 h -0.02 c -1.073,0 -1.766,0.738 -1.766,1.66 0,0.944 0.714,1.661 1.808,1.661 1.093,0 1.765,-0.717 1.786,-1.661 0,-0.922 -0.693,-1.661 -1.808,-1.661 m -1.665,-1.264 h 3.162 V 0 h -3.162 z m 7.317,13.445 v 0 c -8.837,0 -16,-7.163 -16,-16 v 0 c 0,-8.836 7.163,-16 16,-16 v 0 c 8.836,0 16,7.164 16,16 v 0 c 0,8.837 -7.164,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.20130465,6.12272)" fill="currentColor"/>
+</svg>
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://t.me/LibreSign"
+                                           aria-label="Přidejte se k naší skupině Telegram (otevře se v nové kartě)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Telegram">
+  <title>Telegram</title>
+  <path d="m 0,0 c -0.279,-1.345 -0.485,-2.708 -0.736,-4.059 -0.392,-2.11 -0.748,-4.228 -1.082,-6.349 -0.049,-0.312 -0.074,-0.64 -0.176,-0.941 -0.092,-0.272 -0.267,-0.514 -0.491,-0.692 -0.218,-0.173 -0.481,-0.287 -0.757,-0.323 -0.279,-0.037 -0.552,0.016 -0.807,0.13 -0.249,0.112 -0.476,0.269 -0.703,0.418 -0.27,0.177 -0.536,0.359 -0.8,0.544 -0.528,0.372 -1.045,0.758 -1.557,1.152 -0.515,0.396 -1.023,0.8 -1.531,1.205 -0.241,0.193 -0.497,0.373 -0.725,0.581 -0.192,0.174 -0.332,0.393 -0.321,0.66 0.01,0.258 0.15,0.491 0.312,0.683 0.264,0.311 0.603,0.546 0.922,0.796 0.965,0.758 1.892,1.566 2.765,2.429 0.24,0.236 0.482,0.471 0.709,0.72 0.255,0.28 0.609,0.602 0.671,0.996 0.042,0.269 -0.126,0.39 -0.369,0.259 -0.644,-0.345 -1.203,-0.825 -1.805,-1.236 -0.474,-0.324 -0.96,-0.628 -1.434,-0.952 -0.485,-0.333 -0.965,-0.672 -1.446,-1.011 -1.031,-0.727 -2.181,-1.625 -3.505,-1.64 -0.418,-0.005 -0.831,0.07 -1.236,0.169 -0.404,0.098 -0.805,0.21 -1.207,0.319 -0.519,0.141 -2.482,0.563 -1.672,1.463 0.178,0.197 0.435,0.299 0.682,0.395 0.719,0.279 1.437,0.559 2.155,0.841 0,0.042 0.617,0.242 0.685,0.269 0.239,0.094 0.478,0.189 0.717,0.283 0.479,0.19 0.956,0.38 1.434,0.57 0.926,0.369 1.85,0.739 2.776,1.106 1.135,0.451 2.271,0.902 3.398,1.375 0.557,0.235 1.11,0.48 1.671,0.707 0.67,0.27 1.351,0.516 2.021,0.788 0.047,0.019 0.095,0.038 0.144,0.055 0.144,0.05 0.292,0.087 0.446,0.079 C -0.418,1.767 -0.024,1.444 0.087,1.025 0.177,0.687 0.069,0.331 0,0 m -7.152,10.707 v 0 c -8.836,0 -16,-7.163 -16,-16 v 0 c 0,-8.837 7.164,-16 16,-16 v 0 c 8.837,0 16,7.163 16,16 v 0 c 0,8.837 -7.163,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.12563,2.83289)" fill="currentColor"/>
+</svg>
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.instagram.com/libresign/"
+                                           aria-label="Sledujte nás na Instagramu (otevře se v nové kartě)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4665594 8.4667759" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Instagram">
+  <title>Instagram</title>
+  <g transform="translate(-86.518751,-126.20626)">
+    <path d="m 0,0 c -1.321,0 -2.397,-1.075 -2.397,-2.397 0,-1.321 1.076,-2.396 2.397,-2.396 1.321,0 2.397,1.075 2.397,2.396 C 2.397,-1.075 1.321,0 0,0" transform="matrix(0.26458333,0,0,-0.26458333,90.745918,129.79171)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-0.355 -0.288,-0.643 -0.643,-0.643 h -0.503 c -0.355,0 -0.643,0.288 -0.643,0.643 v 0.503 c 0,0.355 0.288,0.643 0.643,0.643 h 0.503 C -0.288,1.146 0,0.858 0,0.503 Z m -5.735,-7.84 c -2.062,0 -3.739,1.677 -3.739,3.739 0,2.061 1.677,3.738 3.739,3.738 2.061,0 3.738,-1.677 3.738,-3.738 0,-2.062 -1.677,-3.739 -3.738,-3.739 m 3.11,11.051 H -8.8 c -2.362,0 -4.277,-1.915 -4.277,-4.277 v -6.175 c 0,-2.362 1.915,-4.277 4.277,-4.277 h 6.175 c 2.362,0 4.277,1.915 4.277,4.277 v 6.175 c 0,2.362 -1.915,4.277 -4.277,4.277" transform="matrix(0.26458333,0,0,-0.26458333,92.263384,129.34066)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-3.103 -2.516,-5.618 -5.618,-5.618 h -6.245 c -3.103,0 -5.618,2.515 -5.618,5.618 v 6.244 c 0,3.103 2.515,5.619 5.618,5.619 h 6.245 C -2.516,11.863 0,9.347 0,6.244 Z m -6.921,19.017 v 0 C -15.7,20.022 -23.631,13.72 -24.635,4.941 v 0 c -1.005,-8.778 5.297,-16.709 14.075,-17.714 v 0 C -1.781,-13.777 6.149,-7.476 7.154,1.303 8.159,10.081 1.857,18.012 -6.921,19.017" transform="matrix(0.26458333,0,0,-0.26458333,93.064621,131.2657)" fill="currentColor"/>
+  </g>
+</svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="ud-widget">
+                            <a id="coop-logo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               href="https://www.somos.coop.br/"
+                               aria-label="Somos.Coop - Národní hnutí, které oceňuje iniciativy spolupráce (otevírá se v nové kartě)">
+                                <img src="/assets/images/icon/somoscoop.png" alt="Somos.Coop" aria-hidden="true">
+                            </a>
+
+                            <p id="copyright">&copy; 2026 LibreSign. Všechna práva vyhrazena.</p>
+                            <address id="address" class="ud-widget-address">
+                                Rua Quinze de Novembro, 106, 3. patro, místnost 309 – Centro <br>
+                                Niteroi - RJ
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-product">
+                            <h3 id="footer-nav-product" class="ud-widget-title">Výrobek</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/cs/features">Vlastnosti</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/pricing">Plány a ceny</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/about">O nás</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/posts">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/ebooks">E- knihy</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/faq">FAQ</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-company">
+                            <h3 id="footer-nav-company" class="ud-widget-title">Společnost</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/cs/contact-us">Kontaktujte nás</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/success-stories">Příběhy úspěchu</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/team">Tým</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/cooperatives">Družstva</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/privacy-policy">Ochrana osobních údajů</a>
+                                </li>
+                                <li>
+                                    <a href="/cs/brand">Značka a výslovnost</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-open-source">
+                            <h3 id="footer-nav-open-source" class="ud-widget-title">Otevřít zdroj</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer">Repozitář GitHub</a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.libresign.coop" target="_blank" rel="noopener noreferrer">Dokumentace</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/issues" target="_blank" rel="noopener noreferrer">Nahlásit problém</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Jak přispět</a>
+                                </li>
+                                <li>
+                                    <a href="https://apps.nextcloud.com/apps/libresign" target="_blank" rel="noopener noreferrer">Nextcloud App Store</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a id="back-to-top"
+       class="back-to-top"
+       href="#top"
+       aria-label="Zpět na začátek">
+        <svg class="back-to-top__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L8 6L12 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <div id="footer-contact"
+         role="button"
+         tabindex="0"
+         data-contact-url="https://contato.librecode.coop/"
+         aria-label="Kontaktní prodejní tým pro citaci">
+        <div class="bubble bubble-text">
+            <p>Potřebujete pomoc s nasazením LibreSign? Zeptejte se na nabídku pro volitelné profesionální služby.</p>
+        </div>
+        <div class="image-wrapper">
+            <div class="image">
+                <img src="/assets/images/footer/attendant.png" alt="" aria-hidden="true">
+                <div class="status" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  </body>
+</html>

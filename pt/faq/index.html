@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas frequentes sobre assinaturas digitais — LibreSign</title>
+
+    <!-- Primary Meta Tags -->
+    <link rel="canonical" href="/pt/faq">
+    <meta name="description" content="Respostas às perguntas frequentes sobre o LibreSign: funcionamento, certificados digitais, validade jurídica, cancelamento, planos e muito mais.">
+        <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
+    <meta name="author" content="LibreSign / LibreCode">
+
+    <!-- Hreflang: multilingual support -->
+        <link rel="alternate" hreflang="cs" href="/cs/faq">
+        <link rel="alternate" hreflang="en" href="/faq">
+        <link rel="alternate" hreflang="fr" href="/fr/faq">
+        <link rel="alternate" hreflang="nb-NO" href="/nb-NO/faq">
+        <link rel="alternate" hreflang="pt" href="/pt/faq">
+        <link rel="alternate" hreflang="pt-BR" href="/pt-BR/faq">
+        <link rel="alternate" hreflang="ta" href="/ta/faq">
+        <link rel="alternate" hreflang="x-default" href="/faq">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/pt/faq">
+    <meta property="og:title" content="Perguntas frequentes sobre assinaturas digitais — LibreSign">
+    <meta property="og:description" content="Respostas às perguntas frequentes sobre o LibreSign: funcionamento, certificados digitais, validade jurídica, cancelamento, planos e muito mais.">
+    <meta property="og:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta property="og:site_name" content="LibreSign">
+    <meta property="og:locale" content="pt">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="/pt/faq">
+    <meta name="twitter:title" content="Perguntas frequentes sobre assinaturas digitais — LibreSign">
+    <meta name="twitter:description" content="Respostas às perguntas frequentes sobre o LibreSign: funcionamento, certificados digitais, validade jurídica, cancelamento, planos e muito mais.">
+    <meta name="twitter:image" content="/assets/images/logo/logo-libresign-large.png">
+    <meta name="twitter:site" content="@libresign">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.png"
+      type="image/png"
+    >
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+    <!-- ===== All CSS files ===== -->
+        <link rel="stylesheet" href="/assets/build/assets/ud-styles-DvHA-Iw9.css">
+    
+    <!-- ====== All Javascript Files ====== -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()),
+        'event': 'mtm.Start'});
+        (function() {
+            var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+            g.async=true;
+            g.src='https://matomo.librecode.coop/js/container_8jNjdh8C.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+
+    <script>
+      window.baseUrl = "";
+    </script>
+
+    <script type="module" src="/assets/build/assets/main-OamVToNl.js"></script>
+    <script type="module" src="/assets/build/assets/header-fragment-CHEuQro2.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.onclick = function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                };
+            }
+
+            // ==== for menu scroll
+            const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+        pageLink.forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                var url = elem.getAttribute("href")
+                var anchor = url.match(/(#.*)$/)
+                if (window.location.pathname !== '/' || anchor === null) {
+                    return
+                }
+                anchor = anchor[1]
+                e.preventDefault();
+                document.querySelector(anchor).scrollIntoView({
+                    behavior: "smooth",
+                    offsetTop: 1 - 60,
+                });
+            });
+        });
+
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".ud-menu-scroll");
+            const scrollPos =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const url = currLink.getAttribute("href");
+                var anchor = url.match(/(#.*)$/)
+                if (anchor === null) {
+                    continue
+                }
+                anchor = anchor[1]
+                const refElement = document.querySelector(anchor);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document
+                    .querySelector(".ud-menu-scroll")
+                    .classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+        }); // end DOMContentLoaded
+    </script>
+
+    <!-- Structured data: base Organization + WebSite -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://libresign.coop/#organization",
+          "name": "LibreSign",
+          "url": "https://libresign.coop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://libresign.coop/assets/images/logo/logo.svg"
+          },
+          "sameAs": [
+            "https://github.com/LibreSign/libresign",
+            "https://www.linkedin.com/company/libresign/",
+            "https://t.me/LibreSign",
+            "https://www.instagram.com/libresign/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://libresign.coop/#website",
+          "url": "https://libresign.coop",
+          "name": "LibreSign",
+          "description": "Open source electronic signature and digital document management, integrated with Nextcloud.",
+          "publisher": {
+            "@id": "https://libresign.coop/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "O LibreSign é gratuito?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign é software livre e de código aberto, sem custos de licença. «Livre» refere-se tanto à utilização gratuita como à liberdade de estudar, modificar e distribuir o código-fonte, disponível no \u003Ca href=\"https://github.com/LibreSign/libresign\"\u003EGitHub\u003C/a\u003E. A LibreCode cobra apenas por serviços opcionais, como alojamento gerido e apoio profissional."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O que significa «utilizador» para efeitos de faturação?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Para efeitos de faturação dos serviços contratados, conta como utilizador cada conta Nextcloud da sua organização. Os signatários externos que recebem uma ligação para assinar não são contabilizados como utilizadores."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Existe um limite mensal de documentos ou assinaturas?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O LibreSign não impõe um limite mensal de documentos ou assinaturas."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign funciona sem o Nextcloud?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O LibreSign precisa do Nextcloud para funcionar. Se ainda não tiver um ambiente compatível, a LibreCode poderá fornecer uma implementação totalmente gerida."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "E se não pudermos instalar aplicações no Nextcloud que já utilizamos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nesse caso, o alojamento gerido pode ser a opção mais adequada. A LibreCode pode instalar e operar um ambiente LibreSign completo como serviço opcional, incluindo infraestrutura na Europa ou na Alemanha quando a localização dos dados for relevante."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Posso definir a ordem das assinaturas de vários destinatários?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign oferece assinaturas sequenciais, permitindo definir a ordem em que os destinatários devem assinar."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Os destinatários precisam de uma conta para assinar?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Os destinatários podem assinar através de uma ligação segura, sem criar uma conta no LibreSign ou no Nextcloud."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quais padrões de assinatura são compatíveis?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign permite fluxos de assinatura eletrónica simples, avançada e qualificada, consoante a configuração da identidade e dos serviços de confiança. Nos termos do Regulamento eIDAS, uma assinatura eletrónica qualificada exige um certificado qualificado e um dispositivo qualificado de criação de assinaturas (QSCD). A simples existência de um ficheiro PFX não confere o estatuto de assinatura eletrónica qualificada (QES)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign está em conformidade com o Regulamento eIDAS?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign permite fluxos de assinatura que podem integrar soluções orientadas pelo Regulamento eIDAS. A conformidade depende da solução completa: certificado, verificação de identidade, alojamento e procedimentos operacionais. Para assinaturas eletrónicas qualificadas, são necessários um certificado qualificado e serviços de confiança que cumpram os requisitos legais aplicáveis."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign pode ser utilizado no âmbito do eIDAS e em tribunal?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign pode integrar soluções orientadas pelo Regulamento eIDAS. O valor jurídico de uma assinatura — simples, avançada ou qualificada — depende da configuração do sistema, incluindo a verificação da identidade, o tipo de certificado, a utilização de um dispositivo qualificado de criação de assinaturas (QSCD) e os procedimentos operacionais."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Como é feita a verificação de identidade?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign oferece fluxos de trabalho flexíveis. No nível mais simples, as assinaturas podem estar vinculadas a um endereço de correio eletrónico. Para necessidades mais rigorosas, é possível adicionar validação de documentos, fluxos de aprovação ou integrações com fornecedores externos de identidade e sistemas de infraestrutura de chaves públicas (ICP/PKI). Cada organização pode definir o nível de garantia necessário."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Em quais países o LibreSign está disponível?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign não está restrito a um país específico. Ele pode ser utilizado em diferentes ambientes, inclusive com integrações a infraestruturas nacionais de chaves públicas (ICP/PKI) ou prestadores europeus de serviços de confiança qualificados (QTSP)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Os dados podem ser alojados na Europa ou na Alemanha?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign pode ser instalado em infraestrutura gerida na Europa, incluindo na Alemanha, para apoiar o cumprimento dos requisitos do RGPD e de localização dos dados."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Porquê o LibreSign?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign permite assinar documentos em segurança, com integridade verificável. A plataforma calcula um hash criptográfico para cada documento assinado, permitindo detetar alterações. Regista ainda a data e a hora das assinaturas e mantém um histórico auditável. O LibreSign foi concebido com atenção à privacidade e à soberania dos dados, segundo princípios alinhados com o RGPD e com a LGPD brasileira."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quais são os principais recursos do LibreSign?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Criação e carregamento de documentos, assinatura com certificados digitais pessoais ou gerados pelo sistema, fluxos com vários signatários, gestão de documentos, rasto de auditoria, validação de documentos e uma API REST completa para integração com sistemas."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Uma assinatura digital é o mesmo que uma assinatura digitalizada?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. A assinatura digitalizada é uma reprodução da assinatura manuscrita em imagem, obtida por scanner ou ecrã tátil. Ela não comprova, por si só, a autoria do documento eletrónico: não há uma associação criptográfica entre o signatário e o conteúdo, e a imagem pode ser facilmente copiada e inserida em outro documento."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Qual é o nome da empresa pela qual o LibreSign foi desenvolvido?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LibreCode, uma cooperativa brasileira de programadores de software livre."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O plano exige um período mínimo de permanência?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Pode cancelar o seu plano de serviços a qualquer momento. O LibreSign não exige períodos mínimos de permanência."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O que acontece se eu cancelar meu plano?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Após o cancelamento, o seu plano deixa de ser renovado e não haverá novas cobranças. O acesso mantém-se até ao fim do período já pago."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Posso usar meu certificado digital pessoal para assinar documentos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Pode guardar o seu certificado digital no LibreSign. Ao assinar um documento, ser-lhe-á solicitada a respetiva palavra-passe."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Preciso de um certificado digital para assinar documentos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Consoante a modalidade de assinatura e a configuração, os utilizadores podem assinar eletronicamente sem fornecer um certificado digital pessoal. Quando a emissão interna está ativada, o LibreSign pode gerar um certificado para o signatário."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O que é o LibreSign?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign é uma plataforma de código aberto para assinaturas eletrónicas e digitais de documentos, criada para ajudar organizações a gerir fluxos de assinatura seguros e rastreáveis. Integra-se ao Nextcloud e pode ser alojada integralmente em infraestrutura própria."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quais tipos de certificados digitais o LibreSign aceita?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign aceita certificados digitais de pessoas singulares e coletivas, incluindo os emitidos por autoridades de certificação no âmbito da ICP-Brasil, a infraestrutura brasileira de chaves públicas. Também permite utilizar certificados gerados pelo sistema, conforme a configuração."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Qual é a diferença entre assinatura digital e assinatura eletrónica?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Uma assinatura digital é uma forma criptográfica de assinatura eletrónica que utiliza chaves criptográficas para detetar alterações aos dados assinados. Pode recorrer a um certificado para associar uma chave a uma identidade. Outras assinaturas eletrónicas podem recorrer a diferentes provas de identidade e de intenção de assinar. Os seus efeitos jurídicos dependem da legislação aplicável e do processo de assinatura completo."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign é compatível com dispositivos móveis?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. pode usar o LibreSign diretamente no navegador do telemóvel ou tablet, permitindo assinar documentos de qualquer lugar."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "É possível integrar o LibreSign a outros sistemas?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign disponibiliza uma API REST para integração com outros sistemas, permitindo automatizar pedidos de assinatura e agilizar os fluxos de trabalho. A API está incluída no software livre e não exige a contratação de serviços pagos."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign pode ser utilizado por órgãos e entidades do setor público?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O LibreSign pode atender a fluxos do setor público que exijam rastreabilidade, integridade documental e infraestrutura própria, conforme os requisitos jurídicos e técnicos da organização."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Como posso adotar o LibreSign na minha organização?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign é software livre e de código aberto: pode instalá-lo na sua instância Nextcloud sem custos de licença. O alojamento gerido e o apoio técnico são serviços opcionais que a nossa equipa pode disponibilizar."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "É possível obter apoio técnico para o LibreSign?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Nossa equipa de suporte pode ajudar na configuração e esclarecer dúvidas ou problemas."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Como os documentos são assinados no LibreSign?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "É muito simples! Basta enviar o documento para a plataforma, escolher quem vai assiná-lo e selecionar a modalidade de assinatura (digital ou eletrónica). O sistema regista as etapas para oferecer um processo seguro e rastreável."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O LibreSign regista a data e a hora das assinaturas?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O LibreSign regista os eventos de assinatura, incluindo as respetivas datas e horas. O valor jurídico destes registos temporais depende da configuração e da legislação aplicável."
+            }
+        }
+    ]
+}
+</script>
+  </head>
+  <body id="top">
+    <div class="libresign-site-header-fragment"
+          >
+  <a href="#main-content" class="skip-to-content">Ir para o conteúdo principal</a>
+  <header class="ud-header" data-libresign-header>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl" aria-label="Navegação principal">
+      <a class="navbar-brand" href="/pt" aria-label="Página inicial do LibreSign">
+        <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+      </a>
+      <div class="collapse navbar-collapse mx-auto" id="main-navigation">
+        <ul class="navbar-nav container">
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="solutions-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="solutions-menu"
+               aria-expanded="false"
+               aria-label="Abrir submenu de soluções">
+              Soluções
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="solutions-menu"
+                hidden
+                aria-labelledby="solutions-menu-toggle"
+                aria-label="Submenu de soluções">
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/lawyers">
+                  Advogados
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/tecnical-details">
+                  Profissionais de TI
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/company-solutions">
+                  Empresas
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/cooperatives">
+                  Cooperativas
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/public-sector">
+                  Setor público
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ud-nav-dropdown">
+            <a class="nav-link ud-nav-dropdown-toggle dropdown-toggle"
+               href="#"
+               role="button"
+               id="features-menu-toggle"
+               data-libresign-dropdown-toggle
+               aria-controls="features-menu"
+               aria-expanded="false"
+               aria-label="Abrir submenu de recursos">
+              Recursos
+            </a>
+            <ul class="dropdown-menu ud-nav-submenu"
+                id="features-menu"
+                hidden
+                aria-labelledby="features-menu-toggle"
+                aria-label="Submenu de recursos">
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/advanced-security">
+                  Segurança avançada
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/advanced-security">
+                  Segurança avançada
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/hybrid-signatures">
+                  Assinaturas híbridas
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/document-validation-by-qr-code">
+                  Validação de documentos por QR Code
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/real-time-monitoring">
+                  Monitoramento em tempo real
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/hybrid-signatures">
+                  Assinaturas híbridas
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/document-validation-by-qr-code">
+                  Validação de documentos por QR Code
+                </a>
+              </li>
+                            <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="/pt/posts/real-time-monitoring">
+                  Monitorização em tempo real
+                </a>
+              </li>
+                            <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link ud-nav-submenu-link--all" href="/pt/features">
+                  Todos os recursos →
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/pt/pricing">Planos e preços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/pt/about">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/pt/posts">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ud-menu-scroll" href="/pt/contact-us">Contacto</a>
+          </li>
+          <li class="nav-item" id="customer-area-link">
+            <a class="nav-link ud-menu-scroll link-button" href="https://account.libresign.coop/" target="_blank" rel="noopener noreferrer">
+              Área do cliente
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+                <div class="dropdown selector">
+          <button class="dropdown-toggle ud-nav-dropdown-toggle"
+                  type="button"
+                  data-libresign-dropdown-toggle
+                  aria-controls="language-menu"
+                  aria-expanded="false"
+                  aria-label="Selecionar idioma">
+            <img src="/assets/images/icon/languages/pt.svg" alt="" aria-hidden="true">
+            <span class="visually-hidden">Idioma atual: português</span>
+          </button>
+          <ul class="dropdown-menu ud-submenu" id="language-menu" hidden aria-label="Seleção de idioma">
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/cs/faq"
+                 lang="cs"
+                 aria-label="Mudar para čeština">
+                <img src="/assets/images/icon/languages/cs.svg" alt="" aria-hidden="true">
+                <span>cs</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/faq"
+                 lang="en"
+                 aria-label="Mudar para English">
+                <img src="/assets/images/icon/languages/en.svg" alt="" aria-hidden="true">
+                <span>en</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/fr/faq"
+                 lang="fr"
+                 aria-label="Mudar para français">
+                <img src="/assets/images/icon/languages/fr.svg" alt="" aria-hidden="true">
+                <span>fr</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/nb-NO/faq"
+                 lang="nb-NO"
+                 aria-label="Mudar para norsk bokmål (Norge)">
+                <img src="/assets/images/icon/languages/nb-NO.svg" alt="" aria-hidden="true">
+                <span>nb-NO</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt/faq"
+                 lang="pt"
+                 aria-label="Mudar para português">
+                <img src="/assets/images/icon/languages/pt.svg" alt="" aria-hidden="true">
+                <span>pt</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/pt-BR/faq"
+                 lang="pt-BR"
+                 aria-label="Mudar para português (Brasil)">
+                <img src="/assets/images/icon/languages/pt-BR.svg" alt="" aria-hidden="true">
+                <span>pt-BR</span>
+              </a>
+            </li>
+                      <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link"
+                 href="/ta/faq"
+                 lang="ta"
+                 aria-label="Mudar para தமிழ்">
+                <img src="/assets/images/icon/languages/ta.svg" alt="" aria-hidden="true">
+                <span>ta</span>
+              </a>
+            </li>
+                      <li><hr></li>
+            <li class="ud-submenu-item">
+              <a class="ud-nav-submenu-link ud-submenu-link ud-submenu-link--cta"
+                 href="https://hosted.weblate.org/projects/libresign-coop-site/site/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Ajude a traduzir este site">
+                <span>Ajude a traduzir ✏️</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler collapsed"
+          data-libresign-header-toggle
+                type="button"
+                aria-label="Alternar menu de navegação"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+          <span class="toggler-icon" aria-hidden="true"> </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  </header>
+  </div>
+    <main id="main-content">
+      
+  <section class="ud-page-section--dark text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h1 class="display-4 fw-bold text-white mb-3">
+            Perguntas frequentes
+          </h1>
+          <p class="fs-5 text-white-50">
+            Tudo o que precisa saber sobre o LibreSign.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ud-faq" aria-labelledby="faq-section-heading">
+    <div class="shape" aria-hidden="true">
+      <img src="/assets/images/faq/shape.svg" alt="">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ud-section-title text-center mx-auto">
+            <h2 id="faq-section-heading">Perguntas frequentes sobre o LibreSign</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="0">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-0"
+                  aria-expanded="false"
+                  aria-controls="faq-item-0"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign é gratuito?</span>
+                </button>
+                <div id="faq-item-0" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign é software livre e de código aberto, sem custos de licença. «Livre» refere-se tanto à utilização gratuita como à liberdade de estudar, modificar e distribuir o código-fonte, disponível no <a href="https://github.com/LibreSign/libresign">GitHub</a>. A LibreCode cobra apenas por serviços opcionais, como alojamento gerido e apoio profissional.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="100">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-1"
+                  aria-expanded="false"
+                  aria-controls="faq-item-1"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O que significa «utilizador» para efeitos de faturação?</span>
+                </button>
+                <div id="faq-item-1" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Para efeitos de faturação dos serviços contratados, conta como utilizador cada conta Nextcloud da sua organização. Os signatários externos que recebem uma ligação para assinar não são contabilizados como utilizadores.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="200">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-2"
+                  aria-expanded="false"
+                  aria-controls="faq-item-2"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Existe um limite mensal de documentos ou assinaturas?</span>
+                </button>
+                <div id="faq-item-2" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. O LibreSign não impõe um limite mensal de documentos ou assinaturas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="300">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-3"
+                  aria-expanded="false"
+                  aria-controls="faq-item-3"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign funciona sem o Nextcloud?</span>
+                </button>
+                <div id="faq-item-3" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. O LibreSign precisa do Nextcloud para funcionar. Se ainda não tiver um ambiente compatível, a LibreCode poderá fornecer uma implementação totalmente gerida.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="400">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-4"
+                  aria-expanded="false"
+                  aria-controls="faq-item-4"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>E se não pudermos instalar aplicações no Nextcloud que já utilizamos?</span>
+                </button>
+                <div id="faq-item-4" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Nesse caso, o alojamento gerido pode ser a opção mais adequada. A LibreCode pode instalar e operar um ambiente LibreSign completo como serviço opcional, incluindo infraestrutura na Europa ou na Alemanha quando a localização dos dados for relevante.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="500">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-5"
+                  aria-expanded="false"
+                  aria-controls="faq-item-5"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Posso definir a ordem das assinaturas de vários destinatários?</span>
+                </button>
+                <div id="faq-item-5" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign oferece assinaturas sequenciais, permitindo definir a ordem em que os destinatários devem assinar.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="600">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-6"
+                  aria-expanded="false"
+                  aria-controls="faq-item-6"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Os destinatários precisam de uma conta para assinar?</span>
+                </button>
+                <div id="faq-item-6" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. Os destinatários podem assinar através de uma ligação segura, sem criar uma conta no LibreSign ou no Nextcloud.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="700">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-7"
+                  aria-expanded="false"
+                  aria-controls="faq-item-7"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Quais padrões de assinatura são compatíveis?</span>
+                </button>
+                <div id="faq-item-7" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign permite fluxos de assinatura eletrónica simples, avançada e qualificada, consoante a configuração da identidade e dos serviços de confiança. Nos termos do Regulamento eIDAS, uma assinatura eletrónica qualificada exige um certificado qualificado e um dispositivo qualificado de criação de assinaturas (QSCD). A simples existência de um ficheiro PFX não confere o estatuto de assinatura eletrónica qualificada (QES).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="800">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-8"
+                  aria-expanded="false"
+                  aria-controls="faq-item-8"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign está em conformidade com o Regulamento eIDAS?</span>
+                </button>
+                <div id="faq-item-8" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign permite fluxos de assinatura que podem integrar soluções orientadas pelo Regulamento eIDAS. A conformidade depende da solução completa: certificado, verificação de identidade, alojamento e procedimentos operacionais. Para assinaturas eletrónicas qualificadas, são necessários um certificado qualificado e serviços de confiança que cumpram os requisitos legais aplicáveis.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="900">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-9"
+                  aria-expanded="false"
+                  aria-controls="faq-item-9"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign pode ser utilizado no âmbito do eIDAS e em tribunal?</span>
+                </button>
+                <div id="faq-item-9" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign pode integrar soluções orientadas pelo Regulamento eIDAS. O valor jurídico de uma assinatura — simples, avançada ou qualificada — depende da configuração do sistema, incluindo a verificação da identidade, o tipo de certificado, a utilização de um dispositivo qualificado de criação de assinaturas (QSCD) e os procedimentos operacionais.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1000">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-10"
+                  aria-expanded="false"
+                  aria-controls="faq-item-10"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Como é feita a verificação de identidade?</span>
+                </button>
+                <div id="faq-item-10" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign oferece fluxos de trabalho flexíveis. No nível mais simples, as assinaturas podem estar vinculadas a um endereço de correio eletrónico. Para necessidades mais rigorosas, é possível adicionar validação de documentos, fluxos de aprovação ou integrações com fornecedores externos de identidade e sistemas de infraestrutura de chaves públicas (ICP/PKI). Cada organização pode definir o nível de garantia necessário.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1100">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-11"
+                  aria-expanded="false"
+                  aria-controls="faq-item-11"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Em quais países o LibreSign está disponível?</span>
+                </button>
+                <div id="faq-item-11" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign não está restrito a um país específico. Ele pode ser utilizado em diferentes ambientes, inclusive com integrações a infraestruturas nacionais de chaves públicas (ICP/PKI) ou prestadores europeus de serviços de confiança qualificados (QTSP).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1200">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-12"
+                  aria-expanded="false"
+                  aria-controls="faq-item-12"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Os dados podem ser alojados na Europa ou na Alemanha?</span>
+                </button>
+                <div id="faq-item-12" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign pode ser instalado em infraestrutura gerida na Europa, incluindo na Alemanha, para apoiar o cumprimento dos requisitos do RGPD e de localização dos dados.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1300">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-13"
+                  aria-expanded="false"
+                  aria-controls="faq-item-13"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Porquê o LibreSign?</span>
+                </button>
+                <div id="faq-item-13" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign permite assinar documentos em segurança, com integridade verificável. A plataforma calcula um hash criptográfico para cada documento assinado, permitindo detetar alterações. Regista ainda a data e a hora das assinaturas e mantém um histórico auditável. O LibreSign foi concebido com atenção à privacidade e à soberania dos dados, segundo princípios alinhados com o RGPD e com a LGPD brasileira.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1400">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-14"
+                  aria-expanded="false"
+                  aria-controls="faq-item-14"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Quais são os principais recursos do LibreSign?</span>
+                </button>
+                <div id="faq-item-14" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Criação e carregamento de documentos, assinatura com certificados digitais pessoais ou gerados pelo sistema, fluxos com vários signatários, gestão de documentos, rasto de auditoria, validação de documentos e uma API REST completa para integração com sistemas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1500">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-15"
+                  aria-expanded="false"
+                  aria-controls="faq-item-15"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Uma assinatura digital é o mesmo que uma assinatura digitalizada?</span>
+                </button>
+                <div id="faq-item-15" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. A assinatura digitalizada é uma reprodução da assinatura manuscrita em imagem, obtida por scanner ou ecrã tátil. Ela não comprova, por si só, a autoria do documento eletrónico: não há uma associação criptográfica entre o signatário e o conteúdo, e a imagem pode ser facilmente copiada e inserida em outro documento.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1600">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-16"
+                  aria-expanded="false"
+                  aria-controls="faq-item-16"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Qual é o nome da empresa pela qual o LibreSign foi desenvolvido?</span>
+                </button>
+                <div id="faq-item-16" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    LibreCode, uma cooperativa brasileira de programadores de software livre.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1700">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-17"
+                  aria-expanded="false"
+                  aria-controls="faq-item-17"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O plano exige um período mínimo de permanência?</span>
+                </button>
+                <div id="faq-item-17" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. Pode cancelar o seu plano de serviços a qualquer momento. O LibreSign não exige períodos mínimos de permanência.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1800">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-18"
+                  aria-expanded="false"
+                  aria-controls="faq-item-18"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O que acontece se eu cancelar meu plano?</span>
+                </button>
+                <div id="faq-item-18" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Após o cancelamento, o seu plano deixa de ser renovado e não haverá novas cobranças. O acesso mantém-se até ao fim do período já pago.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="1900">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-19"
+                  aria-expanded="false"
+                  aria-controls="faq-item-19"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Posso usar meu certificado digital pessoal para assinar documentos?</span>
+                </button>
+                <div id="faq-item-19" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. Pode guardar o seu certificado digital no LibreSign. Ao assinar um documento, ser-lhe-á solicitada a respetiva palavra-passe.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2000">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-20"
+                  aria-expanded="false"
+                  aria-controls="faq-item-20"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Preciso de um certificado digital para assinar documentos?</span>
+                </button>
+                <div id="faq-item-20" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Não. Consoante a modalidade de assinatura e a configuração, os utilizadores podem assinar eletronicamente sem fornecer um certificado digital pessoal. Quando a emissão interna está ativada, o LibreSign pode gerar um certificado para o signatário.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2100">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-21"
+                  aria-expanded="false"
+                  aria-controls="faq-item-21"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O que é o LibreSign?</span>
+                </button>
+                <div id="faq-item-21" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign é uma plataforma de código aberto para assinaturas eletrónicas e digitais de documentos, criada para ajudar organizações a gerir fluxos de assinatura seguros e rastreáveis. Integra-se ao Nextcloud e pode ser alojada integralmente em infraestrutura própria.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2200">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-22"
+                  aria-expanded="false"
+                  aria-controls="faq-item-22"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Quais tipos de certificados digitais o LibreSign aceita?</span>
+                </button>
+                <div id="faq-item-22" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign aceita certificados digitais de pessoas singulares e coletivas, incluindo os emitidos por autoridades de certificação no âmbito da ICP-Brasil, a infraestrutura brasileira de chaves públicas. Também permite utilizar certificados gerados pelo sistema, conforme a configuração.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2300">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-23"
+                  aria-expanded="false"
+                  aria-controls="faq-item-23"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Qual é a diferença entre assinatura digital e assinatura eletrónica?</span>
+                </button>
+                <div id="faq-item-23" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Uma assinatura digital é uma forma criptográfica de assinatura eletrónica que utiliza chaves criptográficas para detetar alterações aos dados assinados. Pode recorrer a um certificado para associar uma chave a uma identidade. Outras assinaturas eletrónicas podem recorrer a diferentes provas de identidade e de intenção de assinar. Os seus efeitos jurídicos dependem da legislação aplicável e do processo de assinatura completo.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2400">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-24"
+                  aria-expanded="false"
+                  aria-controls="faq-item-24"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign é compatível com dispositivos móveis?</span>
+                </button>
+                <div id="faq-item-24" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. pode usar o LibreSign diretamente no navegador do telemóvel ou tablet, permitindo assinar documentos de qualquer lugar.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2500">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-25"
+                  aria-expanded="false"
+                  aria-controls="faq-item-25"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>É possível integrar o LibreSign a outros sistemas?</span>
+                </button>
+                <div id="faq-item-25" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign disponibiliza uma API REST para integração com outros sistemas, permitindo automatizar pedidos de assinatura e agilizar os fluxos de trabalho. A API está incluída no software livre e não exige a contratação de serviços pagos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2600">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-26"
+                  aria-expanded="false"
+                  aria-controls="faq-item-26"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign pode ser utilizado por órgãos e entidades do setor público?</span>
+                </button>
+                <div id="faq-item-26" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. O LibreSign pode atender a fluxos do setor público que exijam rastreabilidade, integridade documental e infraestrutura própria, conforme os requisitos jurídicos e técnicos da organização.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2700">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-27"
+                  aria-expanded="false"
+                  aria-controls="faq-item-27"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Como posso adotar o LibreSign na minha organização?</span>
+                </button>
+                <div id="faq-item-27" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign é software livre e de código aberto: pode instalá-lo na sua instância Nextcloud sem custos de licença. O alojamento gerido e o apoio técnico são serviços opcionais que a nossa equipa pode disponibilizar.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2800">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-28"
+                  aria-expanded="false"
+                  aria-controls="faq-item-28"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>É possível obter apoio técnico para o LibreSign?</span>
+                </button>
+                <div id="faq-item-28" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    Sim. Nossa equipa de suporte pode ajudar na configuração e esclarecer dúvidas ou problemas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="2900">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-29"
+                  aria-expanded="false"
+                  aria-controls="faq-item-29"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>Como os documentos são assinados no LibreSign?</span>
+                </button>
+                <div id="faq-item-29" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    É muito simples! Basta enviar o documento para a plataforma, escolher quem vai assiná-lo e selecionar a modalidade de assinatura (digital ou eletrónica). O sistema regista as etapas para oferecer um processo seguro e rastreável.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col-lg-6">
+            <div class="ud-single-faq" data-aos="fade-up" data-aos-delay="3000">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-item-30"
+                  aria-expanded="false"
+                  aria-controls="faq-item-30"
+                >
+                  <span class="icon flex-shrink-0" aria-hidden="true">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>O LibreSign regista a data e a hora das assinaturas?</span>
+                </button>
+                <div id="faq-item-30" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                    O LibreSign regista os eventos de assinatura, incluindo as respetivas datas e horas. O valor jurídico destes registos temporais depende da configuração e da legislação aplicável.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+
+      <div class="text-center mt-5 pt-2">
+        <p class="mb-4">Ainda tem dúvidas? Nossa equipa está pronta para ajudar.</p>
+        <a href="/pt/contact-us" class="btn ud-btn-solid-brand">
+          Fale com a nossa equipa de especialistas
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+    </main>
+    <div class="libresign-site-footer-fragment"
+          >
+    <footer class="ud-footer wow fadeInUp" data-aos-delay=".15s">
+        <div>
+            <div class="container">
+                <div class="row widgets">
+                    <div class="col-12 col-lg-4">
+                        <div class="ud-widget">
+                            <a href="/pt" class="ud-footer-logo" aria-label="LibreSign — ir para a página inicial">
+                                <img src="/assets/images/logo/logo.svg" alt="LibreSign">
+                            </a>
+                            <p class="ud-widget-desc">
+                                Assinaturas eletrónicas de código aberto integradas no Nextcloud. Uma solução segura, alojada na própria infraestrutura, para organizações que valorizam a privacidade e a soberania dos dados.
+                            </p>
+                            <nav aria-label="Ligações para redes sociais">
+                                <h3 class="visually-hidden">Siga-nos nas redes sociais</h3>
+                                <ul class="ud-widget-socials">
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://github.com/LibreSign/libresign"
+                                           aria-label="Visite nosso repositório no GitHub (abre em nova aba)">
+                                            <svg width="32" height="32" viewBox="0 0 8.9045515 8.4666739" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="GitHub">
+  <title>GitHub</title>
+  <path d="m 0,0 c -0.876,0.168 -1.719,0.49 -2.472,0.969 -4.656,2.968 -7.581,8.092 -7.581,14.062 v 0 c 0,9.293 7.534,16.827 16.828,16.827 v 0 c 9.293,0 16.827,-7.534 16.827,-16.827 v 0 C 23.602,10.079 21.462,5.629 18.057,2.55 16.659,1.286 14.882,0.497 12.999,0.403 11.014,0.303 10.837,1.13 10.837,1.13 v 4.196 c 0,0.261 -0.022,0.523 -0.079,0.777 -0.081,0.359 -0.208,0.712 -0.397,1.029 -0.058,0.097 -0.122,0.19 -0.192,0.278 -0.03,0.037 -0.06,0.074 -0.093,0.107 -0.024,0.025 -0.062,0.048 -0.068,0.085 0.043,0.037 0.153,0.028 0.208,0.037 0.092,0.017 0.184,0.039 0.276,0.06 0.166,0.039 0.333,0.068 0.501,0.099 0.35,0.065 0.696,0.153 1.036,0.257 0.956,0.291 1.882,0.745 2.577,1.478 0.376,0.396 0.66,0.864 0.896,1.356 0.884,1.844 1.018,4.103 0.133,5.973 -0.151,0.319 -0.327,0.627 -0.531,0.916 -0.023,0.032 -0.252,0.278 -0.242,0.312 0.581,2.093 -0.17,3.634 -0.17,3.634 -1.843,0.014 -3.77,-1.432 -3.77,-1.432 C 7.548,21.412 3.948,20.32 3.948,20.32 1.851,21.766 0.235,21.724 0.235,21.724 -0.403,20.42 0.008,18.09 0.008,18.09 -1.863,15.86 -1.594,12.171 -0.233,10.087 1.128,8.004 4.959,7.597 4.959,7.597 4.562,7.271 4.147,6.393 4.099,5.953 4.052,5.514 2.857,5.438 2.857,5.438 0.986,5.268 0.32,6.515 0.32,6.515 -0.332,7.72 -0.927,7.933 -0.927,7.933 c 0,0 -0.539,0.354 -1.276,0.326 C -2.94,8.23 -2.614,7.862 -2.614,7.862 -1.296,7.167 -0.885,6.076 -0.885,6.076 -0.29,4.517 0.377,4.163 0.377,4.163 1.766,3.114 4.048,3.652 4.048,3.652 V 1.115 C 3.523,-0.699 0.083,-0.016 0.083,-0.016 Z" transform="matrix(0.26458333,0,0,-0.26458333,2.65986,8.43837)" fill="currentColor"/>
+</svg>
+
+
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.linkedin.com/company/libresign/"
+                                           aria-label="Siga-nos no LinkedIn (abre em nova aba)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="LinkedIn">
+  <title>LinkedIn</title>
+  <path d="m 0,0 h -3.162 v 5.143 c 0,1.292 -0.464,2.174 -1.623,2.174 -0.885,0 -1.412,-0.595 -1.644,-1.169 C -6.513,5.943 -6.534,5.655 -6.534,5.368 V 0 h -3.223 v 0 c 0,0 0.042,8.786 0,9.696 h 3.223 V 8.253 C -6.111,8.908 -5.355,9.84 -3.665,9.84 -1.57,9.84 0,8.466 0,5.513 Z m -13.09,10.96 v 10e-4 h -0.02 c -1.073,0 -1.766,0.738 -1.766,1.66 0,0.944 0.714,1.661 1.808,1.661 1.093,0 1.765,-0.717 1.786,-1.661 0,-0.922 -0.693,-1.661 -1.808,-1.661 m -1.665,-1.264 h 3.162 V 0 h -3.162 z m 7.317,13.445 v 0 c -8.837,0 -16,-7.163 -16,-16 v 0 c 0,-8.836 7.163,-16 16,-16 v 0 c 8.836,0 16,7.164 16,16 v 0 c 0,8.837 -7.164,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.20130465,6.12272)" fill="currentColor"/>
+</svg>
+
+
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://t.me/LibreSign"
+                                           aria-label="Participe do nosso grupo no Telegram (abre em nova aba)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4666662 8.4666662" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Telegram">
+  <title>Telegram</title>
+  <path d="m 0,0 c -0.279,-1.345 -0.485,-2.708 -0.736,-4.059 -0.392,-2.11 -0.748,-4.228 -1.082,-6.349 -0.049,-0.312 -0.074,-0.64 -0.176,-0.941 -0.092,-0.272 -0.267,-0.514 -0.491,-0.692 -0.218,-0.173 -0.481,-0.287 -0.757,-0.323 -0.279,-0.037 -0.552,0.016 -0.807,0.13 -0.249,0.112 -0.476,0.269 -0.703,0.418 -0.27,0.177 -0.536,0.359 -0.8,0.544 -0.528,0.372 -1.045,0.758 -1.557,1.152 -0.515,0.396 -1.023,0.8 -1.531,1.205 -0.241,0.193 -0.497,0.373 -0.725,0.581 -0.192,0.174 -0.332,0.393 -0.321,0.66 0.01,0.258 0.15,0.491 0.312,0.683 0.264,0.311 0.603,0.546 0.922,0.796 0.965,0.758 1.892,1.566 2.765,2.429 0.24,0.236 0.482,0.471 0.709,0.72 0.255,0.28 0.609,0.602 0.671,0.996 0.042,0.269 -0.126,0.39 -0.369,0.259 -0.644,-0.345 -1.203,-0.825 -1.805,-1.236 -0.474,-0.324 -0.96,-0.628 -1.434,-0.952 -0.485,-0.333 -0.965,-0.672 -1.446,-1.011 -1.031,-0.727 -2.181,-1.625 -3.505,-1.64 -0.418,-0.005 -0.831,0.07 -1.236,0.169 -0.404,0.098 -0.805,0.21 -1.207,0.319 -0.519,0.141 -2.482,0.563 -1.672,1.463 0.178,0.197 0.435,0.299 0.682,0.395 0.719,0.279 1.437,0.559 2.155,0.841 0,0.042 0.617,0.242 0.685,0.269 0.239,0.094 0.478,0.189 0.717,0.283 0.479,0.19 0.956,0.38 1.434,0.57 0.926,0.369 1.85,0.739 2.776,1.106 1.135,0.451 2.271,0.902 3.398,1.375 0.557,0.235 1.11,0.48 1.671,0.707 0.67,0.27 1.351,0.516 2.021,0.788 0.047,0.019 0.095,0.038 0.144,0.055 0.144,0.05 0.292,0.087 0.446,0.079 C -0.418,1.767 -0.024,1.444 0.087,1.025 0.177,0.687 0.069,0.331 0,0 m -7.152,10.707 v 0 c -8.836,0 -16,-7.163 -16,-16 v 0 c 0,-8.837 7.164,-16 16,-16 v 0 c 8.837,0 16,7.163 16,16 v 0 c 0,8.837 -7.163,16 -16,16" transform="matrix(0.26458333,0,0,-0.26458333,6.12563,2.83289)" fill="currentColor"/>
+</svg>
+
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank"
+                                           rel="noopener noreferrer"
+                                           href="https://www.instagram.com/libresign/"
+                                           aria-label="Siga-nos no Instagram (abre em nova aba)">
+                                            <svg width="32" height="32" viewBox="0 0 8.4665594 8.4667759" xmlns="http://www.w3.org/2000/svg" class="social-icon" role="img" aria-label="Instagram">
+  <title>Instagram</title>
+  <g transform="translate(-86.518751,-126.20626)">
+    <path d="m 0,0 c -1.321,0 -2.397,-1.075 -2.397,-2.397 0,-1.321 1.076,-2.396 2.397,-2.396 1.321,0 2.397,1.075 2.397,2.396 C 2.397,-1.075 1.321,0 0,0" transform="matrix(0.26458333,0,0,-0.26458333,90.745918,129.79171)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-0.355 -0.288,-0.643 -0.643,-0.643 h -0.503 c -0.355,0 -0.643,0.288 -0.643,0.643 v 0.503 c 0,0.355 0.288,0.643 0.643,0.643 h 0.503 C -0.288,1.146 0,0.858 0,0.503 Z m -5.735,-7.84 c -2.062,0 -3.739,1.677 -3.739,3.739 0,2.061 1.677,3.738 3.739,3.738 2.061,0 3.738,-1.677 3.738,-3.738 0,-2.062 -1.677,-3.739 -3.738,-3.739 m 3.11,11.051 H -8.8 c -2.362,0 -4.277,-1.915 -4.277,-4.277 v -6.175 c 0,-2.362 1.915,-4.277 4.277,-4.277 h 6.175 c 2.362,0 4.277,1.915 4.277,4.277 v 6.175 c 0,2.362 -1.915,4.277 -4.277,4.277" transform="matrix(0.26458333,0,0,-0.26458333,92.263384,129.34066)" fill="currentColor"/>
+    <path d="m 0,0 c 0,-3.103 -2.516,-5.618 -5.618,-5.618 h -6.245 c -3.103,0 -5.618,2.515 -5.618,5.618 v 6.244 c 0,3.103 2.515,5.619 5.618,5.619 h 6.245 C -2.516,11.863 0,9.347 0,6.244 Z m -6.921,19.017 v 0 C -15.7,20.022 -23.631,13.72 -24.635,4.941 v 0 c -1.005,-8.778 5.297,-16.709 14.075,-17.714 v 0 C -1.781,-13.777 6.149,-7.476 7.154,1.303 8.159,10.081 1.857,18.012 -6.921,19.017" transform="matrix(0.26458333,0,0,-0.26458333,93.064621,131.2657)" fill="currentColor"/>
+  </g>
+</svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="ud-widget">
+                            <a id="coop-logo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               href="https://www.somos.coop.br/"
+                               aria-label="Somos.Coop — movimento nacional de valorização das iniciativas cooperativistas (abre em nova aba)">
+                                <img src="/assets/images/icon/somoscoop.png" alt="Somos.Coop" aria-hidden="true">
+                            </a>
+
+                            <p id="copyright">&copy; 2026 LibreSign. Todos os direitos reservados.</p>
+                            <address id="address" class="ud-widget-address">
+                                Rua Quinze de Novembro, 106, 3º andar, sala 309 — Centro <br>
+                                Niteroi - RJ
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-product">
+                            <h3 id="footer-nav-product" class="ud-widget-title">Produto</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/pt/features">Recursos</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/pricing">Planos e preços</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/about">Sobre</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/posts">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/ebooks">Livros digitais</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/faq">Perguntas frequentes (FAQ)</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-company">
+                            <h3 id="footer-nav-company" class="ud-widget-title">Empresa</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="/pt/contact-us">Fale connosco</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/success-stories">Histórias de sucesso</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/team">Equipa</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/cooperatives">Cooperativas</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/privacy-policy">Política de privacidade</a>
+                                </li>
+                                <li>
+                                    <a href="/pt/brand">Marca e pronúncia</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg">
+                        <nav class="ud-widget" aria-labelledby="footer-nav-open-source">
+                            <h3 id="footer-nav-open-source" class="ud-widget-title">Código aberto</h3>
+                            <ul class="ud-widget-links">
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign" target="_blank" rel="noopener noreferrer">Repositório no GitHub</a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.libresign.coop" target="_blank" rel="noopener noreferrer">Documentação</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/issues" target="_blank" rel="noopener noreferrer">Relatar um problema</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/LibreSign/libresign/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Como contribuir</a>
+                                </li>
+                                <li>
+                                    <a href="https://apps.nextcloud.com/apps/libresign" target="_blank" rel="noopener noreferrer">Loja de aplicações do Nextcloud</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a id="back-to-top"
+       class="back-to-top"
+       href="#top"
+       aria-label="Voltar ao topo">
+        <svg class="back-to-top__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L8 6L12 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <div id="footer-contact"
+         role="button"
+         tabindex="0"
+         data-contact-url="https://contato.librecode.coop/"
+         aria-label="Contacte a equipa comercial para pedir um orçamento">
+        <div class="bubble bubble-text">
+            <p>Precisa de ajuda para implementar o LibreSign? Solicite uma proposta para serviços profissionais opcionais.</p>
+        </div>
+        <div class="image-wrapper">
+            <div class="image">
+                <img src="/assets/images/footer/attendant.png" alt="" aria-hidden="true">
+                <div class="status" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  </body>
+</html>
