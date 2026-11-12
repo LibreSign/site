@@ -45,7 +45,6 @@
   "What is a Digital Signature? Types, Advantages, and How to Obtain It?": "Qu’est-ce qu’une signature numérique ? Quels sont ses types et ses avantages, et comment l’obtenir ?",
   "What is the name of the company that LibreSign was developed by?": "Quelle est l’organisation qui a développé LibreSign ?",
   "Why LibreSign?": "Pourquoi LibreSign ?",
-  "5 out of 5 stars": "5 étoiles sur 5",
   "A Story of Trust, Built for the Future.": "Une histoire de confiance, tournée vers l’avenir.",
   "A digital signature is a cryptographic form of electronic signature that uses cryptographic keys to detect changes to signed data and may rely on a certificate to bind a key to an identity. Other electronic signatures may use different evidence of identity and intent. Their legal effects depend on applicable law and the complete signing process.": "Une signature numérique est une forme cryptographique de signature électronique. Elle utilise des clés cryptographiques pour détecter toute modification des données signées et peut s’appuyer sur un certificat pour associer une clé à une identité. D’autres signatures électroniques reposent sur différents éléments attestant l’identité et le consentement. Leurs effets juridiques dépendent du droit applicable et de l’ensemble du processus de signature.",
   "API REST Integration": "Intégration par API REST",
