@@ -55,7 +55,7 @@ description: "Meet the LibreCode cooperative team behind LibreSign, dedicated to
                   <span class="ud-team-card__role">{{ $page->t($member->job_title) }}</span>
                 @endif
                 @if($member->bio ?? false)
-                  <p class="ud-team-card__bio">{{ $member->bio }}</p>
+                  <p class="ud-team-card__bio">{{ $page->t($member->bio) }}</p>
                 @endif
               </div>
               <div class="ud-team-card__footer">

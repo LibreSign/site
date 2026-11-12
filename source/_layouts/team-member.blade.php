@@ -57,7 +57,7 @@
 
               <div class="col-lg-8">
                 <h2 class="ud-team-profile__name">{{ $page->name }}</h2>
-                <p class="ud-team-profile__bio">{{ $page->bio }}</p>
+                <p class="ud-team-profile__bio">{{ $page->t($page->bio) }}</p>
                 <a href="{{ locale_url($page, 'team') }}" class="ud-team-profile__back">
                   ← {{ $page->t('Back to team') }}
                 </a>
