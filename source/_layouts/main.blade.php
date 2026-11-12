@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ current_path_locale($page) ?: 'en' }}">
   <head>
+    @php
+      $localizedSeoTitle = $page->t($page->title);
+      $localizedSeoDescription = $page->t($page->description);
+    @endphp
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $page->title }}</title>
+    <title>{{ $localizedSeoTitle }}</title>
 
     <!-- Primary Meta Tags -->
     <link rel="canonical" href="{{ $page->getUrl() }}">
-    <meta name="description" content="{{ $page->description }}">
+    <meta name="description" content="{{ $localizedSeoDescription }}">
     @if($page->noindex)<meta name="robots" content="noindex, nofollow">@endif
     <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
     <meta name="author" content="LibreSign / LibreCode">
@@ -22,8 +26,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ $page->getUrl() }}">
-    <meta property="og:title" content="{{ $page->title }}">
-    <meta property="og:description" content="{{ $page->description }}">
+    <meta property="og:title" content="{{ $localizedSeoTitle }}">
+    <meta property="og:description" content="{{ $localizedSeoDescription }}">
     <meta property="og:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
     <meta property="og:site_name" content="LibreSign">
     <meta property="og:locale" content="{{ str_replace('-', '_', current_path_locale($page) ?: 'en') }}">
@@ -31,8 +35,8 @@
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ $page->getUrl() }}">
-    <meta name="twitter:title" content="{{ $page->title }}">
-    <meta name="twitter:description" content="{{ $page->description }}">
+    <meta name="twitter:title" content="{{ $localizedSeoTitle }}">
+    <meta name="twitter:description" content="{{ $localizedSeoDescription }}">
     <meta name="twitter:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
     <meta name="twitter:site" content="@libresign">
 
