@@ -10,7 +10,7 @@ description: "LibreSign helps government agencies and public bodies manage digit
       [
         'title' => $page->t('Security and Legal Validity'),
         'icon' => $page->baseUrl . 'assets/images/solutions/challenge-legal-icon.svg',
-        'body' => $page->t('Ensure the integrity, authenticity, and legal validity of every document with digital signatures compliant with current regulations.'),
+        'body' => $page->t('Support document integrity and traceability with verifiable signatures. Legal validity depends on the applicable public-sector rules, certificate trust and signing process.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
       [
@@ -43,7 +43,7 @@ description: "LibreSign helps government agencies and public bodies manage digit
       [
         'title' => $page->t('Validate and Archive'),
         'icon' => $page->baseUrl . 'assets/images/solutions/process-validate-icon.png',
-        'body' => $page->t('Access signature history, validate document authenticity, and store it securely with full legal validity.'),
+        'body' => $page->t('Access signing history, verify document integrity and store records under your access and retention policies. Legal effects depend on applicable law.'),
         'colClass' => 'col-lg-4 col-md-6 d-flex',
       ],
     ];
@@ -53,7 +53,7 @@ description: "LibreSign helps government agencies and public bodies manage digit
     'imageSrc' => "{$page->baseUrl}assets/images/solutions/public-sector-background.png",
     'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
     'title' => $page->t('Digital signatures: efficiency and legal validity for public administration.'),
-    'description' => $page->t('Streamline workflows with secure technology, ensuring transparency, traceability, and legal compliance for your organization.'),
+    'description' => $page->t('Streamline public-sector signing workflows with traceability and configurable security controls to support applicable requirements.'),
     'actions' => [
       [
         'href' => locale_url($page, 'contact-us'),

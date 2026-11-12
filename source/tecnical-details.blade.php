@@ -15,7 +15,7 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
       [
         'title' => $page->t('Security and Compliance'),
         'icon' => $page->baseUrl . 'assets/images/solutions/it-security-icon.png',
-        'body' => $page->t('Protect your data with advanced encryption and ICP-Brasil standards, ensuring legal validity and full security control.'),
+        'body' => $page->t('Protect documents with cryptographic signing and deployment-dependent access controls. Eligibility for ICP-Brasil workflows and legal effects depend on the certificates and signing process used.'),
       ],
       [
         'title' => $page->t('Open Source Solution'),
@@ -33,7 +33,7 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
       [
         'title' => $page->t('Proactive Security'),
         'icon'  => $page->baseUrl . 'assets/images/solutions/it-compliance-screen.png',
-        'body'  => $page->t('Ensure compliance with detailed audit logs and a security panel that gives complete real-time visibility.'),
+        'body'  => $page->t('Support security reviews with audit trails and administrative visibility. Regulatory compliance depends on how the service is deployed and operated.'),
       ],
       [
         'title' => $page->t('Total Flexibility'),

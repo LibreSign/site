@@ -3,7 +3,7 @@ extends: _layouts.post
 title: Free and open source software for electronic signatures
 author: Daiane Alves
 date: 2024-01-04
-description: Agility and security are paramount in business transactions, and LibreSign emerges as the intelligent choice for diverse sectors. Developed by LibreCode, a cooperative of IT professionals, LibreSign embodies the Free and Open-Source Software (FOSS) philosophy. With robust security standards, it ensures the inviolability of electronic signatures, making it ideal for government, education, and corporate enterprises
+description: LibreSign is a free and open-source electronic signature platform developed by LibreCode. It supports configurable cryptographic signing and document workflows for organizations that assess the legal and security requirements of their own deployments.
 icon: pen-to-square
 ---
 
@@ -15,9 +15,9 @@ By adopting the Free and Open-Source model, LibreSign not only provides business
 
 ## Security first
 
-Developed with the highest standards of security and encryption, our users can sign electronic documents with confidence, knowing that their sensitive information is protected.
+LibreSign supports cryptographic document verification and configurable access controls. Protecting sensitive information also depends on server configuration, authentication, storage security and operational practices.
 
-Encryption ensures that electronic signatures are secure and inviolable, providing peace of mind not only for businesses but also for customers and partners. By choosing LibreSign, your company is investing in a solution that places security and privacy at the center of everything we do.
+Cryptographic signatures can help detect changes to signed content, but they do not by themselves prevent all unauthorized access or alteration. Organizations should assess their privacy and security requirements before deployment.
 
 ## Who is LibreSign for?
 

@@ -33,7 +33,7 @@ description: "Streamline contract signing, powers of attorney, and legal documen
       [
         'title' => $page->t('Document Security and Access Control'),
         'icon' => $page->baseUrl . 'assets/images/solutions/lawyers-security-icon.png',
-        'body' => $page->t('Protect your documents with encryption and role-based access controls. LibreSign supports digital certificates, including ICP-Brasil-compatible workflows, for secure and verifiable signing.'),
+        'body' => $page->t('Protect document integrity with cryptographic signatures and configure access controls and storage encryption for your Nextcloud deployment. LibreSign supports digital certificates, including ICP-Brasil-compatible workflows.'),
       ],
       [
         'title' => $page->t('Reputation and Credibility'),
@@ -46,8 +46,8 @@ description: "Streamline contract signing, powers of attorney, and legal documen
   @include('_partials.home.hero-section', [
     'imageSrc' => "{$page->baseUrl}assets/images/solutions/lawyers-hero.png",
     'overlayGradient' => "linear-gradient(90deg, rgba(18,60,64,.96) 0%, rgba(24,76,78,.9) 33%, rgba(24,76,78,.58) 58%, rgba(0,163,190,.18) 100%)",
-    'title' => $page->t('Your Firm’s Credibility, the Legal Validity of Every Signature.'),
-    'description' => $page->t('Simplify the management of documents, contracts, and powers of attorney with the legal compliance and security your practice requires.'),
+    'title' => $page->t('Your Firm’s Credibility, Verifiable Document Signatures.'),
+    'description' => $page->t('Simplify documents, contracts and powers of attorney with traceable signing workflows that can be configured to meet your legal and security requirements.'),
     'actions' => [
       [
         'href' => locale_url($page, 'contact-us'),

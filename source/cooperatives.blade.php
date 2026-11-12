@@ -20,7 +20,7 @@ description: "Help your cooperative manage documents, approvals, and member sign
       [
         'title' => $page->t('Protection for Your Data and Members'),
         'icon'  => $page->baseUrl . 'assets/images/solutions/cooperative-protection-icon.png',
-        'body'  => $page->t('Ensure document integrity and keep member information protected with advanced encryption technology.'),
+        'body'  => $page->t('Support document integrity with cryptographic signatures and configure access controls and encryption according to your Nextcloud deployment.'),
       ],
     ];
 
