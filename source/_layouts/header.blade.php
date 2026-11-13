@@ -108,6 +108,16 @@
                   {{ $page->t('All Features →') }}
                 </a>
               </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="{{ $headerLocaleUrl('posts/libresign-api-guide') }}">
+                  {{ $page->t('API Integration Guide') }}
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ud-nav-submenu-link" href="https://docs.libresign.coop/" target="_blank" rel="noopener noreferrer">
+                  {{ $page->t('Official Documentation') }}
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">

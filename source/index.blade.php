@@ -108,11 +108,17 @@
         [
           'title' => $page->t('Total Control and Flexibility to Integrate?'),
           'icon' => $page->baseUrl . 'assets/images/icon/features/integration-flexibility.svg',
-          'body' => $page->t('Easily integrate, customize to your needs, and enjoy the freedom of a robust, scalable architecture under your control.'),
-          'actions' => [[
-            'href' => locale_url($page, 'tecnical-details'),
-            'label' => $page->t('Technical Details for IT.'),
-          ]],
+          'body' => $page->t('Run LibreSign as an open-source Nextcloud app on infrastructure you control, and connect existing systems through its API.'),
+          'actions' => [
+            [
+              'href' => locale_url($page, 'tecnical-details'),
+              'label' => $page->t('Technical Details for IT.'),
+            ],
+            [
+              'href' => locale_url($page, 'posts/libresign-api-guide'),
+              'label' => $page->t('API Integration Guide'),
+            ],
+          ],
         ],
       ];
     @endphp

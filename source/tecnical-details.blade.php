@@ -1,6 +1,6 @@
 ---
-title: "LibreSign for IT Teams - Self-Hosted Digital Signature Platform"
-description: "Deploy LibreSign on your own infrastructure. Explore API capabilities, Nextcloud integration, digital certificate support, and full control over your data."
+title: "LibreSign for IT Teams - Self-Hosted Nextcloud Signature App"
+description: "Run LibreSign on a compatible Nextcloud installation, connect external systems through its API, and manage document access on your own infrastructure."
 ---
 @extends('_layouts.main')
 
@@ -63,6 +63,16 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
   ])
 
   <div class="ud-it-page">
+    <section class="ud-page-section" aria-labelledby="it-requirements-heading">
+      <div class="container">
+        <h2 id="it-requirements-heading">{{ $page->t('Installation and integration requirements') }}</h2>
+        <p>{{ $page->t('LibreSign is an app for a compatible Nextcloud server, not an independent standalone signing server. API integrations use an authorized Nextcloud account and its installation-specific permissions. Depending on configuration, external recipients can sign through invitations without a Nextcloud account.') }}</p>
+        <p>{{ $page->t('External applications can keep their own interface and workflows while their backend requests signatures and retrieves signed documents only with appropriate authorization. Consult the documentation for your installed LibreSign version.') }}</p>
+        <a href="{{ locale_url($page, 'posts/libresign-api-guide') }}">{{ $page->t('Read the API Integration Guide') }}</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://docs.libresign.coop/">{{ $page->t('Official Documentation') }}</a>
+      </div>
+    </section>
     @include('_partials.home.card-grid-section', [
       'sectionId'    => 'it-pillars',
       'sectionClass' => 'ud-it-pillars ud-page-section',
@@ -71,8 +81,8 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
       'subtitle' => $page->t('Discover the technical pillars that give your team freedom to innovate with confidence, visibility, and governance.'),
       'items'    => $itPillarItems,
       'sectionActions' => [[
-        'href'   => 'https://docs.libresign.coop/developer_manual/api/',
-        'label'  => $page->t('Access API Documentation'),
+        'href'   => 'https://docs.libresign.coop/',
+        'label'  => $page->t('Choose Your Version for API Documentation'),
         'class'  => 'btn ud-btn-solid-brand',
         'target' => '_blank',
       ]],
@@ -94,8 +104,8 @@ description: "Deploy LibreSign on your own infrastructure. Explore API capabilit
           'class' => 'btn ud-btn-solid-warm',
         ],
         [
-          'href'   => 'https://docs.libresign.coop/admin_manual/',
-          'label'  => $page->t('Read the Admin Documentation'),
+          'href'   => 'https://docs.libresign.coop/',
+          'label'  => $page->t('Choose Your Version for Admin Documentation'),
           'class'  => 'btn ud-btn-ghost',
           'target' => '_blank',
         ],
