@@ -4,6 +4,14 @@
     @php
       $localizedSeoTitle = $page->t($page->title);
       $localizedSeoDescription = $page->t($page->description);
+      $absoluteSeoUrl = static function (string $url) use ($page): string {
+        if (preg_match('~^https?://~i', $url)) {
+          return $url;
+        }
+
+        return rtrim($page->siteOrigin, '/') . '/' . ltrim($url, '/');
+      };
+      $canonicalUrl = $absoluteSeoUrl($page->getUrl());
     @endphp
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +19,7 @@
     <title>{{ $localizedSeoTitle }}</title>
 
     <!-- Primary Meta Tags -->
-    <link rel="canonical" href="{{ $page->getUrl() }}">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
     <meta name="description" content="{{ $localizedSeoDescription }}">
     @if($page->noindex)<meta name="robots" content="noindex, nofollow">@endif
     <meta name="keywords" content="LibreSign, electronic signature, digital signature, open source, self-hosted, Nextcloud, document signing, e-sign, privacy, data sovereignty">
@@ -19,13 +27,13 @@
 
     <!-- Hreflang: multilingual support -->
     @foreach($page->locales() as $localeCode => $localeName)
-    <link rel="alternate" hreflang="{{ $localeCode ?: 'en' }}" href="{{ translate_url($page, $localeCode) }}">
+    <link rel="alternate" hreflang="{{ $localeCode ?: 'en' }}" href="{{ $absoluteSeoUrl(translate_url($page, $localeCode)) }}">
     @endforeach
-    <link rel="alternate" hreflang="x-default" href="{{ translate_url($page, '') }}">
+    <link rel="alternate" hreflang="x-default" href="{{ $absoluteSeoUrl(translate_url($page, '')) }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ $page->getUrl() }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
     <meta property="og:title" content="{{ $localizedSeoTitle }}">
     <meta property="og:description" content="{{ $localizedSeoDescription }}">
     <meta property="og:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
@@ -34,7 +42,7 @@
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ $page->getUrl() }}">
+    <meta name="twitter:url" content="{{ $canonicalUrl }}">
     <meta name="twitter:title" content="{{ $localizedSeoTitle }}">
     <meta name="twitter:description" content="{{ $localizedSeoDescription }}">
     <meta name="twitter:image" content="{{ rtrim($page->baseUrl, '/') }}/assets/images/logo/logo-libresign-large.png">
