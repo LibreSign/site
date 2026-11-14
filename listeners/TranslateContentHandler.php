@@ -75,9 +75,31 @@ class TranslateContentHandler
         }
         $this->translated = str_replace(
             $content,
-            $this->pageData->page->t($content, [], $this->languageCode),
+            $this->neutralizeTemplateSyntax($this->pageData->page->t($content, [], $this->languageCode)),
             $this->translated
         );
+    }
+
+    private function neutralizeTemplateSyntax(string $translatedContent): string
+    {
+        $translatedContent = preg_replace('/<(\/?x[-:])/', '&lt;$1', $translatedContent);
+        $translatedContent = strtr($translatedContent, [
+            '<?' => '&lt;?',
+            '{@' => '{&#64;',
+        ]);
+        if (!$this->file->isBladeFile()) {
+            return $translatedContent;
+        }
+
+        $baseUrlPlaceholder = 'LIBRESIGN_TRANSLATED_BASE_URL';
+        $translatedContent = preg_replace('/\{\{\s*\$page->baseUrl\s*\}\}/', $baseUrlPlaceholder, $translatedContent);
+        $translatedContent = strtr($translatedContent, [
+            '@' => "{{'@'}}",
+            '{{' => '@{{',
+            '{!!' => '@{!!',
+        ]);
+
+        return str_replace($baseUrlPlaceholder, '{{ $page->baseUrl }}', $translatedContent);
     }
 
     private function translateHeaders(): void
