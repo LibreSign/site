@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Support\Translation\TranslationTemplateSyntaxValidator;
 use LibreSign\JigsawLocalization\Catalog\JsonTranslationCatalog;
 use LibreSign\JigsawLocalization\Catalog\TranslationCatalogValidator;
 
@@ -11,6 +12,7 @@ $sourceLocale = 'en';
 $sourcePath = dirname(__DIR__)."/lang/{$sourceLocale}/main.json";
 $source = (new JsonTranslationCatalog($sourcePath))->read();
 $validator = new TranslationCatalogValidator();
+$templateSyntaxValidator = new TranslationTemplateSyntaxValidator();
 $errors = [];
 
 if (in_array('--canonical-source', $argv, true)) {
@@ -27,6 +29,10 @@ foreach (glob(dirname(__DIR__).'/lang/*/main.json') ?: [] as $translationPath) {
     $translation = (new JsonTranslationCatalog($translationPath))->read();
 
     foreach ($validator->validatePlaceholders($source, $translation) as $error) {
+        $errors[] = "{$locale}: {$error}";
+    }
+
+    foreach ($templateSyntaxValidator->validate($source, $translation) as $error) {
         $errors[] = "{$locale}: {$error}";
     }
 }
