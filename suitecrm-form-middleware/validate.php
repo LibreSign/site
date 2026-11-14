@@ -12,6 +12,7 @@ header("Access-Control-Allow-Credentials: true");
 
 $sessionCode = $_SESSION['code'] ?? null;
 $codeImg = filter_input(INPUT_POST, 'codeImg');
+unset($_SESSION['code']);
 
 session_write_close();
 
