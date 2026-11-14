@@ -51,9 +51,9 @@
                       @endif
                       <span>
                         @php
-                            $author = '<a href="' . locale_url($page, $authorPath($page->author)) . '"> ' . $page->author . '</a>';
+                            $author = '<a href="' . e(locale_url($page, $authorPath($page->author))) . '"> ' . e($page->author) . '</a>';
                         @endphp
-                        {!! $page->t("By %s", [$author]) !!}
+                        {!! vsprintf(e($page->t('By %s')), [$author]) !!}
                       </span>
                     </div>
 
