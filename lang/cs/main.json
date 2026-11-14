@@ -500,5 +500,17 @@
   "we contact you within one business day to schedule your conversation.": "Kontaktujeme vás během jednoho pracovního dne, abychom naplánovali váš rozhovor.",
   "we demonstrate the potential return on investment and the savings your organization can achieve.": "demonstrujeme potenciální návratnost investic a úspory, kterých může vaše organizace dosáhnout.",
   "we identify your challenges and show how LibreSign fits perfectly.": "identifikujeme vaše výzvy a ukážeme, jak LibreSign perfektně zapadá.",
-  "we present a partnership vision for your growth.": "Představujeme vám partnerskou vizi vašeho růstu."
+  "we present a partnership vision for your growth.": "Představujeme vám partnerskou vizi vašeho růstu.",
+  "API Integration Guide": "Průvodce integrací API",
+  "Choose Your Version for API Documentation": "Vyberte verzi dokumentace API",
+  "Choose Your Version for Admin Documentation": "Vyberte verzi dokumentace pro správce",
+  "External applications can keep their own interface and workflows while their backend requests signatures and retrieves signed documents only with appropriate authorization. Consult the documentation for your installed LibreSign version.": "Externí aplikace si mohou zachovat vlastní rozhraní a pracovní postupy. Jejich serverové části přitom mohou požadovat podpisy a stahovat podepsané dokumenty pouze s příslušným oprávněním. Podrobnosti najdete v dokumentaci k nainstalované verzi LibreSign.",
+  "For installation, access permissions, external signing invitations, and API integration details, consult the technical guides for your installed LibreSign version.": "Informace o instalaci, přístupových oprávněních, pozvánkách k podpisu pro externí příjemce a integraci API najdete v technických příručkách k nainstalované verzi LibreSign.",
+  "Installation and integration requirements": "Požadavky na instalaci a integraci",
+  "LibreSign for IT Teams - Self-Hosted Nextcloud Signature App": "LibreSign pro IT týmy – aplikace pro podepisování v Nextcloudu provozovaná na vlastní infrastruktuře",
+  "LibreSign is an app for a compatible Nextcloud server, not an independent standalone signing server. API integrations use an authorized Nextcloud account and its installation-specific permissions. Depending on configuration, external recipients can sign through invitations without a Nextcloud account.": "LibreSign je aplikace pro kompatibilní server Nextcloud, nikoli samostatný server pro podepisování. Integrace API používají autorizovaný účet Nextcloud a oprávnění nastavená pro konkrétní instalaci. Podle konfigurace mohou externí příjemci podepisovat na základě pozvánky i bez účtu Nextcloud.",
+  "Official Documentation": "Oficiální dokumentace",
+  "Read the API Integration Guide": "Přečíst průvodce integrací API",
+  "Run LibreSign as an open-source Nextcloud app on infrastructure you control, and connect existing systems through its API.": "Provozujte LibreSign jako open-source aplikaci pro Nextcloud na infrastruktuře, kterou sami spravujete, a propojte stávající systémy prostřednictvím jeho API.",
+  "Run LibreSign on a compatible Nextcloud installation, connect external systems through its API, and manage document access on your own infrastructure.": "Provozujte LibreSign v kompatibilní instalaci Nextcloudu, propojte externí systémy prostřednictvím jeho API a spravujte přístup k dokumentům na vlastní infrastruktuře."
 }
