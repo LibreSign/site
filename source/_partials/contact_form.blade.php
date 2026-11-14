@@ -134,6 +134,7 @@
                         let message = document.getElementById('message')
                         message.textContent = '{{ $page->t( 'Invalid Captcha') }}'
                         message.style.display = 'block'
+                        loadImage(new Date().getTime())
                       }
                     }
                   };
