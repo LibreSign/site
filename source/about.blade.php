@@ -149,7 +149,6 @@ description: "Learn the story of LibreSign and LibreCode, a cooperative of open-
                 <span>{{ $page->t('President of LibreCode') }}</span>
               </footer>
             </blockquote>
-            <a href="{{ locale_url($page, 'team') }}" class="btn ud-btn-solid-brand ud-about-team__btn">{{ $page->t('Our Complete Story') }}</a>
           </div>
         </div>
       </div>

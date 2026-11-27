@@ -14,7 +14,6 @@ class CleanupCollectionDirectories
     {
         $collectionsToClean = [
             'source/_redirect',
-            'source/_team',
         ];
 
         foreach ($collectionsToClean as $dir) {

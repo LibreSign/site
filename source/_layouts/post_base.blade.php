@@ -1,13 +1,6 @@
 @extends('_layouts.main')
 
 @section('body')
-    @php
-      // Not every blog author has an individual team profile (for example, LibreSign).
-      $authorPath = static fn (?string $author): string =>
-        $author !== null && isset($page->authorGravatars[$author])
-          ? 'team/' . \Illuminate\Support\Str::slug($author)
-          : 'team';
-    @endphp
     <!-- ====== Banner Start ====== -->
     <section class="ud-page-banner">
       <div class="container">
@@ -51,7 +44,7 @@
                       @endif
                       <span>
                         @php
-                            $author = '<a href="' . e(locale_url($page, $authorPath($page->author))) . '"> ' . e($page->author) . '</a>';
+                            $author = e($page->author);
                         @endphp
                         {!! vsprintf(e($page->t('By %s')), [$author]) !!}
                       </span>
@@ -102,26 +95,20 @@
                             $articleGravatar = $article->gravatar ?? ($page->authorGravatars[$article->author] ?? null);
                           @endphp
                           @if($article->author === 'LibreSign')
-                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="LibreSign"
                               >
-                            </a>
                           @elseif(!empty($articleGravatar))
-                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                   src="https://www.gravatar.com/avatar/{{ $articleGravatar }}?size=80"
                                   alt="{{ $article->author }}"
                                 >
-                            </a>
                           @else
-                            <a href="{{ locale_url($page, $authorPath($article->author)) }}">
                               <img
                                 src="{{$page->baseUrl}}assets/images/logo/Avatar-LibreSign.png"
                                 alt="{{ $article->author }}"
                               >
-                            </a>
                           @endif
                         </div>
                         <div class="ud-article-content">
@@ -130,7 +117,7 @@
                               {{ $page->t($article->title) }}
                             </a>
                           </h5>
-                          <a href="{{ locale_url($page, $authorPath($article->author)) }}"> {{ $article->author }} </a>
+                          <span>{{ $article->author }}</span>
                         </div>
                       </li>
                       @php $count++; @endphp
