@@ -121,9 +121,6 @@
                                     <a href="{{ $footerLocaleUrl('success-stories') }}">{{ $page->t("Success Stories")}}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ $footerLocaleUrl('team') }}">{{ $page->t("Team")}}</a>
-                                </li>
-                                <li>
                                     <a href="{{ $footerLocaleUrl('cooperatives') }}">{{ $page->t("Cooperatives")}}</a>
                                 </li>
                                 <li>

@@ -603,14 +603,6 @@ return [
         'products_wordpress' => [
             'items' => fn ($page) => $wooCommerceProductCollection->items($page),
         ],
-        'team' => [
-            'path' => function($page){
-                return ($page->locale === packageDefaultLocale() ? '' : $page->locale . '/')
-                    . 'team/' . Str::slug($page->name);
-            },
-            'extends' => '_layouts.team-member',
-            'items' => $expandLocalizedItems($teamMembers),
-        ],
         'categories' => [
             'path' => function($page) {
                 return ($page->locale === packageDefaultLocale() ? '' : $page->locale . '/')

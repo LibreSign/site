@@ -10,7 +10,6 @@ npm-debug.log
 /source/[a-z][a-z]-[A-Z][A-Z]/
 /source/_posts/_translated_tmp/
 /source/_redirect/
-/source/_team/
 /build_staging/
 /build_production/
 /source/assets/compiled/
